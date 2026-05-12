@@ -17,11 +17,9 @@ type
     btnEdit: TImage;
     btnCopy: TImage;
     btnNew: TImage;
+    Image1: TImage;
     pnlTableList: TPanel;
     lstResourceAllocation: TListBox;
-    Image1: TImage;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);

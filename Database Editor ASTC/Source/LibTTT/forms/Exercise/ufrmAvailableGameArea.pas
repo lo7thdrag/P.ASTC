@@ -20,8 +20,6 @@ type
     pnlTableList: TPanel;
     lstGameArea: TListBox;
     btnUsage: TImage;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);

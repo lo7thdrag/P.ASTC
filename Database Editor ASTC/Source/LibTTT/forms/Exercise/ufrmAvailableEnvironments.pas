@@ -20,8 +20,6 @@ type
     pnlTableList: TPanel;
     lstEnvironments: TListBox;
     Image1: TImage;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);

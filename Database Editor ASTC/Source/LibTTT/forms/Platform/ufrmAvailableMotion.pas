@@ -12,8 +12,6 @@ type
     pnlMainTable: TPanel;
     pnlTableList: TPanel;
     lstMotions: TListBox;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
     pnlTableHeader: TPanel;
     Label2: TLabel;
     pnlTableButton: TPanel;

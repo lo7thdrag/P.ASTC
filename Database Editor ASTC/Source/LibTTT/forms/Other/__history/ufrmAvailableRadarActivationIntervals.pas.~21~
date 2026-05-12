@@ -1,4 +1,4 @@
-﻿unit ufrmAvailableRadarActivationIntervals;
+unit ufrmAvailableRadarActivationIntervals;
 
 interface
 
@@ -12,16 +12,17 @@ type
     pnlMainTable: TPanel;
     pnlTableHeader: TPanel;
     Label2: TLabel;
-    pnlTableButton: TPanel;
-    img1: TImage;
-    btnEdit: TImage;
-    btnCopy: TImage;
-    btnNew: TImage;
     pnlTableList: TPanel;
     lstRadarActivationIntervals: TListBox;
     pnlHorizontal: TPanel;
     Image2: TImage;
-    btnUsage: TImage;
+    pnlTableButton: TPanel;
+    btnDelete: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -34,13 +35,14 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FRadarActivationIntervalsList : TList;
     FSelectedRadarActivationIntervals : TRadar_Interval_List;
 
     procedure UpdateRadarActivationIntervalsList;
-    procedure CopyRadarIntervalDefinition(const aDefaultIndex, aNewDefaultIndex: Integer);
+    procedure CopyRadarActivatianIntervalData(const aDefaultIndex, aNewDefaultIndex: Integer);
 
   end;
 
@@ -50,7 +52,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRadarIntervalSummary, ufrmUsage;
+  uDataModuleTTT, ufrmRadarIntervalSummary, ufrmUsage, ufProgress;
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
@@ -126,31 +128,63 @@ begin
     FData.Interval_List_Identifier := newClassName;
 
     dmTTT.InsertRadarActivationIntervalDef(FData);
-       CopyRadarIntervalDefinition(parentIndex, FData.Interval_List_Index);
+    CopyRadarActivatianIntervalData(parentIndex, FData.Interval_List_Index);
   end;
 
    UpdateRadarActivationIntervalsList;
 end;
 
 procedure TfrmAvailableRadarActivationIntervals.btnDeleteClick(Sender: TObject);
+var
+  warning : Integer;
 begin
-  with TRadar_Interval_List(FSelectedRadarActivationIntervals).FData do
+  if lstRadarActivationIntervals.ItemIndex = -1 then
   begin
-   dmTTT.DeleteRadarIntervalDef(Interval_List_Index);
-   dmTTT.DeleteRadarIntervalList(Interval_List_Index);
-   end;
+    ShowMessage('Select Radar Data ... !');
+    Exit;
+  end;
+
+  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation, mbOKCancel, 0);
+
+  if warning = mrOK then
+  begin
+    with FSelectedRadarActivationIntervals.FData do
+    begin
+
+      {Pengecekan Relasi Dengan Tabel Lain}
+
+      dmTTT.DeleteRadarActivationIntervalData(Interval_List_Index);
+
+      if dmTTT.DeleteRadarActivationIntervalDef(Interval_List_Index) then
+        ShowMessage('Data has been deleted');
+
+    end;
+
+    UpdateRadarActivationIntervalsList;
+  end;
 end;
 
 procedure TfrmAvailableRadarActivationIntervals.btnEditClick(Sender: TObject);
 begin
-  with frmRadarIntervalSummary do
+  if lstRadarActivationIntervals.ItemIndex = -1 then
   begin
-   IdAction := 2;
-   SelectedRadarInterval := TRadar_Interval_List(FSelectedRadarActivationIntervals);
-   ShowModal;
-   end;
+    ShowMessage('Select Radar Activation Intervals... !');
+    Exit;
+  end;
 
-   UpdateRadarActivationIntervalsList
+  frmRadarIntervalSummary := TfrmRadarIntervalSummary.Create(Self);
+  try
+    with frmRadarIntervalSummary do
+    begin
+      SelectedRadarInterval := TRadar_Interval_List(FSelectedRadarActivationIntervals);
+      ShowModal;
+    end;
+
+  finally
+    frmRadarIntervalSummary.Free;
+  end;
+
+  UpdateRadarActivationIntervalsList;
 end;
 
 procedure TfrmAvailableRadarActivationIntervals.btnUsageClick(Sender: TObject);
@@ -159,35 +193,60 @@ begin
 //  usage_title := 'vehicle :';
 end;
 
-procedure TfrmAvailableRadarActivationIntervals.CopyRadarIntervalDefinition(const aDefaultIndex, aNewDefaultIndex: Integer);
+procedure TfrmAvailableRadarActivationIntervals.CopyRadarActivatianIntervalData(const aDefaultIndex, aNewDefaultIndex: Integer);
 var
-  PODvsSNRPointList : TList;
+  RadarIntervalDataList : TList;
   i : Integer;
-  PODvsSNRPoint : TPOD_vs_SNR_Point;
+  RadarIntervalData : TRadar_Interval_Definition;
 begin
-  PODvsSNRPointList := TList.Create;
+  RadarIntervalDataList := TList.Create;
 
-  dmTTT.GetPODvsSNRCurvePoint(aDefaultIndex, PODvsSNRPointList);
+  dmTTT.GetRadarActivationIntervalData(aDefaultIndex, RadarIntervalDataList);
 
-  for i := 0 to PODvsSNRPointList.Count - 1 do
+  for i := 0 to RadarIntervalDataList.Count - 1 do
   begin
-    PODvsSNRPoint := PODvsSNRPointList.Items[i];
+    RadarIntervalData := RadarIntervalDataList.Items[i];
 
-    with PODvsSNRPoint do
+    with RadarIntervalData do
     begin
-      FData.Curve_Definition_Index := aNewDefaultIndex;
+      FData.Interval_List_Index := aNewDefaultIndex;
 
-      dmTTT.InsertPODvsSNRCurvePoint(FData);
+      dmTTT.InsertRadarActivationIntervalData(FData);
     end;
   end;
 
-  for i := 0 to PODvsSNRPointList.Count - 1 do
+  for i := 0 to RadarIntervalDataList.Count - 1 do
   begin
-    PODvsSNRPoint := PODvsSNRPointList.Items[i];
-    PODvsSNRPoint.Free;
+    RadarIntervalData := RadarIntervalDataList.Items[i];
+    RadarIntervalData.Free;
   end;
 
-  PODvsSNRPointList.Free;
+  RadarIntervalDataList.Free;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.edtSearchKeyPress( Sender: TObject; var Key: Char);
+var
+  i : Integer;
+  radaractivationintervals : TRadar_Interval_List;
+begin
+  if Key = #13 then
+  begin
+    lstRadarActivationIntervals.Items.Clear;
+
+    dmTTT.GetFilterRadarActivationIntervalDef(FRadarActivationIntervalsList, edtSearch.Text);
+
+    frmProgress := TfrmProgress.Create(nil);
+    frmProgress.Caption := 'Loading data from database';
+    frmProgress.MaxJob := FRadarActivationIntervalsList.Count;
+
+    for i := 0 to FRadarActivationIntervalsList.Count - 1 do
+    begin
+      radaractivationintervals := FRadarActivationIntervalsList.Items[i];
+      lstRadarActivationIntervals.Items.AddObject(radaractivationintervals.FData.Interval_List_Identifier, radaractivationintervals);
+      frmProgress.increase(radaractivationintervals.FData.Interval_List_Identifier);
+    end;
+    frmProgress.Free;
+  end;
 end;
 
 procedure TfrmAvailableRadarActivationIntervals.UpdateRadarActivationIntervalsList;
@@ -199,15 +258,24 @@ begin
 
   dmTTT.GetAllRadarActivationIntervalDef(FRadarActivationIntervalsList);
 
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FRadarActivationIntervalsList.Count;
+
   for i := 0 to FRadarActivationIntervalsList.Count - 1 do
   begin
     radaractivationintervals := FRadarActivationIntervalsList.Items[i];
     lstRadarActivationIntervals.Items.AddObject(radaractivationintervals.FData.Interval_List_Identifier, radaractivationintervals);
+    frmProgress.increase(radaractivationintervals.FData.Interval_List_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 procedure TfrmAvailableRadarActivationIntervals.lbSingleClick(Sender: TObject);
 begin
+  if lstRadarActivationIntervals.ItemIndex = -1 then
+    Exit;
+
   FSelectedRadarActivationIntervals := TRadar_Interval_List(lstRadarActivationIntervals.Items.Objects[lstRadarActivationIntervals.ItemIndex]);
 end;
 

@@ -68,27 +68,34 @@ object frmSummaryVehicle: TfrmSummaryVehicle
   end
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 70
+    Top = 65
     Width = 894
-    Height = 450
+    Height = 460
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 70
+    ExplicitHeight = 450
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 874
-      Height = 430
+      Height = 440
       ActivePage = tsAssets
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
+      ExplicitHeight = 430
       object tsGeneral: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lblNames: TLabel
           Left = 17
           Top = 20
@@ -893,6 +900,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPhysical: TTabSheet
         Caption = 'Physical'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lblMotionCharacteristic: TLabel
           Left = 18
           Top = 20
@@ -1505,6 +1516,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsCharacteristic: TTabSheet
         Caption = 'Characteristic'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object grbAirDropLimitation: TGroupBox
           Left = 20
           Top = 20
@@ -1751,6 +1766,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPOH: TTabSheet
         Caption = 'POH Modifier'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object grbMissile: TGroupBox
           Left = 20
           Top = 10
@@ -2210,6 +2229,7 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsAssets: TTabSheet
         Caption = 'Assets'
         ImageIndex = 4
+        ExplicitHeight = 390
         object grbSensor: TGroupBox
           Left = 20
           Top = 20
@@ -2529,6 +2549,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPeriscope: TTabSheet
         Caption = 'Periscope'
         ImageIndex = 5
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lblPeriscopeRadarMastCrossSection: TLabel
           Left = 20
           Top = 112
@@ -2787,6 +2811,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         BorderWidth = 10
         Caption = 'Notes'
         ImageIndex = 6
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object mmoNotes: TMemo
           Left = 0
           Top = 0
@@ -2838,70 +2866,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       Caption = 'OK'
       TabOrder = 2
       OnClick = btnOKClick
-    end
-  end
-  object pnlSparatorHor1: TPanel
-    Left = 0
-    Top = 65
-    Width = 894
-    Height = 5
-    Align = alTop
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 3
-    object Image2: TImage
-      Left = 0
-      Top = 0
-      Width = 894
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 520
-    Width = 894
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 4
-    object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 894
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
     end
   end
 end

@@ -54,7 +54,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryMissile, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryMissile, ufrmUsage, ufProgress;
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
@@ -245,14 +245,23 @@ var
   missile : TMissile_On_Board;
 
 begin
-  lstMissile.Items.Clear;
-
-  dmTTT.GetAllMissileDef(FMissileList);
-
-  for i := 0 to FMissileList.Count - 1 do
+  if Key = #13 then
   begin
-    missile := FMissileList.Items[i];
-    lstMissile.Items.AddObject(missile.FDef.Class_Identifier, missile);
+    lstMissile.Items.Clear;
+
+    dmTTT.GetFilterMissileDef(FMissileList, edtSearch.Text);
+
+    frmProgress := TfrmProgress.Create(nil);
+    frmProgress.Caption := 'Loading data from database';
+    frmProgress.MaxJob := FMissileList.Count;
+
+    for i := 0 to FMissileList.Count - 1 do
+    begin
+      missile := FMissileList.Items[i];
+      lstMissile.Items.AddObject(missile.FDef.Class_Identifier, missile);
+      frmProgress.increase(missile.FDef.Class_Identifier);
+    end;
+    frmProgress.Free;
   end;
 end;
 
@@ -274,11 +283,17 @@ begin
 
   dmTTT.GetAllMissileDef(FMissileList);
 
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FMissileList.Count;
+
   for i := 0 to FMissileList.Count - 1 do
   begin
     missile := FMissileList.Items[i];
     lstMissile.Items.AddObject(missile.FDef.Class_Identifier, missile);
+    frmProgress.increase(missile.FDef.Class_Identifier);
   end;
+  frmProgress.Free;
 end;
 
 {$ENDREGION}

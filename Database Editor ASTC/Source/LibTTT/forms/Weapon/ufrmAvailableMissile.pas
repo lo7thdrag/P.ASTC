@@ -20,8 +20,6 @@ type
     pnlTableList: TPanel;
     lstMissile: TListBox;
     btnUsage: TImage;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
 

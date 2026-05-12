@@ -9,7 +9,6 @@ uses
 
 type
   TfrmAvailableScenario = class(TForm)
-    pnlHorizontal: TPanel;
     Image1: TImage;
     pnlMainTable: TPanel;
     pnlTableHeader: TPanel;
@@ -21,7 +20,6 @@ type
     btnNew: TImage;
     pnlTableList: TPanel;
     lstScenarioList: TListBox;
-    Image2: TImage;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);

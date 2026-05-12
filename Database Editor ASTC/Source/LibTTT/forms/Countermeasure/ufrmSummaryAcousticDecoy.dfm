@@ -61,27 +61,31 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
   end
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 70
+    Top = 65
     Width = 466
-    Height = 268
+    Height = 278
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 70
+    ExplicitHeight = 268
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 446
-      Height = 248
+      Height = 258
       ActivePage = tsGeneral
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
+      ExplicitHeight = 248
       object tsGeneral: TTabSheet
         Caption = 'General'
+        ExplicitHeight = 208
         object grpDecoyNoise: TGroupBox
           Left = 8
           Top = 11
@@ -158,7 +162,7 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
           Left = 0
           Top = 0
           Width = 418
-          Height = 188
+          Height = 198
           Align = alClient
           Lines.Strings = (
             '')
@@ -180,7 +184,7 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
     TabOrder = 2
     object btnApply: TButton
       Left = 302
-      Top = 9
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Apply'
@@ -189,7 +193,7 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
     end
     object btnCancel: TButton
       Left = 382
-      Top = 9
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Cancel'
@@ -198,76 +202,12 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
     end
     object btnOK: TButton
       Left = 222
-      Top = 9
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'OK'
       TabOrder = 2
       OnClick = btnOKClick
-    end
-  end
-  object pnlSparatorHor1: TPanel
-    Left = 0
-    Top = 65
-    Width = 466
-    Height = 5
-    Align = alTop
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 3
-    object Image2: TImage
-      Left = 0
-      Top = 0
-      Width = 466
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 338
-    Width = 466
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 4
-    object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 466
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
     end
   end
 end

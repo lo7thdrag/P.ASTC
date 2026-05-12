@@ -14,8 +14,6 @@ type
     Label2: TLabel;
     pnlTableList: TPanel;
     lbRadars: TListBox;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
     pnlTableButton: TPanel;
     btnDelete: TImage;
     btnEdit: TImage;

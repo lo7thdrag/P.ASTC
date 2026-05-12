@@ -102,10 +102,6 @@ type
     txtClass: TLabel;
     edtClass: TEdit;
     pnl3Button: TPanel;
-    pnlSparatorHor1: TPanel;
-    Image2: TImage;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;

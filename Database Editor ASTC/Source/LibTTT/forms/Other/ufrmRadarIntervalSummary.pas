@@ -13,10 +13,6 @@ type
     pcScenarioTabs: TPageControl;
     tsGeneral: TTabSheet;
     pnl3Button: TPanel;
-    pnlSparatorHor1: TPanel;
-    Image2: TImage;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
     edtName: TEdit;
     lblName: TStaticText;
     btnEditList: TButton;

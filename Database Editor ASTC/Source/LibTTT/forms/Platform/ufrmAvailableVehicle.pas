@@ -35,8 +35,6 @@ type
     edtFilterSensorOnBoard: TEdit;
     btnSensorType: TButton;
     lbAllVehicle: TListBox;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
     pnlTableButton: TPanel;
     btnDelete: TImage;
     btnEdit: TImage;

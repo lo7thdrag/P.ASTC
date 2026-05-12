@@ -22,10 +22,6 @@ type
     cbbType: TComboBox;
     lbl2: TLabel;
     lbl3: TLabel;
-    pnlSparatorHor1: TPanel;
-    Image2: TImage;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;

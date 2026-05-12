@@ -13,6 +13,7 @@ object frmAvailableGun: TfrmAvailableGun
   OldCreateOrder = False
   Visible = True
   WindowState = wsMaximized
+  OnActivate = FormActivate
   OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
@@ -21,7 +22,7 @@ object frmAvailableGun: TfrmAvailableGun
     Left = 0
     Top = 0
     Width = 862
-    Height = 455
+    Height = 463
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 4
@@ -52,9 +53,9 @@ object frmAvailableGun: TfrmAvailableGun
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 617
+        Left = 326
         Top = 0
-        Width = 237
+        Width = 528
         Height = 46
         Align = alRight
         BevelOuter = bvNone
@@ -63,7 +64,7 @@ object frmAvailableGun: TfrmAvailableGun
         ParentBackground = False
         TabOrder = 0
         object btnDelete: TImage
-          Left = 205
+          Left = 496
           Top = 9
           Width = 30
           Height = 30
@@ -6030,7 +6031,7 @@ object frmAvailableGun: TfrmAvailableGun
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 98
+          Left = 415
           Top = 9
           Width = 30
           Height = 30
@@ -11997,7 +11998,7 @@ object frmAvailableGun: TfrmAvailableGun
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 63
+          Left = 382
           Top = 9
           Width = 30
           Height = 30
@@ -17964,7 +17965,7 @@ object frmAvailableGun: TfrmAvailableGun
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 28
+          Left = 349
           Top = 9
           Width = 30
           Height = 30
@@ -23931,7 +23932,7 @@ object frmAvailableGun: TfrmAvailableGun
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 171
+          Left = 463
           Top = 9
           Width = 30
           Height = 30
@@ -29897,6 +29898,34 @@ object frmAvailableGun: TfrmAvailableGun
           Stretch = True
           OnClick = btnUsageClick
         end
+        object Label1: TLabel
+          Left = 17
+          Top = 16
+          Width = 53
+          Height = 16
+          Caption = 'Search : '
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object edtSearch: TEdit
+          Left = 78
+          Top = 11
+          Width = 247
+          Height = 25
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnKeyPress = edtSearchKeyPress
+        end
       end
     end
     object pnlTableList: TPanel
@@ -29926,36 +29955,36 @@ object frmAvailableGun: TfrmAvailableGun
         OnDblClick = btnEditClick
       end
     end
-  end
-  object pnlHorizontal: TPanel
-    Left = 0
-    Top = 455
-    Width = 862
-    Height = 8
-    Align = alBottom
-    BevelOuter = bvNone
-    ParentBackground = False
-    TabOrder = 1
-    object Image2: TImage
-      Left = 0
-      Top = 0
-      Width = 862
+    object pnlHorizontal: TPanel
+      Left = 4
+      Top = 451
+      Width = 854
       Height = 8
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
+      Align = alBottom
+      BevelOuter = bvNone
+      ParentBackground = False
+      TabOrder = 2
+      object Image2: TImage
+        Left = 0
+        Top = 0
+        Width = 854
+        Height = 8
+        Cursor = crHandPoint
+        Align = alClient
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
+          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
+          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
+          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
+          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
+          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
+          E3070080B203BC0200156C14659F0000000049454E44AE426082}
+        Stretch = True
+        ExplicitLeft = -2
+        ExplicitTop = -2
+        ExplicitWidth = 8
+        ExplicitHeight = 637
+      end
     end
   end
 end

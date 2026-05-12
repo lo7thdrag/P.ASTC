@@ -26,10 +26,6 @@ type
     btLinks: TButton;
     pnl3Button: TPanel;
     btnPreplayScenario: TButton;
-    pnlSparatorHor1: TPanel;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
-    Image1: TImage;
     btnOK: TButton;
     btnApply: TButton;
     btnCancel: TButton;

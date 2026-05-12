@@ -102,10 +102,6 @@ type
     CbbType: TComboBox;
     medtEnduranceTime: TMaskEdit;
     lbl16: TLabel;
-    pnlSparatorHor1: TPanel;
-    Image2: TImage;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
