@@ -1,0 +1,545 @@
+program PDBEditor;
+
+uses
+  Forms,
+  ufDBEditor in '..\LibTTT\forms\ufDBEditor.pas' {fDBEditor},
+  uLinkWindow in '..\LibTTT\forms\uLinkWindow.pas' {LinkWindowForm},
+  uSimDBEditor in 'uSimDBEditor.pas',
+  uLibSettingTTT in '..\LibTTT\uLibSettingTTT.pas',
+  ufDBSetting in '..\LibTTT\forms\ufDBSetting.pas' {frmDBSetting},
+  uDataModuleTTT in '..\LibTTT\forms\uDataModuleTTT.pas' {dmTTT: TDataModule},
+  uIniFilesProcs in '..\SimFramework\LibBaseUtils\uIniFilesProcs.pas',
+  uCodecBase64 in '..\SimFramework\LibBaseUtils\StringUtils\uCodecBase64.pas',
+  tttData in '..\LibTTT\libDBScenario\tttData.pas',
+  newClassASTT in '..\LibTTT\libDBScenario\newClassASTT.pas',
+  uDBAsset_Vehicle in '..\LibTTT\libDBScenario\uDBAsset_Vehicle.pas',
+  uSimObjects in '..\SimFramework\LibSims\SimSystem\uSimObjects.pas',
+  uSimVisuals in '..\LibTTT\LibVisual\uSimVisuals.pas',
+  uObjectVisuals in '..\LibTTT\LibVisual\uObjectVisuals.pas',
+  u2DMover in '..\SimFramework\LibSims\SimsObjects\u2DMover.pas',
+  uBaseCoordSystem in '..\SimFramework\LibBaseUtils\CoordSystem\uBaseCoordSystem.pas',
+  uSteppers in '..\SimFramework\LibBaseUtils\Counter\uSteppers.pas',
+  uBaseSimObjects in '..\SimFramework\LibSims\SimSystem\uBaseSimObjects.pas',
+  uSimContainers in '..\SimFramework\LibSims\SimSystem\uSimContainers.pas',
+  uDataTypes in '..\SimFramework\LibBaseUtils\CoordSystem\uDataTypes.pas',
+  uCoordConvertor in '..\SimFramework\LibBaseUtils\CoordSystem\uCoordConvertor.pas',
+  uStringFunc in '..\SimFramework\LibBaseUtils\StringUtils\uStringFunc.pas',
+  uDBAsset_Sensor in '..\LibTTT\libDBScenario\uDBAsset_Sensor.pas',
+  uDBAsset_Radar in '..\LibTTT\libDBScenario\uDBAsset_Radar.pas',
+  uDBAsset_Sonar in '..\LibTTT\libDBScenario\uDBAsset_Sonar.pas',
+  uDBAsset_Weapon in '..\LibTTT\libDBScenario\uDBAsset_Weapon.pas',
+  uDBAsset_Countermeasure in '..\LibTTT\libDBScenario\uDBAsset_Countermeasure.pas',
+  ufResouceAllocation in '..\LibTTT\forms\ufResouceAllocation.pas' {fResourceAllocSelection},
+  uDBScenario in '..\LibTTT\libDBScenario\uDBScenario.pas',
+  uVirtualTime in '..\SimFramework\LibBaseUtils\Counter\uVirtualTime.pas',
+  uThreadTimer in '..\SimFramework\LibBaseUtils\Counter\uThreadTimer.pas',
+  uT3SimManager in '..\LibTTT\uT3SimManager.pas',
+  uCompassVisual in '..\LibTTT\libVisual\uCompassVisual.pas',
+  uMapXHandler in '..\LibTTT\uMapXHandler.pas',
+  uPlatformDeploymentPickList in '..\LibTTT\forms\uPlatformDeploymentPickList.pas' {frmPlatformDeploymentPickList},
+  uDBAsset_Geo in '..\LibTTT\libDBScenario\uDBAsset_Geo.pas',
+  uDBLink in '..\LibTTT\libDBScenario\uDBLink.pas',
+  uDBFormation in '..\LibTTT\libDBScenario\uDBFormation.pas',
+  uDBNote_Storage in '..\LibTTT\libDBScenario\uDBNote_Storage.pas',
+  uDBAsset_Deploy in '..\LibTTT\libDBScenario\uDBAsset_Deploy.pas',
+  uDBPattern in '..\LibTTT\libDBScenario\uDBPattern.pas',
+  uDBBlind_Zone in '..\LibTTT\libDBScenario\uDBBlind_Zone.pas',
+  uDBAsset_Fitted in '..\LibTTT\libDBScenario\uDBAsset_Fitted.pas',
+  uDBAsset_Satellite in '..\LibTTT\libDBScenario\uDBAsset_Satellite.pas',
+  uDBGame_Defaults in '..\LibTTT\libDBScenario\uDBGame_Defaults.pas',
+  uDBAsset_Bomb in '..\LibTTT\libDBScenario\uDBAsset_Bomb.pas',
+  uDBAsset_Gun in '..\LibTTT\libDBScenario\uDBAsset_Gun.pas',
+  uDBAsset_Scripted in '..\LibTTT\libDBScenario\uDBAsset_Scripted.pas',
+  uDBRainfall in '..\LibTTT\libDBScenario\uDBRainfall.pas',
+  uDBAsset_Cubicle in '..\LibTTT\libDBScenario\uDBAsset_Cubicle.pas',
+  uDBAsset_Sonobuoy in '..\LibTTT\libDBScenario\uDBAsset_Sonobuoy.pas',
+  uAddParticipant in '..\LibTTT\forms\uAddParticipant.pas' {AddParticipantForm},
+  uEvents in '..\LibTTT\forms\uEvents.pas' {EventsWindowForm},
+  uAddExCompChannel in '..\LibTTT\forms\uAddExCompChannel.pas' {AddExCompChannelForm},
+  uAddMember in '..\LibTTT\forms\uAddMember.pas' {AddMemberForm},
+  uDBDefault_Var in '..\LibTTT\libDBScenario\uDBDefault_Var.pas',
+  uDBCloud_Effect in '..\LibTTT\libDBScenario\uDBCloud_Effect.pas',
+  uFormationEditor in '..\LibTTT\forms\uFormationEditor.pas' {fFormationEditor},
+  uFormationEditorPanel in '..\LibTTT\forms\uFormationEditorPanel.pas' {fFormationEditorPanel},
+  uFormationMemberList in '..\LibTTT\forms\uFormationMemberList.pas' {FormationMemberForm},
+  uFormatioResourceList in '..\LibTTT\forms\uFormatioResourceList.pas' {FormationResourcesForm},
+  uDBAsset_GameEnvironment in '..\LibTTT\libDBScenario\uDBAsset_GameEnvironment.pas',
+  uDBAsset_MotionCharacteristics in '..\LibTTT\libDBScenario\uDBAsset_MotionCharacteristics.pas',
+  uSonobuoySelect in '..\LibTTT\forms\uSonobuoySelect.pas' {fSonobuoySelect},
+  uSatelliteSelect in '..\LibTTT\forms\uSatelliteSelect.pas' {fSatellite},
+  uSimManager in '..\LibTTT\uSimManager.pas',
+  uTCPData_TTT in '..\LibTTT\netTTT\uTCPData_TTT.pas',
+  uPacketBuffer in '..\SimFramework\LibNets\NetComponent\uPacketBuffer.pas',
+  uPacketRegister in '..\SimFramework\LibNets\NetComponent\uPacketRegister.pas',
+  uTCPClient in '..\SimFramework\LibNets\NetComponent\uTCPClient.pas',
+  uTCPDatatype in '..\SimFramework\LibNets\NetComponent\uTCPDatatype.pas',
+  uTCPServer in '..\SimFramework\LibNets\NetComponent\uTCPServer.pas',
+  ufrmResourceAllocationInputName in '..\LibTTT\forms\ufrmResourceAllocationInputName.pas' {frmResourceAllocationInputName},
+  uPISelect in '..\LibTTT\forms\uPISelect.pas' {fPISelect},
+  uRadarIntervalSetup in '..\LibTTT\forms\uRadarIntervalSetup.pas' {fRadarIntervalSetup},
+  ufrmRadarMount in '..\LibTTT\forms\ufrmRadarMount.pas' {frmRadarMount},
+  uVehicleSelect in '..\LibTTT\forms\uVehicleSelect.pas' {fVehicleSelect},
+  uVehicleName in '..\LibTTT\forms\uVehicleName.pas' {fVehicleName},
+  uSensorDoubleList in '..\LibTTT\forms\uSensorDoubleList.pas' {fSensor},
+  uWeaponDoubleList in '..\LibTTT\forms\uWeaponDoubleList.pas' {fWeaponDoubleList},
+  ufrmESMMount in '..\LibTTT\forms\ufrmESMMount.pas' {frmESMMount},
+  uDBAsset_ESM in '..\LibTTT\libDBScenario\uDBAsset_ESM.pas',
+  uDBAssets_SubAreaEnviroDefinition in '..\LibTTT\libDBScenario\uDBAssets_SubAreaEnviroDefinition.pas',
+  ufrmSonarMount in '..\LibTTT\forms\ufrmSonarMount.pas' {frmSonarMount},
+  ufrmElectroOpticalMount in '..\LibTTT\forms\ufrmElectroOpticalMount.pas' {frmElectroOpticalMount},
+  ufrmMADMount in '..\LibTTT\forms\ufrmMADMount.pas' {frmMADMount},
+  uRotWheel in '..\LibTTT\uRotWheel.pas' {uSonar in '..\LibTTT\forms\uSonar.pas' {fSonar},
+  uSonarPicklist in '..\LibTTT\forms\uSonarPicklist.pas' {fSonarPicklist},
+  uSonarDefList in '..\LibTTT\forms\uSonarDefList.pas' {fSonarDefList},
+  uScrCapture in '..\LibTTT\forms\uScrCapture.pas' {fScrCapture},
+  ufCaptureRes in '..\LibTTT\forms\ufCaptureRes.pas' {fCaptureRes},
+  uDetectedObject in '..\LibTTT\uDetectedObject.pas',
+  uVehicleList in '..\LibTTT\forms\uVehicleList.pas' {fVehicleList},
+  uDBAssetObject in '..\LibTTT\libDBScenario\uDBAssetObject.pas',
+  uChannelComList in '..\LibTTT\forms\uChannelComList.pas' {fChannelComList},
+  uCommunicationsChannels in '..\LibTTT\forms\uCommunicationsChannels.pas' {CommunicationsChannelsForm},
+  ufrmEditStudentRoleList in '..\LibTTT\forms\ufrmEditStudentRoleList.pas' {frmEditStudentRoleList},
+  uOtherSingleList in '..\LibTTT\forms\uOtherSingleList.pas' {fOtherSingle},
+  uWaypointEditorPanel in '..\LibTTT\forms\uWaypointEditorPanel.pas' {WaypointEditorPanelForm},
+  uSensor in '..\LibTTT\libObjects\uSensor.pas',
+  uWaypoint in '..\LibTTT\libObjects\uWaypoint.pas',
+  uPictureCentreControl in '..\LibTTT\forms\uPictureCentreControl.pas' {fPictureCentreSettings},
+  uTrackHistory in '..\LibTTT\forms\uTrackHistory.pas' {fTrackHistory},
+  uPlatformHandle in '..\LibTTT\forms\uPlatformHandle.pas' {frmHandle},
+  uNetBaseSocket in '..\SimFramework\LibNets\NetComponent\uNetBaseSocket.pas',
+  uBaseNetHandler in '..\SimFramework\LibNets\uBaseNetHandler.pas',
+  ufProgress in '..\LibTTT\forms\ufProgress.pas' {frmProgress},
+  uGameData_TTT in '..\LibTTT\netTTT\uGameData_TTT.pas',
+  uDBAsset_Runtime_Platform_Library in '..\LibTTT\libDBScenario\uDBAsset_Runtime_Platform_Library.pas',
+  uT3GroupList in '..\LibTTT\libNetSession\uT3GroupList.pas',
+  GmXml in '..\SimFramework\LibComponent\XMLReader\GmXml.pas',
+  GmXMLInterface in '..\SimFramework\LibComponent\XMLReader\GmXMLInterface.pas',
+  xmlInterface in '..\SimFramework\LibComponent\XMLReader\xmlInterface.pas' {,
+  uSimMgr_Client in '..\tttSimClient.src\uSimMgr_Client.pas',
+  uNetHandle_Client in '..\tttSimClient.src\uNetHandle_Client.pas',
+  uNetUDPnode in '..\SimFramework\LibNets\NetComponent\uNetUDPnode.pas',
+  uNetHandle_TTT in '..\LibTTT\netTTT\uNetHandle_TTT.pas'},
+  uGuidance in '..\LibTTT\libObjects\uGuidance.pas',
+  uVDDoublePickList in '..\LibTTT\forms\uVDDoublePickList.pas' {fVDDoublePickList},
+  ufrmIFFMount in '..\LibTTT\forms\ufrmIFFMount.pas' {frmIFFMount},
+  ufrmMineMountt in '..\LibTTT\forms\ufrmMineMountt.pas' {frmMineMount},
+  uMissileLaunchers in '..\LibTTT\forms\uMissileLaunchers.pas' {MissileLaunchersForm},
+  ufrmMissileMount in '..\LibTTT\forms\ufrmMissileMount.pas' {frmMissileMount},
+  ufrmTorpedoMounts in '..\LibTTT\forms\ufrmTorpedoMounts.pas' {frmTorpedoMounts},
+  ufrmGunMount in '..\LibTTT\forms\ufrmGunMount.pas' {frmGunMount},
+  ufrmBombDepthChargeMount in '..\LibTTT\forms\ufrmBombDepthChargeMount.pas' {frmBombDepthChargeMount},
+  uTorpedoLauncher in '..\LibTTT\forms\uTorpedoLauncher.pas' {TorpedoLauncherForm},
+  ufrmRadarJammerMount in '..\LibTTT\forms\ufrmRadarJammerMount.pas' {frmRadarJammerMount},
+  ufrmAirBubblesMounts in '..\LibTTT\forms\ufrmAirBubblesMounts.pas' {frmAirBubblesMounts},
+  ufrmAccousticDecoy in '..\LibTTT\forms\ufrmAccousticDecoy.pas' {frmAccousticDecoy},
+  ufrmSonobuoyMount in '..\LibTTT\forms\ufrmSonobuoyMount.pas' {frmSonobuoyMount},
+  ufrmTowedJammerMount in '..\LibTTT\forms\ufrmTowedJammerMount.pas' {frmTowedJammerMount},
+  ufrmFloatingMount in '..\LibTTT\forms\ufrmFloatingMount.pas' {frmFloatingMount},
+  ufrmChaffMount in '..\LibTTT\forms\ufrmChaffMount.pas' {frmChaffMountForm},
+  ufrmVisualDetectorMount in '..\LibTTT\forms\ufrmVisualDetectorMount.pas' {frmVisualDetectorMount},
+  uBlindZoneAttachment in '..\LibTTT\forms\uBlindZoneAttachment.pas' {BlindZonesAttachmentForm},
+  uBlindZoneView in '..\LibTTT\forms\uBlindZoneView.pas',
+  uChaffAssets in '..\LibTTT\forms\uChaffAssets.pas' {frmChaffAssets},
+  ufrmChaffLauncher in '..\LibTTT\forms\ufrmChaffLauncher.pas' {frmChaffLauncher},
+  uDBAsset_Filter in '..\LibTTT\libDBScenario\uDBAsset_Filter.pas',
+  uLauncherList in '..\LibTTT\forms\uLauncherList.pas' {fLauncherList},
+  ufrmUsage in '..\LibTTT\forms\ufrmUsage.pas' {frmUsage},
+  uTrainingPattern in '..\LibTTT\forms\uTrainingPattern.pas' {fTrainingPattern},
+  ufrmEffectsTable in '..\LibTTT\forms\ufrmEffectsTable.pas' {frmEffectsTable},
+  uDBEditSetting in 'uDBEditSetting.pas',
+  uProbabilityGraph in '..\LibTTT\forms\uProbabilityGraph.pas' {ProbabilityGraph},
+  uAccousticDecoyProb in '..\LibTTT\forms\uAccousticDecoyProb.pas' {AccousticDecoyProb},
+  ufrmIFFMode in '..\LibTTT\forms\ufrmIFFMode.pas' {frmIFFMode},
+  uPredefinedPatternEvents in '..\LibTTT\forms\uPredefinedPatternEvents.pas' {EditEvents},
+  ufrmReferencePointNew in '..\LibTTT\forms\ufrmReferencePointNew.pas' {frmReferencePointNew},
+  uT3Common in '..\LibTTT\uT3Common.pas',
+  uDBAsset_Reference_Point in '..\LibTTT\libDBScenario\uDBAsset_Reference_Point.pas',
+  ufrmEmbarkedSelect in '..\LibTTT\forms\ufrmEmbarkedSelect.pas' {frmEmbarkedSelect},
+  uHelicopterLimitations in '..\LibTTT\forms\uHelicopterLimitations.pas' {frmHelicopterLimitations},
+  uHelicopter_Land_Launch_Limits in '..\LibTTT\libDBScenario\uHelicopter_Land_Launch_Limits.pas',
+  ufrmRadarCoverage in '..\LibTTT\forms\ufrmRadarCoverage.pas' {frmRadarCoverage},
+  ufrmfIRmount in '..\LibTTT\forms\ufrmfIRmount.pas' {frmfIRmount},
+  uFEnvironmentSelection in '..\LibTTT\forms\uFEnvironmentSelection.pas' {Form1},
+  uTRuler in '..\LibTTT\forms\uTRuler.pas' {Ruler},
+  ufrmExercise in '..\LibTTT\forms\ufrmExercise.pas' {frmExercise},
+  ufrmOther in '..\LibTTT\forms\ufrmOther.pas' {frmOther},
+  ufrmSensors in '..\LibTTT\forms\ufrmSensors.pas' {frmSensors},
+  ufrmWeapons in '..\LibTTT\forms\ufrmWeapons.pas' {frmWeapons},
+  ufrmPlatforms in '..\LibTTT\forms\ufrmPlatforms.pas' {frmPlatforms},
+  ufrmCountermeasure in '..\LibTTT\forms\ufrmCountermeasure.pas' {frmCountermeasure},
+  uArc in '..\LibTTT\libOverlay\uArc.pas',
+  uCircle in '..\LibTTT\libOverlay\uCircle.pas',
+  uDrawOverlay in '..\LibTTT\libOverlay\uDrawOverlay.pas',
+  uEllipse in '..\LibTTT\libOverlay\uEllipse.pas',
+  uLine in '..\LibTTT\libOverlay\uLine.pas',
+  uMainDynamicShape in '..\LibTTT\libOverlay\uMainDynamicShape.pas',
+  uMainOverlay in '..\LibTTT\libOverlay\uMainOverlay.pas',
+  uMainStaticShape in '..\LibTTT\libOverlay\uMainStaticShape.pas',
+  uOverlayData in '..\LibTTT\libOverlay\uOverlayData.pas',
+  uOverlayOther in '..\LibTTT\libOverlay\uOverlayOther.pas',
+  uOverlayPlus in '..\LibTTT\libOverlay\uOverlayPlus.pas',
+  uOverlayShape in '..\LibTTT\libOverlay\uOverlayShape.pas',
+  uPolygon in '..\LibTTT\libOverlay\uPolygon.pas',
+  uRect in '..\LibTTT\libOverlay\uRect.pas',
+  uSector in '..\LibTTT\libOverlay\uSector.pas',
+  uTable in '..\LibTTT\libOverlay\uTable.pas',
+  uText in '..\LibTTT\libOverlay\uText.pas',
+  uFormula in '..\LibTTT\libOverlay\uFormula.pas',
+  uRecord in '..\LibTTT\libOverlay\uRecord.pas',
+  ufrmEmbarkedInput in '..\LibTTT\forms\ufrmEmbarkedInput.pas' {frmEmbarkedInput},
+  Vcl.Themes,
+  Vcl.Styles,
+  ufrmSummaryAcousticDecoy in '..\LibTTT\forms\Countermeasure\ufrmSummaryAcousticDecoy.pas' {frmSummaryAcousticDecoy},
+  ufrmSummaryAirBubble in '..\LibTTT\forms\Countermeasure\ufrmSummaryAirBubble.pas' {frmSummaryAirBubble},
+  ufrmAvailableAcousticDecoy in '..\LibTTT\forms\Countermeasure\ufrmAvailableAcousticDecoy.pas' {frmAvailableAcousticDecoy},
+  ufrmAvailableAirBubble in '..\LibTTT\forms\Countermeasure\ufrmAvailableAirBubble.pas' {frmAvailableAirBubble},
+  ufrmAvailableChaff in '..\LibTTT\forms\Countermeasure\ufrmAvailableChaff.pas' {frmAvailableChaff},
+  ufrmAvailableFloatingDecoy in '..\LibTTT\forms\Countermeasure\ufrmAvailableFloatingDecoy.pas' {frmAvailableFloatingDecoy},
+  ufrmAvailableInfraredDecoy in '..\LibTTT\forms\Countermeasure\ufrmAvailableInfraredDecoy.pas' {frmAvailableInfraredDecoy},
+  ufrmAvailableRadarNoiseJammer in '..\LibTTT\forms\Countermeasure\ufrmAvailableRadarNoiseJammer.pas' {frmAvailableRadarNoiseJammer},
+  ufrmAvailableSelfDefensiveJammer in '..\LibTTT\forms\Countermeasure\ufrmAvailableSelfDefensiveJammer.pas' {frmAvailableSelfDefensiveJammer},
+  ufrmSummaryChaff in '..\LibTTT\forms\Countermeasure\ufrmSummaryChaff.pas' {frmSummaryChaff},
+  ufrmSummaryRadarNoiseJammer in '..\LibTTT\forms\Countermeasure\ufrmSummaryRadarNoiseJammer.pas' {frmSummaryRadarNoiseJammer},
+  ufrmAvailableEOD in '..\LibTTT\forms\Sensor\ufrmAvailableEOD.pas' {frmAvailableEOD},
+  ufrmAvailableESM in '..\LibTTT\forms\Sensor\ufrmAvailableESM.pas' {frmAvailableESM},
+  ufrmAvailableMAD in '..\LibTTT\forms\Sensor\ufrmAvailableMAD.pas' {frmAvailableMAD},
+  ufrmAvailableRadar in '..\LibTTT\forms\Sensor\ufrmAvailableRadar.pas' {frmAvailableRadar},
+  ufrmAvailableSonar in '..\LibTTT\forms\Sensor\ufrmAvailableSonar.pas' {frmAvailableSonar},
+  ufrmAvailableSonobuoy in '..\LibTTT\forms\Sensor\ufrmAvailableSonobuoy.pas' {frmAvailableSonobuoy},
+  ufrmSummaryEOD in '..\LibTTT\forms\Sensor\ufrmSummaryEOD.pas' {frmSummaryEOD},
+  ufrmSummaryESM in '..\LibTTT\forms\Sensor\ufrmSummaryESM.pas' {frmSummaryESM},
+  ufrmSummaryMAD in '..\LibTTT\forms\Sensor\ufrmSummaryMAD.pas' {frmSummaryMAD},
+  ufrmSummaryRadar in '..\LibTTT\forms\Sensor\ufrmSummaryRadar.pas' {frmSummaryRadar},
+  ufrmSummarySonar in '..\LibTTT\forms\Sensor\ufrmSummarySonar.pas' {frmSummarySonar},
+  ufrmSummarySonobuoy in '..\LibTTT\forms\Sensor\ufrmSummarySonobuoy.pas' {frmSummarySonobuoy},
+  ufrmAvailableBomb in '..\LibTTT\forms\Weapon\ufrmAvailableBomb.pas' {frmAvailableBomb},
+  ufrmAvailableGun in '..\LibTTT\forms\Weapon\ufrmAvailableGun.pas' {frmAvailableGun},
+  ufrmAvailableMine in '..\LibTTT\forms\Weapon\ufrmAvailableMine.pas' {frmAvailableMine},
+  ufrmAvailableMissile in '..\LibTTT\forms\Weapon\ufrmAvailableMissile.pas' {frmAvailableMissile},
+  ufrmAvailableTorpedo in '..\LibTTT\forms\Weapon\ufrmAvailableTorpedo.pas' {frmAvailableTorpedo},
+  ufrmSummaryBomb in '..\LibTTT\forms\Weapon\ufrmSummaryBomb.pas' {frmSummaryBomb},
+  ufrmSummaryGun in '..\LibTTT\forms\Weapon\ufrmSummaryGun.pas' {frmSummaryGun},
+  ufrmSummaryMine in '..\LibTTT\forms\Weapon\ufrmSummaryMine.pas' {frmSummaryMine},
+  ufrmSummaryMissile in '..\LibTTT\forms\Weapon\ufrmSummaryMissile.pas' {frmSummaryMissile},
+  ufrmSummaryTorpedo in '..\LibTTT\forms\Weapon\ufrmSummaryTorpedo.pas' {frmSummaryTorpedo},
+  ufrmAvailableGameDefaults in '..\LibTTT\forms\Other\ufrmAvailableGameDefaults.pas' {frmAvailableGameDefaults},
+  ufrmAvailableGrapicalOverlay in '..\LibTTT\forms\Other\ufrmAvailableGrapicalOverlay.pas' {frmAvailableGrapicalOverlay},
+  ufrmAvailablePredifinedPattern in '..\LibTTT\forms\Other\ufrmAvailablePredifinedPattern.pas' {frmAvailablePredifinedPattern},
+  ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary},
+  ufrmAvailableSNRvsPODCurve in '..\LibTTT\forms\Other\ufrmAvailableSNRvsPODCurve.pas' {frmAvailableSNRvsPODCurve},
+  ufrmAvailableStudentRoles in '..\LibTTT\forms\Other\ufrmAvailableStudentRoles.pas' {frmAvailableStudentRoles},
+  ufrmGameDefaultSummary in '..\LibTTT\forms\Other\ufrmGameDefaultSummary.pas' {frmGameDefaultSummary},
+  ufrmOverlaySummary in '..\LibTTT\forms\Other\ufrmOverlaySummary.pas' {frmOverlaySummary},
+  ufrmPredefinedPatternSummary in '..\LibTTT\forms\Other\ufrmPredefinedPatternSummary.pas' {frmPredefinedPatternSummary},
+  ufrmRadarIntervalSummary in '..\LibTTT\forms\Other\ufrmRadarIntervalSummary.pas' {frmRadarIntervalSummary},
+  ufrmSnrVsPodSummary in '..\LibTTT\forms\Other\ufrmSnrVsPodSummary.pas' {frmSnrVsPodSummary},
+  ufrmStudentRoleSummary in '..\LibTTT\forms\Other\ufrmStudentRoleSummary.pas' {frmStudentRoleSummary},
+  ufrmAvailableMotion in '..\LibTTT\forms\Platform\ufrmAvailableMotion.pas' {frmAvailableMotion},
+  ufrmAvailableSatellite in '..\LibTTT\forms\Platform\ufrmAvailableSatellite.pas' {frmAvailableSatellite},
+  ufrmAvailableVehicle in '..\LibTTT\forms\Platform\ufrmAvailableVehicle.pas' {frmAvailableVehicle},
+  ufrmSummaryMotion in '..\LibTTT\forms\Platform\ufrmSummaryMotion.pas' {frmSummaryMotion},
+  ufrmSummarySatellite in '..\LibTTT\forms\Platform\ufrmSummarySatellite.pas' {frmSummarySatellite},
+  ufrmSummaryVehicle in '..\LibTTT\forms\Platform\ufrmSummaryVehicle.pas' {frmSummaryVehicle},
+  ufrmAvailableEnvironments in '..\LibTTT\forms\Exercise\ufrmAvailableEnvironments.pas' {frmAvailableEnvironments},
+  ufrmAvailableGameArea in '..\LibTTT\forms\Exercise\ufrmAvailableGameArea.pas' {frmAvailableGameArea},
+  ufrmAvailableResourceAllocation in '..\LibTTT\forms\Exercise\ufrmAvailableResourceAllocation.pas' {frmAvailableResourceAllocation},
+  ufrmAvailableScenario in '..\LibTTT\forms\Exercise\ufrmAvailableScenario.pas' {frmAvailableScenario},
+  ufrmSummaryEnvironment in '..\LibTTT\forms\Exercise\ufrmSummaryEnvironment.pas' {frmSummaryEnvironment},
+  ufrmSummaryGameAreaENC in '..\LibTTT\forms\Exercise\ufrmSummaryGameAreaENC.pas' {frmSummaryGameAreaENC},
+  ufrmSummaryGameAreaVektor in '..\LibTTT\forms\Exercise\ufrmSummaryGameAreaVektor.pas' {frmSummaryGameAreaVektor},
+  ufrmImportLandmassData in '..\LibTTT\forms\Exercise\ufrmImportLandmassData.pas' {frmImportLandmassData},
+  ufrmLandmassEditor in '..\LibTTT\forms\Exercise\ufrmLandmassEditor.pas' {frmLandmassEditor},
+  ufrmPlatformDeploytment in '..\LibTTT\forms\Exercise\ufrmPlatformDeploytment.pas' {frmPlatformDeploytment},
+  ufrmReferencePointEditor in '..\LibTTT\forms\Exercise\ufrmReferencePointEditor.pas' {frmReferencePointEditor},
+  ufrmSummaryResourceAllocation in '..\LibTTT\forms\Exercise\ufrmSummaryResourceAllocation.pas' {frmSummaryResourceAllocation},
+  ufrmSummaryScenario in '..\LibTTT\forms\Exercise\ufrmSummaryScenario.pas' {frmSummaryScenario},
+  ufrmSubEnviCharacteristic in '..\LibTTT\forms\Exercise\ufrmSubEnviCharacteristic.pas' {frmSubEnviCharacteristic},
+  ufrmAccousticDecoyOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmAccousticDecoyOnBoardPickList.pas' {frmAccousticDecoyOnBoardPickList},
+  ufrmAirBubbleOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmAirBubbleOnBoardPickList.pas' {frmAirBubbleOnBoardPickList},
+  ufrmBombOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmBombOnBoardPickList.pas' {frmBombOnBoardPickList},
+  ufrmChaffOnBoardOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmChaffOnBoardOnBoardPickList.pas' {frmChaffOnBoardOnBoardPickList},
+  ufrmEODOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmEODOnBoardPickList.pas' {frmEODOnBoardPickList},
+  ufrmESMOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmESMOnBoardPickList.pas' {frmESMOnBoardPickList},
+  ufrmFloatingDecoyOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmFloatingDecoyOnBoardPickList.pas' {frmFloatingDecoyOnBoardPickList},
+  ufrmGunOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmGunOnBoardPickList.pas' {frmGunOnBoardPickList},
+  ufrmIFFOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmIFFOnBoardPickList.pas' {frmIFFOnBoardPickList},
+  ufrmInfraredDecoyOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmInfraredDecoyOnBoardPickList.pas' {frmInfraredDecoyOnBoardPickList},
+  ufrmMADOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmMADOnBoardPickList.pas' {frmMADOnBoardPickList},
+  ufrmMineOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmMineOnBoardPickList.pas' {frmMineOnBoardPickList},
+  ufrmMissileOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmMissileOnBoardPickList.pas' {frmMissileOnBoardPickList},
+  ufrmRadarJammerOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmRadarJammerOnBoardPickList.pas' {frmRadarJammerOnBoardPickList},
+  ufrmRadarOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmRadarOnBoardPickList.pas' {frmRadarOnBoardPickList},
+  ufrmSonarOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmSonarOnBoardPickList.pas' {frmSonarOnBoardPickList},
+  ufrmSonobuoyOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmSonobuoyOnBoardPickList.pas' {frmSonobuoyOnBoardPickList},
+  ufrmTorpedoOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmTorpedoOnBoardPickList.pas' {frmTorpedoOnBoardPickList},
+  ufrmTowedJammerDecoyOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmTowedJammerDecoyOnBoardPickList.pas' {frmTowedJammerDecoyOnBoardPickList},
+  ufrmVisualOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmVisualOnBoardPickList.pas' {frmVisualOnBoardPickList},
+  ufrmSummaryFloatingDecoy in '..\LibTTT\forms\Countermeasure\ufrmSummaryFloatingDecoy.pas' {frmSummaryFloatingDecoy},
+  ufrmSummaryInfraredDecoy in '..\LibTTT\forms\Countermeasure\ufrmSummaryInfraredDecoy.pas' {frmSummaryInfraredDecoy},
+  ufrmSummarySelfDefensiveJammer in '..\LibTTT\forms\Countermeasure\ufrmSummarySelfDefensiveJammer.pas' {frmSummarySelfDefensiveJammer},
+  ufrmSummaryTowedJammerDecoy in '..\LibTTT\forms\Countermeasure\ufrmSummaryTowedJammerDecoy.pas' {frmSummaryTowedJammerDecoy},
+  ufrmAvailableRadarActivationIntervals in '..\LibTTT\forms\Other\ufrmAvailableRadarActivationIntervals.pas' {frmAvailableRadarActivationIntervals},
+  ufrmAvailableTowedJammerDecoy in '..\LibTTT\forms\Countermeasure\ufrmAvailableTowedJammerDecoy.pas' {frmAvailableTowedJammerDecoy},
+  ufrmMineRuntimePlatformLibraryPickList in '..\LibTTT\forms\PickList\Runtime Platform Library\ufrmMineRuntimePlatformLibraryPickList.pas' {frmMineRuntimePlatformLibraryPickList},
+  ufrmMissileRuntimePlatformLibraryPickList in '..\LibTTT\forms\PickList\Runtime Platform Library\ufrmMissileRuntimePlatformLibraryPickList.pas' {frmMissileRuntimePlatformLibraryPickList},
+  ufrmSonobuoyRuntimePlatformLibraryPickList in '..\LibTTT\forms\PickList\Runtime Platform Library\ufrmSonobuoyRuntimePlatformLibraryPickList.pas' {frmSonobuoyRuntimePlatformLibraryPickList},
+  ufrmTorpedoRuntimePlatformLibraryPicklist in '..\LibTTT\forms\PickList\Runtime Platform Library\ufrmTorpedoRuntimePlatformLibraryPicklist.pas' {frmTorpedoRuntimePlatformLibraryPicklist},
+  ufrmVehicleRuntimePlatformLibraryPickList in '..\LibTTT\forms\PickList\Runtime Platform Library\ufrmVehicleRuntimePlatformLibraryPickList.pas' {frmVehicleRuntimePlatformLibraryPickList},
+  ufrmMineResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmMineResourceAllocationPickList.pas' {frmMineResourceAllocationPickList},
+  ufrmMissileResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmMissileResourceAllocationPickList.pas' {frmMissileResourceAllocationPickList},
+  ufrmOverlayRAPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmOverlayRAPickList.pas' {frmOverlayRAPickList},
+  ufrmPredefinedPatternRAPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmPredefinedPatternRAPickList.pas' {frmPredefinedPatternRAPickList},
+  ufrmRadarIntervalRAPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmRadarIntervalRAPickList.pas' {frmRadarIntervalRAPickList},
+  ufrmRuntimePlatformLibraryRAPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmRuntimePlatformLibraryRAPickList.pas' {frmRuntimePlatformLibraryRAPickList},
+  ufrmSatelliteResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmSatelliteResourceAllocationPickList.pas' {frmSatelliteResourceAllocationPickList},
+  ufrmSonobuoyResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmSonobuoyResourceAllocationPickList.pas' {frmSonobuoyResourceAllocationPickList},
+  ufrmTorpedoResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmTorpedoResourceAllocationPickList.pas' {frmTorpedoResourceAllocationPickList},
+  ufrmVehicleResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmVehicleResourceAllocationPickList.pas' {frmVehicleResourceAllocationPickList},
+  ufrmDefensiveJammerPickList in '..\LibTTT\forms\PickList\Other\ufrmDefensiveJammerPickList.pas' {frmDefensiveJammerPickList},
+  ufrmEnvironmentPickList in '..\LibTTT\forms\PickList\Other\ufrmEnvironmentPickList.pas' {frmEnvironmentPickList},
+  ufrmGameAreaPickList in '..\LibTTT\forms\PickList\Other\ufrmGameAreaPickList.pas' {frmGameAreaPickList},
+  ufrmGameDefaultsPickList in '..\LibTTT\forms\PickList\Other\ufrmGameDefaultsPickList.pas' {frmGameDefaultsPickList},
+  ufrmMotionPickList in '..\LibTTT\forms\PickList\Other\ufrmMotionPickList.pas' {frmMotionPickList},
+  ufrmResorceAllocationPickList in '..\LibTTT\forms\PickList\Other\ufrmResorceAllocationPickList.pas' {frmResorceAllocationPickList},
+  ufrmSNRvsPODPickList in '..\LibTTT\forms\PickList\Other\ufrmSNRvsPODPickList.pas' {frmSNRvsPODPickList},
+  ufrmSonarPickList in '..\LibTTT\forms\PickList\Other\ufrmSonarPickList.pas' {frmSonarPickList},
+  ufrmStudentRolePickList in '..\LibTTT\forms\PickList\Other\ufrmStudentRolePickList.pas' {frmStudentRolePickList},
+  ufrmTorpedoPickList in '..\LibTTT\forms\PickList\Other\ufrmTorpedoPickList.pas' {frmTorpedoPickList},
+  ufrmRuntimePlatformLibrarySummary in '..\LibTTT\forms\Other\ufrmRuntimePlatformLibrarySummary.pas' {frmRuntimePlatformLibrarySummary},
+  ufrmGroupMemberPickList in '..\LibTTT\forms\PickList\Other\ufrmGroupMemberPickList.pas' {frmGroupMemberPickList},
+  ufrmCubicleGroup in '..\LibTTT\forms\Exercise\ufrmCubicleGroup.pas' {frmCubicleGroup},
+  ufrmCubicleGroupAllocation in '..\LibTTT\forms\Exercise\ufrmCubicleGroupAllocation.pas' {frmCubicleGroupAllocation},
+  ufrmEmbarkedInputName in '..\LibTTT\forms\ufrmEmbarkedInputName.pas' {frmEmbarkedInputName},
+  ufrmChooseMap in '..\LibTTT\forms\Exercise\ufrmChooseMap.pas' {frmChooseMap},
+  ufrmVektorMapGameCenterEditor in '..\LibTTT\forms\Exercise\ufrmVektorMapGameCenterEditor.pas' {frmVektorMapGameCenterEditor},
+  ufrmEnvironmentCharacteristic in '..\LibTTT\forms\Exercise\ufrmEnvironmentCharacteristic.pas' {frmEnvironmentCharacteristic},
+  ufrmOverlayEditor in '..\LibTTT\forms\Other\ufrmOverlayEditor.pas' {OverlayEditorForm};
+
+{$R *.res}
+
+begin
+//  ReportMemoryLeaksOnShutdown:= True;
+
+  Application.Initialize;
+  TStyleManager.TrySetStyle('CustomStyleGlow');
+  Application.CreateForm(TfDBEditor, fDBEditor);
+  Application.CreateForm(TdmTTT, dmTTT);
+  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
+  //  Application.CreateForm(TForm1, Form1);
+//  Application.CreateForm(TRuler, Ruler);
+  uSimDBEditor.StartInitialize;
+
+  {$REGION ' Form Exercise Summary '}
+//  Application.CreateForm(TfrmScenarioSummary, frmScenarioSummary);
+//  Application.CreateForm(TfrmResourceAllocationSummary, frmResourceAllocationSummary);
+//  Application.CreateForm(TfrmEnvironmentSummary, frmEnvironmentSummary);
+//  Application.CreateForm(TfrmGameAreaVektorSummary, frmGameAreaVektorSummary);
+//  Application.CreateForm(TfrmGameAreaENCSummary, frmGameAreaENCSummary);
+  {$ENDREGION}
+
+  {$REGION ' Form Platform Summary '}
+//  Application.CreateForm(TfrmVehicleSummary, frmVehicleSummary);
+//  Application.CreateForm(TfrmSatelliteSummary, frmSatelliteSummary);
+//  Application.CreateForm(TfrmMotionSummary, frmMotionSummary);
+  {$ENDREGION}
+
+  {$REGION ' Form Weapon Summary '}
+//  Application.CreateForm(TfrmMissileSummary, frmMissileSummary);
+//  Application.CreateForm(TfrmTorpedoSummary, frmTorpedoSummary);
+//  Application.CreateForm(TfrmMineSummary, frmMineSummary);
+//  Application.CreateForm(TfrmGunSummary, frmGunSummary);
+//  Application.CreateForm(TfrmBombSummary, frmBombSummary);
+  {$ENDREGION}
+
+  {$REGION ' Form Countermeasure Summary '}
+//  Application.CreateForm(TfrmAcousticDecoySummary, frmAcousticDecoySummary);
+//  Application.CreateForm(TfrmAirBubbleSummary, frmAirBubbleSummary);
+//  Application.CreateForm(TfrmChaffSummary, frmChaffSummary);
+//  Application.CreateForm(TfrmInfraredDecoySummary, frmInfraredDecoySummary);
+//  Application.CreateForm(TfrmFloatingDecoySummary, frmFloatingDecoySummary);
+//  Application.CreateForm(TfrmSelfDefensiveJammerSummary, frmSelfDefensiveJammerSummary);
+//  Application.CreateForm(TfrmTowedJammerDecoySummary, frmTowedJammerDecoySummary);
+//  Application.CreateForm(TfrmRadarNoiseJammerSummary, frmRadarNoiseJammerSummary);
+  {$ENDREGION
+  }
+
+  {$REGION ' Form Other Summary '}
+//  Application.CreateForm(TfrmRuntimePlatformLibrarySummary, frmRuntimePlatformLibrarySummary);
+//  Application.CreateForm(TfrmPredefinedPatternSummary, frmPredefinedPatternSummary);
+//  Application.CreateForm(TfrmRadarIntervalSummary, frmRadarIntervalSummary);
+//  Application.CreateForm(TfrmOverlaySummary, frmOverlaySummary);
+//  Application.CreateForm(TfrmStudentRoleSummary, frmStudentRoleSummary);
+//  Application.CreateForm(TfrmGameDefaultSummary, frmGameDefaultSummary);
+//  Application.CreateForm(TfrmSnrVsPodSummary, frmSnrVsPodSummary);
+  {$ENDREGION}
+
+//  Application.CreateForm(TfrmCubicleGroupAllocation, frmCubicleGroupAllocation);
+//  Application.CreateForm(TfrmPlatformDeploytment, frmPlatformDeploytment);
+
+  {$REGION ' Scenario Pick List '}
+//  Application.CreateForm(TfrmPlatformDeploymentPickList, frmPlatformDeploymentPickList);
+  {$ENDREGION}
+
+  {$REGION ' Resource Allocation Pick List '}
+//  Application.CreateForm(TfrmEnvironmentPickList, frmEnvironmentPickList);
+//  Application.CreateForm(TfrmGameDefaultsPickList, frmGameDefaultsPickList);
+//  Application.CreateForm(TfrmStudentRolePickList, frmStudentRolePickList);
+//
+//  Application.CreateForm(TfrmResorceAllocationPickList, frmResorceAllocationPickList);
+//  Application.CreateForm(TfrmMissileResourceAllocationPickList, frmMissileResourceAllocationPickList);
+//  Application.CreateForm(TfrmTorpedoResourceAllocationPickList, frmTorpedoResourceAllocationPickList);
+//  Application.CreateForm(TfrmSonobuoyResourceAllocationPickList, frmSonobuoyResourceAllocationPickList);
+//  Application.CreateForm(TfrmMineResourceAllocationPickList, frmMineResourceAllocationPickList);
+//  Application.CreateForm(TfrmSatelliteResourceAllocationPickList, frmSatelliteResourceAllocationPickList);
+//
+//  Application.CreateForm(TfrmPredefinedPatternRAPickList, frmPredefinedPatternRAPickList);
+//  Application.CreateForm(TfrmOverlayRAPickList, frmOverlayRAPickList);
+//  Application.CreateForm(TfrmRadarIntervalRAPickList, frmRadarIntervalRAPickList);
+//  Application.CreateForm(TfrmRuntimePlatformLibraryRAPickList, frmRuntimePlatformLibraryRAPickList);
+  {$ENDREGION}
+
+  {$REGION ' Environtment Pick List '}
+//  Application.CreateForm(TfrmGameAreaPickList, frmGameAreaPickList);
+  {$ENDREGION}
+
+  {$REGION ' Vehicle Asset Pick List '}
+//  Application.CreateForm(TfrmRadarOnBoardPickList, frmRadarOnBoardPickList);
+//  Application.CreateForm(TfrmSonarOnBoardPickList, frmSonarOnBoardPickList);
+//  Application.CreateForm(TfrmESMOnBoardPickList, frmESMOnBoardPickList);
+//  Application.CreateForm(TfrmEODOnBoardPickList, frmEODOnBoardPickList);
+//  Application.CreateForm(TfrmMADOnBoardPickList, frmMADOnBoardPickList);
+//  Application.CreateForm(TfrmIFFOnBoardPickList, frmIFFOnBoardPickList);
+//  Application.CreateForm(TfrmSonobuoyOnBoardPickList, frmSonobuoyOnBoardPickList);
+//
+//  Application.CreateForm(TfrmMissileOnBoardPickList, frmMissileOnBoardPickList);
+//  Application.CreateForm(TfrmTorpedoOnBoardPickList, frmTorpedoOnBoardPickList);
+//  Application.CreateForm(TfrmMineOnBoardPickList, frmMineOnBoardPickList);
+//  Application.CreateForm(TfrmBombOnBoardPickList, frmBombOnBoardPickList);
+//  Application.CreateForm(TfrmGunOnBoardPickList, frmGunOnBoardPickList);
+//
+//  Application.CreateForm(TfrmRadarJammerOnBoardPickList, frmRadarJammerOnBoardPickList);
+//  Application.CreateForm(TfrmAirBubbleOnBoardPickList, frmAirBubbleOnBoardPickList);
+//  Application.CreateForm(TfrmAccousticDecoyOnBoardPickList, frmAccousticDecoyOnBoardPickList);
+//  Application.CreateForm(TfrmDefensiveJammerPickList, frmDefensiveJammerPickList);
+//  Application.CreateForm(TfrmTowedJammerDecoyOnBoardPickList, frmTowedJammerDecoyOnBoardPickList);
+//  Application.CreateForm(TfrmFloatingDecoyOnBoardPickList, frmFloatingDecoyOnBoardPickList);
+//  Application.CreateForm(TfrmChaffOnBoardOnBoardPickList, frmChaffOnBoardOnBoardPickList);
+  {$ENDREGION}
+
+  {$REGION ' Runtime Platform Library Pick List '}
+//  Application.CreateForm(TfrmVehicleRuntimePlatformLibraryPickList, frmVehicleRuntimePlatformLibraryPickList);
+//  Application.CreateForm(TfrmMissileRuntimePlatformLibraryPickList, frmMissileRuntimePlatformLibraryPickList);
+//  Application.CreateForm(TfrmTorpedoRuntimePlatformLibraryPicklist, frmTorpedoRuntimePlatformLibraryPicklist);
+//  Application.CreateForm(TfrmMineRuntimePlatformLibraryPickList, frmMineRuntimePlatformLibraryPickList);
+//  Application.CreateForm(TfrmSonobuoyRuntimePlatformLibraryPickList, frmSonobuoyRuntimePlatformLibraryPickList);
+  {$ENDREGION}
+
+//  Application.CreateForm(TfrmSNRvsPODPickList, frmSNRvsPODPickList);
+//  Application.CreateForm(TfrmSonarPickList, frmSonarPickList);
+//  Application.CreateForm(TfrmTorpedoPickList, frmTorpedoPickList);
+//  Application.CreateForm(TfrmMotionPickList,frmMotionPickList);
+//
+//  Application.CreateForm(TfrmReferencePointEditor, frmReferencePointEditor);
+//  Application.CreateForm(TfrmSubEnviCharacteristic, frmSubEnviCharacteristic);
+//  Application.CreateForm(TfrmImportLandmassData, frmImportLandmassData);
+//  Application.CreateForm(TfrmResourceAllocationInputName, frmResourceAllocationInputName);
+//  Application.CreateForm(TfrmRadarJammerMount, frmRadarJammerMount);
+//  Application.CreateForm(TfrmRadarMount, frmRadarMount);
+//  Application.CreateForm(TfrmLandmassEditor, frmLandmassEditor);
+//  Application.CreateForm(TfrmVektorMapGameCenterEditor, frmVektorMapGameCenterEditor);
+//  Application.CreateForm(TfrmEnvironmentCharacteristic, frmEnvironmentCharacteristic);
+//
+//  Application.CreateForm(TLinkWindowForm, LinkWindowForm);
+//  Application.CreateForm(TWaypointEditorPanelForm, WaypointEditorPanelForm);
+//  Application.CreateForm(TAddParticipantForm, AddParticipantForm);
+//  Application.CreateForm(TEventsWindowForm, EventsWindowForm);
+//  Application.CreateForm(TAddExCompChannelForm, AddExCompChannelForm);
+//  Application.CreateForm(TAddMemberForm, AddMemberForm);
+//  Application.CreateForm(TFormationEditorForm, FormationEditorForm);
+//  Application.CreateForm(TfFormationEditorPanel, FormationEditorPanelForm);
+//  Application.CreateForm(TFormationMemberForm, FormationMemberForm);
+//  Application.CreateForm(TFormationResourcesForm, FormationResourcesForm);
+//  Application.CreateForm(TFormationMemberForm, FormationMemberForm);
+//  Application.CreateForm(TfResourceAllocSelection, fResourceAllocSelection);
+//  Application.CreateForm(TfVDDoublePickList, fVDDoublePickList);
+//  Application.CreateForm(TfVehicleSelect, fVehicleSelect);
+//  Application.CreateForm(TfVehicleName, fVehicleName);
+//  Application.CreateForm(TfSonobuoySelect, fSonobuoySelect);
+//  Application.CreateForm(TfSatellite, fSatellite);
+//
+//  Application.CreateForm(TfPISelect, fPISelect);
+//  Application.CreateForm(TfRadarIntervalSetup, fRadarIntervalSetup);
+//
+//  Application.CreateForm(TfVehicleSelect, fVehicleSelect);
+//
+//  Application.CreateForm(TfrmIFFMount, frmIFFMount);
+//  Application.CreateForm(TfrmMineMount, frmMineMount);
+//  Application.CreateForm(TMissileLaunchersForm, MissileLaunchersForm);
+//  Application.CreateForm(TfrmMissileMount, frmMissileMount);
+//  Application.CreateForm(TfrmTorpedoMounts, frmTorpedoMounts);
+//  Application.CreateForm(TfrmGunMount, frmGunMount);
+//  Application.CreateForm(TfrmBombDepthChargeMount, frmBombDepthChargeMount);
+//  Application.CreateForm(TTorpedoLauncherForm, TorpedoLauncherForm);
+//  Application.CreateForm(TfrmRadarJammerMount, frmRadarJammerMount);
+//  Application.CreateForm(TfrmAirBubblesMounts, frmAirBubblesMounts);
+//  Application.CreateForm(TfrmAccousticDecoy, frmAccousticDecoy);
+//  Application.CreateForm(TfrmSonobuoyMount, frmSonobuoyMount);
+//  Application.CreateForm(TfrmTowedJammerMount, frmTowedJammerMount);
+//  Application.CreateForm(TfrmFloatingMount, frmFloatingMount);
+//  Application.CreateForm(TChaffMountForm, ChaffMountForm);
+//  Application.CreateForm(TfrmVisualDetectorMount, frmVisualDetectorMount);
+//  Application.CreateForm(TfrmESMMount,frmESMMount);
+//  Application.CreateForm(TfVehicleList, fVehicleList);
+//  Application.CreateForm(TCommunicationsChannelsForm, CommunicationsChannelsForm);
+////  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
+//
+//  Application.CreateForm(TfrmEditStudentRoleList, frmEditStudentRoleList);
+//
+//  Application.CreateForm(TfOtherSingle, fOtherSingle);
+//  Application.CreateForm(TWaypointEditorPanelForm, WaypointEditorPanelForm);
+//  Application.CreateForm(TfrmProgress, frmProgress);
+//
+//  Application.CreateForm(TfrmGroupMemberPickList, frmGroupMemberPickList);
+//
+//  Application.CreateForm(TfPictureCentreSettings, fPictureCentreSettings);
+//  Application.CreateForm(TfTrackHistory, fTrackHistory);
+//  Application.CreateForm(TfrmHandle, frmHandle);
+//  Application.CreateForm(TfrmCubicleGroup, frmCubicleGroup);
+//  Application.CreateForm(TfrmProgress, frmProgress);
+////  Application.CreateForm(TfOverlaySelect, fOverlaySelect);
+////  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
+//  Application.CreateForm(TfrmSonarMount, frmSonarMount);
+//  Application.CreateForm(TfrmElectroOpticalMount, frmElectroOpticalMount);
+//  Application.CreateForm(TfrmMADMount, frmMADMount);
+//  Application.CreateForm(TfSonarPicklist, fSonarPicklist);
+//  Application.CreateForm(TfrmSonarMount, frmSonarMount);
+//  Application.CreateForm(TfrmElectroOpticalMount, frmElectroOpticalMount);
+//  Application.CreateForm(TBlindZonesAttachmentForm, BlindZonesAttachmentForm);
+//  Application.CreateForm(TfSonarDefList, fSonarDefList);
+//
+//  Application.CreateForm(TfScrCapture, fScrCapture);
+//  Application.CreateForm(TfCaptureRes, fCaptureRes);
+//  Application.CreateForm(TfChannelComList, fChannelComList);
+//
+//  Application.CreateForm(TfrmChaffAssets, frmChaffAssets);
+//  Application.CreateForm(TfChaffLauncher, fChaffLauncher);
+//  Application.CreateForm(TChooseMap, ChooseMap);
+//
+//  Application.CreateForm(TfLauncherList, fLauncherList);
+//  Application.CreateForm(TfTrainingPattern, fTrainingPattern);
+//  Application.CreateForm(TfSensor, fSensor);
+//  Application.CreateForm(TfWeaponDoubleList, fWeaponDoubleList);
+//  Application.CreateForm(TEffectsTable, fEffectsTable);
+//  Application.CreateForm(TProbabilityGraph, fProbabilityGraph);
+//  Application.CreateForm(TAccousticDecoyProb, fAccousticDecoyProb);
+//  Application.CreateForm(TIFFMode, fIFFMode);
+//  Application.CreateForm(TEditEvents, EditEvents);
+//  Application.CreateForm(TfrmReferencePointNew, frmReferencePointNew);
+//  Application.CreateForm(TfrmEmbarkedSelect, frmEmbarkedSelect);
+//  Application.CreateForm(TfrmHelicopterLimitations, frmHelicopterLimitations);
+//  Application.CreateForm(TRadarCoverage, RadarCoverage);
+  //Application.CreateForm(TfrmAvailableEnvironments, frmAvailableEnvironments);
+//  uSimDBEditor.StartInitialize;
+
+  Application.Run;
+end.

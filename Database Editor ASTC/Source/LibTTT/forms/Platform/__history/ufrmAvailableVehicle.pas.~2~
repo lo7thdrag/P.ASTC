@@ -1,0 +1,1307 @@
+unit ufrmAvailableVehicle;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
+  uDBAsset_Vehicle, uDBAssetObject;
+
+type
+  TfrmAvailableVehicle = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    pnlTableList: TPanel;
+    lstVehicle: TListBox;
+    grpFilter: TGroupBox;
+    lblSensorType: TLabel;
+    lbl1: TLabel;
+    lblWeaponType: TLabel;
+    lbl2: TLabel;
+    chkDomain: TCheckBox;
+    cbbFilterDomain: TComboBox;
+    chkType: TCheckBox;
+    chkSensor: TCheckBox;
+    chkWeapon: TCheckBox;
+    chkEmbarked: TCheckBox;
+    cbbFilterType: TComboBox;
+    cbbFilterSensorType: TComboBox;
+    cbbFilterWeaponType: TComboBox;
+    edtFilterWeaponOnBoard: TEdit;
+    btnWeaponType: TButton;
+    edtFilterEmbarkedPlatform: TEdit;
+    btnEmbarkType: TButton;
+    edtFilterSensorOnBoard: TEdit;
+    btnSensorType: TButton;
+    lbAllVehicle: TListBox;
+    pnlHorizontal: TPanel;
+    Image2: TImage;
+    pnlTableButton: TPanel;
+    btnDelete: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
+
+    procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure lbSingleClick(Sender: TObject);
+
+    procedure btnNewClick(Sender: TObject);
+    procedure btnCopyClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnUsageClick(Sender: TObject);
+
+    procedure btnFilterClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure chkDomainClick(Sender: TObject);
+    procedure cbbFilterDomainChange(Sender: TObject);
+    procedure chkTypeClick(Sender: TObject);
+    procedure cbbFilterTypeChange(Sender: TObject);
+    procedure chkSensorClick(Sender: TObject);
+    procedure cbbFilterSensorTypeChange(Sender: TObject);
+    procedure btnSensorTypeClick(Sender: TObject);
+    procedure chkWeaponClick(Sender: TObject);
+    procedure cbbFilterWeaponTypeChange(Sender: TObject);
+    procedure btnWeaponTypeClick(Sender: TObject);
+    procedure chkEmbarkedClick(Sender: TObject);
+    procedure btnEmbarkTypeClick(Sender: TObject);
+    procedure lbAllVehicleClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+
+  private
+    FUpdateList : Boolean;
+    FVehicleList : TList;
+    FSelectedVehicle : TVehicle_Definition;
+
+    procedure UpdateVehicleList;
+
+    procedure CopyPlatformInstanceIdent(const aVehicleIndex,
+      aNewVehicleIndex: Integer);
+    procedure CopyVehicleAsset(const aVehicleIndex, aNewVehicleIndex: Integer);
+    procedure CopyAssetBlindZone(const aBZType: Byte;
+      const aParentIndex, aNewIndex: Integer);
+    procedure CopyAssetLauncher(const aParentIndex, aNewIndex: Integer);
+    procedure CopyHeliLimitation(const aVehicleIndex,
+      aNewVehicleIndex: Integer);
+    procedure UpdateFilterTypeItems;
+    function GetPlatformType(aTypeName: string): Integer;
+
+  end;
+
+var
+  frmAvailableVehicle: TfrmAvailableVehicle;
+
+implementation
+
+uses
+  uSimDBEditor, ufrmResorceAllocationPickList,ufrmSummaryVehicle,
+  uDataModuleTTT,ufrmSummaryMotion,uSensorDoublelist,uWeaponDoubleList,uDBAsset_Sensor,
+  uDBAsset_Radar, uDBAsset_Sonar, uDBAsset_Sonobuoy, uDBAsset_Countermeasure,
+  uDBAsset_Weapon, uDBBlind_Zone, uHelicopter_Land_Launch_Limits, newClassASTT,
+  uVehicleSelect, ufrmMotionPickList, uChaffAssets, ufrmSummaryEOD,
+  ufrmSummaryMAD, ufrmSummarySonar, ufrmSonobuoyMount, ufrmSummaryTorpedo, ufrmSummaryMine,
+  ufrmSummaryMissile, ufrmUsage, tttData, ufProgress;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmAvailableVehicle.FormActivate(Sender: TObject);
+begin
+  WindowState := wsMaximized;
+end;
+
+procedure TfrmAvailableVehicle.FormCreate(Sender: TObject);
+begin
+  FVehicleList := TList.Create;
+end;
+
+procedure TfrmAvailableVehicle.FormShow(Sender: TObject);
+begin
+  UpdateFilterTypeItems;
+  UpdateVehicleList;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmAvailableVehicle.btnNewClick(Sender: TObject);
+begin
+  frmSummaryVehicle := TfrmSummaryVehicle.Create(Self);
+  try
+    with frmSummaryVehicle do
+    begin
+      SelectedVehicle := TVehicle_Definition.Create;
+      ShowModal;
+      FUpdateList := AfterClose;
+    end;
+  finally
+    frmSummaryVehicle.Free;
+  end;
+
+  if FUpdateList then
+    UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.btnCopyClick(Sender: TObject);
+var
+  newClassName : string;
+  count : Integer;
+  idTemp : Integer;
+begin
+  if lstVehicle.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Vehicle... !');
+    Exit;
+  end;
+
+  with FSelectedVehicle do
+  begin
+    newClassName := FData.Vehicle_Identifier + ' - Copy';
+
+    count := dmTTT.GetVehicleDef(newClassName);
+
+    if count > 0 then
+      newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+
+    FData.Vehicle_Identifier := newClassName;
+    idTemp := FData.Vehicle_Index;
+
+    dmTTT.InsertVehicleDef(FData);
+    dmTTT.InsertNoteStorage(1, FData.Vehicle_Index, FNote);
+
+    {Copy beberapa aset, perlu dicek lagi}
+    CopyPlatformInstanceIdent(idTemp, FData.Vehicle_Index);
+    CopyVehicleAsset(idTemp, FData.Vehicle_Index);
+    CopyHeliLimitation(idTemp, FData.Vehicle_Index);
+  end;
+
+  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.btnEditClick(Sender: TObject);
+begin
+  if lstVehicle.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Vehicle... !');
+    Exit;
+  end;
+
+  frmSummaryVehicle := TfrmSummaryVehicle.Create(Self);
+  try
+    with frmSummaryVehicle do
+    begin
+      SelectedVehicle := FSelectedVehicle;
+      ShowModal;
+      FUpdateList := AfterClose;
+    end;
+  finally
+    frmSummaryVehicle.Free;
+  end;
+
+  if FUpdateList then
+    UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.btnDeleteClick(Sender: TObject);
+var
+  warning: Integer;
+  tempList: TList;
+
+begin
+  if lstVehicle.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Vehicle... !');
+    Exit;
+  end;
+
+  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+    mbOKCancel, 0);
+
+  if warning = mrOK then
+  begin
+    with FSelectedVehicle.FData do
+    begin
+      tempList := TList.Create;
+
+      {Pengecekan Relasi Dengan Resource Allocation}
+      if dmTTT.GetPlatformInstanceAtResourceAllocation(1, Vehicle_Index, tempList) then
+      begin
+        ShowMessage('Cannot delete, because is already in used by some resource allocation');
+        tempList.Free;
+        Exit;
+      end;
+
+      {Pengecekan Relasi Dengan Runtime Platform Library}
+      if dmTTT.GetPlatformAtPlatformLibraryEntry(1, Vehicle_Index, tempList) > 0 then
+      begin
+        ShowMessage('Cannot delete, because is already in used by some Runtime Platform Library');
+        tempList.Free;
+        Exit;
+      end;
+      tempList.Free;
+
+      if dmTTT.GetHostPlatformCount(Vehicle_Index) > 0 then
+      begin
+        ShowMessage('Cannot delete, This vehicle used as Embarked Platform by some Vehicle');
+        Exit;
+      end;
+
+      dmTTT.DeleteNoteStorage(1, Vehicle_Index);
+
+      dmTTT.DeletePlatformInstanceIdentifier(1, Vehicle_Index);
+
+      dmTTT.DeleteBlindZone(Vehicle_Index);
+      dmTTT.DeleteFittedWeaponLauncherOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteChaffLauncherOnBoard(Vehicle_Index);
+
+      dmTTT.DeleteRadarOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteMADOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteESMOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteSonobuoyOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteSonarOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteEOOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteIFFOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteVisualOnBoard(1, Vehicle_Index);
+
+      dmTTT.DeleteFittedWeaponOnBoard(1, Vehicle_Index);
+      dmTTT.DeletePointEffectOnBoard(1, Vehicle_Index);
+
+      dmTTT.DeleteRadarNoiseJammerOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteAirBubbleOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteAcousticDecoyOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteSelfDefensiveJammerOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteTowedJammerDecoyOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteFloatingDecoyOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteChaffOnBoard(1, Vehicle_Index);
+      dmTTT.DeleteInfraredDecoyOnBoard(1, Vehicle_Index);
+
+      dmTTT.DeleteHostedPlatform(1, Vehicle_Index);
+
+      if dmTTT.DeleteVehicleDef(Vehicle_Index) then
+        ShowMessage('Data has been deleted');
+    end;
+
+    UpdateVehicleList;
+  end;
+end;
+
+procedure TfrmAvailableVehicle.btnUsageClick(Sender: TObject);
+begin
+  if lstVehicle.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Mine... !');
+    Exit;
+  end;
+
+  frmUsage := TfrmUsage.Create(Self);
+  try
+    with frmUsage do
+    begin
+      UId := FSelectedVehicle.FData.Vehicle_Index;
+      name_usage := FSelectedVehicle.FData.Vehicle_Identifier;
+      UIndex := 27;
+      ShowModal;
+    end;
+  finally
+    frmUsage.Free;
+  end;
+
+end;
+
+procedure TfrmAvailableVehicle.lbSingleClick(Sender: TObject);
+begin
+  if lstVehicle.ItemIndex = -1 then
+    Exit;
+
+  FSelectedVehicle := TVehicle_Definition(lstVehicle.Items.Objects[lstVehicle.ItemIndex]);
+end;
+
+procedure TfrmAvailableVehicle.UpdateVehicleList;
+var
+  i : Integer;
+  vehicle : TVehicle_Definition;
+begin
+  lstVehicle.Items.Clear;
+
+  frmProgress := TfrmProgress.Create(nil);
+  dmTTT.GetAllVehicleDef(FVehicleList);
+  frmProgress.Caption := 'Loading Vehicle from database';
+
+  frmProgress.MaxJob := FVehicleList.Count;
+
+  for i := 0 to FVehicleList.Count - 1 do
+  begin
+    vehicle := FVehicleList.Items[i];
+    frmProgress.increase(vehicle.FData.Vehicle_Identifier);
+//    if chkDomain.Checked and
+//      (cbbFilterDomain.ItemIndex <> vehicle.FData.Platform_Domain) then
+//      Continue;
+//
+//    if chkType.Checked and
+//      (GetPlatformType(cbbFilterType.Text) <> vehicle.FData.Platform_Type) then
+//      Continue;
+//
+//    if chkSensor.Checked then
+//    begin
+//    end;
+//
+//    if chkWeapon.Checked then
+//    begin
+//    end;
+//
+//    if chkEmbarked.Checked then
+//    begin
+//    end;
+
+    lstVehicle.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
+  end;
+  frmProgress.Free;
+end;
+
+
+{$ENDREGION}
+
+{$REGION ' Copy Procedure Handle '}
+
+procedure TfrmAvailableVehicle.btnSensorTypeClick(Sender: TObject);
+begin
+  fSensor.ShowModal;
+end;
+
+procedure TfrmAvailableVehicle.btnWeaponTypeClick(Sender: TObject);
+begin
+  fWeaponDoubleList.ShowModal;
+end;
+
+procedure TfrmAvailableVehicle.btnEmbarkTypeClick(Sender: TObject);
+begin
+  fVehicleSelect.ShowModal;
+end;
+
+procedure TfrmAvailableVehicle.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmAvailableVehicle.btnFilterClick(Sender: TObject);
+begin
+//  if btnFilter.Caption = '>> Filter' then
+//  begin
+//    btnFilter.Caption := '<< Filter';
+//    frmAvailableVehicle.Height := 760;
+//  end
+//  else if btnFilter.Caption = '<< Filter' then
+//  begin
+//    btnFilter.Caption := '>> Filter';
+//    frmAvailableVehicle.Height := 484;
+//  end;
+end;
+
+procedure TfrmAvailableVehicle.cbbFilterDomainChange(Sender: TObject);
+begin
+  UpdateFilterTypeItems;
+  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.cbbFilterSensorTypeChange(Sender: TObject);
+begin
+//
+end;
+
+procedure TfrmAvailableVehicle.cbbFilterTypeChange(Sender: TObject);
+begin
+  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.cbbFilterWeaponTypeChange(Sender: TObject);
+begin
+//
+end;
+
+procedure TfrmAvailableVehicle.chkDomainClick(Sender: TObject);
+begin
+//  cbbFilterDomain.Enabled := chkDomain.Checked;
+//  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.chkEmbarkedClick(Sender: TObject);
+begin
+//  btnEmbarkType.Enabled := chkEmbarked.Checked;
+//  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.chkSensorClick(Sender: TObject);
+begin
+//  cbbFilterSensorType.Enabled := chkSensor.Checked;
+//  btnSensorType.Enabled := chkSensor.Checked;
+  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.chkTypeClick(Sender: TObject);
+begin
+//  cbbFilterType.Enabled := chkType.Checked;
+  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.chkWeaponClick(Sender: TObject);
+begin
+//  cbbFilterWeaponType.Enabled := chkWeapon.Checked;
+//  btnWeaponType.Enabled := chkWeapon.Checked;
+  UpdateVehicleList;
+end;
+
+procedure TfrmAvailableVehicle.CopyAssetBlindZone(const aBZType: Byte;const aParentIndex, aNewIndex: Integer);
+var
+  blindzoneList : TList;
+  i : Integer;
+  blindzone : TBlind_Zone;
+begin
+  blindzoneList := TList.Create;
+
+  dmTTT.GetBlindZone(aBZType, aParentIndex, blindzoneList);
+
+  for i := 0 to blindzoneList.Count - 1 do
+  begin
+    blindzone := blindzoneList.Items[i];
+
+    with blindzone do
+    begin
+      case aBZType of
+        1: FData.FCR_Instance_Index := aNewIndex;
+        2: FData.ESM_Instance_Index := aNewIndex;
+        3: FData.EO_Instance_Index := aNewIndex;
+        4: FData.Visual_Instance_Index := aNewIndex;
+        5: FData.Point_Effect_Index := aNewIndex;
+        6: FData.Fitted_Weap_Index := aNewIndex;
+        7: FData.Sonar_Instance_Index := aNewIndex;
+        8: FData.Radar_Instance_Index := aNewIndex;
+      end;
+
+      dmTTT.InsertBlindZone(FData);
+    end;
+  end;
+
+  for i := 0 to blindzoneList.Count - 1 do
+  begin
+    blindzone := blindzoneList.Items[i];
+    blindzone.Free;
+  end;
+
+  blindzoneList.Free;
+end;
+
+procedure TfrmAvailableVehicle.CopyAssetLauncher(const aParentIndex,aNewIndex: Integer);
+var
+  launcherList : TList;
+  i : Integer;
+  launcher : TFitted_Weap_Launcher_On_Board;
+begin
+  launcherList := TList.Create;
+
+  dmTTT.GetFittedWeaponLauncherOnBoard(aParentIndex, launcherList);
+
+  for i := 0 to launcherList.Count - 1 do
+  begin
+    launcher := launcherList.Items[i];
+
+    with launcher do
+    begin
+      FData.Fitted_Weap_Index := aNewIndex;
+
+      dmTTT.InsertFittedWeaponLauncherOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to launcherList.Count - 1 do
+  begin
+    launcher := launcherList.Items[i];
+    launcher.Free;
+  end;
+
+  launcherList.Free;
+end;
+
+procedure TfrmAvailableVehicle.CopyHeliLimitation(const aVehicleIndex,aNewVehicleIndex: Integer);
+var
+  heliLimit : THelicopter_Land_Launch_Limits;
+begin
+  dmTTT.GetHelicopterLimitation(aVehicleIndex, heliLimit);
+
+  if not Assigned(heliLimit) then
+    Exit;
+
+  with heliLimit do
+  begin
+    FData.Vehicle_Index := aNewVehicleIndex;
+
+    dmTTT.InsertHelicopterLimitation(FData);
+  end;
+
+  heliLimit.Free;
+end;
+
+procedure TfrmAvailableVehicle.CopyPlatformInstanceIdent(const aVehicleIndex, aNewVehicleIndex: Integer);
+var
+  platInstList : TList;
+  i : Integer;
+  platInst : TPlatform_Instance_Identifier;
+begin
+  platInstList := TList.Create;
+
+  dmTTT.GetPlatformInstanceIdentifier(aVehicleIndex, platInstList);
+
+  for i := 0 to platInstList.Count - 1 do
+  begin
+    platInst := platInstList.Items[i];
+
+    with platInst do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertPlatformInstanceIdentifier(FData);
+    end;
+  end;
+
+  for i := 0 to platInstList.Count - 1 do
+  begin
+    platInst := platInstList.Items[i];
+    platInst.Free;
+  end;
+
+  platInstList.Free;
+end;
+
+procedure TfrmAvailableVehicle.CopyVehicleAsset(const aVehicleIndex, aNewVehicleIndex: Integer);
+var
+  assetList : TList;
+  i, parentIndex : Integer;
+  radar : TRadar_On_Board;
+  mad : TMAD_On_Board;
+  esm : TESM_On_Board;
+  sonar : TSonar_On_Board;
+  eo : TEOD_On_Board;
+  iff : TIFF_Sensor_On_Board;
+  visual : TVisual_Sensor_On_Board;
+  sonobuoy : TSonobuoy_On_Board;
+  missile : TMissile_On_Board;
+  torpedo : TTorpedo_On_Board;
+  mine : TMine_On_Board;
+  gun : TGun_Definition;
+  bomb : TBomb_Definition;
+  jammer : TJammer_On_Board;
+  airBubble : TAir_Bubble_Mount;
+  accousticDecoy : TAcoustic_Decoy_On_Board;
+  defensiveJammer : TDefensive_Jammer_On_Board;
+  towedJammer : TTowed_Jammer_Decoy_On_Board;
+  floatingDecoy : TFloating_Decoy_On_Board;
+  chaff : TChaff_On_Board;
+  infraredDecoy : TInfrared_Decoy_On_Board;
+  hostedPlatform : THosted_Platform;
+begin
+  assetList := TList.Create;
+
+  dmTTT.GetRadarOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    radar := assetList.Items[i];
+
+    with radar do
+    begin
+      parentIndex := FData.Radar_Instance_Index;
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertRadarOnBoard(FData);
+
+      CopyAssetBlindZone(8, parentIndex, FData.Radar_Instance_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    radar := assetList.Items[i];
+    radar.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetMADOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    mad := assetList.Items[i];
+
+    with mad do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertMADOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    mad := assetList.Items[i];
+    mad.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetESMOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    esm := assetList.Items[i];
+
+    with esm do
+    begin
+      parentIndex := FData.ESM_Instance_Index;
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertESMOnBoard(FData);
+
+      CopyAssetBlindZone(2, parentIndex, FData.ESM_Instance_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    esm := assetList.Items[i];
+    esm.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetSonarOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    sonar := assetList.Items[i];
+
+    with sonar do
+    begin
+      parentIndex := FData.Sonar_Instance_Index;
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertSonarOnBoard(FData);
+
+      CopyAssetBlindZone(7, parentIndex, FData.Sonar_Instance_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    sonar := assetList.Items[i];
+    sonar.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetEOOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    eo := assetList.Items[i];
+
+    with eo do
+    begin
+      parentIndex := FData.EO_Instance_Index;
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertEOOnBoard(FData);
+
+      CopyAssetBlindZone(3, parentIndex, FData.EO_Instance_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    eo := assetList.Items[i];
+    eo.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetIFFOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    iff := assetList.Items[i];
+
+    with iff do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertIFFOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    iff := assetList.Items[i];
+    iff.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetVisualOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    visual := assetList.Items[i];
+
+    with visual do
+    begin
+      parentIndex := FData.Visual_Instance_Index;
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertVisualOnBoard(FData);
+
+      CopyAssetBlindZone(4, parentIndex, FData.Visual_Instance_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    visual := assetList.Items[i];
+    visual.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetSonobuoyOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    sonobuoy := assetList.Items[i];
+
+    with sonobuoy do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertSonobuoyOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    sonobuoy := assetList.Items[i];
+    sonobuoy.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetMissileOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    missile := assetList.Items[i];
+
+    with missile do
+    begin
+      parentIndex := FData.Fitted_Weap_Index;
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertFittedWeaponOnBoard(1, FData);
+
+      CopyAssetBlindZone(6, parentIndex, FData.Fitted_Weap_Index);
+      CopyAssetLauncher(parentIndex, FData.Fitted_Weap_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    missile := assetList.Items[i];
+    missile.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetTorpedoOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    torpedo := assetList.Items[i];
+
+    with torpedo do
+    begin
+      parentIndex := FData.Fitted_Weap_Index;
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertFittedWeaponOnBoard(2, FData);
+
+      CopyAssetBlindZone(6, parentIndex, FData.Fitted_Weap_Index);
+      CopyAssetLauncher(parentIndex, FData.Fitted_Weap_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    torpedo := assetList.Items[i];
+    torpedo.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetMineOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    mine := assetList.Items[i];
+
+    with mine do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertFittedWeaponOnBoard(3, FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    mine := assetList.Items[i];
+    mine.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetGunOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    gun := assetList.Items[i];
+
+    with gun do
+    begin
+      parentIndex := FPoint.FData.Point_Effect_Index;
+      FPoint.FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertPointEffectOnBoard(1, FPoint.FData);
+
+      CopyAssetBlindZone(5, parentIndex, FPoint.FData.Point_Effect_Index);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    gun := assetList.Items[i];
+    gun.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetBombOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    bomb := assetList.Items[i];
+
+    with bomb do
+    begin
+      FPoint.FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertPointEffectOnBoard(2, FPoint.FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    bomb := assetList.Items[i];
+    bomb.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetRadarNoiseJammerOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    jammer := assetList.Items[i];
+
+    with jammer do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertRadarNoiseJammerOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    jammer := assetList.Items[i];
+    jammer.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetAirBubbleOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    airBubble := assetList.Items[i];
+
+    with airBubble do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertAirBubbleOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    airBubble := assetList.Items[i];
+    airBubble.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetAcousticDecoyOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    accousticDecoy := assetList.Items[i];
+
+    with accousticDecoy do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertAcousticDecoyOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    accousticDecoy := assetList.Items[i];
+    accousticDecoy.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetSelfDefensiveJammerOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    defensiveJammer := assetList.Items[i];
+
+    with defensiveJammer do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertSelfDefensiveJammerOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    defensiveJammer := assetList.Items[i];
+    defensiveJammer.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetTowedJammerDecoyOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    towedJammer := assetList.Items[i];
+
+    with towedJammer do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertTowedJammerDecoyOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    towedJammer := assetList.Items[i];
+    towedJammer.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetFloatingDecoyOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    floatingDecoy := assetList.Items[i];
+
+    with floatingDecoy do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertFloatingDecoyOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    floatingDecoy := assetList.Items[i];
+    floatingDecoy.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetChaffOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    chaff := assetList.Items[i];
+
+    with chaff do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertChaffOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    chaff := assetList.Items[i];
+    chaff.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetInfraredDecoyOnBoard(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    infraredDecoy := assetList.Items[i];
+
+    with infraredDecoy do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertInfraredDecoyOnBoard(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    infraredDecoy := assetList.Items[i];
+    infraredDecoy.Free;
+  end;
+
+  assetList.Clear;
+
+  dmTTT.GetHostedPlatform(aVehicleIndex, assetList);
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    hostedPlatform := assetList.Items[i];
+
+    with hostedPlatform do
+    begin
+      FData.Vehicle_Index := aNewVehicleIndex;
+
+      dmTTT.InsertHostedPlatform(FData);
+    end;
+  end;
+
+  for i := 0 to assetList.Count - 1 do
+  begin
+    hostedPlatform := assetList.Items[i];
+    hostedPlatform.Free;
+  end;
+
+  assetList.Free;
+end;
+
+procedure TfrmAvailableVehicle.edtSearchKeyPress(Sender: TObject; var Key: Char);
+var
+  i : Integer;
+  vehicle : TVehicle_Definition;
+begin
+  if Key = #13 then
+  begin
+    lstVehicle.Items.Clear;
+
+    frmProgress := TfrmProgress.Create(nil);
+    dmTTT.GetFilterVehicleDef(FVehicleList, edtSearch.Text);
+    frmProgress.Caption := 'Loading Vehicle from database';
+
+    frmProgress.MaxJob := FVehicleList.Count;
+
+    for i := 0 to FVehicleList.Count - 1 do
+    begin
+      vehicle := FVehicleList.Items[i];
+      frmProgress.increase(vehicle.FData.Vehicle_Identifier);
+      lstVehicle.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
+    end;
+    frmProgress.Free;
+  end;
+end;
+
+function TfrmAvailableVehicle.GetPlatformType(aTypeName: string): Integer;
+begin
+  if aTypeName = 'Fixed Wing, Fighter' then //air1
+    Result := 0
+  else if aTypeName = 'Fixed Wing, Strike/Bomber' then //air2
+    Result := 1
+  else if aTypeName = 'Fixed Wing, ASW/MP' then //air3
+    Result := 2
+  else if aTypeName = 'Fixed Wing, EW' then //air4
+    Result := 3
+  else if aTypeName = 'Rotary Wing, Attack' then //air5
+    Result := 4
+  else if aTypeName = 'Rotary Wing, ASW' then //air6
+    Result := 5
+  else if aTypeName = 'Fixed - Surveillance/AEW' then //air7
+    Result := 6
+  else if aTypeName = 'Fixed - Reconnaissance' then //air8
+    Result := 7
+  else if aTypeName = 'Seaplane' then //air9
+    Result := 8
+  else if aTypeName = 'Missile' then //air10
+    Result := 9
+  else if aTypeName = 'Aircraft Carrier(CV/CVN)' then //sur1
+    Result := 10
+  else if aTypeName = 'Cruiser, Guided Missile(CG/CGN)' then //sur2
+    Result := 11
+  else if aTypeName = 'Destroyer, Guided Missile(DDG)' then //sur3
+    Result := 12
+  else if aTypeName = 'Frigate, Guided Missile(FFG)' then //sur4
+    Result := 13
+  else if aTypeName = 'Destroyer(DD)' then //sur5
+    Result := 14
+  else if aTypeName = 'Frigate(FF)' then //sur6
+    Result := 15
+  else if aTypeName = 'Mine Warfare' then //sur7
+    Result := 16
+  else if aTypeName = 'Patrol Craft(PT/PTG)' then //sur8
+    Result := 17
+  else if aTypeName = 'Merchant' then //sur9
+    Result := 18
+  else if aTypeName = 'Utility Vessel' then //sur10
+    Result := 19
+  else if aTypeName = 'Nuclear, Ballistic Missile(SSBN)' then //sub1
+    Result := 21
+  else if aTypeName = 'Auxiliary' then //sur11
+    Result := 22
+  else if aTypeName = 'Nuclear, Attack(SSN)' then //sub2
+    Result := 23
+  else if aTypeName = 'Nuclear, Guided Missile(SSGN)' then //sub3
+    Result := 24
+  else if aTypeName = 'Diesel, Attack(SSK)' then //sub4
+    Result := 25
+  else if aTypeName = 'Diesel, Guided Missile(SSG)' then //sub5
+    Result := 26
+  else if aTypeName = 'Battery, Surface-to-Air-Missile' then //land1
+    Result := 27
+  else if aTypeName = 'Battery, Coastal Defence Missile' then //land2
+    Result := 28
+  else if aTypeName = 'Battery, Coastal Defence Gun' then //land3
+    Result := 29
+  else if aTypeName = 'Airfield' then //land4
+    Result := 30
+  else if aTypeName = 'Platoon, Armour' then //land5
+    Result := 31
+  else if aTypeName = 'Platoon, Infantry' then //land6
+    Result := 32
+  else if aTypeName = 'Battery, Anti-aircraft Artilery' then //land7
+    Result := 33
+  else if aTypeName = 'Port' then //land8
+    Result := 34
+  else if aTypeName = 'Special Craft' then //amp1
+    Result := 35
+  else if aTypeName = 'Other' then
+    Result := 40
+  else if aTypeName = 'Amphibious Warfare' then //sur12
+    Result := 41
+  else if aTypeName = 'Rotary Wing - Surveillance/AEW' then //air11
+    Result := 45
+  else if aTypeName = 'Rotary Wing - Reconnaissance' then //air12
+    Result := 46;
+end;
+
+procedure TfrmAvailableVehicle.lbAllVehicleClick(Sender: TObject);
+begin
+  FSelectedVehicle := TVehicle_Definition(
+    lstVehicle.Items.Objects[lstVehicle.ItemIndex]);
+end;
+
+procedure TfrmAvailableVehicle.UpdateFilterTypeItems;
+begin
+//  case cbbFilterDomain.ItemIndex of
+//    0: //air
+//    begin
+//      cbbFilterType.Items.Clear;
+//      cbbFilterType.Items.Add('Fixed Wing, Fighter');
+//      cbbFilterType.Items.Add('Fixed Wing, Strike/Bomber');
+//      cbbFilterType.Items.Add('Fixed Wing, ASW/MP');
+//      cbbFilterType.Items.Add('Rotary Wing, ASW');
+//      cbbFilterType.Items.Add('Rotary Wing, Attack');
+//      cbbFilterType.Items.Add('Fixed Wing, EW');
+//      cbbFilterType.Items.Add('Fixed - Surveillance/AEW');
+//      cbbFilterType.Items.Add('Fixed - Reconnaissance');
+//      cbbFilterType.Items.Add('Rotary Wing - Surveillance/AEW');
+//      cbbFilterType.Items.Add('Rotary Wing - Reconnaissance');
+//      cbbFilterType.Items.Add('Seaplane');
+//      cbbFilterType.Items.Add('Missile');
+//      cbbFilterType.Items.Add('Other');
+//    end;
+//    1: //surface
+//    begin
+//      cbbFilterType.Items.Clear;
+//      cbbFilterType.Items.Add('Frigate, Guided Missile(FFG)');
+//      cbbFilterType.Items.Add('Destroyer, Guided Missile(DDG)');
+//      cbbFilterType.Items.Add('Cruiser, Guided Missile(CG/CGN)');
+//      cbbFilterType.Items.Add('Aircraft Carrier(CV/CVN)');
+//      cbbFilterType.Items.Add('Patrol Craft(PT/PTG)');
+//      cbbFilterType.Items.Add('Mine Warfare');
+//      cbbFilterType.Items.Add('Auxiliary');
+//      cbbFilterType.Items.Add('Merchant');
+//      cbbFilterType.Items.Add('Utility Vessel');
+//      cbbFilterType.Items.Add('Destroyer(DD)');
+//      cbbFilterType.Items.Add('Frigate(FF)');
+//      cbbFilterType.Items.Add('Amphibious Warfare');
+//      cbbFilterType.Items.Add('Other');
+//    end;
+//    2: //sub-surface
+//    begin
+//      cbbFilterType.Items.Clear;
+//      cbbFilterType.Items.Add('Diesel, Attack(SSK)');
+//      cbbFilterType.Items.Add('Nuclear, Attack(SSN)');
+//      cbbFilterType.Items.Add('Nuclear, Guided Missile(SSGN)');
+//      cbbFilterType.Items.Add('Diesel, Guided Missile(SSG)');
+//      cbbFilterType.Items.Add('Nuclear, Ballistic Missile(SSBN)');
+//      cbbFilterType.Items.Add('Other');
+//    end;
+//    3: //land
+//    begin
+//      cbbFilterType.Items.Clear;
+//      cbbFilterType.Items.Add('Platoon, Armour');
+//      cbbFilterType.Items.Add('Platoon, Infantry');
+//      cbbFilterType.Items.Add('Battery, Anti-aircraft Artillery');
+//      cbbFilterType.Items.Add('Battery, Surface-to-Air Missile');
+//      cbbFilterType.Items.Add('Battery, Coastal Defence Missile');
+//      cbbFilterType.Items.Add('Battery, Coastal Defence Gun');
+//      cbbFilterType.Items.Add('Airfield');
+//      cbbFilterType.Items.Add('Port');
+//      cbbFilterType.Items.Add('Other');
+//    end;
+//    4: //amphibi
+//    begin
+//      cbbFilterType.Items.Clear;
+//      cbbFilterType.Items.Add('Special Craft');
+//    end;
+//  end;
+//
+//  cbbFilterType.ItemIndex := 0;
+end;
+
+{$ENDREGION}
+end.

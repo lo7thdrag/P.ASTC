@@ -1,0 +1,174 @@
+unit uChannelComList;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject, newClassASTT;
+
+type
+  TfChannelComList = class(TForm)
+    pnlData: TPanel;
+    lbChannelList: TListBox;
+    pnlAction: TPanel;
+    btnNew: TButton;
+    btnUsage: TButton;
+    btnRemove: TButton;
+    btnEdit: TButton;
+    btnFilter: TButton;
+    btnClose: TButton;
+
+    procedure FormCreate(Sender: TObject);
+    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+    procedure FormShow(Sender: TObject);
+
+    procedure lbChannelListClick(Sender: TObject);
+    procedure lbChannelListDblClick(Sender: TObject);
+    procedure btnNewClick(Sender: TObject);
+    procedure btnRemoveClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+  private
+    FSelectedResourceAlloc : TResource_Allocation;
+
+    FSelectedComChannelList : TList;
+    FSelectedComChannel : TExternal_Communication_Channel;
+
+    procedure UpdateComChannelList;
+
+  public
+    isNoCancel : Boolean;
+
+    property SelectedResourceAlloc : TResource_Allocation
+      read FSelectedResourceAlloc write FSelectedResourceAlloc;
+  end;
+
+var
+  fChannelComList: TfChannelComList;
+
+implementation
+
+uses
+  uDataModuleTTT, uCommunicationsChannels;
+
+{$R *.dfm}
+
+procedure TfChannelComList.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfChannelComList.btnEditClick(Sender: TObject);
+begin
+  if lbChannelList.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Communication Channel !');
+    Exit;
+  end;
+
+  with CommunicationsChannelsForm do
+  begin
+    SelectedResourceAlloc := FSelectedResourceAlloc;
+    SelectedComChannel := FSelectedComChannel;
+    LastName := SelectedComChannel.FData.Channel_Identifier;
+    ShowModal;
+  end;
+
+  UpdateComChannelList;
+end;
+
+procedure TfChannelComList.btnNewClick(Sender: TObject);
+begin
+  CommunicationsChannelsForm := TCommunicationsChannelsForm.Create(Self);
+  try
+    with CommunicationsChannelsForm do
+    begin
+      SelectedResourceAlloc := FSelectedResourceAlloc;
+      SelectedComChannel := TExternal_Communication_Channel.Create;
+      SelectedComChannel.FData.Channel_Number := FSelectedComChannelList.Count + 1;
+      ShowModal;
+      SelectedComChannel.Free;
+    end;
+  finally
+    CommunicationsChannelsForm.Free;
+  end;
+
+  UpdateComChannelList;
+
+end;
+
+procedure TfChannelComList.btnRemoveClick(Sender: TObject);
+var
+  warning : Integer;
+
+begin
+  if lbChannelList.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Communication Channel !');
+    Exit;
+  end;
+
+  warning := MessageDlg('Are you sure to delete this Communication Channel?', mtConfirmation,
+    mbOKCancel, 0);
+
+  if warning = mrOK then
+  begin
+    with FSelectedComChannel.FData do
+      dmTTT.DeleteExternalCommunicationChannel(2, Comms_Channel_Index);
+
+    UpdateComChannelList;
+  end;
+end;
+
+procedure TfChannelComList.FormCreate(Sender: TObject);
+begin
+  FSelectedComChannelList := TList.Create;
+end;
+
+procedure TfChannelComList.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  if GetKeyState(VK_ESCAPE) < 0 then
+  begin
+    case Msg.CharCode of
+      VK_ESCAPE: Close;
+    end;
+  end;
+end;
+
+procedure TfChannelComList.FormShow(Sender: TObject);
+begin
+  isNoCancel := False;
+  UpdateComChannelList;
+end;
+
+procedure TfChannelComList.lbChannelListClick(Sender: TObject);
+begin
+  FSelectedComChannel := TExternal_Communication_Channel(
+    lbChannelList.Items.Objects[lbChannelList.ItemIndex]);
+end;
+
+procedure TfChannelComList.lbChannelListDblClick(Sender: TObject);
+begin
+  btnEdit.Click;
+end;
+
+procedure TfChannelComList.UpdateComChannelList;
+var
+  i : Integer;
+  comChannel : TExternal_Communication_Channel;
+begin
+  lbChannelList.Items.Clear;
+
+  with FSelectedResourceAlloc.FData do
+    dmTTT.GetExternalCommunicationChannel(Resource_Alloc_Index,
+      FSelectedComChannelList);
+
+  for i := 0 to FSelectedComChannelList.Count - 1 do
+  begin
+    comChannel := FSelectedComChannelList.Items[i];
+    lbChannelList.Items.AddObject(comChannel.FData.Channel_Identifier,
+      comChannel);
+  end;
+end;
+
+end.

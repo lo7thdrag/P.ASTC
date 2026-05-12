@@ -1,0 +1,191 @@
+unit ufrmRadarIntervalSummary;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, newClassASTT, Vcl.Imaging.pngimage, Vcl.ComCtrls;
+
+type
+  TfrmRadarIntervalSummary = class(TForm)
+    pnl1Title: TPanel;
+    pnl2ControlPage: TPanel;
+    pcScenarioTabs: TPageControl;
+    tsGeneral: TTabSheet;
+    pnl3Button: TPanel;
+    pnlSparatorHor1: TPanel;
+    Image2: TImage;
+    pnlSparatorHor2: TPanel;
+    Image1: TImage;
+    edtName: TEdit;
+    lblName: TStaticText;
+    btnEditList: TButton;
+    btnOK: TButton;
+    btnApply: TButton;
+    btnCancel: TButton;
+
+    procedure FormShow(Sender: TObject);
+
+    procedure btnEditListClick(Sender: TObject);
+    procedure btnOKClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnApplyClick(Sender: TObject);
+    procedure edtNameKeyPress(Sender: TObject; var Key: Char);
+
+  private
+    FSelectedRadarInterval : TRadar_Interval_List;
+
+    function CekInput: Boolean;
+    procedure UpdateRadarActivationIntervalData;
+
+  public
+//    IdAction : Integer; {0: none, 1: new, 2: edit}
+    isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
+    AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
+    LastName : string;
+    property SelectedRadarInterval : TRadar_Interval_List read FSelectedRadarInterval write FSelectedRadarInterval;
+  end;
+
+var
+  frmRadarIntervalSummary: TfrmRadarIntervalSummary;
+
+implementation
+
+uses
+  uDataModuleTTT, uRadarIntervalSetup;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmRadarIntervalSummary.FormShow(Sender: TObject);
+begin
+  UpdateRadarActivationIntervalData;
+
+  with FSelectedRadarInterval.FData do
+    btnApply.Enabled := Interval_List_Index = 0;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmRadarIntervalSummary.btnApplyClick(Sender: TObject);
+begin
+  if not CekInput then
+    Exit;
+
+  with FSelectedRadarInterval do
+  begin
+    FData.Interval_List_Identifier := edtName.Text;
+
+    if FData.Interval_List_Index = 0 then
+      dmTTT.InsertRadarActivationIntervalDef(FData)
+    else
+      dmTTT.UpdateRadarActivationIntervalDef(FData);
+  end;
+
+  UpdateRadarActivationIntervalData;
+  btnApply.Enabled := False;
+  btnCancel.Enabled := False;
+end;
+
+procedure TfrmRadarIntervalSummary.btnCancelClick(Sender: TObject);
+begin
+  AfterClose := False;
+  Close;
+end;
+
+procedure TfrmRadarIntervalSummary.btnEditListClick(Sender: TObject);
+begin
+  fRadarIntervalSetup := TfRadarIntervalSetup.Create(Self);
+  try
+    with fRadarIntervalSetup do
+    begin
+      SelectedRadarInterval := FSelectedRadarInterval;
+      ShowModal;
+    end;
+  finally
+    fRadarIntervalSetup.Free;
+  end;
+end;
+
+procedure TfrmRadarIntervalSummary.btnOKClick(Sender: TObject);
+begin
+  if btnApply.Enabled then
+    btnApply.Click;
+
+  Close;
+end;
+
+function TfrmRadarIntervalSummary.CekInput: Boolean;
+var
+  i, chkSpace, numSpace: Integer;
+begin
+  Result := False;
+
+  {Jika inputan class name kosong}
+  if (edtName.Text = '')then
+  begin
+    ShowMessage('Please insert class name');
+    Exit;
+  end;
+
+  {Jika berisi spasi semua}
+  if Copy(edtName.Text, 1, 1) = ' ' then
+  begin
+    chkSpace := Length(edtName.Text);
+    numSpace := 0;
+    for i := 1 to chkSpace do
+    begin
+      if edtName.Text[i] = #32 then
+      numSpace := numSpace + 1;
+    end;
+    if chkSpace = numSpace then
+    begin
+      ShowMessage('Please use another name');
+      Exit;
+    end;
+  end;
+
+  {Jika Class Name sudah ada}
+  if (dmTTT.GetRadarActivationIntervalDef(edtName.Text)>0) then
+  begin
+    {Jika inputan baru}
+    if FSelectedRadarInterval.FData.Interval_List_Index = 0 then
+    begin
+      ShowMessage('Please use another class name');
+      Exit;
+    end
+    else if LastName <> edtName.Text then
+    begin
+      ShowMessage('Please use another name');
+      Exit;
+    end;
+  end;
+
+  Result := True;
+end;
+
+procedure TfrmRadarIntervalSummary.edtNameKeyPress(Sender: TObject;var Key: Char);
+begin
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmRadarIntervalSummary.UpdateRadarActivationIntervalData;
+begin
+  with FSelectedRadarInterval.FData do
+  begin
+    if Interval_List_Index = 0 then
+      edtName.Text := 'Unnamed'
+    else
+      edtName.Text := Interval_List_Identifier;
+
+    btnEditList.Enabled := Interval_List_Index <> 0;
+  end;
+    LastName := edtName.Text;
+end;
+
+{$ENDREGION}
+
+end.

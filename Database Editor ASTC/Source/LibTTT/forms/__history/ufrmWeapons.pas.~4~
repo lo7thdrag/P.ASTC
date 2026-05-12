@@ -1,0 +1,47 @@
+unit ufrmWeapons;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage;
+
+type
+  TfrmWeapons = class(TForm)
+    imgMissile: TImage;
+    imgGun: TImage;
+    imgBom: TImage;
+    imgMine: TImage;
+    imgTorpedo: TImage;
+    procedure FormActivate(Sender: TObject);
+    procedure imgMissileMouseEnter(Sender: TObject);
+    procedure imgMissileMouseLeave(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmWeapons: TfrmWeapons;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmWeapons.FormActivate(Sender: TObject);
+begin
+  WindowState := wsMaximized;
+end;
+
+procedure TfrmWeapons.imgMissileMouseEnter(Sender: TObject);
+begin
+  imgMissile.Picture.LoadFromFile('data\Image DBEditor\Interface\Background\imgMissile_Select.png');
+end;
+
+procedure TfrmWeapons.imgMissileMouseLeave(Sender: TObject);
+begin
+  imgMissile.Picture.LoadFromFile('data\Image DBEditor\Interface\Background\imgMissile.png');
+end;
+
+end.

@@ -1,0 +1,53 @@
+object frmSnapshotDLG: TfrmSnapshotDLG
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsToolWindow
+  Caption = 'Snapshot'
+  ClientHeight = 137
+  ClientWidth = 438
+  Color = clBtnFace
+  DefaultMonitor = dmDesktop
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poOwnerFormCenter
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDeactivate = FormDeactivate
+  OnShow = FormShow
+  PixelsPerInch = 120
+  TextHeight = 16
+  object Edit1: TEdit
+    Left = 32
+    Top = 32
+    Width = 369
+    Height = 24
+    CharCase = ecUpperCase
+    TabOrder = 0
+    OnKeyPress = Edit1KeyPress
+  end
+  object Button1: TButton
+    Left = 324
+    Top = 80
+    Width = 77
+    Height = 27
+    Caption = 'OK'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 246
+    Top = 80
+    Width = 77
+    Height = 27
+    Cancel = True
+    Caption = 'Cancel'
+    TabOrder = 2
+    OnClick = Button2Click
+  end
+end

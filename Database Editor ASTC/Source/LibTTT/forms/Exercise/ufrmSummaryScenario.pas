@@ -1,0 +1,348 @@
+unit ufrmSummaryScenario;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ComCtrls, ExtCtrls, uDBAssetObject,
+  uDBAsset_Deploy, uDBAsset_GameEnvironment, Vcl.Imaging.pngimage;
+
+type
+  TfrmSummaryScenario = class(TForm)
+    pnl1Title: TPanel;
+    txtClass: TLabel;
+    edtName: TEdit;
+    pnl2ControlPage: TPanel;
+    pcScenarioTabs: TPageControl;
+    tsGeneral: TTabSheet;
+    StaticText1: TStaticText;
+    edResourceAllocation: TEdit;
+    btnPick: TBitBtn;
+    btnDeployPlatforms: TButton;
+    tsRelationships: TTabSheet;
+    rgForce: TRadioGroup;
+    gbPlatformRelationships: TGroupBox;
+    btGroups: TButton;
+    btLinks: TButton;
+    pnl3Button: TPanel;
+    btnPreplayScenario: TButton;
+    pnlSparatorHor1: TPanel;
+    pnlSparatorHor2: TPanel;
+    Image2: TImage;
+    Image1: TImage;
+    btnOK: TButton;
+    btnApply: TButton;
+    btnCancel: TButton;
+
+    procedure FormShow(Sender: TObject);
+
+     //Global
+    procedure edtChange(Sender: TObject);
+
+    //General
+    procedure btnPickClick(Sender: TObject);
+    procedure btnDeployPlatformsClick(Sender: TObject);
+
+    procedure btGroupsClick(Sender: TObject);
+    procedure btLinksClick(Sender: TObject);
+
+    procedure btnOKClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnApplyClick(Sender: TObject);
+    procedure btnPreplayScenarioClick(Sender: TObject);
+
+  private
+    FSelectedScenario : TScenario_Definition;
+    FSelectedAssetDeployment : TAsset_Deployment;
+
+    FSelectedResourceAlloc : TResource_Allocation;
+    FSelectedEnviArea : TGame_Environment_Definition;
+
+    function CekInput: Boolean;
+
+    procedure UpdateScenarioData;
+    procedure UpdateResourceallocationData;
+
+  public
+    isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
+    AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
+    LastName : string;
+
+    property SelectedScenario : TScenario_Definition read FSelectedScenario write FSelectedScenario;
+    property SelectedAssetDeployment : TAsset_Deployment read FSelectedAssetDeployment write FSelectedAssetDeployment;
+  end;
+
+var
+  frmSummaryScenario : TfrmSummaryScenario;
+
+implementation
+
+uses
+  uDataModuleTTT, ufrmResorceAllocationPickList, ufrmPlatformDeploytment,
+  ufrmCubicleGroup, uLinkWindow, ShellAPI;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmSummaryScenario.FormShow(Sender: TObject);
+begin
+  tsGeneral.Show;
+  UpdateScenarioData;
+  rgForce.ItemIndex := 0;
+
+  with FSelectedScenario.FData do
+    btnApply.Enabled := Scenario_Index = 0;
+
+  isOK := True;
+  AfterClose := True;
+  btnCancel.Enabled := True;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmSummaryScenario.btnOKClick(Sender: TObject);
+begin
+  if btnApply.Enabled then
+    btnApply.Click;
+
+  if isOk then
+    Close;
+end;
+
+procedure TfrmSummaryScenario.btnApplyClick(Sender: TObject);
+begin
+  with FSelectedScenario do
+  begin
+    if not CekInput then
+    begin
+      isOK := False;
+      Exit;
+    end;
+
+    {$REGION ' General '}
+    LastName := edtName.Text;
+    FData.Scenario_Identifier := edtName.Text;
+    {$ENDREGION}
+
+    if FData.Scenario_Index = 0 then
+    begin
+      if dmTTT.InsertScenarioDef(FData) then
+      begin
+        with FSelectedAssetDeployment.FData do
+        begin
+          Deployment_Identifier := '(Scenario ' + IntToStr(FData.Scenario_Index) + ')';
+          Scenario_Index := FData.Scenario_Index;
+        end;
+
+        dmTTT.InsertAssetDeployment(FSelectedAssetDeployment.FData);
+        ShowMessage('Data has been saved');
+      end;
+    end
+    else
+    begin
+      if dmTTT.UpdateScenarioDef(FData) then
+      begin
+        ShowMessage('Data has been updated');
+      end;
+
+    end;
+  end;
+
+  UpdateScenarioData;
+
+  isOK := True;
+  AfterClose := True;
+  btnApply.Enabled := False;
+  btnCancel.Enabled := False;
+end;
+
+procedure TfrmSummaryScenario.btnCancelClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSummaryScenario.btnPreplayScenarioClick(Sender: TObject);
+begin
+  ShellExecute(Handle, 'open', PChar(GetCurrentDir + '\tttSimClient.exe'), nil,
+    nil, SW_SHOWNORMAL)
+end;
+
+procedure TfrmSummaryScenario.btnPickClick(Sender: TObject);
+begin
+  frmResorceAllocationPickList := TfrmResorceAllocationPickList.Create(Self);
+  try
+    with frmResorceAllocationPickList do
+    begin
+      SelectedResourceAllocId := FSelectedScenario.FData.Resource_Alloc_Index;
+      ShowModal;
+      FSelectedScenario.FData.Resource_Alloc_Index := SelectedResourceAllocId;
+    end;
+  finally
+    frmResorceAllocationPickList.Free;
+  end;
+  
+  UpdateResourceallocationData;
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmSummaryScenario.btnDeployPlatformsClick(Sender: TObject);
+begin
+  frmPlatformDeploytment := TfrmPlatformDeploytment.Create(Self);
+  try
+    with frmPlatformDeploytment do
+    begin
+      SelectedAssetDeployment := FSelectedAssetDeployment;
+      SelectedResourceAlloc := FSelectedResourceAlloc;
+      SelectedEnviArea := FSelectedEnviArea;
+      ShowModal;
+    end;
+  finally
+    frmPlatformDeploytment.Free;
+  end;
+
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmSummaryScenario.btGroupsClick(Sender: TObject);
+begin
+  frmCubicleGroup := TfrmCubicleGroup.Create(Self);
+  try
+    with frmCubicleGroup do
+    begin
+      SelectedScenario := FSelectedScenario;
+      SelectedResourceAlloc := FSelectedResourceAlloc;
+      SelectedAssetDeployment := FSelectedAssetDeployment;
+      SelectedForce := rgForce.ItemIndex + 1;
+      ShowModal;
+    end;
+  finally
+    frmCubicleGroup.Free;
+  end;
+
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmSummaryScenario.btLinksClick(Sender: TObject);
+begin
+  LinkWindowForm := TLinkWindowForm.Create(Self);
+  try
+    with LinkWindowForm do
+    begin
+      ShowModal
+    end;
+  finally
+    LinkWindowForm.Free;
+  end;
+
+  btnApply.Enabled := True;
+end;
+
+procedure TfrmSummaryScenario.UpdateScenarioData;
+begin
+  with FSelectedScenario do
+  begin
+    if FData.Scenario_Index = 0 then
+        edtName.Text := '(Unnamed)'
+    else
+      edtName.Text := FData.Scenario_Identifier;
+
+    LastName := edtName.Text;
+    btnDeployPlatforms.Enabled := FData.Scenario_Index <> 0;
+    btGroups.Enabled := FData.Scenario_Index <> 0;
+    btLinks.Enabled := FData.Scenario_Index <> 0;
+
+    UpdateResourceallocationData;
+  end;
+end;
+
+procedure TfrmSummaryScenario.UpdateResourceallocationData;
+begin
+  with FSelectedScenario do
+  begin
+    dmTTT.GetResourceAllocationDef(FData.Resource_Alloc_Index, FSelectedResourceAlloc);
+
+    if Assigned(FSelectedResourceAlloc) then
+    begin
+      dmTTT.GetEnvironmentDef(FSelectedResourceAlloc.FData.Game_Enviro_Index, FSelectedEnviArea);
+      dmTTT.GetGameAreaDef(FSelectedEnviArea.FData.Game_Area_Index,FSelectedEnviArea.FGameArea);
+
+      edResourceAllocation.Text := FSelectedResourceAlloc.FData.Allocation_Identifier;
+    end
+    else
+      edResourceAllocation.Text := '(None)';
+  end;
+end;
+
+function TfrmSummaryScenario.CekInput: Boolean;
+var
+  i, chkSpace, numSpace: Integer;
+  scenario : TScenario_Definition;
+begin
+  Result := False;
+
+  {Jika inputan class name kosong}
+  if (edtName.Text = '')then
+  begin
+    ShowMessage('Please insert class name');
+    Exit;
+  end;
+
+  {Jika berisi spasi semua}
+  if Copy(edtName.Text, 1, 1) = ' ' then
+  begin
+    chkSpace := Length(edtName.Text);
+    numSpace := 0;
+
+    for i := 1 to chkSpace do
+    begin
+      if edtName.Text[i] = #32 then
+      numSpace := numSpace + 1;
+    end;
+
+    if chkSpace = numSpace then
+    begin
+      ShowMessage('Please use another class name');
+      Exit;
+    end;
+  end;
+
+  {Jika Name sudah ada}
+  if (dmTTT.GetScenarioDef(edtName.Text)>0) then
+  begin
+    {Jika inputan baru}
+    if FSelectedScenario.FData.Scenario_Index = 0 then
+    begin
+      ShowMessage('Please use another class name');
+      Exit;
+    end
+    else if LastName <> edtName.Text then
+    begin
+      ShowMessage('Please use another class name');
+      Exit;
+    end;
+  end;
+
+  if FSelectedScenario.FData.Resource_Alloc_Index = 0 then
+  begin
+    ShowMessage('Select Resource Allocation.');
+    Exit;
+  end;
+
+  Result := True;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Filter Input '}
+
+procedure TfrmSummaryScenario.edtChange(Sender: TObject);
+begin
+  btnApply.Enabled := True;
+end;
+
+{$ENDREGION}
+
+end.

@@ -1,0 +1,216 @@
+unit ufrmAvailableRadarActivationIntervals;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls, newClassASTT;
+
+type
+  TfrmAvailableRadarActivationIntervals = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    pnlTableButton: TPanel;
+    img1: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    pnlTableList: TPanel;
+    lstRadarActivationIntervals: TListBox;
+    pnlHorizontal: TPanel;
+    Image2: TImage;
+    btnUsage: TImage;
+
+    procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure lbSingleClick(Sender: TObject);
+
+    procedure btnNewClick(Sender: TObject);
+    procedure btnCopyClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnUsageClick(Sender: TObject);
+
+  private
+    FRadarActivationIntervalsList : TList;
+    FSelectedRadarActivationIntervals : TRadar_Interval_List;
+
+    procedure UpdateRadarActivationIntervalsList;
+    procedure CopyRadarActivatianIntervalData(const aDefaultIndex, aNewDefaultIndex: Integer);
+
+  end;
+
+var
+  frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationIntervals;
+
+implementation
+
+uses
+  uDataModuleTTT, ufrmRadarIntervalSummary, ufrmUsage;
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmAvailableRadarActivationIntervals.FormActivate(Sender: TObject);
+begin
+  WindowState := wsMaximized;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.FormCreate(Sender: TObject);
+begin
+  FRadarActivationIntervalsList := TList.Create;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.FormShow(Sender: TObject);
+begin
+  UpdateRadarActivationIntervalsList;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmAvailableRadarActivationIntervals.btnNewClick(Sender: TObject);
+begin
+  frmRadarIntervalSummary := TfrmRadarIntervalSummary.Create(Self);
+  try
+    with frmRadarIntervalSummary do
+    begin
+      SelectedRadarInterval := TRadar_Interval_List.Create;
+      ShowModal;
+
+      SelectedRadarInterval.Free;
+    end;
+  finally
+    frmRadarIntervalSummary.Free;
+  end;
+
+  UpdateRadarActivationIntervalsList;
+
+//  with frmRadarIntervalSummary do
+//  begin
+//   IdAction := 1;
+//   SelectedRadarInterval := TRadar_Interval_List.Create;
+//   ShowModal;
+//   end;
+//
+//   UpdateRadarActivationIntervalsList;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.btnCopyClick(Sender: TObject);
+var
+  newClassName : string;
+  count, parentIndex : Integer;
+
+begin
+  if lstRadarActivationIntervals.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Radar Activation Intervals... !');
+    Exit;
+  end;
+
+  with TRadar_Interval_List(FSelectedRadarActivationIntervals) do
+  begin
+    parentIndex := FData.Interval_List_Index;
+    newClassName := FData.Interval_List_Identifier + ' - Copy';
+
+    count := dmTTT.GetRadarActivationIntervalDef(newClassName);
+
+    if count > 0 then
+      newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+
+    FData.Interval_List_Identifier := newClassName;
+
+    dmTTT.InsertRadarActivationIntervalDef(FData);
+    CopyRadarActivatianIntervalData(parentIndex, FData.Interval_List_Index);
+  end;
+
+   UpdateRadarActivationIntervalsList;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.btnDeleteClick(Sender: TObject);
+begin
+  with TRadar_Interval_List(FSelectedRadarActivationIntervals).FData do
+  begin
+   dmTTT.DeleteRadarIntervalDef(Interval_List_Index);
+   dmTTT.DeleteRadarIntervalList(Interval_List_Index);
+   end;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.btnEditClick(Sender: TObject);
+begin
+  with frmRadarIntervalSummary do
+  begin
+   IdAction := 2;
+   SelectedRadarInterval := TRadar_Interval_List(FSelectedRadarActivationIntervals);
+   ShowModal;
+   end;
+
+   UpdateRadarActivationIntervalsList
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.btnUsageClick(Sender: TObject);
+begin
+//  UIndex  :=  41;
+//  usage_title := 'vehicle :';
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.CopyRadarActivatianIntervalData(const aDefaultIndex, aNewDefaultIndex: Integer);
+var
+  RadarIntervalDataList : TList;
+  i : Integer;
+  RadarIntervalData : TRadar_Interval_Definition;
+begin
+  RadarIntervalDataList := TList.Create;
+
+  dmTTT.GetRadarActivationIntervalDef(aDefaultIndex, RadarIntervalDataList);
+
+  for i := 0 to RadarIntervalDataList.Count - 1 do
+  begin
+    RadarIntervalData := RadarIntervalDataList.Items[i];
+
+    with RadarIntervalData do
+    begin
+      FData.Interval_List_Index := aNewDefaultIndex;
+
+      dmTTT.InsertRadarActivationIntervalData(FData);
+    end;
+  end;
+
+  for i := 0 to RadarIntervalDataList.Count - 1 do
+  begin
+    RadarIntervalData := RadarIntervalDataList.Items[i];
+    RadarIntervalData.Free;
+  end;
+
+  RadarIntervalDataList.Free;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.UpdateRadarActivationIntervalsList;
+var
+  i : Integer;
+  radaractivationintervals : TRadar_Interval_List;
+begin
+  lstRadarActivationIntervals.Items.Clear;
+
+  dmTTT.GetAllRadarActivationIntervalDef(FRadarActivationIntervalsList);
+
+  for i := 0 to FRadarActivationIntervalsList.Count - 1 do
+  begin
+    radaractivationintervals := FRadarActivationIntervalsList.Items[i];
+    lstRadarActivationIntervals.Items.AddObject(radaractivationintervals.FData.Interval_List_Identifier, radaractivationintervals);
+  end;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.lbSingleClick(Sender: TObject);
+begin
+  FSelectedRadarActivationIntervals := TRadar_Interval_List(lstRadarActivationIntervals.Items.Objects[lstRadarActivationIntervals.ItemIndex]);
+end;
+
+{$ENDREGION}
+
+end.

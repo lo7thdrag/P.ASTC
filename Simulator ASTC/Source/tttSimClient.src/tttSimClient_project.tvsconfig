@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.tttData" Type="System.String" Value="tttData" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uSelectRecipient" Type="System.String" Value="uSelectRecipient" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uSimManager" Type="System.String" Value="uSimManager" Category="General" IsBrowsable="False" />
+</TgConfig>

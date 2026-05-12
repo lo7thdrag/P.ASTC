@@ -1,0 +1,1103 @@
+unit uOtherSingleList;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  E_OtherFormShow = (ofsRuntimePlatformLibrary, ofsPredefinedPattern,
+    ofsRadarActivationInterval, ofsGraphicalOverlays, ofsStudentRoles,
+    ofsGameDefaults, ofsSNRvsPODCurve, ofsReportEditor, ofsReportViewer);
+
+  TfOtherSingle = class(TForm)
+    lbSingle : TListBox;
+    btnNew: TButton;
+    btnCopy: TButton;
+    btnEdit: TButton;
+    btnRemove: TButton;
+    btnFilter: TButton;
+    btnUsage: TButton;
+    btnClose: TButton;
+    lstIDsingle: TListBox;
+
+    procedure FormCreate(Sender: TObject);
+    procedure FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+    procedure FormShow(Sender: TObject);
+
+    procedure lbSingleClick(Sender: TObject);
+    procedure lbSingleDblClick(Sender: TObject);
+    procedure btnNewClick(Sender: TObject);
+    procedure btnCopyClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
+    procedure btnRemoveClick(Sender: TObject);
+    procedure btnUsageClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+  private
+    FOtherFormShow : E_OtherFormShow;
+
+    FOtherList : TList;
+    FSelectedObject : TObject;
+
+    procedure UpdateOtherList;
+    procedure CopyPlatfromLibraryEntry(const aLibraryIndex,aNewLibraryIndex: Integer);
+    procedure CopyRadarIntervalDefinition(const aRadarIntervalIndex,
+      aNewIntervalIndex: Integer);
+    procedure CopyStudentRoleDefinition(const aStudentRoleIndex, aNewStudentRoleIndex: Integer);
+    procedure CopyGameDefaultEffect(const aDefaultIndex,aNewDefaultIndex: Integer);
+    procedure CopyGameDefaultIFF(const aDefaultIndex, aNewDefaultIndex: Integer);
+    procedure CopyPODvsSNRPoint(const aDefaultIndex, aNewDefaultIndex: Integer);
+  public
+    property OtherFormShow : E_OtherFormShow read FOtherFormShow
+      write FOtherFormShow;
+  end;
+
+var
+  fOtherSingle: TfOtherSingle;
+
+implementation
+
+uses
+  uDataModuleTTT, ufrmRuntimePlatformLibrarySummary, ufrmPredefinedPatternSummary,
+  ufrmRadarIntervalSummary,
+  ufrmOverlaySummary, ufrmStudentRoleSummary, ufrmGameDefaultSummary, ufrmSnrVsPodSummary, ufrmUsage,
+  uDBAsset_Runtime_Platform_Library, uDBPattern, newClassASTT,
+  uDBAsset_GameEnvironment, uDBAssetObject, uDBGame_Defaults, uDBEditSetting,ufDBEditor;
+
+{$R *.dfm}
+
+procedure TfOtherSingle.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfOtherSingle.btnCopyClick(Sender: TObject);
+var
+  newClassName : string;
+  count, parentIndex : Integer;
+
+  newName : string;
+  duplicate, i : Integer;
+  list : TList;
+
+  roleList : TStudent_Role_List;
+  roleDef : TStudent_Role_Definition;
+begin
+  if lbSingle.ItemIndex = -1 then
+    Exit;
+
+  case FOtherFormShow of
+    ofsRuntimePlatformLibrary:
+    begin
+      with TRuntime_Platform_Library(FSelectedObject) do
+      begin
+        parentIndex := FData.Platform_Library_Index;
+        newClassName := FData.Library_Name + ' - Copy';
+
+        count := dmTTT.GetRuntimePlatformLibraryDef(newClassName);
+
+        if count > 0 then
+          newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+
+        FData.Library_Name := newClassName;
+
+        dmTTT.InsertRuntimePlatformLibraryDef(FData);
+        CopyPlatfromLibraryEntry(parentIndex, FData.Platform_Library_Index);
+      end;
+    end;
+    ofsPredefinedPattern:
+    begin
+      with TPredefined_Pattern(FSelectedObject) do
+      begin
+        newClassName := FData.Pattern_Identifier + ' - Copy';
+
+        count := dmTTT.GetPredefinedPatternDef(newClassName);
+
+        if count > 0 then
+          newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+
+        FData.Pattern_Identifier := newClassName;
+
+        dmTTT.InsertPredefinedPatternDef(FData);
+      end;
+    end;
+    ofsRadarActivationInterval:
+    begin
+      with TRadar_Interval_List(FSelectedObject) do
+      begin
+        parentIndex := FData.Interval_List_Index;
+        newClassName := FData.Interval_List_Identifier + ' - Copy';
+
+        count := dmTTT.GetRadarIntervalList(newClassName);
+
+        if count > 0 then
+          newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+
+        FData.Interval_List_Identifier := newClassName;
+
+        dmTTT.InsertRadarIntervalList(FData);
+        CopyRadarIntervalDefinition(parentIndex, FData.Interval_List_Index);
+      end;
+    end;
+    ofsGraphicalOverlays:
+    begin
+      with frmOverlaySummary do
+      begin
+//        OverlayDef := TOverlay_Definition(FSelectedObject);
+//        IdAction := 4;
+        ShowModal;
+      end;
+    end;
+    ofsStudentRoles:
+    begin
+      with TStudent_Role_List(FSelectedObject) do
+      begin
+//        parentIndex := FData.Role_List_Index;
+//        newClassName := FData.Role_List_Identifier + ' - Copy';
+//
+//        count := dmTTT.GetStudentRoleList(newClassName);
+//
+//        if count > 0 then
+//          newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+//
+//        FData.Role_List_Identifier := newClassName;
+//
+//        dmTTT.InsertStudentRoleList(FData);
+//        CopyStudentRoleDefinition(parentIndex, FData.Role_List_Index);
+      end;
+    end;
+    ofsGameDefaults:
+    begin
+      with TGame_Defaults(FSelectedObject) do
+      begin
+//        parentIndex := FData.Defaults_Index;
+//        newClassName := FData.Defaults_Identifier + ' - Copy';
+//
+//        count := dmTTT.GetGameDefaultDef(newClassName);
+//
+//        if count > 0 then
+//          newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+//
+//        FData.Defaults_Identifier := newClassName;
+//
+//        dmTTT.InsertGameDefaultDef(FData);
+//        CopyGameDefaultEffect(parentIndex, FData.Defaults_Index);
+//        CopyGameDefaultIFF(parentIndex, FData.Defaults_Index);
+      end;
+    end;
+    ofsSNRvsPODCurve:
+    begin
+      with TPOD_vs_SNR_Curve_Definition(FSelectedObject) do
+      begin
+//        parentIndex := FData.Curve_Definition_Index;
+//        newClassName := FData.Curve_Definition_Identifier + ' - Copy';
+//
+//        count := dmTTT.GetPODvsSNRCurveDef(newClassName);
+//
+//        if count > 0 then
+//          newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+//
+//        FData.Curve_Definition_Identifier := newClassName;
+//
+//        dmTTT.InsertPODvsSNRCurveDef(FData);
+//        CopyPODvsSNRPoint(parentIndex, FData.Curve_Definition_Index);
+      end;
+    end;
+    ofsReportEditor: ;
+    ofsReportViewer: ;
+  end;
+
+  UpdateOtherList;
+end;
+
+procedure TfOtherSingle.btnEditClick(Sender: TObject);
+begin
+  if lbSingle.ItemIndex = -1 then
+    Exit;
+
+  case FOtherFormShow of
+    ofsRuntimePlatformLibrary:
+    begin
+      with frmRuntimePlatformLibrarySummary do
+      begin
+//        IdAction := 2;
+        SelectedRPL := TRuntime_Platform_Library(FSelectedObject);
+        ShowModal;
+      end;
+    end;
+    ofsPredefinedPattern:
+    begin
+      with frmPredefinedPatternSummary do
+      begin
+//        IdAction := 2;
+        SelectedPredefinedPattern := TPredefined_Pattern(FSelectedObject);
+        ShowModal;
+      end;
+    end;
+    ofsRadarActivationInterval:
+    begin
+      with frmRadarIntervalSummary do
+      begin
+        IdAction := 2;
+        SelectedRadarInterval := TRadar_Interval_List(FSelectedObject);
+        ShowModal;
+      end;
+    end;
+    ofsGraphicalOverlays:
+    begin
+      with frmOverlaySummary do
+      begin
+//        OverlayDef := TOverlay_Definition(FSelectedObject);
+//        IdAction := 2;
+        ShowModal;
+      end;
+    end;
+    ofsStudentRoles:
+    begin
+      with frmStudentRoleSummary do
+      begin
+        IdAction := 2;
+        SelectedStudentRoleList := TStudent_Role_List(FSelectedObject);
+        ShowModal;
+      end;
+    end;
+    ofsGameDefaults:
+    begin
+      with frmGameDefaultSummary do
+      begin
+        IdAction := 2;
+        SelectedGameDefault := TGame_Defaults(FSelectedObject);
+        ShowModal;
+      end;
+    end;
+    ofsSNRvsPODCurve:
+    begin
+      with frmSnrVsPodSummary do
+      begin
+        IdAction := 2;
+        SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition(FSelectedObject);
+        ShowModal;
+      end;
+    end;
+    ofsReportEditor: ;
+    ofsReportViewer: ;
+  end;
+
+  UpdateOtherList;
+end;
+
+procedure TfOtherSingle.btnNewClick(Sender: TObject);
+begin
+  case FOtherFormShow of
+    ofsRuntimePlatformLibrary:
+    begin
+      with frmRuntimePlatformLibrarySummary do
+      begin
+//        IdAction := 1;
+        SelectedRPL := TRuntime_Platform_Library.Create;
+        ShowModal;
+      end;
+    end;
+    ofsPredefinedPattern:
+    begin
+      with frmPredefinedPatternSummary do
+      begin
+        IdAction := 1;
+        SelectedPredefinedPattern := TPredefined_Pattern.Create;
+        ShowModal;
+      end;
+    end;
+    ofsRadarActivationInterval:
+    begin
+      with frmRadarIntervalSummary do
+      begin
+        IdAction := 1;
+        SelectedRadarInterval := TRadar_Interval_List.Create;
+        ShowModal;
+      end;
+    end;
+    ofsGraphicalOverlays:
+    begin
+      with frmOverlaySummary do
+      begin
+//        OverlayDef := TOverlay_Definition.Create;
+//        IdAction := 1;
+        ShowModal;
+      end;
+    end;
+    ofsStudentRoles:
+    begin
+      with frmStudentRoleSummary do
+      begin
+        IdAction := 1;
+        SelectedStudentRoleList := TStudent_Role_List.Create;
+        ShowModal;
+      end;
+    end;
+    ofsGameDefaults:
+    begin
+      with frmGameDefaultSummary do
+      begin
+        IdAction := 1;
+        SelectedGameDefault := TGame_Defaults.Create;
+        ShowModal;
+      end;
+    end;
+    ofsSNRvsPODCurve:
+    begin
+      with frmSnrVsPodSummary do
+      begin
+        IdAction := 1;
+        SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition.Create;
+        ShowModal;
+      end;
+    end;
+    ofsReportEditor: ;
+    ofsReportViewer: ;
+  end;
+
+  UpdateOtherList;
+end;
+
+procedure TfOtherSingle.btnRemoveClick(Sender: TObject);
+var
+  warning : Integer;
+begin
+  if lbSingle.ItemIndex = -1 then
+    Exit;
+
+  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+    mbOKCancel, 0);
+
+  if warning = mrOK then
+  begin
+    case FOtherFormShow of
+      ofsRuntimePlatformLibrary:
+      begin
+        with TRuntime_Platform_Library(FSelectedObject).FData do
+        begin
+        if dmTTT.CekRuntime_Platform_Library_by_ResLibMap(Platform_Library_Index) > 0 then
+          begin
+            ShowMessage('This Runtime Platform Library is used by some Resource Allocation. Remove link ' +
+              'to proceed this process.');
+            Exit;
+          end;
+          dmTTT.DeletePlatformLibraryEntry(1, Platform_Library_Index);
+          dmTTT.DeleteRuntimePlatformLibraryDef(Platform_Library_Index);
+        end;
+      end;
+      ofsPredefinedPattern:
+      begin
+        with TPredefined_Pattern(FSelectedObject).FData do
+        begin
+        if dmTTT.CekPredefinedPattern_byScripted(Pattern_Index) > 0 then
+          begin
+  //          ShowMessage('Cannot delete, because is being used by some scripted point ("unchecked event" pattern type)');
+  //          Exit;
+            if dmTTT.CekPredefinedPattern_byRadar(Pattern_Index) > 0 then
+            begin
+              ShowMessage('Cannot delete, because is already used by some radar');
+              Exit;
+            end
+            else if dmTTT.CekPredefinedPattern_bySonar(Pattern_Index) > 0 then
+            begin
+              ShowMessage('Cannot delete, because is already used by some sonar');
+              Exit;
+            end;
+            dmTTT.DeleteScriptedPatternPoint(1, Pattern_Index);
+          end
+        else if dmTTT.CekPredefinedPattern_byPatternPoint(Pattern_Index) > 0 then
+          begin
+            dmTTT.DeletePatternPoint(Pattern_Index);
+  //          ShowMessage('Cannot delete, because is being used by some pattern point ("checked event" pattern type)');
+  //          Exit;
+          end;
+          dmTTT.DeletePredefined_Pattern(Pattern_Index);
+        end;
+      end;
+      ofsRadarActivationInterval:
+      begin
+        with TRadar_Interval_List(FSelectedObject).FData do
+        begin
+          dmTTT.DeleteRadarIntervalDef(Interval_List_Index);
+          dmTTT.DeleteRadarIntervalList(Interval_List_Index);
+        end;
+      end;
+      ofsGraphicalOverlays:
+      begin
+        with TOverlay_Definition(FSelectedObject).FData do
+        begin
+//          if dmTTT.GetOverlayAtResourceAllocation(Overlay_Index) > 0 then
+//          begin
+//            ShowMessage('This Overlay is used by some Resource Allocation. Remove link ' +
+//              'to proceed this process.');
+//            Exit;
+//          end;
+          dmTTT.delete_Resource_Overlay_Mapping(Overlay_Index);
+          dmTTT.DeleteOverlayDef(Overlay_Index);
+
+          if not DeleteFile(vAppDBSetting.OverlayPath + '\' + Overlay_Filename + '.dat') then
+            ShowMessage('Couldn''t delete file ' + Overlay_Filename + '.dat');
+        end;
+      end;
+      ofsStudentRoles:
+      begin
+        with TStudent_Role_List(FSelectedObject).FData do
+        begin
+          if dmTTT.CekStudentRole_onResourceAllo(Role_List_Index) > 0 then
+          begin
+            ShowMessage('Cannot delete, because is already used by some Scenario');
+            Exit;
+          end;
+          dmTTT.DeleteStudentRoleDef(1, Role_List_Index);
+          dmTTT.DeleteStudentRoleList(Role_List_Index);
+        end;
+      end;
+      ofsGameDefaults:
+      begin
+        with TGame_Defaults(FSelectedObject).FData do
+        begin
+//          if dmTTT.CekGameDefault_onRessourceAllo(Defaults_Index) > 0 then
+//          begin
+//            ShowMessage('Cannot delete, because is already used by some Scenario');
+//            Exit;
+//          end;
+//          dmTTT.DeleteGameRainfallOnRadar(Defaults_Index);
+//          dmTTT.DeleteGameCloudOnRadar(Defaults_Index);
+//          dmTTT.DeleteGameSeaStateOnRadar(Defaults_Index);
+//          dmTTT.DeleteGameRainfallOnESM(Defaults_Index);
+//          dmTTT.DeleteGameCloudOnESM(Defaults_Index);
+//          dmTTT.DeleteGameRainfallOnMissile(Defaults_Index);
+//          dmTTT.DeleteGameSeaStateOnMissile(Defaults_Index);
+//          dmTTT.DeleteGameRainfallOnSonar(Defaults_Index);
+//          dmTTT.DeleteGameShipNoiseOnSonar(Defaults_Index);
+//          dmTTT.DeleteGameSeaStateOnSonar(Defaults_Index);
+//
+//          dmTTT.DeleteIFFModeCode(Defaults_Index);
+//
+//          dmTTT.DeleteGameDefaultDef(Defaults_Index);
+        end;
+      end;
+      ofsSNRvsPODCurve:
+      begin
+        with TPOD_vs_SNR_Curve_Definition(FSelectedObject).FData do
+        begin
+//          if dmTTT.GetSonarByPOD_vs_SNR(Curve_Definition_Index) > 0 then
+//          begin
+//            ShowMessage('Cannot delete, because is already used by some Sonar');
+//            Exit;
+//          end
+//          else if dmTTT.GetRadarByPOD_vs_SNR(Curve_Definition_Index) > 0 then
+//          begin
+//            ShowMessage('Cannot delete, because is already used by some Radar');
+//            Exit;
+//          end;
+//          dmTTT.DeletePODvsSNRCurvePoint(1, Curve_Definition_Index);
+//          dmTTT.DeletePODvsSNRCurveDef(Curve_Definition_Index);
+        end;
+      end;
+      ofsReportEditor: ;
+      ofsReportViewer: ;
+    end;
+
+    UpdateOtherList;
+  end;
+end;
+
+procedure TfOtherSingle.btnUsageClick(Sender: TObject);
+begin
+  if lbSingle.ItemIndex <> -1 then
+  begin
+    with frmUsage do
+    begin
+      UId := StrToInt(lstIDsingle.Items.Strings[lbSingle.ItemIndex]);
+      name_usage := lbSingle.Items.Strings[lbSingle.ItemIndex];
+
+      if OtherFormShow = ofsRuntimePlatformLibrary then
+      begin
+        UIndex  := 26;
+        usage_title := 'scenario :' ;
+      end
+      else if OtherFormShow = ofsPredefinedPattern then
+      begin
+        UIndex := 27;
+      end
+      else if OtherFormShow = ofsRadarActivationInterval then
+      begin
+        UIndex  :=  41;
+        usage_title := 'vehicle :';
+      end
+      else if OtherFormShow = ofsGraphicalOverlays then
+      begin
+        UIndex :=  30;
+      end
+      else if OtherFormShow = ofsStudentRoles then
+      begin
+        UIndex :=  39;
+      end
+      else if OtherFormShow = ofsGameDefaults then
+      begin
+        UIndex := 40;
+      end
+      else if OtherFormShow = ofsSNRvsPODCurve then
+      begin
+        UIndex := 38;
+      end
+      else
+        Exit;
+      ShowModal;
+    end;
+  end;
+end;
+
+procedure TfOtherSingle.CopyGameDefaultEffect(const aDefaultIndex,
+  aNewDefaultIndex: Integer);
+var
+  effectList : TList;
+  i : Integer;
+  radarRainfall : TGame_Rainfall_On_Radar;
+  radarCloud : TGame_Cloud_On_Radar;
+  radarSeastate : TGame_Sea_On_Radar;
+  esmRainfall : TGame_Rainfall_On_ESM;
+  esmCloud : TGame_Cloud_On_ESM;
+  missileRainfall : TGame_Rainfall_On_Missile_Seeker;
+  missileSeastate : TGame_Sea_On_Missile_Safe_Altitude;
+  sonarRainfall : TGame_Rainfall_On_Sonar;
+  sonarShipNoise : TGame_Ship_On_Sonar;
+  sonarSeastate : TGame_Sea_On_Sonar;
+begin
+  effectList := TList.Create;
+
+  dmTTT.GetGameRainfallOnRadar(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    radarRainfall := effectList.Items[i];
+
+    with radarRainfall do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameRainfallOnRadar(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    radarRainfall := effectList.Items[i];
+    radarRainfall.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameCloudOnRadar(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    radarCloud := effectList.Items[i];
+
+    with radarCloud do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameCloudOnRadar(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    radarCloud := effectList.Items[i];
+    radarCloud.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameSeaStateOnRadar(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    radarSeastate := effectList.Items[i];
+
+    with radarSeastate do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameSeaStateOnRadar(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    radarSeastate := effectList.Items[i];
+    radarSeastate.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameRainfallOnESM(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    esmRainfall := effectList.Items[i];
+
+    with esmRainfall do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameRainfallOnESM(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    esmRainfall := effectList.Items[i];
+    esmRainfall.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameCloudOnESM(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    esmCloud := effectList.Items[i];
+
+    with esmCloud do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameCloudOnESM(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    esmCloud := effectList.Items[i];
+    esmCloud.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameRainfallOnMissile(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    missileRainfall := effectList.Items[i];
+
+    with missileRainfall do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameRainfallOnMissile(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    missileRainfall := effectList.Items[i];
+    missileRainfall.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameSeaStateOnMissile(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    missileSeastate := effectList.Items[i];
+
+    with missileSeastate do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameSeaStateOnMissile(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    missileSeastate := effectList.Items[i];
+    missileSeastate.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameRainfallOnSonar(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    sonarRainfall := effectList.Items[i];
+
+    with sonarRainfall do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameRainfallOnSonar(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    sonarRainfall := effectList.Items[i];
+    sonarRainfall.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameShipNoiseOnSonar(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    sonarShipNoise := effectList.Items[i];
+
+    with sonarShipNoise do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameShipNoiseOnSonar(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    sonarShipNoise := effectList.Items[i];
+    sonarShipNoise.Free;
+  end;
+
+  effectList.Clear;
+
+  dmTTT.GetGameSeaStateOnSonar(aDefaultIndex, effectList);
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    sonarSeastate := effectList.Items[i];
+
+    with sonarSeastate do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertGameSeaStateOnSonar(FData);
+    end;
+  end;
+
+  for i := 0 to effectList.Count - 1 do
+  begin
+    sonarSeastate := effectList.Items[i];
+    sonarSeastate.Free;
+  end;
+
+  effectList.Free;
+end;
+
+procedure TfOtherSingle.CopyGameDefaultIFF(const aDefaultIndex,
+  aNewDefaultIndex: Integer);
+var
+  iffMCList : TList;
+  i : Integer;
+  iffMC : TGame_Default_IFF_Mode_Code;
+begin
+  iffMCList := TList.Create;
+
+  dmTTT.GetIFFModeCode(aDefaultIndex, iffMCList);
+
+  for i := 0 to iffMCList.Count - 1 do
+  begin
+    iffMC := iffMCList.Items[i];
+
+    with iffMC do
+    begin
+      FData.Defaults_Index := aNewDefaultIndex;
+
+      dmTTT.InsertIFFModeCode(FData);
+    end;
+  end;
+
+  for i := 0 to iffMCList.Count - 1 do
+  begin
+    iffMC := iffMCList.Items[i];
+    iffMC.Free;
+  end;
+
+  iffMCList.Free;
+end;
+
+procedure TfOtherSingle.CopyPlatfromLibraryEntry(const aLibraryIndex,
+  aNewLibraryIndex: Integer);
+var
+  libraryPlatformList : TList;
+  i, j : Integer;
+  platLibEntry : TPlatform_Library_Entry;
+begin
+  libraryPlatformList := TList.Create;
+
+  for i := 0 to 4 do
+  begin
+    case i of
+      0: dmTTT.GetVehicleDef(aLibraryIndex, libraryPlatformList);
+      1: dmTTT.GetAllMissilePlatformLibraryEntry(aLibraryIndex, libraryPlatformList);
+      2: dmTTT.GetAllTorpedoPlatformLibraryEntry(aLibraryIndex, libraryPlatformList);
+      3: dmTTT.GetAllSonobuoyPlatformLibraryEntry(aLibraryIndex, libraryPlatformList);
+      4: dmTTT.GetAllMinePlatformLibraryEntry(aLibraryIndex, libraryPlatformList);
+    end;
+
+    for j := 0 to libraryPlatformList.Count - 1 do
+    begin
+      platLibEntry := libraryPlatformList.Items[j];
+
+      with platLibEntry do
+      begin
+        FData.Library_Index := aNewLibraryIndex;
+
+        dmTTT.InsertPlatformLibraryEntry(FData);
+      end;
+    end;
+
+    for j := 0 to libraryPlatformList.Count - 1 do
+    begin
+      platLibEntry := libraryPlatformList.Items[j];
+      platLibEntry.Free;
+    end;
+
+    libraryPlatformList.Clear;
+  end;
+
+  libraryPlatformList.Free;
+end;
+
+procedure TfOtherSingle.CopyPODvsSNRPoint(const aDefaultIndex,
+  aNewDefaultIndex: Integer);
+var
+  PODvsSNRPointList : TList;
+  i : Integer;
+  PODvsSNRPoint : TPOD_vs_SNR_Point;
+begin
+  PODvsSNRPointList := TList.Create;
+
+  dmTTT.GetPODvsSNRCurvePoint(aDefaultIndex, PODvsSNRPointList);
+
+  for i := 0 to PODvsSNRPointList.Count - 1 do
+  begin
+    PODvsSNRPoint := PODvsSNRPointList.Items[i];
+
+    with PODvsSNRPoint do
+    begin
+      FData.Curve_Definition_Index := aNewDefaultIndex;
+
+      dmTTT.InsertPODvsSNRCurvePoint(FData);
+    end;
+  end;
+
+  for i := 0 to PODvsSNRPointList.Count - 1 do
+  begin
+    PODvsSNRPoint := PODvsSNRPointList.Items[i];
+    PODvsSNRPoint.Free;
+  end;
+
+  PODvsSNRPointList.Free;
+end;
+
+procedure TfOtherSingle.CopyRadarIntervalDefinition(const aRadarIntervalIndex,
+  aNewIntervalIndex: Integer);
+var
+  intervalDefList : TList;
+  i : Integer;
+  intervalDef : TRadar_Interval_Definition;
+begin
+  intervalDefList := TList.Create;
+
+  dmTTT.GetRadarIntervalDef(aRadarIntervalIndex, intervalDefList);
+
+  for i := 0 to intervalDefList.Count - 1 do
+  begin
+    intervalDef := intervalDefList.Items[i];
+
+    with intervalDef do
+    begin
+      FData.Interval_List_Index := aNewIntervalIndex;
+
+      dmTTT.InsertRadarIntervalDef(FData);
+    end;
+  end;
+
+  for i := 0 to intervalDefList.Count - 1 do
+  begin
+    intervalDef := intervalDefList.Items[i];
+    intervalDef.Free;
+  end;
+
+  intervalDefList.Free;
+end;
+
+procedure TfOtherSingle.CopyStudentRoleDefinition(const aStudentRoleIndex,
+  aNewStudentRoleIndex: Integer);
+var
+  studentRoleList : TList;
+  i : Integer;
+  studentRoleDef : TStudent_Role_Definition;
+begin
+  studentRoleList := TList.Create;
+
+  dmTTT.GetStudentRoleDef(aStudentRoleIndex, studentRoleList);
+
+  for i := 0 to studentRoleList.Count - 1 do
+  begin
+    studentRoleDef := studentRoleList.Items[i];
+
+    with studentRoleDef do
+    begin
+      FData.Role_List_Index := aNewStudentRoleIndex;
+
+      dmTTT.InsertStudentRoleDef(FData);
+    end;
+  end;
+
+  for i := 0 to studentRoleList.Count - 1 do
+  begin
+    studentRoleDef := studentRoleList.Items[i];
+    studentRoleDef.Free;
+  end;
+
+  studentRoleList.Free;
+end;
+
+procedure TfOtherSingle.FormCreate(Sender: TObject);
+begin
+  FOtherList := TList.Create;
+end;
+
+procedure TfOtherSingle.FormShortCut(var Msg: TWMKey; var Handled: Boolean);
+begin
+  if GetKeyState(VK_ESCAPE) < 0 then
+  begin
+    case Msg.CharCode of
+      VK_ESCAPE: Close;
+    end;
+  end;
+end;
+
+procedure TfOtherSingle.FormShow(Sender: TObject);
+begin
+  case FOtherFormShow of
+    ofsRuntimePlatformLibrary: Caption := 'Runtime Platform Libraries';
+    ofsPredefinedPattern: Caption := 'Predefined Patterns';
+    ofsRadarActivationInterval: Caption := 'Radar Interval List';
+    ofsGraphicalOverlays: Caption := 'Overlay';
+    ofsStudentRoles: Caption := 'Student Role List';
+    ofsGameDefaults: Caption := 'Game Defaults';
+    ofsSNRvsPODCurve: Caption := 'SNR vs POD Curve';
+    ofsReportEditor: Caption := 'Report Editor';
+    ofsReportViewer: Caption := 'Report Viewer';
+  end;
+
+  UpdateOtherList;
+end;
+
+procedure TfOtherSingle.lbSingleClick(Sender: TObject);
+begin
+  FSelectedObject := lbSingle.Items.Objects[lbSingle.ItemIndex];
+end;
+
+procedure TfOtherSingle.lbSingleDblClick(Sender: TObject);
+begin
+  btnEdit.Click;
+end;
+
+procedure TfOtherSingle.UpdateOtherList;
+var
+  i,id : Integer;
+  runtimePlatData : TRuntime_Platform_Library;
+  predefinedData : TPredefined_Pattern;
+  radarIntervalData : TRadar_Interval_List;
+   overlayData : TOverlay_Definition;
+  studentRoleData : TStudent_Role_List;
+  gameDefaultData : TGame_Defaults;
+  PODvsSNRData : TPOD_vs_SNR_Curve_Definition;
+begin
+  lbSingle.Items.Clear;
+  lstIDsingle.Items.Clear;
+
+  case FOtherFormShow of
+    ofsRuntimePlatformLibrary:
+    begin
+      dmTTT.GetAllRuntimePlatformLibraryDef(FOtherList);
+
+      for i := 0 to FOtherList.Count - 1 do
+      begin
+        runtimePlatData := FOtherList.Items[i];
+        lbSingle.Items.AddObject(runtimePlatData.FData.Library_Name,runtimePlatData);
+        lstIDsingle.Items.Add(IntToStr(TRuntime_Platform_Library(FOtherList[i]).FData.Platform_Library_Index));
+      end;
+    end;
+    ofsPredefinedPattern:
+    begin
+      dmTTT.GetPredefinedPatternDef(FOtherList);
+
+      for i := 0 to FOtherList.Count - 1 do
+      begin
+        predefinedData := FOtherList.Items[i];
+        lbSingle.Items.AddObject(predefinedData.FData.Pattern_Identifier,predefinedData);
+        lstIDsingle.Items.Add(IntToStr(TPredefined_Pattern(FOtherList[i]).FData.Vehicle_Index));
+      end;
+    end;
+    ofsRadarActivationInterval:
+    begin
+      dmTTT.GetRadarIntervalList(FOtherList);
+
+      for i := 0 to FOtherList.Count - 1 do
+      begin
+        radarIntervalData := FOtherList.Items[i];
+        lbSingle.Items.AddObject(radarIntervalData.FData.Interval_List_Identifier, radarIntervalData);
+        lstIDsingle.Items.Add(IntToStr(TRadar_Interval_Definition(FOtherList[i]).FData.Interval_List_Index));
+      end;
+    end;
+    ofsGraphicalOverlays:
+    begin
+      dmTTT.GetAllOverlayDef(FOtherList);
+
+      for i := 0 to FOtherList.Count - 1 do
+      begin
+        overlayData := FOtherList.Items[i];
+        lbSingle.Items.AddObject(overlayData.FData.Overlay_Identifier,overlayData);
+        lstIDsingle.Items.Add(IntToStr(TOverlay_Definition(FOtherList[i]).FData.Game_Area_Index));
+      end;
+    end;
+    ofsStudentRoles:
+    begin
+      dmTTT.GetStudentRoleList(FOtherList);
+
+      for i := 0 to FOtherList.Count - 1 do
+      begin
+        studentRoleData := FOtherList.Items[i];
+        lbSingle.Items.AddObject(studentRoleData.FData.Role_List_Identifier,studentRoleData);
+        lstIDsingle.Items.Add(IntToStr(TStudent_Role_List(FOtherList[i]).FData.Role_List_Index));
+      end;
+    end;
+    ofsGameDefaults:
+    begin
+      dmTTT.GetGameDefaultDef(FOtherList);
+
+      for i := 0 to FOtherList.Count - 1 do
+      begin
+        gameDefaultData := FOtherList.Items[i];
+        lbSingle.Items.AddObject(gameDefaultData.FData.Defaults_Identifier,gameDefaultData);
+        lstIDsingle.Items.Add(IntToStr(TGame_Defaults(FOtherList[i]).FData.Defaults_Index));
+      end;
+    end;
+    ofsSNRvsPODCurve:
+    begin
+      dmTTT.GetAllPODvsSNRCurveDef(FOtherList);
+
+      for i := 0 to FOtherList.Count - 1 do
+      begin
+        PODvsSNRData := FOtherList.Items[i];
+        lbSingle.Items.AddObject(PODvsSNRData.FData.Curve_Definition_Identifier,PODvsSNRData);
+        lstIDsingle.Items.Add(IntToStr(TPOD_vs_SNR_Curve_Definition(FOtherList[i]).FData.Curve_Definition_Index));
+      end;
+    end;
+    ofsReportEditor: ;
+    ofsReportViewer: ;
+  end;
+end;
+
+end.

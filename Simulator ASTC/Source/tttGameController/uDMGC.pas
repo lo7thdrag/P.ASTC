@@ -1,0 +1,422 @@
+unit uDMGC;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ZAbstractRODataset, ZAbstractDataset, ZDataset,
+  ZConnection, dialogs, ZAbstractTable, DateUtils;
+
+type
+
+  TScenarioInfo = class
+    Scenario_Index        : Integer;
+    Scenario_Identifier   : string;
+    Resource_Alloc_Index  : Integer;
+
+    Records_FileName   : string;
+    Snapshot_FileName   : string;
+    SDateTime : string;
+  end;
+
+  TGroupInfo = class
+    Group_Index: integer;
+    Deployment_Index: integer;
+    Group_Identifier: string;
+    CubicleName: string;
+
+//    Force_Designation: integer;
+//    Tracks_Block: integer;
+//    Track_Block_Start: integer;
+//    Track_Block_End: integer;
+//    Zulu_Zulu: integer;
+  end;
+
+  TDeployedPlatformInfo = class
+    Group_Index: integer;
+    Platform_Instance_Index: integer;
+    Instance_Name: string;
+  end;
+
+  TVehicleDef = class
+    VIndex      : Integer;
+    Identifier : string;
+
+    SymbolID: Integer;
+    SymbolFontID : Integer;
+  end;
+
+  TDMGC = class(TDataModule)
+    zConn: TZConnection;
+    zQ: TZQuery;
+    zTable: TZTable;
+    dsTable: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function InitZDB(const zDbServer, zDBProto, zDBname,
+      zDBuser, zDBPass: string): boolean;
+
+    procedure GetScenarioListFromDB(var l: TList);
+    procedure GetScenarioInfo(const scID: integer; var scInfo: TScenarioInfo);
+    procedure GetRecordListFromDB(var l : TList);
+
+    procedure GetGroupList(const scId: Integer; var l: TList);
+    procedure GetGroupMember(const grpId: Integer; var l: TList);
+
+    procedure GetVehicleClassList(var l: TList );
+
+    procedure updateVehicleSymbol(const vID: Integer; const sID: Integer );
+
+    procedure Get_Identifier_And_Resource_Alloc_Index(
+      const mScenario_Index      : Integer ;
+      var mScenario_Identifier   : string;
+      var mResource_Alloc_Index  : Integer );
+
+  end;
+
+var
+  dmGC: TDMGC;
+
+implementation
+
+uses
+  uLibSettingTTT;
+
+{$R *.dfm}
+
+
+
+function TDMGC.InitZDB(const zDbServer, zDBProto, zDBname,
+  zDBuser, zDBPass: string): boolean;
+begin
+
+  with zConn do
+  begin
+    HostName := zDbServer;
+    Protocol := zDBProto;
+    Database := zDBName;
+    User     := zDBUser;
+    Password := zDBpass;
+  end;
+
+  try
+    zConn.Connect;
+    Result :=  zConn.Connected;
+  except
+    on Exception do
+    begin
+      MessageDlg('Error Database Connection on ' + zDbServer, mtError, [mbOK], 0);
+      Result := false;
+      exit;
+    end
+  end;
+  ZQ.Connection := ZConn;
+end;
+
+procedure TDMGC.updateVehicleSymbol(const vID, sID: Integer);
+begin
+  with dmGC.ZQ do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('UPDATE Vehicle_Definition ');
+    SQL.Add('  SET ');
+    SQL.Add(' Symbol_id = ' + IntToStr(sID));
+    SQL.Add('  WHERE ');
+    SQL.Add(' (Vehicle_Index = ' +  IntToStr(vID) + ')' );
+
+    ExecSQL;
+   end;
+
+end;
+
+procedure TDMGC.GetScenarioListFromDB(var l: TList);
+var bResult : Boolean;
+    scInfo: TScenarioInfo;
+begin
+// create connection, query   SQL.Add('FROM Scenario_Definition' );
+  if not zConn.Connected then
+    with vDBSetting do begin
+      bResult := dmGC.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
+
+      if not bResult  then begin
+         ShowMessage('Connection to database failed. ');
+         Exit;
+      end;
+    end;
+  with dmGC.ZQ do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('SELECT ');
+    SQL.Add('  Scenario_Index, Scenario_Identifier, Resource_Alloc_Index');
+    SQL.Add('FROM ');
+    SQL.Add(' Scenario_Definition');
+
+    Open;
+  end;
+
+  l.Clear;
+  //warning: belum free scInfo yg ada.
+
+  while not ZQ.Eof do begin
+    scInfo := TScenarioInfo.Create;
+    with scInfo do begin
+      Scenario_Index          := ZQ.Fields[0].AsInteger;
+      Scenario_Identifier     := ZQ.Fields[1].AsString;
+      Resource_Alloc_Index    := ZQ.Fields[2].AsInteger;
+    end;
+
+    l.Add(scInfo);
+
+    ZQ.Next;
+  end;
+
+end;
+
+procedure TDMGC.GetScenarioInfo(const scID: integer; var scInfo: TScenarioInfo);
+var bResult : Boolean;
+begin
+  if not zConn.Connected then
+    with vDBSetting do begin
+      bResult := dmGC.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
+
+      if not bResult  then begin
+         ShowMessage('Connection to database failed. ');
+         Exit;
+      end;
+    end;
+  with dmGC.ZQ do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('SELECT ');
+    SQL.Add('  Scenario_Index, Scenario_Identifier, Resource_Alloc_Index');
+    SQL.Add('FROM ');
+    SQL.Add(' Scenario_Definition');
+    SQL.Add('WHERE  ');
+    SQL.Add('(Scenario_index=' +IntToStr(scID) +') ');
+
+    Open;
+  end;
+
+  if (ZQ.RecordCount > 0) then begin
+    scInfo := TScenarioInfo.Create;
+    ZQ.First;
+    with scInfo do begin
+      Scenario_Index          := ZQ.Fields[0].AsInteger;
+      Scenario_Identifier     := ZQ.Fields[1].AsString;
+      Resource_Alloc_Index    := ZQ.Fields[2].AsInteger;
+    end;
+  end
+  else begin
+    scInfo := nil;
+  end;
+end;
+
+procedure TDMGC.Get_Identifier_And_Resource_Alloc_Index(
+    const mScenario_Index      : Integer ;
+    var mScenario_Identifier   : string;
+    var mResource_Alloc_Index  : Integer );
+var bResult : Boolean;
+//    scInfo: TScenarioInfo;
+begin
+  if not zConn.Connected then
+    with vDBSetting do begin
+      bResult := dmGC.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
+
+      if not bResult  then begin
+         ShowMessage('Connection to database failed. ');
+         Exit;
+      end;
+    end;
+  with dmGC.ZQ do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('SELECT ');
+    SQL.Add('  Scenario_Index, Scenario_Identifier, Resource_Alloc_Index');
+    SQL.Add('FROM ');
+    SQL.Add(' Scenario_Definition');
+    SQL.Add('WHERE Scenario_Index = '+IntToStr(mScenario_Index));
+
+    Open;
+  end;
+
+  if not ZQ.IsEmpty then
+  begin
+      mScenario_Identifier     := ZQ.Fields[1].AsString;
+      mResource_Alloc_Index    := ZQ.Fields[2].AsInteger;
+  end;
+
+end;
+
+procedure TDMGC.GetGroupList(const scId: Integer; var l: TList);
+var gInfo: TGroupInfo;
+    bResult : boolean;
+begin
+
+  if not zConn.Connected then
+    with vDBSetting do begin
+      bResult := dmGC.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
+
+      if not bResult  then begin
+         ShowMessage('Connection to database failed. ');
+         Exit;
+      end;
+    end;
+
+  with dmGC.ZQ do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('SELECT ');
+    SQL.Add(' a.Group_Index, a.Group_Identifier, a.Deployment_Index  ');
+    SQL.Add('FROM ');
+    SQL.Add(' Cubicle_Group a join   Asset_Deployment_Definition b ');
+    SQL.Add(' ON a.Deployment_Index = b.Deployment_Index ');
+    SQL.Add('WHERE ');
+    SQL.Add(' b.Scenario_Index =');
+    SQL.Add(IntToStr(scID));
+    Open;
+  end;
+
+  l.Clear;
+  while not ZQ.Eof do begin
+    gInfo := TGroupInfo.Create;
+    with gInfo do begin
+      Group_Index       := ZQ.Fields[0].AsInteger;
+      Group_Identifier  := ZQ.Fields[1].AsString;
+      Deployment_Index  := ZQ.Fields[2].AsInteger;
+    end;
+    l.Add(gInfo);
+    ZQ.Next;
+  end;
+
+end;
+
+procedure TDMGC.GetGroupMember(const grpId: Integer; var l: TList);
+var dPI: TGroupInfo;
+    bResult : boolean;
+begin
+  if not zConn.Connected then
+    with vDBSetting do begin
+      bResult := dmGC.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
+
+      if not bResult  then begin
+         ShowMessage('Connection to database failed. ');
+         Exit;
+      end;
+    end;
+
+  with dmGC.ZQ do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('SELECT ');
+    SQL.Add(' a.Group_Index, c.Platform_Instance_Index, c.Instance_Name  ');
+    SQL.Add('FROM ');
+    SQL.Add('  Cubicle_Group_Assignment a ');
+    SQL.Add('  JOIN Platform_Instance c ');
+    SQL.Add('  ON a.Platform_Instance_Index = c.Platform_Instance_Index ');
+    SQL.Add('WHERE ');
+    SQL.Add('  a.Group_Index=');
+
+    SQL.Add(IntToStr(grpId));
+    Open;
+  end;
+
+  l.Clear;
+  while not ZQ.Eof do begin
+    dPI  := TGroupInfo.Create;
+    with dPI do begin
+      Group_Index       := ZQ.Fields[0].AsInteger;
+      Deployment_Index  := ZQ.Fields[1].AsInteger;
+      Group_Identifier  := ZQ.Fields[2].AsString;
+    end;
+    l.Add(dPI);
+    ZQ.Next;
+  end;
+
+end;
+
+procedure TDMGC.GetRecordListFromDB(var l: TList);
+var bResult : Boolean;
+    scInfo: TScenarioInfo;
+    zquery : TZQuery;
+    scenIdent : String;
+    alloIndex : Integer;
+begin
+// create connection, query   SQL.Add('FROM Scenario_Definition' );
+  if not zConn.Connected then
+    with vDBSetting do begin
+      bResult := dmGC.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
+
+      if not bResult  then begin
+         ShowMessage('Connection to database failed. ');
+         Exit;
+      end;
+    end;
+
+  zquery := TZQuery.Create(self);
+  zquery.Connection := zConn;
+  with zquery do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('SELECT r.*, s.* ');
+    SQL.Add('FROM Record r inner join Scenario_Definition s ');
+    SQL.Add('ON r.Scenario_Index = s.Scenario_Index ');
+
+    Open;
+  end;
+
+//  l.Clear;
+  //warning: belum free scInfo yg ada.
+
+  while not zquery.Eof do begin
+
+    scInfo := TScenarioInfo.Create;
+    scInfo.Scenario_Index       := zquery.FieldByName('Scenario_Index').AsInteger;
+    scenIdent := zquery.FieldByName('Scenario_Identifier').AsString;
+    alloIndex := zquery.FieldByName('Resource_Alloc_Index').AsInteger;
+    dmGC.Get_Identifier_And_Resource_Alloc_Index(scInfo.Scenario_Index,
+         scenIdent,alloIndex);
+    scInfo.Scenario_Identifier   := zquery.FieldByName('Scenario_Identifier').AsString +' - '+
+                  zquery.FieldByName('Record_Name').AsString ;
+    scInfo.Resource_Alloc_Index  := zquery.FieldByName('Resource_Alloc_Index').AsInteger ;
+    scInfo.Records_FileName      := zquery.FieldByName('Record_Name').AsString;
+    if YearOf(zquery.FieldByName('Created').AsDateTime) > 1900 then
+      scInfo.SDateTime           := FormatDateTime('YYYY-MM-DD HH:MM:SS',zquery.FieldByName('Created').AsDateTime)
+    else
+      scInfo.SDateTime           := '';
+
+    l.Add(scInfo);
+
+    zquery.Next;
+  end;
+  zquery.Free;
+end;
+
+procedure TDMGC.GetVehicleClassList(var l: TList);
+begin
+  if not Assigned(l) then
+    l := TList.Create;
+
+  with dmGC.ZQ do begin
+    Close;
+    SQL.Clear;
+
+    SQL.Add('SELECT ');
+    SQL.Add(' Vehicle_Index, Vehicle_Identifier, ');
+    SQL.Add(' Platform_Domain, Platform_Category, Platform_Type, ');
+    SQL.Add(' font_id, symbol_id  ');
+    SQL.Add('  FROM');
+    SQL.Add('Vehicle_Definition ');
+
+  end;
+end;
+
+
+end.

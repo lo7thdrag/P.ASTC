@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<t3groups>
+  <controllers id="Controller" name="Controller Group">
+    <console ip="192.168.1.231" name="Controller 1" ></console>
+    <console ip="192.168.5.55" name="Controller 2" ></console>
+    <console ip="192.168.1.135" name="Controller 3" ></console>
+    <console ip="192.168.1.30" name="Controller 4" ></console>
+  </controllers>
+  <cubicles>
+    <cubicle id="CUBICLE_01" name="Cubicle 01">
+      <console ip="192.168.1.159" name="CUB_01_1"></console>
+      <console ip="192.168.5.147" name="CUB_01_2"></console>
+      <console ip="192.168.1.59" name="CUB_01_3"></console>
+      <console ip="192.168.1.115" name="CUB_01_4"></console>
+      <console ip="192.168.1.183" name="CUB_01_5"></console>
+      <console ip="192.168.1.109" name="CUB_01_6"></console>
+      <console ip="192.168.1.117" name="CUB_01_7"></console>
+      <console ip="192.168.1.118" name="CUB_01_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_02" name="Cubicle 02">
+      <console ip="192.168.1.144" name="CUB_02_1"></console>
+      <console ip="192.168.1.121" name="CUB_02_2"></console>
+      <console ip="192.168.1.141" name="CUB_02_3"></console>
+      <console ip="192.168.1.14" name="CUB_02_4"></console>
+      <console ip="192.168.1.69" name="CUB_02_5"></console>
+      <console ip="192.168.1.45" name="CUB_02_6"></console>
+      <console ip="192.168.1.27" name="CUB_02_7"></console>
+      <console ip="192.168.1.28" name="CUB_02_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_03" name="Cubicle 03">
+      <console ip="192.168.1.159" name="CUB_03_1"></console>
+      <console ip="192.168.1.32" name="CUB_03_2"></console>
+      <console ip="192.168.1.33" name="CUB_03_3"></console>
+      <console ip="192.168.1.34" name="CUB_03_4"></console>
+      <console ip="192.168.1.22" name="CUB_03_5"></console>
+      <console ip="192.168.1.36" name="CUB_03_6"></console>
+      <console ip="192.168.1.37" name="CUB_03_7"></console>
+      <console ip="192.168.1.38" name="CUB_03_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_04" name="Cubicle 04">
+      <console ip="192.168.1.30" name="CUB_04_1"></console>
+      <console ip="192.168.1.42" name="CUB_04_2"></console>
+      <console ip="192.168.1.43" name="CUB_04_3"></console>
+      <console ip="192.168.1.44" name="CUB_04_4"></console>
+      <console ip="192.168.1.144" name="CUB_04_5"></console>
+      <console ip="192.168.1.46" name="CUB_04_6"></console>
+      <console ip="192.168.1.47" name="CUB_04_7"></console>
+      <console ip="192.168.1.48" name="CUB_04_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_05" name="Cubicle 05">
+      <console ip="192.168.1.11" name="CUB_05_0"></console>
+      <console ip="192.168.1.51" name="CUB_05_1"></console>
+      <console ip="192.168.1.52" name="CUB_05_2"></console>
+      <console ip="192.168.1.53" name="CUB_05_3"></console>
+      <console ip="192.168.1.54" name="CUB_05_4"></console>
+      <console ip="192.168.1.55" name="CUB_05_5"></console>
+      <console ip="192.168.1.56" name="CUB_05_6"></console>
+      <console ip="192.168.1.57" name="CUB_05_7"></console>
+      <console ip="192.168.1.58" name="CUB_05_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_06" name="Cubicle 06">
+      <console ip="192.168.1.61" name="CUB_06_1"></console>
+      <console ip="192.168.1.62" name="CUB_06_2"></console>
+      <console ip="192.168.1.63" name="CUB_06_3"></console>
+      <console ip="192.168.1.64" name="CUB_06_4"></console>
+      <console ip="192.168.1.65" name="CUB_06_5"></console>
+      <console ip="192.168.1.66" name="CUB_06_6"></console>
+      <console ip="192.168.1.67" name="CUB_06_7"></console>
+      <console ip="192.168.1.68" name="CUB_06_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_07" name="Cubicle 07">
+      <console ip="192.168.1.71" name="CUB_07_1"></console>
+      <console ip="192.168.1.72" name="CUB_07_2"></console>
+      <console ip="192.168.1.73" name="CUB_07_3"></console>
+      <console ip="192.168.1.74" name="CUB_07_4"></console>
+      <console ip="192.168.1.75" name="CUB_07_5"></console>
+      <console ip="192.168.1.76" name="CUB_07_6"></console>
+      <console ip="192.168.1.77" name="CUB_07_7"></console>
+      <console ip="192.168.1.78" name="CUB_07_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_08" name="Cubicle 08">
+      <console ip="192.168.1.81" name="CUB_08_1"></console>
+      <console ip="192.168.1.82" name="CUB_08_2"></console>
+      <console ip="192.168.1.83" name="CUB_08_3"></console>
+      <console ip="192.168.1.84" name="CUB_08_4"></console>
+      <console ip="192.168.1.85" name="CUB_08_5"></console>
+      <console ip="192.168.1.86" name="CUB_08_6"></console>
+      <console ip="192.168.1.87" name="CUB_08_7"></console>
+      <console ip="192.168.1.88" name="CUB_08_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_09" name="Cubicle 09">
+      <console ip="192.168.1.91" name="CUB_09_1"></console>
+      <console ip="192.168.1.92" name="CUB_09_2"></console>
+      <console ip="192.168.1.93" name="CUB_09_3"></console>
+      <console ip="192.168.1.94" name="CUB_09_4"></console>
+      <console ip="192.168.1.95" name="CUB_09_5"></console>
+      <console ip="192.168.1.96" name="CUB_09_6"></console>
+      <console ip="192.168.1.97" name="CUB_09_7"></console>
+      <console ip="192.168.1.98" name="CUB_09_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_10" name="Cubicle 10">
+      <console ip="192.168.1.101" name="CUB_10_1"></console>
+      <console ip="192.168.1.102" name="CUB_10_2"></console>
+      <console ip="192.168.1.103" name="CUB_10_3"></console>
+      <console ip="192.168.1.104" name="CUB_10_4"></console>
+      <console ip="192.168.1.105" name="CUB_10_5"></console>
+      <console ip="192.168.1.106" name="CUB_10_6"></console>
+      <console ip="192.168.1.107" name="CUB_10_7"></console>
+      <console ip="192.168.1.108" name="CUB_10_8"></console>
+    </cubicle>
+    <cubicle id="CUBICLE_11" name="Cubicle 11">
+      <console ip="192.168.1.112" name="CUB_10_1"></console>
+      <console ip="192.168.1.102" name="CUB_10_2"></console>
+      <console ip="192.168.1.103" name="CUB_10_3"></console>
+      <console ip="192.168.1.104" name="CUB_10_4"></console>
+      <console ip="192.168.1.105" name="CUB_10_5"></console>
+      <console ip="192.168.1.106" name="CUB_10_6"></console>
+      <console ip="192.168.1.107" name="CUB_10_7"></console>
+      <console ip="192.168.1.108" name="CUB_10_8"></console>
+    </cubicle>
+  </cubicles>
+</t3groups>

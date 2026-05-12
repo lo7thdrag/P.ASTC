@@ -1,0 +1,113 @@
+unit ufrmResorceAllocationPickList;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, uDBAssetObject, Vcl.Imaging.pngimage;
+
+type
+  TfrmResorceAllocationPickList = class(TForm)
+    pnl2ControlPage: TPanel;
+    lbAvailableResAlloc: TListBox;
+    pnl3Button: TPanel;
+    btnCancel: TButton;
+    btnAdd: TButton;
+    pnlSparatorHor2: TPanel;
+    Image1: TImage;
+
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure lbAvailableResAllocClick(Sender: TObject);
+    procedure lbAvailableResAllocDblClick(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+
+  private
+    FSelectedResourceAllocId : Integer;
+
+    FResourceAllocList : TList;
+    FSelectedResourceAlloc : TResource_Allocation;
+
+    procedure UpdateResourceAllocList;
+
+  public
+    property SelectedResourceAllocId : Integer read FSelectedResourceAllocId
+      write FSelectedResourceAllocId;
+  end;
+
+var
+  frmResorceAllocationPickList: TfrmResorceAllocationPickList;
+
+implementation
+
+uses
+  uDataModuleTTT, ufrmSummaryResourceAllocation;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmResorceAllocationPickList.FormCreate(Sender: TObject);
+begin
+  FResourceAllocList := TList.Create;
+end;
+
+procedure TfrmResorceAllocationPickList.FormShow(Sender: TObject);
+begin
+  UpdateResourceAllocList;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmResorceAllocationPickList.btnAddClick(Sender: TObject);
+begin
+  if lbAvailableResAlloc.ItemIndex = -1 then
+    Exit;
+
+  FSelectedResourceAllocId := FSelectedResourceAlloc.FData.Resource_Alloc_Index;
+  Close;
+
+end;
+
+procedure TfrmResorceAllocationPickList.btnCancelClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmResorceAllocationPickList.lbAvailableResAllocClick(Sender: TObject);
+begin
+  if lbAvailableResAlloc.ItemIndex = -1 then
+    Exit;
+
+  FSelectedResourceAlloc := TResource_Allocation(lbAvailableResAlloc.Items.Objects[lbAvailableResAlloc.ItemIndex]);
+end;
+
+procedure TfrmResorceAllocationPickList.lbAvailableResAllocDblClick(Sender: TObject);
+begin
+  btnAdd.Click;
+end;
+
+procedure TfrmResorceAllocationPickList.UpdateResourceAllocList;
+var
+  i : Integer;
+  resAlloc : TResource_Allocation;
+begin
+  lbAvailableResAlloc.Items.Clear;
+
+  dmTTT.GetAllResourceAllocationDef(FResourceAllocList);
+
+  for i := 0 to FResourceAllocList.Count - 1 do
+  begin
+    resAlloc := FResourceAllocList.Items[i];
+
+    lbAvailableResAlloc.Items.AddObject(resAlloc.FData.Allocation_Identifier, resAlloc);
+  end;
+end;
+
+{$ENDREGION}
+
+end.

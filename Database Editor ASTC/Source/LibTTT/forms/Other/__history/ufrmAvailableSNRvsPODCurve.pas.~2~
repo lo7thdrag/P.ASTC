@@ -1,0 +1,283 @@
+unit ufrmAvailableSNRvsPODCurve;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls, newClassASTT;
+
+type
+  TfrmAvailableSNRvsPODCurve = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    pnlTableList: TPanel;
+    lstSNRvsPODCurve: TListBox;
+    pnlHorizontal: TPanel;
+    Image2: TImage;
+    pnlTableButton: TPanel;
+    btnDelete: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    btnUsage: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
+
+    procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure lbSingleClick(Sender: TObject);
+
+    procedure btnNewClick(Sender: TObject);
+    procedure btnCopyClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnUsageClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+
+  private
+    FSNRvsPODCurveList : TList;
+    FSelectedSNRvsPODCurve : TPOD_vs_SNR_Curve_Definition;
+
+    procedure UpdateSNRvsPODCurveList;
+    procedure CopyPODvsSNRPoint(const aDefaultIndex, aNewDefaultIndex: Integer);
+
+  end;
+
+var
+  frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve;
+
+implementation
+
+uses
+  uDataModuleTTT, ufrmSnrVsPodSummary, ufrmUsage, ufProgress;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmAvailableSNRvsPODCurve.FormActivate(Sender: TObject);
+begin
+  WindowState := wsMaximized;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.FormCreate(Sender: TObject);
+begin
+  FSNRvsPODCurveList := TList.Create;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.FormShow(Sender: TObject);
+begin
+  UpdateSNRvsPODCurveList;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmAvailableSNRvsPODCurve.btnNewClick(Sender: TObject);
+begin
+ frmSnrVsPodSummary := TfrmSnrVsPodSummary.Create(Self);
+  try
+    with frmSnrVsPodSummary do
+    begin
+      SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition.Create;
+      ShowModal;
+
+      SelectedPODvsSNR.Free;
+    end;
+  finally
+    frmSnrVsPodSummary.Free;
+  end;
+
+  UpdateSNRvsPODCurveList;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.btnCopyClick(Sender: TObject);
+var
+  newClassName : string;
+  count, parentIndex : Integer;
+begin
+  if lstSNRvsPODCurve.ItemIndex = -1 then
+  begin
+    ShowMessage('Select SNR vs POD Curve... !');
+    Exit;
+  end;
+
+  with TPOD_vs_SNR_Curve_Definition(FSelectedSNRvsPODCurve) do
+  begin
+    parentIndex := FData.Curve_Definition_Index;
+    newClassName := FData.Curve_Definition_Identifier + ' - Copy';
+
+    count := dmTTT.GetPODvsSNRCurveDef(newClassName);
+
+    if count > 0 then
+    newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+
+    FData.Curve_Definition_Identifier := newClassName;
+
+    dmTTT.InsertPODvsSNRCurveDef(FData);
+    CopyPODvsSNRPoint(parentIndex, FData.Curve_Definition_Index);
+  end;
+
+  UpdateSNRvsPODCurveList;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.btnEditClick(Sender: TObject);
+begin
+  if lstSNRvsPODCurve.ItemIndex = -1 then
+  begin
+    ShowMessage('Select SNR vs PoD Curve... !');
+    Exit;
+  end;
+
+  frmSnrVsPodSummary := TfrmSnrVsPodSummary.Create(Self);
+  try
+    with frmSnrVsPodSummary do
+    begin
+      SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition(FSelectedSNRvsPODCurve);
+      ShowModal;
+    end;
+
+  finally
+    frmSnrVsPodSummary.Free;
+  end;
+
+  UpdateSNRvsPODCurveList;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.btnDeleteClick(Sender: TObject);
+var
+  warning : Integer;
+  tempList: TList;
+begin
+  if lstSNRvsPODCurve.ItemIndex = -1 then
+  begin
+    ShowMessage('Select SNR vs POD Curve... !');
+    Exit;
+  end;
+
+  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation, mbOKCancel, 0);
+
+  if warning = mrOK then
+  begin
+    tempList := TList.Create;
+
+    {Pengecekan Relasi Dengan Radar Definition}
+    with FSelectedSNRvsPODCurve.FData do
+    begin
+      if dmTTT.GetRadarByPOD_vs_SNR(Curve_Definition_Index, tempList) then
+      begin
+        ShowMessage('Cannot delete, because is already used by some Radar Definition');
+        tempList.Free;
+        Exit;
+      end;
+
+      if dmTTT.GetSonarByPOD_vs_SNR(Curve_Definition_Index, tempList) then
+      begin
+        ShowMessage('Cannot delete, because is already used by some Sonar Definition');
+        tempList.Free;
+        Exit;
+      end;
+      tempList.Free;
+
+      dmTTT.DeletePODvsSNRCurvePoint(1, Curve_Definition_Index);
+
+      if dmTTT.DeletePODvsSNRCurveDef(Curve_Definition_Index) then
+        ShowMessage('Data has been deleted');
+    end;
+
+    UpdateSNRvsPODCurveList;
+  end;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.btnUsageClick(Sender: TObject);
+begin
+  if lstSNRvsPODCurve.ItemIndex = -1 then
+  begin
+    ShowMessage('Select SNR vs POD Curve... !');
+    Exit;
+  end;
+
+  with frmUsage do
+  begin
+    UId := FSelectedSNRvsPODCurve.FData.Curve_Definition_Index;
+    name_usage := FSelectedSNRvsPODCurve.FData.Curve_Definition_Identifier;
+    UIndex := 38;
+
+    ShowModal;
+  end;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.lbSingleClick(Sender: TObject);
+begin
+  if lstSNRvsPODCurve.ItemIndex = -1 then
+    Exit;
+
+  FSelectedSNRvsPODCurve := TPOD_vs_SNR_Curve_Definition(lstSNRvsPODCurve.Items.Objects[lstSNRvsPODCurve.ItemIndex]);
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.UpdateSNRvsPODCurveList;
+var
+  i : Integer;
+  snrvspodcurve : TPOD_vs_SNR_Curve_Definition;
+begin
+  lstSNRvsPODCurve.Clear;
+  dmTTT.GetAllPODvsSNRCurveDef(FSNRvsPODCurveList);
+
+  frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading data from database';
+  frmProgress.MaxJob := FSNRvsPODCurveList.Count;
+
+  for i := 0 to FSNRvsPODCurveList.Count - 1 do
+  begin
+    snrvspodcurve := FSNRvsPODCurveList.Items[i];
+    lstSNRvsPODCurve.Items.AddObject(snrvspodcurve.FData.Curve_Definition_Identifier,snrvspodcurve);
+    frmProgress.increase(snrvspodcurve.FData.Curve_Definition_Identifier);
+  end;
+  frmProgress.Free;
+
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.CopyPODvsSNRPoint(const aDefaultIndex,aNewDefaultIndex: Integer);
+var
+  PODvsSNRPointList : TList;
+  i : Integer;
+  PODvsSNRPoint : TPOD_vs_SNR_Point;
+begin
+  PODvsSNRPointList := TList.Create;
+
+  dmTTT.GetPODvsSNRCurvePoint(aDefaultIndex, PODvsSNRPointList);
+
+  for i := 0 to PODvsSNRPointList.Count - 1 do
+  begin
+    PODvsSNRPoint := PODvsSNRPointList.Items[i];
+
+    with PODvsSNRPoint do
+    begin
+      FData.Curve_Definition_Index := aNewDefaultIndex;
+
+      dmTTT.InsertPODvsSNRCurvePoint(FData);
+    end;
+  end;
+
+  for i := 0 to PODvsSNRPointList.Count - 1 do
+  begin
+    PODvsSNRPoint := PODvsSNRPointList.Items[i];
+    PODvsSNRPoint.Free;
+  end;
+
+  PODvsSNRPointList.Free;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+
+end;
+
+{$ENDREGION}
+
+end.

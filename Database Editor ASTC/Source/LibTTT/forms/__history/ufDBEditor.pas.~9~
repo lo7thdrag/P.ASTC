@@ -1,0 +1,948 @@
+unit ufDBEditor;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, ImgList, jpeg, ExtCtrls, Vcl.Imaging.pngimage, Vcl.StdCtrls, ShellAPI;
+
+type
+  TfDBEditor = class(TForm)
+    img_Home: TImage;
+    pnlLeft: TPanel;
+    pnl1ExerciseBody: TPanel;
+    mnScenario: TLabel;
+    mnResourceAllocation: TLabel;
+    mnEnvironment: TLabel;
+    mnGameArea: TLabel;
+    img1: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    img2: TImage;
+    pnl1Exercise: TPanel;
+    imgExercise: TImage;
+    pnl2Platforms: TPanel;
+    imgPlatforms: TImage;
+    pnl2PlatformsBody: TPanel;
+    Image6: TImage;
+    Image7: TImage;
+    mnMotion: TLabel;
+    mnVehicle: TLabel;
+    pnl1ExerciseSparator: TPanel;
+    pnl2PlatformsSparator: TPanel;
+    pnl3Sensors: TPanel;
+    imgSensors: TImage;
+    pnl3SensorsBody: TPanel;
+    Image9: TImage;
+    mnRadar: TLabel;
+    Image10: TImage;
+    mnSonar: TLabel;
+    Image11: TImage;
+    mnESM: TLabel;
+    Image12: TImage;
+    mnElectroOpticalDetector: TLabel;
+    Image13: TImage;
+    Image14: TImage;
+    mnSonobuoy: TLabel;
+    mnMAD: TLabel;
+    pnl3SensorsSparator: TPanel;
+    pnl4Weapons: TPanel;
+    imgWeapons: TImage;
+    pnl4WeaponsBody: TPanel;
+    Image16: TImage;
+    mnMissile: TLabel;
+    Image17: TImage;
+    mnTorpedo: TLabel;
+    Image18: TImage;
+    mnMine: TLabel;
+    Image19: TImage;
+    mnGun: TLabel;
+    Image20: TImage;
+    mnBomb: TLabel;
+    pnl4WeaponsSparator: TPanel;
+    pnl5Countermeasur: TPanel;
+    imgCountermeasures: TImage;
+    pnl5CountermeasuresBody: TPanel;
+    Image21: TImage;
+    mnAcousticDecoy: TLabel;
+    Image22: TImage;
+    mnAirBubble: TLabel;
+    Image23: TImage;
+    mnChaff: TLabel;
+    Image24: TImage;
+    mnInfraredDecoy: TLabel;
+    Image25: TImage;
+    mnFloatingDecoy: TLabel;
+    Image26: TImage;
+    mnSelfDefensiveJammer: TLabel;
+    Image27: TImage;
+    mnTowedJammerDecoy: TLabel;
+    Image28: TImage;
+    mnRadarNoiseJammer: TLabel;
+    pnl5CountermeasuresSparator: TPanel;
+    pnl6Other: TPanel;
+    imgOther: TImage;
+    pnl6OtherBody: TPanel;
+    Image48: TImage;
+    mnRuntimePlatformLibrary: TLabel;
+    Image49: TImage;
+    Image50: TImage;
+    Image51: TImage;
+    mnGraphicalOverlays: TLabel;
+    Image52: TImage;
+    mnStudentRoles: TLabel;
+    mnGameDefaults: TLabel;
+    mnSNRvsPODCurve: TLabel;
+    pnl6OtherSparator: TPanel;
+    pnl8Shutdown: TPanel;
+    imgShutdown: TImage;
+    pnl8ShutdownBody: TPanel;
+    Image66: TImage;
+    mnShutdownDatabaseEditor: TLabel;
+    pnl8ShutdownSparator: TPanel;
+    pnlSparatorHor: TPanel;
+    pnlSparatorVer1: TPanel;
+    pnlTop: TPanel;
+    Timer1: TTimer;
+    Image1: TImage;
+    mnSatelite: TLabel;
+    MainMenu1: TMainMenu;
+    Exercise1: TMenuItem;
+    Scenario1: TMenuItem;
+    ResourceAllocation1: TMenuItem;
+    Environment1: TMenuItem;
+    GameArea1: TMenuItem;
+    Platforms1: TMenuItem;
+    Vehicle1: TMenuItem;
+    Satellite1: TMenuItem;
+    Motion1: TMenuItem;
+    Sensors1: TMenuItem;
+    Radar1: TMenuItem;
+    Sonar1: TMenuItem;
+    ESM1: TMenuItem;
+    ElectroOpticalDetector1: TMenuItem;
+    Sonobuoy1: TMenuItem;
+    MAD1: TMenuItem;
+    Weapons1: TMenuItem;
+    Missile1: TMenuItem;
+    Torpedo1: TMenuItem;
+    Mine1: TMenuItem;
+    Gun1: TMenuItem;
+    Bomb1: TMenuItem;
+    Countermeasures1: TMenuItem;
+    AcousticDecoy1: TMenuItem;
+    AirBubble1: TMenuItem;
+    Chaff1: TMenuItem;
+    InfraredDecoy1: TMenuItem;
+    FloatingDecoy1: TMenuItem;
+    SelfDefensiveJammer1: TMenuItem;
+    TowedJammerDecoy1: TMenuItem;
+    RadarNoiseJammer1: TMenuItem;
+    Other1: TMenuItem;
+    RuntimePlatformLibrary1: TMenuItem;
+    PredefinedPatterns1: TMenuItem;
+    RadarActivationIntervals1: TMenuItem;
+    GraphicalOverlays1: TMenuItem;
+    StudentRoles1: TMenuItem;
+    GameDefaults1: TMenuItem;
+    SNRvsPODCurve1: TMenuItem;
+    ReportEditor1: TMenuItem;
+    ReportViewer1: TMenuItem;
+    Options1: TMenuItem;
+    DisplayDimensionsinfeet1: TMenuItem;
+    DisplayDimensionsinmetres1: TMenuItem;
+    Shutdown1: TMenuItem;
+    ShutdownDatabaseEditor1: TMenuItem;
+    Help1: TMenuItem;
+    AboutDatabaseEditor1: TMenuItem;
+    Image2: TImage;
+    Image5: TImage;
+    pnlVariasi: TPanel;
+    pnlSparatorVer2: TPanel;
+    Image8: TImage;
+    imgBackExerciseBody: TImage;
+    imgPlatformsBody: TImage;
+    ImgSensorBody: TImage;
+    ImgWeaponsBody: TImage;
+    ImgCounteresmeasuresBody: TImage;
+    imgOtherBody: TImage;
+    imgShutdownBody: TImage;
+    Image15: TImage;
+    mnRadarActivationIntervals: TLabel;
+
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+    {$REGION ' Exercise Section '}
+
+    procedure ScenarioClick(Sender: TObject);
+    procedure ResourceAllocationClick(Sender: TObject);
+    procedure EnvironmentClick(Sender: TObject);
+    procedure GameAreaClick(Sender: TObject);
+
+    {$ENDREGION}
+
+    {$REGION ' Platform Section '}
+
+    procedure VehicleClick(Sender: TObject);
+    procedure SatelliteClick(Sender: TObject);
+    procedure MotionClick(Sender: TObject);
+
+    {$ENDREGION}
+
+    {$REGION ' Sensors Section '}
+
+    procedure RadarClick(Sender: TObject);
+    procedure SonarClick(Sender: TObject);
+    procedure ESMClick(Sender: TObject);
+    procedure ElectroOpticalDetectorClick(Sender: TObject);
+    procedure SonobuoyClick(Sender: TObject);
+    procedure MADClick(Sender: TObject);
+
+    {$ENDREGION}
+
+    {$REGION ' Weapon Section '}
+
+    procedure MissileClick(Sender: TObject);
+    procedure TorpedoClick(Sender: TObject);
+    procedure MineClick(Sender: TObject);
+    procedure GunClick(Sender: TObject);
+    procedure BombClick(Sender: TObject);
+
+    {$ENDREGION}
+
+    {$REGION ' Countermeasure Section '}
+
+    procedure AcousticDecoyClick(Sender: TObject);
+    procedure AirBubbleClick(Sender: TObject);
+    procedure ChaffClick(Sender: TObject);
+    procedure InfraredDecoyClick(Sender: TObject);
+    procedure FloatingDecoyClick(Sender: TObject);
+    procedure SelfDefensiveJammerClick(Sender: TObject);
+    procedure TowedJammerDecoyClick(Sender: TObject);
+    procedure RadarNoiseJammerClick(Sender: TObject);
+
+    {$ENDREGION}
+
+    {$REGION ' Other Section '}
+
+    procedure RuntimePlatformLibraryClick(Sender: TObject);
+    procedure PredefinedPatternsClick(Sender: TObject);
+    procedure RadarActivationIntervalsClick(Sender: TObject);
+    procedure GraphicalOverlaysClick(Sender: TObject);
+    procedure StudentRolesClick(Sender: TObject);
+    procedure GameDefaultsClick(Sender: TObject);
+    procedure SNRvsPODCurveClick(Sender: TObject);
+
+    {$ENDREGION}
+
+    {$REGION ' Shutdown Section '}
+
+    procedure ReportEditor1Click(Sender: TObject);
+    procedure ReportViewer1Click(Sender: TObject);
+    procedure DisplayDimensionsinfeet1Click(Sender: TObject);
+    procedure DisplayDimensionsinmetres1Click(Sender: TObject);
+    procedure ShutdownDatabaseEditor1Click(Sender: TObject);
+    procedure AboutDatabaseEditor1Click(Sender: TObject);
+
+    {$ENDREGION}
+
+    {$REGION ' Navbar Section '}
+
+    procedure Timer1Timer(Sender: TObject);
+    procedure CollapseMenuClick(Sender: TObject);
+    procedure UnCollapseMenuClick();
+    procedure imgExerciseClick(Sender: TObject);
+    procedure imgPlatformsClick(Sender: TObject);
+    procedure imgSensorsClick(Sender: TObject);
+    procedure imgWeaponsClick(Sender: TObject);
+    procedure imgCountermeasuresClick(Sender: TObject);
+    procedure imgOtherClick(Sender: TObject);
+    procedure imgShutdownClick(Sender: TObject);
+
+    {$ENDREGION}
+
+  private
+    CurrentForm: TForm;
+    isFold : boolean;
+    pnlActive : Integer;
+
+    procedure LoadImageVariasi(i : byte);
+
+  public
+
+  end;
+
+var
+  fDBEditor: TfDBEditor;
+
+implementation
+
+uses
+  ufrmExercise, ufrmPlatforms, ufrmSensors, ufrmWeapons, ufrmCountermeasure, ufrmOther,
+
+  ufrmAvailableScenario, ufrmAvailableResourceAllocation, ufrmAvailableEnvironments,
+  ufrmAvailableGameArea,
+
+  ufrmAvailableVehicle, ufrmAvailableSatellite, ufrmAvailableMotion,
+
+  ufrmAvailableRadar, ufrmAvailableSonar,ufrmAvailableESM, ufrmAvailableEOD,
+  ufrmAvailableSonobuoy,ufrmAvailableMAD,
+
+  ufrmAvailableMissile, ufrmAvailableTorpedo,ufrmAvailableMine, ufrmAvailableGun,
+  ufrmAvailableBomb,
+
+  ufrmAvailableAcousticDecoy, ufrmAvailableAirBubble, ufrmAvailableChaff,
+  ufrmAvailableInfraredDecoy, ufrmAvailableFloatingDecoy, ufrmAvailableSelfDefensiveJammer,
+  ufrmAvailableTowedJammerDecoy, ufrmAvailableRadarNoiseJammer,
+
+  ufrmAvailableRuntimePlatformLibrary, ufrmAvailablePredifinedPattern,
+  ufrmAvailableRadarActivationIntervals,  ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles,
+  ufrmAvailableGameDefaults, ufrmAvailableSNRvsPODCurve;
+
+{$R *.dfm}
+
+procedure TfDBEditor.FormCreate(Sender: TObject);
+begin
+  pnl1ExerciseBody.Height := 0;
+  pnl2PlatformsBody.Height := 0;
+  pnl3SensorsBody.Height := 0;
+  pnl4WeaponsBody.Height := 0;
+  pnl5CountermeasuresBody.Height := 0;
+  pnl6OtherBody.Height := 0;
+  pnl8ShutdownBody.Height := 0;
+end;
+
+procedure TfDBEditor.FormShow(Sender: TObject);
+begin
+  if ParamCount > 0 then
+  begin
+    case StrToInt(ParamStr(1)) of
+      1:
+      begin
+        Exercise1.Visible := False;
+        Other1.Visible := False;
+      end;
+      2:
+      begin
+        Exercise1.Visible := False;
+        Platforms1.Visible := False;
+        Sensors1.Visible := False;
+        Weapons1.Visible := False;
+        Countermeasures1.Visible := False;
+
+        RuntimePlatformLibrary1.Visible := False;
+        RadarActivationIntervals1.Visible := False;
+        GraphicalOverlays1.Visible := False;
+        StudentRoles1.Visible := False;
+        GameDefaults1.Visible := False;
+        SNRvsPODCurve1.Visible := False;
+        ReportEditor1.Visible := False;
+        ReportViewer1.Visible := False;
+      end;
+      3:
+      begin
+        Platforms1.Visible := False;
+        Sensors1.Visible := False;
+        Weapons1.Visible := False;
+        Countermeasures1.Visible := False;
+        Other1.Visible := False;
+
+        Scenario1.Visible := False;
+        Environment1.Visible := False;
+        GameArea1.Visible := False;
+      end;
+      4:
+      begin
+        Platforms1.Visible := False;
+        Sensors1.Visible := False;
+        Weapons1.Visible := False;
+        Countermeasures1.Visible := False;
+
+        ResourceAllocation1.Visible := False;
+        Environment1.Visible := False;
+        GameArea1.Visible := False;
+
+        PredefinedPatterns1.Visible := False;
+        RadarActivationIntervals1.Visible := False;
+        GraphicalOverlays1.Visible := False;
+        StudentRoles1.Visible := False;
+        GameDefaults1.Visible := False;
+        SNRvsPODCurve1.Visible := False;
+        ReportEditor1.Visible := False;
+        ReportViewer1.Visible := False;
+      end;
+    end;
+  end;
+
+  DisplayDimensionsinfeet1.Checked := True;
+  DisplayDimensionsinmetres1.Checked := False;
+end;
+
+
+{$REGION ' Menu Section '}
+
+procedure TfDBEditor.imgExerciseClick(Sender: TObject);
+begin
+  if not Assigned(frmExercise) then
+    frmExercise := TfrmExercise.Create(self)
+  else
+    frmExercise.Show;
+
+  LoadImageVariasi(1);
+  CollapseMenuClick(Sender);
+end;
+
+procedure TfDBEditor.imgPlatformsClick(Sender: TObject);
+begin
+  if not Assigned(frmPlatforms) then
+    frmPlatforms := TfrmPlatforms.Create(self)
+  else
+    frmPlatforms.Show;
+
+  LoadImageVariasi(1);
+  CollapseMenuClick(Sender);
+end;
+
+procedure TfDBEditor.imgSensorsClick(Sender: TObject);
+begin
+  if not Assigned(frmSensors) then
+    frmSensors := TfrmSensors.Create(self)
+  else
+    frmSensors.Show;
+
+  LoadImageVariasi(1);
+  CollapseMenuClick(Sender);
+end;
+
+procedure TfDBEditor.imgWeaponsClick(Sender: TObject);
+begin
+  if not Assigned(frmWeapons) then
+    frmWeapons := TfrmWeapons.Create(self)
+  else
+    frmWeapons.Show;
+
+  LoadImageVariasi(1);
+  CollapseMenuClick(Sender);
+end;
+
+procedure TfDBEditor.imgCountermeasuresClick(Sender: TObject);
+begin
+  if not Assigned(frmCountermeasure) then
+    frmCountermeasure := TfrmCountermeasure.Create(self)
+  else
+    frmCountermeasure.Show;
+
+  LoadImageVariasi(1);
+  CollapseMenuClick(Sender);
+end;
+
+procedure TfDBEditor.imgOtherClick(Sender: TObject);
+begin
+  if not Assigned(frmOther) then
+    frmOther := TfrmOther.Create(self)
+  else
+    frmOther.Show;
+
+  LoadImageVariasi(1);
+  CollapseMenuClick(Sender);
+end;
+
+procedure TfDBEditor.imgShutdownClick(Sender: TObject);
+begin
+  CollapseMenuClick(Sender);
+end;
+
+{$ENDREGION}
+
+{$REGION ' Exercise Sub Menu Section '}
+
+procedure TfDBEditor.ScenarioClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableScenario) then
+    frmAvailableScenario := TfrmAvailableScenario.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableScenario.Show;
+end;
+
+procedure TfDBEditor.ResourceAllocationClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableResourceAllocation) then
+    frmAvailableResourceAllocation := TfrmAvailableResourceAllocation.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableResourceAllocation.Show;
+end;
+
+procedure TfDBEditor.EnvironmentClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableEnvironments) then
+    frmAvailableEnvironments := TfrmAvailableEnvironments.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableEnvironments.Show;
+end;
+
+procedure TfDBEditor.GameAreaClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableGameArea) then
+    frmAvailableGameArea := TfrmAvailableGameArea.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableGameArea.Show;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Platforms Sub Menu Section '}
+
+procedure TfDBEditor.VehicleClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableVehicle) then
+    frmAvailableVehicle := TfrmAvailableVehicle.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableVehicle.Show;
+end;
+
+procedure TfDBEditor.SatelliteClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableSatellite) then
+    frmAvailableSatellite := TfrmAvailableSatellite.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableSatellite.Show;
+end;
+
+procedure TfDBEditor.MotionClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableMotion) then
+    frmAvailableMotion := TfrmAvailableMotion.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableMotion.Show;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Sensors Sub Menu Section '}
+
+procedure TfDBEditor.RadarClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableRadar) then
+    frmAvailableRadar := TfrmAvailableRadar.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableRadar.Show;
+end;
+
+procedure TfDBEditor.SonarClick(Sender: TObject);
+begin
+   if not Assigned(frmAvailableSonar) then
+    frmAvailableSonar := TfrmAvailableSonar.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableSonar.Show;
+end;
+
+procedure TfDBEditor.ESMClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableESM) then
+    frmAvailableESM := TfrmAvailableESM.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableESM.Show;
+end;
+
+procedure TfDBEditor.ElectroOpticalDetectorClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableEOD) then
+    frmAvailableEOD := TfrmAvailableEOD.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableEOD.Show;
+end;
+
+procedure TfDBEditor.SonobuoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableSonobuoy) then
+    frmAvailableSonobuoy := TfrmAvailableSonobuoy.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableSonobuoy.Show;
+end;
+
+procedure TfDBEditor.MADClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableMAD) then
+    frmAvailableMAD := TfrmAvailableMAD.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableMAD.Show;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Weapons Sub Menu Section '}
+
+procedure TfDBEditor.MissileClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableMissile) then
+    frmAvailableMissile := TfrmAvailableMissile.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableMissile.Show;
+end;
+
+procedure TfDBEditor.TorpedoClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableTorpedo) then
+    frmAvailableTorpedo := TfrmAvailableTorpedo.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableTorpedo.Show;
+end;
+
+procedure TfDBEditor.MineClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableMine) then
+    frmAvailableMine := TfrmAvailableMine.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableMine.Show;
+end;
+
+procedure TfDBEditor.GunClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableGun) then
+    frmAvailableGun := TfrmAvailableGun.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableGun.Show;
+end;
+
+procedure TfDBEditor.BombClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableBomb) then
+    frmAvailableBomb := TfrmAvailableBomb.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableBomb.Show;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Countermeasures Sub Menu Section '}
+
+procedure TfDBEditor.AcousticDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableAcousticDecoy) then
+    frmAvailableAcousticDecoy := TfrmAvailableAcousticDecoy.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableAcousticDecoy.Show;
+end;
+
+procedure TfDBEditor.AirBubbleClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableAirBubble) then
+    frmAvailableAirBubble := TfrmAvailableAirBubble.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableAirBubble.Show;
+end;
+
+procedure TfDBEditor.ChaffClick(Sender: TObject);
+begin
+   if not Assigned(frmAvailableChaff) then
+    frmAvailableChaff := TfrmAvailableChaff.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableChaff.Show;
+end;
+
+procedure TfDBEditor.SelfDefensiveJammerClick(Sender: TObject);
+begin
+   if not Assigned(frmAvailableSelfDefensiveJammer) then
+    frmAvailableSelfDefensiveJammer := TfrmAvailableSelfDefensiveJammer.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableSelfDefensiveJammer.Show;
+end;
+
+procedure TfDBEditor.InfraredDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableInfraredDecoy) then
+    frmAvailableInfraredDecoy := TfrmAvailableInfraredDecoy.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableInfraredDecoy.Show;
+end;
+
+procedure TfDBEditor.TowedJammerDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableTowedJammerDecoy) then
+    frmAvailableTowedJammerDecoy := TfrmAvailableTowedJammerDecoy.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableTowedJammerDecoy.Show;
+end;
+
+procedure TfDBEditor.RadarNoiseJammerClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableRadarNoiseJammer) then
+    frmAvailableRadarNoiseJammer := TfrmAvailableRadarNoiseJammer.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableRadarNoiseJammer.Show;
+end;
+
+procedure TfDBEditor.FloatingDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableFloatingDecoy) then
+    frmAvailableFloatingDecoy := TfrmAvailableFloatingDecoy.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableFloatingDecoy.Show;
+end;
+
+procedure TfDBEditor.LoadImageVariasi(i: byte);
+begin
+  if i=0 then
+  begin
+    pnlSparatorVer2.Visible := False;
+    pnlVariasi.Visible := True;
+    pnlSparatorVer2.Visible := True;
+  end
+  else
+  begin
+    pnlVariasi.Visible := False;
+  end;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Other Sub Menu Section '}
+
+procedure TfDBEditor.RuntimePlatformLibraryClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableRuntimePlatformLibrary) then
+    frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableRuntimePlatformLibrary.Show;
+end;
+
+procedure TfDBEditor.PredefinedPatternsClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailablePredifinedPattern) then
+    frmAvailablePredifinedPattern := TfrmAvailablePredifinedPattern.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailablePredifinedPattern.Show;
+end;
+
+procedure TfDBEditor.RadarActivationIntervalsClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableRadarActivationIntervals) then
+    frmAvailableRadarActivationIntervals := TfrmAvailableRadarActivationIntervals.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableRadarActivationIntervals.Show;
+end;
+
+procedure TfDBEditor.GraphicalOverlaysClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableGrapicalOverlay) then
+    frmAvailableGrapicalOverlay := TfrmAvailableGrapicalOverlay.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableGrapicalOverlay.Show;
+end;
+
+procedure TfDBEditor.StudentRolesClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableStudentRoles) then
+    frmAvailableStudentRoles := TfrmAvailableStudentRoles.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableStudentRoles.Show;
+end;
+
+procedure TfDBEditor.GameDefaultsClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableGameDefaults) then
+    frmAvailableGameDefaults := TfrmAvailableGameDefaults.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableGameDefaults.Show;
+end;
+
+procedure TfDBEditor.SNRvsPODCurveClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableSNRvsPODCurve) then
+    frmAvailableSNRvsPODCurve := TfrmAvailableSNRvsPODCurve.Create(self);
+
+  LoadImageVariasi(0);
+  frmAvailableSNRvsPODCurve.Show;
+end;
+
+
+{$ENDREGION}
+
+{$REGION ' Shutdown Sub Menu Section '}
+
+procedure TfDBEditor.AboutDatabaseEditor1Click(Sender: TObject);
+begin
+  ShellExecute(Handle, 'open', 'D:\TTT\help\Vol 6.pdf', '', '', 1);
+end;
+
+procedure TfDBEditor.DisplayDimensionsinfeet1Click(Sender: TObject);
+begin
+  DisplayDimensionsinfeet1.Checked := True;
+  DisplayDimensionsinmetres1.Checked := False;
+end;
+
+procedure TfDBEditor.DisplayDimensionsinmetres1Click(Sender: TObject);
+begin
+  DisplayDimensionsinfeet1.Checked := False;
+  DisplayDimensionsinmetres1.Checked := True;
+end;
+
+procedure TfDBEditor.ShutdownDatabaseEditor1Click(Sender: TObject);
+var warning : Integer;
+begin
+  warning := MessageDlg('Shutdown Database Editor?',mtWarning,[mbYes,mbNo],0);
+  if warning = mrYes then
+  begin
+    try
+      Self.Close;
+    finally
+      free;
+    end;
+  end;
+end;
+
+procedure TfDBEditor.ReportEditor1Click(Sender: TObject);
+begin
+//  with fOtherSingle do
+//  begin
+//    OtherFormShow := ofsReportEditor;
+//    ShowModal;
+//  end;
+end;
+
+procedure TfDBEditor.ReportViewer1Click(Sender: TObject);
+begin
+//  with fOtherSingle do
+//  begin
+//    OtherFormShow := ofsReportViewer;
+//    ShowModal;
+//  end;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Navbar Section '}
+
+procedure TfDBEditor.CollapseMenuClick(Sender: TObject);
+begin
+  if Sender is TImage then
+    pnlActive := TImage(sender).Tag
+  else if Sender is TLabel then
+    pnlActive := TLabel(sender).Tag
+  else
+    Exit;
+
+  case pnlActive of
+    0: if pnl1ExerciseBody.Height <> 0 then exit;
+    1: if pnl2PlatformsBody.Height <> 0 then exit;
+    2: if pnl3SensorsBody.Height <> 0 then exit;
+    3: if pnl4WeaponsBody.Height <> 0 then exit;
+    4: if pnl5CountermeasuresBody.Height <> 0 then exit;
+    5: if pnl6OtherBody.Height <> 0 then exit;
+    7: if pnl8ShutdownBody.Height <> 0 then exit;
+  end;
+
+  UnCollapseMenuClick;
+
+  Timer1.Enabled := True;
+  isFold := true;
+end;
+
+procedure TfDBEditor.UnCollapseMenuClick;
+begin
+  pnl1ExerciseBody.Height := 0;
+  pnl2PlatformsBody.Height := 0;
+  pnl3SensorsBody.Height := 0;
+  pnl4WeaponsBody.Height := 0;
+  pnl5CountermeasuresBody.Height := 0;
+  pnl6OtherBody.Height := 0;
+  pnl8ShutdownBody.Height := 0;
+end;
+
+procedure TfDBEditor.Timer1Timer(Sender: TObject);
+begin
+  if not Timer1.Enabled then
+    Exit;
+
+  if not isFold then
+    Exit;
+
+  case pnlActive of
+    0:
+    begin
+      if pnl1ExerciseBody.Height < (mnGameArea.Top + 38) then //160 then
+        pnl1ExerciseBody.Height := pnl1ExerciseBody.Height + 2
+      else
+        Timer1.Enabled := false;
+    end;
+    1:
+    begin
+      if pnl2PlatformsBody.Height < (mnMotion.Top + 38) then
+        pnl2PlatformsBody.Height := pnl2PlatformsBody.Height + 2
+      else
+        Timer1.Enabled := false;
+    end;
+    2:
+    begin
+      if pnl3SensorsBody.Height < (mnMAD.Top + 38) then
+        pnl3SensorsBody.Height := pnl3SensorsBody.Height + 2
+      else
+        Timer1.Enabled := false;
+    end;
+    3:
+    begin
+      if pnl4WeaponsBody.Height < (mnBomb.Top + 38) then
+        pnl4WeaponsBody.Height := pnl4WeaponsBody.Height + 2
+      else
+        Timer1.Enabled := false;
+    end;
+    4:
+    begin
+      if pnl5CountermeasuresBody.Height < (mnRadarNoiseJammer.Top + 38) then
+        pnl5CountermeasuresBody.Height := pnl5CountermeasuresBody.Height + 2
+      else
+        Timer1.Enabled := false;
+    end;
+     5:
+     begin
+      if pnl6OtherBody.Height < (mnRadarActivationIntervals.Top + 38) then
+        pnl6OtherBody.Height := pnl6OtherBody.Height + 2
+      else
+        Timer1.Enabled := false;
+    end;
+    7:
+     begin
+      if pnl8ShutdownBody.Height < (mnShutdownDatabaseEditor.Top + 38) then
+        pnl8ShutdownBody.Height := pnl8ShutdownBody.Height + 2
+      else
+        Timer1.Enabled := false;
+    end;
+  end;
+end;
+
+{$ENDREGION}
+
+end.

@@ -1,0 +1,259 @@
+unit ufrmAvailableStudentRoles;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls, uDBAssetObject;
+
+type
+  TfrmAvailableStudentRoles = class(TForm)
+    pnlMainTable: TPanel;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    pnlTableButton: TPanel;
+    btnDelete: TImage;
+    btnEdit: TImage;
+    btnCopy: TImage;
+    btnNew: TImage;
+    pnlTableList: TPanel;
+    lstStudentRoles: TListBox;
+    btnUsage: TImage;
+    pnlHorizontal: TPanel;
+    Image2: TImage;
+
+    procedure FormActivate(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure lbSingleClick(Sender: TObject);
+
+    procedure btnNewClick(Sender: TObject);
+    procedure btnCopyClick(Sender: TObject);
+    procedure btnEditClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnUsageClick(Sender: TObject);
+
+  private
+    FStudentRolesList : TList;
+    FSelectedStudentRoles : TStudent_Role_List;
+
+    procedure UpdateStudentRolesList;
+    procedure CopyStudentRoleDefinition(const aStudentRoleIndex, aNewStudentRoleIndex: Integer);
+
+  end;
+
+var
+  frmAvailableStudentRoles: TfrmAvailableStudentRoles;
+
+implementation
+
+uses
+  uDataModuleTTT, ufrmStudentRoleSummary, ufrmUsage;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmAvailableStudentRoles.FormActivate(Sender: TObject);
+begin
+  WindowState := wsMaximized;
+end;
+
+procedure TfrmAvailableStudentRoles.FormCreate(Sender: TObject);
+begin
+  FStudentRolesList := TList.Create;
+end;
+
+procedure TfrmAvailableStudentRoles.FormShow(Sender: TObject);
+begin
+  UpdateStudentRolesList;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmAvailableStudentRoles.btnNewClick(Sender: TObject);
+begin
+ frmStudentRoleSummary := TfrmStudentRoleSummary.Create(Self);
+  try
+    with frmStudentRoleSummary do
+    begin
+      SelectedStudentRoleList := TStudent_Role_List.Create;
+      ShowModal;
+
+      SelectedStudentRoleList.Free;
+    end;
+  finally
+    frmStudentRoleSummary.Free;
+  end;
+
+  UpdateStudentRolesList;
+end;
+
+procedure TfrmAvailableStudentRoles.btnCopyClick(Sender: TObject);
+var
+  newClassName : string;
+  count, parentIndex : Integer;
+begin
+  if lstStudentRoles.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Student Role... !');
+    Exit;
+  end;
+
+  with FSelectedStudentRoles do
+  begin
+    parentIndex := FData.Role_List_Index;
+    newClassName := FData.Role_List_Identifier + ' - Copy';
+
+    count := dmTTT.GetStudentRoleList(newClassName);
+
+    if count > 0 then
+    newClassName := newClassName + ' (' + IntToStr(count + 1) + ')';
+
+    FData.Role_List_Identifier := newClassName;
+
+    dmTTT.InsertStudentRoleList(FData);
+       CopyStudentRoleDefinition(parentIndex, FData.Role_List_Index);
+  end;
+
+  UpdateStudentRolesList;
+end;
+
+procedure TfrmAvailableStudentRoles.btnEditClick(Sender: TObject);
+begin
+  if lstStudentRoles.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Student Role... !');
+    Exit;
+  end;
+
+  frmStudentRoleSummary := TfrmStudentRoleSummary.Create(Self);
+  try
+    with frmStudentRoleSummary do
+    begin
+      SelectedStudentRoleList := TStudent_Role_List(FSelectedStudentRoles);
+      ShowModal;
+    end;
+
+  finally
+    frmStudentRoleSummary.Free;
+  end;
+
+  UpdateStudentRolesList;
+end;
+
+procedure TfrmAvailableStudentRoles.btnDeleteClick(Sender: TObject);
+var
+  warning : Integer;
+  tempList: TList;
+begin
+  if lstStudentRoles.ItemIndex = -1 then
+  begin
+    ShowMessage('Select Student Role... !');
+    Exit;
+  end;
+
+  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation, mbOKCancel, 0);
+
+  if warning = mrOK then
+  begin
+    tempList := TList.Create;
+
+    {Pengecekan Relasi Dengan Resource Allocation}
+    with FSelectedStudentRoles.FData do
+    begin
+      if dmTTT.GetStudentRoleAtResourceAllocation(Role_List_Index, tempList) then
+      begin
+        ShowMessage('Cannot delete, because is already used by some Resource Allocation');
+        tempList.Free;
+        Exit;
+      end;
+      tempList.Free;
+
+      dmTTT.DeleteStudentRoleDef(1, Role_List_Index);
+
+      if dmTTT.DeleteStudentRoleList(Role_List_Index) then
+        ShowMessage('Data has been deleted');
+    end;
+
+    UpdateStudentRolesList;
+  end;
+
+end;
+
+procedure TfrmAvailableStudentRoles.btnUsageClick(Sender: TObject);
+begin
+  if lstStudentRoles.ItemIndex = -1 then
+    Exit;
+
+  with frmUsage do
+  begin
+    UId := FSelectedStudentRoles.FData.Role_List_Index;
+    name_usage := FSelectedStudentRoles.FData.Role_List_Identifier;
+    UIndex := 39;
+
+    ShowModal;
+  end;
+end;
+
+procedure TfrmAvailableStudentRoles.lbSingleClick(Sender: TObject);
+begin
+  if lstStudentRoles.ItemIndex = -1 then
+    Exit;
+
+  FSelectedStudentRoles := TStudent_Role_List(lstStudentRoles.Items.Objects[lstStudentRoles.ItemIndex]);
+end;
+
+procedure TfrmAvailableStudentRoles.UpdateStudentRolesList;
+var
+  i : Integer;
+  studentroles : TStudent_Role_List;
+begin
+  lstStudentRoles.Clear;
+  dmTTT.GetStudentRoleList(FStudentRolesList);
+
+  for i := 0 to FStudentRolesList.Count - 1 do
+  begin
+    studentroles := FStudentRolesList.Items[i];
+    lstStudentRoles.Items.AddObject(studentroles.FData.Role_List_Identifier,studentroles);
+  end;
+end;
+
+procedure TfrmAvailableStudentRoles.CopyStudentRoleDefinition( const aStudentRoleIndex, aNewStudentRoleIndex: Integer);
+var
+  studentRoleList : TList;
+  i : Integer;
+  studentRoleDef : TStudent_Role_Definition;
+begin
+  studentRoleList := TList.Create;
+
+  dmTTT.GetStudentRoleDef(aStudentRoleIndex, studentRoleList);
+
+  for i := 0 to studentRoleList.Count - 1 do
+  begin
+    studentRoleDef := studentRoleList.Items[i];
+
+    with studentRoleDef do
+    begin
+      FData.Role_List_Index := aNewStudentRoleIndex;
+
+      dmTTT.InsertStudentRoleDef(FData);
+    end;
+  end;
+
+  for i := 0 to studentRoleList.Count - 1 do
+  begin
+    studentRoleDef := studentRoleList.Items[i];
+    studentRoleDef.Free;
+  end;
+
+  studentRoleList.Free;
+end;
+
+{$ENDREGION}
+
+end.

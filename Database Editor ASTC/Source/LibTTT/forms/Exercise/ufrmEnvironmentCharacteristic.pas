@@ -1,0 +1,1072 @@
+unit ufrmEnvironmentCharacteristic;
+
+interface
+
+uses
+  MapXLib_TLB, Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, Dialogs, Tabs, DockTabSet, OleCtrls, ExtCtrls, //RzForms,
+  ImgList, StdCtrls, ComCtrls, ToolWin, uMapXHandler, uCoordConvertor,
+  uDBAssets_SubAreaEnviroDefinition, newClassASTT, uDBAsset_GameEnvironment,
+  uDBAssetObject, System.ImageList, Vcl.Imaging.pngimage;
+
+type
+  TfrmEnvironmentCharacteristic = class(TForm)
+    ToolBar1: TToolBar;
+    btnSelectPoint: TToolButton;
+    btnDecreaseScale: TToolButton;
+    cbbScale: TComboBox;
+    btnIncreaseScale: TToolButton;
+    btnZoomTool: TToolButton;
+    btnMoveTool: TToolButton;
+    btnCenterHook: TToolButton;
+    Map1: TMap;
+    ImageList1: TImageList;
+    pnlMainBackground: TPanel;
+    pnlPlatform: TPanel;
+    pnlSelectedPlatform: TPanel;
+    pnlMap: TPanel;
+    pnlToolBar: TPanel;
+    pnlCursorPosition: TPanel;
+    GroupBox1: TGroupBox;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
+    lBearingFCenter: TLabel;
+    lDistanceFCenter: TLabel;
+    lPosLat: TLabel;
+    lGridLat: TLabel;
+    Label32: TLabel;
+    Label33: TLabel;
+    lPosLong: TLabel;
+    lGridLong: TLabel;
+    pnl3Button: TPanel;
+    Panel3: TPanel;
+    Button1: TButton;
+    pnlSparatorHor1: TPanel;
+    grpSelectedPoint: TGroupBox;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label11: TLabel;
+    lblArea: TLabel;
+    lblTLPosLat: TLabel;
+    lblTLGridLat: TLabel;
+    lblTLPosLong: TLabel;
+    lblTLGridLong: TLabel;
+    Label5: TLabel;
+    Label13: TLabel;
+    Label6: TLabel;
+    Label14: TLabel;
+    lblRBPosLat: TLabel;
+    lblRBGridLat: TLabel;
+    lblRBPosLong: TLabel;
+    lblRBGridLong: TLabel;
+    grpSonarPrediction: TGroupBox;
+    Label12: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    edtDefaults: TEdit;
+    btnShowDefaultList: TButton;
+    edtSonar: TEdit;
+    btnShowSonarList: TButton;
+    cbbSonarCategory: TComboBox;
+    edtSonarDepth: TEdit;
+    edtTargetSourceLevel: TEdit;
+    edtTargetCrossSection: TEdit;
+    edtTargetDepth: TEdit;
+    edtPredictionRange: TEdit;
+    btnCalculate: TButton;
+    btnScreenCapture: TButton;
+    GroupBox2: TGroupBox;
+    lstSubEnvi: TListBox;
+    pnlVertical1: TPanel;
+    pnlAlignToolBar: TPanel;
+    btnNew: TImage;
+    btnEdit: TImage;
+    btnDelete: TImage;
+    Image2: TImage;
+    Image1: TImage;
+
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure btnSelectPointClick(Sender: TObject);
+    procedure btnAddPointClick(Sender: TObject);
+    procedure btnDeletePointClick(Sender: TObject);
+    procedure btnDecreaseScaleClick(Sender: TObject);
+    procedure cbbScaleChange(Sender: TObject);
+    procedure btnIncreaseScaleClick(Sender: TObject);
+    procedure btnZoomToolClick(Sender: TObject);
+    procedure btnMoveToolClick(Sender: TObject);
+    procedure btnCenterHookClick(Sender: TObject);
+    procedure btnEditCharacteristicClick(Sender: TObject);
+    procedure btnShowDefaultListClick(Sender: TObject);
+    procedure btnShowSonarListClick(Sender: TObject);
+    procedure edtSonarDepthKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSonarDepthKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtTargetSourceLevelKeyPress(Sender: TObject; var Key: Char);
+    procedure edtTargetSourceLevelKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtTargetCrossSectionKeyPress(Sender: TObject; var Key: Char);
+    procedure edtTargetCrossSectionKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtTargetDepthKeyPress(Sender: TObject; var Key: Char);
+    procedure edtTargetDepthKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtPredictionRangeKeyPress(Sender: TObject; var Key: Char);
+    procedure edtPredictionRangeKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure btnCalculateClick(Sender: TObject);
+    procedure btOkClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure btnScreenCaptureClick(Sender: TObject);
+    procedure Map1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Map1MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure Map1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch;
+      hOutputDC, hAttributeDC: Cardinal; const RectFull,
+      RectInvalid: IDispatch);
+    procedure Map1MapViewChanged(Sender: TObject);
+    procedure lstSubEnviClick(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+
+  private
+    isAdd : Boolean;
+    FSelectedEnvironment : TGame_Environment_Definition;
+    FSelectedSubArea : TSubArea_Enviro_Definition;
+
+    FSubAreaList : TList;
+
+    FDrawRect : TRect;
+    FIsMouseDown : Boolean;
+    FIsCapturingScreen : Boolean;
+
+    FLyrDraw : CMapXLayer;
+    FConverter : TCoordConverter;
+    FCanvas : TCanvas;
+
+    procedure LoadMap(aGeoset: string);
+    procedure LoadENC(aGeoset: string);
+
+    procedure FindSubArea(const X,Y: Integer);
+    procedure DeleteSubArea;
+
+    //View
+    procedure UpAllToolbarButton;
+    procedure UpdateCursorPosition(const X, Y: Integer);
+    procedure UpdateSelectedAreaData;
+    procedure UpdateEnvironmentData;
+
+    procedure ScreenShot(aBitmap: TBitmap);
+  public
+    property  SelectedEnvironment : TGame_Environment_Definition read FSelectedEnvironment write FSelectedEnvironment;
+    property SubAreaList : TList read FSubAreaList;
+  end;
+
+var
+  frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic;
+
+implementation
+
+uses
+  ufrmSonarPickList,
+  uBaseCoordSystem, ufrmSubEnviCharacteristic, uSimDBEditor, math,
+  uDataModuleTTT, ufrmAvailableGameArea, ufrmSummaryGameAreaVektor, OverbyteIcsWSocket, tttData,
+  uFEnvironmentSelection, ufrmVektorMapGameCenterEditor, ufrmSummaryEnvironment, ufrmGameDefaultsPickList,
+  uScrCapture,ufCaptureRes, uDBEditSetting;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TfrmEnvironmentCharacteristic.FormCreate(Sender: TObject);
+begin
+  FSubAreaList := TList.Create;
+  FConverter := TCoordConverter.Create;
+  FCanvas := TCanvas.Create;
+end;
+
+procedure TfrmEnvironmentCharacteristic.FormResize(Sender: TObject);
+begin
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
+end;
+
+procedure TfrmEnvironmentCharacteristic.FormShow(Sender: TObject);
+begin
+  with FSelectedEnvironment.FGameArea do
+  begin
+    if Detail_Map = 'VektorMap' then
+      LoadMap(vAppDBSetting.MapDestPathVECT + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst')
+    else if Detail_Map = 'ENC' then
+      LoadENC(vAppDBSetting.MapDestPathENC + '\' + Game_Area_Identifier + '\' + Game_Area_Identifier + '.gst');
+
+    Map1.CenterX := Game_Centre_Long;
+    Map1.CenterY := Game_Centre_Lat;
+  end;
+
+  FConverter.FMap := Map1;
+
+  btnSelectPoint.Click;
+  cbbScale.ItemIndex := cbbScale.Items.Count - 1;
+  cbbScaleChange(cbbScale);
+
+  FSelectedSubArea := nil;
+  UpdateEnvironmentData;
+  UpdateSelectedAreaData;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure InitOleVariant(var TheVar: OleVariant);
+begin
+  TVarData(TheVar).vType := varError;
+  TVarData(TheVar).vError := DISP_E_PARAMNOTFOUND;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnEditCharacteristicClick(Sender: TObject);
+begin
+//  if lstSubEnvi.ItemIndex = -1 then
+//  begin
+//    Exit;
+//  end;
+
+  frmSubEnviCharacteristic := TfrmSubEnviCharacteristic.Create(Self);
+  try
+    with frmSubEnviCharacteristic do
+    begin
+      SelectedEnvironment := FSelectedEnvironment;
+      SelectedSubArea := FSelectedSubArea;
+      ShowModal;
+    end;
+  finally
+    frmSubEnviCharacteristic.Free;
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btOkClick(Sender: TObject);
+begin
+  ModalResult := mrOk;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnShowDefaultListClick(Sender: TObject);
+begin
+  frmGameDefaultsPickList.ShowModal;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnShowSonarListClick(Sender: TObject);
+begin
+//  with frmSonarPickList do
+//  begin
+//    SelectedSonarId := FSelectedSonobuoy.FDef.Sonar_Index;
+//    ShowModal;
+//    FSelectedSonobuoy.FDef.Sonar_Index := SelectedSonarId;
+//  end;
+
+  frmSonarPickList.ShowModal;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnScreenCaptureClick(Sender: TObject);
+var
+  bmp : TBitmap;
+begin
+  FIsCapturingScreen := True;
+  UpAllToolbarButton;
+
+  bmp := TBitmap.Create;
+  ScreenShot(bmp);
+  fScrCapture.Image1.Picture.Assign(bmp);
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnCalculateClick(Sender: TObject);
+begin
+//
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmEnvironmentCharacteristic.DeleteSubArea;
+begin
+  if lstSubEnvi.ItemIndex = -1 then
+    Exit;
+
+  if lstSubEnvi.ItemIndex = 0 then
+  begin
+    ShowMessage('Can''t delete Global Environment');
+    Exit;
+  end;
+
+  dmTTT.DeleteSubAreaEnviroDef(2, FSelectedSubArea.FData.Enviro_Index);
+
+  FSelectedSubArea := nil;
+
+  UpdateEnvironmentData;
+  UpdateSelectedAreaData;
+
+  Map1.Repaint;
+end;
+
+procedure TfrmEnvironmentCharacteristic.FindSubArea(const X, Y: Integer);
+var
+  dx, dy : Double;
+  i : Integer;
+  subArea : TSubArea_Enviro_Definition;
+begin
+  FSelectedSubArea := nil;
+  lstSubEnvi.ItemIndex := -1;
+
+  for i := 0 to FSubAreaList.Count - 1 do
+  begin
+    subArea := FSubAreaList.Items[i];
+      
+    if PtInRect(subArea.FRect, Point(X, Y)) then
+    begin
+      FSelectedSubArea := subArea;
+      lstSubEnvi.ItemIndex := i;
+      Break;
+    end;
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.ScreenShot(aBitmap: TBitmap);
+var
+  dc : HDC;
+begin
+  dc := GetDC(GetDesktopWindow);
+
+  try
+    aBitmap.Width := GetDeviceCaps(DC, HORZRES);
+    aBitmap.Height := GetDeviceCaps(DC, VERTRES);
+    BitBlt(aBitmap.Canvas.Handle, 0, 0, aBitmap.Width, aBitmap.Height, dc, 0, 0,
+      SRCCOPY);
+  finally
+    ReleaseDC(GetDesktopWindow, dc);
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtPredictionRangeKeyPress(Sender: TObject;var Key: Char);
+var
+  tmpFloat : Double;
+begin
+
+  if not (Key in[#48 .. #57, #8, #13, #46]) then
+    Key := #0;
+
+  if key = #13 then
+    edtPredictionRange.Text := FormatFloat('0.00', StrToFloat(edtPredictionRange.Text));
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtPredictionRangeKeyUp(Sender: TObject;var Key: Word; Shift: TShiftState);
+begin
+  if edtPredictionRange.Text = '' then
+    Exit;
+
+   if (StrToFloat(edtPredictionRange.Text) > 84000)  then
+    begin
+      ShowMessage('Incorrect value');
+      edtPredictionRange.Text := '84000';
+    //  edPredictionRange.Text := FormatFloat('0.00', StrToFloat(edPredictionRange.Text));
+    end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtSonarDepthKeyPress(Sender: TObject;var Key: Char);
+var
+  tmpFloat : Double;
+begin
+
+  if not (Key in[#48 .. #57, #8, #13, #46]) then
+    Key := #0;
+
+  if key = #13 then
+    edtSonarDepth.Text := FormatFloat('0.00', StrToFloat(edtSonarDepth.Text));
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtSonarDepthKeyUp(Sender: TObject;var Key: Word; Shift: TShiftState);
+begin
+  if edtSonarDepth.Text = '' then
+    Exit;
+
+   if (StrToFloat(edtSonarDepth.Text) > 500000)  then
+    begin
+      ShowMessage('Incorrect value');
+      edtSonarDepth.Text := '500000';
+    //  edSonarDepth.Text := FormatFloat('0.00', StrToFloat(edSonarDepth.Text));
+    end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtTargetCrossSectionKeyPress(Sender: TObject;var Key: Char);
+var
+  tmpFloat : Double;
+begin
+  if not (Key in[#48 .. #57, #8, #13, #46]) then
+    Key := #0;
+
+  if key = #13 then
+    edtTargetCrossSection.Text := FormatFloat('0.00', StrToFloat(edtTargetCrossSection.Text));
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtTargetCrossSectionKeyUp(Sender: TObject;var Key: Word; Shift: TShiftState);
+begin
+  if edtTargetCrossSection.Text = '' then
+    Exit;
+
+   if (StrToFloat(edtTargetCrossSection.Text) > 89500)  then
+    begin
+      ShowMessage('Incorrect value');
+      edtTargetCrossSection.Text := '89500';
+    //  edTargetCrossSection.Text := FormatFloat('0.00', StrToFloat(edTargetCrossSection.Text));
+    end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtTargetDepthKeyPress(Sender: TObject;var Key: Char);
+var
+  tmpFloat : Double;
+begin
+  if not (Key in[#48 .. #57, #8, #13, #46]) then
+    Key := #0;
+
+  if key = #13 then
+    edtTargetDepth.Text := FormatFloat('0.00', StrToFloat(edtTargetDepth.Text));
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtTargetDepthKeyUp(Sender: TObject;var Key: Word; Shift: TShiftState);
+begin
+  if edtTargetDepth.Text = '' then
+    Exit;
+
+  if (StrToFloat(edtTargetDepth.Text) > 900000)  then
+  begin
+    ShowMessage('Incorrect value');
+    edtTargetDepth.Text := '900000';
+//    edTargetDepth.Text := FormatFloat('0.00', StrToFloat(edTargetDepth.Text));
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtTargetSourceLevelKeyPress(Sender: TObject;var Key: Char);
+var
+  tmpFloat : Double;
+begin
+  if not (Key in[#48 .. #57, #8, #13, #46]) then
+    Key := #0;
+
+  if key = #13 then
+    edtTargetSourceLevel.Text := FormatFloat('0.00', StrToFloat(edtTargetSourceLevel.Text));
+end;
+
+procedure TfrmEnvironmentCharacteristic.edtTargetSourceLevelKeyUp(Sender: TObject;var Key: Word; Shift: TShiftState);
+begin
+  if edtTargetSourceLevel.Text = '' then
+    Exit;
+
+  if (StrToFloat(edtTargetSourceLevel.Text) > 50000)  then
+  begin
+    ShowMessage('Incorrect value');
+    edtTargetSourceLevel.Text := '50000';
+//    edTargetSourceLevel.Text := FormatFloat('0.00', StrToFloat(edTargetSourceLevel.Text));
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.lstSubEnviClick(Sender: TObject);
+begin
+  if lstSubEnvi.ItemIndex = -1 then
+  begin
+    FSelectedSubArea := nil;
+    lstSubEnvi.ItemIndex := -1;
+    Exit;
+  end;
+
+  FSelectedSubArea := TSubArea_Enviro_Definition(lstSubEnvi.Items.Objects[lstSubEnvi.ItemIndex]);
+
+  UpdateSelectedAreaData;
+  Map1.Repaint;
+end;
+
+procedure TfrmEnvironmentCharacteristic.UpAllToolbarButton;
+begin
+  btnSelectPoint.Down := False;
+  btnZoomTool.Down := False;
+  btnMoveTool.Down := False;
+  btnCenterHook.Down := False;
+
+  isAdd := False;
+end;
+
+procedure TfrmEnvironmentCharacteristic.UpdateCursorPosition(const X,Y: Integer);
+var
+  dx, dy, diffX, diffY : Double;
+begin
+  FConverter.ConvertToMap(X, Y, dx, dy);
+
+  with FSelectedEnvironment.FGameArea do
+  begin
+    lBearingFCenter.Caption := FormatFloat('0.00', CalcBearing(Game_Centre_Long, Game_Centre_Lat, dx, dy));
+    lDistanceFCenter.Caption := FormatFloat('0.00', CalcRange(Game_Centre_Long, Game_Centre_Lat, dx, dy));
+
+    lPosLat.Caption := formatDM_latitude(dy);
+    lPosLong.Caption := formatDM_longitude(dx);
+
+    diffX := Abs(dx - Game_Centre_Long) * 60;
+    diffY := Abs(dy - Game_Centre_Lat) * 60;
+
+    if dy < Game_Centre_Lat then
+      lGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
+    else
+      lGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
+
+    if dx < Game_Centre_Long then
+      lGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
+    else
+      lGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
+
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.UpdateEnvironmentData;
+var
+  i : Integer;
+  subArea : TSubArea_Enviro_Definition;
+
+begin
+  with FSelectedEnvironment.FData do
+  begin
+    lstSubEnvi.Items.Clear;
+
+    lstSubEnvi.Items.AddObject('Global Evironment', nil);
+
+    dmTTT.GetSubAreaEnviroDef(Game_Enviro_Index, FSubAreaList);
+
+    for i := 0 to FSubAreaList.Count - 1 do
+    begin
+      subArea := FSubAreaList.Items[i];
+      lstSubEnvi.Items.AddObject(subArea.FData.Enviro_Identifier,subArea);
+    end;
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.UpdateSelectedAreaData;
+var
+  dx, dy : Double;
+
+begin
+  if Assigned(FSelectedSubArea) then
+  begin
+    with FSelectedSubArea.FData do
+    begin
+      lblArea.Caption := Enviro_Identifier;
+
+      lblTLPosLat.Caption := formatDM_latitude(Latitude_1);
+      lblTLPosLong.Caption := formatDM_longitude(Longitude_1);
+
+      if Latitude_1 < FSelectedEnvironment.FGameArea.Game_Centre_Lat then
+        lblTLGridLat.Caption := FormatFloat('0.00', Y_Position_1) + ' nm S'
+      else
+        lblTLGridLat.Caption := FormatFloat('0.00', Y_Position_1) + ' nm N';
+
+      if Longitude_1 < FSelectedEnvironment.FGameArea.Game_Centre_Long then
+        lblTLGridLong.Caption := FormatFloat('0.00', X_Position_1) + ' nm W'
+      else
+        lblTLGridLong.Caption := FormatFloat('0.00', X_Position_1) + ' nm E';
+
+      lblRBPosLat.Caption := formatDM_latitude(FSelectedSubArea.FData.Latitude_2);
+      lblRBPosLong.Caption := formatDM_longitude(FSelectedSubArea.FData.
+        Longitude_2);
+
+      if Latitude_2 < FSelectedEnvironment.FGameArea.Game_Centre_Lat then
+        lblRBGridLat.Caption := FormatFloat('0.00', Y_Position_2) + ' nm S'
+      else
+        lblRBGridLat.Caption := FormatFloat('0.00', Y_Position_2) + ' nm N';
+
+      if Longitude_2 < FSelectedEnvironment.FGameArea.Game_Centre_Long then
+        lblRBGridLong.Caption := FormatFloat('0.00', X_Position_2) + ' nm W'
+      else
+        lblRBGridLong.Caption := FormatFloat('0.00', X_Position_2) + ' nm E';
+    end;
+  end
+  else
+  begin
+    lblArea.Caption := '(Global Environment)';
+    lblTLPosLat.Caption := '-';
+    lblTLPosLong.Caption := '-';
+    lblTLGridLat.Caption := '-';
+    lblTLGridLong.Caption := '-';
+    lblRBPosLat.Caption := '-';
+    lblRBPosLong.Caption := '-';
+    lblRBGridLat.Caption := '-';
+    lblRBGridLong.Caption := '-';
+  end;
+end;
+
+{$ENDREGION}
+
+{$REGION ' ToolBar Handle '}
+
+procedure TfrmEnvironmentCharacteristic.btnDecreaseScaleClick(Sender: TObject);
+begin
+  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+  cbbScaleChange(cbbScale);
+end;
+
+procedure TfrmEnvironmentCharacteristic.cbbScaleChange(Sender: TObject);
+var
+  z : Double;
+  s : string;
+begin
+  Map1.OnMapViewChanged := nil;
+
+  if cbbScale.ItemIndex < 0  then Exit;
+
+  if (cbbScale.ItemIndex <= 500) then
+  begin
+   s := cbbScale.Items[cbbScale.ItemIndex];
+   try
+     z := StrToFloat(s);
+     Map1.ZoomTo(z, Map1.CenterX, Map1.CenterY);
+   finally
+
+   end;
+  end
+  else cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
+  Map1.OnMapViewChanged := Map1MapViewChanged;
+
+//  btnDecreaseScale.Enabled := cbbScale.ItemIndex > 0;
+//  btnIncreaseScale.Enabled := cbbScale.ItemIndex < (cbbScale.Items.Count - 1);
+//
+//  z := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
+//  Map1.ZoomTo(z, Map1.CenterX, Map1.CenterY);
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnIncreaseScaleClick(Sender: TObject);
+begin
+  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+  cbbScaleChange(cbbScale);
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnSelectPointClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnSelectPoint.Down := True;
+
+  Map1.CurrentTool := miArrowTool;
+  Map1.MousePointer := miArrowCursor;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnAddPointClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  isAdd := True;
+
+  Map1.CurrentTool := miArrowTool;
+  Map1.MousePointer := miCrossCursor;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnDeletePointClick(Sender: TObject);
+begin
+  DeleteSubArea;
+
+  UpAllToolbarButton;
+  Map1.CurrentTool := miArrowTool;
+  Map1.MousePointer := miArrowCursor;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnZoomToolClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnZoomTool.Down := True;
+
+  Map1.CurrentTool := miZoomInTool;
+  Map1.MousePointer := miZoomInCursor;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnMoveToolClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnMoveTool.Down := True;
+
+  Map1.CurrentTool := miPanTool;
+  Map1.MousePointer := miPanCursor;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnCenterHookClick(Sender: TObject);
+var
+  zoom : Double;
+begin
+//  UpAllToolbarButton;
+//  btnCenterHook.Down := True;
+
+//  Map1.CurrentTool := miArrowTool;
+//  Map1.MousePointer := miCrossCursor;
+
+  zoom := StrToFloat(cbbScale.Text);
+
+  with FSelectedEnvironment.FGameArea do
+    Map1.ZoomTo(zoom, Game_Centre_Long, Game_Centre_Lat);
+end;
+
+{$ENDREGION}
+
+{$REGION ' Map Handle '}
+
+procedure TfrmEnvironmentCharacteristic.Map1DrawUserLayer(ASender: TObject;const Layer: IDispatch; hOutputDC, hAttributeDC: Cardinal;const RectFull, RectInvalid: IDispatch);
+var
+  i : Integer;
+  subArea : TSubArea_Enviro_Definition;
+begin
+  if not Assigned(FCanvas) then
+    Exit;
+
+  with FCanvas do
+  begin
+    Handle := hOutputDC;
+    Pen.Color := clBlack;
+    Pen.Width := 2;
+    Brush.Style := bsClear;
+
+    if FIsMouseDown then
+    begin
+//      Rectangle(FDrawRect);
+      MoveTo(FDrawRect.Left, FDrawRect.Top);
+      LineTo(FDrawRect.Right, FDrawRect.Top);
+      MoveTo(FDrawRect.Right, FDrawRect.Top);
+      LineTo(FDrawRect.Right, FDrawRect.Bottom);
+      MoveTo(FDrawRect.Right, FDrawRect.Bottom);
+      LineTo(FDrawRect.Left, FDrawRect.Bottom);
+      MoveTo(FDrawRect.Left, FDrawRect.Bottom);
+      LineTo(FDrawRect.Left, FDrawRect.Top);
+    end;
+
+    for i := 0 to FSubAreaList.Count - 1 do
+    begin
+      subArea := FSubAreaList.Items[i];
+
+      if Assigned(FSelectedSubArea) and
+        (subArea.FData.Enviro_Index = FSelectedSubArea.FData.Enviro_Index) then
+        Pen.Color := clYellow
+      else
+        Pen.Color := clWhite;
+
+      with subArea do
+      begin
+        FConverter.ConvertToScreen(FData.Longitude_1, FData.Latitude_1,
+          FRect.Left, FRect.Top);
+        FConverter.ConvertToScreen(FData.Longitude_2, FData.Latitude_2,
+          FRect.Right, FRect.Bottom);
+
+//        Rectangle(FRect);
+        MoveTo(FRect.Left, FRect.Top);
+        LineTo(FRect.Right, FRect.Top);
+        MoveTo(FRect.Right, FRect.Top);
+        LineTo(FRect.Right, FRect.Bottom);
+        MoveTo(FRect.Right, FRect.Bottom);
+        LineTo(FRect.Left, FRect.Bottom);
+        MoveTo(FRect.Left, FRect.Bottom);
+        LineTo(FRect.Left, FRect.Top);
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.Map1MapViewChanged(Sender: TObject);
+var
+  tempZoom : double;
+begin
+  if (Map1.CurrentTool = miZoomInTool)  or (Map1.CurrentTool = miZoomOutTool) then
+  begin
+     if Map1.Zoom <= 0.125 then tempZoom := 0.125;
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 1) then tempZoom := Map1.Zoom;
+     if (Map1.Zoom >= 1) AND (Map1.Zoom <= 2500) then tempZoom := round(Map1.Zoom);
+     if Map1.Zoom > 2500 then tempZoom := 2500;
+
+     Map1.OnMapViewChanged := nil;
+     Map1.ZoomTo(tempZoom, Map1.CenterX, Map1.CenterY);
+
+     if (Map1.Zoom > 0.125) AND (Map1.Zoom < 0.25) then
+     begin
+       cbbScale.Text := FormatFloat('0.000', tempZoom);
+     end
+     else if (Map1.Zoom >= 0.25) AND (Map1.Zoom < 0.5) then
+     begin
+       cbbScale.Text := FormatFloat('0.00', tempZoom);
+     end
+     else if (Map1.Zoom >= 0.5) AND (Map1.Zoom < 1) then
+     begin
+       cbbScale.Text := FormatFloat('0.0', tempZoom);
+     end
+     else
+       cbbScale.Text := floattostr(tempZoom);
+
+     Map1.OnMapViewChanged := Map1MapViewChanged;
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.Map1MouseDown(Sender: TObject;Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  dx, dy : Double;
+begin
+  if btnSelectPoint.Down then
+  begin
+    FindSubArea(X, Y);
+    UpdateSelectedAreaData;
+  end;
+
+  if isAdd then
+  begin
+    FIsMouseDown := True;
+    FDrawRect := Rect(X, Y, X, Y);
+  end;
+
+  if btnMoveTool.Down then
+  begin
+//
+  end;
+
+  if btnCenterHook.Down then
+  begin
+    FConverter.ConvertToMap(X, Y, dx, dy);
+
+    FSelectedEnvironment.FGameArea.Game_Centre_Lat := dy;
+    FSelectedEnvironment.FGameArea.Game_Centre_Long := dx;
+  end;
+
+  if FIsCapturingScreen then
+  begin
+    with fScrCapture do
+    begin
+      PDown := Point(X, Y);
+      PActually := Point(X, Y);
+    end;
+
+    FIsMouseDown := True;
+    FDrawRect := Rect(X, Y, X, Y);
+  end;
+
+  Map1.Repaint;
+end;
+
+procedure TfrmEnvironmentCharacteristic.Map1MouseMove(Sender: TObject;Shift: TShiftState; X, Y: Integer);
+begin
+  UpdateCursorPosition(X, Y);
+
+  if isAdd and FIsMouseDown then
+  begin
+    FDrawRect.BottomRight := Point(X, Y);
+    Map1.Repaint;
+  end;
+
+  if FIsCapturingScreen and FIsMouseDown then
+  begin
+    fScrCapture.PActually := Point(X, Y);
+    FDrawRect.BottomRight := Point(X, Y);
+    Map1.Repaint;
+  end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.Map1MouseUp(Sender: TObject;Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  dx, dy : Double;
+  bmp : TBitmap;
+begin
+
+  {$REGION ' Create Sub Area Section '}
+  if isAdd and FIsMouseDown then
+  begin
+    FSelectedSubArea := TSubArea_Enviro_Definition.Create;
+
+    {$REGION ' Set nilai default (dari modul astt 7-8) '}
+    with FSelectedSubArea do
+    begin
+      FData.Game_Enviro_Index := FSelectedEnvironment.FData.Game_Enviro_Index;
+      FData.Enviro_Identifier := 'Sub-Area ' + IntToStr(FSubAreaList.Count + 1);
+
+      FConverter.ConvertToMap(FDrawRect.Left, FDrawRect.Top, dx, dy);
+      FData.X_Position_1 := Abs(dx - FSelectedEnvironment.FGameArea.
+        Game_Centre_Long) * 60;
+      FData.Y_Position_1 := Abs(dy - FSelectedEnvironment.FGameArea.
+        Game_Centre_Lat) * 60;
+
+      FConverter.ConvertToMap(FDrawRect.Right, FDrawRect.Bottom, dx, dy);
+      FData.X_Position_2 := Abs(dx - FSelectedEnvironment.FGameArea.
+        Game_Centre_Long) * 60;
+      FData.Y_Position_2 := Abs(dy - FSelectedEnvironment.FGameArea.
+        Game_Centre_Lat) * 60;
+
+      FConverter.ConvertToMap(FDrawRect.Left, FDrawRect.Top, FData.Longitude_1,
+        FData.Latitude_1);
+      FConverter.ConvertToMap(FDrawRect.Right, FDrawRect.Bottom,
+        FData.Longitude_2, FData.Latitude_2);
+
+      FData.Wind_Speed := 0;
+      FData.Wind_Direction := 0;
+      FData.Daytime_Visual_Modifier := 100;
+      FData.Nighttime_Visual_Modifier := 50;
+      FData.Daytime_Infrared_Modifier := 0;
+      FData.Nighttime_Infrared_Modifier := 100;
+      FData.Rain_Rate := 0;
+      FData.Cloud_Base_Height := 100000;
+      FData.Cloud_Attenuation := 0;
+      FData.Sea_State := 0;
+      FData.Ocean_Current_Speed := 0;
+      FData.Ocean_Current_Direction := 0;
+      FData.Thermal_Layer_Depth := 0;
+      FData.Sound_Velocity_Type := 0;
+      FData.Surface_Sound_Speed := 2700;
+      FData.Layer_Sound_Speed := 4600;
+      FData.Bottom_Sound_Speed := 6000;
+      FData.Bottomloss_Coefficient := 1;
+      FData.Ave_Ocean_Depth := 6000;
+      FData.CZ_Active := 0;
+      FData.Surface_Ducting_Active := 0;
+      FData.Sub_Ducting_Active := 0;
+      FData.Upper_Limit_Sub_Duct_Depth := 0;
+      FData.Lower_Limit_Sub_Duct_Depth := 0;
+      FData.Shipping_Rate := 0;
+      FData.Shadow_Zone_Trans_Loss := 0;
+      FData.Atmospheric_Refract_Modifier := 100;
+      FData.Barometric_Pressure := 0;
+      FData.Air_Temperature := 0;
+      FData.Surface_Temperature := 0;
+      FData.HF_Black_Hole := 0;
+    end;
+    {$ENDREGION}
+
+    FIsMouseDown := False;
+    isAdd := False;
+    Map1.CurrentTool := miArrowTool;
+    Map1.MousePointer := miArrowCursor;
+
+    frmSubEnviCharacteristic := TfrmSubEnviCharacteristic.Create(Self);
+    try
+      with frmSubEnviCharacteristic do
+      begin
+        SelectedEnvironment := FSelectedEnvironment;
+        SelectedSubArea := FSelectedSubArea;
+        ShowModal;
+      end;
+    finally
+      frmSubEnviCharacteristic.Free;
+    end;
+
+    UpdateEnvironmentData;
+    UpdateSelectedAreaData;
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Create Screen Section '}
+  if FIsCapturingScreen and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+    Map1.Repaint;
+
+    bmp := TBitmap.Create;
+
+    with bmp do
+    begin
+      Height := Abs(fScrCapture.PActually.Y - fScrCapture.PDown.Y);
+      Width := Abs(fScrCapture.PActually.X - fScrCapture.PDown.X);
+      BitBlt(fScrCapture.Canvas.Handle, 0, 0, fScrCapture.Width,
+        fScrCapture.Height, fScrCapture.Image1.Canvas.Handle,
+        Map1.Left + fScrCapture.PDown.X, fScrCapture.PDown.Y, SRCCOPY);
+    end;
+
+    with fCaptureRes do
+    begin
+      imgCaptureResult.AutoSize := False;
+      imgCaptureResult.Picture.Bitmap.Assign(bmp);
+      Height := bmp.Height + pnlDisplay.Height + 10;
+      Width := bmp.Width + 10;
+      ShowModal;
+    end;
+  end;
+  {$ENDREGION}
+
+end;
+
+procedure TfrmEnvironmentCharacteristic.LoadENC(aGeoset: string);
+var
+  z : OleVariant;
+  i : Integer;
+  mInfo : CMapXLayerInfo;
+begin
+  if Map1 = nil then
+    Exit;
+
+  InitOleVariant(z);
+  Map1.Layers.RemoveAll;
+  Map1.Geoset := aGeoset;
+
+  if aGeoset <> '' then
+  begin
+    for i := 1 to Map1.Layers.Count do
+    begin
+      Map1.Layers.Item(i).Selectable := False;
+      Map1.Layers.Item(i).Editable := False;
+    end;
+
+    mInfo := CoLayerInfo.Create;
+    mInfo.type_ := miLayerInfoTypeUserDraw;
+    mInfo.AddParameter('Name', 'LYR_DRAW');
+    FLyrDraw := Map1.Layers.Add(mInfo, 1);
+
+    Map1.Layers.AnimationLayer := FLyrDraw;
+    Map1.MapUnit := miUnitNauticalMile;
+  end;
+
+  Map1.BackColor := RGB(192, 224, 255);
+end;
+
+procedure TfrmEnvironmentCharacteristic.LoadMap(aGeoset: string);
+var
+  z : OleVariant;
+  i : Integer;
+  mInfo : CMapXLayerInfo;
+begin
+  if Map1 = nil then
+    Exit;
+
+  InitOleVariant(z);
+  Map1.Layers.RemoveAll;
+
+  Map1.Geoset := aGeoset;
+
+  if aGeoset <> '' then
+  begin
+    for i := 1 to Map1.Layers.Count do
+    begin
+      Map1.Layers.Item(i).Selectable := False;
+      Map1.Layers.Item(i).Editable := False;
+    end;
+
+    mInfo := CoLayerInfo.Create;
+    mInfo.type_ := miLayerInfoTypeUserDraw;
+    mInfo.AddParameter('Name', 'LYR_DRAW');
+    FLyrDraw := Map1.Layers.Add(mInfo, 1);
+
+    Map1.Layers.AnimationLayer := FLyrDraw;
+    Map1.MapUnit := miUnitNauticalMile;
+  end;
+
+  Map1.BackColor := clSkyBlue;
+end;
+
+{$ENDREGION}
+
+end.
+

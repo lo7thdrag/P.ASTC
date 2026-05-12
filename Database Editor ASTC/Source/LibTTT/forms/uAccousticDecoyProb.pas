@@ -1,0 +1,357 @@
+unit uAccousticDecoyProb;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAsset_Countermeasure, DB,
+  uBlindZoneView, uDBBlind_Zone, uSimContainers, Vcl.Imaging.pngimage;
+
+type
+  TAccousticDecoyProb = class(TForm)
+    grdpnlAcousticDecoyPOH: TGridPanel;
+    pnl1: TPanel;
+    pnlAspect: TPanel;
+    pnlGuidanceType: TPanel;
+    pnl_BZone1: TPanel;
+    pnl_BZone2: TPanel;
+    pnl_BZone3: TPanel;
+    pnl_BZone4: TPanel;
+    pnlActive: TPanel;
+    edtActive1: TEdit;
+    edtActive2: TEdit;
+    edtActive3: TEdit;
+    edtActive4: TEdit;
+    pnlPassive: TPanel;
+    edtPassive1: TEdit;
+    edtPassive2: TEdit;
+    edtPassive3: TEdit;
+    edtPassive4: TEdit;
+    pnlActivePassive: TPanel;
+    edtActivePassive1: TEdit;
+    edtActivePassive2: TEdit;
+    edtActivePassive3: TEdit;
+    edtActivePassive4: TEdit;
+    pnlWireGuided: TPanel;
+    edtWireGuided1: TEdit;
+    edtWireGuided2: TEdit;
+    edtWireGuided3: TEdit;
+    edtWireGuided4: TEdit;
+    pnlWakeHoming: TPanel;
+    edtWakeHoming1: TEdit;
+    edtWakeHoming2: TEdit;
+    edtWakeHoming3: TEdit;
+    edtWakeHoming4: TEdit;
+    pnl1Title: TPanel;
+    pnl3Button: TPanel;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    pnlSparatorHor2: TPanel;
+    Image1: TImage;
+
+    procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure edtGeneralChange(Sender: TObject);
+    procedure edtAspectPersentageKeyPress(Sender: TObject; var Key: Char);
+    procedure ValidationFormatInput();
+
+    procedure btnOKClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnApplyClick(Sender: TObject);
+
+  private
+    FSelectedAcousticDecoy : TAcoustic_Decoy_On_Board;
+
+    FAcousticDecoyPOHList : TList;
+    FAspect1 : TBlindZoneView;
+    FAspect2 : TBlindZoneView;
+    FAspect3 : TBlindZoneView;
+    FAspect4 : TBlindZoneView;
+
+    procedure UpdateAcousticDecoyPOHData;
+
+  public
+    property SelectedAcousticDecoy : TAcoustic_Decoy_On_Board read FSelectedAcousticDecoy write FSelectedAcousticDecoy;
+  end;
+
+var
+  fAccousticDecoyProb: TAccousticDecoyProb;
+
+implementation
+
+uses
+  uDataModuleTTT;
+
+{$R *.dfm}
+
+{$REGION ' Form Handle '}
+
+procedure TAccousticDecoyProb.FormCreate(Sender: TObject);
+var
+  zs : TZoneSector;
+begin
+  FAcousticDecoyPOHList := TList.Create;
+
+  {$REGION ' Aspect 1 '}
+  FAspect1 := TBlindZoneView.Create(Self);
+  with FAspect1 do
+  begin
+    Parent := pnl_BZone1;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone1.Height;
+    Width := pnl_BZone1.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 0;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Aspect 2 '}
+  FAspect2 := TBlindZoneView.Create(Self);
+  with FAspect2 do
+  begin
+    Parent := pnl_BZone2;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone2.Height;
+    Width := pnl_BZone2.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 60;
+    zs.AngleWidth := 60;
+
+    zs := AddZone;
+    zs.Degree := 300;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Aspect 3 '}
+  FAspect3 := TBlindZoneView.Create(Self);
+  with FAspect3 do
+  begin
+    Parent := pnl_BZone3;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone3.Height;
+    Width := pnl_BZone3.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 120;
+    zs.AngleWidth := 60;
+
+    zs := AddZone;
+    zs.Degree := 240;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Aspect 4 '}
+  FAspect4 := TBlindZoneView.Create(Self);
+  with FAspect4 do
+  begin
+    Parent := pnl_BZone4;
+    Left := 0;
+    Top := 0;
+    Height := pnl_BZone4.Height;
+    Width := pnl_BZone4.Width;
+    EnableDrag := True;
+
+    zs := AddZone;
+    zs.Degree := 180;
+    zs.AngleWidth := 60;
+  end;
+  {$ENDREGION}
+
+end;
+
+procedure TAccousticDecoyProb.FormDestroy(Sender: TObject);
+begin
+  FAspect1.Free;
+  FAspect2.Free;
+  FAspect3.Free;
+  FAspect4.Free;
+
+  FreeItemsAndFreeList(FAcousticDecoyPOHList);
+end;
+
+procedure TAccousticDecoyProb.FormShow(Sender: TObject);
+begin
+  FAspect1.Repaint;
+  FAspect2.Repaint;
+  FAspect3.Repaint;
+  FAspect4.Repaint;
+
+  UpdateAcousticDecoyPOHData;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TAccousticDecoyProb.btnApplyClick(Sender: TObject);
+begin
+  ValidationFormatInput;
+
+  btnApply.Enabled := False;
+end;
+
+procedure TAccousticDecoyProb.btnCancelClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TAccousticDecoyProb.btnOKClick(Sender: TObject);
+begin
+  if btnApply.Enabled then
+    btnApply.Click;
+
+  Close;
+end;
+
+procedure TAccousticDecoyProb.edtAspectPersentageKeyPress(Sender: TObject;var Key: Char);
+var
+  value : Integer;
+begin
+  if not (Key in [#48 .. #57, #8, #13]) then
+    Key := #0;
+
+  if Key = #13 then
+  begin
+    value := StrToInt(TEdit(Sender).Text);
+
+    if value > 100 then
+      value := 100;
+
+    TEdit(Sender).Text := IntToStr(value);
+  end;
+end;
+
+procedure TAccousticDecoyProb.edtGeneralChange(Sender: TObject);
+begin
+  if TEdit(Sender).Text = '' then
+    TEdit(Sender).Text := '0';
+
+  if (StrToInt(TEdit(Sender).Text) > 100) then
+    TEdit(Sender).Text := '100';
+
+  btnApply.Enabled := True;
+end;
+
+procedure TAccousticDecoyProb.UpdateAcousticDecoyPOHData;
+var
+  i : Integer;
+  acousticDecoyPOH : TAcoustic_Decoy_POH_Modifier;
+begin
+
+  with FSelectedAcousticDecoy.FAccousticDecoy_Def do
+    dmTTT.GetAcousticDecoyPOHModifier(Decoy_Index, FAcousticDecoyPOHList);
+
+  if FAcousticDecoyPOHList.Count = 0 then
+  begin
+    for i := 0 to 4 do
+    begin
+      acousticDecoyPOH := TAcoustic_Decoy_POH_Modifier.Create;
+      FAcousticDecoyPOHList.Add(acousticDecoyPOH);
+    end;
+  end;
+
+  for i := 0 to FAcousticDecoyPOHList.Count - 1 do
+  begin
+    acousticDecoyPOH := FAcousticDecoyPOHList.Items[i];
+
+    with acousticDecoyPOH.FAccousticDecoy_POH do
+    begin
+      case Torpedo_Guidance_Type of
+        10:
+        begin
+          case Aspect_Angle of
+            0: edtActive1.Text := IntToStr(Round(POH_Modifier * 100));
+            1: edtActive2.Text := IntToStr(Round(POH_Modifier * 100));
+            2: edtActive3.Text := IntToStr(Round(POH_Modifier * 100));
+            3: edtActive4.Text := IntToStr(Round(POH_Modifier * 100));
+          end;
+        end;
+        11:
+        begin
+          case Aspect_Angle of
+            0: edtPassive1.Text := IntToStr(Round(POH_Modifier * 100));
+            1: edtPassive2.Text := IntToStr(Round(POH_Modifier * 100));
+            2: edtPassive3.Text := IntToStr(Round(POH_Modifier * 100));
+            3: edtPassive4.Text := IntToStr(Round(POH_Modifier * 100));
+          end;
+        end;
+        12:
+        begin
+          case Aspect_Angle of
+            0: edtActivePassive1.Text := IntToStr(Round(POH_Modifier * 100));
+            1: edtActivePassive2.Text := IntToStr(Round(POH_Modifier * 100));
+            2: edtActivePassive3.Text := IntToStr(Round(POH_Modifier * 100));
+            3: edtActivePassive4.Text := IntToStr(Round(POH_Modifier * 100));
+          end;
+        end;
+        13:
+        begin
+          case Aspect_Angle of
+            0: edtWireGuided1.Text := IntToStr(Round(POH_Modifier * 100));
+            1: edtWireGuided2.Text := IntToStr(Round(POH_Modifier * 100));
+            2: edtWireGuided3.Text := IntToStr(Round(POH_Modifier * 100));
+            3: edtWireGuided4.Text := IntToStr(Round(POH_Modifier * 100));
+          end;
+        end;
+        18:
+        begin
+          case Aspect_Angle of
+            0: edtWakeHoming1.Text := IntToStr(Round(POH_Modifier * 100));
+            1: edtWakeHoming2.Text := IntToStr(Round(POH_Modifier * 100));
+            2: edtWakeHoming3.Text := IntToStr(Round(POH_Modifier * 100));
+            3: edtWakeHoming4.Text := IntToStr(Round(POH_Modifier * 100));
+          end;
+        end;
+      end;
+    end;
+  end;
+end;
+
+{$REGION ' Filter Input '}
+
+procedure TAccousticDecoyProb.ValidationFormatInput;
+var
+  i: Integer;
+  value : Double;
+
+begin
+  for i:=0 to ComponentCount-1 do
+  begin
+    if Components[i] is TEdit then
+    begin
+      if TEdit(Components[i]).Tag = 4 then
+        continue;
+
+      if TEdit(Components[i]).Text = '' then
+        TEdit(Components[i]).Text := '0';
+
+      value := StrToFloat(TEdit(Components[i]).Text);
+
+      case TEdit(Components[i]).Tag of
+        0: TEdit(Components[i]).Text := FormatFloat('0', value);
+        1: TEdit(Components[i]).Text := FormatFloat('0.0', value);
+        2: TEdit(Components[i]).Text := FormatFloat('0.00', value);
+        3: TEdit(Components[i]).Text := FormatFloat('0.000', value);
+      end;
+    end;
+  end;
+end;
+
+{$ENDREGION}
+
+{$ENDREGION}
+end.

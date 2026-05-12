@@ -1,0 +1,947 @@
+unit ufrmSummaryGameAreaENC;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, OleCtrls, MapXLib_TLB, ExtCtrls, CheckLst,
+  uDBAsset_GameEnvironment, ImgList, ComCtrls, ToolWin, uCoordConvertor, Types,
+  System.ImageList, Vcl.Imaging.pngimage;
+
+type
+  TfrmSummaryGameAreaENC = class(TForm)
+    ImageList1: TImageList;
+    pnlMainBackground: TPanel;
+    pnlEditor: TPanel;
+    pnlMap: TPanel;
+    pnlToolBar: TPanel;
+    pnlAlignToolBar: TPanel;
+    pnl3Button: TPanel;
+    Panel1: TPanel;
+    pnlSparatorHor1: TPanel;
+    Image1: TImage;
+    pnlVertical1: TPanel;
+    Image2: TImage;
+    ToolBar1: TToolBar;
+    btnDecreaseScale: TToolButton;
+    cbbScale: TComboBox;
+    btnIncreaseScale: TToolButton;
+    btnSelect: TToolButton;
+    btnMultiSelect: TToolButton;
+    btnZoomTool: TToolButton;
+    btnPan: TToolButton;
+    btnCenterHook: TToolButton;
+    grpName: TGroupBox;
+    edtName: TEdit;
+    lblName: TStaticText;
+    pnlSearch: TPanel;
+    lblSearch: TStaticText;
+    edtSearch: TEdit;
+    grpSearchSelection: TGroupBox;
+    pnllist: TPanel;
+    chklstArea: TCheckListBox;
+    btnOk: TButton;
+    btnCancel: TButton;
+    ENCmap: TMap;
+    ProgressBar1: TProgressBar;
+
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+    procedure btnSelectClick(Sender: TObject);
+    procedure btnMultiSelectClick(Sender: TObject);
+    procedure btnPanClick(Sender: TObject);
+    procedure btnDecreaseScaleClick(Sender: TObject);
+    procedure cbbScaleChange(Sender: TObject);
+    procedure btnIncreaseScaleClick(Sender: TObject);
+    procedure btnZoomToolClick(Sender: TObject);
+    procedure btnMoveToolClick(Sender: TObject);
+    procedure btnCenterHookClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure chklstAreaClickCheck(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure ENCmapDrawUserLayer(ASender: TObject; const Layer: IDispatch;
+      hOutputDC, hAttributeDC: Cardinal; const RectFull,
+      RectInvalid: IDispatch);
+    procedure ENCmapMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure ENCmapMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure ENCmapMouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure ENCmapMapViewChanged(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+  private
+    FSelectedGameArea : TGame_Environment_Definition;
+
+    FListMapIndex : TStringList;
+    FListFiltered : TStringList;
+    FIsMouseDown : Boolean;
+    FSelectionRectStart : TPoint;
+    FSelectionRectEnd : TPoint;
+
+    FCanvas : TCanvas;
+    FConverter : TCoordConverter;
+    FLyrDraw : CMapXLayer;
+    FMap1 : TMap;
+
+    procedure UpAllToolbarButton;
+    procedure LoadList;
+    procedure SetChecked;
+    procedure SetMapArea;
+    procedure DrawCheckedLayer;
+    procedure SelectionArea;
+    procedure CreateGeosetFile;
+    procedure UpdateGeosetFile;
+    procedure DeleteGameAreaDirectory(const aPathName, aFileName: string);
+
+    procedure LoadENC(ENCGeoset: string);
+
+  public
+    LastName : string;
+
+    function CekInput(IdAction : Integer): Boolean;
+
+    property SelectedGameArea : TGame_Environment_Definition
+      read FSelectedGameArea write FSelectedGameArea;
+  end;
+
+const
+  DIMENSION = 2048;
+
+var
+  frmSummaryGameAreaENC: TfrmSummaryGameAreaENC;
+
+implementation
+
+uses
+  uMapXHandler, uDataModuleTTT, uDBEditSetting, ufrmAvailableGameArea,
+  ufrmSummaryGameAreaVektor, uBaseCoordSystem;
+
+{$R *.dfm}
+
+procedure InitOleVariant(var TheVar: OleVariant);
+begin
+  TVarData(TheVar).VType := varError;
+  TVarData(TheVar).vError := DISP_E_PARAMNOTFOUND;
+end;
+
+function SeparateString(const s: string; del: char; var s1, s2: string): boolean;
+var
+  i, l: integer;
+begin
+  result := false;
+  l := Length(s);
+  i := Pos(del, s);
+
+  if (l < 2) or (i < 1) then
+    Exit;
+
+  s1 := Copy(s, 1, i - 1);
+  s2 := Copy(s, i + 1, l - i);
+
+  s1 := Trim(s1);
+  s2 := Trim(s2);
+  result := (s1 <> '') and (s2 <> '');
+end;
+
+procedure TfrmSummaryGameAreaENC.chklstAreaClickCheck(Sender: TObject);
+var
+  layerStr, layerID, layerName : string;
+  i, foundIndex : Integer;
+  layer : CMapXLayer;
+begin
+  layerStr := chklstArea.Items[chklstArea.ItemIndex];
+  SeparateString(layerStr, '=', layerID, layerName);
+
+  if FListFiltered.Find(layerID, foundIndex) then
+    FListFiltered.Delete(foundIndex)
+  else
+    FListFiltered.Add(layerID);
+
+  FListFiltered.Sort;
+
+  for i := 1 to ENCmap.Layers.Count do
+  begin
+    layer := ENCmap.Layers.Item(i);
+
+    if (layer.Name = 'Indonesia_Coastline_Darat') or
+      (layer.Name = 'LYR_DRAW') then
+      Continue;
+
+    SeparateString(layer.Name, '_', layerID, layerName);
+
+    if FListFiltered.Find(layerID, foundIndex) then
+    begin
+      layer.OverrideStyle := True;
+      layer.Style.RegionColor := clRed;
+    end
+    else
+      layer.OverrideStyle := False;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.CreateGeosetFile;
+var
+  myFile : TextFile;
+  i, j : Integer;
+  fileSource, fileDest : string;
+
+  dirP   : string;
+  ProgressPos : Integer;
+
+begin
+  AssignFile(myFile, 'ConfigureLayerENC.txt');
+  ReWrite(myFile);
+
+  for i := 0 to FListFiltered.Count - 1 do
+    Writeln(myFile, FListFiltered[i]);
+
+  CloseFile(myFile);
+
+  dirP := vAppDBSetting.MapDestPathENC + '\' + edtName.Text;
+  CreateDir(dirP);
+
+  fileSource := ExtractFilePath(ParamStr(0)) + '\ConfigureLayerENC.txt';
+  fileDest := dirP + '\' + edtName.Text + '.txt';
+
+  CopyFile(PChar(fileSource), PChar(fileDest), False);
+
+  FMap1.Layers.RemoveAll;
+
+  ProgressBar1.Visible := True;
+  ProgressBar1.Position := 0;
+
+  if FListFiltered.Count > 0 then
+    ProgressPos := Round(100/FListFiltered.Count)
+  else
+  begin
+    for j := 0 to Random(80) do
+      ProgressBar1.Position := j;
+  end;
+
+  for i := 0 to FListFiltered.Count - 1 do
+  begin
+    if FListFiltered[i] = 'indonesia-Background' then
+    begin
+      fileDest := vAppDBSetting.MapSourcePathENC + '\OTHER\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
+    end
+    else
+    begin
+      fileDest := vAppDBSetting.MapSourcePathENC + '\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
+    end;
+
+    FMap1.Layers.AddGeoSetLayers(fileDest);
+
+    ProgressBar1.Position := ProgressBar1.Position + ProgressPos;
+  end;
+
+  fileDest := dirP + '\' + edtName.Text + '.gst';
+  FMap1.SaveMapAsGeoset('final', fileDest);
+
+  ProgressBar1.Position := 100;
+  ProgressBar1.Visible := False;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnCancelClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmSummaryGameAreaENC.UpAllToolbarButton;
+begin
+  btnSelect.Down := False;
+  btnMultiSelect.Down := False;
+  btnPan.Down := False;
+  btnZoomTool.Down := False;
+//  btnMoveTool.Down := False;
+  btnCenterHook.Down := False;
+end;
+
+procedure TfrmSummaryGameAreaENC.UpdateGeosetFile;
+var
+  MapDirPath : string;
+begin
+  MapDirPath := vAppDBSetting.MapDestPathENC + '\' + LastName;
+  DeleteGameAreaDirectory(MapDirPath, MapDirPath);
+  CreateGeosetFile;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnOkClick(Sender: TObject);
+begin
+  with FSelectedGameArea do
+  begin
+    if not CekInput(FGameArea.Game_Area_Index)  then
+      Exit;
+
+    if (FGameArea.Game_Centre_Lat = 0) or (FGameArea.Game_Centre_Long = 0) then
+    begin
+      ShowMessage('Game Center has not been set.');
+      Exit;
+    end;
+
+    FGameArea.Game_Area_Identifier := edtName.Text;
+    FGameArea.Game_X_Dimension := DIMENSION;
+    FGameArea.Game_Y_Dimension := DIMENSION;
+    FGameArea.Use_Real_World := 0;
+    FGameArea.Use_Artificial_Landmass := 0;
+    FGameArea.Detail_Map := 'ENC';
+
+    {Buat Game Area Baru}
+    if FGameArea.Game_Area_Index = 0 then
+    begin
+      dmTTT.InsertGameAreaDef(FGameArea);
+      CreateGeosetFile;
+    end
+    {Update Game Area}
+    else
+    begin
+      dmTTT.UpdateGameAreaDef(FGameArea);
+      UpdateGeosetFile;
+    end;
+
+  end;
+
+
+
+  Close;
+end;
+
+procedure TfrmSummaryGameAreaENC.FormCreate(Sender: TObject);
+var
+  itemMaxWidth, i, itemWidth : Integer;
+begin
+  FListMapIndex := TStringList.Create;
+  FListFiltered := TStringList.Create;
+  FCanvas := TCanvas.Create;
+  FConverter := TCoordConverter.Create;
+  FMap1 := TMap.Create(Self);
+
+  FListMapIndex.LoadFromFile(vAppDBSetting.MapSourcePathENC + '\' + 'mapindex.ini');
+  chklstArea.Items := FListMapIndex;
+
+  //Set Checklist Area Width
+  itemMaxWidth := 0;
+  for i := 0 to chklstArea.Items.Count - 1 do
+  begin
+    itemWidth := chklstArea.Canvas.TextWidth(chklstArea.Items.Strings[i]);
+
+    if itemWidth > itemMaxWidth then
+      itemMaxWidth := itemWidth;
+  end;
+  SendMessage(chklstArea.Handle, LB_SETHORIZONTALEXTENT, itemMaxWidth + 20, 0);
+end;
+
+procedure TfrmSummaryGameAreaENC.FormResize(Sender: TObject);
+begin
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
+end;
+
+procedure TfrmSummaryGameAreaENC.edtSearchKeyPress(Sender: TObject; var Key: Char);
+var
+  i : Integer;
+  str_details, str_id : string;
+begin
+  if Key = #13 then
+  begin
+    chklstArea.Items.Clear;
+
+    if edtSearch.Text = '' then
+      chklstArea.Items := FListMapIndex
+    else
+    begin
+      for i := 0 to FListMapIndex.Count - 1 do
+      begin
+        if Pos(edtSearch.Text, FListMapIndex[i]) <> 0 then
+          chklstArea.Items.Add(FListMapIndex[i]);
+      end;
+    end;
+    SetChecked;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.SetChecked;
+var
+  i, j : Integer;
+  layerStr, layerID, layerName : string;
+  checked : Boolean;
+begin
+  for i := 0 to chklstArea.Count - 1 do
+  begin
+    layerStr := chklstArea.Items[i];
+    SeparateString(layerStr, '=', layerID, layerName);
+
+    checked := False;
+    for j := 0 to FListFiltered.Count - 1 do
+    begin
+      if FListFiltered[j] = layerID then
+      begin
+        checked := True;
+        Break;
+      end;
+    end;
+
+    chklstArea.Checked[i] := checked;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.SetMapArea;
+var
+  i, foundIndex : Integer;
+  layerID, layerName : string;
+  layer : CMapXLayer;
+begin
+  FListFiltered.Sort;
+
+  for i := 1 to ENCmap.Layers.Count do
+  begin
+    layer := ENCmap.Layers.Item(i);
+
+    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') then
+      Continue;
+
+    SeparateString(layer.Name, '_', layerID, layerName);
+
+    if FListFiltered.Find(layerID, foundIndex) then
+    begin
+      layer.OverrideStyle := True;
+      layer.Style.RegionColor := clRed;
+    end
+    else
+      layer.OverrideStyle := False;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.DeleteGameAreaDirectory(const aPathName, aFileName: string);
+var
+  F : TSearchRec;
+begin
+  if FindFirst(aFileName + '\*', faAnyFile, F) = 0 then
+  begin
+    try
+      repeat
+        if (F.Attr and faDirectory <> 0) then
+        begin
+          if (F.Name <> '.') and (F.Name <> '..') then
+            DeleteGameAreaDirectory(aFileName + '\' + F.Name);
+        end
+        else
+          DeleteFile(aFileName + '\' + F.Name);
+      until FindNext(F) <> 0;
+    finally
+      FindClose(F);
+    end;
+
+    RemoveDir(aFileName);
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.DrawCheckedLayer;
+var
+  i, j : Integer;
+  layer : CMapXLayer;
+  layerID, layerName : string;
+begin
+  for i := 1 to ENCmap.Layers.Count do
+  begin
+    layer := ENCmap.Layers.Item(i);
+
+    if (layer.Name = 'Indonesia_Coastline_Darat') or
+      (layer.Name = 'LYR_DRAW') then
+      Continue;
+
+    if SeparateString(layer.Name, '_', layerID, layerName) then
+    begin
+      for j := 0 to FListFiltered.Count - 1 do
+      begin
+        if FListFiltered[j] = layerID then
+        begin
+          layer.OverrideStyle := True;
+          layer.Style.RegionColor := clRed;
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.FormShow(Sender: TObject);
+var
+  i, itemMaxWidth, itemWidth : Integer;
+  sourceCopy, destCopy : string;
+begin
+  LoadENC(vAppDBSetting.MapSourceGeosetENC);
+  FConverter.FMap := ENCmap;
+
+  UpAllToolbarButton;
+  btnSelect.Down := True;
+  cbbScale.ItemIndex := cbbScale.Items.Count - 1;
+  cbbScaleChange(cbbScale);
+
+  with FSelectedGameArea.FGameArea do
+  begin
+    if Game_Area_Index = 0 then
+      edtName.Text := '(Unnamed)'
+    else
+      edtName.Text := Game_Area_Identifier;
+
+    LastName := edtName.Text;
+  end;
+
+  edtSearch.Text := '';
+
+  ProgressBar1.Visible := True;
+
+  ProgressBar1.Position := 0;
+  for i := 0 to Random(80) do
+    ProgressBar1.Position := i;
+
+  LoadList;
+  chklstArea.Items := FListMapIndex;
+  SetChecked;
+  SetMapArea;
+  ProgressBar1.Position := 90;
+  DrawCheckedLayer;
+
+  ProgressBar1.Position := 100;
+  ProgressBar1.Visible := False;
+end;
+
+procedure TfrmSummaryGameAreaENC.LoadList;
+var
+  pathConFile, nameGameArea : string;
+begin
+  FListFiltered.Clear;
+
+  if Assigned(FSelectedGameArea) then
+  begin
+    pathConFile := vAppDBSetting.MapDestPathENC + '\';
+    nameGameArea := FSelectedGameArea.FGameArea.Game_Area_Identifier + '.txt';
+
+    if FileExists(pathConFile + nameGameArea) then
+      FListFiltered.LoadFromFile(pathConFile + nameGameArea);
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.LoadENC(ENCGeoset: string);
+var
+  z : OleVariant;
+  i : Integer;
+  mInfo : CMapXLayerInfo;
+begin
+  if ENCmap = nil then
+    Exit;
+
+  InitOleVariant(z);
+  ENCmap.Layers.RemoveAll;
+  ENCmap.Geoset := ENCGeoset;
+
+  if ENCGeoset <> '' then
+  begin
+    for i := 1 to ENCmap.Layers.Count do
+    begin
+      ENCmap.Layers.Item(i).Selectable := False;
+      ENCmap.Layers.Item(i).Editable := False;
+    end;
+
+    mInfo := CoLayerInfo.Create;
+    mInfo.type_ := miLayerInfoTypeUserDraw;
+    mInfo.AddParameter('Name', 'LYR_DRAW');
+    FLyrDraw := ENCmap.Layers.Add(mInfo, 1);
+
+    ENCmap.Layers.AnimationLayer := FLyrDraw;
+    ENCmap.MapUnit := miUnitNauticalMile;
+  end;
+
+  ENCmap.BackColor := RGB(192, 224, 255);
+end;
+
+procedure TfrmSummaryGameAreaENC.btnSelectClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnSelect.Down := True;
+
+  ENCmap.CurrentTool := miArrowTool;
+  ENCmap.MousePointer := miArrowCursor;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnPanClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnPan.Down := True;
+
+  ENCmap.CurrentTool := miPanTool;
+  ENCmap.MousePointer := miPanCursor;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnDecreaseScaleClick(Sender: TObject);
+begin
+  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+  cbbScaleChange(cbbScale);
+end;
+
+procedure TfrmSummaryGameAreaENC.btnIncreaseScaleClick(Sender: TObject);
+begin
+  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+  cbbScaleChange(cbbScale);
+end;
+
+procedure TfrmSummaryGameAreaENC.btnZoomToolClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnZoomTool.Down := True;
+
+  ENCmap.CurrentTool := miZoomInTool;
+  ENCmap.MousePointer := miZoomInCursor;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnMoveToolClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+//  btnMoveTool.Down := True;
+
+  ENCmap.MousePointer := miCrossCursor;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnMultiSelectClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnMultiSelect.Down := True;
+
+  ENCmap.CurrentTool := miArrowTool;
+  ENCmap.MousePointer := miArrowCursor;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnCenterHookClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnCenterHook.Down := True;
+
+  ENCmap.CurrentTool := miArrowTool;
+  ENCmap.MousePointer := miCrossCursor;
+end;
+
+procedure TfrmSummaryGameAreaENC.cbbScaleChange(Sender: TObject);
+var
+  z : Double;
+  s : string;
+begin
+  ENCmap.OnMapViewChanged := nil;
+
+  if cbbScale.ItemIndex < 0  then Exit;
+
+  if (cbbScale.ItemIndex <= 500) then
+  begin
+   s := cbbScale.Items[cbbScale.ItemIndex];
+   try
+     z := StrToFloat(s);
+     ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
+   finally
+
+   end;
+  end
+  else cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
+  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+
+//  btnDecreaseScale.Enabled := cbbScale.ItemIndex > 0;
+//  btnIncreaseScale.Enabled := cbbScale.ItemIndex < (cbbScale.Items.Count - 1);
+//
+//  z := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
+//  ENCmap.ZoomTo(zoom, ENCmap.CenterX, ENCmap.CenterY);
+end;
+
+function TfrmSummaryGameAreaENC.CekInput(IdAction: Integer): Boolean;
+var
+  i, chkSpace, numSpace: Integer;
+begin
+  Result := False;
+
+  if edtName.Text = '' then
+  begin
+    ShowMessage('Incomplete data input');
+    Exit;
+  end;
+
+  if (dmTTT.GetGame_Area_Def_By_Identifier(edtName.Text) > 0) and (IdAction = 0) then
+  begin
+    ShowMessage('Please use another name');
+    Exit;
+  end;
+
+  if Copy(edtName.Text, 1, 1) = ' ' then
+  begin
+    chkSpace := Length(edtName.Text);
+    numSpace := 0;
+    for i := 1 to chkSpace do
+    begin
+      if edtName.Text[i] = #32 then
+        numSpace := numSpace + 1;
+    end;
+    if chkSpace = numSpace then
+    begin
+      ShowMessage('Please use another name');
+      Exit;
+    end;
+  end;
+
+  if (IdAction <> 0) and (LastName <> edtName.Text)then
+  begin
+    if (dmTTT.GetGame_Area_Def_By_Identifier(edtName.Text) > 0) then
+    begin
+      ShowMessage('Please use another name');
+      Exit;
+    end;
+  end;
+
+  if FListFiltered.Count < 1 then
+  begin
+    ShowMessage('Map must be selected ');
+    Exit;
+  end;
+
+  Result := True;
+end;
+
+procedure TfrmSummaryGameAreaENC.ENCmapDrawUserLayer(ASender: TObject;
+  const Layer: IDispatch; hOutputDC, hAttributeDC: Cardinal; const RectFull,
+  RectInvalid: IDispatch);
+begin
+  with FCanvas do
+  begin
+    Handle := hOutputDC;
+
+    if FIsMouseDown then
+    begin
+      Pen.Color := clYellow;
+      Pen.Width := 3;
+      Brush.Style := bsClear;
+      Rectangle(FSelectionRectStart.X, FSelectionRectStart.Y,
+        FSelectionRectEnd.X, FSelectionRectEnd.Y);
+    end;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.ENCmapMapViewChanged(Sender: TObject);
+var
+  tempZoom : double;
+begin
+  if (ENCmap.CurrentTool = miZoomInTool)  or (ENCmap.CurrentTool = miZoomOutTool) then
+  begin
+     if ENCmap.Zoom <= 0.125 then tempZoom := 0.125;
+     if (ENCmap.Zoom > 0.125) AND (ENCmap.Zoom < 1) then tempZoom := ENCmap.Zoom;
+     if (ENCmap.Zoom >= 1) AND (ENCmap.Zoom <= 2500) then tempZoom := round(ENCmap.Zoom);
+     if ENCmap.Zoom > 2500 then tempZoom := 2500;
+
+     ENCmap.OnMapViewChanged := nil;
+     ENCmap.ZoomTo(tempZoom, ENCmap.CenterX, ENCmap.CenterY);
+
+     if (ENCmap.Zoom > 0.125) AND (ENCmap.Zoom < 0.25) then
+     begin
+       cbbScale.Text := FormatFloat('0.000', tempZoom);
+     end
+     else if (ENCmap.Zoom >= 0.25) AND (ENCmap.Zoom < 0.5) then
+     begin
+       cbbScale.Text := FormatFloat('0.00', tempZoom);
+     end
+     else if (ENCmap.Zoom >= 0.5) AND (ENCmap.Zoom < 1) then
+     begin
+       cbbScale.Text := FormatFloat('0.0', tempZoom);
+     end
+     else
+       cbbScale.Text := floattostr(tempZoom);
+
+     ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.ENCmapMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var
+  i : Integer;
+  layer : CMapXLayer;
+  zoom : Double;
+begin
+  if btnSelect.Down then
+  begin
+//    FListFiltered.Clear;
+    FSelectionRectStart := Point(X, Y);
+    FSelectionRectEnd := Point(X, Y);
+
+//    for i := 1 to ENCmap.Layers.Count do
+//    begin
+//      layer := ENCmap.Layers.Item(i);
+//
+//      if (layer.Name = 'Indonesia_Coastline_Darat') or
+//        (layer.Name = 'LYR_DRAW') then
+//        Continue;
+//
+//      layer.OverrideStyle := False;
+//    end;
+//
+//    ENCmap.Repaint;
+  end;
+
+  if btnMultiSelect.Down then
+  begin
+    FListFiltered.Clear;
+    FSelectionRectStart := Point(X, Y);
+    FSelectionRectEnd := Point(X, Y);
+
+    FIsMouseDown := True;
+
+    for i := 1 to ENCmap.Layers.Count do
+    begin
+      layer := ENCmap.Layers.Item(i);
+
+      if (layer.Name = 'Indonesia_Coastline_Darat') or
+        (layer.Name = 'LYR_DRAW') then
+        Continue;
+
+      layer.OverrideStyle := False;
+    end;
+
+    ENCmap.Repaint;
+  end;
+
+//  if btnMoveTool.Down then
+//  begin
+//    zoom := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
+//    ENCmap.ZoomTo(zoom, X, Y);
+//  end;
+
+  if btnCenterHook.Down then
+    with FSelectedGameArea.FGameArea do
+      FConverter.ConvertToMap(X, Y, Game_Centre_Long, Game_Centre_Lat);
+end;
+
+procedure TfrmSummaryGameAreaENC.ENCmapMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+  if btnMultiSelect.Down and FIsMouseDown then
+  begin
+    FSelectionRectEnd := Point(X, Y);
+    ENCmap.Repaint;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.ENCmapMouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  if btnSelect.Down then
+  begin
+    SelectionArea;
+    ENCmap.Repaint;
+  end;
+
+  if btnMultiSelect.Down and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+    FSelectionRectEnd := Point(X, Y);
+    SelectionArea;
+    ENCmap.Repaint;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.SelectionArea;
+var
+  startX, startY, endX, endY,
+  i, foundIndex : Integer;
+  startLat, startLong, endLat, endLong : Double;
+  layer : CMapXLayer;
+  layerID, layerName : string;
+begin
+  {$REGION ' Validation Point Cursor '}
+  if FSelectionRectStart.X < FSelectionRectEnd.X then
+  begin
+    startX := FSelectionRectStart.X;
+    endX := FSelectionRectEnd.X;
+  end
+  else
+  begin
+    startX := FSelectionRectEnd.X;
+    endX := FSelectionRectStart.X;
+  end;
+
+  if FSelectionRectStart.Y < FSelectionRectEnd.Y then
+  begin
+    startY := FSelectionRectStart.Y;
+    endY := FSelectionRectEnd.Y;
+  end
+  else
+  begin
+    startY := FSelectionRectEnd.Y;
+    endY := FSelectionRectStart.Y;
+  end;
+
+  FConverter.ConvertToMap(startX, startY, startLong, startLat);
+  FConverter.ConvertToMap(endX, endY, endLong, endLat);
+  {$ENDREGION}
+
+  {$REGION ' Select Area '}
+  for i := 1 to ENCmap.Layers.Count do
+  begin
+    layer := ENCmap.Layers.Item(i);
+
+    if (layer.Name = 'Indonesia_Coastline_Darat') or
+      (layer.Name = 'LYR_DRAW') then
+      Continue;
+
+    {$REGION ' Select Single Area '}
+    if btnSelect.Down then
+    begin
+      if (startLong >= layer.Bounds.XMin) and
+        (startLat <= layer.Bounds.YMax) and
+        (endLong <= layer.Bounds.XMax) and
+        (endLat >= layer.Bounds.YMin) then
+      begin
+        SeparateString(layer.Name, '_', layerID, layerName);
+
+        if FListFiltered.Find(layerID, foundIndex) then
+        begin
+          FListFiltered.Delete(foundIndex);
+//          layer.OverrideStyle := False;
+        end
+        else
+        begin
+          FListFiltered.Add(layerID);
+//          layer.OverrideStyle := True;
+//          layer.Style.RegionColor := clRed;
+        end;
+      end;
+    end;
+    {$ENDREGION}
+
+    {$REGION ' Select Multi Area '}
+    if btnMultiSelect.Down then
+    begin
+      if (layer.Bounds.XMin >= startLong) and
+        (layer.Bounds.YMax <= startLat) and
+        (layer.Bounds.XMax <= endLong) and
+        (layer.Bounds.YMin >= endLat) then
+      begin
+        SeparateString(layer.Name, '_', layerID, layerName);
+
+        if FListFiltered.Find(layerID, foundIndex) then
+        begin
+          FListFiltered.Delete(foundIndex);
+//          layer.OverrideStyle := False;
+        end
+        else
+        begin
+          FListFiltered.Add(layerID);
+//          layer.OverrideStyle := True;
+//          layer.Style.RegionColor := clRed;
+        end;
+      end;
+    end;
+    {$ENDREGION}
+  end;
+
+  {$ENDREGION}
+
+  SetChecked;
+  SetMapArea;
+end;
+
+end.
+

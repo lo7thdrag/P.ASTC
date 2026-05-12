@@ -1,0 +1,156 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{CDAB0AC9-29D8-4F0E-9AFE-07204AAE1D94}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="tttGameController\GC.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttSessionServer\SessionServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttRemote\tttRServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttRemote\tttRClient.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttSimClient.src\tttSimClient.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttSimServer.src\tttSimServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttSupportMap\tttMapStub.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttSimReplay\tttSimReplay.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="runner\tttRunner.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="runnerDB\ttRunnerDB.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="tttDBUtility\tttUtility.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="GC">
+			<MSBuild Projects="tttGameController\GC.dproj"/>
+		</Target>
+		<Target Name="GC:Clean">
+			<MSBuild Targets="Clean" Projects="tttGameController\GC.dproj"/>
+		</Target>
+		<Target Name="GC:Make">
+			<MSBuild Targets="Make" Projects="tttGameController\GC.dproj"/>
+		</Target>
+		<Target Name="SessionServer">
+			<MSBuild Projects="tttSessionServer\SessionServer.dproj"/>
+		</Target>
+		<Target Name="SessionServer:Clean">
+			<MSBuild Targets="Clean" Projects="tttSessionServer\SessionServer.dproj"/>
+		</Target>
+		<Target Name="SessionServer:Make">
+			<MSBuild Targets="Make" Projects="tttSessionServer\SessionServer.dproj"/>
+		</Target>
+		<Target Name="tttRServer">
+			<MSBuild Projects="tttRemote\tttRServer.dproj"/>
+		</Target>
+		<Target Name="tttRServer:Clean">
+			<MSBuild Targets="Clean" Projects="tttRemote\tttRServer.dproj"/>
+		</Target>
+		<Target Name="tttRServer:Make">
+			<MSBuild Targets="Make" Projects="tttRemote\tttRServer.dproj"/>
+		</Target>
+		<Target Name="tttRClient">
+			<MSBuild Projects="tttRemote\tttRClient.dproj"/>
+		</Target>
+		<Target Name="tttRClient:Clean">
+			<MSBuild Targets="Clean" Projects="tttRemote\tttRClient.dproj"/>
+		</Target>
+		<Target Name="tttRClient:Make">
+			<MSBuild Targets="Make" Projects="tttRemote\tttRClient.dproj"/>
+		</Target>
+		<Target Name="tttSimClient">
+			<MSBuild Projects="tttSimClient.src\tttSimClient.dproj"/>
+		</Target>
+		<Target Name="tttSimClient:Clean">
+			<MSBuild Targets="Clean" Projects="tttSimClient.src\tttSimClient.dproj"/>
+		</Target>
+		<Target Name="tttSimClient:Make">
+			<MSBuild Targets="Make" Projects="tttSimClient.src\tttSimClient.dproj"/>
+		</Target>
+		<Target Name="tttSimServer">
+			<MSBuild Projects="tttSimServer.src\tttSimServer.dproj"/>
+		</Target>
+		<Target Name="tttSimServer:Clean">
+			<MSBuild Targets="Clean" Projects="tttSimServer.src\tttSimServer.dproj"/>
+		</Target>
+		<Target Name="tttSimServer:Make">
+			<MSBuild Targets="Make" Projects="tttSimServer.src\tttSimServer.dproj"/>
+		</Target>
+		<Target Name="tttMapStub">
+			<MSBuild Projects="tttSupportMap\tttMapStub.dproj"/>
+		</Target>
+		<Target Name="tttMapStub:Clean">
+			<MSBuild Targets="Clean" Projects="tttSupportMap\tttMapStub.dproj"/>
+		</Target>
+		<Target Name="tttMapStub:Make">
+			<MSBuild Targets="Make" Projects="tttSupportMap\tttMapStub.dproj"/>
+		</Target>
+		<Target Name="tttSimReplay">
+			<MSBuild Projects="tttSimReplay\tttSimReplay.dproj"/>
+		</Target>
+		<Target Name="tttSimReplay:Clean">
+			<MSBuild Targets="Clean" Projects="tttSimReplay\tttSimReplay.dproj"/>
+		</Target>
+		<Target Name="tttSimReplay:Make">
+			<MSBuild Targets="Make" Projects="tttSimReplay\tttSimReplay.dproj"/>
+		</Target>
+		<Target Name="tttRunner">
+			<MSBuild Projects="runner\tttRunner.dproj"/>
+		</Target>
+		<Target Name="tttRunner:Clean">
+			<MSBuild Targets="Clean" Projects="runner\tttRunner.dproj"/>
+		</Target>
+		<Target Name="tttRunner:Make">
+			<MSBuild Targets="Make" Projects="runner\tttRunner.dproj"/>
+		</Target>
+		<Target Name="ttRunnerDB">
+			<MSBuild Projects="runnerDB\ttRunnerDB.dproj"/>
+		</Target>
+		<Target Name="ttRunnerDB:Clean">
+			<MSBuild Targets="Clean" Projects="runnerDB\ttRunnerDB.dproj"/>
+		</Target>
+		<Target Name="ttRunnerDB:Make">
+			<MSBuild Targets="Make" Projects="runnerDB\ttRunnerDB.dproj"/>
+		</Target>
+		<Target Name="tttUtility">
+			<MSBuild Projects="tttDBUtility\tttUtility.dproj"/>
+		</Target>
+		<Target Name="tttUtility:Clean">
+			<MSBuild Targets="Clean" Projects="tttDBUtility\tttUtility.dproj"/>
+		</Target>
+		<Target Name="tttUtility:Make">
+			<MSBuild Targets="Make" Projects="tttDBUtility\tttUtility.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="GC;SessionServer;tttRServer;tttRClient;tttSimClient;tttSimServer;tttMapStub;tttSimReplay;tttRunner;ttRunnerDB;tttUtility"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="GC:Clean;SessionServer:Clean;tttRServer:Clean;tttRClient:Clean;tttSimClient:Clean;tttSimServer:Clean;tttMapStub:Clean;tttSimReplay:Clean;tttRunner:Clean;ttRunnerDB:Clean;tttUtility:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="GC:Make;SessionServer:Make;tttRServer:Make;tttRClient:Make;tttSimClient:Make;tttSimServer:Make;tttMapStub:Make;tttSimReplay:Make;tttRunner:Make;ttRunnerDB:Make;tttUtility:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
