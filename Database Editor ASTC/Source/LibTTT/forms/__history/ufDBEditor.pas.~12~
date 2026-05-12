@@ -1,4 +1,4 @@
-﻿unit ufDBEditor;
+unit ufDBEditor;
 
 interface
 
@@ -169,6 +169,11 @@ type
     imgShutdownBody: TImage;
     Image15: TImage;
     mnRadarActivationIntervals: TLabel;
+    img3: TImage;
+    pnlFooter: TPanel;
+    img4: TImage;
+    Panel1: TPanel;
+    Image29: TImage;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -233,7 +238,6 @@ type
     procedure StudentRolesClick(Sender: TObject);
     procedure GameDefaultsClick(Sender: TObject);
     procedure SNRvsPODCurveClick(Sender: TObject);
-    procedure mnRadarActivationIntervalsClick(Sender: TObject);
 
     {$ENDREGION}
 
@@ -260,10 +264,12 @@ type
     procedure imgCountermeasuresClick(Sender: TObject);
     procedure imgOtherClick(Sender: TObject);
     procedure imgShutdownClick(Sender: TObject);
+    procedure pnl1ExerciseClick(Sender: TObject);
 
     {$ENDREGION}
 
   private
+    CurrentForm: TForm;
     isFold : boolean;
     pnlActive : Integer;
 
@@ -522,6 +528,11 @@ begin
 
   LoadImageVariasi(0);
   frmAvailableMotion.Show;
+end;
+
+procedure TfDBEditor.pnl1ExerciseClick(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}
@@ -788,14 +799,6 @@ begin
   frmAvailableSNRvsPODCurve.Show;
 end;
 
-procedure TfDBEditor.mnRadarActivationIntervalsClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSNRvsPODCurve) then
-    frmAvailableSNRvsPODCurve := TfrmAvailableSNRvsPODCurve.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableSNRvsPODCurve.Show;
-end;
 
 {$ENDREGION}
 
@@ -936,7 +939,7 @@ begin
     end;
      5:
      begin
-      if pnl6OtherBody.Height < (mnSNRvsPODCurve.Top + 38) then
+      if pnl6OtherBody.Height < (mnRadarActivationIntervals.Top + 38) then
         pnl6OtherBody.Height := pnl6OtherBody.Height + 2
       else
         Timer1.Enabled := false;
