@@ -100,9 +100,9 @@ type
     Image66: TImage;
     mnShutdownDatabaseEditor: TLabel;
     pnl8ShutdownSparator: TPanel;
-    pnlSparatorHor: TPanel;
-    pnlSparatorVer1: TPanel;
-    pnlTop: TPanel;
+    pnlSparatorHeader: TPanel;
+    pnlSparatorLeft: TPanel;
+    pnlHeader: TPanel;
     Timer1: TTimer;
     Image1: TImage;
     mnSatelite: TLabel;
@@ -158,22 +158,17 @@ type
     Image2: TImage;
     Image5: TImage;
     pnlVariasi: TPanel;
-    pnlSparatorVer2: TPanel;
+    pnlSparatorRight: TPanel;
     Image8: TImage;
-    imgBackExerciseBody: TImage;
-    imgPlatformsBody: TImage;
-    ImgSensorBody: TImage;
-    ImgWeaponsBody: TImage;
-    ImgCounteresmeasuresBody: TImage;
-    imgOtherBody: TImage;
-    imgShutdownBody: TImage;
     Image15: TImage;
     mnRadarActivationIntervals: TLabel;
     img3: TImage;
     pnlFooter: TPanel;
     img4: TImage;
-    Panel1: TPanel;
+    pnlSparatorFooter: TPanel;
     Image29: TImage;
+    Panel1: TPanel;
+    pnlHome: TPanel;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -257,14 +252,12 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure CollapseMenuClick(Sender: TObject);
     procedure UnCollapseMenuClick();
-    procedure imgExerciseClick(Sender: TObject);
-    procedure imgPlatformsClick(Sender: TObject);
-    procedure imgSensorsClick(Sender: TObject);
-    procedure imgWeaponsClick(Sender: TObject);
-    procedure imgCountermeasuresClick(Sender: TObject);
-    procedure imgOtherClick(Sender: TObject);
+    procedure MainMenuClick(Sender: TObject);
+
     procedure imgShutdownClick(Sender: TObject);
-    procedure pnl1ExerciseClick(Sender: TObject);
+
+    procedure IconMouseEnter(Sender: TObject);
+    procedure IconMouseLeave(Sender: TObject);
 
     {$ENDREGION}
 
@@ -272,6 +265,11 @@ type
     CurrentForm: TForm;
     isFold : boolean;
     pnlActive : Integer;
+
+    iconName : string;
+    filePath, imgChoice : string;
+
+    procedure IconLoad;
 
     procedure LoadImageVariasi(i : byte);
 
@@ -388,71 +386,66 @@ end;
 
 {$REGION ' Menu Section '}
 
-procedure TfDBEditor.imgExerciseClick(Sender: TObject);
+procedure TfDBEditor.IconMouseLeave(Sender: TObject);
 begin
-  if not Assigned(frmExercise) then
-    frmExercise := TfrmExercise.Create(self)
-  else
-    frmExercise.Show;
+  iconName := TImage(sender).Name;
+  filePath := 'data\Image DBEditor\Interface\Main\';
+  imgChoice := '.PNG';
 
+  IconLoad;
+end;
+
+procedure TfDBEditor.IconMouseEnter(Sender: TObject);
+begin
+  iconName := TImage(sender).Name;
+  filePath := 'data\Image DBEditor\Interface\Main\';
+  imgChoice := '_Select.PNG';
+
+  IconLoad;
+end;
+
+procedure TfDBEditor.MainMenuClick(Sender: TObject);
+begin
   LoadImageVariasi(1);
   CollapseMenuClick(Sender);
 end;
-
-procedure TfDBEditor.imgPlatformsClick(Sender: TObject);
-begin
-  if not Assigned(frmPlatforms) then
-    frmPlatforms := TfrmPlatforms.Create(self)
-  else
-    frmPlatforms.Show;
-
-  LoadImageVariasi(1);
-  CollapseMenuClick(Sender);
-end;
-
-procedure TfDBEditor.imgSensorsClick(Sender: TObject);
-begin
-  if not Assigned(frmSensors) then
-    frmSensors := TfrmSensors.Create(self)
-  else
-    frmSensors.Show;
-
-  LoadImageVariasi(1);
-  CollapseMenuClick(Sender);
-end;
-
-procedure TfDBEditor.imgWeaponsClick(Sender: TObject);
-begin
-  if not Assigned(frmWeapons) then
-    frmWeapons := TfrmWeapons.Create(self)
-  else
-    frmWeapons.Show;
-
-  LoadImageVariasi(1);
-  CollapseMenuClick(Sender);
-end;
-
-procedure TfDBEditor.imgCountermeasuresClick(Sender: TObject);
-begin
-  if not Assigned(frmCountermeasure) then
-    frmCountermeasure := TfrmCountermeasure.Create(self)
-  else
-    frmCountermeasure.Show;
-
-  LoadImageVariasi(1);
-  CollapseMenuClick(Sender);
-end;
-
-procedure TfDBEditor.imgOtherClick(Sender: TObject);
-begin
-  if not Assigned(frmOther) then
-    frmOther := TfrmOther.Create(self)
-  else
-    frmOther.Show;
-
-  LoadImageVariasi(1);
-  CollapseMenuClick(Sender);
-end;
+//
+//procedure TfDBEditor.imgPlatformsClick(Sender: TObject);
+//begin
+//  LoadImageVariasi(1);
+//  CollapseMenuClick(Sender);
+//end;
+//
+//procedure TfDBEditor.imgSensorsClick(Sender: TObject);
+//begin
+//
+//
+//  LoadImageVariasi(1);
+//  CollapseMenuClick(Sender);
+//end;
+//
+//procedure TfDBEditor.imgWeaponsClick(Sender: TObject);
+//begin
+//
+//  LoadImageVariasi(1);
+//  CollapseMenuClick(Sender);
+//end;
+//
+//procedure TfDBEditor.imgCountermeasuresClick(Sender: TObject);
+//begin
+//
+//
+//  LoadImageVariasi(1);
+//  CollapseMenuClick(Sender);
+//end;
+//
+//procedure TfDBEditor.imgOtherClick(Sender: TObject);
+//begin
+//
+//
+//  LoadImageVariasi(1);
+//  CollapseMenuClick(Sender);
+//end;
 
 procedure TfDBEditor.imgShutdownClick(Sender: TObject);
 begin
@@ -528,11 +521,6 @@ begin
 
   LoadImageVariasi(0);
   frmAvailableMotion.Show;
-end;
-
-procedure TfDBEditor.pnl1ExerciseClick(Sender: TObject);
-begin
-
 end;
 
 {$ENDREGION}
@@ -722,9 +710,9 @@ procedure TfDBEditor.LoadImageVariasi(i: byte);
 begin
   if i=0 then
   begin
-    pnlSparatorVer2.Visible := False;
+    pnlSparatorRight.Visible := False;
     pnlVariasi.Visible := True;
-    pnlSparatorVer2.Visible := True;
+    pnlSparatorRight.Visible := True;
   end
   else
   begin
@@ -857,6 +845,38 @@ end;
 
 {$REGION ' Navbar Section '}
 
+procedure TfDBEditor.IconLoad;
+begin
+  if iconName = 'imgExercise' then
+  begin
+    imgExercise.Picture.LoadFromFile(filePath + 'imgExercise' + imgChoice);
+  end
+  else if iconName = 'imgPlatforms' then
+  begin
+    imgPlatforms.Picture.LoadFromFile(filePath + 'imgPlatforms' + imgChoice);
+  end
+  else if iconName = 'imgSensors' then
+  begin
+    imgSensors.Picture.LoadFromFile(filePath + 'imgSensors' + imgChoice);
+  end
+  else if iconName = 'imgWeapons' then
+  begin
+    imgWeapons.Picture.LoadFromFile(filePath + 'imgWeapons' + imgChoice);
+  end
+  else if iconName = 'imgCountermeasures' then
+  begin
+    imgCountermeasures.Picture.LoadFromFile(filePath + 'imgCountermeasures' + imgChoice);
+  end
+  else if iconName = 'imgOther' then
+  begin
+    imgOther.Picture.LoadFromFile(filePath + 'imgOther' + imgChoice);
+  end
+  else if iconName = 'imgShutdown' then
+  begin
+    imgShutdown.Picture.LoadFromFile(filePath + 'imgShutdown' + imgChoice);
+  end;
+end;
+
 procedure TfDBEditor.CollapseMenuClick(Sender: TObject);
 begin
   if Sender is TImage then
@@ -901,55 +921,112 @@ begin
   if not isFold then
     Exit;
 
+
   case pnlActive of
     0:
     begin
       if pnl1ExerciseBody.Height < (mnGameArea.Top + 38) then //160 then
         pnl1ExerciseBody.Height := pnl1ExerciseBody.Height + 2
       else
+      begin
         Timer1.Enabled := false;
+
+        if not Assigned(frmExercise) then
+          frmExercise := TfrmExercise.Create(self)
+        else
+          frmExercise.Show;
+
+        pnlHome.Visible := False;
+      end;
     end;
     1:
     begin
       if pnl2PlatformsBody.Height < (mnMotion.Top + 38) then
         pnl2PlatformsBody.Height := pnl2PlatformsBody.Height + 2
       else
+      begin
         Timer1.Enabled := false;
+
+        if not Assigned(frmPlatforms) then
+          frmPlatforms := TfrmPlatforms.Create(self)
+        else
+          frmPlatforms.Show;
+
+        pnlHome.Visible := False;
+      end;
     end;
     2:
     begin
-      if pnl3SensorsBody.Height < (mnMAD.Top + 38) then
+      if pnl3SensorsBody.Height < (mnSonobuoy.Top + 38) then
         pnl3SensorsBody.Height := pnl3SensorsBody.Height + 2
       else
+      begin
         Timer1.Enabled := false;
+
+        if not Assigned(frmSensors) then
+          frmSensors := TfrmSensors.Create(self)
+        else
+          frmSensors.Show;
+
+        pnlHome.Visible := False;
+      end;
     end;
     3:
     begin
       if pnl4WeaponsBody.Height < (mnBomb.Top + 38) then
         pnl4WeaponsBody.Height := pnl4WeaponsBody.Height + 2
       else
+      begin
         Timer1.Enabled := false;
+
+        if not Assigned(frmWeapons) then
+          frmWeapons := TfrmWeapons.Create(self)
+        else
+          frmWeapons.Show;
+
+        pnlHome.Visible := False;
+      end;
     end;
     4:
     begin
       if pnl5CountermeasuresBody.Height < (mnRadarNoiseJammer.Top + 38) then
         pnl5CountermeasuresBody.Height := pnl5CountermeasuresBody.Height + 2
       else
+      begin
         Timer1.Enabled := false;
+
+        if not Assigned(frmCountermeasure) then
+          frmCountermeasure := TfrmCountermeasure.Create(self)
+        else
+          frmCountermeasure.Show;
+
+        pnlHome.Visible := False;
+      end;
     end;
      5:
-     begin
+    begin
       if pnl6OtherBody.Height < (mnRadarActivationIntervals.Top + 38) then
         pnl6OtherBody.Height := pnl6OtherBody.Height + 2
       else
+      begin
         Timer1.Enabled := false;
+
+        if not Assigned(frmOther) then
+          frmOther := TfrmOther.Create(self)
+        else
+          frmOther.Show;
+
+        pnlHome.Visible := False;
+      end;
     end;
     7:
-     begin
+    begin
       if pnl8ShutdownBody.Height < (mnShutdownDatabaseEditor.Top + 38) then
         pnl8ShutdownBody.Height := pnl8ShutdownBody.Height + 2
       else
+      begin
         Timer1.Enabled := false;
+      end;
     end;
   end;
 end;

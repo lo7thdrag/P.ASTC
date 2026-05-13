@@ -66,7 +66,7 @@ end;
 procedure TfrmWeapons.IconMouseEnter(Sender: TObject);
 begin
   iconName := TImage(sender).Name;
-  filePath := 'data\Image DBEditor\Interface\Background\';
+  filePath := 'data\Image DBEditor\Interface\Weapon\';
   imgChoice := '_Select.PNG';
 
   IconLoad;
@@ -75,7 +75,7 @@ end;
 procedure TfrmWeapons.IconMouseLeave(Sender: TObject);
 begin
   iconName := TImage(sender).Name;
-  filePath := 'data\Image DBEditor\Interface\Background\';
+  filePath := 'data\Image DBEditor\Interface\Weapon\';
   imgChoice := '.PNG';
 
   IconLoad;

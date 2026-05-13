@@ -8,9 +8,10 @@ uses
 
 type
   TfrmExercise = class(TForm)
-    img1: TImage;
-    pnlSparatorHor: TPanel;
-    Image2: TImage;
+    imgScenario: TImage;
+    imgEnvironment: TImage;
+    imgGameArea: TImage;
+    imgResourceAllocation: TImage;
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
