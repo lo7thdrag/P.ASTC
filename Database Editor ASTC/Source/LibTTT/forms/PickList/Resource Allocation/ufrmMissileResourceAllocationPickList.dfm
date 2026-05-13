@@ -28,9 +28,6 @@ object frmMissileResourceAllocationPickList: TfrmMissileResourceAllocationPickLi
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 5
-    ExplicitTop = 347
-    ExplicitWidth = 611
     object btnClose: TButton
       Left = 528
       Top = 6
@@ -45,17 +42,14 @@ object frmMissileResourceAllocationPickList: TfrmMissileResourceAllocationPickLi
     Left = 0
     Top = 0
     Width = 621
-    Height = 347
+    Height = 352
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 5
-    ExplicitTop = 5
-    ExplicitWidth = 611
-    ExplicitHeight = 337
+    ExplicitHeight = 347
     object imgExercise: TImage
       Left = 8
       Top = 8
@@ -185,38 +179,6 @@ object frmMissileResourceAllocationPickList: TfrmMissileResourceAllocationPickLi
       TabOrder = 3
       OnClick = lbAllMissileOnRAClick
       OnDblClick = btnRemoveClick
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 347
-    Width = 621
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 2
-    object Image2: TImage
-      Left = 0
-      Top = 0
-      Width = 621
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
     end
   end
 end

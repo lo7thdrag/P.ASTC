@@ -21,8 +21,6 @@ type
     lbAllVehicleDef: TListBox;
     lbAllVehicleOnRA: TListBox;
     btnEdit: TButton;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
     Label3: TLabel;
     edtSearch: TEdit;
 

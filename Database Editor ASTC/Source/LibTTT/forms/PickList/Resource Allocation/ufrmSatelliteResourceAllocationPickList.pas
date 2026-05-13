@@ -21,8 +21,6 @@ type
     btnRemove: TButton;
     lbAllSatelliteDef: TListBox;
     lbAllSatelliteOnRA: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
