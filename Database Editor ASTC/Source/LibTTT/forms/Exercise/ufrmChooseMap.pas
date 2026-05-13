@@ -13,8 +13,6 @@ type
     rbVector: TRadioButton;
     pnl2ControlPage: TPanel;
     pnl3Button: TPanel;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
     btnOK: TButton;
     btnCancel: TButton;
 

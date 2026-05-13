@@ -20,27 +20,23 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
     Left = 0
     Top = 0
     Width = 330
-    Height = 109
+    Height = 114
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 5
-    ExplicitTop = 5
-    ExplicitWidth = 320
-    ExplicitHeight = 99
+    ExplicitHeight = 109
     object pnlPlatformInstance: TPanel
       Left = 10
       Top = 10
       Width = 310
-      Height = 89
+      Height = 94
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 300
-      ExplicitHeight = 79
+      ExplicitHeight = 89
       object lblName: TLabel
         Left = 3
         Top = 18
@@ -84,9 +80,6 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 5
-    ExplicitTop = 109
-    ExplicitWidth = 320
     object btnCancel: TButton
       Left = 233
       Top = 9
@@ -104,40 +97,6 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
       Caption = 'OK'
       TabOrder = 1
       OnClick = btnOkClick
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 109
-    Width = 330
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    ParentBackground = False
-    TabOrder = 2
-    ExplicitLeft = 5
-    ExplicitTop = 104
-    ExplicitWidth = 320
-    object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 330
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
     end
   end
 end

@@ -1,0 +1,89 @@
+object frmChooseMap: TfrmChooseMap
+  Left = 0
+  Top = 0
+  BorderIcons = []
+  BorderStyle = bsToolWindow
+  Caption = 'Game Area'
+  ClientHeight = 155
+  ClientWidth = 264
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnl2ControlPage: TPanel
+    Left = 0
+    Top = 0
+    Width = 264
+    Height = 112
+    Align = alClient
+    BevelOuter = bvNone
+    BorderWidth = 10
+    Color = 2499101
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitHeight = 107
+  end
+  object grbDepthContours: TGroupBox
+    Left = 12
+    Top = 8
+    Width = 241
+    Height = 89
+    Caption = 'Map Selection'
+    TabOrder = 0
+    object rbENC: TRadioButton
+      Left = 23
+      Top = 30
+      Width = 113
+      Height = 17
+      Caption = 'ENC'
+      TabOrder = 0
+    end
+    object rbVector: TRadioButton
+      Left = 23
+      Top = 55
+      Width = 113
+      Height = 17
+      Caption = 'Vector'
+      Checked = True
+      TabOrder = 1
+      TabStop = True
+    end
+  end
+  object pnl3Button: TPanel
+    Left = 0
+    Top = 112
+    Width = 264
+    Height = 43
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = 2499101
+    ParentBackground = False
+    TabOrder = 2
+    object btnOK: TButton
+      Left = 95
+      Top = 8
+      Width = 75
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'OK'
+      TabOrder = 0
+      OnClick = btnOkClick
+    end
+    object btnCancel: TButton
+      Left = 176
+      Top = 8
+      Width = 75
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'Cancel'
+      TabOrder = 1
+      OnClick = btnCancelClick
+    end
+  end
+end

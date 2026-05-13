@@ -20,8 +20,6 @@ type
     pnl3Button: TPanel;
     btnCancel: TButton;
     btnOK: TButton;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
 
     procedure FormShow(Sender: TObject);
 
