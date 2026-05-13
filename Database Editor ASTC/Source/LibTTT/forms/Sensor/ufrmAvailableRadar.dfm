@@ -4,7 +4,7 @@ object frmAvailableRadar: TfrmAvailableRadar
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Radars'
-  ClientHeight = 771
+  ClientHeight = 831
   ClientWidth = 1252
   Color = clBtnFace
   DoubleBuffered = True
@@ -26,19 +26,18 @@ object frmAvailableRadar: TfrmAvailableRadar
     Left = 0
     Top = 0
     Width = 1252
-    Height = 771
+    Height = 831
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 461
+    ExplicitHeight = 771
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
       Width = 1252
-      Height = 40
+      Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
@@ -46,7 +45,7 @@ object frmAvailableRadar: TfrmAvailableRadar
       TabOrder = 0
       object Label2: TLabel
         Left = 10
-        Top = 10
+        Top = 18
         Width = 112
         Height = 21
         Caption = 'List of Radar '
@@ -58,26 +57,24 @@ object frmAvailableRadar: TfrmAvailableRadar
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 700
+        Left = 672
         Top = 0
-        Width = 552
-        Height = 40
+        Width = 580
+        Height = 57
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 232
-        ExplicitHeight = 46
         DesignSize = (
-          552
-          40)
+          580
+          57)
         object btnDelete: TImage
-          Left = 516
-          Top = 8
-          Width = 25
-          Height = 25
+          Left = 532
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
           Anchors = [akTop, akRight]
           Picture.Data = {
@@ -204,10 +201,10 @@ object frmAvailableRadar: TfrmAvailableRadar
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 431
-          Top = 8
-          Width = 25
-          Height = 25
+          Left = 437
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
           Anchors = [akTop, akRight]
           Picture.Data = {
@@ -308,10 +305,10 @@ object frmAvailableRadar: TfrmAvailableRadar
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 396
-          Top = 8
-          Width = 25
-          Height = 25
+          Left = 397
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
           Anchors = [akTop, akRight]
           Picture.Data = {
@@ -431,10 +428,10 @@ object frmAvailableRadar: TfrmAvailableRadar
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 361
-          Top = 8
-          Width = 25
-          Height = 25
+          Left = 357
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
           Anchors = [akTop, akRight]
           Picture.Data = {
@@ -523,10 +520,10 @@ object frmAvailableRadar: TfrmAvailableRadar
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 481
-          Top = 8
-          Width = 25
-          Height = 25
+          Left = 492
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
           Anchors = [akTop, akRight]
           Picture.Data = {
@@ -654,8 +651,8 @@ object frmAvailableRadar: TfrmAvailableRadar
           OnClick = btnUsageClick
         end
         object Label1: TLabel
-          Left = 12
-          Top = 10
+          Left = 13
+          Top = 18
           Width = 72
           Height = 21
           Anchors = [akTop, akRight]
@@ -668,8 +665,8 @@ object frmAvailableRadar: TfrmAvailableRadar
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 81
-          Top = 8
+          Left = 82
+          Top = 16
           Width = 247
           Height = 25
           Anchors = [akTop, akRight]
@@ -687,17 +684,16 @@ object frmAvailableRadar: TfrmAvailableRadar
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 40
+      Top = 57
       Width = 1252
-      Height = 731
+      Height = 774
       Align = alClient
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 1249
-      ExplicitHeight = 581
+      ExplicitTop = 40
+      ExplicitHeight = 731
       object lbRadars: TListBox
         Left = 10
         Top = 0

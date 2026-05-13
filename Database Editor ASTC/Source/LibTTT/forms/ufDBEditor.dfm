@@ -166,64 +166,68 @@ object fDBEditor: TfDBEditor
       object mnEnvironment: TLabel
         Left = 63
         Top = 79
-        Width = 283
-        Height = 221
+        Width = 83
+        Height = 21
         Cursor = crHandPoint
         Caption = 'Environment'
+        Color = clWindow
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -21
         Font.Name = 'Deusex'
         Font.Style = []
-        GlowSize = 100
+        ParentColor = False
         ParentFont = False
         OnClick = EnvironmentClick
       end
       object mnGameArea: TLabel
         Left = 63
         Top = 110
-        Width = 277
-        Height = 221
+        Width = 77
+        Height = 21
         Cursor = crHandPoint
         Caption = 'Game Area'
+        Color = clWindow
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -21
         Font.Name = 'Deusex'
         Font.Style = []
-        GlowSize = 100
+        ParentColor = False
         ParentFont = False
         OnClick = GameAreaClick
       end
       object mnResourceAllocation: TLabel
         Left = 63
         Top = 48
-        Width = 345
-        Height = 221
+        Width = 145
+        Height = 21
         Cursor = crHandPoint
         Caption = 'Resource Allocation'
+        Color = clWindow
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -21
         Font.Name = 'Deusex'
         Font.Style = []
-        GlowSize = 100
+        ParentColor = False
         ParentFont = False
         OnClick = ResourceAllocationClick
       end
       object mnScenario: TLabel
         Left = 63
         Top = 17
-        Width = 259
-        Height = 221
+        Width = 59
+        Height = 21
         Cursor = crHandPoint
         Caption = 'Scenario'
+        Color = clWindow
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -21
         Font.Name = 'Deusex'
         Font.Style = []
-        GlowSize = 100
+        ParentColor = False
         ParentFont = False
         OnClick = ScenarioClick
       end

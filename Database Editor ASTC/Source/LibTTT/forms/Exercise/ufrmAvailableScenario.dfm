@@ -5,7 +5,7 @@ object frmAvailableScenario: TfrmAvailableScenario
   BorderStyle = bsNone
   Caption = 'Scenario'
   ClientHeight = 487
-  ClientWidth = 795
+  ClientWidth = 962
   Color = clBtnFace
   DoubleBuffered = True
   ParentFont = True
@@ -21,7 +21,7 @@ object frmAvailableScenario: TfrmAvailableScenario
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 795
+    Width = 962
     Height = 487
     Cursor = crHandPoint
     Align = alClient
@@ -41,18 +41,19 @@ object frmAvailableScenario: TfrmAvailableScenario
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 795
+    Width = 962
     Height = 487
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 795
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 795
-      Height = 46
+      Width = 962
+      Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
@@ -60,7 +61,7 @@ object frmAvailableScenario: TfrmAvailableScenario
       TabOrder = 0
       object Label2: TLabel
         Left = 10
-        Top = 14
+        Top = 18
         Width = 129
         Height = 21
         Caption = 'List of Scenario '
@@ -72,22 +73,28 @@ object frmAvailableScenario: TfrmAvailableScenario
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 171
+        Left = 382
         Top = 0
-        Width = 624
-        Height = 46
+        Width = 580
+        Height = 57
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 171
+        ExplicitHeight = 46
+        DesignSize = (
+          580
+          57)
         object btnDelete: TImage
-          Left = 590
-          Top = 10
-          Width = 26
-          Height = 26
+          Left = 532
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -212,11 +219,12 @@ object frmAvailableScenario: TfrmAvailableScenario
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 499
-          Top = 10
-          Width = 26
-          Height = 26
+          Left = 437
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -315,11 +323,12 @@ object frmAvailableScenario: TfrmAvailableScenario
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 462
-          Top = 10
-          Width = 26
-          Height = 26
+          Left = 397
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -437,11 +446,12 @@ object frmAvailableScenario: TfrmAvailableScenario
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 425
-          Top = 10
-          Width = 26
-          Height = 26
+          Left = 357
+          Top = 13
+          Width = 30
+          Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -531,20 +541,22 @@ object frmAvailableScenario: TfrmAvailableScenario
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
-      Width = 795
-      Height = 441
+      Top = 57
+      Width = 962
+      Height = 430
       Align = alClient
       BevelOuter = bvNone
-      Color = clScrollBar
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitTop = 46
+      ExplicitWidth = 795
+      ExplicitHeight = 441
       object lstScenarioList: TListBox
-        Left = 0
+        Left = 10
         Top = 0
-        Width = 795
-        Height = 441
-        Align = alClient
+        Width = 1231
+        Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13

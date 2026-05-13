@@ -3138,6 +3138,8 @@ object frmSensors: TfrmSensors
       FBA03DCF8F17754F04000000F89F392DE1F107BADF18E97706860B0000000049
       454E44AE426082}
     Stretch = True
+    OnMouseEnter = IconMouseEnter
+    OnMouseLeave = IconMouseLeave
   end
   object imgEOD: TImage
     Left = 29
@@ -5677,6 +5679,8 @@ object frmSensors: TfrmSensors
       6030180C860526090C0683C16030180C06C30293040683C16030180C068361E1
       FF03EE45B9B050E08B6A0000000049454E44AE426082}
     Stretch = True
+    OnMouseEnter = IconMouseEnter
+    OnMouseLeave = IconMouseLeave
   end
   object imgMAD: TImage
     Left = 1176
@@ -8363,6 +8367,8 @@ object frmSensors: TfrmSensors
       BFAAF0F0CE7355CDB902F1FF0F521E25B5C45DF4380000000049454E44AE4260
       82}
     Stretch = True
+    OnMouseEnter = IconMouseEnter
+    OnMouseLeave = IconMouseLeave
   end
   object imgRadar: TImage
     Left = 21
@@ -11119,9 +11125,11 @@ object frmSensors: TfrmSensors
       A2A2A2A2A2A2A2A2A2E208A012FF8A8A8A8A8A8A8A8A8A8A2380FF0FB9A8368D
       013A9BDC0000000049454E44AE426082}
     Stretch = True
+    OnMouseEnter = IconMouseEnter
+    OnMouseLeave = IconMouseLeave
   end
   object imgESM: TImage
-    Left = 814
+    Left = 830
     Top = 8
     Width = 373
     Height = 482
@@ -13881,6 +13889,8 @@ object frmSensors: TfrmSensors
       B3E83ABED7356A65F7C4798E76BBDD5769ECBA7BAFAB338CEC16A8FF7F651398
       695D4EB8880000000049454E44AE426082}
     Stretch = True
+    OnMouseEnter = IconMouseEnter
+    OnMouseLeave = IconMouseLeave
   end
   object imgSonobuoy: TImage
     Left = 814
@@ -17810,5 +17820,7 @@ object frmSensors: TfrmSensors
       AB40B85AB56AD5AA55AB56ADDAB9B40A84AB55AB56AD5AB56AD5AA9D4BFBFF01
       B2B44FF9A9C124080000000049454E44AE426082}
     Stretch = True
+    OnMouseEnter = IconMouseEnter
+    OnMouseLeave = IconMouseLeave
   end
 end

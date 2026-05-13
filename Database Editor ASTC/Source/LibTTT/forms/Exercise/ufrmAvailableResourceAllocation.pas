@@ -17,7 +17,7 @@ type
     btnEdit: TImage;
     btnCopy: TImage;
     btnNew: TImage;
-    Image1: TImage;
+    btnUsage: TImage;
     pnlTableList: TPanel;
     lstResourceAllocation: TListBox;
 

@@ -4,8 +4,8 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Resource Allocation'
-  ClientHeight = 461
-  ClientWidth = 784
+  ClientHeight = 662
+  ClientWidth = 979
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -25,55 +25,57 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 784
-    Height = 461
+    Width = 979
+    Height = 662
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 453
+    ExplicitWidth = 784
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 784
-      Height = 46
+      Width = 979
+      Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 4
-      ExplicitWidth = 776
+      ExplicitWidth = 1121
       object Label2: TLabel
-        Left = 3
-        Top = 14
-        Width = 187
-        Height = 19
+        Left = 10
+        Top = 18
+        Width = 205
+        Height = 21
         Caption = 'List of Resource Allocation'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Tahoma'
+        Font.Height = -21
+        Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 160
+        Left = 399
         Top = 0
-        Width = 624
-        Height = 46
+        Width = 580
+        Height = 57
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 152
+        ExplicitLeft = 497
+        DesignSize = (
+          580
+          57)
         object btnDelete: TImage
-          Left = 590
-          Top = 9
+          Left = 532
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -201,11 +203,12 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 499
-          Top = 9
+          Left = 437
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -304,11 +307,12 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 462
-          Top = 9
+          Left = 397
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -426,11 +430,12 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 425
-          Top = 9
+          Left = 357
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -516,9 +521,9 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           Stretch = True
           OnClick = btnNewClick
         end
-        object Image1: TImage
-          Left = 553
-          Top = 9
+        object btnUsage: TImage
+          Left = 492
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -650,24 +655,22 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
-      Width = 784
-      Height = 415
+      Top = 57
+      Width = 979
+      Height = 605
       Align = alClient
       BevelOuter = bvNone
-      Color = clScrollBar
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 50
-      ExplicitWidth = 776
-      ExplicitHeight = 399
+      ExplicitTop = 46
+      ExplicitWidth = 784
+      ExplicitHeight = 415
       object lstResourceAllocation: TListBox
-        Left = 0
+        Left = 10
         Top = 0
-        Width = 784
-        Height = 415
-        Align = alClient
+        Width = 1231
+        Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -677,8 +680,6 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitLeft = 3
-        ExplicitTop = -1
       end
     end
   end

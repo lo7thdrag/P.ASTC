@@ -271,9 +271,11 @@ type
 
     procedure IconLoad;
 
-    procedure LoadImageVariasi(i : byte);
+//    procedure LoadImageVariasi(i : byte);
 
   public
+
+    procedure LoadImageVariasi(i : byte);
 
   end;
 
