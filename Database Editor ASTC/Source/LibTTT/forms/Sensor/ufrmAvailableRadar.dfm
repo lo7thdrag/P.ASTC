@@ -32,7 +32,6 @@ object frmAvailableRadar: TfrmAvailableRadar
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 771
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -692,8 +691,6 @@ object frmAvailableRadar: TfrmAvailableRadar
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 40
-      ExplicitHeight = 731
       object lbRadars: TListBox
         Left = 10
         Top = 0

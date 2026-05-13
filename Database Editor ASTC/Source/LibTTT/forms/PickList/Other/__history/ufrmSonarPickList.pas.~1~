@@ -14,6 +14,8 @@ type
     pnl3Button: TPanel;
     btnCancel: TButton;
     btnAdd: TButton;
+    pnlSparatorHor2: TPanel;
+    Image1: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);

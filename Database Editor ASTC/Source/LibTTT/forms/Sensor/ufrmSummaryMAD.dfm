@@ -70,8 +70,6 @@ object frmSummaryMAD: TfrmSummaryMAD
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 166
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -82,10 +80,8 @@ object frmSummaryMAD: TfrmSummaryMAD
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 146
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 106
         object txtBaselineDetection: TLabel
           Left = 15
           Top = 24

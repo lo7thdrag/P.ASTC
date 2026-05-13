@@ -17,10 +17,6 @@ type
     pnl3Button: TPanel;
     btnOk: TButton;
     btnPrint: TButton;
-    pnlSparatorHor1: TPanel;
-    Image2: TImage;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnOkClick(Sender: TObject);

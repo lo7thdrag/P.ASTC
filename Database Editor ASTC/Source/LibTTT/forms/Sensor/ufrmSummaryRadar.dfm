@@ -70,22 +70,18 @@ object frmSummaryRadar: TfrmSummaryRadar
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 327
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 742
       Height = 317
-      ActivePage = tsAntiJamming
+      ActivePage = tsCharacteristic
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 307
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 267
         object lblBaselineDelectionRange: TLabel
           Left = 373
           Top = 33
@@ -385,7 +381,6 @@ object frmSummaryRadar: TfrmSummaryRadar
       object tsCharacteristic: TTabSheet
         Caption = 'Characteristics'
         ImageIndex = 1
-        ExplicitHeight = 267
         object lblFrequency: TLabel
           Left = 20
           Top = 20
@@ -632,7 +627,6 @@ object frmSummaryRadar: TfrmSummaryRadar
       object tsAntiJamming: TTabSheet
         Caption = 'Anti Jamming'
         ImageIndex = 2
-        ExplicitHeight = 267
         object grbBasicCapabilities: TGroupBox
           Left = 16
           Top = 20
@@ -831,7 +825,6 @@ object frmSummaryRadar: TfrmSummaryRadar
         BorderWidth = 10
         Caption = 'Notes'
         ImageIndex = 3
-        ExplicitHeight = 267
         object mmoNotes: TMemo
           Left = 0
           Top = 0
@@ -840,7 +833,6 @@ object frmSummaryRadar: TfrmSummaryRadar
           Align = alClient
           TabOrder = 0
           OnChange = edtChange
-          ExplicitHeight = 247
         end
       end
     end

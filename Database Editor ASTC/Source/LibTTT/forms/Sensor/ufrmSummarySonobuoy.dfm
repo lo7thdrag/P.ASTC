@@ -70,22 +70,18 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 195
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 315
       Height = 185
-      ActivePage = tsPhysical
+      ActivePage = tsGeneral
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 175
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 135
         object txtMaxDepth: TLabel
           Left = 10
           Top = 23
