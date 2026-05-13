@@ -887,13 +887,61 @@ begin
     Exit;
 
   case pnlActive of
-    0: if pnl1ExerciseBody.Height <> 0 then exit;
-    1: if pnl2PlatformsBody.Height <> 0 then exit;
-    2: if pnl3SensorsBody.Height <> 0 then exit;
-    3: if pnl4WeaponsBody.Height <> 0 then exit;
-    4: if pnl5CountermeasuresBody.Height <> 0 then exit;
-    5: if pnl6OtherBody.Height <> 0 then exit;
-    7: if pnl8ShutdownBody.Height <> 0 then exit;
+    0:
+    begin
+      if pnl1ExerciseBody.Height <> 0 then
+      begin
+        frmExercise.BringToFront;
+        exit;
+      end;
+    end;
+    1:
+    begin
+      if pnl2PlatformsBody.Height <> 0 then
+      begin
+        frmPlatforms.BringToFront;
+        exit;
+      end;
+    end;
+    2:
+    begin
+      if pnl3SensorsBody.Height <> 0 then
+      begin
+        frmSensors.BringToFront;
+        exit;
+      end;
+    end;
+    3:
+    begin
+      if pnl4WeaponsBody.Height <> 0 then
+      begin
+        frmWeapons.BringToFront;
+        exit;
+      end;
+    end;
+    4:
+    begin
+      if pnl5CountermeasuresBody.Height <> 0 then
+      begin
+        frmCountermeasure.BringToFront;
+        exit;
+      end;
+    end;
+    5:
+    begin
+      if pnl6OtherBody.Height <> 0 then
+      begin
+        frmOther.BringToFront;
+        exit;
+      end;
+    end;
+    7:
+    begin
+      if pnl8ShutdownBody.Height <> 0 then
+      begin
+        exit;
+      end;
+    end;
   end;
 
   UnCollapseMenuClick;

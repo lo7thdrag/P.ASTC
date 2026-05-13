@@ -8,9 +8,12 @@ uses
 
 type
   TfrmSensors = class(TForm)
-    img1: TImage;
-    pnlSparatorHor: TPanel;
-    Image2: TImage;
+    imgSonar: TImage;
+    imgEOD: TImage;
+    imgMAD: TImage;
+    imgRadar: TImage;
+    imgESM: TImage;
+    imgSonobuoy: TImage;
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }

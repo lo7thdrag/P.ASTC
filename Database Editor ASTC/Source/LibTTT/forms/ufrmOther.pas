@@ -8,9 +8,6 @@ uses
 
 type
   TfrmOther = class(TForm)
-    img1: TImage;
-    pnlSparatorHor: TPanel;
-    Image2: TImage;
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }

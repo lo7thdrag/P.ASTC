@@ -48,7 +48,6 @@ object frmAvailableScenario: TfrmAvailableScenario
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 479
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -59,19 +58,16 @@ object frmAvailableScenario: TfrmAvailableScenario
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 4
-      ExplicitWidth = 787
       object Label2: TLabel
-        Left = 3
+        Left = 10
         Top = 14
-        Width = 113
-        Height = 19
+        Width = 129
+        Height = 21
         Caption = 'List of Scenario '
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Tahoma'
+        Font.Height = -21
+        Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
@@ -86,12 +82,11 @@ object frmAvailableScenario: TfrmAvailableScenario
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 558
         object btnDelete: TImage
           Left = 590
-          Top = 9
-          Width = 30
-          Height = 30
+          Top = 10
+          Width = 26
+          Height = 26
           Cursor = crHandPoint
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
@@ -218,9 +213,9 @@ object frmAvailableScenario: TfrmAvailableScenario
         end
         object btnEdit: TImage
           Left = 499
-          Top = 9
-          Width = 30
-          Height = 30
+          Top = 10
+          Width = 26
+          Height = 26
           Cursor = crHandPoint
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
@@ -321,9 +316,9 @@ object frmAvailableScenario: TfrmAvailableScenario
         end
         object btnCopy: TImage
           Left = 462
-          Top = 9
-          Width = 30
-          Height = 30
+          Top = 10
+          Width = 26
+          Height = 26
           Cursor = crHandPoint
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
@@ -443,9 +438,9 @@ object frmAvailableScenario: TfrmAvailableScenario
         end
         object btnNew: TImage
           Left = 425
-          Top = 9
-          Width = 30
-          Height = 30
+          Top = 10
+          Width = 26
+          Height = 26
           Cursor = crHandPoint
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
@@ -544,10 +539,6 @@ object frmAvailableScenario: TfrmAvailableScenario
       Color = clScrollBar
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 50
-      ExplicitWidth = 787
-      ExplicitHeight = 425
       object lstScenarioList: TListBox
         Left = 0
         Top = 0
@@ -563,8 +554,6 @@ object frmAvailableScenario: TfrmAvailableScenario
         TabOrder = 0
         OnClick = lstScenarioListClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 787
-        ExplicitHeight = 425
       end
     end
   end
