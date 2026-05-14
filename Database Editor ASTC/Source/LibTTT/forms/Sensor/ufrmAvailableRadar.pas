@@ -181,7 +181,7 @@ begin
       end;
 
       {Catatan : Seharusnya ada tambahan menghapus data di Tabel Vertical Coverage}
-      dmTTT.DeleteRadar_Vertical_Coverage(Radar_Index, '');
+      dmTTT.DeleteRadar_Vertical_Coverage(1, Radar_Index, 0);
 
       dmTTT.DeleteNoteStorage(7, Radar_Index);
 

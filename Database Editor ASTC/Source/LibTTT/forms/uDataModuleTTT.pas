@@ -310,7 +310,10 @@ type
     function DeleteRadarDef(const aRadarIndex: Integer): Boolean;
 
     function GetRadarVerticalCoverage(const aRadarID,aCoverageID: Integer; var aList: TList): Integer;
-    function DeleteRadar_Vertical_Coverage(const aOwnerIndex: Integer; Coveragetipe: string): integer;
+
+    function InsertRadarNew_Vertical_Coverage(var aRec: TRadar_Vertical): Boolean;
+    function UpdateRadar_Vertical_Coverage(var aRec: TRadar_Vertical): Boolean;
+    function DeleteRadar_Vertical_Coverage(const aDeleteType, aOwnerIndex, aValue: Integer): integer;
 
     {$ENDREGION}
 
@@ -8924,18 +8927,30 @@ begin
   end;
 end;
 
-function TdmTTT.DeleteRadar_Vertical_Coverage(const aOwnerIndex: Integer; Coveragetipe: string): integer;
+function TdmTTT.DeleteRadar_Vertical_Coverage(const aDeleteType, aOwnerIndex, aValue: Integer): integer;
 begin
   result := -1;
-  with ZQ do begin
-      Close;
-      SQL.Clear;
-      SQL.Add('DELETE FROM Radar_Vertical_Coverage  ');
-      SQL.Add('WHERE Radar_Index = ' +  IntToStr(aOwnerIndex) + ' ' );
-      if Coveragetipe <> '' then
-        SQL.Add('AND Coverage_Diagram = ' +  Coveragetipe );
-      ExecSQL;
-   end;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('DELETE FROM Radar_Vertical_Coverage  ');
+
+    case aDeleteType of
+      1: SQL.Add('WHERE Radar_Index = ' + IntToStr(aOwnerIndex));
+      2:
+      begin
+        SQL.Add('WHERE Radar_Index = ' + IntToStr(aOwnerIndex));
+        SQL.Add('AND Coverage_Diagram = ' +  IntToStr(aValue));
+      end;
+      3: SQL.Add('WHERE RadarCoverage_Index = ' + IntToStr(aValue));
+    end;
+//    SQL.Add('WHERE Radar_Index = ' +  IntToStr(aOwnerIndex) + ' ' );
+//    if Coveragetipe <> '' then
+//      SQL.Add('AND Coverage_Diagram = ' +  Coveragetipe );
+    ExecSQL;
+  end;
 end;
 
 {$ENDREGION}
@@ -18976,6 +18991,34 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.InsertRadarNew_Vertical_Coverage(var aRec: TRadar_Vertical): Boolean;
+begin
+  Result := False;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('INSERT INTO Radar_Vertical_Coverage ');
+    SQL.Add('(Radar_Index,Coverage_Diagram,Vert_Coverage_Range,Vert_Cover_Min_Elevation,Vert_Cover_Max_Elevation)');
+    SQL.Add(' VALUES (');
+
+    with aRec.FRadar_Coverage do
+    begin
+      SQL.Add(IntToStr(Radar_Index) + ',');
+      SQL.Add(IntToStr(Coverage_Diagram) + ',');
+      SQL.Add(FloatToStr(Vert_Coverage_Range) + ',');
+      SQL.Add(FloatToStr(Vert_Cover_Min_Elevation) + ',');
+      SQL.Add(FloatToStr(Vert_Cover_Max_Elevation) + ')');
+    end;
+
+    ExecSQL;
   end;
 end;
 
@@ -36234,6 +36277,34 @@ begin
     SQL.Add('WHERE (Radar_Instance_Index = ' +  id + ')' );
     //ShowMessage(SQL.Text);
     ExecSQL;
+  end;
+end;
+
+function TdmTTT.UpdateRadar_Vertical_Coverage(var aRec: TRadar_Vertical): Boolean;
+begin
+  Result := False;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('UPDATE Radar_Vertical_Coverage');
+
+    with aRec do
+    begin
+//      SQL.Add('SET Prob_of_Hit = ' + FloatToStr(Prob_of_Hit));
+//      SQL.Add(', Range = ' + FloatToStr(Range));
+//      SQL.Add('WHERE List_Index = ' + IntToStr(List_Index));
+//      SQL.Add('AND RadarCoverage_Index = ' + IntToStr(RadarCoverage_Index));
+//      SQL.Add('AND Target_Type = ' + IntToStr(Target_Type));
+    end;
+
+    ExecSQL;
+
+    Result := True;
   end;
 end;
 

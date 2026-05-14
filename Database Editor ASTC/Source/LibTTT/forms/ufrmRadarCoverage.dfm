@@ -34,7 +34,7 @@ object frmRadarCoverage: TfrmRadarCoverage
       OnMouseUp = imgGraphMouseUp
     end
     object btnOK: TButton
-      Left = 695
+      Left = 534
       Top = 528
       Width = 75
       Height = 25
@@ -224,7 +224,7 @@ object frmRadarCoverage: TfrmRadarCoverage
     end
     object btnApply: TButton
       Left = 615
-      Top = 527
+      Top = 528
       Width = 75
       Height = 25
       Caption = 'Apply'
@@ -287,14 +287,20 @@ object frmRadarCoverage: TfrmRadarCoverage
       object btnSelect: TToolButton
         Left = 0
         Top = 0
+        Cursor = crHandPoint
         Hint = 'Move'
+        Grouped = True
         ImageIndex = 31
+        Style = tbsCheck
       end
       object btnAdd: TToolButton
         Left = 23
         Top = 0
+        Cursor = crHandPoint
         Hint = 'Add'
+        Grouped = True
         ImageIndex = 32
+        Style = tbsCheck
       end
       object btn4: TToolButton
         Left = 46
@@ -307,6 +313,7 @@ object frmRadarCoverage: TfrmRadarCoverage
       object btnDelete: TToolButton
         Left = 54
         Top = 0
+        Cursor = crHandPoint
         Hint = 'Delete'
         ImageIndex = 26
         OnClick = btnDeleteClick

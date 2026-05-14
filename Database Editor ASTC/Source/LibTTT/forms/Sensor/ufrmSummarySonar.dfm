@@ -70,20 +70,17 @@ object frmSummarySonar: TfrmSummarySonar
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 418
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 634
       Height = 408
-      ActivePage = tsCharacteristic
+      ActivePage = tsGeneral
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
       StyleElements = [seFont, seClient]
-      ExplicitHeight = 398
       object tsGeneral: TTabSheet
         Caption = 'General'
         object grpActiveDetectionCapabilities: TGroupBox
@@ -486,7 +483,6 @@ object frmSummarySonar: TfrmSummarySonar
       object tsCharacteristic: TTabSheet
         Caption = 'Characteristics'
         ImageIndex = 1
-        ExplicitHeight = 358
         object txtSNRvsPODCurve: TLabel
           Left = 261
           Top = 120

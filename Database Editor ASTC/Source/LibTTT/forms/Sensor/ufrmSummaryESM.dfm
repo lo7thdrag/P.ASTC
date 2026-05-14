@@ -70,8 +70,6 @@ object frmSummaryESM: TfrmSummaryESM
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 372
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -82,10 +80,8 @@ object frmSummaryESM: TfrmSummaryESM
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 352
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 312
         object gbClassificationCharacteristics: TGroupBox
           Left = 19
           Top = 21

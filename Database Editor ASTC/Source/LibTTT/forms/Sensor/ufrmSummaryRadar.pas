@@ -227,7 +227,7 @@ begin
     FDef.Radar_Power := StrToFloat(edtPower.Text);
     FDef.Clutter_Rejection := StrToFloat(edtClutterRejection.Text);
     FDef.Beam_Width := StrToFloat(edtBeamWidth.Text);
-    FDef.Second_Vert_Coverage := True;
+    FDef.Second_Vert_Coverage := chkValidVertical2.Checked;
     {$ENDREGION}
 
     {$REGION ' Anti Jamming '}
@@ -329,6 +329,7 @@ end;
 
 procedure TfrmSummaryRadar.chkValidVertical2Click(Sender: TObject);
 begin
+  btnApply.Enabled := True;
   btnEditVertical2.Enabled := chkValidVertical2.Checked;
 end;
 
@@ -338,7 +339,7 @@ begin
   try
     with frmRadarCoverage do
     begin
-      SelectedCurve := vcCurve1;
+      SelectedCurve := vcCurve2;
       SelectedRadar := FSelectedRadar;
       ShowModal;
     end;

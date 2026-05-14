@@ -6950,7 +6950,7 @@ object fDBEditor: TfDBEditor
       Left = 8
       Top = 483
       Width = 345
-      Height = 25
+      Height = 230
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 3
@@ -7214,7 +7214,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl6OtherSparator: TPanel
       Left = 8
-      Top = 508
+      Top = 713
       Width = 345
       Height = 20
       Align = alTop
@@ -7225,11 +7225,12 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 17
+      ExplicitTop = 508
     end
     object pnl8Shutdown: TPanel
       Tag = 2
       Left = 8
-      Top = 528
+      Top = 733
       Width = 345
       Height = 40
       Cursor = crHandPoint
@@ -7240,6 +7241,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 18
+      ExplicitTop = 528
       object imgShutdown: TImage
         Tag = 7
         Left = 0
@@ -8184,7 +8186,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl8ShutdownBody: TPanel
       Left = 8
-      Top = 568
+      Top = 773
       Width = 345
       Height = 25
       Align = alTop
@@ -8195,6 +8197,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 19
+      ExplicitTop = 568
       object Image66: TImage
         Left = 32
         Top = 17
@@ -8240,7 +8243,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl8ShutdownSparator: TPanel
       Left = 8
-      Top = 593
+      Top = 798
       Width = 345
       Height = 8
       Align = alTop
@@ -8251,6 +8254,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 20
+      ExplicitTop = 593
     end
     object Panel1: TPanel
       Left = 8

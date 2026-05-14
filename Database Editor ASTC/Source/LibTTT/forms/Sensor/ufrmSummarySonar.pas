@@ -231,8 +231,7 @@ begin
     FDef.Active_Freq_of_Op := StrToFloat(edtActiveFrequency.Text);
     FDef.Passive_Freq_of_Op := StrToFloat(edtPassiveFrequency.Text);
     FDef.Max_Operating_Depth := StrToFloat(edtMaxOperatingDepth.Text);
-    FDef.Ownship_Increase_due_to_Active :=
-      StrToFloat(edtOwnshipNoiseDueSonarActiveMode.Text);
+    FDef.Ownship_Increase_due_to_Active := StrToFloat(edtOwnshipNoiseDueSonarActiveMode.Text);
     FDef.Maximum_Sonar_Speed := StrToFloat(edtMaxSonarSpeed.Text);
 
     {$ENDREGION}
@@ -441,6 +440,8 @@ end;
 function TfrmSummarySonar.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
+
 begin
   Result := False;
 
@@ -490,6 +491,34 @@ begin
   if FSelectedSonar.FDef.Curve_Detection_Index = 0 then
   begin
     ShowMessage('Select SNR vs POD of Detection Curve');
+    Exit;
+  end;
+
+  TimeToSecond(medtIntegrationPeriodActive.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Integration Period Active is too long');
+    Exit;
+  end;
+
+  TimeToSecond(medtIntegrationPeriodPassive.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Integration Period Passive is too long');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeToIdentifyTarget.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time to identity target is too long');
+    Exit;
+  end;
+
+  TimeToSecond(medtArrayKinkingSettleTime.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Required to Settle Kinked Array is too long');
     Exit;
   end;
 

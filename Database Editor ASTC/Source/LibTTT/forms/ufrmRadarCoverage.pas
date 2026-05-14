@@ -9,6 +9,7 @@ uses
 
 type
   E_VerticalCoverageCurve = (vcCurve1 = 1, vcCurve2);
+  E_ElevationState = (esMin = 1, esMax);
 
   TProbabilityGrid = record
     Top : Integer;
@@ -74,20 +75,22 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
-    procedure btnScreenCaptureClick(Sender: TObject);
 
     procedure edtRangeMinKeyPress(Sender: TObject; var Key: Char);
     procedure edtRangeMaxKeyPress(Sender: TObject; var Key: Char);
     procedure edtElevationMinKeyPress(Sender: TObject; var Key: Char);
     procedure edtElevationMaxKeyPress(Sender: TObject; var Key: Char);
+//    procedure btnSelectClick(Sender: TObject);
 
   private
     FSelectedRadar : TRadar_On_Board;
     FSelectedCurve : E_VerticalCoverageCurve;
+    FSelectedElevation : E_ElevationState;
 
     FVerticalCoverageList : TList;
-    FDeletedVerticalCoverageList : TList;
+//    FDeletedVerticalCoverageList : TList;
     FSelectedPoint : TObject;
+    FSelectedPointIdDelete : integer;
 
     FRangeMin : Double;
     FRangeMax : Double;
@@ -109,8 +112,8 @@ type
     procedure DrawPoint;
 
     procedure ConvertPositionToValue(const aX, aY: Integer; var aRange, aElevation: Double);
-    procedure ConvertValueToPosition(const aAspect, aProbability: Double; var aX, aY: Integer);
-//    function GetPointPosition(const aAspect, aProbability: Double): Integer;
+    procedure ConvertValueToPosition(const aRange, aElevation: Double; var aX, aY: Integer);
+    function GetPointPosition(const aAspect, aProbability: Double): Integer;
 
   public
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
@@ -137,7 +140,9 @@ uses
 procedure TfrmRadarCoverage.FormCreate(Sender: TObject);
 begin
   FVerticalCoverageList := TList.Create;
-  FDeletedVerticalCoverageList := TList.Create;
+//  FDeletedVerticalCoverageList := TList.Create;
+
+//  edit  := false;
 end;
 
 procedure TfrmRadarCoverage.FormShow(Sender: TObject);
@@ -146,40 +151,10 @@ var
   data : TObject;
 begin
 
-  FDeletedVerticalCoverageList.Clear;
+//  FDeletedVerticalCoverageList.Clear;
   FSelectedPoint := nil;
 
   btnSelect.Down := True;
-
-//  FRangeMin := 0;
-//  FRangeMax := 0;
-//  FElevationMin := 0;
-//  FElevationMax := 0;
-//
-//  for i := 0 to FVerticalCoverageList.Count - 1 do
-//  begin
-//    data := FVerticalCoverageList.Items[i];
-//
-//    with TRadar_Vertical(data).FRadar_Coverage do
-//    begin
-//      if Vert_Coverage_Range < FRangeMin then
-//        FRangeMin := Vert_Coverage_Range
-//      else if Vert_Coverage_Range > FRangeMax then
-//        FRangeMax := Vert_Coverage_Range;
-//
-//      if Vert_Cover_Min_Elevation < FElevationMin then
-//        FElevationMin := Vert_Cover_Min_Elevation;
-//
-//      if Vert_Cover_Max_Elevation > FElevationMax then
-//        FElevationMax := Vert_Cover_Max_Elevation;
-//    end;
-//  end;
-//
-//  if FRangeMin = FRangeMax then
-//    FRangeMax := FRangeMin + 20;
-//
-//  if FElevationMin = FElevationMax then
-//    FElevationMax := FElevationMin + 20;
 
   FRangeMin := 0;
   FRangeMax := 500;
@@ -197,6 +172,12 @@ begin
   FGrid.Bottom := Round(FGrid.CenterY + (FGrid.Height / 2));
   FGrid.Right := Round(FGrid.CenterX + (FGrid.Width / 2));
 
+  with FSelectedRadar.FDef do
+  begin
+    Caption := 'Vertical Coverage Curve ' + IntToStr(Ord(FSelectedCurve)) + ' for ' + Radar_Identifier;
+    dmTTT.GetRadarVerticalCoverage(FSelectedRadar.FDef.Radar_Index, Ord(FSelectedCurve), FVerticalCoverageList);
+  end;
+
   UpdateRadarVerticalCoverageForm;
   btnApply.Enabled := False;
 
@@ -211,41 +192,28 @@ begin
   if btnApply.Enabled then
     btnApply.Click;
 
-  Close;
+  if isOK then
+    Close;
 end;
 
 procedure TfrmRadarCoverage.btnApplyClick(Sender: TObject);
 var
   i : Integer;
-  data : TObject;
+  dataTemp : TRadar_Vertical;
 begin
-  for i := 0 to FDeletedVerticalCoverageList.Count - 1 do
-  begin
-    data := FDeletedVerticalCoverageList.Items[i];
 
-//    with TRadar_On_Board(data).FRadar_Vertical.FRadar_Coverage do
-//    begin
-//      if Coverage_Index <> 0 then
-//        dmTTT.DeleteRadar_Vertical_Coverage(3, Radar_Index, Coverage_Index);
-//    end;
-
-    TRadar_On_Board(data).Free;
-  end;
-
-  FDeletedVerticalCoverageList.Clear;
+  {Hapus dulu yang lama}
+  dmTTT.DeleteRadar_Vertical_Coverage(1, FSelectedRadar.FDef.Radar_Index, Ord(FSelectedCurve));
 
   for i := 0 to FVerticalCoverageList.Count - 1 do
   begin
-    data := FVerticalCoverageList.Items[i];
+    dataTemp := TRadar_Vertical(FVerticalCoverageList.Items[i]);
 
-    with TRadar_On_Board(data) do
+    if Assigned(dataTemp) then
     begin
-//      if FRadar_Vertical.List_Index = 0 then
-        dmTTT.insertRadar_Vertical_Coverage(FRadar_Vertical)
-//          dmTTT.InsertRadarNew_Vertical_Coverage(FRadar_Vertical);
-//      else
-//        dmTTT.UpdateRadar_Vertical_Coverage(FRadar_Vertical);
+      dmTTT.InsertRadarNew_Vertical_Coverage(dataTemp);
     end;
+
   end;
 
   isOK := True;
@@ -272,39 +240,23 @@ begin
   begin
     data := FVerticalCoverageList.Items[i];
 
-//    if TRadar_On_Board(data).FRadar_Vertical.List_Index = TRadar_On_Board(FSelectedPoint).FRadar_Vertical.List_Index then
-//    begin
-//      FDeletedVerticalCoverageList.Add(TRadar_On_Board(data));
-//      FDeletedVerticalCoverageList.Delete(i);
-//      FSelectedPoint := nil;
-//      break;
-//    end;
+    //if TRadar_Vertical(data).FRadar_Coverage.Coverage_Index = TRadar_Vertical(FSelectedPoint).FRadar_Coverage.Coverage_Index then
+    if i = FSelectedPointIdDelete then
+    begin
+//      FDeletedVerticalCoverageList.Add(TRadar_Vertical(data));
+      FVerticalCoverageList.Delete(i);
+      FSelectedPoint := nil;
+      break;
+    end;
   end;
 
   UpdateRadarVerticalCoverageForm;
   btnApply.Enabled := True;
 end;
 
-procedure TfrmRadarCoverage.btnScreenCaptureClick(Sender: TObject);
-begin
-//  with fCaptureRes do
-//  begin
-//    imgCaptureResult.Picture.Assign(imgGraph.Picture);
-//    Height := imgGraph.Height + 100;
-//    Width := imgGraph.Width;
-//    Show;
-//  end;
-end;
-
 procedure TfrmRadarCoverage.UpdateRadarVerticalCoverageForm;
 begin
   btnDelete.Enabled := Assigned(FSelectedPoint);
-
-  with FSelectedRadar.FDef do
-  begin
-    Caption := 'Vertical Coverage Curve ' + IntToStr(Ord(FSelectedCurve)) + ' for ' + Radar_Identifier;
-    dmTTT.GetRadarVerticalCoverage(FSelectedRadar.FDef.Radar_Index, Ord(FSelectedCurve), FVerticalCoverageList);
-  end;
 
   if Assigned(FSelectedPoint) then
   begin
@@ -334,7 +286,7 @@ procedure TfrmRadarCoverage.imgGraphMouseDown(Sender: TObject; Button: TMouseBut
 var
   i, posX, posY, pointIndex : Integer;
   data : TObject;
-  aspect, probability : Double;
+  aRange, aElevation : Double;
 begin
   {Biar tidak susah nyelect di badian tepinya, ini di comment dulu}
 //  if (X < FGrid.Left) or (X > FGrid.Right) or (Y < FGrid.Top) or (Y > FGrid.Bottom) then
@@ -349,36 +301,58 @@ begin
     begin
       data := FVerticalCoverageList.Items[i];
 
-//      with TRadar_On_Board(data).FRadar_Vertical.FRadar_Coverage do
-//      begin
-//        if (Vert_Coverage_Range < FRangeMin) or (Vert_Coverage_Range > FRangeMax) or ((Prob_of_Hit * 100) < FElevationMin) or ((Prob_of_Hit * 100) > FElevationMin) then
-//          Continue;
-//
-//        ConvertValueToPosition(Vert_Coverage_Range, Prob_of_Hit, posX, posY);
-//      end;
-//
-//      if (X >= posX - 3) and (X <= posX + 4) and (Y >= posY - 3) and (Y <= posY + 4) then
-//      begin
-//        FSelectedPoint := data;
-//        Break;
-//      end;
+      with TRadar_Vertical(data).FRadar_Coverage do
+      begin
+        if (Vert_Coverage_Range < FRangeMin) or (Vert_Coverage_Range > FRangeMax) or (Vert_Cover_Min_Elevation < FElevationMin) or
+           (Vert_Cover_Max_Elevation > FElevationMax) then
+          Continue;
+
+        ConvertValueToPosition(Vert_Coverage_Range, Vert_Cover_Min_Elevation, posX, posY);
+
+        if (X >= posX - 3) and (X <= posX + 4) and (Y >= posY - 3) and (Y <= posY + 4) then
+        begin
+          FSelectedPointIdDelete := i;
+          FSelectedPoint := data;
+          FSelectedElevation := esMin;
+          Break;
+        end;
+
+        ConvertValueToPosition(Vert_Coverage_Range, Vert_Cover_Max_Elevation, posX, posY);
+        if (X >= posX - 3) and (X <= posX + 4) and (Y >= posY - 3) and (Y <= posY + 4) then
+        begin
+          FSelectedPointIdDelete := i;
+          FSelectedPoint := data;
+          FSelectedElevation := esMax;
+          Break;
+        end;
+      end;
     end;
   end
   else if btnAdd.Down then
   begin
-    ConvertPositionToValue(X, Y, aspect, probability);
-//    pointIndex := GetPointPosition(aspect, probability / 100);
+    ConvertPositionToValue(X, Y, aRange, aElevation);
+    pointIndex := GetPointPosition(aRange, aRange);
 
-    FSelectedPoint := TRadar_On_Board.Create;
-    with TRadar_On_Board(FSelectedPoint).FRadar_Vertical do
+    FSelectedPoint := TRadar_Vertical.Create;
+    with TRadar_Vertical(FSelectedPoint).FRadar_Coverage do
     begin
-//      RadarCoverage_Index := TRadar_On_Board(FSelectedProbObj).FData.Radar_Instance_Index;
-//      Target_Type := Ord(FProbabilityGraph);
-//      Prob_of_Hit := probability / 100;
-//      Range := aspect;
+      Radar_Index := SelectedRadar.FDef.Radar_Index;
+      Coverage_Diagram := Ord(FSelectedCurve);
+      Vert_Coverage_Range := aRange;
+
+      if aElevation > 0 then
+      begin
+        Vert_Cover_Min_Elevation := aElevation * -1;
+        Vert_Cover_Max_Elevation := aElevation;
+      end
+      else
+      begin
+        Vert_Cover_Min_Elevation := aElevation;
+        Vert_Cover_Max_Elevation := aElevation * -1;
+      end;
     end;
 
-    FVerticalCoverageList.Insert(pointIndex, TRadar_On_Board(FSelectedPoint));
+    FVerticalCoverageList.Insert(pointIndex, TRadar_Vertical(FSelectedPoint));
 
     btnApply.Enabled := True;
   end;
@@ -410,37 +384,7 @@ var
   pointIndex, i, j : Integer;
   data : TObject;
 begin
-//  if btnSelect.Down and FIsDragPoint and Assigned(FSelectedPoint) then
-//  begin
-//    if (X < FGrid.Left) or (X > FGrid.Right) or (Y < FGrid.Top) or (Y > FGrid.Bottom) then
-//      Exit;
-//
-//    ConvertPositionToValue(X, Y, newAspect, newProbability);
-//
-//    with TRadar_On_Board(FSelectedPoint).FRadar_Vertical do
-//    begin
-//      Range := newAspect;
-//      Prob_of_Hit := newProbability / 100;
-//    end;
-//
-//    for i := FProbabilityPointList.Count - 1 downto 0 do
-//    begin
-//      data := FProbabilityPointList.Items[i];
-//
-//      if TRadar_On_Board(data).FRadar_Vertical.Range = TRadar_On_Board(FSelectedPoint).FRadar_Vertical.Range then
-//      begin
-//        FProbabilityPointList.Delete(i);
-//        Break;
-//      end;
-//    end;
-//
-//    pointIndex := GetPointPosition(newAspect, newProbability / 100);
-//    FProbabilityPointList.Insert(pointIndex, TRadar_On_Board(FSelectedPoint));
-//
-//    btnApply.Enabled := True;
-//  end;
-//
-//  UpdateProbabilityGraphForm;
+  UpdateRadarVerticalCoverageForm;
 end;
 
 {$ENDREGION}
@@ -731,40 +675,42 @@ begin
   aElevation := (FElevationMin - FElevationMax) * posPercent;
 end;
 
-procedure TfrmRadarCoverage.ConvertValueToPosition(const aAspect, aProbability: Double; var aX, aY: Integer);
+procedure TfrmRadarCoverage.ConvertValueToPosition(const aRange, aElevation: Double; var aX, aY: Integer);
 var
   posPercent : Double;
 begin
-//  posPercent := (aAspect - FAspectMin) / (FAspectMax - FAspectMin);
-//  aX := FGrid.Left + Round((FGrid.Right - FGrid.Left) * posPercent);
-//
-//  posPercent := ((aProbability * 100) - FProbabilityMin) / (FProbabilityMax - FProbabilityMin);
-//  aY := FGrid.Bottom - Round((FGrid.Bottom - FGrid.Top) * posPercent);
+  posPercent := (aRange-FRangeMin)/(FRangeMax-FRangeMin);
+  aX := Round((posPercent * (posBatasKanan - posBatasKiri)) +  posBatasKiri);
+
+  posPercent := aElevation / (FElevationMin - FElevationMax);
+  aY := Round((posPercent * (posBatasBawah - posBatasAtas)) + y0) ;
+
 end;
 
-//function TfrmRadarCoverageGraphic.GetPointPosition(const aAspect, aProbability: Double): Integer;
-//var
-//  i : Integer;
-//  data : TObject;
-//begin
-//  Result := 0;
-//
-//  for i := 0 to FProbabilityPointList.Count - 1 do
-//  begin
-//    data := FProbabilityPointList.Items[i];
-//
-//    with TRadar_On_Board(data).FRadar_Vertical do
-//    begin
-//      if aAspect < Range then
-//      begin
-//        Result := i;
-//        Break;
-//      end;
-//    end;
-//
-//    if i = FProbabilityPointList.Count - 1 then
-//      Result := FProbabilityPointList.Count;
-//  end;
-//end;
+function TfrmRadarCoverage.GetPointPosition(const aAspect, aProbability: Double): Integer;
+var
+  i : Integer;
+  data : TObject;
+begin
+  Result := 0;
+
+  for i := 0 to FVerticalCoverageList.Count - 1 do
+  begin
+    data := FVerticalCoverageList.Items[i];
+
+    with TRadar_Vertical(data).FRadar_Coverage do
+    begin
+      if aAspect <  Vert_Coverage_Range then
+      begin
+        Result := i;
+        Break;
+      end;
+    end;
+
+    if i = FVerticalCoverageList.Count - 1 then
+      Result := FVerticalCoverageList.Count;
+  end;
+end;
+
 {$ENDREGION}
 end.

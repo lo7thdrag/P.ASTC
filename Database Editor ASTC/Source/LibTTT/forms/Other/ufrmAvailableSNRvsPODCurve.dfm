@@ -5,7 +5,7 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
   BorderStyle = bsNone
   Caption = 'frmAvailableSNRvsPODCurve'
   ClientHeight = 461
-  ClientWidth = 784
+  ClientWidth = 858
   Color = clBtnFace
   DoubleBuffered = True
   ParentFont = True
@@ -21,56 +21,53 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 784
+    Width = 858
     Height = 461
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 859
-    ExplicitHeight = 457
+    ExplicitWidth = 784
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 784
-      Height = 46
+      Width = 858
+      Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 4
-      ExplicitWidth = 851
+      ExplicitWidth = 1027
       object Label2: TLabel
-        Left = 3
-        Top = 14
-        Width = 186
-        Height = 19
+        Left = 10
+        Top = 18
+        Width = 213
+        Height = 21
         Caption = 'List of SNR vs POD Curve '
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Tahoma'
+        Font.Height = -21
+        Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 160
+        Left = 278
         Top = 0
-        Width = 624
-        Height = 46
+        Width = 580
+        Height = 57
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 331
+        ExplicitLeft = 672
         object btnDelete: TImage
-          Left = 590
-          Top = 9
+          Left = 532
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -198,8 +195,8 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 499
-          Top = 9
+          Left = 437
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -301,8 +298,8 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 462
-          Top = 9
+          Left = 397
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -423,8 +420,8 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 425
-          Top = 9
+          Left = 357
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -514,8 +511,8 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 553
-          Top = 9
+          Left = 492
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -644,21 +641,21 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
           OnClick = btnUsageClick
         end
         object Label1: TLabel
-          Left = 92
-          Top = 16
-          Width = 53
-          Height = 16
+          Left = 13
+          Top = 18
+          Width = 72
+          Height = 21
           Caption = 'Search : '
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -21
+          Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 153
-          Top = 11
+          Left = 82
+          Top = 16
           Width = 247
           Height = 25
           AutoSize = False
@@ -675,24 +672,22 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
-      Width = 784
-      Height = 415
+      Top = 57
+      Width = 858
+      Height = 404
       Align = alClient
       BevelOuter = bvNone
-      Color = clScrollBar
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 50
-      ExplicitWidth = 851
-      ExplicitHeight = 403
+      ExplicitTop = 46
+      ExplicitWidth = 784
+      ExplicitHeight = 415
       object lstSNRvsPODCurve: TListBox
-        Left = 0
+        Left = 10
         Top = 0
-        Width = 784
-        Height = 415
-        Align = alClient
+        Width = 1231
+        Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -702,8 +697,6 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 851
-        ExplicitHeight = 403
       end
     end
   end
