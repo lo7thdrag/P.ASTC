@@ -22,8 +22,6 @@ type
     btnAdd: TButton;
     btnRemove: TButton;
     btnEditMount: TButton;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

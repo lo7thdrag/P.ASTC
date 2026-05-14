@@ -21,8 +21,8 @@ type
     btnRemove: TButton;
     lbAllRadarDef: TListBox;
     lbAllRadarOnBoard: TListBox;
-    pnlSparatorHor2: TPanel;
     Image2: TImage;
+    Image3: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -35,6 +35,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
 
   private
     FAllRadarDefList : TList;
@@ -77,6 +78,11 @@ end;
 procedure TfrmRadarOnBoardPickList.FormShow(Sender: TObject);
 begin
   UpdateRadarList;
+end;
+
+procedure TfrmRadarOnBoardPickList.Image2Click(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}

@@ -30,7 +30,6 @@ object frmGameAreaPickList: TfrmGameAreaPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 422
     object lbAvailableGameArea: TListBox
       Left = 10
       Top = 10
@@ -47,7 +46,6 @@ object frmGameAreaPickList: TfrmGameAreaPickList
       TabOrder = 0
       OnClick = lbAvailableGameAreaClick
       OnDblClick = lbAvailableGameAreaDblClick
-      ExplicitHeight = 402
     end
   end
   object pnl3Button: TPanel
@@ -62,7 +60,7 @@ object frmGameAreaPickList: TfrmGameAreaPickList
     TabOrder = 1
     object btnCancel: TButton
       Left = 195
-      Top = 9
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Cancel'
@@ -71,7 +69,7 @@ object frmGameAreaPickList: TfrmGameAreaPickList
     end
     object btnAdd: TButton
       Left = 115
-      Top = 9
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Pick'

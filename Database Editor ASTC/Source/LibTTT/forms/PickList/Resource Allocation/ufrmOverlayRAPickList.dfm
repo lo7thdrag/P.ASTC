@@ -4,8 +4,8 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   Overlay Selection'
-  ClientHeight = 395
-  ClientWidth = 621
+  ClientHeight = 408
+  ClientWidth = 754
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -29,19 +29,18 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
   end
   object pnlButton: TPanel
     Left = 0
-    Top = 352
-    Width = 621
+    Top = 365
+    Width = 754
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -8
-    ExplicitTop = 390
+    ExplicitTop = 367
     object btnClose: TButton
-      Left = 528
-      Top = 6
+      Left = 668
+      Top = 3
       Width = 75
       Height = 25
       Caption = 'Close'
@@ -52,22 +51,20 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
   object pnlMain: TPanel
     Left = 0
     Top = 0
-    Width = 621
-    Height = 347
+    Width = 754
+    Height = 365
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 5
-    ExplicitTop = 5
-    ExplicitWidth = 611
-    ExplicitHeight = 337
+    ExplicitWidth = 621
+    ExplicitHeight = 347
     object imgExercise: TImage
-      Left = 8
+      Left = 12
       Top = 8
-      Width = 257
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -94,7 +91,7 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
       Stretch = True
     end
     object Label1: TLabel
-      Left = 16
+      Left = 22
       Top = 16
       Width = 179
       Height = 14
@@ -111,9 +108,9 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
       Transparent = True
     end
     object Image1: TImage
-      Left = 347
+      Left = 430
       Top = 8
-      Width = 256
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -140,7 +137,7 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
       Stretch = True
     end
     object Label2: TLabel
-      Left = 358
+      Left = 439
       Top = 16
       Width = 207
       Height = 14
@@ -157,7 +154,7 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
       Transparent = True
     end
     object btnAdd: TButton
-      Left = 275
+      Left = 346
       Top = 162
       Width = 62
       Height = 25
@@ -166,7 +163,7 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
       OnClick = btnAddClick
     end
     object btnRemove: TButton
-      Left = 274
+      Left = 346
       Top = 193
       Width = 62
       Height = 25
@@ -175,9 +172,9 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
       OnClick = btnRemoveClick
     end
     object lbOverlayAvailable: TListBox
-      Left = 8
-      Top = 41
-      Width = 257
+      Left = 12
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 2
@@ -185,48 +182,14 @@ object frmOverlayRAPickList: TfrmOverlayRAPickList
       OnDblClick = btnAddClick
     end
     object lbOverlaySelect: TListBox
-      Left = 347
-      Top = 41
-      Width = 257
+      Left = 430
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 3
       OnClick = lbOverlaySelectClick
       OnDblClick = btnRemoveClick
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 347
-    Width = 621
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 3
-    ExplicitTop = 390
-    ExplicitWidth = 348
-    object Image2: TImage
-      Left = 0
-      Top = 0
-      Width = 621
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
     end
   end
 end

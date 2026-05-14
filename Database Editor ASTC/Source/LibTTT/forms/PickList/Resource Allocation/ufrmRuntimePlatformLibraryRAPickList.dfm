@@ -4,8 +4,8 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Runtime Platform Libraries Selection'
-  ClientHeight = 397
-  ClientWidth = 621
+  ClientHeight = 408
+  ClientWidth = 754
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,17 +20,18 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
   TextHeight = 14
   object pnl3Button: TPanel
     Left = 0
-    Top = 354
-    Width = 621
+    Top = 365
+    Width = 754
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 367
     object btnClose: TButton
-      Left = 528
-      Top = 6
+      Left = 668
+      Top = 3
       Width = 75
       Height = 25
       Caption = 'Close'
@@ -41,19 +42,20 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
   object pnlMain: TPanel
     Left = 0
     Top = 0
-    Width = 621
-    Height = 354
+    Width = 754
+    Height = 365
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 349
+    ExplicitWidth = 621
+    ExplicitHeight = 354
     object Image1: TImage
-      Left = 347
+      Left = 430
       Top = 8
-      Width = 256
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -80,9 +82,9 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
       Stretch = True
     end
     object imgExercise: TImage
-      Left = 8
+      Left = 12
       Top = 8
-      Width = 257
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -109,7 +111,7 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
       Stretch = True
     end
     object Label1: TLabel
-      Left = 16
+      Left = 22
       Top = 16
       Width = 218
       Height = 14
@@ -126,7 +128,7 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
       Transparent = True
     end
     object Label2: TLabel
-      Left = 355
+      Left = 439
       Top = 16
       Width = 187
       Height = 14
@@ -143,7 +145,7 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
       Transparent = True
     end
     object btnAdd: TButton
-      Left = 275
+      Left = 346
       Top = 144
       Width = 62
       Height = 25
@@ -152,7 +154,7 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
       OnClick = btnAddClick
     end
     object btnRemove: TButton
-      Left = 275
+      Left = 346
       Top = 175
       Width = 62
       Height = 25
@@ -161,9 +163,9 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
       OnClick = btnRemoveClick
     end
     object lbPlatformLibraryAvailable: TListBox
-      Left = 8
-      Top = 41
-      Width = 257
+      Left = 12
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 2
@@ -171,9 +173,9 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
       OnDblClick = btnAddClick
     end
     object lbPlatformLibrarySelected: TListBox
-      Left = 347
-      Top = 41
-      Width = 257
+      Left = 430
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 3

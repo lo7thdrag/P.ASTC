@@ -77,8 +77,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 450
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -89,13 +87,8 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 430
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblNames: TLabel
           Left = 17
           Top = 20
@@ -900,10 +893,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPhysical: TTabSheet
         Caption = 'Physical'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblMotionCharacteristic: TLabel
           Left = 18
           Top = 20
@@ -1516,10 +1505,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsCharacteristic: TTabSheet
         Caption = 'Characteristic'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object grbAirDropLimitation: TGroupBox
           Left = 20
           Top = 20
@@ -1766,10 +1751,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPOH: TTabSheet
         Caption = 'POH Modifier'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object grbMissile: TGroupBox
           Left = 20
           Top = 10
@@ -2229,7 +2210,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsAssets: TTabSheet
         Caption = 'Assets'
         ImageIndex = 4
-        ExplicitHeight = 390
         object grbSensor: TGroupBox
           Left = 20
           Top = 20
@@ -2549,10 +2529,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPeriscope: TTabSheet
         Caption = 'Periscope'
         ImageIndex = 5
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblPeriscopeRadarMastCrossSection: TLabel
           Left = 20
           Top = 112
@@ -2811,15 +2787,11 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         BorderWidth = 10
         Caption = 'Notes'
         ImageIndex = 6
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object mmoNotes: TMemo
           Left = 0
           Top = 0
           Width = 846
-          Height = 370
+          Height = 380
           Align = alClient
           TabOrder = 0
           OnChange = edtChange
