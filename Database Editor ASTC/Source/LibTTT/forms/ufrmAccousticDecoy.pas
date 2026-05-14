@@ -15,7 +15,6 @@ type
     edtQuantity: TEdit;
     pnlMainBackground: TPanel;
     pnl2ControlPage: TPanel;
-    pnlSparatorHor1: TPanel;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtName: TEdit;
@@ -23,7 +22,6 @@ type
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
-    pnlSparatorHor2: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);

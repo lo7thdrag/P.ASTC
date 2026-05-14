@@ -21,8 +21,6 @@ type
     btnRemove: TButton;
     lbAllBombDef: TListBox;
     lbAllBombOnBoard: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

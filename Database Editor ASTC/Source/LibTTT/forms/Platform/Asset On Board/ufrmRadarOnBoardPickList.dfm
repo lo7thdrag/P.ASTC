@@ -150,14 +150,14 @@ object frmRadarOnBoardPickList: TfrmRadarOnBoardPickList
     object Label1: TLabel
       Left = 22
       Top = 16
-      Width = 132
-      Height = 16
+      Width = 120
+      Height = 14
       Cursor = crHandPoint
       Caption = 'List of available Radars'
       Color = clBtnShadow
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -13
+      Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentColor = False
@@ -167,14 +167,14 @@ object frmRadarOnBoardPickList: TfrmRadarOnBoardPickList
     object Label2: TLabel
       Left = 439
       Top = 16
-      Width = 135
-      Height = 16
+      Width = 127
+      Height = 14
       Cursor = crHandPoint
       Caption = 'List of Radars On Board'
       Color = clBtnShadow
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -13
+      Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentColor = False

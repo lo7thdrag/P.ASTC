@@ -22,8 +22,6 @@ type
     btnRemove: TButton;
     lbAllSonobuoyDef: TListBox;
     lbAllSonobuoyOnBoard: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

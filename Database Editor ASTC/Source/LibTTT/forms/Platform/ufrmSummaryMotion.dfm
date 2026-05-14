@@ -45,7 +45,7 @@ object frmSummaryMotion: TfrmSummaryMotion
     object edtClass: TEdit
       Tag = 4
       Left = 10
-      Top = 31
+      Top = 30
       Width = 476
       Height = 24
       AutoSize = False
@@ -70,8 +70,6 @@ object frmSummaryMotion: TfrmSummaryMotion
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 100
-    ExplicitHeight = 312
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -82,7 +80,6 @@ object frmSummaryMotion: TfrmSummaryMotion
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 292
       object tsHorizontal: TTabSheet
         Caption = 'Horizontal'
         object grpIRCM: TGroupBox
@@ -564,7 +561,6 @@ object frmSummaryMotion: TfrmSummaryMotion
       object tsEndurance: TTabSheet
         Caption = 'Endurance'
         ImageIndex = 2
-        ExplicitHeight = 252
         object Label2: TLabel
           Left = 14
           Top = 19
@@ -852,7 +848,6 @@ object frmSummaryMotion: TfrmSummaryMotion
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 70
     object lblTypeHorizontal: TLabel
       Left = 10
       Top = 11

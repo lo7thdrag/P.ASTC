@@ -16,7 +16,6 @@ type
     txtFeetAntenna: TStaticText;
     pnlMainBackground: TPanel;
     pnl2ControlPage: TPanel;
-    pnlSparatorHor1: TPanel;
     pnl1Title: TPanel;
     txtClass: TLabel;
     edtName: TEdit;
@@ -24,9 +23,6 @@ type
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
-    pnlSparatorHor2: TPanel;
-    Image4: TImage;
-    Image1: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);

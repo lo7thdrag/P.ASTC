@@ -33,10 +33,6 @@ type
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
-    pnlSparatorHor1: TPanel;
-    Image3: TImage;
-    pnlSparatorHor2: TPanel;
-    Image4: TImage;
     edtDeployTime: TMaskEdit;
     edtStowTime: TMaskEdit;
 

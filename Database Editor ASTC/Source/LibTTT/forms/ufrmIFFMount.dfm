@@ -45,8 +45,8 @@ object frmIFFMount: TfrmIFFMount
     object edtName: TEdit
       Tag = 4
       Left = 10
-      Top = 27
-      Width = 399
+      Top = 30
+      Width = 411
       Height = 24
       AutoSize = False
       Enabled = False
@@ -61,27 +61,31 @@ object frmIFFMount: TfrmIFFMount
   end
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 70
+    Top = 65
     Width = 432
-    Height = 274
+    Height = 284
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 70
+    ExplicitHeight = 274
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 412
-      Height = 254
+      Height = 264
       ActivePage = General
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
+      ExplicitHeight = 254
       object General: TTabSheet
         Caption = 'General'
+        ExplicitHeight = 214
         object lblCapability: TStaticText
           Left = 19
           Top = 28
@@ -180,7 +184,7 @@ object frmIFFMount: TfrmIFFMount
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 344
+    Top = 349
     Width = 432
     Height = 43
     Align = alBottom
@@ -188,9 +192,10 @@ object frmIFFMount: TfrmIFFMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 344
     object btnApply: TButton
-      Left = 262
-      Top = 6
+      Left = 267
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Apply'
@@ -198,8 +203,8 @@ object frmIFFMount: TfrmIFFMount
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 181
-      Top = 6
+      Left = 186
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'OK'
@@ -207,73 +212,13 @@ object frmIFFMount: TfrmIFFMount
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 343
-      Top = 6
+      Left = 348
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Cancel'
       TabOrder = 2
       OnClick = btnCancelClick
-    end
-  end
-  object pnlSparatorHor1: TPanel
-    Left = 0
-    Top = 65
-    Width = 432
-    Height = 5
-    Align = alTop
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 3
-    object Image3: TImage
-      Left = 0
-      Top = 0
-      Width = 432
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitTop = 4
-      ExplicitWidth = 762
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 387
-    Width = 432
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 4
-    object Image4: TImage
-      Left = 0
-      Top = 0
-      Width = 432
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitTop = 3
-      ExplicitWidth = 762
     end
   end
 end

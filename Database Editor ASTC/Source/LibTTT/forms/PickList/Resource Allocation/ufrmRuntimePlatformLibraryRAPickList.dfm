@@ -28,7 +28,6 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 367
     object btnClose: TButton
       Left = 668
       Top = 3
@@ -50,8 +49,6 @@ object frmRuntimePlatformLibraryRAPickList: TfrmRuntimePlatformLibraryRAPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 621
-    ExplicitHeight = 354
     object Image1: TImage
       Left = 430
       Top = 8

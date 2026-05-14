@@ -31,27 +31,31 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
     TabOrder = 0
     object pnl2ControlPage: TPanel
       Left = 5
-      Top = 75
+      Top = 70
       Width = 397
-      Height = 310
+      Height = 320
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitTop = 75
+      ExplicitHeight = 310
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 377
-        Height = 290
+        Height = 300
         ActivePage = General
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
+        ExplicitHeight = 290
         object General: TTabSheet
           Caption = 'General'
+          ExplicitHeight = 250
           object lblClassName: TStaticText
             Left = 16
             Top = 18
@@ -143,16 +147,6 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
         end
       end
     end
-    object pnlSparatorHor1: TPanel
-      Left = 5
-      Top = 70
-      Width = 397
-      Height = 5
-      Align = alTop
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 1
-    end
     object pnl1Title: TPanel
       Left = 5
       Top = 5
@@ -161,9 +155,9 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
-      TabOrder = 2
+      TabOrder = 1
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -174,7 +168,7 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       object edtName: TEdit
         Tag = 4
         Left = 10
-        Top = 27
+        Top = 30
         Width = 358
         Height = 24
         AutoSize = False
@@ -190,7 +184,7 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       BevelOuter = bvNone
       Color = clBtnShadow
       ParentBackground = False
-      TabOrder = 3
+      TabOrder = 2
       object imgExercise: TImage
         Left = 0
         Top = 0
@@ -26266,16 +26260,6 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
         TabOrder = 2
         OnClick = btnCancelClick
       end
-    end
-    object pnlSparatorHor2: TPanel
-      Left = 5
-      Top = 385
-      Width = 397
-      Height = 5
-      Align = alBottom
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 4
     end
   end
 end

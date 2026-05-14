@@ -21,8 +21,6 @@ type
     btnRemove: TButton;
     lbAllGunDef: TListBox;
     lbAllGunOnBoard: TListBox;
-    Panel1: TPanel;
-    Image2: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

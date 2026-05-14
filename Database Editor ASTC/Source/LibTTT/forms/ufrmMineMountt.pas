@@ -27,10 +27,6 @@ type
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
-    pnlSparatorHor1: TPanel;
-    Image3: TImage;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
     edtReload: TMaskEdit;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

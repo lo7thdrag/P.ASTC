@@ -30,9 +30,9 @@ object frmAccousticDecoy: TfrmAccousticDecoy
     TabOrder = 0
     object pnl2ControlPage: TPanel
       Left = 5
-      Top = 75
+      Top = 70
       Width = 385
-      Height = 134
+      Height = 144
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
@@ -43,7 +43,7 @@ object frmAccousticDecoy: TfrmAccousticDecoy
         Left = 10
         Top = 10
         Width = 365
-        Height = 114
+        Height = 124
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 25
@@ -51,10 +51,6 @@ object frmAccousticDecoy: TfrmAccousticDecoy
         TabWidth = 75
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object txtQuantity: TStaticText
             Left = 96
             Top = 18
@@ -75,16 +71,6 @@ object frmAccousticDecoy: TfrmAccousticDecoy
         end
       end
     end
-    object pnlSparatorHor1: TPanel
-      Left = 5
-      Top = 70
-      Width = 385
-      Height = 5
-      Align = alTop
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 1
-    end
     object pnl1Title: TPanel
       Left = 5
       Top = 5
@@ -95,7 +81,7 @@ object frmAccousticDecoy: TfrmAccousticDecoy
       BorderWidth = 4
       Color = 2499101
       ParentBackground = False
-      TabOrder = 2
+      TabOrder = 1
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -112,8 +98,8 @@ object frmAccousticDecoy: TfrmAccousticDecoy
       object edtName: TEdit
         Tag = 4
         Left = 10
-        Top = 32
-        Width = 359
+        Top = 30
+        Width = 365
         Height = 24
         AutoSize = False
         Enabled = False
@@ -135,10 +121,10 @@ object frmAccousticDecoy: TfrmAccousticDecoy
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
-      TabOrder = 3
+      TabOrder = 2
       object btnApply: TButton
         Left = 219
-        Top = 6
+        Top = 5
         Width = 75
         Height = 25
         Caption = 'Apply'
@@ -147,7 +133,7 @@ object frmAccousticDecoy: TfrmAccousticDecoy
       end
       object btnOK: TButton
         Left = 138
-        Top = 6
+        Top = 5
         Width = 75
         Height = 25
         Caption = 'OK'
@@ -156,23 +142,13 @@ object frmAccousticDecoy: TfrmAccousticDecoy
       end
       object btnCancel: TButton
         Left = 300
-        Top = 6
+        Top = 5
         Width = 75
         Height = 25
         Caption = 'Cancel'
         TabOrder = 2
         OnClick = btnCancelClick
       end
-    end
-    object pnlSparatorHor2: TPanel
-      Left = 5
-      Top = 209
-      Width = 385
-      Height = 5
-      Align = alBottom
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 4
     end
   end
 end

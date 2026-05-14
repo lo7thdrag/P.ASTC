@@ -29,7 +29,7 @@ object frmCubicleGroup: TfrmCubicleGroup
     ParentBackground = False
     TabOrder = 0
     object btClose: TButton
-      Left = 257
+      Left = 269
       Top = 8
       Width = 75
       Height = 25

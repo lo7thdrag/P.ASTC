@@ -21,8 +21,6 @@ type
     btnRemove: TButton;
     lbAllTowedJammerDecoyDef: TListBox;
     lbAllTowedJammerDecoyOnBoard: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

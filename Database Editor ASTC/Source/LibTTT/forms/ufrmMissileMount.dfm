@@ -48,8 +48,8 @@ object frmMissileMount: TfrmMissileMount
     object edtName: TEdit
       Tag = 4
       Left = 10
-      Top = 27
-      Width = 388
+      Top = 30
+      Width = 412
       Height = 24
       AutoSize = False
       Enabled = False
@@ -64,9 +64,9 @@ object frmMissileMount: TfrmMissileMount
   end
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 70
+    Top = 65
     Width = 432
-    Height = 321
+    Height = 331
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
@@ -77,7 +77,7 @@ object frmMissileMount: TfrmMissileMount
       Left = 10
       Top = 10
       Width = 412
-      Height = 301
+      Height = 311
       ActivePage = General
       Align = alClient
       TabHeight = 30
@@ -85,10 +85,6 @@ object frmMissileMount: TfrmMissileMount
       TabWidth = 75
       object General: TTabSheet
         Caption = 'General'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblClassName: TStaticText
           Left = 12
           Top = 18
@@ -219,8 +215,8 @@ object frmMissileMount: TfrmMissileMount
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 251
-      Top = 6
+      Left = 259
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Apply'
@@ -228,8 +224,8 @@ object frmMissileMount: TfrmMissileMount
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 163
-      Top = 6
+      Left = 171
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'OK'
@@ -237,73 +233,13 @@ object frmMissileMount: TfrmMissileMount
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 339
-      Top = 6
+      Left = 347
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Cancel'
       TabOrder = 2
       OnClick = btnCancelClick
-    end
-  end
-  object pnlSparatorHor1: TPanel
-    Left = 0
-    Top = 65
-    Width = 432
-    Height = 5
-    Align = alTop
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 3
-    object Image3: TImage
-      Left = 0
-      Top = 0
-      Width = 432
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitTop = 4
-      ExplicitWidth = 762
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 391
-    Width = 432
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 4
-    object Image4: TImage
-      Left = 0
-      Top = 0
-      Width = 432
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitTop = -4
-      ExplicitWidth = 762
     end
   end
 end

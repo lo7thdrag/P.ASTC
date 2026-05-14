@@ -4,8 +4,8 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   IFF On Board'
-  ClientHeight = 426
-  ClientWidth = 621
+  ClientHeight = 408
+  ClientWidth = 754
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,17 +21,19 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
   TextHeight = 14
   object pnlButton: TPanel
     Left = 0
-    Top = 383
-    Width = 621
+    Top = 365
+    Width = 754
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 383
+    ExplicitWidth = 621
     object btnClose: TButton
-      Left = 528
-      Top = 6
+      Left = 668
+      Top = 3
       Width = 75
       Height = 25
       Caption = 'Close'
@@ -42,18 +44,20 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
   object pnlMain: TPanel
     Left = 0
     Top = 0
-    Width = 621
-    Height = 378
+    Width = 754
+    Height = 365
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 621
+    ExplicitHeight = 378
     object imgExercise: TImage
-      Left = 8
+      Left = 12
       Top = 8
-      Width = 257
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -80,9 +84,9 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
       Stretch = True
     end
     object Image1: TImage
-      Left = 347
+      Left = 430
       Top = 8
-      Width = 256
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -109,16 +113,16 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
       Stretch = True
     end
     object Label2: TLabel
-      Left = 357
+      Left = 439
       Top = 16
-      Width = 133
-      Height = 18
+      Width = 108
+      Height = 14
       Cursor = crHandPoint
       Caption = 'List of IFF On Board'
       Color = clHighlight
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -15
+      Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentColor = False
@@ -126,16 +130,16 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
       Transparent = True
     end
     object Label1: TLabel
-      Left = 16
+      Left = 22
       Top = 16
-      Width = 125
-      Height = 18
+      Width = 101
+      Height = 14
       Cursor = crHandPoint
       Caption = 'List of available IFF'
       Color = clHighlight
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -15
+      Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentColor = False
@@ -143,7 +147,7 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
       Transparent = True
     end
     object btnAdd: TButton
-      Left = 275
+      Left = 346
       Top = 144
       Width = 62
       Height = 25
@@ -152,7 +156,7 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
       OnClick = btnAddClick
     end
     object btnEdit: TButton
-      Left = 528
+      Left = 668
       Top = 333
       Width = 75
       Height = 25
@@ -161,7 +165,7 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
       OnClick = btnEditClick
     end
     object btnRemove: TButton
-      Left = 275
+      Left = 346
       Top = 175
       Width = 62
       Height = 25
@@ -170,55 +174,23 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
       OnClick = btnRemoveClick
     end
     object lbAllIFFDef: TListBox
-      Left = 8
-      Top = 41
-      Width = 257
+      Left = 12
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 3
       OnClick = lbAllIFFDefClick
     end
     object lbAllIFFOnBoard: TListBox
-      Left = 347
-      Top = 41
-      Width = 257
+      Left = 430
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 4
       OnClick = lbAllIFFOnBoardClick
       OnDblClick = btnEditClick
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 378
-    Width = 621
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 2
-    object Image2: TImage
-      Left = 0
-      Top = 0
-      Width = 621
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
     end
   end
 end
