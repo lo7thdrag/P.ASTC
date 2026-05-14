@@ -237,8 +237,6 @@ object frmAvailableVehicle: TfrmAvailableVehicle
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 883
-    ExplicitHeight = 477
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -273,7 +271,6 @@ object frmAvailableVehicle: TfrmAvailableVehicle
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 628
         DesignSize = (
           580
           57)
@@ -891,13 +888,15 @@ object frmAvailableVehicle: TfrmAvailableVehicle
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
+      Top = 57
       Width = 1252
       Height = 774
+      Align = alClient
       BevelOuter = bvNone
       Color = clBlack
       ParentBackground = False
       TabOrder = 1
+      ExplicitTop = 46
       object lstVehicle: TListBox
         Left = 10
         Top = 0

@@ -4,8 +4,8 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'frmAvailableSNRvsPODCurve'
-  ClientHeight = 461
-  ClientWidth = 858
+  ClientHeight = 831
+  ClientWidth = 1252
   Color = clBtnFace
   DoubleBuffered = True
   ParentFont = True
@@ -21,25 +21,26 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 858
-    Height = 461
+    Width = 1252
+    Height = 831
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
+    ExplicitWidth = 858
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 858
+      Width = 1252
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1027
+      ExplicitWidth = 858
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -54,7 +55,7 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 278
+        Left = 672
         Top = 0
         Width = 580
         Height = 57
@@ -64,7 +65,7 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 672
+        ExplicitLeft = 278
         object btnDelete: TImage
           Left = 532
           Top = 13
@@ -673,16 +674,15 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 858
-      Height = 404
+      Width = 1252
+      Height = 774
       Align = alClient
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 784
-      ExplicitHeight = 415
+      ExplicitWidth = 858
+      ExplicitHeight = 404
       object lstSNRvsPODCurve: TListBox
         Left = 10
         Top = 0

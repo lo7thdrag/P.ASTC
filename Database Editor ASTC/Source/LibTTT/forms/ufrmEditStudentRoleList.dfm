@@ -35,32 +35,15 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitHeight = 348
       object lbl1: TLabel
         Left = 8
         Top = 8
         Width = 74
         Height = 13
         Caption = 'Student Roles :'
-      end
-      object Image1: TImage
-        Left = 5
-        Top = 343
-        Width = 284
-        Height = 5
-        Cursor = crHandPoint
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
       end
       object btnAdd: TButton
         Left = 207
@@ -105,12 +88,12 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
       object btnApply: TButton
         Left = 135
-        Top = 6
+        Top = 0
         Width = 71
         Height = 25
         Caption = 'Apply'
@@ -119,7 +102,7 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
       end
       object Button2: TButton
         Left = 58
-        Top = 6
+        Top = 0
         Width = 71
         Height = 25
         Caption = 'OK'
@@ -128,7 +111,7 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
       end
       object Button3: TButton
         Left = 211
-        Top = 6
+        Top = 0
         Width = 71
         Height = 25
         Caption = 'Cancel'

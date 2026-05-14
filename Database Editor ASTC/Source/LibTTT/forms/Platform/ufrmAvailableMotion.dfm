@@ -29,20 +29,22 @@ object frmAvailableMotion: TfrmAvailableMotion
     Height = 831
     Align = alClient
     BevelOuter = bvNone
-    Color = cl3DDkShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 0
     ExplicitWidth = 784
     ExplicitHeight = 461
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
+      Top = 57
       Width = 1252
       Height = 774
+      Align = alClient
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitTop = 46
       object lstMotions: TListBox
         Left = 10
         Top = 0

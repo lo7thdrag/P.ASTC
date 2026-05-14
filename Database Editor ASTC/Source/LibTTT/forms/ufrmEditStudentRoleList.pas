@@ -19,7 +19,6 @@ type
     edtStudent: TEdit;
     lbl1: TLabel;
     lbStudent: TListBox;
-    Image1: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

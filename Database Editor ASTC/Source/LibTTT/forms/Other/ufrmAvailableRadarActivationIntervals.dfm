@@ -4,8 +4,8 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'frmAvailableRadarActivationIntervals'
-  ClientHeight = 461
-  ClientWidth = 784
+  ClientHeight = 831
+  ClientWidth = 1252
   Color = clBtnFace
   DoubleBuffered = True
   ParentFont = True
@@ -21,58 +21,60 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 784
-    Height = 461
+    Width = 1252
+    Height = 831
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 863
-    ExplicitHeight = 478
+    ExplicitWidth = 784
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 784
-      Height = 46
+      Width = 1252
+      Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 4
-      ExplicitWidth = 855
       object Label2: TLabel
-        Left = 3
-        Top = 14
-        Width = 235
-        Height = 19
+        Left = 10
+        Top = 18
+        Width = 265
+        Height = 21
         Caption = 'List of Radar Activation Intervals '
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Tahoma'
+        Font.Height = -21
+        Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 244
+        Left = 672
         Top = 0
-        Width = 540
-        Height = 46
+        Width = 580
+        Height = 57
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 712
+        DesignSize = (
+          580
+          57)
         object btnDelete: TImage
-          Left = 505
-          Top = 9
+          Left = 532
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -197,11 +199,12 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 460
-          Top = 9
+          Left = 437
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -300,11 +303,12 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 423
-          Top = 9
+          Left = 397
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -422,11 +426,12 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 386
-          Top = 9
+          Left = 357
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -513,23 +518,24 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
           OnClick = btnNewClick
         end
         object Label1: TLabel
-          Left = 53
-          Top = 16
-          Width = 53
-          Height = 16
+          Left = 13
+          Top = 18
+          Width = 72
+          Height = 21
           Caption = 'Search : '
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -21
+          Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 114
-          Top = 11
+          Left = 82
+          Top = 16
           Width = 247
           Height = 25
+          Anchors = [akTop, akRight]
           AutoSize = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -544,24 +550,22 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
-      Width = 784
-      Height = 415
+      Top = 57
+      Width = 1252
+      Height = 774
       Align = alClient
       BevelOuter = bvNone
-      Color = clScrollBar
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 50
-      ExplicitWidth = 855
-      ExplicitHeight = 424
+      ExplicitTop = 46
+      ExplicitWidth = 784
+      ExplicitHeight = 415
       object lstRadarActivationIntervals: TListBox
-        Left = 0
+        Left = 10
         Top = 0
-        Width = 784
-        Height = 415
-        Align = alClient
+        Width = 1231
+        Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -571,8 +575,6 @@ object frmAvailableRadarActivationIntervals: TfrmAvailableRadarActivationInterva
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 855
-        ExplicitHeight = 424
       end
     end
   end

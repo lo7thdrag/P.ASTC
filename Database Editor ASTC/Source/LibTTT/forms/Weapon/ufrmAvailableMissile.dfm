@@ -5,8 +5,8 @@ object frmAvailableMissile: TfrmAvailableMissile
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'frmAvailableMissile'
-  ClientHeight = 461
-  ClientWidth = 784
+  ClientHeight = 831
+  ClientWidth = 1252
   Color = clBtnFace
   DockSite = True
   DoubleBuffered = True
@@ -22,20 +22,20 @@ object frmAvailableMissile: TfrmAvailableMissile
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 784
-    Height = 461
+    Width = 1252
+    Height = 831
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 681
-    ExplicitHeight = 345
+    ExplicitWidth = 784
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 784
-      Height = 46
+      Width = 1252
+      Height = 57
       ParentCustomHint = False
       Align = alTop
       BevelOuter = bvNone
@@ -54,40 +54,40 @@ object frmAvailableMissile: TfrmAvailableMissile
       ParentShowHint = False
       ShowHint = False
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 4
-      ExplicitWidth = 673
       object Label2: TLabel
-        Left = 3
-        Top = 14
-        Width = 101
-        Height = 19
+        Left = 10
+        Top = 18
+        Width = 115
+        Height = 21
         Caption = 'List of Missiles'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Tahoma'
+        Font.Height = -21
+        Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 160
+        Left = 672
         Top = 0
-        Width = 624
-        Height = 46
+        Width = 580
+        Height = 57
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 256
+        DesignSize = (
+          580
+          57)
         object btnDelete: TImage
-          Left = 590
-          Top = 9
+          Left = 532
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -212,11 +212,12 @@ object frmAvailableMissile: TfrmAvailableMissile
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 499
-          Top = 9
+          Left = 437
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -315,11 +316,12 @@ object frmAvailableMissile: TfrmAvailableMissile
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 462
-          Top = 9
+          Left = 397
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -437,11 +439,12 @@ object frmAvailableMissile: TfrmAvailableMissile
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 425
-          Top = 9
+          Left = 357
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -528,11 +531,12 @@ object frmAvailableMissile: TfrmAvailableMissile
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 553
-          Top = 9
+          Left = 492
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -658,21 +662,22 @@ object frmAvailableMissile: TfrmAvailableMissile
           OnClick = btnUsageClick
         end
         object Label1: TLabel
-          Left = 92
-          Top = 16
-          Width = 53
-          Height = 16
+          Left = 13
+          Top = 18
+          Width = 72
+          Height = 21
+          Anchors = [akTop, akRight]
           Caption = 'Search : '
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -21
+          Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 153
-          Top = 11
+          Left = 82
+          Top = 16
           Width = 247
           Height = 25
           AutoSize = False
@@ -689,24 +694,22 @@ object frmAvailableMissile: TfrmAvailableMissile
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 46
-      Width = 784
-      Height = 415
+      Top = 57
+      Width = 1252
+      Height = 774
       Align = alClient
       BevelOuter = bvNone
-      Color = clScrollBar
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 50
-      ExplicitWidth = 673
-      ExplicitHeight = 291
+      ExplicitTop = 46
+      ExplicitWidth = 784
+      ExplicitHeight = 415
       object lstMissile: TListBox
-        Left = 0
+        Left = 10
         Top = 0
-        Width = 784
-        Height = 415
-        Align = alClient
+        Width = 1252
+        Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -716,8 +719,6 @@ object frmAvailableMissile: TfrmAvailableMissile
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 673
-        ExplicitHeight = 291
       end
     end
   end
