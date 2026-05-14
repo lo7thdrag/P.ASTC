@@ -4,8 +4,8 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   Satellite Resource Allocation '
-  ClientHeight = 395
-  ClientWidth = 621
+  ClientHeight = 408
+  ClientWidth = 754
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,42 +18,23 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
-  object pnlButton: TPanel
-    Left = 0
-    Top = 352
-    Width = 621
-    Height = 43
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBtnShadow
-    ParentBackground = False
-    TabOrder = 0
-    object btnClose: TButton
-      Left = 528
-      Top = 6
-      Width = 75
-      Height = 25
-      Caption = 'Close'
-      TabOrder = 0
-      OnClick = btnCloseClick
-    end
-  end
   object pnlMain: TPanel
     Left = 0
     Top = 0
-    Width = 621
-    Height = 352
+    Width = 754
+    Height = 408
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 347
+    ExplicitWidth = 621
+    ExplicitHeight = 352
     object imgExercise: TImage
-      Left = 8
+      Left = 12
       Top = 8
-      Width = 257
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -80,7 +61,7 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
       Stretch = True
     end
     object Label1: TLabel
-      Left = 16
+      Left = 22
       Top = 16
       Width = 128
       Height = 14
@@ -97,9 +78,9 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
       Transparent = True
     end
     object Image1: TImage
-      Left = 348
+      Left = 430
       Top = 8
-      Width = 256
+      Width = 313
       Height = 30
       Cursor = crHandPoint
       Picture.Data = {
@@ -126,7 +107,7 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
       Stretch = True
     end
     object Label2: TLabel
-      Left = 357
+      Left = 439
       Top = 16
       Width = 210
       Height = 14
@@ -143,7 +124,7 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
       Transparent = True
     end
     object btnAdd: TButton
-      Left = 275
+      Left = 346
       Top = 144
       Width = 62
       Height = 25
@@ -152,7 +133,7 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
       OnClick = btnAddClick
     end
     object btnRemove: TButton
-      Left = 275
+      Left = 346
       Top = 175
       Width = 62
       Height = 25
@@ -161,9 +142,9 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
       OnClick = btnRemoveClick
     end
     object lbAllSatelliteDef: TListBox
-      Left = 8
-      Top = 41
-      Width = 257
+      Left = 12
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 2
@@ -171,14 +152,33 @@ object frmSatelliteResourceAllocationPickList: TfrmSatelliteResourceAllocationPi
       OnDblClick = btnAddClick
     end
     object lbAllSatelliteOnRA: TListBox
-      Left = 347
-      Top = 41
-      Width = 257
+      Left = 430
+      Top = 44
+      Width = 313
       Height = 286
       ItemHeight = 14
       TabOrder = 3
       OnClick = lbAllSatelliteOnRAClick
       OnDblClick = btnRemoveClick
+    end
+  end
+  object pnlButton: TPanel
+    Left = 0
+    Top = 367
+    Width = 754
+    Height = 43
+    BevelOuter = bvNone
+    Color = 2499101
+    ParentBackground = False
+    TabOrder = 0
+    object btnClose: TButton
+      Left = 668
+      Top = 3
+      Width = 75
+      Height = 25
+      Caption = 'Close'
+      TabOrder = 0
+      OnClick = btnCloseClick
     end
   end
 end

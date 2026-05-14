@@ -61,8 +61,6 @@ object frmSummaryScenario: TfrmSummaryScenario
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 256
     object pcScenarioTabs: TPageControl
       Left = 10
       Top = 10
@@ -73,7 +71,6 @@ object frmSummaryScenario: TfrmSummaryScenario
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 236
       object tsGeneral: TTabSheet
         Caption = 'General'
         object StaticText1: TStaticText
@@ -115,7 +112,6 @@ object frmSummaryScenario: TfrmSummaryScenario
       object tsRelationships: TTabSheet
         Caption = 'Relationships'
         ImageIndex = 3
-        ExplicitHeight = 196
         object rgForce: TRadioGroup
           Left = 16
           Top = 3

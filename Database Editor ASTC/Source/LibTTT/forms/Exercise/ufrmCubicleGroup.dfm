@@ -25,12 +25,12 @@ object frmCubicleGroup: TfrmCubicleGroup
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 0
     object btClose: TButton
       Left = 257
-      Top = 9
+      Top = 8
       Width = 75
       Height = 25
       Cursor = crHandPoint
@@ -49,13 +49,14 @@ object frmCubicleGroup: TfrmCubicleGroup
     Left = 0
     Top = 0
     Width = 348
-    Height = 411
+    Height = 416
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 4
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitHeight = 411
     object pnlTableHeader: TPanel
       Left = 4
       Top = 4
@@ -63,7 +64,7 @@ object frmCubicleGroup: TfrmCubicleGroup
       Height = 45
       Align = alTop
       BevelOuter = bvNone
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
       TabOrder = 0
       object Label2: TLabel
@@ -73,7 +74,7 @@ object frmCubicleGroup: TfrmCubicleGroup
         Height = 14
         Caption = 'Force : --- '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBackground
+        Font.Color = clWhite
         Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -87,7 +88,7 @@ object frmCubicleGroup: TfrmCubicleGroup
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
-        Color = clBtnShadow
+        Color = 2499101
         ParentBackground = False
         TabOrder = 0
         object btnDelete: TImage
@@ -23964,55 +23965,25 @@ object frmCubicleGroup: TfrmCubicleGroup
       Left = 4
       Top = 49
       Width = 340
-      Height = 358
+      Height = 363
       Align = alClient
       BevelOuter = bvNone
       Color = clScrollBar
       ParentBackground = False
       TabOrder = 1
+      ExplicitHeight = 358
       object lstGroup: TListBox
         Left = 0
         Top = 0
         Width = 340
-        Height = 358
+        Height = 363
         Align = alClient
         ItemHeight = 13
         TabOrder = 0
         OnClick = lstGroupClick
         OnDblClick = btnEditClick
+        ExplicitHeight = 358
       end
-    end
-  end
-  object pnlSparatorHor2: TPanel
-    Left = 0
-    Top = 411
-    Width = 348
-    Height = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBackground
-    ParentBackground = False
-    TabOrder = 2
-    object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 348
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
     end
   end
 end

@@ -4,7 +4,7 @@ object frmVehicleResourceAllocationPickList: TfrmVehicleResourceAllocationPickLi
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   Vehicle'
-  ClientHeight = 426
+  ClientHeight = 408
   ClientWidth = 754
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
@@ -18,38 +18,18 @@ object frmVehicleResourceAllocationPickList: TfrmVehicleResourceAllocationPickLi
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
-  object pnlButton: TPanel
-    Left = 0
-    Top = 383
-    Width = 754
-    Height = 43
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clBtnShadow
-    ParentBackground = False
-    TabOrder = 0
-    object btnClose: TButton
-      Left = 668
-      Top = 6
-      Width = 75
-      Height = 25
-      Caption = 'Close'
-      TabOrder = 0
-      OnClick = btnCloseClick
-    end
-  end
   object pnlMain: TPanel
     Left = 0
     Top = 0
     Width = 754
-    Height = 383
+    Height = 408
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 378
+    ExplicitHeight = 418
     object imgExercise: TImage
       Left = 12
       Top = 8
@@ -216,6 +196,25 @@ object frmVehicleResourceAllocationPickList: TfrmVehicleResourceAllocationPickLi
       ParentFont = False
       TabOrder = 5
       OnKeyPress = edtSearchKeyPress
+    end
+  end
+  object pnlButton: TPanel
+    Left = 0
+    Top = 367
+    Width = 754
+    Height = 43
+    BevelOuter = bvNone
+    Color = 2499101
+    ParentBackground = False
+    TabOrder = 0
+    object btnClose: TButton
+      Left = 668
+      Top = 3
+      Width = 75
+      Height = 25
+      Caption = 'Close'
+      TabOrder = 0
+      OnClick = btnCloseClick
     end
   end
 end

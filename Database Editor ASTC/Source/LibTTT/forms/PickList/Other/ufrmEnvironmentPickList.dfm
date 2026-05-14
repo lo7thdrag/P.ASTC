@@ -29,7 +29,6 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 322
     object lbEnvironmentAvailable: TListBox
       Left = 10
       Top = 10
@@ -40,7 +39,6 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
       TabOrder = 0
       OnClick = lbEnvironmentAvailableClick
       OnDblClick = lbEnvironmentAvailableDblClick
-      ExplicitHeight = 302
     end
   end
   object pnl3Button: TPanel
@@ -55,7 +53,7 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     TabOrder = 1
     object btnCancel: TButton
       Left = 187
-      Top = 9
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Cancel'
@@ -64,7 +62,7 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     end
     object btnAdd: TButton
       Left = 107
-      Top = 9
+      Top = 5
       Width = 75
       Height = 25
       Caption = 'Pick'

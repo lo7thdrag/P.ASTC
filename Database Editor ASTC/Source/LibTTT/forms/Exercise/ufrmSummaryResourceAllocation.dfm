@@ -69,19 +69,16 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 291
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 439
       Height = 281
-      ActivePage = tsGeneral
+      ActivePage = tsResources
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 271
       object tsGeneral: TTabSheet
         Caption = 'General'
         object btnBrowseEnvironment: TSpeedButton
@@ -214,6 +211,8 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       object tsPlatforms: TTabSheet
         Caption = 'Platforms'
         ImageIndex = 1
+        ExplicitLeft = -10
+        ExplicitTop = -18
         object grbForcePlatforms: TGroupBox
           Left = 11
           Top = 24
@@ -304,7 +303,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       object tsResources: TTabSheet
         Caption = 'Resources'
         ImageIndex = 2
-        ExplicitHeight = 231
         object btnRuntimePlatformLibraries: TButton
           Left = 23
           Top = 69

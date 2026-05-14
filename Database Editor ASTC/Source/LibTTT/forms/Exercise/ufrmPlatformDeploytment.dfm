@@ -36,7 +36,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       Left = 5
       Top = 5
       Width = 320
-      Height = 523
+      Height = 528
       Align = alLeft
       Color = 2499101
       Font.Charset = DEFAULT_CHARSET
@@ -47,21 +47,29 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
+      ExplicitHeight = 523
       object pnlSelectedPlatform: TPanel
         Left = 1
         Top = 1
         Width = 377
-        Height = 521
+        Height = 526
         Align = alLeft
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitHeight = 521
         object Label1: TLabel
           Left = 12
           Top = 9
           Width = 88
           Height = 14
           Caption = 'Platform Name :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object edPlatform: TEdit
           Left = 7
@@ -2585,10 +2593,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       end
     end
     object pnlMap: TPanel
-      Left = 330
+      Left = 325
       Top = 5
-      Width = 1033
-      Height = 523
+      Width = 1038
+      Height = 528
       Align = alClient
       Color = clBtnShadow
       Font.Charset = DEFAULT_CHARSET
@@ -2599,20 +2607,24 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 330
+      ExplicitWidth = 1033
+      ExplicitHeight = 523
       object pnlToolBar: TPanel
         Left = 1
         Top = 1
-        Width = 1031
+        Width = 1036
         Height = 23
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1031
         object ToolBar1: TToolBar
           Left = 14
           Top = 0
-          Width = 1017
+          Width = 1022
           Height = 23
           Align = alClient
           ButtonHeight = 23
@@ -2622,6 +2634,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           Images = ImageList1
           ParentColor = False
           TabOrder = 0
+          ExplicitWidth = 1017
           object btnPrevious: TToolButton
             Left = 0
             Top = 0
@@ -2778,8 +2791,8 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       end
       object pnlCursorPosition: TPanel
         Left = 1
-        Top = 439
-        Width = 1031
+        Top = 444
+        Width = 1036
         Height = 83
         Align = alBottom
         BevelOuter = bvNone
@@ -2787,6 +2800,8 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
+        ExplicitTop = 439
+        ExplicitWidth = 1031
         object grpCursorPosition: TGroupBox
           Left = 3
           Top = 3
@@ -2904,7 +2919,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         object GroupBox1: TGroupBox
           Left = 581
           Top = 3
-          Width = 447
+          Width = 452
           Height = 77
           Align = alClient
           Caption = 'Hooked Platform'
@@ -2918,6 +2933,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           ParentColor = False
           ParentFont = False
           TabOrder = 1
+          ExplicitWidth = 447
           object Label65: TLabel
             Left = 12
             Top = 23
@@ -3002,8 +3018,8 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       object Map1: TMap
         Left = 1
         Top = 24
-        Width = 1031
-        Height = 415
+        Width = 1036
+        Height = 420
         ParentColor = False
         Align = alClient
         TabOrder = 2
@@ -3013,20 +3029,22 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         OnDblClick = Map1DblClick
         OnDrawUserLayer = Map1DrawUserLayer
         ExplicitTop = 18
+        ExplicitWidth = 1031
+        ExplicitHeight = 415
         ControlData = {
-          8A1A06008F6A0000E42A0000010000000F0000FF0D47656F44696374696F6E61
+          8A1A0600136B0000692B0000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000000000500001
           0100000A0000000001F4010000050000800C000000000000000000000000FFFF
           FF000100000000000000000000000000000000000000000000000352E30B918F
-          CE119DE300AA004BB85101000000900124D6050005417269616C000352E30B91
+          CE119DE300AA004BB85101000000900170F3050005417269616C000352E30B91
           8FCE119DE300AA004BB8510100000090015C790C0005417269616C0000000000
           00000000000000000000000000000000000000000000000000000000000000FF
           FFFF000000000000000001370000000000FFFFFF000000000000000352E30B91
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          0118010000A844892901000000000000001C0000000000000000000000000000
+          0118010000E8EE922801000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -3035,7 +3053,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          00A844892901000000000000001C000000000000000000000000000000000000
+          00E8EE922801000000000000001C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -3047,37 +3065,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           88B3400000000000408F400000000000}
       end
     end
-    object pnlSparatorVer: TPanel
-      Left = 325
-      Top = 5
-      Width = 5
-      Height = 523
-      Align = alLeft
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 2
-      object Image2: TImage
-        Left = 0
-        Top = 0
-        Width = 5
-        Height = 523
-        Cursor = crHandPoint
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitLeft = -2
-        ExplicitTop = -2
-        ExplicitWidth = 8
-        ExplicitHeight = 637
-      end
-    end
     object pnl3Button: TPanel
       Left = 5
       Top = 533
@@ -3087,10 +3074,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
-      TabOrder = 3
+      TabOrder = 2
       object btnEditFormaions: TButton
         Left = 159
-        Top = 7
+        Top = 10
         Width = 145
         Height = 28
         Caption = 'Edit &Formations...'
@@ -3101,7 +3088,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       end
       object btnScreenCapture: TButton
         Left = 8
-        Top = 7
+        Top = 10
         Width = 145
         Height = 28
         Caption = 'Screen Capture ...'
@@ -3119,44 +3106,13 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         TabOrder = 2
         object btnCancel: TButton
           Left = 30
-          Top = 7
+          Top = 10
           Width = 145
           Height = 28
           Caption = 'Close'
           TabOrder = 0
           OnClick = btnCancelClick
         end
-      end
-    end
-    object pnlSparatorHor1: TPanel
-      Left = 5
-      Top = 528
-      Width = 1358
-      Height = 5
-      Align = alBottom
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 4
-      object Image1: TImage
-        Left = 0
-        Top = 0
-        Width = 1358
-        Height = 5
-        Cursor = crHandPoint
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitLeft = -2
-        ExplicitTop = -2
-        ExplicitWidth = 8
-        ExplicitHeight = 637
       end
     end
   end

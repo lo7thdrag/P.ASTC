@@ -21,8 +21,6 @@ type
     btnNew: TImage;
     pnlTableList: TPanel;
     lstGroup: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

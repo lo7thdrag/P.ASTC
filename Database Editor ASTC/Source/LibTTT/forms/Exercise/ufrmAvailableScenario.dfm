@@ -4,8 +4,8 @@ object frmAvailableScenario: TfrmAvailableScenario
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Scenario'
-  ClientHeight = 487
-  ClientWidth = 962
+  ClientHeight = 831
+  ClientWidth = 1252
   Color = clBtnFace
   DoubleBuffered = True
   ParentFont = True
@@ -21,8 +21,8 @@ object frmAvailableScenario: TfrmAvailableScenario
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 962
-    Height = 487
+    Width = 1252
+    Height = 831
     Cursor = crHandPoint
     Align = alClient
     Picture.Data = {
@@ -41,24 +41,26 @@ object frmAvailableScenario: TfrmAvailableScenario
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 962
-    Height = 487
+    Width = 1252
+    Height = 831
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 795
+    ExplicitWidth = 962
+    ExplicitHeight = 487
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 962
+      Width = 1252
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 962
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -73,7 +75,7 @@ object frmAvailableScenario: TfrmAvailableScenario
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 382
+        Left = 672
         Top = 0
         Width = 580
         Height = 57
@@ -83,8 +85,7 @@ object frmAvailableScenario: TfrmAvailableScenario
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 171
-        ExplicitHeight = 46
+        ExplicitLeft = 382
         DesignSize = (
           580
           57)
@@ -542,16 +543,15 @@ object frmAvailableScenario: TfrmAvailableScenario
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 962
-      Height = 430
+      Width = 1252
+      Height = 774
       Align = alClient
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 795
-      ExplicitHeight = 441
+      ExplicitWidth = 962
+      ExplicitHeight = 430
       object lstScenarioList: TListBox
         Left = 10
         Top = 0

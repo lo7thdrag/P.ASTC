@@ -261,7 +261,6 @@ type
     pnlPlatform: TPanel;
     pnlMainBackground: TPanel;
     pnlMap: TPanel;
-    pnlSparatorVer: TPanel;
     grbWayPointGuidance: TGroupBox;
     Bevel1: TBevel;
     Label2: TLabel;
@@ -276,15 +275,12 @@ type
     edtRadius_WayPointGuidance: TEdit;
     btnEditWaypoints_WayPointGuidance: TButton;
     pnl3Button: TPanel;
-    pnlSparatorHor1: TPanel;
     btnEditFormaions: TButton;
     btnScreenCapture: TButton;
     Panel3: TPanel;
     btnCancel: TButton;
     pnlAlignToolBar: TPanel;
     Panel4: TPanel;
-    Image1: TImage;
-    Image2: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

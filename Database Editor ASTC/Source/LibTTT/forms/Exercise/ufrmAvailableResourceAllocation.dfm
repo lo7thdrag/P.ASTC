@@ -4,8 +4,8 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Resource Allocation'
-  ClientHeight = 662
-  ClientWidth = 979
+  ClientHeight = 831
+  ClientWidth = 1252
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -25,26 +25,26 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 979
-    Height = 662
+    Width = 1252
+    Height = 831
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 461
+    ExplicitWidth = 979
+    ExplicitHeight = 662
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 979
+      Width = 1252
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1121
+      ExplicitWidth = 979
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -59,7 +59,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 399
+        Left = 672
         Top = 0
         Width = 580
         Height = 57
@@ -69,7 +69,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 497
+        ExplicitLeft = 399
         DesignSize = (
           580
           57)
@@ -656,16 +656,15 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 979
-      Height = 605
+      Width = 1252
+      Height = 774
       Align = alClient
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 784
-      ExplicitHeight = 415
+      ExplicitWidth = 979
+      ExplicitHeight = 605
       object lstResourceAllocation: TListBox
         Left = 10
         Top = 0
