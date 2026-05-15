@@ -17,6 +17,12 @@ type
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
+    procedure imgRadarClick(Sender: TObject);
+    procedure imgSonarClick(Sender: TObject);
+    procedure imgESMClick(Sender: TObject);
+    procedure imgEODClick(Sender: TObject);
+    procedure imgMADClick(Sender: TObject);
+    procedure imgSonobuoyClick(Sender: TObject);
 
   private
     iconName : string;
@@ -33,6 +39,8 @@ var
 
 implementation
 
+uses
+  ufDBEditor, ufrmAvailableRadar, ufrmAvailableSonar, ufrmAvailableESM, ufrmAvailableEOD, ufrmAvailableMAD, ufrmAvailableSonobuoy;
 {$R *.dfm}
 
 procedure TfrmSensors.FormActivate(Sender: TObject);
@@ -84,6 +92,60 @@ begin
   imgChoice := '.PNG';
 
   IconLoad;
+end;
+
+procedure TfrmSensors.imgEODClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableEOD) then
+    frmAvailableEOD := TfrmAvailableEOD.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableEOD.Show;
+end;
+
+procedure TfrmSensors.imgESMClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableESM) then
+    frmAvailableESM := TfrmAvailableESM.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableESM.Show;
+end;
+
+procedure TfrmSensors.imgMADClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableMAD) then
+    frmAvailableMAD := TfrmAvailableMAD.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableMAD.Show;
+end;
+
+procedure TfrmSensors.imgRadarClick(Sender: TObject);
+begin
+   if not Assigned(frmAvailableRadar) then
+    frmAvailableRadar := TfrmAvailableRadar.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableRadar.Show;
+end;
+
+procedure TfrmSensors.imgSonarClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableSonar) then
+    frmAvailableSonar := TfrmAvailableSonar.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableSonar.Show;
+end;
+
+procedure TfrmSensors.imgSonobuoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableSonobuoy) then
+    frmAvailableSonobuoy := TfrmAvailableSonobuoy.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableSonobuoy.Show;
 end;
 
 end.

@@ -19,6 +19,14 @@ type
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
+    procedure imgAccousticDecoyClick(Sender: TObject);
+    procedure imgAirBubbleClick(Sender: TObject);
+    procedure imgChaffClick(Sender: TObject);
+    procedure imgInfraredDecoyClick(Sender: TObject);
+    procedure imgFloatingDecoyClick(Sender: TObject);
+    procedure imgSelfDefensiveJammerClick(Sender: TObject);
+    procedure imgTowedJammerIDecoyClick(Sender: TObject);
+    procedure imgRadarNoiseJammerClick(Sender: TObject);
 
   private
     iconName : string;
@@ -33,6 +41,10 @@ var
   frmCountermeasure: TfrmCountermeasure;
 
 implementation
+
+uses
+  ufDBEditor, ufrmAvailableAcousticDecoy, ufrmAvailableAirBubble, ufrmAvailableChaff, ufrmAvailableInfraredDecoy,
+  ufrmAvailableFloatingDecoy, ufrmAvailableSelfDefensiveJammer, ufrmAvailableTowedJammerDecoy, ufrmAvailableRadarNoiseJammer;
 
 {$R *.dfm}
 
@@ -93,6 +105,78 @@ begin
   imgChoice := '.PNG';
 
   IconLoad;
+end;
+
+procedure TfrmCountermeasure.imgAccousticDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableAcousticDecoy) then
+    frmAvailableAcousticDecoy := TfrmAvailableAcousticDecoy.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableAcousticDecoy.Show;
+end;
+
+procedure TfrmCountermeasure.imgAirBubbleClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableAirBubble) then
+    frmAvailableAirBubble := TfrmAvailableAirBubble.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableAirBubble.Show;
+end;
+
+procedure TfrmCountermeasure.imgChaffClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableChaff) then
+    frmAvailableChaff := TfrmAvailableChaff.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableChaff.Show;
+end;
+
+procedure TfrmCountermeasure.imgFloatingDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableFloatingDecoy) then
+    frmAvailableFloatingDecoy := TfrmAvailableFloatingDecoy.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableFloatingDecoy.Show;
+end;
+
+procedure TfrmCountermeasure.imgInfraredDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableInfraredDecoy) then
+    frmAvailableInfraredDecoy := TfrmAvailableInfraredDecoy.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableInfraredDecoy.Show;
+end;
+
+procedure TfrmCountermeasure.imgRadarNoiseJammerClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableRadarNoiseJammer) then
+    frmAvailableRadarNoiseJammer := TfrmAvailableRadarNoiseJammer.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableRadarNoiseJammer.Show;
+end;
+
+procedure TfrmCountermeasure.imgSelfDefensiveJammerClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableSelfDefensiveJammer) then
+    frmAvailableSelfDefensiveJammer := TfrmAvailableSelfDefensiveJammer.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableSelfDefensiveJammer.Show;
+end;
+
+procedure TfrmCountermeasure.imgTowedJammerIDecoyClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableTowedJammerDecoy) then
+    frmAvailableTowedJammerDecoy := TfrmAvailableTowedJammerDecoy.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableTowedJammerDecoy.Show;
 end;
 
 end.

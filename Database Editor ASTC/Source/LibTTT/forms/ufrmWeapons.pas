@@ -16,6 +16,11 @@ type
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
+    procedure imgMissileClick(Sender: TObject);
+    procedure imgTorpedoClick(Sender: TObject);
+    procedure imgMineClick(Sender: TObject);
+    procedure imgGunClick(Sender: TObject);
+    procedure imgBombClick(Sender: TObject);
 
   private
     iconName : string;
@@ -31,6 +36,10 @@ var
   frmWeapons: TfrmWeapons;
 
 implementation
+
+uses
+  ufDBEditor, ufrmAvailableMissile, ufrmAvailableTorpedo, ufrmAvailableMine, ufrmAvailableGun, ufrmAvailableBomb;
+
 
 {$R *.dfm}
 
@@ -79,6 +88,51 @@ begin
   imgChoice := '.PNG';
 
   IconLoad;
+end;
+
+procedure TfrmWeapons.imgBombClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableBomb) then
+    frmAvailableBomb := TfrmAvailableBomb.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableBomb.Show;
+end;
+
+procedure TfrmWeapons.imgGunClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableGun) then
+    frmAvailableGun := TfrmAvailableGun.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableGun.Show;
+end;
+
+procedure TfrmWeapons.imgMineClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableMine) then
+    frmAvailableMine := TfrmAvailableMine.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableMine.Show;
+end;
+
+procedure TfrmWeapons.imgMissileClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableMissile) then
+    frmAvailableMissile := TfrmAvailableMissile.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableMissile.Show;
+end;
+
+procedure TfrmWeapons.imgTorpedoClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableTorpedo) then
+    frmAvailableTorpedo := TfrmAvailableTorpedo.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableTorpedo.Show;
 end;
 
 end.

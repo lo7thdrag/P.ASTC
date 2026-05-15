@@ -3965,6 +3965,7 @@ object frmWeapons: TfrmWeapons
       5B5B5B298C78238093264D097F6A3C3E3EFECD5456E719987C10FFFF01E02459
       6AAE222B0B0000000049454E44AE426082}
     Stretch = True
+    OnClick = imgMissileClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -9545,6 +9546,7 @@ object frmWeapons: TfrmWeapons
       219FC562B1582C168BC5DA61FAFF3524FBE4120E0B6B0000000049454E44AE42
       6082}
     Stretch = True
+    OnClick = imgGunClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -12268,6 +12270,7 @@ object frmWeapons: TfrmWeapons
       962C590E9164D0CF92254B96432419F4B364C992E5104906FD2C59B264394492
       413F4B962C590E91FC7F66A76510EC4F607B0000000049454E44AE426082}
     Stretch = True
+    OnClick = imgBombClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -15078,6 +15081,7 @@ object frmWeapons: TfrmWeapons
       4DE5988FB102F036179512F077C5F207EB5D9556A502F1F2F2FF017583092083
       1919C70000000049454E44AE426082}
     Stretch = True
+    OnClick = imgMineClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -19931,6 +19935,7 @@ object frmWeapons: TfrmWeapons
       83C1600C0C26140C0683C16030180C06636030A16030180C0683C160301803E3
       FF03F951C719FFE6C0B90000000049454E44AE426082}
     Stretch = True
+    OnClick = imgTorpedoClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end

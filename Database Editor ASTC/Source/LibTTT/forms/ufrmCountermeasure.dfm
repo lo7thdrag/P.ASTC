@@ -2404,6 +2404,7 @@ object frmCountermeasure: TfrmCountermeasure
       459C147052A4489122457A96FF076508ECBF840815810000000049454E44AE42
       6082}
     Stretch = True
+    OnClick = imgTowedJammerIDecoyClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -4841,6 +4842,7 @@ object frmCountermeasure: TfrmCountermeasure
       180C0683C160743D98F030180C0683C1E87A30E16130180C0683D1F5F87FC3F4
       AB59968271EC0000000049454E44AE426082}
     Stretch = True
+    OnClick = imgFloatingDecoyClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -7804,6 +7806,7 @@ object frmCountermeasure: TfrmCountermeasure
       39C05241BA4A952A550EB0FCFF53A7F87C2229B74C0000000049454E44AE4260
       82}
     Stretch = True
+    OnClick = imgAirBubbleClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -10179,6 +10182,7 @@ object frmCountermeasure: TfrmCountermeasure
       83C160742C98C830180C0683C1E858FC3F14011F4DFBBB914C0000000049454E
       44AE426082}
     Stretch = True
+    OnClick = imgAccousticDecoyClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -12000,6 +12004,7 @@ object frmCountermeasure: TfrmCountermeasure
       52A54A954C2A48AC52A54A952A55AA54A992C9FF0F2F4176BC3ECDAF77000000
       0049454E44AE426082}
     Stretch = True
+    OnClick = imgSelfDefensiveJammerClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -14633,6 +14638,7 @@ object frmCountermeasure: TfrmCountermeasure
       18A312794545454545C5314625F28A8A8A8A8A8A638C4AE4151515151515C718
       FF1FA26909C6FBBF40150000000049454E44AE426082}
     Stretch = True
+    OnClick = imgChaffClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -17293,6 +17299,7 @@ object frmCountermeasure: TfrmCountermeasure
       45258615151515151515151516951856545454545454545458FC7F6948FD739D
       7F76810000000049454E44AE426082}
     Stretch = True
+    OnClick = imgRadarNoiseJammerClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -19741,6 +19748,7 @@ object frmCountermeasure: TfrmCountermeasure
       6412CFC8C8C8C8C858A2C8249E9191919191B14491493C232323232363892293
       784646464646C612C5FF031B0B6D81A769C9210000000049454E44AE426082}
     Stretch = True
+    OnClick = imgInfraredDecoyClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
