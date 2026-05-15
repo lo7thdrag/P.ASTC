@@ -323,7 +323,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfDBEditor, fDBEditor);
   Application.CreateForm(TdmTTT, dmTTT);
-  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
+//  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
 
   uSimDBEditor.StartInitialize;
 

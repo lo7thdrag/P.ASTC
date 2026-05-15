@@ -16,6 +16,7 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
   Position = poScreenCenter
   OnClick = btnAddClick
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -30,7 +31,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 376
     object lbAvailableResAlloc: TListBox
       Left = 10
       Top = 10
@@ -41,7 +41,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
       TabOrder = 0
       OnClick = lbAvailableResAllocClick
       OnDblClick = lbAvailableResAllocDblClick
-      ExplicitHeight = 356
     end
   end
   object pnl3Button: TPanel

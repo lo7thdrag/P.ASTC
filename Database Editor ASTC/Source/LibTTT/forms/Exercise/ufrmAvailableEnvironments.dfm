@@ -4,8 +4,8 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Environment'
-  ClientHeight = 831
-  ClientWidth = 1252
+  ClientHeight = 461
+  ClientWidth = 884
   Color = cl3DDkShadow
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -25,25 +25,26 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 1252
-    Height = 831
+    Width = 884
+    Height = 461
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 461
+    ExplicitWidth = 1252
+    ExplicitHeight = 831
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 1252
+      Width = 884
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 1252
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -58,7 +59,7 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 672
+        Left = 304
         Top = 0
         Width = 580
         Height = 57
@@ -68,12 +69,12 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 628
+        ExplicitLeft = 672
         DesignSize = (
           580
           57)
         object btnDelete: TImage
-          Left = 532
+          Left = 537
           Top = 13
           Width = 30
           Height = 30
@@ -203,7 +204,7 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 437
+          Left = 442
           Top = 13
           Width = 30
           Height = 30
@@ -307,7 +308,7 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 397
+          Left = 402
           Top = 13
           Width = 30
           Height = 30
@@ -430,7 +431,7 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 357
+          Left = 362
           Top = 13
           Width = 30
           Height = 30
@@ -522,8 +523,8 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
           OnClick = btnNewClick
         end
         object Image1: TImage
-          Left = 553
-          Top = 9
+          Left = 497
+          Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -656,30 +657,34 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 1252
-      Height = 774
+      Width = 884
+      Height = 404
       Align = alClient
       BevelOuter = bvNone
+      BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 784
-      ExplicitHeight = 415
+      ExplicitWidth = 1252
+      ExplicitHeight = 774
       object lstEnvironments: TListBox
         Left = 10
-        Top = 0
-        Width = 1231
-        Height = 852
+        Top = 10
+        Width = 864
+        Height = 384
+        Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = []
+        ItemHeight = 19
         ParentFont = False
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitWidth = 900
+        ExplicitHeight = 331
       end
     end
   end

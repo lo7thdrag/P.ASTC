@@ -83,9 +83,6 @@ type
     // Gak dulu
 
     //=Scenario
-    function GetScenarioDef(var aList: TList): Integer; overload;
-    function GetScenarioDef(const aIdentifier: string;
-      var aResult: TScenario_Definition): Boolean; overload;
     function GetPlatformActivation(const aPlatformIndex: Integer): Integer; overload;
     function GetScenario(const id: Integer; var rec: TScenario_Definition): boolean;
     function getAllScenario_Definition(var aRec: TList): Integer;
@@ -2295,8 +2292,7 @@ begin
     SQL.Clear;
     SQL.Add('SELECT *');
     SQL.Add('FROM Scenario_Definition');
-    SQL.Add('WHERE Scenario_Identifier LIKE ' +
-      QuotedStr(aScenarioIdentifier + '%'));
+    SQL.Add('WHERE Scenario_Identifier = ' + QuotedStr(aScenarioIdentifier));
     Open;
 
     Result := RecordCount;
@@ -4880,7 +4876,7 @@ end;
 function TdmTTT.GetEnvironmentDef(const aGameEnviID: Integer;var aResult: TGame_Environment_Definition): Boolean;
 begin
   Result := False;
-  aResult := nil;
+//  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -4901,7 +4897,8 @@ begin
     begin
       First;
 
-      aResult := TGame_Environment_Definition.Create;
+      if not Assigned(aResult) then
+        aResult := TGame_Environment_Definition.Create;
 
       with aResult.FData do
       begin
@@ -28041,99 +28038,6 @@ begin
   end;
 end;
 
-function TdmTTT.GetScenarioDef(const aIdentifier: string;
-  var aResult: TScenario_Definition): Boolean;
-var
-  rec : TScenario_Definition;
-begin
-  Result := False;
-  aResult := nil;
-
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROM Scenario_Definition');
-    SQL.Add('WHERE Scenario_Identifier = ' + QuotedStr(aIdentifier));
-    Open;
-
-    Result := RecordCount > 0;
-
-    if not IsEmpty then
-    begin
-      First;
-      aResult := TScenario_Definition.Create;
-
-      with aResult.FData do
-      begin
-        Scenario_Index := FieldByName('Scenario_Index').AsInteger;
-        Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
-        Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetScenarioDef(var aList: TList): Integer;
-var
-  i : Integer;
-  rec : TScenario_Definition;
-begin
-  Result := -1;
-
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROM Scenario_Definition');
-    SQL.Add('ORDER BY Scenario_Identifier');
-    Open;
-
-    Result := RecordCount;
-
-    if Assigned(aList) then
-    begin
-      for i := 0 to aList.Count - 1 do
-      begin
-        rec := aList.Items[i];
-        rec.Free;
-      end;
-
-      aList.Clear;
-    end
-    else
-      aList := TList.Create;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not Eof do
-      begin
-        rec := TScenario_Definition.Create;
-
-        with rec.FData do
-        begin
-          Scenario_Index := FieldByName('Scenario_Index').AsInteger;
-          Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
-          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-        end;
-
-        aList.Add(rec);
-        Next;
-      end;
-    end;
-  end;
-end;
-
 function TdmTTT.GetScenario_ByRA(const id: Integer; var pList: TList): boolean;
 var
   rec: TScenario_Definition;
@@ -28231,8 +28135,7 @@ begin
         with rec.FData do
         begin
           Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
-          Allocation_Identifier := FieldByName('Allocation_Identifier')
-            .AsString;
+          Allocation_Identifier := FieldByName('Allocation_Identifier').AsString;
           Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
           Defaults_Index := FieldByName('Defaults_Index').AsInteger;
           Role_List_Index := FieldByName('Role_List_Index').AsInteger;
@@ -28246,11 +28149,9 @@ begin
   end;
 end;
 
-function TdmTTT.GetResourceAllocationDef(const aResAllocID: Integer;
-  var aResult: TResource_Allocation): Boolean;
+function TdmTTT.GetResourceAllocationDef(const aResAllocID: Integer; var aResult: TResource_Allocation): Boolean;
 begin
   Result := False;
-  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -28270,7 +28171,8 @@ begin
     begin
       First;
 
-      aResult := TResource_Allocation.Create;
+      if not Assigned(aResult) then
+        aResult := TResource_Allocation.Create;
 
       with aResult.FData do
       begin
@@ -38760,8 +38662,7 @@ begin
   end;
 end;
 
-function TdmTTT.CekStudent_Role_List(const id: Integer;
-  var rec: TStudent_Role_List): boolean;
+function TdmTTT.CekStudent_Role_List(const id: Integer; var rec: TStudent_Role_List): boolean;
 var
   ssql: string;
 begin
@@ -38783,7 +38684,9 @@ begin
     begin
       First;
 
-      rec := TStudent_Role_List.Create;
+      if not Assigned(rec) then
+        rec := TStudent_Role_List.Create;
+
       with rec.FData do
       begin
         Role_List_Index := FieldByName('Role_List_Index').AsInteger;
@@ -49329,11 +49232,10 @@ begin
   end;
 end;
 
-function TdmTTT.GetGameDefault(const aIndex: Integer;
-  var aResult: TGame_Defaults): Boolean;
+function TdmTTT.GetGameDefault(const aIndex: Integer;var aResult: TGame_Defaults): Boolean;
 begin
   Result := False;
-  aResult := nil;
+//  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -49353,7 +49255,8 @@ begin
     begin
       First;
 
-      aResult := TGame_Defaults.Create;
+      if not Assigned(aResult) then
+        aResult := TGame_Defaults.Create;
 
       with aResult.FData do
       begin

@@ -14,6 +14,8 @@ object frmSummaryScenario: TfrmSummaryScenario
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -66,7 +68,7 @@ object frmSummaryScenario: TfrmSummaryScenario
       Top = 10
       Width = 411
       Height = 246
-      ActivePage = tsGeneral
+      ActivePage = tsRelationships
       Align = alClient
       TabHeight = 30
       TabOrder = 0
@@ -137,7 +139,7 @@ object frmSummaryScenario: TfrmSummaryScenario
           TabOrder = 1
           object btGroups: TButton
             Left = 53
-            Top = 38
+            Top = 62
             Width = 121
             Height = 33
             Cursor = crHandPoint
@@ -153,6 +155,7 @@ object frmSummaryScenario: TfrmSummaryScenario
             Cursor = crHandPoint
             Caption = 'Links...'
             TabOrder = 1
+            Visible = False
             OnClick = btLinksClick
           end
         end

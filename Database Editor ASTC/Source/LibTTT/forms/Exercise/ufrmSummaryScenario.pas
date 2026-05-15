@@ -46,6 +46,8 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure btnPreplayScenarioClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedScenario : TScenario_Definition;
@@ -80,6 +82,22 @@ uses
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
+
+procedure TfrmSummaryScenario.FormCreate(Sender: TObject);
+begin
+  FSelectedResourceAlloc := TResource_Allocation.Create;
+  FSelectedEnviArea := TGame_Environment_Definition.Create;
+end;
+
+procedure TfrmSummaryScenario.FormDestroy(Sender: TObject);
+begin
+  if Assigned(FSelectedResourceAlloc) then
+    FreeAndNil(FSelectedResourceAlloc);
+
+  if Assigned(FSelectedEnviArea) then
+    FreeAndNil(FSelectedEnviArea);
+
+end;
 
 procedure TfrmSummaryScenario.FormShow(Sender: TObject);
 begin

@@ -15,6 +15,7 @@ object frmCubicleGroup: TfrmCubicleGroup
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -56,7 +57,6 @@ object frmCubicleGroup: TfrmCubicleGroup
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 411
     object pnlTableHeader: TPanel
       Left = 4
       Top = 4
@@ -23971,7 +23971,6 @@ object frmCubicleGroup: TfrmCubicleGroup
       Color = clScrollBar
       ParentBackground = False
       TabOrder = 1
-      ExplicitHeight = 358
       object lstGroup: TListBox
         Left = 0
         Top = 0
@@ -23982,7 +23981,6 @@ object frmCubicleGroup: TfrmCubicleGroup
         TabOrder = 0
         OnClick = lstGroupClick
         OnDblClick = btnEditClick
-        ExplicitHeight = 358
       end
     end
   end

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, uDBAssetObject, uDBAsset_Deploy, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, uSimContainers;
 
 type
   TfrmCubicleGroup = class(TForm)
@@ -32,25 +32,26 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
+    FSelectedForce : Integer;
     FSelectedScenario : TScenario_Definition;
     FSelectedResourceAlloc : TResource_Allocation;
     FSelectedAssetDeployment : TAsset_Deployment;
-    FSelectedForce : Integer;
+
 
     FCubicleGroupList : TList;
     FSelectedCubicleGroup : TCubicle_Group_Assignment;
 
     procedure UpdateGroupList;
+
   public
-    property SelectedScenario : TScenario_Definition read FSelectedScenario
-      write FSelectedScenario;
-    property SelectedResourceAlloc : TResource_Allocation
-      read FSelectedResourceAlloc write FSelectedResourceAlloc;
-    property SelectedAssetDeployment : TAsset_Deployment
-      read FSelectedAssetDeployment write FSelectedAssetDeployment;
+    property SelectedScenario : TScenario_Definition read FSelectedScenario write FSelectedScenario;
+    property SelectedResourceAlloc : TResource_Allocation read FSelectedResourceAlloc write FSelectedResourceAlloc;
+    property SelectedAssetDeployment : TAsset_Deployment read FSelectedAssetDeployment write FSelectedAssetDeployment;
     property SelectedForce : Integer read FSelectedForce write FSelectedForce;
+
   end;
 
 var
@@ -68,6 +69,25 @@ uses
 procedure TfrmCubicleGroup.FormCreate(Sender: TObject);
 begin
   FCubicleGroupList := TList.Create;
+
+end;
+
+procedure TfrmCubicleGroup.FormDestroy(Sender: TObject);
+var
+  i: integer;
+  o: TCubicle_Group_Assignment;
+
+begin
+
+  for i := FCubicleGroupList.Count - 1 downto 0 do
+  begin
+    o := FCubicleGroupList[i];
+    o.Cubicle_Group_AssignmenDestroy;
+  end;
+
+  FCubicleGroupList.Clear;
+  FCubicleGroupList.Free;
+
 end;
 
 procedure TfrmCubicleGroup.FormShow(Sender: TObject);
@@ -101,10 +121,10 @@ begin
 
       with SelectedCubicleGroup.FData do
       begin
-      Deployment_Index := FSelectedAssetDeployment.FData.Deployment_Index;
-      Force_Designation := FSelectedForce;
-      Track_Block_Start := (FCubicleGroupList.Count + 1) * 1000;
-      Track_Block_End := (FCubicleGroupList.Count + 1) * 1000 + 999;
+        Deployment_Index := FSelectedAssetDeployment.FData.Deployment_Index;
+        Force_Designation := FSelectedForce;
+        Track_Block_Start := (FCubicleGroupList.Count + 1) * 1000;
+        Track_Block_End := (FCubicleGroupList.Count + 1) * 1000 + 999;
       end;
 
       ShowModal;

@@ -153,22 +153,20 @@ type
     ShutdownDatabaseEditor1: TMenuItem;
     Help1: TMenuItem;
     AboutDatabaseEditor1: TMenuItem;
-    Image2: TImage;
-    Image5: TImage;
     pnlVariasi: TPanel;
     pnlSparatorRight: TPanel;
-    Image8: TImage;
     Image15: TImage;
     mnRadarActivationIntervals: TLabel;
     img3: TImage;
     pnlFooter: TPanel;
     img4: TImage;
     pnlSparatorFooter: TPanel;
-    Image29: TImage;
     Panel1: TPanel;
     pnlHome: TPanel;
     Image7: TImage;
     mnMotion: TLabel;
+    Panel2: TPanel;
+    Image2: TImage;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);

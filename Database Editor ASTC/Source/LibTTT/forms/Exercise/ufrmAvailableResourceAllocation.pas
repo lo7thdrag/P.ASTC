@@ -178,7 +178,7 @@ begin
   if warning = mrOK then
   begin
     scenarioList := nil;
-    dmTTT.GetScenarioDef(scenarioList);
+    dmTTT.GetAllScenarioDef(scenarioList);
 
     found := False;
     for i := 0 to scenarioList.Count - 1 do

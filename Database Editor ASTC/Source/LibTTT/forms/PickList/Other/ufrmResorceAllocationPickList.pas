@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, uDBAssetObject, Vcl.Imaging.pngimage;
+  Dialogs, StdCtrls, ExtCtrls, uDBAssetObject, Vcl.Imaging.pngimage, uSimContainers;
 
 type
   TfrmResorceAllocationPickList = class(TForm)
@@ -21,6 +21,7 @@ type
     procedure lbAvailableResAllocDblClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedResourceAllocId : Integer;
@@ -50,6 +51,15 @@ uses
 procedure TfrmResorceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FResourceAllocList := TList.Create;
+end;
+
+procedure TfrmResorceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+//  if Assigned(FSelectedResourceAlloc) then
+//    FreeAndNil(FSelectedResourceAlloc);
+
+  FreeItemsAndFreeList(FResourceAllocList);
+
 end;
 
 procedure TfrmResorceAllocationPickList.FormShow(Sender: TObject);

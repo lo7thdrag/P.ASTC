@@ -73,6 +73,9 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+
   private
     FSelectedResourceAllocation : TResource_Allocation;
 
@@ -119,6 +122,18 @@ uses
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
+
+procedure TfrmSummaryResourceAllocation.FormCreate(Sender: TObject);
+begin
+  FSelectedEnvironment := TGame_Environment_Definition.Create;
+end;
+
+procedure TfrmSummaryResourceAllocation.FormDestroy(Sender: TObject);
+begin
+  if Assigned(FSelectedEnvironment) then
+    FreeAndNil(FSelectedEnvironment);
+
+end;
 
 procedure TfrmSummaryResourceAllocation.FormShow(Sender: TObject);
 begin
@@ -504,7 +519,10 @@ begin
     dmTTT.GetGameDefault(Defaults_Index, GameDefault);
 
     if Assigned(GameDefault) then
-      edtDefaults.Text := GameDefault.FData.Defaults_Identifier
+    begin
+      edtDefaults.Text := GameDefault.FData.Defaults_Identifier;
+      GameDefault.Free;
+    end
     else
       edtEnvironment.Text := '(None)';
   end;

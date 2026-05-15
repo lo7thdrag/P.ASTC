@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, uDBAssetObject, uDBAsset_Deploy, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, uSimContainers;
 
 type
   TfrmAvailableScenario = class(TForm)
@@ -31,6 +31,7 @@ type
     procedure btnCopyClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -60,13 +61,18 @@ uses
 procedure TfrmAvailableScenario.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
-  UpdateScenarioList;
 end;
 
 procedure TfrmAvailableScenario.FormCreate(Sender: TObject);
 begin
   FScenarioList := TList.Create;
   FSelectedAssetDeployment := TAsset_Deployment.Create;
+end;
+
+procedure TfrmAvailableScenario.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FScenarioList);
+  FreeAndNil(FSelectedAssetDeployment);
 end;
 
 procedure TfrmAvailableScenario.FormShow(Sender: TObject);
@@ -333,7 +339,8 @@ end;
 procedure TfrmAvailableScenario.UpdateScenarioList;
 var
   i : Integer;
-  scenario : TScenario_Definition;
+  FTempScenario : TScenario_Definition;
+
 begin
   lstScenarioList.Items.Clear;
 
@@ -341,8 +348,8 @@ begin
 
   for i := 0 to FScenarioList.Count - 1 do
   begin
-    scenario := FScenarioList.Items[i];
-    lstScenarioList.Items.AddObject(scenario.FData.Scenario_Identifier,scenario);
+    FTempScenario := FScenarioList.Items[i];
+    lstScenarioList.Items.AddObject(FTempScenario.FData.Scenario_Identifier,FTempScenario);
   end;
 end;
 

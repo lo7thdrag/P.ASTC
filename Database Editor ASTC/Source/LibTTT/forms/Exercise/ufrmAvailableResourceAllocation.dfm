@@ -4,8 +4,8 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Resource Allocation'
-  ClientHeight = 831
-  ClientWidth = 1252
+  ClientHeight = 461
+  ClientWidth = 884
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -25,26 +25,26 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 1252
-    Height = 831
+    Width = 884
+    Height = 461
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 979
-    ExplicitHeight = 662
+    ExplicitWidth = 1252
+    ExplicitHeight = 831
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 1252
+      Width = 884
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 979
+      ExplicitWidth = 1252
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -59,7 +59,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 672
+        Left = 304
         Top = 0
         Width = 580
         Height = 57
@@ -69,16 +69,17 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 399
+        ExplicitLeft = 672
         DesignSize = (
           580
           57)
         object btnDelete: TImage
-          Left = 532
+          Left = 537
           Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -203,7 +204,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 437
+          Left = 442
           Top = 13
           Width = 30
           Height = 30
@@ -307,7 +308,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 397
+          Left = 402
           Top = 13
           Width = 30
           Height = 30
@@ -430,7 +431,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 357
+          Left = 362
           Top = 13
           Width = 30
           Height = 30
@@ -522,11 +523,12 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 492
+          Left = 497
           Top = 13
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Anchors = [akTop, akRight]
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -656,29 +658,35 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 1252
-      Height = 774
+      Width = 884
+      Height = 404
       Align = alClient
       BevelOuter = bvNone
+      BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 979
-      ExplicitHeight = 605
+      ExplicitWidth = 1252
+      ExplicitHeight = 774
       object lstResourceAllocation: TListBox
         Left = 10
-        Top = 0
-        Width = 1231
-        Height = 852
+        Top = 10
+        Width = 864
+        Height = 384
+        Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = []
+        ItemHeight = 19
         ParentFont = False
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitTop = 0
+        ExplicitWidth = 1231
+        ExplicitHeight = 852
       end
     end
   end

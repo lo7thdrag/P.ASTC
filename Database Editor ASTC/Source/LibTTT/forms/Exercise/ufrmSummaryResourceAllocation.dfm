@@ -14,6 +14,8 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -74,7 +76,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       Top = 10
       Width = 439
       Height = 281
-      ActivePage = tsResources
+      ActivePage = tsPlatforms
       Align = alClient
       TabHeight = 30
       TabOrder = 0
@@ -159,6 +161,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Height = 23
           Caption = '...'
           TabOrder = 5
+          Visible = False
           OnClick = btnStudentRoleListClick
         end
         object dtpDate: TDateTimePicker
@@ -168,7 +171,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Height = 22
           Date = 42300.000000000000000000
           Format = 'dd MMM yyyy'
-          Time = 0.714370370369579100
+          Time = 0.714370370369579200
           TabOrder = 6
           OnChange = dtpDateChange
         end
@@ -178,7 +181,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Width = 73
           Height = 22
           Date = 42300.000000000000000000
-          Time = 0.714370370369579100
+          Time = 0.714370370369579200
           Kind = dtkTime
           TabOrder = 7
           OnChange = dtpTimeChange
@@ -190,6 +193,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Height = 18
           Caption = 'Student Role List'
           TabOrder = 8
+          Visible = False
         end
         object edtStudent: TEdit
           Left = 9
@@ -206,13 +210,12 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           ReadOnly = True
           TabOrder = 9
           Text = '[None]'
+          Visible = False
         end
       end
       object tsPlatforms: TTabSheet
         Caption = 'Platforms'
         ImageIndex = 1
-        ExplicitLeft = -10
-        ExplicitTop = -18
         object grbForcePlatforms: TGroupBox
           Left = 11
           Top = 24
@@ -280,15 +283,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Height = 185
           Caption = 'Platforms  '
           TabOrder = 1
-          object btnVehicle: TButton
-            Left = 18
-            Top = 37
-            Width = 235
-            Height = 45
-            Caption = 'Vehicle...'
-            TabOrder = 0
-            OnClick = btnVehicleClick
-          end
           object btnSatellite: TButton
             Left = 18
             Top = 102
@@ -296,7 +290,17 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             Height = 45
             Caption = 'Satellite...'
             TabOrder = 1
+            Visible = False
             OnClick = btnSatelliteClick
+          end
+          object btnVehicle: TButton
+            Left = 18
+            Top = 70
+            Width = 235
+            Height = 45
+            Caption = 'Vehicle...'
+            TabOrder = 0
+            OnClick = btnVehicleClick
           end
         end
       end
@@ -305,7 +309,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         ImageIndex = 2
         object btnRuntimePlatformLibraries: TButton
           Left = 23
-          Top = 69
+          Top = 101
           Width = 375
           Height = 38
           Caption = 'Runtime Platform Libraries...'
@@ -314,21 +318,12 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         end
         object btnReferencePointsResources: TButton
           Left = 23
-          Top = 21
+          Top = 53
           Width = 375
           Height = 38
           Caption = 'Reference Points...'
           TabOrder = 1
           OnClick = btnReferencePointsResourcesClick
-        end
-        object btnOverlaysResources: TButton
-          Left = 23
-          Top = 117
-          Width = 375
-          Height = 38
-          Caption = 'Overlays...'
-          TabOrder = 2
-          OnClick = btnOverlaysResourcesClick
         end
         object btnCommunicationResources: TButton
           Left = 23
@@ -337,7 +332,17 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Height = 38
           Caption = 'Communication Channels ...'
           TabOrder = 3
+          Visible = False
           OnClick = btnCommunicationResourcesClick
+        end
+        object btnOverlaysResources: TButton
+          Left = 23
+          Top = 149
+          Width = 375
+          Height = 38
+          Caption = 'Overlays...'
+          TabOrder = 2
+          OnClick = btnOverlaysResourcesClick
         end
       end
     end
