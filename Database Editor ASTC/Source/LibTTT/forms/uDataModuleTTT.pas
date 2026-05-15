@@ -8588,9 +8588,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Radar_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Radar_Index = b.Radar_Index');
-    SQL.Add('WHERE a.Radar_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Radar_Definition');
+    SQL.Add('WHERE Radar_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -9090,9 +9089,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Sonar_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Sonar_Index = b.Sonar_Index');
-    SQL.Add('WHERE a.Sonar_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Sonar_Definitionb');
+    SQL.Add('WHERE Sonar_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -9612,9 +9610,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM ESM_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.ESM_Index = b.ESM_Index');
-    SQL.Add('WHERE a.Class_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM ESM_Definitiona');
+    SQL.Add('WHERE Class_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -9926,9 +9923,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM EO_Detection_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.EO_Index = b.EO_Index');
-    SQL.Add('WHERE a.Class_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM EO_Detection_Definition');
+    SQL.Add('WHERE Class_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -10257,9 +10253,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Sonobuoy_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Sonobuoy_Index = b.Sonobuoy_Index');
-    SQL.Add('WHERE a.Class_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Sonobuoy_Definition');
+    SQL.Add('WHERE Class_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -10606,9 +10601,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM MAD_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.MAD_Index = b.MAD_Index');
-    SQL.Add('WHERE a.Class_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM MAD_Definition');
+    SQL.Add('WHERE Class_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -12813,9 +12807,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT * ');
-    SQL.Add('FROM Missile_Definition a LEFT JOIN Note_Storage b ');
-    SQL.Add('ON a.Missile_Index = b.Missile_Index ');
-    SQL.Add('WHERE Class_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Missile_Definition');
+    SQL.Add('WHERE Class_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -13594,9 +13587,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Torpedo_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Torpedo_Index = b.Torpedo_Index');
-    SQL.Add('WHERE Class_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Torpedo_Definition');
+    SQL.Add('WHERE Class_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -14237,9 +14229,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Mine_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Mine_Index = b.Mine_Index');
-    SQL.Add('WHERE Mine_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Mine_Definition');
+    SQL.Add('WHERE Mine_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -14739,9 +14730,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Gun_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Gun_Index = b.Gun_Index');
-    SQL.Add('WHERE Gun_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Gun_Definition');
+    SQL.Add('WHERE Gun_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -15289,9 +15279,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Bomb_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Bomb_Index = b.Bomb_Index');
-    SQL.Add('WHERE Bomb_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Bomb_Definition');
+    SQL.Add('WHERE Bomb_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -16867,9 +16856,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Acoustic_Decoy_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Decoy_Index = b.Decoy_Index');
-    SQL.Add('WHERE Decoy_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Acoustic_Decoy_Definition');
+    SQL.Add('WHERE Decoy_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -17222,9 +17210,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Air_Bubble_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Air_Bubble_Index = b.Air_Bubble_Index');
-    SQL.Add('WHERE Air_Bubble_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Air_Bubble_Definition');
+    SQL.Add('WHERE Air_Bubble_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -17490,9 +17477,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Chaff_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Chaff_Index = b.Chaff_Index');
-    SQL.Add('WHERE Chaff_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Chaff_Definition');
+    SQL.Add('WHERE Chaff_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -17772,10 +17758,9 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Infrared_Decoy_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Infrared_Decoy_Index = b.Infrared_Decoy_Index');
-    SQL.Add('WHERE Infrared_Decoy_Identifier LIKE ' +
-      QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Infrared_Decoy_Definition');
+    SQL.Add('WHERE Infrared_Decoy_Identifier = ' +
+      QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -18322,10 +18307,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Defensive_Jammer_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Defensive_Jammer_Index = b.Defensive_Jammer_Index');
-    SQL.Add('WHERE Defensive_Jammer_Identifier LIKE ' +
-      QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Defensive_Jammer_Definition');
+    SQL.Add('WHERE Defensive_Jammer_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -18598,9 +18581,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Towed_Jammer_Decoy_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Towed_Decoy_Index = b.Towed_Decoy_Index');
-    SQL.Add('WHERE Towed_Decoy_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Towed_Jammer_Decoy_Definition');
+    SQL.Add('WHERE Towed_Decoy_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -18906,9 +18888,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Jammer_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Jammer_Index = b.Jammer_Index');
-    SQL.Add('WHERE Jammer_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Jammer_Definition');
+    SQL.Add('WHERE Jammer_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -20995,6 +20976,26 @@ begin
   end;
 end;
 
+function TdmTTT.GetRuntimePlatformLibraryDef(const aClassName: string): Integer;
+begin
+  Result := 0;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Runtime_Platform_Library');
+    SQL.Add('WHERE Library_Name = ' + QuotedStr(aClassName));
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetFilterRuntimePlatformLibraryDef(var aList: TList; aFilter: string): integer;
 var
   i : Integer;
@@ -22087,7 +22088,7 @@ begin
     SQL.Clear;
     SQL.Add('SELECT *');
     SQL.Add('FROM Radar_Interval_List');
-    SQL.Add('WHERE Interval_List_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('WHERE Interval_List_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -22757,7 +22758,7 @@ begin
     SQL.Clear;
     SQL.Add('SELECT *');
     SQL.Add('FROM Game_Defaults');
-    SQL.Add('WHERE Defaults_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('WHERE Defaults_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -23356,7 +23357,7 @@ begin
     SQL.Clear;
     SQL.Add('SELECT *');
     SQL.Add('FROM POD_vs_SNR_Curve_Definition');
-    SQL.Add('WHERE Curve_Definition_Identifier LIKE ' + QuotedStr(aClassName + '%'));
+    SQL.Add('WHERE Curve_Definition_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -27781,26 +27782,6 @@ begin
 end;
 
 // --------------------------------------------------------------------------
-
-function TdmTTT.GetRuntimePlatformLibraryDef(const aClassName: string): Integer;
-begin
-  Result := 0;
-
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROM Runtime_Platform_Library');
-    SQL.Add('WHERE Library_Name LIKE ' + QuotedStr(aClassName + '%'));
-    Open;
-
-    Result := RecordCount;
-  end;
-end;
 
 function TdmTTT.GetRuntimePlatLib(const aRAIndex: Integer;
   var aList: TList): Integer;
