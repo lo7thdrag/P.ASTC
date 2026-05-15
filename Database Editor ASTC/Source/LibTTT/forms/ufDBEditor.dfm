@@ -1180,7 +1180,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 2
-      ExplicitTop = 103
       object imgPlatforms: TImage
         Tag = 1
         Left = 0
@@ -2125,7 +2124,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 3
-      ExplicitTop = 143
       object Image1: TImage
         Left = 30
         Top = 97
@@ -2165,51 +2163,6 @@ object fDBEditor: TfDBEditor
           FBDBE121FC4E07B96C16A23433A3F44BC9CA74BA391D62FAE40B05FC067A85D3
           CD3F2BB6910000000049454E44AE426082}
         Stretch = True
-      end
-      object Image7: TImage
-        Left = 32
-        Top = 48
-        Width = 20
-        Height = 20
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000140000
-          001408060000008D891D0D00000009704859730000375D0000375D011980465D
-          000001F94944415478DAB5D44F4B14611C07F0EFF3CCB46AB35BAE5B5DC293C4
-          B297C8F022B210A2EEA64128B24A127A8DC87F482FA1A32F427C2375E814E441
-          90886E4156BBABADAEBA3B3BF3F47DE67934063A6DD3035F0606F6C3EFCFEC23
-          DE6C6FAB423E0FD775E1FB3EBA39411044BFCF781EC4FCE2A21A1E1941AD5AC5
-          A78383AE407DEE0E0EA2582C423C999D55A36363D87BBE841B5246490B893E21
-          D0CBA41897D1A7A314DACC0573CE9CAA108DD0A4F5E2259ECECD413C5B5E56E5
-          E969BC1D7F842CB17EE9202D053C8BFE0DD45893D869A8701C06382278BEF51A
-          DAB9023F4E8C2347ACDF56E911E9E3B30702D78C075F012D1024D024AA2B3B66
-          6A44BF6F6EC5C1CF9313C8391203442FDBBE2E4DDB2E6C8530ED9E857FDAAD13
-          AB0521BE6C6CC6C1AF5393B8ED3804256E12CDD8B67B84AE50D80A155AB6DD13
-          A2BF88D589FEE496F7D737E260B534853B1A746CDB57154AA4EC26DBCC05315D
-          61439976EBC47E301FD6D6E360A35C8A403DC72C5BCF10F2089B4D5B50216AB9
-          49E884E05160E6A7C1F7AB6B71F0EC7139026FD94D9B39B2425699B2336CEB19
-          46F3BB5C48802A9F1A7CF76AF53F8389B79CF85212FF6C12FFB013FFEB257639
-          2CADACA8CAC202761F3EF8A7EBEBFECE2EEE0D0D990B76BE52419AB76DBBCB1B
-          FBDBE121FC4E07B96C16A23433A3F44BC9CA74BA391D62FAE40B05FC067A85D3
-          CD3F2BB6910000000049454E44AE426082}
-        Stretch = True
-      end
-      object mnMotion: TLabel
-        Left = 63
-        Top = 48
-        Width = 47
-        Height = 21
-        Cursor = crHandPoint
-        Caption = 'Motion'
-        Color = clWindow
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Deusex'
-        Font.Style = []
-        ParentColor = False
-        ParentFont = False
-        Transparent = True
-        OnClick = MotionClick
       end
       object mnSatelite: TLabel
         Left = 61
@@ -2261,7 +2214,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 4
-      ExplicitTop = 83
     end
     object pnl2PlatformsSparator: TPanel
       Left = 8
@@ -2276,7 +2228,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 5
-      ExplicitTop = 168
     end
     object pnl3Sensors: TPanel
       Tag = 2
@@ -2292,7 +2243,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 6
-      ExplicitTop = 188
       object imgSensors: TImage
         Tag = 2
         Left = 0
@@ -3221,7 +3171,7 @@ object fDBEditor: TfDBEditor
       Left = 8
       Top = 226
       Width = 345
-      Height = 30
+      Height = 25
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 3
@@ -3503,7 +3453,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl3SensorsSparator: TPanel
       Left = 8
-      Top = 256
+      Top = 251
       Width = 345
       Height = 20
       Align = alTop
@@ -3514,12 +3464,12 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 8
-      ExplicitTop = 253
+      ExplicitTop = 256
     end
     object pnl4Weapons: TPanel
       Tag = 2
       Left = 8
-      Top = 276
+      Top = 271
       Width = 345
       Height = 40
       Cursor = crHandPoint
@@ -3530,7 +3480,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 9
-      ExplicitTop = 273
+      ExplicitTop = 276
       object imgWeapons: TImage
         Tag = 3
         Left = 0
@@ -4459,9 +4409,9 @@ object fDBEditor: TfDBEditor
     end
     object pnl4WeaponsBody: TPanel
       Left = 8
-      Top = 316
+      Top = 311
       Width = 345
-      Height = 28
+      Height = 25
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 3
@@ -4470,7 +4420,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 10
-      ExplicitTop = 302
       object Image16: TImage
         Left = 32
         Top = 17
@@ -4688,7 +4637,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl4WeaponsSparator: TPanel
       Left = 8
-      Top = 344
+      Top = 336
       Width = 345
       Height = 20
       Align = alTop
@@ -4699,12 +4648,12 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 11
-      ExplicitTop = 338
+      ExplicitTop = 344
     end
     object pnl5Countermeasur: TPanel
       Tag = 2
       Left = 8
-      Top = 364
+      Top = 356
       Width = 345
       Height = 40
       Cursor = crHandPoint
@@ -4715,7 +4664,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 12
-      ExplicitTop = 358
+      ExplicitTop = 364
       object imgCountermeasures: TImage
         Tag = 4
         Left = 0
@@ -5665,9 +5614,9 @@ object fDBEditor: TfDBEditor
     end
     object pnl5CountermeasuresBody: TPanel
       Left = 8
-      Top = 404
+      Top = 396
       Width = 345
-      Height = 30
+      Height = 25
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 3
@@ -6022,7 +5971,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl5CountermeasuresSparator: TPanel
       Left = 8
-      Top = 434
+      Top = 421
       Width = 345
       Height = 20
       Align = alTop
@@ -6033,12 +5982,12 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 14
-      ExplicitTop = 423
+      ExplicitTop = 434
     end
     object pnl6Other: TPanel
       Tag = 2
       Left = 8
-      Top = 454
+      Top = 441
       Width = 345
       Height = 40
       Cursor = crHandPoint
@@ -6049,7 +5998,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 15
-      ExplicitTop = 443
+      ExplicitTop = 454
       object imgOther: TImage
         Tag = 5
         Left = 0
@@ -6960,9 +6909,9 @@ object fDBEditor: TfDBEditor
     end
     object pnl6OtherBody: TPanel
       Left = 8
-      Top = 494
+      Top = 481
       Width = 345
-      Height = 27
+      Height = 171
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 3
@@ -6971,6 +6920,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 16
+      ExplicitTop = 494
       object Image48: TImage
         Left = 32
         Top = 17
@@ -7153,7 +7103,7 @@ object fDBEditor: TfDBEditor
       end
       object mnSNRvsPODCurve: TLabel
         Left = 63
-        Top = 141
+        Top = 79
         Width = 148
         Height = 21
         Cursor = crHandPoint
@@ -7168,7 +7118,7 @@ object fDBEditor: TfDBEditor
       end
       object mnStudentRoles: TLabel
         Left = 63
-        Top = 79
+        Top = 203
         Width = 99
         Height = 21
         Cursor = crHandPoint
@@ -7179,6 +7129,7 @@ object fDBEditor: TfDBEditor
         Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
+        Visible = False
         OnClick = StudentRolesClick
       end
       object Image15: TImage
@@ -7207,6 +7158,7 @@ object fDBEditor: TfDBEditor
           FBDBE121FC4E07B96C16A23433A3F44BC9CA74BA391D62FAE40B05FC067A85D3
           CD3F2BB6910000000049454E44AE426082}
         Stretch = True
+        Visible = False
       end
       object mnRadarActivationIntervals: TLabel
         Left = 63
@@ -7221,12 +7173,59 @@ object fDBEditor: TfDBEditor
         Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
+        Visible = False
         OnClick = RadarActivationIntervalsClick
+      end
+      object Image7: TImage
+        Left = 32
+        Top = 203
+        Width = 20
+        Height = 20
+        Picture.Data = {
+          0954506E67496D61676589504E470D0A1A0A0000000D49484452000000140000
+          001408060000008D891D0D00000009704859730000375D0000375D011980465D
+          000001F94944415478DAB5D44F4B14611C07F0EFF3CCB46AB35BAE5B5DC293C4
+          B297C8F022B210A2EEA64128B24A127A8DC87F482FA1A32F427C2375E814E441
+          90886E4156BBABADAEBA3B3BF3F47DE67934063A6DD3035F0606F6C3EFCFEC23
+          DE6C6FAB423E0FD775E1FB3EBA39411044BFCF781EC4FCE2A21A1E1941AD5AC5
+          A78383AE407DEE0E0EA2582C423C999D55A36363D87BBE841B5246490B893E21
+          D0CBA41897D1A7A314DACC0573CE9CAA108DD0A4F5E2259ECECD413C5B5E56E5
+          E969BC1D7F842CB17EE9202D053C8BFE0DD45893D869A8701C06382278BEF51A
+          DAB9023F4E8C2347ACDF56E911E9E3B30702D78C075F012D1024D024AA2B3B66
+          6A44BF6F6EC5C1CF9313C8391203442FDBBE2E4DDB2E6C8530ED9E857FDAAD13
+          AB0521BE6C6CC6C1AF5393B8ED3804256E12CDD8B67B84AE50D80A155AB6DD13
+          A2BF88D589FEE496F7D737E260B534853B1A746CDB57154AA4EC26DBCC05315D
+          61439976EBC47E301FD6D6E360A35C8A403DC72C5BCF10F2089B4D5B50216AB9
+          49E884E05160E6A7C1F7AB6B71F0EC7139026FD94D9B39B2425699B2336CEB19
+          46F3BB5C48802A9F1A7CF76AF53F8389B79CF85212FF6C12FFB013FFEB257639
+          2CADACA8CAC202761F3EF8A7EBEBFECE2EEE0D0D990B76BE52419AB76DBBCB1B
+          FBDBE121FC4E07B96C16A23433A3F44BC9CA74BA391D62FAE40B05FC067A85D3
+          CD3F2BB6910000000049454E44AE426082}
+        Stretch = True
+        Visible = False
+      end
+      object mnMotion: TLabel
+        Left = 63
+        Top = 141
+        Width = 47
+        Height = 21
+        Cursor = crHandPoint
+        Caption = 'Motion'
+        Color = clWindow
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -21
+        Font.Name = 'Deusex'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        Transparent = True
+        OnClick = MotionClick
       end
     end
     object pnl6OtherSparator: TPanel
       Left = 8
-      Top = 521
+      Top = 652
       Width = 345
       Height = 20
       Align = alTop
@@ -7237,12 +7236,12 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 17
-      ExplicitTop = 713
+      ExplicitTop = 521
     end
     object pnl8Shutdown: TPanel
       Tag = 2
       Left = 8
-      Top = 541
+      Top = 672
       Width = 345
       Height = 40
       Cursor = crHandPoint
@@ -7253,7 +7252,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 18
-      ExplicitTop = 733
+      ExplicitTop = 541
       object imgShutdown: TImage
         Tag = 7
         Left = 0
@@ -8198,7 +8197,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl8ShutdownBody: TPanel
       Left = 8
-      Top = 581
+      Top = 712
       Width = 345
       Height = 25
       Align = alTop
@@ -8209,7 +8208,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 19
-      ExplicitTop = 773
+      ExplicitTop = 581
       object Image66: TImage
         Left = 32
         Top = 17
@@ -8255,7 +8254,7 @@ object fDBEditor: TfDBEditor
     end
     object pnl8ShutdownSparator: TPanel
       Left = 8
-      Top = 606
+      Top = 737
       Width = 345
       Height = 8
       Align = alTop
@@ -8266,7 +8265,7 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 20
-      ExplicitTop = 798
+      ExplicitTop = 606
     end
     object Panel1: TPanel
       Left = 8

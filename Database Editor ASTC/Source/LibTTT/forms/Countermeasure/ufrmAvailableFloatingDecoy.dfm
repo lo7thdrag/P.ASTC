@@ -4,8 +4,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'frmAvailableFloatingDecoy'
-  ClientHeight = 461
-  ClientWidth = 784
+  ClientHeight = 831
+  ClientWidth = 1252
   Color = cl3DDkShadow
   DoubleBuffered = True
   ParentFont = True
@@ -21,45 +21,43 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 784
-    Height = 461
+    Width = 1252
+    Height = 831
     Align = alClient
     BevelOuter = bvNone
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 913
-    ExplicitHeight = 473
+    ExplicitWidth = 784
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 784
+      Width = 1252
       Height = 46
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 4
-      ExplicitWidth = 905
+      ExplicitWidth = 784
       object Label2: TLabel
-        Left = 3
-        Top = 14
-        Width = 157
-        Height = 19
+        Left = 10
+        Top = 13
+        Width = 177
+        Height = 21
         Caption = 'List of Floating Decoy '
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
-        Font.Height = -16
-        Font.Name = 'Tahoma'
+        Font.Height = -21
+        Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 160
+        Left = 672
         Top = 0
-        Width = 624
+        Width = 580
         Height = 46
         Align = alRight
         BevelOuter = bvNone
@@ -67,10 +65,10 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 377
+        ExplicitLeft = 628
         object btnDelete: TImage
-          Left = 590
-          Top = 9
+          Left = 532
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -198,8 +196,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 499
-          Top = 9
+          Left = 437
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -301,8 +299,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 462
-          Top = 9
+          Left = 397
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -423,8 +421,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 425
-          Top = 9
+          Left = 357
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -514,8 +512,8 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 553
-          Top = 9
+          Left = 492
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -644,21 +642,21 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
           OnClick = btnUsageClick
         end
         object Label1: TLabel
-          Left = 92
-          Top = 16
-          Width = 53
-          Height = 16
+          Left = 13
+          Top = 13
+          Width = 72
+          Height = 21
           Caption = 'Search : '
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
+          Font.Height = -21
+          Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
         end
         object edtSearch: TEdit
-          Left = 153
-          Top = 11
+          Left = 95
+          Top = 10
           Width = 247
           Height = 25
           AutoSize = False
@@ -676,23 +674,20 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
     object pnlTableList: TPanel
       Left = 0
       Top = 46
-      Width = 784
-      Height = 415
+      Width = 1252
+      Height = 785
       Align = alClient
       BevelOuter = bvNone
-      Color = clScrollBar
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 50
-      ExplicitWidth = 905
-      ExplicitHeight = 419
+      ExplicitWidth = 784
+      ExplicitHeight = 415
       object lstFloatingDecoy: TListBox
-        Left = 0
+        Left = 10
         Top = 0
-        Width = 784
-        Height = 415
-        Align = alClient
+        Width = 1231
+        Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -702,8 +697,6 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 905
-        ExplicitHeight = 419
       end
     end
   end

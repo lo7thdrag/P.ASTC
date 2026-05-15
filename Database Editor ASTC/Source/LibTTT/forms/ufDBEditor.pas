@@ -25,8 +25,6 @@ type
     imgPlatforms: TImage;
     pnl2PlatformsBody: TPanel;
     Image6: TImage;
-    Image7: TImage;
-    mnMotion: TLabel;
     mnVehicle: TLabel;
     pnl1ExerciseSparator: TPanel;
     pnl2PlatformsSparator: TPanel;
@@ -169,6 +167,8 @@ type
     Image29: TImage;
     Panel1: TPanel;
     pnlHome: TPanel;
+    Image7: TImage;
+    mnMotion: TLabel;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -789,7 +789,6 @@ begin
   frmAvailableSNRvsPODCurve.Show;
 end;
 
-
 {$ENDREGION}
 
 {$REGION ' Shutdown Sub Menu Section '}
@@ -991,7 +990,7 @@ begin
     end;
     1:
     begin
-      if pnl2PlatformsBody.Height < (mnMotion.Top + 38) then
+      if pnl2PlatformsBody.Height < (mnVehicle.Top + 38) then
         pnl2PlatformsBody.Height := pnl2PlatformsBody.Height + 2
       else
       begin
@@ -1055,7 +1054,7 @@ begin
     end;
      5:
     begin
-      if pnl6OtherBody.Height < (mnRadarActivationIntervals.Top + 38) then
+      if pnl6OtherBody.Height < (mnMotion.Top + 38) then
         pnl6OtherBody.Height := pnl6OtherBody.Height + 2
       else
       begin

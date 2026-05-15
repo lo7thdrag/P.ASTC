@@ -288,7 +288,7 @@ begin
   end;
 
   {Jika Class Name sudah ada}
-  if (dmTTT.GetSonarDef(edtClass.Text)>0) then
+  if (dmTTT.GetSonobuoyDef(edtClass.Text)>0) then
   begin
     {Jika inputan baru}
     if FSelectedSonobuoy.FDef.Sonobuoy_Index = 0 then

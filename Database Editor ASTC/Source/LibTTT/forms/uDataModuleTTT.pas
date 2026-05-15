@@ -786,7 +786,6 @@ type
     function GetAirBubbleDef(var aList: TList): Integer; overload;
     function GetChaffDef(var aList: TList): Integer; overload;
     function GetInfraredDecoyDef(var aList: TList): Integer; overload;
-    function GetFloatingDecoyDef(var aList: TList): Integer; overload;
     function GetSelfDefensiveJammerDef(var aList: TList): Integer; overload;
     function GetTowedJammerDecoyDef(var aList: TList): Integer; overload;
     function GetRadarNoiseJammerDef(var aList: TList): Integer; overload;
@@ -1344,7 +1343,7 @@ type
     {Tidak ada yang memanggil}
     function getSensor_On_Board(const index, id: Integer; sens_name: string): Boolean;
     function GetAllRadar(var aList: TList): Integer; {bs memakai GetAllRadarDef}
-    function GetRadarDef(var aList: TList): Integer; overload; {bs memakai GetAllRadarDef}
+//    function GetRadarDef(var aList: TList): Integer; overload; {bs memakai GetAllRadarDef}
     function GetRadar_Definition(var aRec: TList): boolean; {bs memakai GetAllRadarDef}
     function Check_Radar(aName: String): Boolean; {bs memakai GetRadarDef}
 
@@ -1358,7 +1357,7 @@ type
     function GetEODef(var aList: TList): Integer; overload; {bs memakai GetAllEODef}
     function Check_EOD(aName: String): Boolean; {bs memakai GetEODef}
 
-    function GetSonobuoyDef(var aList: TList): Integer; overload; {bs memakai GetAllSonobuoyDef}
+//    function GetSonobuoyDef(var aList: TList): Integer; overload; {bs memakai GetAllSonobuoyDef}
     function GetAllSonobuoy(var aList: TList): Integer; overload; {bs memakai GetAllSonobuoyDef}
     function Check_Sonobuoy(aName: String): Boolean; {bs memakai GetSonarDef}
 
@@ -18046,10 +18045,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Floating_Decoy_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Floating_Decoy_Index = b.Floating_Decoy_Index');
-    SQL.Add('WHERE Floating_Decoy_Identifier LIKE ' +
-      QuotedStr(aClassName + '%'));
+    SQL.Add('FROM Floating_Decoy_Definition ');
+    SQL.Add('WHERE Floating_Decoy_Identifier = ' + QuotedStr(aClassName));
     Open;
 
     Result := RecordCount;
@@ -18103,8 +18100,7 @@ begin
         with rec.FFloatingDecoy_Def do
         begin
           Floating_Decoy_Index := FieldByName('Floating_Decoy_Index').AsInteger;
-          Floating_Decoy_Identifier := FieldByName('Floating_Decoy_Identifier')
-            .AsString;
+          Floating_Decoy_Identifier := FieldByName('Floating_Decoy_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
@@ -18483,8 +18479,7 @@ begin
   end;
 end;
 
-function TdmTTT.DeleteSelfDefensiveJammerDef(
-  const aSelfDefensiveJammerIndex: Integer): Boolean;
+function TdmTTT.DeleteSelfDefensiveJammerDef(const aSelfDefensiveJammerIndex: Integer): Boolean;
 begin
   Result := False;
 
@@ -56232,121 +56227,6 @@ begin
   end;
 end;
 
-function TdmTTT.GetRadarDef(var aList: TList): Integer;
-var
-  i : Integer;
-  rec : TRadar_On_Board;
-begin
-  Result := -1;
-
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROM Radar_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Radar_Index = b.Radar_Index');
-    SQL.Add('ORDER BY a.Radar_Identifier');
-    Open;
-
-    Result := RecordCount;
-
-    if Assigned(aList) then
-    begin
-      for i := 0 to aList.Count - 1 do
-      begin
-        rec := aList.Items[i];
-        rec.Free;
-      end;
-
-      aList.Clear;
-    end
-    else
-      aList := TList.Create;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not Eof do
-      begin
-        rec := TRadar_On_Board.Create;
-
-        with rec.FDef do
-        begin
-          Radar_Index := FieldByName('Radar_Index').AsInteger;
-          Radar_Identifier := FieldByName('Radar_Identifier').AsString;
-          Radar_Emitter := FieldByName('Radar_Emitter').AsString;
-          Radar_Type := FieldByName('Radar_Type').AsInteger;
-          Frequency := FieldByName('Frequency').AsSingle;
-          Scan_Rate := FieldByName('Scan_Rate').AsSingle;
-          Pulse_Rep_Freq := FieldByName('Pulse_Rep_Freq').AsSingle;
-          Pulse_Width := FieldByName('Pulse_Width').AsSingle;
-          Radar_Power := FieldByName('Radar_Power').AsSingle;
-          Detection_Range := FieldByName('Detection_Range').AsSingle;
-          Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
-          Max_Unambig_Detect_Range := FieldByName('Max_Unambig_Detect_Range')
-            .AsSingle;
-          IFF_Capability := FieldByName('IFF_Capability').AsBoolean;
-          Altitude_Data_Capability := FieldByName('Altitude_Data_Capability')
-            .AsBoolean;
-          Ground_Speed_Data_Capability := FieldByName
-            ('Ground_Speed_Data_Capability').AsBoolean;
-          Heading_Data_Capability := FieldByName('Heading_Data_Capability')
-            .AsBoolean;
-          Plat_Type_Recog_Capability := FieldByName
-            ('Plat_Type_Recog_Capability')
-            .AsBoolean;
-          Plat_Class_Recog_Capability := FieldByName
-            ('Plat_Class_Recog_Capability').AsBoolean;
-          Clutter_Rejection := FieldByName('Clutter_Rejection').AsSingle;
-          Anti_Jamming_Capable := FieldByName('Anti_Jamming_Capable').AsBoolean;
-          Curve_Definition_Index := FieldByName('Curve_Definition_Index')
-            .AsInteger;
-          Second_Vert_Coverage := FieldByName('Second_Vert_Coverage').AsBoolean;
-          Jamming_A_Resistant := FieldByName('Jamming_A_Resistant').AsBoolean;
-          Jamming_B_Resistant := FieldByName('Jamming_B_Resistant').AsBoolean;
-          Jamming_C_Resistant := FieldByName('Jamming_C_Resistant').AsBoolean;
-          Anti_Jamming_A_Resistant := FieldByName('Anti_Jamming_A_Resistant')
-            .AsBoolean;
-          Anti_Jamming_B_Resistant := FieldByName('Anti_Jamming_B_Resistant')
-            .AsBoolean;
-          Anti_Jamming_C_Resistant := FieldByName('Anti_Jamming_C_Resistant')
-            .AsBoolean;
-          Anti_Jamming_Range_Reduction := FieldByName
-            ('Anti_Jamming_Range_Reduction').AsSingle;
-          Beam_Width := FieldByName('Beam_Width').AsSingle;
-          Sector_Scan_Capable := FieldByName('Sector_Scan_Capable').AsBoolean;
-          Off_Axis_Jammer_Reduction := FieldByName('Off_Axis_Jammer_Reduction')
-            .AsSingle;
-          Num_FCR_Channels := FieldByName('Num_FCR_Channels').AsInteger;
-          Radar_Spot_Number := FieldByName('Radar_Spot_Number').AsInteger;
-          Radar_Horizon_Factor := FieldByName('Radar_Horizon_Factor').AsSingle;
-          Main_Lobe_Gain := FieldByName('Main_Lobe_Gain').AsSingle;
-          Counter_Detection_Factor := FieldByName('Counter_Detection_Factor')
-            .AsSingle;
-          ECCM_Type := FieldByName('ECCM_Type').AsInteger;
-          MTI_Capable := FieldByName('MTI_Capable').AsBoolean;
-          MTI_MinTargetSpeed := FieldByName('MTI_MinTargetSpeed').AsSingle;
-        end;
-
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-
-        aList.Add(rec);
-        Next;
-      end;
-    end;
-  end;
-end;
-
 function TdmTTT.GetRadar_Definition(var aRec: TList): boolean;
 var
   rec: TRadar_On_Board;
@@ -56959,85 +56839,6 @@ begin
     Open;
 
     Result := RecordCount > 0;
-  end;
-end;
-
-function TdmTTT.GetSonobuoyDef(var aList: TList): Integer;
-var
-  i : Integer;
-  rec : TSonobuoy_On_Board;
-begin
-  Result := -1;
-
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROM Sonobuoy_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Sonobuoy_Index = b.Sonobuoy_Index');
-    SQL.Add('ORDER BY Class_Identifier');
-    Open;
-
-    Result := RecordCount;
-
-    if Assigned(aList) then
-    begin
-      for i := 0 to aList.Count - 1 do
-      begin
-        rec := aList.Items[i];
-        rec.Free;
-      end;
-
-      aList.Clear;
-    end
-    else
-      aList := TList.Create;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not Eof do
-      begin
-        rec := TSonobuoy_On_Board.Create;
-
-        with rec.FDef do
-        begin
-          Sonobuoy_Index := FieldByName('Sonobuoy_Index').AsInteger;
-          Class_Identifier := FieldByName('Class_Identifier').AsString;
-          Sonobuoy_Type := FieldByName('Sonobuoy_Type').AsInteger;
-          Platform_Domain := FieldByName('Platform_Domain').AsInteger;
-          Platform_Category := FieldByName('Platform_Category').AsInteger;
-          Platform_Type := FieldByName('Platform_Type').AsInteger;
-          Endurance_Time := FieldByName('Endurance_Time').AsInteger;
-          Max_Depth := FieldByName('Max_Depth').AsSingle;
-          Length := FieldByName('Length').AsSingle;
-          Width := FieldByName('Width').AsSingle;
-          Height := FieldByName('Height').AsSingle;
-          Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
-          Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
-          Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
-          CPA_Detection_Capable := FieldByName('CPA_Detection_Capable')
-            .AsInteger;
-          CPA_Range_Limit := FieldByName('CPA_Range_Limit').AsSingle;
-          Sonar_Index := FieldByName('Sonar_Index').AsInteger;
-        end;
-
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-
-        aList.Add(rec);
-        Next;
-      end;
-    end;
   end;
 end;
 
@@ -57972,83 +57773,6 @@ begin
           Max_Dissipation_Time := FieldByName('Max_Dissipation_Time').AsInteger;
           Min_Dissipation_Time := FieldByName('Min_Dissipation_Time').AsInteger;
           Descent_Rate := FieldByName('Descent_Rate').AsSingle;
-        end;
-
-        with rec.FNote do
-        begin
-          Note_Index := FieldByName('Note_Index').AsInteger;
-          Note_Type := FieldByName('Note_Type').AsInteger;
-          Notes := FieldByName('Notes').AsString;
-        end;
-
-        aList.Add(rec);
-        Next;
-      end;
-    end;
-  end;
-end;
-
-function TdmTTT.GetFloatingDecoyDef(var aList: TList): Integer;
-var
-  i : Integer;
-  rec : TFloating_Decoy_On_Board;
-begin
-  Result := -1;
-
-  if not ZConn.Connected then
-    Exit;
-
-  with ZQ do
-  begin
-    Close;
-    SQL.Clear;
-    SQL.Add('SELECT *');
-    SQL.Add('FROM Floating_Decoy_Definition a LEFT JOIN Note_Storage b');
-    SQL.Add('ON a.Floating_Decoy_Index = b.Floating_Decoy_Index');
-    SQL.Add('ORDER BY a.Floating_Decoy_Identifier');
-    Open;
-
-    Result := RecordCount;
-
-    if Assigned(aList) then
-    begin
-      for i := 0 to aList.Count - 1 do
-      begin
-        rec := aList.Items[i];
-        rec.Free;
-      end;
-
-      aList.Clear;
-    end
-    else
-      aList := TList.Create;
-
-    if not IsEmpty then
-    begin
-      First;
-
-      while not Eof do
-      begin
-        rec := TFloating_Decoy_On_Board.Create;
-
-        with rec.FFloatingDecoy_Def do
-        begin
-          Floating_Decoy_Index := FieldByName('Floating_Decoy_Index').AsInteger;
-          Floating_Decoy_Identifier := FieldByName('Floating_Decoy_Identifier')
-            .AsString;
-          Platform_Domain := FieldByName('Platform_Domain').AsInteger;
-          Platform_Category := FieldByName('Platform_Category').AsInteger;
-          Platform_Type := FieldByName('Platform_Type').AsInteger;
-          Length := FieldByName('Length').AsSingle;
-          Width := FieldByName('Width').AsSingle;
-          Height := FieldByName('Height').AsSingle;
-          Front_Radar_Cross := FieldByName('Front_Radar_Cross').AsSingle;
-          Side_Radar_Cross := FieldByName('Side_Radar_Cross').AsSingle;
-          Front_Visual_Cross := FieldByName('Front_Visual_Cross').AsSingle;
-          Side_Visual_Cross := FieldByName('Side_Visual_Cross').AsSingle;
-          Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
-          Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
-          Lifetime_Duration := FieldByName('Lifetime_Duration').AsSingle;
         end;
 
         with rec.FNote do

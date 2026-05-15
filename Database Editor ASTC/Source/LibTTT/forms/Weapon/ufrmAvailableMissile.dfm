@@ -29,8 +29,6 @@ object frmAvailableMissile: TfrmAvailableMissile
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -702,13 +700,10 @@ object frmAvailableMissile: TfrmAvailableMissile
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 784
-      ExplicitHeight = 415
       object lstMissile: TListBox
         Left = 10
         Top = 0
-        Width = 1252
+        Width = 1231
         Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
