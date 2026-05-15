@@ -2390,6 +2390,7 @@ object frmOther: TfrmOther
       D7BF7A87DA8B0A73767018C9F81623806BCB79817291C0FF0339615C45BDC55B
       290000000049454E44AE426082}
     Stretch = True
+    OnClick = imgStudentRolesClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -5278,6 +5279,7 @@ object frmOther: TfrmOther
       1758E15F98CFBFDEAD2AB713BCFE7F7F961DE1BA66CA200000000049454E44AE
       426082}
     Stretch = True
+    OnClick = imgGraphicalOverlayClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -9051,6 +9053,7 @@ object frmOther: TfrmOther
       35CAC8C8C8D80940FB47B10862739EE01C1774736A2FC4E6FF03C20CB4297E6A
       D60D0000000049454E44AE426082}
     Stretch = True
+    OnClick = imgRuntimePlatfromLibraryClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -13400,6 +13403,7 @@ object frmOther: TfrmOther
       6B5428CF81CECECE2C755A331858A115C28132973299CCB7B08D2D683B552838
       FC3F38452CFCB0B14C7B0000000049454E44AE426082}
     Stretch = True
+    OnClick = imgGameDefaultClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -18330,6 +18334,7 @@ object frmOther: TfrmOther
       0A0A0A0A0A0A0A868042C20A0A0A0A0A0A0A0A868042C20A0A0A0A0A0A0A0A86
       80FF0FA021BE154F57FEE80000000049454E44AE426082}
     Stretch = True
+    OnClick = imgRadarActivationIntervalsClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end
@@ -20819,6 +20824,7 @@ object frmOther: TfrmOther
       399D9C9C8CC412113140483009BBD3F94326FF6B274916E1FF0303A2D924B369
       17770000000049454E44AE426082}
     Stretch = True
+    OnClick = imgSNRClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
   end

@@ -17,6 +17,12 @@ type
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
+    procedure imgRuntimePlatfromLibraryClick(Sender: TObject);
+    procedure imgGraphicalOverlayClick(Sender: TObject);
+    procedure imgStudentRolesClick(Sender: TObject);
+    procedure imgGameDefaultClick(Sender: TObject);
+    procedure imgSNRClick(Sender: TObject);
+    procedure imgRadarActivationIntervalsClick(Sender: TObject);
 
   private
     iconName : string;
@@ -32,6 +38,10 @@ var
   frmOther: TfrmOther;
 
 implementation
+
+uses
+  ufDBEditor, ufrmAvailableRuntimePlatformLibrary, ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles, ufrmAvailableGameDefaults,
+  ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals;
 
 {$R *.dfm}
 
@@ -84,6 +94,60 @@ begin
   imgChoice := '.PNG';
 
   IconLoad;
+end;
+
+procedure TfrmOther.imgGameDefaultClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableGameDefaults) then
+    frmAvailableGameDefaults := TfrmAvailableGameDefaults.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableGameDefaults.Show;
+end;
+
+procedure TfrmOther.imgGraphicalOverlayClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableGrapicalOverlay) then
+    frmAvailableGrapicalOverlay := TfrmAvailableGrapicalOverlay.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableGrapicalOverlay.Show;
+end;
+
+procedure TfrmOther.imgRadarActivationIntervalsClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableRadarActivationIntervals) then
+    frmAvailableRadarActivationIntervals := TfrmAvailableRadarActivationIntervals.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableRadarActivationIntervals.Show;
+end;
+
+procedure TfrmOther.imgRuntimePlatfromLibraryClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableRuntimePlatformLibrary) then
+    frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableRuntimePlatformLibrary.Show;
+end;
+
+procedure TfrmOther.imgSNRClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableSNRvsPODCurve) then
+    frmAvailableSNRvsPODCurve := TfrmAvailableSNRvsPODCurve.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableSNRvsPODCurve.Show;
+end;
+
+procedure TfrmOther.imgStudentRolesClick(Sender: TObject);
+begin
+  if not Assigned(frmAvailableStudentRoles) then
+    frmAvailableStudentRoles := TfrmAvailableStudentRoles.Create(self);
+
+  fDBEditor.LoadImageVariasi(0);
+  frmAvailableStudentRoles.Show;
 end;
 
 end.
