@@ -90,6 +90,7 @@ begin
       SelectedEO := TEOD_On_Board.Create;
       ShowModal;
       SelectedEO.Free;
+
       FUpdateList := AfterClose;
     end;
   finally

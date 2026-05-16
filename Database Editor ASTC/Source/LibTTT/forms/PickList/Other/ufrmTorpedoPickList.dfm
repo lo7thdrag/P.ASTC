@@ -4,8 +4,8 @@ object frmTorpedoPickList: TfrmTorpedoPickList
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   Torpedo Definition List'
-  ClientHeight = 471
-  ClientWidth = 280
+  ClientHeight = 671
+  ClientWidth = 494
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,25 +15,29 @@ object frmTorpedoPickList: TfrmTorpedoPickList
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 0
-    Width = 280
-    Height = 423
+    Top = 40
+    Width = 494
+    Height = 588
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 0
+    ExplicitWidth = 280
+    ExplicitHeight = 423
     object lstAvailableTorpedo: TListBox
       Left = 10
       Top = 10
-      Width = 260
-      Height = 403
+      Width = 474
+      Height = 568
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -45,67 +49,103 @@ object frmTorpedoPickList: TfrmTorpedoPickList
       TabOrder = 0
       OnClick = lstAvailableTorpedoClick
       OnDblClick = lstAvailableTorpedoDblClick
+      ExplicitWidth = 260
+      ExplicitHeight = 403
     end
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 428
-    Width = 280
+    Top = 628
+    Width = 494
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 428
+    ExplicitWidth = 280
     object btnCancel: TButton
-      Left = 195
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 404
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnCancelClick
     end
     object btnAdd: TButton
-      Left = 115
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 314
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Pick'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnAddClick
     end
   end
-  object pnlSparatorHor2: TPanel
+  object pnlTableHeader: TPanel
     Left = 0
-    Top = 423
-    Width = 280
-    Height = 5
-    Align = alBottom
+    Top = 0
+    Width = 494
+    Height = 40
+    ParentCustomHint = False
+    Align = alTop
     BevelOuter = bvNone
-    Color = clBackground
+    BiDiMode = bdLeftToRight
+    Color = 2499101
+    Ctl3D = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
     ParentBackground = False
+    ParentCtl3D = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     TabOrder = 2
-    object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 280
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
+    ExplicitTop = 8
+    object Label2: TLabel
+      Left = 166
+      Top = 14
+      Width = 62
+      Height = 21
+      Caption = 'Search :'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object edtSearch: TEdit
+      Left = 237
+      Top = 12
+      Width = 247
+      Height = 25
+      AutoSize = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
     end
   end
 end

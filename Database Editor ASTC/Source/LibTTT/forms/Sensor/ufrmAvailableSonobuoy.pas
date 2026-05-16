@@ -90,6 +90,7 @@ begin
       SelectedSonobuoy := TSonobuoy_On_Board.Create;
       ShowModal;
       SelectedSonobuoy.Free;
+
       FUpdateList := AfterClose;
     end;
   finally

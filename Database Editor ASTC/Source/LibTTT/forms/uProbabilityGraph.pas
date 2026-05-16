@@ -5,7 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, ImgList, ToolWin, Buttons,
-  newClassASTT, System.ImageList;
+  newClassASTT, System.ImageList,
+
+  uSimContainers;
 
 type
   E_ProbabilityGraph = (pgTorpedo, pgMine, pgGunAir, pgGunSurfaceLand, pgBomb, pgSNRvsPOD);
@@ -78,6 +80,7 @@ type
     procedure edtAspectMaxKeyPress(Sender: TObject; var Key: Char);
     procedure edtProbabilityMinKeyPress(Sender: TObject; var Key: Char);
     procedure edtProbabilityMaxKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
   private
     FProbabilityGraph : E_ProbabilityGraph;
     FSelectedProbObj : TObject;
@@ -334,9 +337,22 @@ begin
   btnApply.Enabled := False;
 end;
 
+procedure TProbabilityGraph.FormCreate(Sender: TObject);
+begin
+  FProbabilityPointList := TList.Create;
+  FDeletedProbabilityPointList := TList.Create;
+end;
+
+procedure TProbabilityGraph.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FProbabilityPointList);
+  FreeItemsAndFreeList(FDeletedProbabilityPointList);
+end;
+
 {$ENDREGION}
 
 {$REGION ' Button Handle '}
+
 procedure TProbabilityGraph.btnDeleteClick(Sender: TObject);
 var
   i : Integer;
@@ -681,8 +697,7 @@ begin
   end;
 end;
 
-procedure TProbabilityGraph.edtAspectMaxKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TProbabilityGraph.edtAspectMaxKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -698,8 +713,7 @@ begin
   end;
 end;
 
-procedure TProbabilityGraph.edtAspectMinKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TProbabilityGraph.edtAspectMinKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -715,8 +729,7 @@ begin
   end;
 end;
 
-procedure TProbabilityGraph.edtProbabilityMaxKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TProbabilityGraph.edtProbabilityMaxKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -732,8 +745,7 @@ begin
   end;
 end;
 
-procedure TProbabilityGraph.edtProbabilityMinKeyPress(Sender: TObject;
-  var Key: Char);
+procedure TProbabilityGraph.edtProbabilityMinKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin
@@ -881,8 +893,7 @@ begin
   end;
 end;
 
-procedure TProbabilityGraph.ConvertPositionToValue(const aX, aY: Integer;
-  var aAspect, aProbability: Double);
+procedure TProbabilityGraph.ConvertPositionToValue(const aX, aY: Integer; var aAspect, aProbability: Double);
 var
   posPercent : Double;
 begin
@@ -894,8 +905,7 @@ begin
     ((FProbabilityMax - FProbabilityMin) * posPercent);
 end;
 
-procedure TProbabilityGraph.ConvertValueToPosition(const aAspect,
-  aProbability: Double; var aX, aY: Integer);
+procedure TProbabilityGraph.ConvertValueToPosition(const aAspect, aProbability: Double; var aX, aY: Integer);
 var
   posPercent : Double;
 begin
@@ -907,14 +917,7 @@ begin
   aY := FGrid.Bottom - Round((FGrid.Bottom - FGrid.Top) * posPercent);
 end;
 
-procedure TProbabilityGraph.FormCreate(Sender: TObject);
-begin
-  FProbabilityPointList := TList.Create;
-  FDeletedProbabilityPointList := TList.Create;
-end;
-
-function TProbabilityGraph.GetPointPosition(const aAspect,
-  aProbability: Double): Integer;
+function TProbabilityGraph.GetPointPosition(const aAspect, aProbability: Double): Integer;
 var
   i : Integer;
   data : TObject;
@@ -1047,8 +1050,7 @@ begin
   DrawPoint;
 end;
 
-procedure TProbabilityGraph.imgGraphMouseDown(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TProbabilityGraph.imgGraphMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
   i, posX, posY, pointIndex : Integer;
   data : TObject;
@@ -1227,8 +1229,7 @@ begin
   end;
 end;
 
-procedure TProbabilityGraph.imgGraphMouseMove(Sender: TObject;
-  Shift: TShiftState; X, Y: Integer);
+procedure TProbabilityGraph.imgGraphMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 var
   aspect, probability : Double;
 begin
@@ -1251,8 +1252,7 @@ begin
   FIsDragPoint := btnSelect.Down and FIsMouseDown and Assigned(FSelectedPoint);
 end;
 
-procedure TProbabilityGraph.imgGraphMouseUp(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TProbabilityGraph.imgGraphMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
   newAspect, newProbability : Double;
   pointIndex, i, j : Integer;
@@ -1384,6 +1384,7 @@ begin
 
   UpdateProbabilityGraphForm;
 end;
+
 {$ENDREGION}
 
 end.

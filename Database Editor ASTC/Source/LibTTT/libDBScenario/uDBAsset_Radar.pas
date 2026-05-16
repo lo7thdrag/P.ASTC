@@ -338,12 +338,9 @@ end;
 
 destructor TRadar_Vertical.Destroy;
 begin
+  FreeItemsAndFreeList(covDiagram1);
+  FreeItemsAndFreeList(covDiagram2);
   FreeItemsAndFreeList(FData);
-  covDiagram1.Clear;
-  covDiagram2.Clear;
-
-  covDiagram1.Free;
-  covDiagram2.Free;
 
   inherited;
 end;

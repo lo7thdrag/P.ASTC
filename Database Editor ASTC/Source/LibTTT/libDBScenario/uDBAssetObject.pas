@@ -465,32 +465,12 @@ begin
   Satellite := TSatellite_Definition.Create;
   Sonobuoy := TSonobuoy_On_Board.Create;
   Hybrid := THybrid_Definition.Create;
-  // Missile   := TMissile_Definition.Create;
-  // Torpedo   := TTorpedo_Definition.Create;
-  { Mines     := TMine_Definition.Create;
-    Hybrid    := THybrid_Definition.Create;
-    }
 
   FMissileViews := TDrawContainers.Create;
   FTorpedoViews := TDrawContainers.Create;
 
-  { FChilds.AddObject(Vehicle  );
-    FChilds.AddObject(Missile  );
-    FChilds.AddObject(Torpedo  );
-    FChilds.AddObject(Mines    );
-    FChilds.AddObject(Hybrid   );
-    FChilds.AddObject(Satellite);
-    FChilds.AddObject(Sonobuoy );
-    }
-
   FTacticalSymbol := TTacticalSymbol.Create;
-  //FTacticalSymbol.Color := cgFriend;
 
-  //vSymbolSetting.DefaultSymbol := 'SurfaceFriend' + '.bmp';
-  //FTacticalSymbol.Symbol.LoadBitmap(vSymbolSetting.ImgPath + vSymbolSetting.DefaultSymbol,
-  //                                  cgFriend);
-
-  //label
   FOrderedSpeed    := 0;
   FOrderedHeading  := 0;
   FOrderedAltitude := 0;
@@ -524,46 +504,22 @@ destructor TPlatform_Instance.Destroy;
 begin
   FMover.Free;
   FHisCounter.Free;
-  Vehicle.Free;
-  Satellite.Free;
-  Sonobuoy.Free;
-  Hybrid.Free;
+
+  FVHistory.Free;
+  FTacticalSymbol.Free;
 
   FMissileViews.Free;
   FTorpedoViews.Free;
-
-  FTacticalSymbol.Free;
-
-  FVHistory.Free;
-
   FDetectedObject.Free;
-//======================================= new ==========================
 
-//  FVHistory.Free;
-//  FTacticalSymbol.Free;
-//
-//  FMissileViews.ClearItems;
-//  FMissileViews.Free;
-//
-//  FTorpedoViews.ClearItems;
-//  FTorpedoViews.Free;
-//
-//  FMover.Free;
-//
-//  if Assigned(Vehicle) then
-//    FreeAndNil(Vehicle);
-//  if Assigned(Satellite) then
-//    FreeAndNil(Satellite);
-//  if Assigned(Sonobuoy) then
-//    FreeAndNil(Sonobuoy);
-  // if Assigned(Missile   ) then FreeAndNil(Missile   );
-  // if Assigned(Torpedo   ) then FreeAndNil(Torpedo   );
-  { if Assigned(Mines     ) then FreeAndNil(Mines     );
-    if Assigned(Hybrid    ) then FreeAndNil(Hybrid    );
-    if Assigned(Chaff     ) then FreeAndNil(Chaff     );
-    }  // if Assigned(Jammer    ) then FreeAndNil(Jammer    );
-  // if Assigned(AcousticDecoy) then FreeAndNil(AcousticDecoy);
-  // if Assigned(AirBubble ) then FreeAndNil(AirBubble );
+  if Assigned(Vehicle) then
+    FreeAndNil(Vehicle);
+  if Assigned(Satellite) then
+    FreeAndNil(Satellite);
+  if Assigned(Sonobuoy) then
+    FreeAndNil(Sonobuoy);
+  if Assigned(Hybrid) then
+    FreeAndNil(Hybrid);
 
   inherited;
 end;

@@ -91,8 +91,9 @@ begin
     begin
       SelectedFloatingDecoy := TFloating_Decoy_On_Board.Create;
       ShowModal;
-      FUpdateList := AfterClose;
       SelectedFloatingDecoy.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryFloatingDecoy.Free;

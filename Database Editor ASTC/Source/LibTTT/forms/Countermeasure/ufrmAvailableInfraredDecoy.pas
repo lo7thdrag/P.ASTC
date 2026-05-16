@@ -92,8 +92,9 @@ begin
     begin
       SelectedInfraredDecoy := TInfrared_Decoy_On_Board.Create;
       ShowModal;
-      FUpdateList := AfterClose;
       SelectedInfraredDecoy.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryInfraredDecoy.Free;

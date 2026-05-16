@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uDBAsset_Weapon;
+
+  uDBAsset_Weapon, uSimContainers;
 
 type
   TfrmAvailableMine = class(TForm)
@@ -35,6 +36,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -67,6 +69,11 @@ begin
   FMineList := TList.Create;
 end;
 
+procedure TfrmAvailableMine.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FMineList);
+end;
+
 procedure TfrmAvailableMine.FormShow(Sender: TObject);
 begin
   UpdateMineList;
@@ -84,9 +91,10 @@ begin
     begin
       SelectedMine := TMine_On_Board.Create;
       ShowModal;
+      SelectedMine.Free;
+
       FUpdateList := AfterClose;
     end;
-
   finally
     frmSummaryMine.Free;
   end;

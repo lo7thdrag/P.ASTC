@@ -91,8 +91,9 @@ begin
     begin
       SelectedChaff := TChaff_On_Board.Create;
       ShowModal;
-      FUpdateList := AfterClose;
       SelectedChaff.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryChaff.Free;

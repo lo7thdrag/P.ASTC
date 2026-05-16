@@ -126,8 +126,9 @@ end;
 
 destructor TDrawContainers.Destroy;
 begin
+  FreeItemsAndFreeList(FList);
 
-  ClearAndFreeItems(FList);
+//  ClearAndFreeItems(FList);
   inherited;
 end;
 

@@ -90,8 +90,9 @@ begin
     begin
       SelectedAcousticDecoy := TAcoustic_Decoy_On_Board.Create;
       ShowModal;
-      FUpdateList := AfterClose;
       SelectedAcousticDecoy.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryAcousticDecoy.Free;

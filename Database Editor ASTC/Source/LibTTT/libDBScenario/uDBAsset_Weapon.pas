@@ -6,7 +6,7 @@ uses
 
   tttData,Classes, uDBNote_Storage, uDBAssetObject, uDBAsset_Vehicle, uSimObjects,
   Graphics, uObjectVisuals, uCoordConvertor, uDBBlind_Zone, uLibSettingTTT, u2DMover,
-  uBaseCoordSystem, uDataTypes, uDBAsset_Countermeasure, newClassASTT;
+  uBaseCoordSystem, uDataTypes, uDBAsset_Countermeasure, newClassASTT, uSimContainers;
 type
   TShoot = class
   private
@@ -43,7 +43,9 @@ type
     procedure SetTargetObject(const Value: TSimObject);
     procedure SetPlanned(const Value: boolean);
     procedure SetOnHitSomething(const Value: TNotifyEvent);
+
   published
+
   public
     FData         : TRecFitted_Weapon_On_Board;
     FDef          : TRecMissile_Definition;
@@ -252,32 +254,30 @@ begin
   FScript_Missile   := TList.Create;
   FPattern_Missile  := TList.Create;
   FVehicle          := TVehicle_Definition.Create;
-  FLaunch           := TFitted_Weap_Launcher_On_Board.Create;
-
-  FRangeView        := TRangeVisual.Create;
   FBlindView        := TList.Create;
-  FTacticalSymbol   := TTacticalSymbol.Create;
   FLaunchs          := TList.Create;
 
-  FTacticalSymbol.Symbol.LoadBitmap(vSymbolSetting.ImgPath +
-    'MissileFriend.bmp', cgFriend);
+  FLaunch           := TFitted_Weap_Launcher_On_Board.Create;
+  FRangeView        := TRangeVisual.Create;
+  FTacticalSymbol   := TTacticalSymbol.Create;
+
+  //FTacticalSymbol.Symbol.LoadBitmap(vSymbolSetting.ImgPath + 'MissileFriend.bmp',cgFriend);
 end;
 
 destructor TMissile_On_Board.Destroy;
 begin
   FMover.Free;
-
   FPI.Free;
-  FBlind.Free;
-  FScript_Missile.Free;
-  FPattern_Missile.Free;
   FVehicle.Free;
+  FRangeView.Free;
+  FTacticalSymbol.Free;
   FLaunch.Free;
 
-  FRangeView.Free;
-  FBlindView.Free;
-  FTacticalSymbol.Free;
-  FLaunchs.Free;
+  FreeItemsAndFreeList(FBlind);
+  FreeItemsAndFreeList(FScript_Missile);
+  FreeItemsAndFreeList(FPattern_Missile);
+  FreeItemsAndFreeList(FBlindView);
+  FreeItemsAndFreeList(FLaunchs);
 
   inherited;
 end;
@@ -513,19 +513,25 @@ end;
 constructor TTorpedo_On_Board.Create;
 begin
   FPI               := TPlatform_Instance.Create;
+  FVehicle          := TVehicle_Definition.Create;
+  FLaunch           := TFitted_Weap_Launcher_On_Board.Create;
   FBlind            := TList.Create;
   FScript_Torpedo   := TList.Create;
   FPattern_Torpedo  := TList.Create;
-  FVehicle          := TVehicle_Definition.Create;
-  FLaunch           := TFitted_Weap_Launcher_On_Board.Create;
   FLaunchs          := TList.Create;
 end;
 
 destructor TTorpedo_On_Board.Destroy;
 begin
-  FBlind.Free;
-  FScript_Torpedo.Free;
-  FPattern_Torpedo.Free;
+  FPI.Free;
+  FVehicle.Free;
+  FLaunch.Free;
+
+  FreeItemsAndFreeList(FBlind);
+  FreeItemsAndFreeList(FScript_Torpedo);
+  FreeItemsAndFreeList(FPattern_Torpedo);
+  FreeItemsAndFreeList(FLaunchs);
+
   inherited;
 end;
 
@@ -619,19 +625,24 @@ end;
 constructor TMine_On_Board.Create;
 begin
    FPI            := TPlatform_Instance.Create;
+   FVehicle       := TVehicle_Definition.Create;
+
    FBlind         := TList.Create;
    FScript_Mine   := TList.Create;
    FPattern_Mine  := TList.Create;
-   FVehicle       := TVehicle_Definition.Create;
 
    FWeaponCategory := wcMine;
 end;
 
 destructor TMine_On_Board.Destroy;
 begin
-  FBlind.Free;
-  FScript_Mine.Free;
-  FPattern_Mine.Free;
+  FPI.Free;
+  FVehicle.Free;
+
+  FreeItemsAndFreeList(FBlind);
+  FreeItemsAndFreeList(FScript_Mine);
+  FreeItemsAndFreeList(FPattern_Mine);
+
   inherited;
 end;
 
@@ -714,8 +725,10 @@ end;
 
 destructor TGun_Definition.Destroy;
 begin
-  FBlindView.Free;
   FRangeView.Free;
+  FPoint.Free;
+
+  FreeItemsAndFreeList(FBlindView);
   inherited;
 end;
 

@@ -15,7 +15,8 @@ object frmSummaryMissile: TfrmSummaryMissile
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -71,8 +72,6 @@ object frmSummaryMissile: TfrmSummaryMissile
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 477
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -85,12 +84,10 @@ object frmSummaryMissile: TfrmSummaryMissile
       TabOrder = 0
       TabWidth = 100
       StyleElements = [seFont, seClient]
-      ExplicitHeight = 457
       object tsGeneral: TTabSheet
         Caption = 'General'
         DoubleBuffered = True
         ParentDoubleBuffered = False
-        ExplicitHeight = 417
         object lblDetectabilityType: TLabel
           Left = 418
           Top = 92
@@ -190,7 +187,7 @@ object frmSummaryMissile: TfrmSummaryMissile
           end
           object chkSeaStateModelling: TCheckBox
             Left = 219
-            Top = 42
+            Top = 43
             Width = 128
             Height = 17
             Caption = 'Sea State Modeling'
@@ -206,7 +203,7 @@ object frmSummaryMissile: TfrmSummaryMissile
             OnClick = UpdatePrimaryTargetDomainItems
           end
           object chkAntiLand: TCheckBox
-            Left = 11
+            Left = 14
             Top = 43
             Width = 82
             Height = 17
@@ -216,7 +213,7 @@ object frmSummaryMissile: TfrmSummaryMissile
           end
           object chkAntiAmphibious: TCheckBox
             Left = 219
-            Top = 18
+            Top = 20
             Width = 118
             Height = 17
             Caption = 'Anti-Amphibious'
@@ -228,7 +225,6 @@ object frmSummaryMissile: TfrmSummaryMissile
             Width = 331
             Height = 22
             TabOrder = 6
-            Text = 'Surface/SubSurface to Surface/SubSurface'
             OnChange = ComboBoxDataChange
           end
         end

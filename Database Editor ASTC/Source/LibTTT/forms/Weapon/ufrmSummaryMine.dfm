@@ -70,8 +70,6 @@ object frmSummaryMine: TfrmSummaryMine
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 394
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -82,10 +80,8 @@ object frmSummaryMine: TfrmSummaryMine
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 374
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 334
         object lblCategory: TLabel
           Left = 20
           Top = 107

@@ -91,8 +91,9 @@ begin
     begin
       SelectedRadarJammer := TJammer_On_Board.Create;
       ShowModal;
-      FUpdateList := AfterClose;
       SelectedRadarJammer.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryRadarNoiseJammer.Free;

@@ -91,9 +91,9 @@ begin
       SelectedSonar := TSonar_On_Board.Create;
       ShowModal;
       SelectedSonar.Free;
+
       FUpdateList := AfterClose;
     end;
-
   finally
     frmSummarySonar.Free;
   end;

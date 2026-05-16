@@ -29,8 +29,6 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1252
-    ExplicitHeight = 831
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -41,7 +39,6 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1252
       object Label2: TLabel
         Left = 10
         Top = 13
@@ -66,7 +63,6 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 672
         object btnDelete: TImage
           Left = 532
           Top = 8
@@ -683,8 +679,6 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 1252
-      ExplicitHeight = 785
       object lstFloatingDecoy: TListBox
         Left = 10
         Top = 10
@@ -700,7 +694,6 @@ object frmAvailableFloatingDecoy: TfrmAvailableFloatingDecoy
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitTop = 6
       end
     end
   end

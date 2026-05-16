@@ -8155,7 +8155,7 @@ end;
 function TdmTTT.GetMotionCharacteristicDef(const aClassID: Integer; var aMotion: TMotion_Characteristics): Boolean;
 begin
   Result := False;
-  aMotion := nil;
+//  aMotion := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -8173,7 +8173,8 @@ begin
 
     if not IsEmpty then
     begin
-      aMotion := TMotion_Characteristics.Create;
+      if not Assigned(aMotion) then
+        aMotion := TMotion_Characteristics.Create;
 
       with aMotion.FData do
       begin
@@ -8210,10 +8211,8 @@ begin
         Fuel_Unit_Type := FieldByName('Fuel_Unit_Type').AsInteger;
         Max_Fuel_Capacity := FieldByName('Max_Fuel_Capacity').AsSingle;
         Min_Speed_Fuel_Consume := FieldByName('Min_Speed_Fuel_Consume').AsFloat;
-        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume')
-          .AsFloat;
-        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume')
-          .AsFloat;
+        Cruise_Speed_Fuel_Consume := FieldByName('Cruise_Speed_Fuel_Consume').AsFloat;
+        High_Speed_Fuel_Consume := FieldByName('High_Speed_Fuel_Consume').AsFloat;
         Max_Speed_Fuel_Consume := FieldByName('Max_Speed_Fuel_Consume').AsFloat;
       end;
     end;
@@ -12661,12 +12660,9 @@ begin
           Min_Range := FieldByName('Min_Range').AsSingle;
           Motion_Index := FieldByName('Motion_Index').AsInteger;
           Seeker_TurnOn_Range := FieldByName('Seeker_TurnOn_Range').AsSingle;
-          Second_Seeker_Pattern_Capable := FieldByName
-            ('Second_Seeker_Pattern_Capable').AsInteger;
+          Second_Seeker_Pattern_Capable := FieldByName('Second_Seeker_Pattern_Capable').AsInteger;
           Seeker_Bias_Capable := FieldByName('Seeker_Bias_Capable').AsInteger;
-          Fixed_Seeker_Turn_On_Range := FieldByName
-            ('Fixed_Seeker_Turn_On_Range')
-            .AsInteger;
+          Fixed_Seeker_Turn_On_Range := FieldByName('Fixed_Seeker_Turn_On_Range').AsInteger;
           Lethality := FieldByName('Lethality').AsInteger;
           Prob_of_Hit := FieldByName('Prob_of_Hit').AsSingle;
           Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
@@ -12687,10 +12683,8 @@ begin
           Anti_Sur_Capable := FieldByName('Anti_Sur_Capable').AsInteger;
           Anti_SubSur_Capable := FieldByName('Anti_SubSur_Capable').AsInteger;
           Anti_Land_Capable := FieldByName('Anti_Land_Capable').AsInteger;
-          Anti_Amphibious_Capable := FieldByName('Anti_Amphibious_Capable')
-            .AsInteger;
-          Primary_Target_Domain := FieldByName('Primary_Target_Domain')
-            .AsInteger;
+          Anti_Amphibious_Capable := FieldByName('Anti_Amphibious_Capable').AsInteger;
+          Primary_Target_Domain := FieldByName('Primary_Target_Domain').AsInteger;
           SARH_POH_Modifier := FieldByName('SARH_POH_Modifier').AsSingle;
           CG_POH_Modifier := FieldByName('CG_POH_Modifier').AsSingle;
           TARH_POH_Modifier := FieldByName('TARH_POH_Modifier').AsSingle;
@@ -12701,12 +12695,9 @@ begin
           Pulse_Rep_Freq := FieldByName('Pulse_Rep_Freq').AsSingle;
           Pulse_Width := FieldByName('Pulse_Width').AsSingle;
           Xmit_Power := FieldByName('Xmit_Power').AsSingle;
-          TARH_Jamming_A_Probability := FieldByName
-            ('TARH_Jamming_A_Probability').AsSingle;
-          TARH_Jamming_B_Probability := FieldByName
-            ('TARH_Jamming_B_Probability').AsSingle;
-          TARH_Jamming_C_Probability := FieldByName
-            ('TARH_Jamming_C_Probability').AsSingle;
+          TARH_Jamming_A_Probability := FieldByName('TARH_Jamming_A_Probability').AsSingle;
+          TARH_Jamming_B_Probability := FieldByName('TARH_Jamming_B_Probability').AsSingle;
+          TARH_Jamming_C_Probability := FieldByName('TARH_Jamming_C_Probability').AsSingle;
           Wpt_Capable := FieldByName('Wpt_Capable').AsInteger;
           Max_Num_Wpts := FieldByName('Max_Num_Wpts').AsInteger;
           Min_Final_Leg_Length := FieldByName('Min_Final_Leg_Length').AsSingle;
@@ -12717,56 +12708,32 @@ begin
           Fly_Out_Required := FieldByName('Fly_Out_Required').AsInteger;
           Fly_Out_Range := FieldByName('Fly_Out_Range').AsSingle;
           Fly_Out_Altitude := FieldByName('Fly_Out_Altitude').AsSingle;
-          Booster_Separation_Required := FieldByName
-            ('Booster_Separation_Required').AsInteger;
-          Booster_Separation_Range := FieldByName('Booster_Separation_Range')
-            .AsSingle;
-          Booster_Separation_Box_Width := FieldByName
-            ('Booster_Separation_Box_Width').AsSingle;
-          Booster_Separation_Box_Length := FieldByName
-            ('Booster_Separation_Box_Length').AsSingle;
+          Booster_Separation_Required := FieldByName('Booster_Separation_Required').AsInteger;
+          Booster_Separation_Range := FieldByName('Booster_Separation_Range').AsSingle;
+          Booster_Separation_Box_Width := FieldByName('Booster_Separation_Box_Width').AsSingle;
+          Booster_Separation_Box_Length := FieldByName('Booster_Separation_Box_Length').AsSingle;
           Term_Guide_Azimuth := FieldByName('Term_Guide_Azimuth').AsSingle;
           Term_Guide_Elevation := FieldByName('Term_Guide_Elevation').AsSingle;
           Term_Guide_Range := FieldByName('Term_Guide_Range').AsSingle;
-          Terminal_Guidance_Capability := FieldByName
-            ('Terminal_Guidance_Capability').AsInteger;
-          Terminal_Altitude_Required := FieldByName
-            ('Terminal_Altitude_Required')
-            .AsInteger;
-          Terminal_Acquisition_Altitude := FieldByName
-            ('Terminal_Acquisition_Altitude').AsSingle;
-          Terminal_Sinuation_Start_Range := FieldByName
-            ('Terminal_Sinuation_Start_Range').AsSingle;
-          Terminal_Sinuation_Period := FieldByName('Terminal_Sinuation_Period')
-            .AsSingle;
-          Terminal_Sinuation_Amplitude := FieldByName
-            ('Terminal_Sinuation_Amplitude').AsSingle;
-          Terminal_Pop_Up_Range := FieldByName('Terminal_Pop_Up_Range')
-            .AsSingle;
-          Terminal_Pop_Up_Altitude := FieldByName('Terminal_Pop_Up_Altitude')
-            .AsSingle;
-          Mid_Course_Update_Mode := FieldByName('Mid_Course_Update_Mode')
-            .AsInteger;
-          Home_On_Jam_Type_A_Capable := FieldByName
-            ('Home_On_Jam_Type_A_Capable')
-            .AsInteger;
-          Home_On_Jam_Type_B_Capable := FieldByName
-            ('Home_On_Jam_Type_B_Capable')
-            .AsInteger;
-          Home_On_Jam_Type_C_Capable := FieldByName
-            ('Home_On_Jam_Type_C_Capable')
-            .AsInteger;
+          Terminal_Guidance_Capability := FieldByName('Terminal_Guidance_Capability').AsInteger;
+          Terminal_Altitude_Required := FieldByName('Terminal_Altitude_Required').AsInteger;
+          Terminal_Acquisition_Altitude := FieldByName('Terminal_Acquisition_Altitude').AsSingle;
+          Terminal_Sinuation_Start_Range := FieldByName('Terminal_Sinuation_Start_Range').AsSingle;
+          Terminal_Sinuation_Period := FieldByName('Terminal_Sinuation_Period').AsSingle;
+          Terminal_Sinuation_Amplitude := FieldByName('Terminal_Sinuation_Amplitude').AsSingle;
+          Terminal_Pop_Up_Range := FieldByName('Terminal_Pop_Up_Range').AsSingle;
+          Terminal_Pop_Up_Altitude := FieldByName('Terminal_Pop_Up_Altitude').AsSingle;
+          Mid_Course_Update_Mode := FieldByName('Mid_Course_Update_Mode').AsInteger;
+          Home_On_Jam_Type_A_Capable := FieldByName('Home_On_Jam_Type_A_Capable').AsInteger;
+          Home_On_Jam_Type_B_Capable := FieldByName('Home_On_Jam_Type_B_Capable').AsInteger;
+          Home_On_Jam_Type_C_Capable := FieldByName('Home_On_Jam_Type_C_Capable').AsInteger;
           Launch_Method := FieldByName('Launch_Method').AsInteger;
           Data_Entry_Method := FieldByName('Data_Entry_Method').AsInteger;
           Launch_Speed := FieldByName('Launch_Speed').AsInteger;
-          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta')
-            .AsInteger;
-          Term_Guide_Azimuth_Narrow := FieldByName('Term_Guide_Azimuth_Narrow')
-            .AsSingle;
-          Term_Guide_Elevation_Narrow := FieldByName
-            ('Term_Guide_Elevation_Narrow').AsSingle;
-          Term_Guide_Range_Narrow := FieldByName('Term_Guide_Range_Narrow')
-            .AsSingle;
+          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta').AsInteger;
+          Term_Guide_Azimuth_Narrow := FieldByName('Term_Guide_Azimuth_Narrow').AsSingle;
+          Term_Guide_Elevation_Narrow := FieldByName('Term_Guide_Elevation_Narrow').AsSingle;
+          Term_Guide_Range_Narrow := FieldByName('Term_Guide_Range_Narrow').AsSingle;
           Spot_Number := FieldByName('Spot_Number').AsInteger;
           ECCM_Type := FieldByName('ECCM_Type').AsInteger;
           ECM_Detonation := FieldByName('ECM_Detonation').AsInteger;
@@ -12774,8 +12741,7 @@ begin
           Detectability_Type := FieldByName('Detectability_Type').AsInteger;
           IRCM_Detonation := FieldByName('IRCM_Detonation').AsInteger;
           IRCM_Detection := FieldByName('IRCM_Detection').AsInteger;
-          Sea_State_Modelling_Capable := FieldByName
-            ('Sea_State_Modelling_Capable').AsInteger;
+          Sea_State_Modelling_Capable := FieldByName('Sea_State_Modelling_Capable').AsInteger;
         end;
 
         with rec.FNote do
@@ -13312,7 +13278,7 @@ end;
 function TdmTTT.GetHybridDef(const aMissileIndex: Integer; var aResult: THybrid_On_Board): Boolean;
 begin
   Result := False;
-  aResult := nil;
+//  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -13330,7 +13296,8 @@ begin
 
     Result := RecordCount > 0;
 
-    aResult := THybrid_On_Board.Create;
+    if not Assigned(aResult) then
+      aResult := THybrid_On_Board.Create;
 
     if not IsEmpty then
     begin

@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,Vcl.ExtCtrls,
-  uDBAsset_Weapon;
+
+  uDBAsset_Weapon, uSimContainers;
 
 type
   TfrmTorpedoPickList = class(TForm)
@@ -14,14 +15,16 @@ type
     pnl3Button: TPanel;
     btnCancel: TButton;
     btnAdd: TButton;
-    pnlSparatorHor2: TPanel;
-    Image1: TImage;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    edtSearch: TEdit;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure lstAvailableTorpedoClick(Sender: TObject);
     procedure lstAvailableTorpedoDblClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FTorpedoList : TList;
@@ -49,6 +52,11 @@ uses
 procedure TfrmTorpedoPickList.FormCreate(Sender: TObject);
 begin
   FTorpedoList := TList.Create;
+end;
+
+procedure TfrmTorpedoPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FTorpedoList);
 end;
 
 procedure TfrmTorpedoPickList.FormShow(Sender: TObject);

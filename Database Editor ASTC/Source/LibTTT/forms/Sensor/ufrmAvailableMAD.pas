@@ -91,6 +91,7 @@ begin
       SelectedMAD := TMAD_On_Board.Create;
       ShowModal;
       SelectedMAD.Free;
+
       FUpdateList := AfterClose;
     end;
   finally

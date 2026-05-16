@@ -32,8 +32,6 @@ object frmAvailableESM: TfrmAvailableESM
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1252
-    ExplicitHeight = 831
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -44,7 +42,6 @@ object frmAvailableESM: TfrmAvailableESM
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1252
       DesignSize = (
         884
         57)
@@ -72,7 +69,6 @@ object frmAvailableESM: TfrmAvailableESM
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 672
         DesignSize = (
           580
           57)
@@ -699,8 +695,6 @@ object frmAvailableESM: TfrmAvailableESM
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 1252
-      ExplicitHeight = 774
       object lbESM: TListBox
         Left = 10
         Top = 10
@@ -716,9 +710,6 @@ object frmAvailableESM: TfrmAvailableESM
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitTop = 0
-        ExplicitWidth = 1231
-        ExplicitHeight = 852
       end
     end
   end

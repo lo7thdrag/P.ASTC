@@ -92,8 +92,9 @@ begin
     begin
       SelectedAirBubble := TAir_Bubble_Mount.Create;
       ShowModal;
-      FUpdateList := AfterClose;
       SelectedAirBubble.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryAirBubble.Free;

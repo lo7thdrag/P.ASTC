@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, ComCtrls, Vcl.Imaging.pngimage, tttData,
-  uDBAsset_Weapon;
+
+  uDBAsset_Weapon, uDBAsset_MotionCharacteristics;
 
 type
 
@@ -283,11 +284,13 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedMissile : TMissile_On_Board;
     FSelectedHybrid : THybrid_On_Board;
+    FSelectedMotion : TMotion_Characteristics;
 
     function CekInput: Boolean;
     function GetWeaponCategory(sValue : string): Integer;
@@ -312,17 +315,22 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmTorpedoPickList, ufrmMotionPickList, uDBAsset_MotionCharacteristics;
+  uDataModuleTTT, ufrmTorpedoPickList, ufrmMotionPickList;
 
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
 
-procedure TfrmSummaryMissile.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmSummaryMissile.FormCreate(Sender: TObject);
+begin
+  FSelectedHybrid := THybrid_On_Board.Create;
+  FSelectedMotion := TMotion_Characteristics.Create;
+end;
+
+procedure TfrmSummaryMissile.FormDestroy(Sender: TObject);
 begin
   FSelectedHybrid.Free;
-
-  Action := cafree;
+  FSelectedMotion.Free;
 end;
 
 procedure TfrmSummaryMissile.FormShow(Sender: TObject);
@@ -744,7 +752,12 @@ begin
   end;
 
   if cbbPrimaryTargetDomain.Items.Count > 0 then
-    cbbPrimaryTargetDomain.ItemIndex := 0;
+    cbbPrimaryTargetDomain.ItemIndex := 0
+  else
+  begin
+    cbbPrimaryTargetDomain.ItemIndex := -1;
+    cbbPrimaryTargetDomain.Text := '';
+  end;
 
   btnApply.Enabled := True;
 end;
@@ -923,15 +936,11 @@ begin
 end;
 
 procedure TfrmSummaryMissile.UpdateMotionData;
-var
-  motion : TMotion_Characteristics;
 begin
   with FSelectedMissile do
   begin
-    dmTTT.GetMotionCharacteristicDef(FDef.Motion_Index, motion);
-
-    if Assigned(motion) then
-      edtMotionCharacteristic.Text := motion.FData.Motion_Identifier
+    if dmTTT.GetMotionCharacteristicDef(FDef.Motion_Index, FSelectedMotion) then
+      edtMotionCharacteristic.Text := FSelectedMotion.FData.Motion_Identifier
     else
       edtMotionCharacteristic.Text := '(None)';
   end;
@@ -999,6 +1008,13 @@ begin
     Exit;
   end;
 
+  {Jika inputan Primary Target Domain masih kosong}
+  if cbbPrimaryTargetDomain.Text= '' then
+  begin
+    ShowMessage('Primary Target Domain not selected');
+    Exit;
+  end;
+
   Result := True;
 end;
 
@@ -1031,6 +1047,7 @@ begin
   else if sValue = 'Air to Air' then Result := Byte(wcMissileAirToAir)
   else if sValue = 'Land Attack' then Result := Byte(wcMissileLandAttack)
   else if sValue = 'Hybrid' then Result := Byte(wcHybrid)
+  else result := -1;
 end;
 
 function TfrmSummaryMissile.SetWeaponCategory(iValue: integer): string;

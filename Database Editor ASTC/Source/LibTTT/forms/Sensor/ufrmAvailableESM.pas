@@ -90,6 +90,7 @@ begin
       SelectedESM := TESM_On_Board.Create;
       ShowModal;
       SelectedESM.Free;
+
       FUpdateList := AfterClose;
     end;
   finally

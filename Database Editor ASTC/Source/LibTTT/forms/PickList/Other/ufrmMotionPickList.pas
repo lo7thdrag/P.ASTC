@@ -4,8 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, uDBAsset_MotionCharacteristics,
-  Vcl.Imaging.pngimage;
+  Dialogs, StdCtrls, ExtCtrls, Vcl.Imaging.pngimage,
+
+  uDBAsset_MotionCharacteristics, uSimContainers;
 
 type
   TfrmMotionPickList = class(TForm)
@@ -14,6 +15,9 @@ type
     pnl3Button: TPanel;
     btnCancel: TButton;
     btnAdd: TButton;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    edtSearch: TEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -22,6 +26,7 @@ type
     procedure lstAvailableMotionDblClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedMotionId : Integer;
@@ -50,6 +55,11 @@ uses
 procedure TfrmMotionPickList.FormCreate(Sender: TObject);
 begin
   FMotionList := TList.Create;
+end;
+
+procedure TfrmMotionPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FMotionList);
 end;
 
 procedure TfrmMotionPickList.FormShow(Sender: TObject);

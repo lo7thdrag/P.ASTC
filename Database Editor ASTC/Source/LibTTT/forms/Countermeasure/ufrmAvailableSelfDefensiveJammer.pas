@@ -91,9 +91,9 @@ begin
     begin
       SelectedDefensiveJammer := TDefensive_Jammer_On_Board.Create;
       ShowModal;
-      FUpdateList := AfterClose;
-
       SelectedDefensiveJammer.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummarySelfDefensiveJammer.Free;

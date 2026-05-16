@@ -92,9 +92,9 @@ begin
     begin
       SelectedTowedJammerDecoy := TTowed_Jammer_Decoy_On_Board.Create;
       ShowModal;
-      FUpdateList := AfterClose;
-
       SelectedTowedJammerDecoy.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryTowedJammerDecoy.Free;

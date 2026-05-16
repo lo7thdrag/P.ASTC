@@ -5,6 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+
   uDBAsset_Weapon, uSimContainers;
 
 type
@@ -35,6 +36,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -67,6 +69,11 @@ begin
   FMissileList := TList.Create;
 end;
 
+procedure TfrmAvailableMissile.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FMissileList);
+end;
+
 procedure TfrmAvailableMissile.FormShow(Sender: TObject);
 begin
   UpdateMissileList;
@@ -85,6 +92,7 @@ begin
       SelectedMissile := TMissile_On_Board.Create;
       ShowModal;
       FUpdateList := AfterClose;
+      SelectedMissile.Free;
     end;
 
   finally
