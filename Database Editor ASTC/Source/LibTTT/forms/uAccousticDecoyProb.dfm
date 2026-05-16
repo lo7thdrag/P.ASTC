@@ -30,8 +30,6 @@ object AccousticDecoyProb: TAccousticDecoyProb
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -8
-    ExplicitHeight = 65
     object grdpnlAcousticDecoyPOH: TGridPanel
       Left = 8
       Top = 5
@@ -265,6 +263,12 @@ object AccousticDecoyProb: TAccousticDecoyProb
         Align = alClient
         BevelOuter = bvLowered
         Caption = 'Aspect'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 20
       end
       object pnlGuidanceType: TPanel
@@ -275,6 +279,12 @@ object AccousticDecoyProb: TAccousticDecoyProb
         Align = alClient
         BevelOuter = bvLowered
         Caption = 'Guidance Type'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 21
       end
       object pnl_BZone1: TPanel
@@ -322,6 +332,12 @@ object AccousticDecoyProb: TAccousticDecoyProb
         Alignment = taLeftJustify
         BevelOuter = bvLowered
         Caption = 'Active Accoustic'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 26
       end
       object edtActive1: TEdit
@@ -390,8 +406,8 @@ object AccousticDecoyProb: TAccousticDecoyProb
         BevelOuter = bvLowered
         Caption = 'Passive Accoustic'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
+        Font.Color = clWhite
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -463,8 +479,8 @@ object AccousticDecoyProb: TAccousticDecoyProb
         BevelOuter = bvLowered
         Caption = 'Active/Passive Accoustic'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
+        Font.Color = clWhite
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -536,8 +552,8 @@ object AccousticDecoyProb: TAccousticDecoyProb
         BevelOuter = bvLowered
         Caption = 'Wire Guided'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
+        Font.Color = clWhite
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -609,8 +625,8 @@ object AccousticDecoyProb: TAccousticDecoyProb
         BevelOuter = bvLowered
         Caption = 'Wake Homing'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
+        Font.Color = clWhite
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -694,8 +710,6 @@ object AccousticDecoyProb: TAccousticDecoyProb
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 268
     object btnApply: TButton
       Left = 313
       Top = 9
@@ -734,8 +748,6 @@ object AccousticDecoyProb: TAccousticDecoyProb
     Color = clBackground
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 294
-    ExplicitWidth = 466
     object Image1: TImage
       Left = 0
       Top = 0

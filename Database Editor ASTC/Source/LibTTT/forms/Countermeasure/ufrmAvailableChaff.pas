@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uDBAsset_Countermeasure;
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableChaff = class(TForm)
@@ -35,6 +36,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -65,6 +67,11 @@ end;
 procedure TfrmAvailableChaff.FormCreate(Sender: TObject);
 begin
   FChaffList := TList.Create;
+end;
+
+procedure TfrmAvailableChaff.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FChaffList);
 end;
 
 procedure TfrmAvailableChaff.FormShow(Sender: TObject);

@@ -41,9 +41,6 @@ object fDBEditor: TfDBEditor
     ParentShowHint = False
     ShowHint = False
     TabOrder = 0
-    ExplicitLeft = 377
-    ExplicitTop = 99
-    ExplicitHeight = 752
     object pnl1ExerciseBody: TPanel
       Left = 8
       Top = 58
@@ -7231,7 +7228,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 17
-      ExplicitTop = 652
     end
     object pnl8Shutdown: TPanel
       Tag = 2
@@ -7247,7 +7243,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 18
-      ExplicitTop = 672
       object imgShutdown: TImage
         Tag = 7
         Left = 0
@@ -8203,7 +8198,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 19
-      ExplicitTop = 712
       object Image66: TImage
         Left = 32
         Top = 17
@@ -8260,7 +8254,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 20
-      ExplicitTop = 737
     end
     object Panel1: TPanel
       Left = 8
@@ -8295,9 +8288,6 @@ object fDBEditor: TfDBEditor
     Color = clBlack
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 371
-    ExplicitTop = 110
-    ExplicitHeight = 742
   end
   object pnlHeader: TPanel
     Left = 0
@@ -12459,8 +12449,6 @@ object fDBEditor: TfDBEditor
     ParentBackground = False
     TabOrder = 4
     Visible = False
-    ExplicitTop = 105
-    ExplicitHeight = 752
     object Image2: TImage
       Left = -500
       Top = 0
@@ -24392,8 +24380,6 @@ object fDBEditor: TfDBEditor
     Color = clBackground
     ParentBackground = False
     TabOrder = 5
-    ExplicitTop = 105
-    ExplicitHeight = 752
   end
   object pnlFooter: TPanel
     Left = 0
@@ -27029,7 +27015,6 @@ object fDBEditor: TfDBEditor
     Color = clBlack
     ParentBackground = False
     TabOrder = 7
-    ExplicitTop = 852
   end
   object pnlHome: TPanel
     Left = 375
@@ -27041,10 +27026,6 @@ object fDBEditor: TfDBEditor
     Color = 2499101
     ParentBackground = False
     TabOrder = 8
-    ExplicitLeft = 366
-    ExplicitTop = 105
-    ExplicitWidth = 610
-    ExplicitHeight = 752
     object img_Home: TImage
       Left = 0
       Top = 0
@@ -43175,8 +43156,6 @@ object fDBEditor: TfDBEditor
     Color = clBlack
     ParentBackground = False
     TabOrder = 9
-    ExplicitTop = 110
-    ExplicitHeight = 742
   end
   object Timer1: TTimer
     Enabled = False

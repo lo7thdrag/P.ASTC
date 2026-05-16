@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uDBAsset_Countermeasure;
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableFloatingDecoy = class(TForm)
@@ -35,6 +36,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -65,6 +67,11 @@ end;
 procedure TfrmAvailableFloatingDecoy.FormCreate(Sender: TObject);
 begin
   FFloatingDecoyList := TList.Create;
+end;
+
+procedure TfrmAvailableFloatingDecoy.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FFloatingDecoyList);
 end;
 
 procedure TfrmAvailableFloatingDecoy.FormShow(Sender: TObject);

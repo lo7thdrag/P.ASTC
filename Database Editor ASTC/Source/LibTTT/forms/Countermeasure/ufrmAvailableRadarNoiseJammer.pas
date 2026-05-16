@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,Vcl.ExtCtrls,
-  uDBAsset_Countermeasure;
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableRadarNoiseJammer = class(TForm)
@@ -35,6 +36,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
    FUpdateList : Boolean;
@@ -65,6 +67,11 @@ end;
 procedure TfrmAvailableRadarNoiseJammer.FormCreate(Sender: TObject);
 begin
   FRadarNoiseJammerList := TList.Create;
+end;
+
+procedure TfrmAvailableRadarNoiseJammer.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FRadarNoiseJammerList);
 end;
 
 procedure TfrmAvailableRadarNoiseJammer.FormShow(Sender: TObject);

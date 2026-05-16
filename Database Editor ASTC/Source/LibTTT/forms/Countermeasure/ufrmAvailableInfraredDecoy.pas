@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, uDBAsset_Countermeasure;
+  Vcl.ExtCtrls,
+
+  uDBAsset_Countermeasure, uSimContainers;
 
 type
   TfrmAvailableInfraredDecoy = class(TForm)
@@ -35,6 +37,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -64,6 +67,11 @@ end;
 procedure TfrmAvailableInfraredDecoy.FormCreate(Sender: TObject);
 begin
   FInfraredDecoyList := TList.Create;
+end;
+
+procedure TfrmAvailableInfraredDecoy.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FInfraredDecoyList);
 end;
 
 procedure TfrmAvailableInfraredDecoy.FormShow(Sender: TObject);

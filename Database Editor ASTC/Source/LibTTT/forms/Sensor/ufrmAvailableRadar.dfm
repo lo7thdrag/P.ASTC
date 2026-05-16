@@ -4,8 +4,8 @@ object frmAvailableRadar: TfrmAvailableRadar
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Radars'
-  ClientHeight = 831
-  ClientWidth = 1252
+  ClientHeight = 461
+  ClientWidth = 884
   Color = clBtnFace
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -25,8 +25,8 @@ object frmAvailableRadar: TfrmAvailableRadar
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 1252
-    Height = 831
+    Width = 884
+    Height = 461
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
@@ -35,7 +35,7 @@ object frmAvailableRadar: TfrmAvailableRadar
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 1252
+      Width = 884
       Height = 57
       Align = alTop
       BevelOuter = bvNone
@@ -56,7 +56,7 @@ object frmAvailableRadar: TfrmAvailableRadar
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 672
+        Left = 304
         Top = 0
         Width = 580
         Height = 57
@@ -684,18 +684,20 @@ object frmAvailableRadar: TfrmAvailableRadar
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 1252
-      Height = 774
+      Width = 884
+      Height = 404
       Align = alClient
       BevelOuter = bvNone
+      BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
       object lbRadars: TListBox
         Left = 10
-        Top = 0
-        Width = 1231
-        Height = 852
+        Top = 10
+        Width = 864
+        Height = 384
+        Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13

@@ -5,7 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ImgList, ComCtrls, ToolWin, StdCtrls, ExtCtrls, uDBAssetObject,
-  Buttons, uDataModuleTTT, math, uDBAsset_Radar, System.ImageList;
+  Buttons, math, System.ImageList,
+
+  uDBAsset_Radar, uSimContainers;
 
 type
   E_VerticalCoverageCurve = (vcCurve1 = 1, vcCurve2);
@@ -80,6 +82,7 @@ type
     procedure edtRangeMaxKeyPress(Sender: TObject; var Key: Char);
     procedure edtElevationMinKeyPress(Sender: TObject; var Key: Char);
     procedure edtElevationMaxKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 //    procedure btnSelectClick(Sender: TObject);
 
   private
@@ -129,7 +132,7 @@ var
 implementation
 
 uses
-  ufrmSummaryRadar, uFormula, tttData;
+  uDataModuleTTT, ufrmSummaryRadar, uFormula, tttData;
 
 {$R *.dfm}
 
@@ -140,18 +143,18 @@ uses
 procedure TfrmRadarCoverage.FormCreate(Sender: TObject);
 begin
   FVerticalCoverageList := TList.Create;
-//  FDeletedVerticalCoverageList := TList.Create;
 
-//  edit  := false;
+end;
+
+procedure TfrmRadarCoverage.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FVerticalCoverageList);
+
 end;
 
 procedure TfrmRadarCoverage.FormShow(Sender: TObject);
-var
-  i : Integer;
-  data : TObject;
 begin
 
-//  FDeletedVerticalCoverageList.Clear;
   FSelectedPoint := nil;
 
   btnSelect.Down := True;
