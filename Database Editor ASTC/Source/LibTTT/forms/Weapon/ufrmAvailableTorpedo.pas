@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -66,6 +67,11 @@ begin
   FTorpedoList := TList.Create;
 end;
 
+procedure TfrmAvailableTorpedo.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FTorpedoList);
+end;
+
 procedure TfrmAvailableTorpedo.FormShow(Sender: TObject);
 begin
   UpdateTorpedoList;
@@ -83,6 +89,8 @@ begin
     begin
       SelectedTorpedo := TTorpedo_On_Board.Create;
       ShowModal;
+      SelectedTorpedo.Free;
+
       FUpdateList := AfterClose;
     end;
 

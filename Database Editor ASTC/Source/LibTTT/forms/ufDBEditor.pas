@@ -406,7 +406,7 @@ end;
 
 procedure TfDBEditor.MainMenuClick(Sender: TObject);
 begin
-  LoadImageVariasi(1);
+//  LoadImageVariasi(1);
   CollapseMenuClick(Sender);
 end;
 //
@@ -890,6 +890,7 @@ begin
     begin
       if pnl1ExerciseBody.Height <> 0 then
       begin
+        LoadImageVariasi(1);
         frmExercise.BringToFront;
         exit;
       end;
@@ -898,6 +899,7 @@ begin
     begin
       if pnl2PlatformsBody.Height <> 0 then
       begin
+        LoadImageVariasi(1);
         frmPlatforms.BringToFront;
         exit;
       end;
@@ -906,6 +908,7 @@ begin
     begin
       if pnl3SensorsBody.Height <> 0 then
       begin
+        LoadImageVariasi(1);
         frmSensors.BringToFront;
         exit;
       end;
@@ -914,6 +917,7 @@ begin
     begin
       if pnl4WeaponsBody.Height <> 0 then
       begin
+        LoadImageVariasi(1);
         frmWeapons.BringToFront;
         exit;
       end;
@@ -922,6 +926,7 @@ begin
     begin
       if pnl5CountermeasuresBody.Height <> 0 then
       begin
+        LoadImageVariasi(1);
         frmCountermeasure.BringToFront;
         exit;
       end;
@@ -930,6 +935,7 @@ begin
     begin
       if pnl6OtherBody.Height <> 0 then
       begin
+        LoadImageVariasi(1);
         frmOther.BringToFront;
         exit;
       end;
@@ -978,6 +984,8 @@ begin
       begin
         Timer1.Enabled := false;
 
+        LoadImageVariasi(1);
+
         if not Assigned(frmExercise) then
           frmExercise := TfrmExercise.Create(self)
         else
@@ -993,6 +1001,8 @@ begin
       else
       begin
         Timer1.Enabled := false;
+
+        LoadImageVariasi(1);
 
         if not Assigned(frmPlatforms) then
           frmPlatforms := TfrmPlatforms.Create(self)
@@ -1010,6 +1020,8 @@ begin
       begin
         Timer1.Enabled := false;
 
+        LoadImageVariasi(1);
+
         if not Assigned(frmSensors) then
           frmSensors := TfrmSensors.Create(self)
         else
@@ -1025,6 +1037,8 @@ begin
       else
       begin
         Timer1.Enabled := false;
+
+        LoadImageVariasi(1);
 
         if not Assigned(frmWeapons) then
           frmWeapons := TfrmWeapons.Create(self)
@@ -1042,6 +1056,8 @@ begin
       begin
         Timer1.Enabled := false;
 
+        LoadImageVariasi(1);
+
         if not Assigned(frmCountermeasure) then
           frmCountermeasure := TfrmCountermeasure.Create(self)
         else
@@ -1057,6 +1073,8 @@ begin
       else
       begin
         Timer1.Enabled := false;
+
+        LoadImageVariasi(1);
 
         if not Assigned(frmOther) then
           frmOther := TfrmOther.Create(self)

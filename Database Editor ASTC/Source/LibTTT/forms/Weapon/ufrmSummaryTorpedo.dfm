@@ -15,7 +15,8 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -71,20 +72,17 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 513
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 795
       Height = 503
-      ActivePage = tsGuidance
+      ActivePage = tsPhysical
       Align = alClient
       MultiLine = True
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 493
       object tsGeneral: TTabSheet
         Caption = 'General'
         object lblDetectabilityType: TLabel
@@ -1440,7 +1438,6 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
       object tsGuidance: TTabSheet
         Caption = 'Guidance'
         ImageIndex = 3
-        ExplicitHeight = 453
         object lblMinimumRunoutRange: TLabel
           Left = 395
           Top = 84

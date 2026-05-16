@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  uDBAsset_Weapon;
+
+  uDBAsset_Weapon, uSimContainers;
 
 type
   TfrmAvailableGun = class(TForm)
@@ -36,6 +37,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormActivate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -69,6 +71,11 @@ begin
   FGunList := TList.Create;
 end;
 
+procedure TfrmAvailableGun.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FGunList);
+end;
+
 procedure TfrmAvailableGun.FormShow(Sender: TObject);
 begin
   UpdateGunList;
@@ -86,6 +93,8 @@ begin
     begin
       SelectedGun := TGun_Definition.Create;
       ShowModal;
+      SelectedGun.Free;
+
       FUpdateList := AfterClose;
     end;
 

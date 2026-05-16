@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Buttons, ComCtrls, Vcl.Imaging.pngimage, tttData,
-  uDBAsset_Weapon;
+
+  uDBAsset_Weapon, uDBAsset_MotionCharacteristics;
 
 type
   TfrmSummaryTorpedo = class(TForm)
@@ -244,10 +245,12 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedTorpedo : TTorpedo_On_Board;
+    FSelectedMotion : TMotion_Characteristics;
 
     function CekInput: Boolean;
     function GetWeaponCategory(sValue : string): Integer;
@@ -277,15 +280,20 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmMotionPickList, uDBAsset_MotionCharacteristics, uProbabilityGraph;
+  uDataModuleTTT, ufrmMotionPickList, uProbabilityGraph;
 
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
 
-procedure TfrmSummaryTorpedo.FormClose(Sender: TObject;var Action: TCloseAction);
+procedure TfrmSummaryTorpedo.FormCreate(Sender: TObject);
 begin
-  Action := cafree;
+  FSelectedMotion := TMotion_Characteristics.Create;
+end;
+
+procedure TfrmSummaryTorpedo.FormDestroy(Sender: TObject);
+begin
+  FSelectedMotion.Free;
 end;
 
 procedure TfrmSummaryTorpedo.FormShow(Sender: TObject);
@@ -677,15 +685,11 @@ begin
 end;
 
 procedure TfrmSummaryTorpedo.UpdateMotionData;
-var
-  motion : TMotion_Characteristics;
 begin
   with FSelectedTorpedo do
   begin
-    dmTTT.GetMotionCharacteristicDef(FDef.Motion_Index, motion);
-
-    if Assigned(motion) then
-      edtMotionCharacteristics.Text := motion.FData.Motion_Identifier
+    if dmTTT.GetMotionCharacteristicDef(FDef.Motion_Index, FSelectedMotion) then
+      edtMotionCharacteristics.Text := FSelectedMotion.FData.Motion_Identifier
     else
       edtMotionCharacteristics.Text := '(None)';
   end;

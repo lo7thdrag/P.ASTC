@@ -34,9 +34,9 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormActivate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -65,15 +65,14 @@ begin
   WindowState := wsMaximized;
 end;
 
-procedure TfrmAvailableBomb.FormClose(Sender: TObject;var Action: TCloseAction);
-begin
-  FreeItemsAndFreeList(FBombList);
-  Action := cafree;
-end;
-
 procedure TfrmAvailableBomb.FormCreate(Sender: TObject);
 begin
   FBombList := TList.Create;
+end;
+
+procedure TfrmAvailableBomb.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FBombList);
 end;
 
 procedure TfrmAvailableBomb.FormShow(Sender: TObject);
@@ -93,6 +92,8 @@ begin
     begin
       SelectedBomb := TBomb_Definition.Create;
       ShowModal;
+      SelectedBomb.Free;
+
       FUpdateList := AfterClose;
     end;
 
