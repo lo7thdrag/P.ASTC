@@ -15,6 +15,7 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -28,8 +29,6 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 858
-    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -40,7 +39,6 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 858
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -65,7 +63,6 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 278
         object btnDelete: TImage
           Left = 532
           Top = 13
@@ -681,8 +678,6 @@ object frmAvailableSNRvsPODCurve: TfrmAvailableSNRvsPODCurve
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 858
-      ExplicitHeight = 404
       object lstSNRvsPODCurve: TListBox
         Left = 10
         Top = 0

@@ -15,6 +15,7 @@ object frmAvailableGameDefaults: TfrmAvailableGameDefaults
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -28,8 +29,6 @@ object frmAvailableGameDefaults: TfrmAvailableGameDefaults
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -64,8 +63,6 @@ object frmAvailableGameDefaults: TfrmAvailableGameDefaults
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 628
-        ExplicitHeight = 46
         DesignSize = (
           580
           57)
@@ -690,9 +687,6 @@ object frmAvailableGameDefaults: TfrmAvailableGameDefaults
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
-      ExplicitWidth = 784
-      ExplicitHeight = 415
       object lstGameDefaults: TListBox
         Left = 10
         Top = 0

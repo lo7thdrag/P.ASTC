@@ -4,7 +4,7 @@ object AddParticipantForm: TAddParticipantForm
   Caption = 'Add Participant Form'
   ClientHeight = 153
   ClientWidth = 309
-  Color = clBtnFace
+  Color = 2499101
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -20,6 +20,12 @@ object AddParticipantForm: TAddParticipantForm
     Width = 88
     Height = 13
     Caption = 'Participant Name :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label2: TLabel
     Left = 8
@@ -27,6 +33,12 @@ object AddParticipantForm: TAddParticipantForm
     Width = 88
     Height = 13
     Caption = 'Octal PU Code     :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object verLabel: TLabel
     Left = 102

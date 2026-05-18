@@ -4,8 +4,8 @@ object frmStudentRolePickList: TfrmStudentRolePickList
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Student Role List Selection'
-  ClientHeight = 370
-  ClientWidth = 274
+  ClientHeight = 671
+  ClientWidth = 494
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,56 +20,130 @@ object frmStudentRolePickList: TfrmStudentRolePickList
   TextHeight = 13
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 0
-    Width = 274
-    Height = 327
+    Top = 40
+    Width = 494
+    Height = 588
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 322
+    ExplicitTop = 0
+    ExplicitWidth = 274
+    ExplicitHeight = 327
     object lbAllStudent: TListBox
       Left = 10
       Top = 10
-      Width = 254
-      Height = 307
+      Width = 474
+      Height = 568
       Align = alClient
-      ItemHeight = 13
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       OnClick = lbAllStudentClick
       OnDblClick = btnAddClick
-      ExplicitHeight = 302
+      ExplicitWidth = 254
+      ExplicitHeight = 307
     end
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 327
-    Width = 274
+    Top = 628
+    Width = 494
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 327
+    ExplicitWidth = 274
     object btnCancel: TButton
-      Left = 189
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 404
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnCloseClick
     end
     object btnAdd: TButton
-      Left = 109
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 314
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Pick'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnAddClick
+    end
+  end
+  object pnlTableHeader: TPanel
+    Left = 0
+    Top = 0
+    Width = 494
+    Height = 40
+    ParentCustomHint = False
+    Align = alTop
+    BevelOuter = bvNone
+    BiDiMode = bdLeftToRight
+    Color = 2499101
+    Ctl3D = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentBackground = False
+    ParentCtl3D = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    TabOrder = 2
+    ExplicitTop = 8
+    object Label2: TLabel
+      Left = 166
+      Top = 14
+      Width = 62
+      Height = 21
+      Caption = 'Search :'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object edtSearch: TEdit
+      Left = 237
+      Top = 12
+      Width = 247
+      Height = 25
+      AutoSize = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
     end
   end
 end

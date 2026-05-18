@@ -83,7 +83,7 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       Top = 10
       Width = 874
       Height = 440
-      ActivePage = tsPhysical
+      ActivePage = tsAssets
       Align = alClient
       TabHeight = 30
       TabOrder = 0

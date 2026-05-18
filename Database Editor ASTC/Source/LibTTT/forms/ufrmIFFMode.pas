@@ -278,6 +278,7 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FSelectedGameDefault : TGame_Defaults;
 
@@ -296,7 +297,7 @@ implementation
 
 {$R *.dfm}
 uses
-  uDataModuleTTT, ufrmGameDefaultSummary;
+  uDataModuleTTT, ufrmGameDefaultSummary, uSimContainers;
 
 procedure TfrmIFFMode.btnApplyClick(Sender: TObject);
 var
@@ -641,6 +642,11 @@ end;
 procedure TfrmIFFMode.FormCreate(Sender: TObject);
 begin
   FIFFList := TList.Create;
+end;
+
+procedure TfrmIFFMode.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FIFFList);
 end;
 
 procedure TfrmIFFMode.FormShow(Sender: TObject);

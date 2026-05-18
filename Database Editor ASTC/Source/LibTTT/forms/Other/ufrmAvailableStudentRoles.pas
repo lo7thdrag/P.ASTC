@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FStudentRolesList : TList;
@@ -51,7 +52,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmStudentRoleSummary, ufrmUsage, ufProgress;
+  uDataModuleTTT, ufrmStudentRoleSummary, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -65,6 +66,11 @@ end;
 procedure TfrmAvailableStudentRoles.FormCreate(Sender: TObject);
 begin
   FStudentRolesList := TList.Create;
+end;
+
+procedure TfrmAvailableStudentRoles.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FStudentRolesList);
 end;
 
 procedure TfrmAvailableStudentRoles.FormShow(Sender: TObject);

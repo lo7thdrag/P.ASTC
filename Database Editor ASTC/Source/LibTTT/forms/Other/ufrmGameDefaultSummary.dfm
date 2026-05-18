@@ -61,14 +61,12 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 61
-    ExplicitHeight = 534
     object pgcData: TPageControl
       Left = 10
       Top = 10
       Width = 849
       Height = 524
-      ActivePage = tsUnderWater
+      ActivePage = tsESMIFF
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -79,7 +77,6 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
       TabHeight = 30
       TabOrder = 0
       TabWidth = 110
-      ExplicitHeight = 514
       object tsAboveWater: TTabSheet
         Caption = 'Above Water'
         object grpRadarEffect: TGroupBox
@@ -604,7 +601,6 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
       object tsUnderWater: TTabSheet
         Caption = 'Under Water'
         ImageIndex = 1
-        ExplicitHeight = 474
         object lblSonobuoy: TLabel
           Left = 183
           Top = 3

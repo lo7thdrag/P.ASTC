@@ -48,6 +48,7 @@ type
     procedure btnPreplayScenarioClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure gbPlatformRelationshipsClick(Sender: TObject);
 
   private
     FSelectedScenario : TScenario_Definition;
@@ -111,6 +112,11 @@ begin
   isOK := True;
   AfterClose := True;
   btnCancel.Enabled := True;
+end;
+
+procedure TfrmSummaryScenario.gbPlatformRelationshipsClick(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}

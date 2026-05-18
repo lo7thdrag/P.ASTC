@@ -48,7 +48,6 @@ type
     btnCancel: TButton;
     btnOK: TButton;
     pnlSparatorHor2: TPanel;
-    Image1: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);

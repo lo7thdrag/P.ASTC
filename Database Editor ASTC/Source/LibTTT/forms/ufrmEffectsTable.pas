@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject, Grids, DBGrids, DB,
   {DBTables,} ZAbstractRODataset, ZAbstractDataset, ZAbstractTable, ZDataset,
-  newClassASTT, tttData, uDBGame_Defaults;
+  newClassASTT, tttData, uDBGame_Defaults, uSimContainers;
 
 type
   TfrmEffectsTable = class(TForm)
@@ -26,6 +26,7 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FEffectType : E_EffectType;
     FSelectedGameDefault : TGame_Defaults;
@@ -308,6 +309,11 @@ end;
 procedure TfrmEffectsTable.FormCreate(Sender: TObject);
 begin
   FEffectList := TList.Create;
+end;
+
+procedure TfrmEffectsTable.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FEffectList);
 end;
 
 procedure TfrmEffectsTable.FormShow(Sender: TObject);

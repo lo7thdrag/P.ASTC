@@ -6,7 +6,7 @@ object LinkWindowForm: TLinkWindowForm
   Caption = 'Link in TestScenario'
   ClientHeight = 558
   ClientWidth = 549
-  Color = clBtnFace
+  Color = 2499101
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -23,6 +23,8 @@ object LinkWindowForm: TLinkWindowForm
     Height = 513
     Align = alTop
     BevelOuter = bvNone
+    Color = 2499101
+    ParentBackground = False
     TabOrder = 0
     object lblIdentifierNumber: TLabel
       Left = 24
@@ -30,6 +32,12 @@ object LinkWindowForm: TLinkWindowForm
       Width = 91
       Height = 13
       Caption = 'Identifier Number :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object lblName: TLabel
       Left = 24
@@ -37,6 +45,12 @@ object LinkWindowForm: TLinkWindowForm
       Width = 34
       Height = 13
       Caption = 'Name :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object lblController: TLabel
       Left = 24
@@ -44,6 +58,12 @@ object LinkWindowForm: TLinkWindowForm
       Width = 54
       Height = 13
       Caption = 'Controller :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object lblForce: TLabel
       Left = 24
@@ -51,6 +71,12 @@ object LinkWindowForm: TLinkWindowForm
       Width = 34
       Height = 13
       Caption = 'Force :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object lblMode: TLabel
       Left = 24
@@ -58,6 +84,12 @@ object LinkWindowForm: TLinkWindowForm
       Width = 33
       Height = 13
       Caption = 'Mode :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object btnBrowse: TSpeedButton
       Left = 511
@@ -159,6 +191,8 @@ object LinkWindowForm: TLinkWindowForm
     Width = 549
     Height = 41
     Align = alBottom
+    Color = 2499101
+    ParentBackground = False
     TabOrder = 1
     object btnNew: TButton
       Left = 24

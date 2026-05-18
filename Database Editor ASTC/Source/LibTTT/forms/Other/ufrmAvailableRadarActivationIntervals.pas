@@ -34,6 +34,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FRadarActivationIntervalsList : TList;
@@ -50,7 +51,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRadarIntervalSummary, ufrmUsage, ufProgress;
+  uDataModuleTTT, ufrmRadarIntervalSummary, ufrmUsage, ufProgress, uSimContainers;
 {$R *.dfm}
 
 {$REGION ' Form Handle '}
@@ -63,6 +64,11 @@ end;
 procedure TfrmAvailableRadarActivationIntervals.FormCreate(Sender: TObject);
 begin
   FRadarActivationIntervalsList := TList.Create;
+end;
+
+procedure TfrmAvailableRadarActivationIntervals.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FRadarActivationIntervalsList);
 end;
 
 procedure TfrmAvailableRadarActivationIntervals.FormShow(Sender: TObject);

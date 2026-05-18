@@ -4,8 +4,8 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   Resource Allocation List'
-  ClientHeight = 419
-  ClientWidth = 280
+  ClientHeight = 671
+  ClientWidth = 494
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,54 +22,127 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
   TextHeight = 13
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 0
-    Width = 280
-    Height = 384
+    Top = 40
+    Width = 494
+    Height = 588
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 0
+    ExplicitHeight = 636
     object lbAvailableResAlloc: TListBox
       Left = 10
       Top = 10
-      Width = 260
-      Height = 364
+      Width = 474
+      Height = 568
       Align = alClient
-      ItemHeight = 13
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       OnClick = lbAvailableResAllocClick
       OnDblClick = lbAvailableResAllocDblClick
+      ExplicitHeight = 616
     end
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 384
-    Width = 280
-    Height = 35
+    Top = 628
+    Width = 494
+    Height = 43
     Align = alBottom
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 636
     object btnCancel: TButton
-      Left = 195
-      Top = 0
-      Width = 75
-      Height = 25
+      Left = 404
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = GB2312_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnCancelClick
     end
     object btnAdd: TButton
-      Left = 115
-      Top = 0
-      Width = 75
-      Height = 25
+      Left = 314
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Pick'
+      Font.Charset = GB2312_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnAddClick
+    end
+  end
+  object pnlTableHeader: TPanel
+    Left = 0
+    Top = 0
+    Width = 494
+    Height = 40
+    ParentCustomHint = False
+    Align = alTop
+    BevelOuter = bvNone
+    BiDiMode = bdLeftToRight
+    Color = 2499101
+    Ctl3D = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentBackground = False
+    ParentCtl3D = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    TabOrder = 2
+    ExplicitTop = 8
+    object Label2: TLabel
+      Left = 166
+      Top = 14
+      Width = 62
+      Height = 21
+      Caption = 'Search :'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object edtSearch: TEdit
+      Left = 237
+      Top = 12
+      Width = 247
+      Height = 25
+      AutoSize = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
     end
   end
 end

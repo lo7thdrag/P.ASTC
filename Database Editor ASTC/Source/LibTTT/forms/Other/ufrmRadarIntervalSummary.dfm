@@ -39,9 +39,17 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
     object lblName: TStaticText
       Left = 10
       Top = 8
-      Width = 43
-      Height = 18
+      Width = 46
+      Height = 20
       Caption = 'Name :'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
       TabOrder = 1
     end
   end
@@ -56,8 +64,6 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 131
     object pcScenarioTabs: TPageControl
       Left = 10
       Top = 10
@@ -68,10 +74,8 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 111
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 71
         object btnEditList: TButton
           Left = 20
           Top = 30
