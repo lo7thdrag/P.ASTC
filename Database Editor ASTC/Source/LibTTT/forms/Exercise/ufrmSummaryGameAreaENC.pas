@@ -72,6 +72,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure ENCmapMapViewChanged(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FSelectedGameArea : TGame_Environment_Definition;
 
@@ -147,6 +148,58 @@ begin
   s2 := Trim(s2);
   result := (s1 <> '') and (s2 <> '');
 end;
+
+{$REGION ' Form Handle '}
+
+procedure TfrmSummaryGameAreaENC.FormCreate(Sender: TObject);
+var
+  itemMaxWidth, i, itemWidth : Integer;
+begin
+  FListMapIndex := TStringList.Create;
+  FListFiltered := TStringList.Create;
+  FCanvas := TCanvas.Create;
+  FConverter := TCoordConverter.Create;
+  FMap1 := TMap.Create(Self);
+
+  FListMapIndex.LoadFromFile(vAppDBSetting.MapSourcePathENC + '\' + 'mapindex.ini');
+  chklstArea.Items := FListMapIndex;
+
+  //Set Checklist Area Width
+  itemMaxWidth := 0;
+  for i := 0 to chklstArea.Items.Count - 1 do
+  begin
+    itemWidth := chklstArea.Canvas.TextWidth(chklstArea.Items.Strings[i]);
+
+    if itemWidth > itemMaxWidth then
+      itemMaxWidth := itemWidth;
+  end;
+  SendMessage(chklstArea.Handle, LB_SETHORIZONTALEXTENT, itemMaxWidth + 20, 0);
+end;
+
+procedure TfrmSummaryGameAreaENC.FormDestroy(Sender: TObject);
+begin
+  if Assigned(FListMapIndex) then
+    FreeAndNil(FListMapIndex);
+
+  if Assigned(FListFiltered) then
+    FreeAndNil(FListFiltered);
+
+  if Assigned(FCanvas) then
+    FreeAndNil(FCanvas);
+
+  if Assigned(FConverter) then
+    FreeAndNil(FConverter);
+
+  if Assigned(FMap1) then
+    FreeAndNil(FMap1);
+end;
+
+procedure TfrmSummaryGameAreaENC.FormResize(Sender: TObject);
+begin
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
+end;
+
+{$ENDREGION}
 
 procedure TfrmSummaryGameAreaENC.chklstAreaClickCheck(Sender: TObject);
 var
@@ -307,36 +360,6 @@ begin
 
   AfterClose := True;
   Close;
-end;
-
-procedure TfrmSummaryGameAreaENC.FormCreate(Sender: TObject);
-var
-  itemMaxWidth, i, itemWidth : Integer;
-begin
-  FListMapIndex := TStringList.Create;
-  FListFiltered := TStringList.Create;
-  FCanvas := TCanvas.Create;
-  FConverter := TCoordConverter.Create;
-  FMap1 := TMap.Create(Self);
-
-  FListMapIndex.LoadFromFile(vAppDBSetting.MapSourcePathENC + '\' + 'mapindex.ini');
-  chklstArea.Items := FListMapIndex;
-
-  //Set Checklist Area Width
-  itemMaxWidth := 0;
-  for i := 0 to chklstArea.Items.Count - 1 do
-  begin
-    itemWidth := chklstArea.Canvas.TextWidth(chklstArea.Items.Strings[i]);
-
-    if itemWidth > itemMaxWidth then
-      itemMaxWidth := itemWidth;
-  end;
-  SendMessage(chklstArea.Handle, LB_SETHORIZONTALEXTENT, itemMaxWidth + 20, 0);
-end;
-
-procedure TfrmSummaryGameAreaENC.FormResize(Sender: TObject);
-begin
-  pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
 end;
 
 procedure TfrmSummaryGameAreaENC.edtSearchKeyPress(Sender: TObject; var Key: Char);

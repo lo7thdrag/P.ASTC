@@ -83,15 +83,18 @@ end;
 
 procedure TfrmAvailableGameArea.btnNewClick(Sender: TObject);
 begin
-  frmChooseMap := TfrmChooseMap.Create(Self);
+  frmSummaryGameAreaENC := TfrmSummaryGameAreaENC.Create(Self);
   try
-    with frmChooseMap do
+    with frmSummaryGameAreaENC do
     begin
+      SelectedGameArea := TGame_Environment_Definition.Create;
       ShowModal;
-      FUpdateList := AfterClose1;
+      SelectedGameArea.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
-    frmChooseMap.Free;
+    frmSummaryGameAreaENC.Free;
   end;
 
   if FUpdateList then
@@ -145,33 +148,16 @@ begin
     Exit;
   end;
 
-  if FSelectedGameArea.FGameArea.Detail_Map = 'VektorMap' then
-  begin
-    frmSummaryGameAreaVektor := TfrmSummaryGameAreaVektor.Create(Self);
-    try
-      with frmSummaryGameAreaVektor do
-      begin
-        SelectedGameArea := FSelectedGameArea;
-        ShowModal;
-        FUpdateList := AfterClose;
-      end;
-    finally
-      frmSummaryGameAreaVektor.Free;
+  frmSummaryGameAreaENC := TfrmSummaryGameAreaENC.Create(Self);
+  try
+    with frmSummaryGameAreaENC do
+    begin
+      SelectedGameArea := FSelectedGameArea;
+      ShowModal;
+      FUpdateList := AfterClose;
     end;
-  end
-  else if FSelectedGameArea.FGameArea.Detail_Map = 'ENC' then
-  begin
-    frmSummaryGameAreaENC := TfrmSummaryGameAreaENC.Create(Self);
-    try
-      with frmSummaryGameAreaENC do
-      begin
-        SelectedGameArea := FSelectedGameArea;
-        ShowModal;
-        FUpdateList := AfterClose;
-      end;
-    finally
-      frmSummaryGameAreaENC.Free;
-    end;
+  finally
+    frmSummaryGameAreaENC.Free;
   end;
 
   if FUpdateList then

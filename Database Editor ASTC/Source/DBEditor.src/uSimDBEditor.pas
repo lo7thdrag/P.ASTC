@@ -315,6 +315,8 @@ begin
   frmDBSEtting := TfrmDBSetting.Create(nil);
 
   iResult := mrNone;
+
+  {$REGION ' Koneksi Database '}
   repeat
     with vDBSetting do
       bResult := dmTTT.InitZDB(dbServer, dbProto, dbName, dbUser, dbPass);
@@ -347,6 +349,7 @@ begin
     end;
   until  bResult or (iResult = mrCancel);
   frmDBSetting.Free;
+  {$ENDREGION}
 
 //  get message untuk status Scenario Development
 //  sementara diskip, anggap tidak ada scenario yg jalan
