@@ -77,7 +77,7 @@ object frmSummaryMissile: TfrmSummaryMissile
       Top = 10
       Width = 796
       Height = 467
-      ActivePage = tsGeneral
+      ActivePage = tsSeekerSetting
       Align = alClient
       MultiLine = True
       TabHeight = 30
