@@ -91,8 +91,9 @@ begin
     begin
       SelectedResourceAllocation := TResource_Allocation.Create;
       ShowModal;
-      FUpdateList := AfterClose;
       SelectedResourceAllocation.Free;
+
+      FUpdateList := AfterClose;
     end;
   finally
     frmSummaryResourceAllocation.Free;

@@ -4,8 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage,
-  uDBAssetObject, uDBAsset_Vehicle, Vcl.Mask;
+  Dialogs, StdCtrls, ExtCtrls, ComCtrls, Vcl.Imaging.pngimage, Vcl.Mask,
+
+  uDBAssetObject, uDBAsset_Vehicle, uDBAsset_MotionCharacteristics, uSimContainers;
 
 type
   TfrmSummaryVehicle = class(TForm)
@@ -336,9 +337,11 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
+    FSelectedMotion : TMotion_Characteristics;
 
     FPlatInstList : TList;
     FSelectedPIIdent : TPlatform_Instance_Identifier;
@@ -397,6 +400,13 @@ uses
 procedure TfrmSummaryVehicle.FormCreate(Sender: TObject);
 begin
   FPlatInstList := TList.Create;
+  FSelectedMotion := TMotion_Characteristics.Create;
+end;
+
+procedure TfrmSummaryVehicle.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FPlatInstList);
+  FSelectedMotion.Free;
 end;
 
 procedure TfrmSummaryVehicle.FormShow(Sender: TObject);
@@ -1200,7 +1210,7 @@ var
   motion : TMotion_Characteristics;
 begin
   with FSelectedVehicle.FData do
-    dmTTT.GetMotionCharacteristicDef(Motion_Characteristics, motion);
+    dmTTT.GetMotionCharacteristicDef(Motion_Characteristics, uDBAssetObject, uDBAsset_Vehicle,);
 
   if Assigned(motion) then
     edtMotionCharacterictic.Text := motion.FData.Motion_Identifier
