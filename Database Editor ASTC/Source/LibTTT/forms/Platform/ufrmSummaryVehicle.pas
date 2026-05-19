@@ -373,7 +373,7 @@ implementation
 uses
   uDataModuleTTT,uDBAsset_Countermeasure, uDBAsset_Weapon, uDBAsset_Sonobuoy, tttData,
   uDBAsset_Sonar, uDBAsset_ESM, uDBAsset_Radar, uDBAsset_Sensor,
-  newClassASTT,  uDBAsset_Fitted, uDBAsset_MotionCharacteristics, ufrmMotionPickList,
+  newClassASTT,  uDBAsset_Fitted, ufrmMotionPickList,
 
   ufrmRadarOnBoardPickList,ufrmSonarOnBoardPickList, ufrmESMOnBoardPickList,ufrmEODOnBoardPickList,
   ufrmMADOnBoardPickList, ufrmSonobuoyOnBoardPickList,ufrmIFFOnBoardPickList, uVDDoublePickList,
@@ -1206,14 +1206,9 @@ end;
 {$ENDREGION}
 
 procedure TfrmSummaryVehicle.UpdateMotionData;
-var
-  motion : TMotion_Characteristics;
 begin
-  with FSelectedVehicle.FData do
-    dmTTT.GetMotionCharacteristicDef(Motion_Characteristics, uDBAssetObject, uDBAsset_Vehicle,);
-
-  if Assigned(motion) then
-    edtMotionCharacterictic.Text := motion.FData.Motion_Identifier
+  if dmTTT.GetMotionCharacteristicDef(FSelectedVehicle.FData.Motion_Characteristics, FSelectedMotion) then
+    edtMotionCharacterictic.Text := FSelectedMotion.FData.Motion_Identifier
   else
     edtMotionCharacterictic.Text := '(None)';
 end;
