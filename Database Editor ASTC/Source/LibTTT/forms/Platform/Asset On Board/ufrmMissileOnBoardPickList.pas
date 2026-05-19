@@ -13,18 +13,20 @@ type
     mscRuntimePlatformLibrary);
 
   TfrmMissileOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllMissileDef: TListBox;
     lbAllMissileOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -37,6 +39,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -67,15 +71,19 @@ uses
 
 procedure TfrmMissileOnBoardPickList.FormClose(Sender: TObject;  var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllMissileDefList);
-  FreeItemsAndFreeList(FAllMissileOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmMissileOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllMissileDefList := TList.Create;
   FAllMissileOnBoardList := TList.Create;
+end;
+
+procedure TfrmMissileOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMissileDefList);
+  FreeItemsAndFreeList(FAllMissileOnBoardList);
 end;
 
 procedure TfrmMissileOnBoardPickList.FormShow(Sender: TObject);
@@ -142,6 +150,15 @@ begin
   UpdateMissileList;
 end;
 
+procedure TfrmMissileOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMissileList;
+  end;
+end;
+
 procedure TfrmMissileOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -171,7 +188,7 @@ begin
   lbAllMissileDef.Items.Clear;
   lbAllMissileOnBoard.Items.Clear;
 
-  dmTTT.GetAllMissileDef(FAllMissileDefList);
+  dmTTT.GetFilterMissileDef(FAllMissileDefList, edtSearch.Text);
   dmTTT.GetMissileOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllMissileOnBoardList);
 
   for i := 0 to FAllMissileDefList.Count - 1 do

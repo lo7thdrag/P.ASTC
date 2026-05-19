@@ -9,18 +9,20 @@ uses
 
 type
   TfrmFloatingDecoyOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditMount: TButton;
     btnRemove: TButton;
     lbAllFloatingDecoyDef: TListBox;
     lbAllFloatingDecoyOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditMountClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllFloatingDecoyDefList : TList;
@@ -63,15 +67,19 @@ uses
 
 procedure TfrmFloatingDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllFloatingDecoyDefList);
-  FreeItemsAndFreeList(FAllFloatingDecoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllFloatingDecoyDefList := TList.Create;
   FAllFloatingDecoyOnBoardList := TList.Create;
+end;
+
+procedure TfrmFloatingDecoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllFloatingDecoyDefList);
+  FreeItemsAndFreeList(FAllFloatingDecoyOnBoardList);
 end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.FormShow(Sender: TObject);
@@ -135,6 +143,15 @@ begin
   UpdateFloatingDecoyList;
 end;
 
+procedure TfrmFloatingDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateFloatingDecoyList;
+  end;
+end;
+
 procedure TfrmFloatingDecoyOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -162,7 +179,7 @@ begin
   lbAllFloatingDecoyDef.Items.Clear;
   lbAllFloatingDecoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllFloatingDecoyDef(FAllFloatingDecoyDefList);
+  dmTTT.GetFilterFloatingDecoyDef(FAllFloatingDecoyDefList, edtSearch.Text);
   dmTTT.GetFloatingDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllFloatingDecoyOnBoardList);
 
   for i := 0 to FAllFloatingDecoyDefList.Count - 1 do

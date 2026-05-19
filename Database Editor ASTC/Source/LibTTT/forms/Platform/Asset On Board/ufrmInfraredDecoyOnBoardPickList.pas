@@ -9,18 +9,20 @@ uses
 
 type
   TfrmInfraredDecoyOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditSelected: TButton;
     btnRemove: TButton;
     lbAllInfraredDecoyDef: TListBox;
     lbAllInfraredDecoyOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditSelectedClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllInfraredDecoyDefList : TList;
@@ -63,15 +67,19 @@ uses
 
 procedure TfrmInfraredDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllInfraredDecoyDefList);
-  FreeItemsAndFreeList(FAllInfraredDecoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmInfraredDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllInfraredDecoyDefList := TList.Create;
   FAllInfraredDecoyOnBoardList := TList.Create;
+end;
+
+procedure TfrmInfraredDecoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllInfraredDecoyDefList);
+  FreeItemsAndFreeList(FAllInfraredDecoyOnBoardList);
 end;
 
 procedure TfrmInfraredDecoyOnBoardPickList.FormShow(Sender: TObject);
@@ -135,6 +143,15 @@ begin
   UpdateInfraredDecoyList;
 end;
 
+procedure TfrmInfraredDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateInfraredDecoyList;
+  end;
+end;
+
 procedure TfrmInfraredDecoyOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -162,7 +179,7 @@ begin
   lbAllInfraredDecoyDef.Items.Clear;
   lbAllInfraredDecoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllInfraredDecoyDef(FAllInfraredDecoyDefList);
+  dmTTT.GetFilterInfraredDecoyDef(FAllInfraredDecoyDefList, edtSearch.Text);
   dmTTT.GetInfraredDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllInfraredDecoyOnBoardList);
 
   for i := 0 to FAllInfraredDecoyDefList.Count - 1 do

@@ -12,18 +12,20 @@ type
 
   TfrmSonarOnBoardPickList = class(TForm)
     shp1: TShape;
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Image1: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     lbAllSonarDef: TListBox;
     lbAllSonarOnBoard: TListBox;
     btnAdd: TButton;
     btnRemove: TButton;
     btnEditMount: TButton;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
+    lbl1: TLabel;
+    edtSearch: TEdit;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -36,6 +38,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllSonarDefList : TList;
@@ -141,6 +144,15 @@ begin
   UpdateSonarList;
 end;
 
+procedure TfrmSonarOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSonarList;
+  end;
+end;
+
 procedure TfrmSonarOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -170,7 +182,7 @@ begin
   lbAllSonarDef.Items.Clear;
   lbAllSonarOnBoard.Items.Clear;
 
-  dmTTT.GetAllSonarDef(FAllSonarDefList);
+  dmTTT.GetFilterSonarDef(FAllSonarDefList, edtSearch.Text);
   dmTTT.GetSonarOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllSonarOnBoardList);
 
   for i := 0 to FAllSonarDefList.Count - 1 do

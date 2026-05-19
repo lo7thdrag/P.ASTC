@@ -855,7 +855,7 @@ object frmSummaryMotion: TfrmSummaryMotion
       Height = 14
       Caption = 'Type :'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []

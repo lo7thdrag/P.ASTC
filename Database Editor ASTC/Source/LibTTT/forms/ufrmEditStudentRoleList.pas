@@ -31,6 +31,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedStudentRole : TStudent_Role_List;
@@ -50,7 +51,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -59,6 +60,11 @@ uses
 procedure TfrmEditStudentRoleList.FormCreate(Sender: TObject);
 begin
   FRoleDefList := TList.Create;
+end;
+
+procedure TfrmEditStudentRoleList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FRoleDefList);
 end;
 
 procedure TfrmEditStudentRoleList.FormShow(Sender: TObject);

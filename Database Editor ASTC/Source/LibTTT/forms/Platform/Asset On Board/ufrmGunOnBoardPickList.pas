@@ -9,18 +9,20 @@ uses
 
 type
   TfrmGunOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllGunDef: TListBox;
     lbAllGunOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -63,15 +67,19 @@ uses
 
 procedure TfrmGunOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllGunDefList);
-  FreeItemsAndFreeList(FAllGunOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmGunOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllGunDefList := TList.Create;
   FAllGunOnBoardList := TList.Create;
+end;
+
+procedure TfrmGunOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllGunDefList);
+  FreeItemsAndFreeList(FAllGunOnBoardList);
 end;
 
 procedure TfrmGunOnBoardPickList.FormShow(Sender: TObject);
@@ -138,6 +146,15 @@ begin
   UpdateGunList;
 end;
 
+procedure TfrmGunOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateGunList;
+  end;
+end;
+
 procedure TfrmGunOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -167,7 +184,7 @@ begin
   lbAllGunDef.Items.Clear;
   lbAllGunOnBoard.Items.Clear;
 
-  dmTTT.GetAllGunDef(FAllGunDefList);
+  dmTTT.GetFilterGunDef(FAllGunDefList, edtSearch.Text);
   dmTTT.GetGunOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllGunOnBoardList);
 
   for i := 0 to FAllGunDefList.Count - 1 do

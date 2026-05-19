@@ -10,18 +10,20 @@ uses
 type
   TfrmVisualOnBoardPickList = class(TForm)
     Shape1: TShape;
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Image1: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllVisualDef: TListBox;
     lbAllVisualOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -34,6 +36,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -64,9 +68,7 @@ uses
 
 procedure TfrmVisualOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllVisualOnBoardList);
-  FreeItemsAndFreeList(FAllVisualDefList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmVisualOnBoardPickList.FormCreate(Sender: TObject);
@@ -80,6 +82,13 @@ begin
   visual.FData.Instance_Identifier := 'Visual';
 
   FAllVisualDefList.Add(visual);
+end;
+
+procedure TfrmVisualOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllVisualOnBoardList);
+  FreeItemsAndFreeList(FAllVisualDefList);
+  TVisual_Sensor_On_Board.Free;
 end;
 
 procedure TfrmVisualOnBoardPickList.FormShow(Sender: TObject);
@@ -148,6 +157,15 @@ begin
   UpdateVisualList;
 end;
 
+procedure TfrmVisualOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateVisualList;
+  end;
+end;
+
 procedure TfrmVisualOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -177,6 +195,7 @@ begin
   lbAllVisualDef.Items.Clear;
   lbAllVisualOnBoard.Items.Clear;
 
+//  dmTTT.GetFilterESMDef(FAllVisualDefList, edtSearch.Text);
   dmTTT.GetVisualOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllVisualOnBoardList);
 
   visual := TVisual_Sensor_On_Board.Create;

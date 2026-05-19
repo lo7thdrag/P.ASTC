@@ -9,6 +9,7 @@ uses
 type
   TfrmPlatforms = class(TForm)
     imgVehicle: TImage;
+    imgBackground: TImage;
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }

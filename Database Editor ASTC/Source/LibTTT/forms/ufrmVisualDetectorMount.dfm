@@ -16,6 +16,7 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
   Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -40,8 +41,6 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 75
-      ExplicitHeight = 200
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -52,10 +51,8 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 180
         object General: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 140
           object lblBlindZones: TStaticText
             Left = 15
             Top = 19

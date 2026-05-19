@@ -12,18 +12,20 @@ type
     tscMissile, tscRuntimePlatformLibrary);
 
   TfrmTorpedoOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    Label2: TLabel;
-    imgExercise: TImage;
-    Label1: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllTorpedoDef: TListBox;
     lbAllTorpedoOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -36,6 +38,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllTorpedoDefList : TList;
@@ -65,15 +69,19 @@ uses
 
 procedure TfrmTorpedoOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllTorpedoDefList);
-  FreeItemsAndFreeList(FAllTorpedoOnBoardList);
-  Action := cafree;
+  Act?ion := cafree;
 end;
 
 procedure TfrmTorpedoOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllTorpedoDefList := TList.Create;
   FAllTorpedoOnBoardList := TList.Create;
+end;
+
+procedure TfrmTorpedoOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllTorpedoDefList);
+  FreeItemsAndFreeList(FAllTorpedoOnBoardList);
 end;
 
 procedure TfrmTorpedoOnBoardPickList.FormShow(Sender: TObject);
@@ -140,6 +148,15 @@ begin
   UpdateTorpedoList;
 end;
 
+procedure TfrmTorpedoOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTorpedoList;
+  end;
+end;
+
 procedure TfrmTorpedoOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -169,7 +186,7 @@ begin
   lbAllTorpedoDef.Items.Clear;
   lbAllTorpedoOnBoard.Items.Clear;
 
-  dmTTT.GetAllTorpedoDef(FAllTorpedoDefList);
+  dmTTT.GetFilterTorpedoDef(FAllTorpedoDefList, edtSearch.Text);
   dmTTT.GetTorpedoOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllTorpedoOnBoardList);
 
   for i := 0 to FAllTorpedoDefList.Count - 1 do

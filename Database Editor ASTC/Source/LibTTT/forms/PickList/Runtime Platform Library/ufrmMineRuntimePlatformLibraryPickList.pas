@@ -9,17 +9,19 @@ uses
 
 type
   TfrmMineRuntimePlatformLibraryPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllMineDef: TListBox;
     lbAllMineOnRPL: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -30,6 +32,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
    private
     FAllMineDefList : TList;
@@ -53,7 +57,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -65,6 +69,12 @@ procedure TfrmMineRuntimePlatformLibraryPickList.FormCreate(Sender: TObject);
 begin
   FAllMineDefList := TList.Create;
   FAllMineOnRPLList := TList.Create;
+end;
+
+procedure TfrmMineRuntimePlatformLibraryPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMineDefList);
+  FreeItemsAndFreeList(FAllMineOnRPLList);
 end;
 
 procedure TfrmMineRuntimePlatformLibraryPickList.FormShow(Sender: TObject);
@@ -113,6 +123,15 @@ begin
   UpdateMineList;
 end;
 
+procedure TfrmMineRuntimePlatformLibraryPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMineList;
+  end;
+end;
+
 procedure TfrmMineRuntimePlatformLibraryPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -144,7 +163,7 @@ begin
   lbAllMineDef.Items.Clear;
   lbAllMineOnRPL.Items.Clear;
 
-  dmTTT.GetAllMineDef(FAllMineDefList);
+  dmTTT.GetFilterMineDef(FAllMineDefList, edtSearch.Text);
   dmTTT.GetAllMinePlatformLibraryEntry(FRuntimePlatformLibrary.FData.Platform_Library_Index,FAllMineOnRPLList);
 
   for i := 0 to FAllMineDefList.Count - 1 do

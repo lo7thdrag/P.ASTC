@@ -10,18 +10,20 @@ uses
 type
   TfrmESMOnBoardPickList = class(TForm)
     shp1: TShape;
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Image1: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     lbAllESMDef: TListBox;
     lbAllESMOnBoard: TListBox;
     btnAdd: TButton;
     btnRemove: TButton;
     btnEditMount: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -34,6 +36,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -64,15 +68,19 @@ uses
 
 procedure TfrmESMOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllESMDefList);
-  FreeItemsAndFreeList(FAllESMOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmESMOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllESMDefList := TList.Create;
   FAllESMOnBoardList := TList.Create;
+end;
+
+procedure TfrmESMOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllESMDefList);
+  FreeItemsAndFreeList(FAllESMOnBoardList);
 end;
 
 procedure TfrmESMOnBoardPickList.FormShow(Sender: TObject);
@@ -138,6 +146,15 @@ begin
   UpdateESMList;
 end;
 
+procedure TfrmESMOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateESMList;
+  end;
+end;
+
 procedure TfrmESMOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -167,7 +184,7 @@ begin
   lbAllESMDef.Items.Clear;
   lbAllESMOnBoard.Items.Clear;
 
-  dmTTT.GetAllESMDef(FAllESMDefList);
+  dmTTT.GetFilterESMDef(FAllESMDefList, edtSearch.Text);
   dmTTT.GetESMOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllESMOnBoardList);
 
   for i := 0 to FAllESMDefList.Count - 1 do

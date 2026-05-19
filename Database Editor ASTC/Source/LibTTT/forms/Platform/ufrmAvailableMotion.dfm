@@ -19,6 +19,7 @@ object frmAvailableMotion: TfrmAvailableMotion
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -32,8 +33,6 @@ object frmAvailableMotion: TfrmAvailableMotion
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 461
     object pnlTableList: TPanel
       Left = 0
       Top = 57
@@ -44,7 +43,6 @@ object frmAvailableMotion: TfrmAvailableMotion
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 46
       object lstMotions: TListBox
         Left = 10
         Top = 0
@@ -95,7 +93,6 @@ object frmAvailableMotion: TfrmAvailableMotion
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 628
         DesignSize = (
           580
           57)

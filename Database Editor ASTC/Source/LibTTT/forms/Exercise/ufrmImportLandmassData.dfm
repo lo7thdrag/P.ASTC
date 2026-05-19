@@ -15,6 +15,7 @@ object frmImportLandmassData: TfrmImportLandmassData
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -28,9 +29,6 @@ object frmImportLandmassData: TfrmImportLandmassData
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 5
-    ExplicitTop = 586
-    ExplicitWidth = 545
     object btnClose: TButton
       Left = 462
       Top = 9
@@ -51,10 +49,6 @@ object frmImportLandmassData: TfrmImportLandmassData
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 5
-    ExplicitTop = 95
-    ExplicitWidth = 545
-    ExplicitHeight = 486
     object grbImportFilters: TGroupBox
       Left = 13
       Top = 6
@@ -618,7 +612,6 @@ object frmImportLandmassData: TfrmImportLandmassData
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = -1
     object grbImportSource: TGroupBox
       Left = 13
       Top = 15
@@ -675,9 +668,6 @@ object frmImportLandmassData: TfrmImportLandmassData
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 5
-    ExplicitTop = 90
-    ExplicitWidth = 545
     object Image2: TImage
       Left = 0
       Top = 0
@@ -709,9 +699,6 @@ object frmImportLandmassData: TfrmImportLandmassData
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 4
-    ExplicitLeft = 5
-    ExplicitTop = 581
-    ExplicitWidth = 545
     object Image1: TImage
       Left = 0
       Top = 0

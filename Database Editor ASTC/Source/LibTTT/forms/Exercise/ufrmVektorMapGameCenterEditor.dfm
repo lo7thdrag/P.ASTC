@@ -16,6 +16,7 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
   Position = poScreenCenter
   WindowState = wsMaximized
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -29,9 +30,6 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 5
-    ExplicitTop = 409
-    ExplicitWidth = 774
     object Panel1: TPanel
       Left = 536
       Top = 0
@@ -40,13 +38,18 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 526
       object btnOK: TButton
         Left = 6
         Top = 9
         Width = 75
         Height = 25
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnOkClick
       end
@@ -56,6 +59,12 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
         Width = 75
         Height = 25
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnApplyClick
       end
@@ -65,6 +74,12 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
         Width = 75
         Height = 25
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end
@@ -78,10 +93,6 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = 5
-    ExplicitTop = 5
-    ExplicitWidth = 774
-    ExplicitHeight = 326
     object VectorMap: TMap
       Left = 0
       Top = 0
@@ -110,7 +121,7 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
         8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
         918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
         6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-        0100011801000008F98A050100000028102F001C000000000000000000000000
+        010001180100005866212701000000CD0006501C000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000002
         0000000000000000000000000000000000000000000000000000000000000000
@@ -119,15 +130,15 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         8076C000000000008056C0000000000080764000000000008056400100000018
-        01000008F98A05010000004813AB001C00000000000000000000000000000000
+        0100005866212701000000D059D1501C00000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000200000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
-        000000000000000000000000000000000000000000000000000000C0D65071B8
-        EB9700F1805671B8ECA5057CEA9700ECEEA505B8ECA505000000000000000000
+        00000000000000000000000000000000000000000000002E6FF86CE034FF2604
+        EA97001837FF26E034FF26436FF86C0000000050201400000000000000000000
         000088B3400000000000408F400001000001}
     end
   end
@@ -142,9 +153,6 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 5
-    ExplicitTop = 336
-    ExplicitWidth = 774
     object GroupBox1: TGroupBox
       Left = 5
       Top = 5
@@ -152,8 +160,13 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
       Height = 58
       Align = alClient
       Caption = 'Game Area Setting'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 764
       object lblLatitude: TLabel
         Left = 114
         Top = 26
@@ -223,9 +236,6 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 5
-    ExplicitTop = 331
-    ExplicitWidth = 774
     object Image2: TImage
       Left = 0
       Top = 0
@@ -257,9 +267,6 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 4
-    ExplicitLeft = 5
-    ExplicitTop = 404
-    ExplicitWidth = 774
     object Image1: TImage
       Left = 0
       Top = 0

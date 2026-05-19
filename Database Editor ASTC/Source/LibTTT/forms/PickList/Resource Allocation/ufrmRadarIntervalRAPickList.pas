@@ -10,19 +10,19 @@ uses
 type
   TfrmRadarIntervalRAPickList = class(TForm)
     btnFilter: TButton;
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lstIntervalAvailable: TListBox;
     lstIntervalSelect: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -33,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedResourceAlloc : TResource_Allocation;
@@ -54,7 +56,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRadarIntervalSummary;
+  uDataModuleTTT, ufrmRadarIntervalSummary, uSimContainers;
 
 {$R *.dfm}
 
@@ -62,8 +64,14 @@ uses
 
 procedure TfrmRadarIntervalRAPickList.FormCreate(Sender: TObject);
 begin
-  FRadarIntervalList := TList.Create;
-  FSelectedRadarIntervalList := TList.Create;
+  FRadarIntervalList          := TList.Create;
+  FSelectedRadarIntervalList  := TList.Create;
+end;
+
+procedure TfrmRadarIntervalRAPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FRadarIntervalList);
+  FreeItemsAndFreeList(FSelectedRadarIntervalList);
 end;
 
 procedure TfrmRadarIntervalRAPickList.FormShow(Sender: TObject);
@@ -110,6 +118,15 @@ begin
   UpdateRadarIntervalList;
 end;
 
+procedure TfrmRadarIntervalRAPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateRadarIntervalList;
+  end;
+end;
+
 procedure TfrmRadarIntervalRAPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -139,9 +156,8 @@ begin
   lstIntervalAvailable.Items.Clear;
   lstIntervalSelect.Items.Clear;
 
-  dmTTT.GetRadarIntervalList(FRadarIntervalList);
-  dmTTT.GetRadarInterval(FSelectedResourceAlloc.FData.Resource_Alloc_Index,
-    FSelectedRadarIntervalList);
+  dmTTT.GetFilterRadarDef(FRadarIntervalList, edtSearch.Text);
+  dmTTT.GetRadarInterval(FSelectedResourceAlloc.FData.Resource_Alloc_Index, FSelectedRadarIntervalList);
 
   for i := 0 to FRadarIntervalList.Count - 1 do
   begin

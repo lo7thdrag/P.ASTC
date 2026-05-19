@@ -15,7 +15,7 @@ type
     imgGameDefault: TImage;
     imgRadarActivationIntervals: TImage;
     imgSNR: TImage;
-    Image1: TImage;
+    imgBackground: TImage;
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);

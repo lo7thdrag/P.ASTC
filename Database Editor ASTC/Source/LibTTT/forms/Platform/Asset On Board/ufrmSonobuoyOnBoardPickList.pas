@@ -10,18 +10,20 @@ uses
 type
   TfrmSonobuoyOnBoardPickList = class(TForm)
     shp1: TShape;
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Image1: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditMount: TButton;
     btnRemove: TButton;
     lbAllSonobuoyDef: TListBox;
     lbAllSonobuoyOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -34,6 +36,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditMountClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -64,9 +68,7 @@ uses
 
 procedure TfrmSonobuoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllSonobuoyDefList);
-  FreeItemsAndFreeList(FAllSonobuoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmSonobuoyOnBoardPickList.FormCreate(Sender: TObject);
@@ -74,6 +76,12 @@ procedure TfrmSonobuoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllSonobuoyDefList := TList.Create;
   FAllSonobuoyOnBoardList := TList.Create;
+end;
+
+procedure TfrmSonobuoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllSonobuoyDefList);
+  FreeItemsAndFreeList(FAllSonobuoyOnBoardList);
 end;
 
 procedure TfrmSonobuoyOnBoardPickList.FormShow(Sender: TObject);
@@ -138,6 +146,15 @@ begin
   UpdateSonobuoyList;
 end;
 
+procedure TfrmSonobuoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSonobuoyList;
+  end;
+end;
+
 procedure TfrmSonobuoyOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -165,7 +182,7 @@ begin
   lbAllSonobuoyDef.Items.Clear;
   lbAllSonobuoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllSonobuoy(FAllSonobuoyDefList);
+  dmTTT.GetFilterSonobuoyDef(FAllSonobuoyDefList, edtSearch.Text);
   dmTTT.GetSonobuoyOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllSonobuoyOnBoardList);
 
   for i := 0 to FAllSonobuoyDefList.Count - 1 do

@@ -9,17 +9,19 @@ uses
   uDBAssetObject, uDBAsset_Sonobuoy, uDBAsset_Runtime_Platform_Library;
 type
   TfrmSonobuoyRuntimePlatformLibraryPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllSonobuoyDef: TListBox;
     lbAllSonobuoyOnRPL: TListBox;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -30,6 +32,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllSonobuoyDefList : TList;
@@ -53,7 +57,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -63,6 +67,13 @@ procedure TfrmSonobuoyRuntimePlatformLibraryPickList.FormCreate(Sender: TObject)
 begin
   FAllSonobuoyDefList := TList.Create;
   FAllSonobuoyOnRPList := TList.Create;
+end;
+
+procedure TfrmSonobuoyRuntimePlatformLibraryPickList.FormDestroy(
+  Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllSonobuoyDefList);
+  FreeItemsAndFreeList(FAllSonobuoyOnRPList);
 end;
 
 procedure TfrmSonobuoyRuntimePlatformLibraryPickList.FormShow(Sender: TObject);
@@ -111,6 +122,15 @@ begin
   UpdateSonobuoyList;
 end;
 
+procedure TfrmSonobuoyRuntimePlatformLibraryPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSonobuoyList;
+  end;
+end;
+
 procedure TfrmSonobuoyRuntimePlatformLibraryPickList.btnCloseClick(Sender: TObject);
 begin
  Close;
@@ -142,7 +162,7 @@ begin
   lbAllSonobuoyDef.Items.Clear;
   lbAllSonobuoyOnRPL.Items.Clear;
 
-  dmTTT.GetAllSonobuoyDef(FAllSonobuoyDefList);
+  dmTTT.GetFilterSonobuoyDef(FAllSonobuoyDefList, edtSearch.Text);
   dmTTT.GetAllSonobuoyPlatformLibraryEntry(FRuntimePlatformLibrary.FData.Platform_Library_Index,FAllSonobuoyOnRPList);
 
   for i := 0 to FAllSonobuoyDefList.Count - 1 do

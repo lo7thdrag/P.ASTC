@@ -29,7 +29,6 @@ object frmRadarOnBoardPickList: TfrmRadarOnBoardPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 585
     object lbl1: TLabel
       Left = 12
       Top = 544
@@ -60,9 +59,9 @@ object frmRadarOnBoardPickList: TfrmRadarOnBoardPickList
     end
     object btnEditMount: TButton
       Left = 430
-      Top = 539
+      Top = 542
       Width = 313
-      Height = 30
+      Height = 25
       Caption = 'Edit'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -145,10 +144,6 @@ object frmRadarOnBoardPickList: TfrmRadarOnBoardPickList
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 313
-        ExplicitHeight = 41
       end
     end
     object pnl3: TPanel
@@ -216,7 +211,7 @@ object frmRadarOnBoardPickList: TfrmRadarOnBoardPickList
       Width = 760
       Height = 5
       BevelOuter = bvNone
-      Color = clBackground
+      Color = clBlack
       ParentBackground = False
       TabOrder = 9
     end

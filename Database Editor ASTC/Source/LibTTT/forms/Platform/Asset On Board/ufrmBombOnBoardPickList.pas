@@ -9,18 +9,20 @@ uses
 
 type
   TfrmBombOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllBombDef: TListBox;
     lbAllBombOnBoard: TListBox;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -63,15 +67,19 @@ uses
 
 procedure TfrmBombOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllBombDefList);
-  FreeItemsAndFreeList(FAllBombOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmBombOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllBombDefList := TList.Create;
   FAllBombOnBoardList := TList.Create;
+end;
+
+procedure TfrmBombOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllBombDefList);
+  FreeItemsAndFreeList(FAllBombOnBoardList);
 end;
 
 procedure TfrmBombOnBoardPickList.FormShow(Sender: TObject);
@@ -137,6 +145,14 @@ begin
   UpdateBombList;
 end;
 
+procedure TfrmBombOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  begin
+    UpdateBombList;
+  end;
+end;
+
 procedure TfrmBombOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -166,7 +182,7 @@ begin
   lbAllBombDef.Items.Clear;
   lbAllBombOnBoard.Items.Clear;
 
-  dmTTT.GetAllBombDef(FAllBombDefList);
+  dmTTT.GetFilterBombDef(FAllBombDefList, edtSearch.Text);
   dmTTT.GetBombOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllBombOnBoardList);
 
   for i := 0 to FAllBombDefList.Count - 1 do

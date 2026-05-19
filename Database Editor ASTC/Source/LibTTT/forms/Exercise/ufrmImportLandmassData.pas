@@ -100,6 +100,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure LayerDataChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FSelectedGameArea : TGame_Environment_Definition;
 
@@ -421,6 +422,11 @@ end;
 procedure TfrmImportLandmassData.FormCreate(Sender: TObject);
 begin
   FMap := TMap.Create(nil);
+end;
+
+procedure TfrmImportLandmassData.FormDestroy(Sender: TObject);
+begin
+  TMap.Free;
 end;
 
 procedure TfrmImportLandmassData.FormShow(Sender: TObject);

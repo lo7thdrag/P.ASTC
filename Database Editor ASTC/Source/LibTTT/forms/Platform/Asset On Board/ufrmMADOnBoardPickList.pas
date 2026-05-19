@@ -9,18 +9,20 @@ uses
 
 type
   TfrmMADOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Image1: TImage;
-    Label2: TLabel;
-    Label1: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllMADDef: TListBox;
     lbAllMADOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -63,15 +67,19 @@ uses
 
 procedure TfrmMADOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllMADDefList);
-  FreeItemsAndFreeList(FAllMADOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmMADOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllMADDefList := TList.Create;
   FAllMADOnBoardList := TList.Create;
+end;
+
+procedure TfrmMADOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMADDefList);
+  FreeItemsAndFreeList(FAllMADOnBoardList);
 end;
 
 procedure TfrmMADOnBoardPickList.FormShow(Sender: TObject);
@@ -137,6 +145,15 @@ begin
   UpdateMADList;
 end;
 
+procedure TfrmMADOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMADList;
+  end;
+end;
+
 procedure TfrmMADOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -166,7 +183,7 @@ begin
   lbAllMADDef.Items.Clear;
   lbAllMADOnBoard.Items.Clear;
 
-  dmTTT.GetAllMADDef(FAllMADDefList);
+  dmTTT.GetFilterMADDef(FAllMADDefList, edtSearch.Text);
   dmTTT.GetMADOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllMADOnBoardList);
 
   for i := 0 to FAllMADDefList.Count - 1 do

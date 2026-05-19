@@ -83,7 +83,7 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       Top = 10
       Width = 874
       Height = 440
-      ActivePage = tsGeneral
+      ActivePage = tsNotes
       Align = alClient
       TabHeight = 30
       TabOrder = 0
@@ -1506,10 +1506,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsCharacteristic: TTabSheet
         Caption = 'Characteristic'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object grbAirDropLimitation: TGroupBox
           Left = 20
           Top = 20
@@ -1756,10 +1752,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPOH: TTabSheet
         Caption = 'POH Modifier'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object grbMissile: TGroupBox
           Left = 20
           Top = 10
@@ -2538,10 +2530,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       object tsPeriscope: TTabSheet
         Caption = 'Periscope'
         ImageIndex = 5
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblPeriscopeRadarMastCrossSection: TLabel
           Left = 20
           Top = 112
@@ -2800,10 +2788,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         BorderWidth = 10
         Caption = 'Notes'
         ImageIndex = 6
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object mmoNotes: TMemo
           Left = 0
           Top = 0

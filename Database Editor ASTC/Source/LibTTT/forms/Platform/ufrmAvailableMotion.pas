@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -51,7 +52,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryMotion, ufrmUsage, ufProgress;
+  uDataModuleTTT, ufrmSummaryMotion, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -65,6 +66,11 @@ end;
 procedure TfrmAvailableMotion.FormCreate(Sender: TObject);
 begin
   FMotionList := TList.Create;
+end;
+
+procedure TfrmAvailableMotion.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FMotionList);
 end;
 
 procedure TfrmAvailableMotion.FormShow(Sender: TObject);

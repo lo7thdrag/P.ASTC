@@ -9,18 +9,20 @@ uses
 
 type
   TfrmAirBubbleOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAirBubbleOnBoard: TListBox;
     lbAllAirBubbleDef: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllAirBubbleDefList : TList;
@@ -62,15 +66,19 @@ uses
 
 procedure TfrmAirBubbleOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllAirBubbleDefList);
-  FreeItemsAndFreeList(FAllAirBubbleOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllAirBubbleDefList := TList.Create;
   FAllAirBubbleOnBoardList := TList.Create;
+end;
+
+procedure TfrmAirBubbleOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllAirBubbleDefList);
+  FreeItemsAndFreeList(FAllAirBubbleOnBoardList);
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.FormShow(Sender: TObject);
@@ -134,6 +142,15 @@ begin
   UpdateAirBubbleList;
 end;
 
+procedure TfrmAirBubbleOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateAirBubbleList;
+  end;
+end;
+
 procedure TfrmAirBubbleOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -164,7 +181,7 @@ begin
   lbAllAirBubbleDef.Items.Clear;
   lbAirBubbleOnBoard.Items.Clear;
 
-  dmTTT.GetAllAirBubbleDef(FAllAirBubbleDefList);
+  dmTTT.GetFilterAirBubbleDef(FAllAirBubbleDefList, edtSearch.Text);
   dmTTT.GetAirBubbleOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllAirBubbleOnBoardList);
 
   for i := 0 to FAllAirBubbleDefList.Count - 1 do
