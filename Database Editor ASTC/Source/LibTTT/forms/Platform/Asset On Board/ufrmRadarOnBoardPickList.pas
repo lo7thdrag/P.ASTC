@@ -9,20 +9,20 @@ uses
 
 type
   TfrmRadarOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditMount: TButton;
     btnRemove: TButton;
     lbAllRadarDef: TListBox;
     lbAllRadarOnBoard: TListBox;
-    Image2: TImage;
-    Image3: TImage;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    lbl1: TLabel;
+    edtSearch: TEdit;
+    btnClose: TButton;
+    pnl5: TPanel;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -36,6 +36,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure Image2Click(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllRadarDefList : TList;
@@ -143,6 +144,14 @@ begin
   UpdateRadarList;
 end;
 
+procedure TfrmRadarOnBoardPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateRadarList;
+  end;
+end;
+
 procedure TfrmRadarOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -172,7 +181,7 @@ begin
   lbAllRadarDef.Items.Clear;
   lbAllRadarOnBoard.Items.Clear;
 
-  dmTTT.GetAllRadarDef(FAllRadarDefList);
+  dmTTT.GetFilterRadarDef(FAllRadarDefList, edtSearch.Text);
   dmTTT.GetRadarOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllRadarOnBoardList);
 
   for i := 0 to FAllRadarDefList.Count - 1 do
