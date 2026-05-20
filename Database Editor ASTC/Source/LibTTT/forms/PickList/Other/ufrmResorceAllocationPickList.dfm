@@ -31,8 +31,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 0
-    ExplicitHeight = 636
     object lbAvailableResAlloc: TListBox
       Left = 10
       Top = 10
@@ -48,7 +46,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
       TabOrder = 0
       OnClick = lbAvailableResAllocClick
       OnDblClick = lbAvailableResAllocDblClick
-      ExplicitHeight = 616
     end
   end
   object pnl3Button: TPanel
@@ -61,7 +58,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 636
     object btnCancel: TButton
       Left = 404
       Top = 2
@@ -116,7 +112,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
-    ExplicitTop = 8
     object Label2: TLabel
       Left = 166
       Top = 14
@@ -143,6 +138,7 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnKeyPress = edtSearchKeyPress
     end
   end
 end

@@ -10,17 +10,19 @@ uses
 
 type
   TfrmMissileResourceAllocationPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllMissileDef: TListBox;
     lbAllMissileOnRA: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedForce : Integer;
@@ -57,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -67,6 +71,12 @@ procedure TfrmMissileResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllMissileDefList := TList.Create;
   FAllMissileOnRAList := TList.Create;
+end;
+
+procedure TfrmMissileResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMissileDefList);
+  FreeItemsAndFreeList(FAllMissileOnRAList);
 end;
 
 procedure TfrmMissileResourceAllocationPickList.FormShow(Sender: TObject);
@@ -119,6 +129,15 @@ begin
   UpdateMissileList;
 end;
 
+procedure TfrmMissileResourceAllocationPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMissileList;
+  end;
+end;
+
 procedure TfrmMissileResourceAllocationPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -150,7 +169,8 @@ begin
   lbAllMissileDef.Items.Clear;
   lbAllMissileOnRA.Items.Clear;
 
-  dmTTT.GetAllMissileDef(FAllMissileDefList);
+//  dmTTT.GetAllMissileDef(FAllMissileDefList);
+  dmTTT.GetFilterMissileDef(FAllMissileDefList, edtSearch.Text);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 2, FSelectedForce, FAllMissileOnRAList);
 
   for i := 0 to FAllMissileDefList.Count - 1 do

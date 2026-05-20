@@ -10,17 +10,19 @@ uses
 
 type
   TfrmMineResourceAllocationPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllMineDef: TListBox;
     lbAllMineOnRA: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedForce : Integer;
@@ -57,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -67,6 +71,13 @@ procedure TfrmMineResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllMineDefList := TList.Create;
   FAllMineOnRAList := TList.Create;
+end;
+
+procedure TfrmMineResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMineDefList);
+  FreeItemsAndFreeList(FAllMineOnRAList);
+
 end;
 
 procedure TfrmMineResourceAllocationPickList.FormShow(Sender: TObject);
@@ -118,6 +129,16 @@ begin
   UpdateMineList;
 end;
 
+procedure TfrmMineResourceAllocationPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMineList;
+  end;
+
+end;
+
 procedure TfrmMineResourceAllocationPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -149,7 +170,8 @@ begin
   lbAllMineDef.Items.Clear;
   lbAllMineOnRA.Items.Clear;
 
-  dmTTT.GetAllMineDef(FAllMineDefList);
+  dmTTT.GetFilterMineDef(FAllMineDefList, edtSearch.Text);
+//  dmTTT.GetAllMineDef(FAllMineDefList);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 5, FSelectedForce, FAllMineOnRAList);
 
   for i := 0 to FAllMineDefList.Count - 1 do

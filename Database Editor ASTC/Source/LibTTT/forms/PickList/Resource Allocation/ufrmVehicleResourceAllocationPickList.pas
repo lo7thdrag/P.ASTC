@@ -9,20 +9,20 @@ uses
   uDBAssetObject, uDBAsset_Vehicle;
 type
   TfrmVehicleResourceAllocationPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllVehicleDef: TListBox;
     lbAllVehicleOnRA: TListBox;
     btnEdit: TButton;
-    Label3: TLabel;
     edtSearch: TEdit;
+    btnClose: TButton;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -35,6 +35,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedForce : Integer;
@@ -60,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmResourceAllocationInputName;
+  uDataModuleTTT, ufrmResourceAllocationInputName, uSimContainers;
 
 
 {$R *.dfm}
@@ -71,6 +72,12 @@ procedure TfrmVehicleResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllVehicleDefList := TList.Create;
   FAllVehicleOnRAList := TList.Create;
+end;
+
+procedure TfrmVehicleResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllVehicleDefList);
+  FreeItemsAndFreeList(FAllVehicleOnRAList);
 end;
 
 procedure TfrmVehicleResourceAllocationPickList.FormShow(Sender: TObject);
@@ -159,33 +166,34 @@ begin
 end;
 
 procedure TfrmVehicleResourceAllocationPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i, j : Integer;
-  Vehicle : TVehicle_Definition;
-  platInst : TPlatform_Instance;
-  found : Boolean;
+//var
+//  i, j : Integer;
+//  Vehicle : TVehicle_Definition;
+//  platInst : TPlatform_Instance;
+//  found : Boolean;
 begin
   if Key = #13 then
   begin
-    lbAllVehicleDef.Items.Clear;
-    lbAllVehicleOnRA.Items.Clear;
-
-    dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtSearch.Text);
-    dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 1, FSelectedForce, FAllVehicleOnRAList);
-
-    for i := 0 to FAllVehicleDefList.Count - 1 do
-    begin
-      Vehicle := FAllVehicleDefList.Items[i];
-
-      lbAllVehicleDef.Items.AddObject(Vehicle.FData.Vehicle_Identifier, Vehicle);
-    end;
-
-    for j := 0 to FAllVehicleOnRAList.Count - 1 do
-    begin
-      platInst := FAllVehicleOnRAList.Items[j];
-
-      lbAllVEhicleOnRA.Items.AddObject(platInst.FData.Instance_Name, platInst)
-    end;
+    UpdateVehicleList
+//    lbAllVehicleDef.Items.Clear;
+//    lbAllVehicleOnRA.Items.Clear;
+//
+//    dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtSearch.Text);
+//    dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 1, FSelectedForce, FAllVehicleOnRAList);
+//
+//    for i := 0 to FAllVehicleDefList.Count - 1 do
+//    begin
+//      Vehicle := FAllVehicleDefList.Items[i];
+//
+//      lbAllVehicleDef.Items.AddObject(Vehicle.FData.Vehicle_Identifier, Vehicle);
+//    end;
+//
+//    for j := 0 to FAllVehicleOnRAList.Count - 1 do
+//    begin
+//      platInst := FAllVehicleOnRAList.Items[j];
+//
+//      lbAllVEhicleOnRA.Items.AddObject(platInst.FData.Instance_Name, platInst)
+//    end;
   end;
 end;
 
@@ -220,7 +228,8 @@ begin
   lbAllVehicleDef.Items.Clear;
   lbAllVehicleOnRA.Items.Clear;
 
-  dmTTT.GetAllVehicleDef(FAllVehicleDefList);
+//  dmTTT.GetAllVehicleDef(FAllVehicleDefList);
+  dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtSearch.Text);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 1, FSelectedForce, FAllVehicleOnRAList);
 
   for i := 0 to FAllVehicleDefList.Count - 1 do

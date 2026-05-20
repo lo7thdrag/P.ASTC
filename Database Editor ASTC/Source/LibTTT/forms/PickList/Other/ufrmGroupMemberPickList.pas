@@ -12,18 +12,18 @@ type
   TfrmGroupMemberPickList = class(TForm)
     pnlMainBackground: TPanel;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllMember: TListBox;
     lbMemberSel: TListBox;
-    pnl3Button: TPanel;
     btnClose: TButton;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -35,6 +35,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnEditMountClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FCaller : E_GroupMemberFormCaller;
@@ -160,6 +161,15 @@ begin
   end;
 end;
 
+procedure TfrmGroupMemberPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateGroupChannelList;
+  end;
+end;
+
 procedure TfrmGroupMemberPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -189,6 +199,8 @@ var
 begin
   lbAllMember.Items.Clear;
   lbMemberSel.Items.Clear;
+
+//  dmTTT.GetFilterGroupChannelDef(FSelectedCubicleGroup, edtSearch.Text);
 
   dmTTT.GetCubicleGroupChannelAssignmentResidu(
     FSelectedResourceAlloc.FData.Resource_Alloc_Index,

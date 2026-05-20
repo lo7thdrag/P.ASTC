@@ -25,6 +25,7 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedResourceAllocId : Integer;
@@ -89,6 +90,16 @@ begin
   Close;
 end;
 
+procedure TfrmResorceAllocationPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateResourceAllocList;
+  end;
+
+end;
+
 procedure TfrmResorceAllocationPickList.lbAvailableResAllocClick(Sender: TObject);
 begin
   if lbAvailableResAlloc.ItemIndex = -1 then
@@ -110,6 +121,7 @@ begin
   lbAvailableResAlloc.Items.Clear;
 
   dmTTT.GetAllResourceAllocationDef(FResourceAllocList);
+//  dmTTT.GetFilterResurceAllocationDef(FResourceAllocList, edtSearch.Text);
 
   for i := 0 to FResourceAllocList.Count - 1 do
   begin

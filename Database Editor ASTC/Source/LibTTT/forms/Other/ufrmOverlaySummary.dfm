@@ -61,8 +61,6 @@ object frmOverlaySummary: TfrmOverlaySummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 61
-    ExplicitHeight = 198
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -73,10 +71,8 @@ object frmOverlaySummary: TfrmOverlaySummary
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 178
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 138
         object lbl2: TLabel
           Left = 11
           Top = 21

@@ -10,17 +10,19 @@ uses
 
 type
   TfrmSatelliteResourceAllocationPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllSatelliteDef: TListBox;
     lbAllSatelliteOnRA: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -57,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -67,6 +71,12 @@ procedure TfrmSatelliteResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllSatelliteDefList := TList.Create;
   FAllSatelliteOnRAList := TList.Create;
+end;
+
+procedure TfrmSatelliteResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllSatelliteDefList);
+  FreeItemsAndFreeList(FAllSatelliteOnRAList);
 end;
 
 procedure TfrmSatelliteResourceAllocationPickList.FormShow(Sender: TObject);
@@ -118,6 +128,16 @@ begin
   UpdateSatelliteList;
 end;
 
+procedure TfrmSatelliteResourceAllocationPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSatelliteList;
+  end;
+
+end;
+
 procedure TfrmSatelliteResourceAllocationPickList.btnCloseClick( Sender: TObject);
 begin
  Close;
@@ -149,7 +169,8 @@ begin
   lbAllSatelliteDef.Items.Clear;
   lbAllSatelliteOnRA.Items.Clear;
 
-  dmTTT.GetAllSatelliteDef(FAllSatelliteDefList);
+//  dmTTT.GetAllSatelliteDef(FAllSatelliteDefList);
+  dmTTT.GetFilterSatelliteDef(FAllSatelliteDefList, edtSearch.Text);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 6, FSelectedForce, FAllSatelliteOnRAList);
 
   for i := 0 to FAllSatelliteDefList.Count - 1 do

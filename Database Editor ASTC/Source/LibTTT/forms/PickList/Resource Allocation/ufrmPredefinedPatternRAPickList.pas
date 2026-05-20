@@ -10,19 +10,19 @@ uses
 type
   TfrmPredefinedPatternRAPickList = class(TForm)
     btnFilter: TButton;
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lstPredefinedAvailable: TListBox;
     lstPredefinedSelect: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -33,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
 
@@ -56,7 +58,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmPredefinedPatternSummary;
+  uDataModuleTTT, ufrmPredefinedPatternSummary, uSimContainers;
 
 {$R *.dfm}
 
@@ -66,6 +68,12 @@ procedure TfrmPredefinedPatternRAPickList.FormCreate(Sender: TObject);
 begin
   FPrePatternList := TList.Create;
   FSelectedPrePatternList := TList.Create;
+end;
+
+procedure TfrmPredefinedPatternRAPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FPrePatternList);
+  FreeItemsAndFreeList(FSelectedPrePatternList);
 end;
 
 procedure TfrmPredefinedPatternRAPickList.FormShow(Sender: TObject);
@@ -111,6 +119,16 @@ begin
   UpdatePrePatternList;
 end;
 
+procedure TfrmPredefinedPatternRAPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdatePrePatternList;
+  end;
+
+end;
+
 procedure TfrmPredefinedPatternRAPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -141,6 +159,7 @@ begin
   lstPredefinedAvailable.Items.Clear;
   lstPredefinedSelect.Items.Clear;
 
+//  dmTTT.GetFilterPredefiDef(FAllESMDefList, edtSearch.Text);
   dmTTT.GetPredefinedPatternDef(FPrePatternList);
   dmTTT.GetPredefinedPattern(FResourceAllocation.FData.Resource_Alloc_Index,
     FSelectedPrePatternList);

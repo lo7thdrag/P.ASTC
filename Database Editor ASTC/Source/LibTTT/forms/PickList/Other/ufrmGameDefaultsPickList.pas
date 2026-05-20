@@ -25,6 +25,8 @@ type
     procedure lbGameDefaultAvailableClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
 
@@ -48,7 +50,7 @@ implementation
 
 uses
   uSimDBEditor,ufrmSummaryResourceAllocation, uDataModuleTTT,
-  ufrmEnvironmentCharacteristic, ufrmGameDefaultSummary, ufDBEditor{,
+  ufrmEnvironmentCharacteristic, ufrmGameDefaultSummary, ufDBEditor, uSimContainers{,
   {uOtherSingleList};
 
 {$R *.dfm}
@@ -58,6 +60,11 @@ uses
 procedure TfrmGameDefaultsPickList.FormCreate(Sender: TObject);
 begin
   FGameDefaultList := TList.Create;
+end;
+
+procedure TfrmGameDefaultsPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FGameDefaultList);
 end;
 
 procedure TfrmGameDefaultsPickList.FormShow(Sender: TObject);
@@ -83,6 +90,15 @@ begin
   Close;
 end;
 
+procedure TfrmGameDefaultsPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateGameDefaultList;
+  end;
+end;
+
 procedure TfrmGameDefaultsPickList.lbGameDefaultAvailableClick(Sender: TObject);
 begin
   if lbGameDefaultAvailable.ItemIndex = -1 then
@@ -103,7 +119,8 @@ var
 begin
   lbGameDefaultAvailable.Items.Clear;
 
-  dmTTT.GetAllGameDefault(FGameDefaultList);
+//  dmTTT.GetAllGameDefault(FGameDefaultList);
+  dmTTT.GetFilterGameDefaultDef(FGameDefaultList, edtSearch.Text);
 
   for i := 0 to FGameDefaultList.Count - 1 do
   begin
