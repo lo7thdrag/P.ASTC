@@ -145,6 +145,8 @@ begin
     begin
       SelectedVehicle := TVehicle_Definition.Create;
       ShowModal;
+      SelectedVehicle.Free;
+
       FUpdateList := AfterClose;
     end;
   finally
