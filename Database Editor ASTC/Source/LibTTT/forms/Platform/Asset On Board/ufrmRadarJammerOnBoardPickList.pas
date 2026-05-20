@@ -9,18 +9,20 @@ uses
 
 type
   TfrmRadarJammerOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllRadarJammerDef: TListBox;
     lbRadarJammerOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -63,15 +67,19 @@ uses
 
 procedure TfrmRadarJammerOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllRadarJammerDefList);
-  FreeItemsAndFreeList(FAllRadarJammerOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmRadarJammerOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllRadarJammerDefList := TList.Create;
   FAllRadarJammerOnBoardList := TList.Create;
+end;
+
+procedure TfrmRadarJammerOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllRadarJammerDefList);
+  FreeItemsAndFreeList(FAllRadarJammerOnBoardList);
 end;
 
 procedure TfrmRadarJammerOnBoardPickList.FormShow(Sender: TObject);
@@ -137,6 +145,15 @@ begin
   UpdateRadarJammerList;
 end;
 
+procedure TfrmRadarJammerOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateRadarJammerList;
+  end;
+end;
+
 procedure TfrmRadarJammerOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -165,7 +182,7 @@ begin
   lbAllRadarJammerDef.Items.Clear;
   lbRadarJammerOnBoard.Items.Clear;
 
-  dmTTT.GetAllRadarNoiseJammerDef(FAllRadarJammerDefList);
+  dmTTT.GetFilterRadarNoiseJammerDef(FAllRadarJammerDefList, edtSearch.Text);
   dmTTT.GetRadarNoiseJammerOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllRadarJammerOnBoardList);
 
   for i := 0 to FAllRadarJammerDefList.Count - 1 do

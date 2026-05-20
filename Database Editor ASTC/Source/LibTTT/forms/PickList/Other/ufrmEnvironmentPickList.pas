@@ -14,6 +14,9 @@ type
     pnl3Button: TPanel;
     btnCancel: TButton;
     btnAdd: TButton;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    edtSearch: TEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -22,6 +25,7 @@ type
     procedure lbEnvironmentAvailableDblClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FPickedEnvironmentId : Integer;
@@ -43,7 +47,7 @@ implementation
 uses
   uSimDBEditor, ufrmSummaryResourceAllocation, ufrmSummaryEnvironment,
   ufrmSubEnviCharacteristic, newClassASTT,
-  uDBAssets_SubAreaEnviroDefinition, uDataModuleTTT;
+  uDBAssets_SubAreaEnviroDefinition, uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -52,6 +56,11 @@ uses
 procedure TfrmEnvironmentPickList.FormCreate(Sender: TObject);
 begin
   FEnvironmentList := TList.Create;
+end;
+
+procedure TfrmEnvironmentPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FEnvironmentList);
 end;
 
 procedure TfrmEnvironmentPickList.FormShow(Sender: TObject);

@@ -39,7 +39,6 @@ type
     edtMaxLandingAltitude: TEdit;
     lbl16: TLabel;
     pnlSparatorHor2: TPanel;
-    Image1: TImage;
     pnl3Button: TPanel;
     btnApply: TButton;
     btnCancel: TButton;

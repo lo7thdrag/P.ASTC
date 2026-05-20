@@ -38,9 +38,9 @@ object frmCubicleGroup: TfrmCubicleGroup
       Caption = 'Close'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
       OnClick = btCloseClick

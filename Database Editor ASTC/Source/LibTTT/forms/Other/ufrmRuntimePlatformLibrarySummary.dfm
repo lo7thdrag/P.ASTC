@@ -36,7 +36,7 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       Height = 16
       Caption = 'Name :'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -69,8 +69,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 237
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -81,10 +79,8 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 217
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 177
         object grbPlatforms: TGroupBox
           Left = 12
           Top = 6

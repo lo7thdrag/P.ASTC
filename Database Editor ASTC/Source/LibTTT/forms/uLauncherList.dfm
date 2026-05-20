@@ -16,6 +16,7 @@ object fLauncherList: TfLauncherList
   Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -26,17 +27,21 @@ object fLauncherList: TfLauncherList
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 394
-    ExplicitWidth = 346
     object btnClose: TButton
-      Left = 272
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 271
+      Top = 5
+      Width = 80
+      Height = 30
       Caption = 'Close'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnCloseClick
     end
@@ -51,8 +56,6 @@ object fLauncherList: TfLauncherList
     Color = clBackground
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 421
-    ExplicitWidth = 280
     object Image1: TImage
       Left = 0
       Top = 0
@@ -83,27 +86,24 @@ object fLauncherList: TfLauncherList
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 5
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 3
-    ExplicitWidth = 280
-    ExplicitHeight = 423
     object lstLauncher: TListBox
       Left = 5
       Top = 5
       Width = 346
       Height = 339
       Align = alClient
-      ItemHeight = 13
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       OnClick = lstLauncherClick
       OnDblClick = btnEditClick
-      ExplicitLeft = 8
-      ExplicitTop = 2
-      ExplicitWidth = 330
-      ExplicitHeight = 376
     end
   end
   object pnlTableHeader: TPanel
@@ -113,10 +113,9 @@ object fLauncherList: TfLauncherList
     Height = 39
     Align = alTop
     BevelOuter = bvNone
-    Color = clBtnShadow
+    Color = 2499101
     ParentBackground = False
     TabOrder = 3
-    ExplicitWidth = 346
     object btnNew: TImage
       Left = 261
       Top = 8

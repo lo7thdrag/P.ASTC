@@ -9,18 +9,20 @@ uses
 
 type
   TfrmTowedJammerDecoyOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditMount: TButton;
     btnRemove: TButton;
     lbAllTowedJammerDecoyDef: TListBox;
     lbAllTowedJammerDecoyOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditMountClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllTowedJammerDecoyDefList : TList;
@@ -62,15 +66,19 @@ uses
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllTowedJammerDecoyDefList);
-  FreeItemsAndFreeList(FAllTowedJammerDecoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllTowedJammerDecoyDefList := TList.Create;
   FAllTowedJammerDecoyOnBoardList := TList.Create;
+end;
+
+procedure TfrmTowedJammerDecoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllTowedJammerDecoyDefList);
+  FreeItemsAndFreeList(FAllTowedJammerDecoyOnBoardList);
 end;
 
 procedure TfrmTowedJammerDecoyOnBoardPickList.FormShow(Sender: TObject);
@@ -134,6 +142,15 @@ begin
   UpdateTowedJammerDecoyList;
 end;
 
+procedure TfrmTowedJammerDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTowedJammerDecoyList;
+  end;
+end;
+
 procedure TfrmTowedJammerDecoyOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -161,7 +178,7 @@ begin
   lbAllTowedJammerDecoyDef.Items.Clear;
   lbAllTowedJammerDecoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllTowedJammerDecoyDef(FAllTowedJammerDecoyDefList);
+  dmTTT.GetFilterTowedJammerDecoyDef(FAllTowedJammerDecoyDefList, edtSearch.Text);
   dmTTT.GetTowedJammerDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllTowedJammerDecoyOnBoardList);
 
   for i := 0 to FAllTowedJammerDecoyDefList.Count - 1 do

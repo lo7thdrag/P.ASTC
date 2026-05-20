@@ -9,17 +9,19 @@ uses
   uDBAssetObject, uDBAsset_Vehicle, uDBAsset_Runtime_Platform_Library;
 type
   TfrmVehicleRuntimePlatformLibraryPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllVehicleDef: TListBox;
     lbAllVehicleOnRPL: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -30,6 +32,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
  private
     FAllVehicleDefList : TList;
@@ -53,7 +57,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -63,6 +67,13 @@ procedure TfrmVehicleRuntimePlatformLibraryPickList.FormCreate(Sender: TObject);
 begin
   FAllVehicleDefList := TList.Create;
   FAllVehicleOnRPLList := TList.Create;
+end;
+
+procedure TfrmVehicleRuntimePlatformLibraryPickList.FormDestroy(
+  Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllVehicleDefList);
+  FreeItemsAndFreeList(FAllVehicleOnRPLList);
 end;
 
 procedure TfrmVehicleRuntimePlatformLibraryPickList.FormShow(Sender: TObject);
@@ -111,6 +122,15 @@ begin
   UpdateVehicleList;
 end;
 
+procedure TfrmVehicleRuntimePlatformLibraryPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateVehicleList;
+  end;
+end;
+
 procedure TfrmVehicleRuntimePlatformLibraryPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -142,7 +162,7 @@ begin
   lbAllVehicleDef.Items.Clear;
   lbAllVehicleOnRPL.Items.Clear;
 
-  dmTTT.GetAllVehicleDef(FAllVehicleDefList);
+  dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtSearch.Text);
   dmTTT.GetAllVehiclePlatformLibraryEntry(FRuntimePlatformLibrary.FData.Platform_Library_Index,FAllVehicleOnRPLList);
 
   for i := 0 to FAllVehicleDefList.Count - 1 do

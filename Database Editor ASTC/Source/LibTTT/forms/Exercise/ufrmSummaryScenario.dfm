@@ -137,6 +137,7 @@ object frmSummaryScenario: TfrmSummaryScenario
           Height = 158
           Caption = 'Platform Relationships'
           TabOrder = 1
+          OnClick = gbPlatformRelationshipsClick
           object btGroups: TButton
             Left = 53
             Top = 62

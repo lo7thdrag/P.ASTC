@@ -14,6 +14,7 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -41,42 +42,71 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
       object lbl1: TLabel
         Left = 8
         Top = 8
-        Width = 74
-        Height = 13
+        Width = 88
+        Height = 16
         Caption = 'Student Roles :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object btnAdd: TButton
         Left = 207
-        Top = 21
+        Top = 28
         Width = 75
         Height = 25
         Caption = 'Add'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnAddClick
       end
       object btnRemove: TButton
         Left = 207
-        Top = 52
+        Top = 61
         Width = 75
         Height = 25
         Caption = 'Remove'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnRemoveClick
       end
       object edtStudent: TEdit
         Left = 6
-        Top = 23
+        Top = 30
         Width = 195
-        Height = 21
+        Height = 24
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
         OnKeyPress = edtStudentKeyPress
       end
       object lbStudent: TListBox
         Left = 6
-        Top = 50
+        Top = 61
         Width = 195
         Height = 280
-        ItemHeight = 13
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 3
         OnClick = lbStudentClick
       end
@@ -97,6 +127,12 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
         Width = 71
         Height = 25
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
@@ -106,6 +142,12 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
         Width = 71
         Height = 25
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
       end
@@ -115,6 +157,12 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
         Width = 71
         Height = 25
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end

@@ -4,8 +4,8 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   SNR vs. POD Curve'
-  ClientHeight = 471
-  ClientWidth = 279
+  ClientHeight = 671
+  ClientWidth = 494
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,62 +21,131 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
   TextHeight = 14
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 0
-    Width = 279
-    Height = 428
+    Top = 40
+    Width = 494
+    Height = 588
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 423
+    ExplicitTop = 0
+    ExplicitWidth = 279
+    ExplicitHeight = 428
     object lstAvailableSNRvsPOD: TListBox
       Left = 10
       Top = 10
-      Width = 259
-      Height = 408
+      Width = 474
+      Height = 568
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
-      ItemHeight = 14
       ParentFont = False
       TabOrder = 0
       OnClick = lstAvailableSNRvsPODClick
       OnDblClick = lstAvailableSNRvsPODDblClick
-      ExplicitHeight = 403
+      ExplicitTop = 40
     end
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 428
-    Width = 279
+    Top = 628
+    Width = 494
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 428
+    ExplicitWidth = 279
     object btnCancel: TButton
-      Left = 194
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 404
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnCancelClick
     end
     object btnAdd: TButton
-      Left = 114
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 314
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Pick'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnAddClick
+    end
+  end
+  object pnlTableHeader: TPanel
+    Left = 0
+    Top = 0
+    Width = 494
+    Height = 40
+    ParentCustomHint = False
+    Align = alTop
+    BevelOuter = bvNone
+    BiDiMode = bdLeftToRight
+    Color = 2499101
+    Ctl3D = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentBackground = False
+    ParentCtl3D = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    TabOrder = 2
+    ExplicitLeft = 18
+    ExplicitTop = 18
+    ExplicitWidth = 474
+    object Label2: TLabel
+      Left = 166
+      Top = 14
+      Width = 62
+      Height = 21
+      Caption = 'Search :'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -21
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object edtSearch: TEdit
+      Left = 237
+      Top = 12
+      Width = 247
+      Height = 25
+      AutoSize = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
     end
   end
 end

@@ -16,6 +16,7 @@ object frmSonarMount: TfrmSonarMount
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -71,8 +72,6 @@ object frmSonarMount: TfrmSonarMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 324
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -83,10 +82,8 @@ object frmSonarMount: TfrmSonarMount
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 304
       object General: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 264
         object lblClassName: TStaticText
           Left = 12
           Top = 18

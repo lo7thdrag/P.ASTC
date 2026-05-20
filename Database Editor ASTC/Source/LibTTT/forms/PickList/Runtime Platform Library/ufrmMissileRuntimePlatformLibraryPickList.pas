@@ -10,17 +10,19 @@ uses
 
 type
   TfrmMissileRuntimePlatformLibraryPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllMissileDef: TListBox;
     lbAllMissileOnRPL: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllMissileDefList : TList;
@@ -54,7 +58,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -64,6 +68,13 @@ procedure TfrmMissileRuntimePlatformLibraryPickList.FormCreate(Sender: TObject);
 begin
   FAllMissileDefList := TList.Create;
   FAllMissileOnRPList := TList.Create;
+end;
+
+procedure TfrmMissileRuntimePlatformLibraryPickList.FormDestroy(
+  Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMissileDefList);
+  FreeItemsAndFreeList(FAllMissileOnRPList);
 end;
 
 procedure TfrmMissileRuntimePlatformLibraryPickList.FormShow(Sender: TObject);
@@ -112,6 +123,15 @@ begin
   UpdateMissileList;
 end;
 
+procedure TfrmMissileRuntimePlatformLibraryPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMissileList;
+  end;
+end;
+
 procedure TfrmMissileRuntimePlatformLibraryPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -143,7 +163,7 @@ begin
   lbAllMissileDef.Items.Clear;
   lbAllMissileOnRPL.Items.Clear;
 
-  dmTTT.GetAllMissileDef(FAllMissileDefList);
+  dmTTT.GetFilterMissileDef(FAllMissileDefList, edtSearch.Text);
   dmTTT.GetAllMissilePlatformLibraryEntry(FRuntimePlatformLibrary.FData.Platform_Library_Index,FAllMissileOnRPList);
 
   for i := 0 to FAllMissileDefList.Count - 1 do

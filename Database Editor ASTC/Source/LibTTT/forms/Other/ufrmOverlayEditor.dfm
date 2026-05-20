@@ -52,6 +52,8 @@ object OverlayEditorForm: TOverlayEditorForm
         Width = 308
         Height = 748
         Align = alClient
+        Color = 2499101
+        ParentBackground = False
         TabOrder = 0
         object grbColour: TGroupBox
           Left = 8
@@ -59,6 +61,12 @@ object OverlayEditorForm: TOverlayEditorForm
           Width = 291
           Height = 84
           Caption = 'Colour'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
           object colorPanel: TPanel
             Left = 14
@@ -643,8 +651,8 @@ object OverlayEditorForm: TOverlayEditorForm
             AutoSize = False
             Caption = '---'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
+            Font.Color = clWhite
+            Font.Height = -13
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
@@ -652,13 +660,13 @@ object OverlayEditorForm: TOverlayEditorForm
           object Label76: TLabel
             Left = 201
             Top = 30
-            Width = 12
-            Height = 14
+            Width = 14
+            Height = 16
             Alignment = taCenter
             Caption = '::.'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
+            Font.Color = clWhite
+            Font.Height = -13
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
@@ -666,13 +674,13 @@ object OverlayEditorForm: TOverlayEditorForm
           object Label77: TLabel
             Left = 113
             Top = 30
-            Width = 12
-            Height = 14
+            Width = 14
+            Height = 16
             Alignment = taCenter
             Caption = '.::'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
+            Font.Color = clWhite
+            Font.Height = -13
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
@@ -729,1592 +737,6 @@ object OverlayEditorForm: TOverlayEditorForm
             ShowHint = True
             Visible = False
             OnClick = btnHandleShape
-          end
-          object pnlStatic: TPanel
-            Left = 51
-            Top = 62
-            Width = 230
-            Height = 330
-            BevelOuter = bvNone
-            ParentBackground = False
-            TabOrder = 0
-            object grpText: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 7
-              object lblTextPosition: TLabel
-                Left = 14
-                Top = 30
-                Width = 35
-                Height = 14
-                Caption = 'Start :'
-              end
-              object lblTextField: TLabel
-                Left = 14
-                Top = 123
-                Width = 34
-                Height = 14
-                Caption = 'Text :'
-              end
-              object lblTextSize: TLabel
-                Left = 14
-                Top = 196
-                Width = 29
-                Height = 14
-                Caption = 'Size :'
-              end
-              object SpeedButton: TSpeedButton
-                Left = 160
-                Top = 53
-                Width = 43
-                Height = 43
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                OnClick = btnHandleShapePosition
-              end
-              object Label27: TLabel
-                Left = 23
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label28: TLabel
-                Left = 23
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtTextField: TEdit
-                Left = 23
-                Top = 146
-                Width = 162
-                Height = 22
-                MaxLength = 30
-                TabOrder = 0
-                Text = 'None'
-              end
-              object cbbTextSize: TComboBox
-                Left = 23
-                Top = 219
-                Width = 82
-                Height = 22
-                TabOrder = 1
-                Text = 'Small'
-                Items.Strings = (
-                  'Small'
-                  'Medium'
-                  'Large')
-              end
-              object edtTextPosLAt: TEdit
-                Left = 67
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 2
-              end
-              object edtTextPosLong: TEdit
-                Left = 67
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 3
-              end
-            end
-            object grpEllipse: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 4
-              object Label63: TLabel
-                Left = 14
-                Top = 30
-                Width = 45
-                Height = 14
-                Caption = 'Centre :'
-              end
-              object lblHorizontal: TLabel
-                Left = 31
-                Top = 150
-                Width = 57
-                Height = 14
-                Caption = 'Horizontal '
-              end
-              object Label78: TLabel
-                Left = 127
-                Top = 150
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object lblVertical: TLabel
-                Left = 31
-                Top = 173
-                Width = 44
-                Height = 14
-                Caption = 'Vertical '
-              end
-              object lbl6: TLabel
-                Left = 127
-                Top = 173
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object bvl1: TBevel
-                Left = 86
-                Top = 128
-                Width = 115
-                Height = 3
-              end
-              object Label79: TLabel
-                Left = 14
-                Top = 123
-                Width = 67
-                Height = 14
-                Caption = ' Semi - Axis '
-                Transparent = False
-              end
-              object SpeedButton6: TSpeedButton
-                Tag = 6
-                Left = 156
-                Top = 53
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object Label11: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label12: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtEllipsePosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-              object edtEllipsePosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 1
-              end
-              object edtHorizontal: TEdit
-                Left = 87
-                Top = 146
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 2
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtVertical: TEdit
-                Left = 87
-                Top = 169
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 3
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-            end
-            object grpCircle: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 3
-              object lbl34: TLabel
-                Left = 14
-                Top = 30
-                Width = 45
-                Height = 14
-                Caption = 'Centre :'
-              end
-              object lbl35: TLabel
-                Left = 14
-                Top = 123
-                Width = 42
-                Height = 14
-                Caption = 'Radius :'
-              end
-              object lbl36: TLabel
-                Left = 71
-                Top = 150
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object SpeedButton5: TSpeedButton
-                Tag = 5
-                Left = 156
-                Top = 53
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object Label9: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label10: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtCirclePosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 1
-              end
-              object edtCircleRadius: TEdit
-                Left = 30
-                Top = 146
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 2
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtCirclePosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-            end
-            object grpArc: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 2
-              object Label80: TLabel
-                Left = 14
-                Top = 30
-                Width = 45
-                Height = 14
-                Caption = 'Centre :'
-              end
-              object Label81: TLabel
-                Left = 66
-                Top = 223
-                Width = 21
-                Height = 14
-                Caption = 'deg'
-              end
-              object Label82: TLabel
-                Left = 153
-                Top = 223
-                Width = 21
-                Height = 14
-                Caption = 'deg'
-              end
-              object Label83: TLabel
-                Left = 14
-                Top = 123
-                Width = 42
-                Height = 14
-                Caption = 'Radius :'
-              end
-              object Label84: TLabel
-                Left = 71
-                Top = 150
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object lbl7: TLabel
-                Left = 14
-                Top = 196
-                Width = 35
-                Height = 14
-                Caption = 'Start :'
-              end
-              object lbl8: TLabel
-                Left = 110
-                Top = 196
-                Width = 29
-                Height = 14
-                Caption = 'End :'
-              end
-              object SpeedButton7: TSpeedButton
-                Tag = 7
-                Left = 156
-                Top = 53
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object Label8: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label64: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtArcPosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-              object edtArcPosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 1
-              end
-              object edtArcRadius: TEdit
-                Left = 31
-                Top = 146
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 2
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtArcStartAngle: TEdit
-                Left = 31
-                Top = 219
-                Width = 30
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 3
-                Text = '0'
-              end
-              object edtArcEndAngle: TEdit
-                Left = 118
-                Top = 219
-                Width = 30
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 4
-                Text = '0'
-              end
-            end
-            object grpPolygon: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 5
-              object Label91: TLabel
-                Left = 14
-                Top = 30
-                Width = 36
-                Height = 14
-                Caption = 'Point :'
-              end
-              object SpeedButton10: TSpeedButton
-                Tag = 10
-                Left = 156
-                Top = 53
-                Width = 43
-                Height = 43
-                AllowAllUp = True
-                GroupIndex = 1
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object btnDeletePoly: TSpeedButton
-                Tag = 3
-                Left = 171
-                Top = 250
-                Width = 30
-                Height = 30
-                Cursor = crHandPoint
-                Hint = 'Clear Point'
-                AllowAllUp = True
-                Glyph.Data = {
-                  E6040000424DE604000000000000360000002800000014000000140000000100
-                  180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303FFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303
-                  0303030303030303030303030303030303030303030303030303FFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303030303030303030303030303
-                  03030303030303030303030303030303030303030303030303FFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFF030303030303030303030303030303030303030303
-                  030303030303030303030303030303030303030303030303FFFFFFFFFFFFFFFF
-                  FFFFFFFF03030303030303030303030303030303030303030303030303030303
-                  0303FFFFFF030303030303030303030303030303030303FFFFFFFFFFFF030303
-                  030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFF03030303030303030303030303030303030303030303030303
-                  0303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFF030303030303030303030303030303030303030303030303FFFF
-                  FFFFFFFFFFFFFF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF
-                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF03030303
-                  0303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF030303030303
-                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF0303030303
-                  03030303030303030303FFFFFFFFFFFFFFFFFF03030303030303030303030303
-                  0303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFEFEFE030303030303030303030303030303030303FFFFFFFFFF
-                  FF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF
-                  0303030303030303030303030303030303030303030303030303030303030303
-                  03030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03
-                  0303030303030303030303030303030303030303030303030303030303030303
-                  030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
-                  03030303030303030303030303030303030303030303030303030303030303FF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303
-                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                  FFFFFFFFFFFFFFFFFFFF}
-                OnClick = btnDeletePolyClick
-              end
-              object Label21: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label22: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtPolyPosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-              object edtPolyPosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 1
-              end
-              object lvPolyVertex: TListView
-                AlignWithMargins = True
-                Left = 14
-                Top = 110
-                Width = 187
-                Height = 131
-                Columns = <
-                  item
-                    Caption = '+'
-                    Width = 25
-                  end
-                  item
-                    Alignment = taCenter
-                    Caption = 'Longitude'
-                    Width = 79
-                  end
-                  item
-                    Alignment = taCenter
-                    Caption = 'Latitude'
-                    Width = 79
-                  end>
-                GridLines = True
-                RowSelect = True
-                TabOrder = 2
-                ViewStyle = vsReport
-              end
-            end
-            object grpLine: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 1
-              object SpeedButton1: TSpeedButton
-                Tag = 1
-                Left = 156
-                Top = 53
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object Label47: TLabel
-                Left = 14
-                Top = 30
-                Width = 35
-                Height = 14
-                Caption = 'Start :'
-              end
-              object Label48: TLabel
-                Left = 14
-                Top = 123
-                Width = 29
-                Height = 14
-                Caption = 'End :'
-              end
-              object SpeedButton2: TSpeedButton
-                Tag = 2
-                Left = 156
-                Top = 146
-                Width = 43
-                Height = 43
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                OnClick = btnHandleShapePosition
-              end
-              object Label17: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label18: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object Label19: TLabel
-                Left = 28
-                Top = 150
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label20: TLabel
-                Left = 28
-                Top = 173
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtLineStartPosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-              object edtLineStartPosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 1
-              end
-              object edtLineEndPosLat: TEdit
-                Left = 60
-                Top = 146
-                Width = 91
-                Height = 22
-                TabOrder = 2
-              end
-              object edtLineEndPosLong: TEdit
-                Left = 60
-                Top = 169
-                Width = 91
-                Height = 22
-                TabOrder = 3
-              end
-            end
-            object grpSector: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 9
-              object lblSectorCenter: TLabel
-                Left = 14
-                Top = 30
-                Width = 45
-                Height = 14
-                Caption = 'Centre :'
-              end
-              object lblSectorInner: TLabel
-                Left = 31
-                Top = 150
-                Width = 37
-                Height = 14
-                Caption = 'Inner :'
-              end
-              object lblSectorOuter: TLabel
-                Left = 31
-                Top = 173
-                Width = 40
-                Height = 14
-                Caption = 'Outer :'
-              end
-              object lblSectorStartAngle: TLabel
-                Left = 31
-                Top = 239
-                Width = 35
-                Height = 14
-                Caption = 'Start :'
-              end
-              object lblSectorEndAngle: TLabel
-                Left = 31
-                Top = 262
-                Width = 29
-                Height = 14
-                Caption = 'End :'
-              end
-              object lbl2: TLabel
-                Left = 115
-                Top = 150
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object lbl3: TLabel
-                Left = 115
-                Top = 173
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object lbl4: TLabel
-                Left = 110
-                Top = 239
-                Width = 25
-                Height = 14
-                Caption = 'deg.'
-              end
-              object lbl5: TLabel
-                Left = 110
-                Top = 262
-                Width = 25
-                Height = 14
-                Caption = 'deg.'
-              end
-              object bvlRadii: TBevel
-                Left = 59
-                Top = 128
-                Width = 140
-                Height = 3
-              end
-              object bvlAngle: TBevel
-                Left = 59
-                Top = 221
-                Width = 140
-                Height = 3
-              end
-              object lbl11: TLabel
-                Left = 14
-                Top = 123
-                Width = 38
-                Height = 14
-                Caption = ' Radius'
-                Transparent = False
-              end
-              object lbl12: TLabel
-                Left = 14
-                Top = 216
-                Width = 44
-                Height = 14
-                Caption = ' Angles '
-                Transparent = False
-              end
-              object SpeedButton8: TSpeedButton
-                Tag = 8
-                Left = 156
-                Top = 53
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object Label15: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label16: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtSectorPosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-              object edtSectorInner: TEdit
-                Left = 75
-                Top = 146
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 1
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtSectorOuter: TEdit
-                Left = 75
-                Top = 169
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 2
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtSectorStartAngle: TEdit
-                Left = 75
-                Top = 235
-                Width = 30
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 3
-                Text = '0'
-              end
-              object edtSectorEndAngle: TEdit
-                Left = 75
-                Top = 258
-                Width = 30
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 4
-                Text = '0'
-              end
-              object edtSectorPosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 5
-              end
-            end
-            object grpRectangle: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 6
-              object Label49: TLabel
-                Left = 14
-                Top = 30
-                Width = 64
-                Height = 14
-                Caption = 'Top - Left :'
-              end
-              object Label50: TLabel
-                Left = 14
-                Top = 123
-                Width = 89
-                Height = 14
-                Caption = 'Bottom - Right :'
-              end
-              object SpeedButton3: TSpeedButton
-                Tag = 3
-                Left = 157
-                Top = 53
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object SpeedButton4: TSpeedButton
-                Tag = 4
-                Left = 157
-                Top = 146
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object Label23: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label24: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object Label25: TLabel
-                Left = 28
-                Top = 150
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label26: TLabel
-                Left = 28
-                Top = 173
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtRectStartPosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-              object edtRectStartPosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 1
-              end
-              object edtRectEndPosLat: TEdit
-                Left = 60
-                Top = 146
-                Width = 91
-                Height = 22
-                TabOrder = 2
-              end
-              object edtRectEndPosLong: TEdit
-                Left = 60
-                Top = 169
-                Width = 91
-                Height = 22
-                TabOrder = 3
-              end
-            end
-            object grpGrid: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 8
-              object Label85: TLabel
-                Left = 14
-                Top = 30
-                Width = 45
-                Height = 14
-                Caption = 'Centre :'
-              end
-              object Label86: TLabel
-                Left = 31
-                Top = 209
-                Width = 37
-                Height = 14
-                Caption = 'Width '
-              end
-              object Label87: TLabel
-                Left = 108
-                Top = 150
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object Label88: TLabel
-                Left = 31
-                Top = 150
-                Width = 40
-                Height = 14
-                Caption = 'Height '
-              end
-              object Label89: TLabel
-                Left = 135
-                Top = 209
-                Width = 37
-                Height = 14
-                Caption = 'Count '
-              end
-              object lbl9: TLabel
-                Left = 108
-                Top = 209
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object lbl10: TLabel
-                Left = 135
-                Top = 150
-                Width = 33
-                Height = 14
-                Caption = 'Count'
-              end
-              object bvl2: TBevel
-                Left = 89
-                Top = 128
-                Width = 110
-                Height = 3
-              end
-              object lbl13: TLabel
-                Left = 14
-                Top = 123
-                Width = 62
-                Height = 14
-                Caption = 'Vertical Cell'
-                Color = clBtnFace
-                ParentColor = False
-                Transparent = True
-              end
-              object bvl3: TBevel
-                Left = 99
-                Top = 254
-                Width = 100
-                Height = 3
-              end
-              object lbl14: TLabel
-                Left = 14
-                Top = 249
-                Width = 89
-                Height = 14
-                Caption = ' Rotation Angle '
-                Transparent = True
-              end
-              object lbl15: TLabel
-                Left = 65
-                Top = 276
-                Width = 21
-                Height = 14
-                Caption = 'deg'
-              end
-              object SpeedButton9: TSpeedButton
-                Tag = 9
-                Left = 156
-                Top = 53
-                Width = 43
-                Height = 43
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clHighlight
-                Font.Height = -11
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                Glyph.Data = {
-                  AA040000424DAA04000000000000360000002800000014000000130000000100
-                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
-                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
-                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
-                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
-                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
-                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
-                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
-                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
-                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
-                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
-                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
-                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
-                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
-                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
-                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
-                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
-                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
-                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
-                  000000000000000000000000010101232323222222060607585B5C5E62634548
-                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
-                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
-                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
-                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
-                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
-                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
-                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
-                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
-                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
-                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
-                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
-                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
-                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
-                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
-                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
-                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
-                  D2D6D0D7DACFD6DACCD4D7D4DADD}
-                ParentFont = False
-                OnClick = btnHandleShapePosition
-              end
-              object Label90: TLabel
-                Left = 14
-                Top = 186
-                Width = 84
-                Height = 14
-                Caption = 'Horisontal Cells '
-                Color = clBtnFace
-                ParentColor = False
-                Transparent = True
-              end
-              object Bevel9: TBevel
-                Left = 99
-                Top = 191
-                Width = 100
-                Height = 3
-              end
-              object Label13: TLabel
-                Left = 28
-                Top = 57
-                Width = 33
-                Height = 14
-                Caption = 'Lat   :'
-              end
-              object Label14: TLabel
-                Left = 28
-                Top = 80
-                Width = 35
-                Height = 14
-                Caption = 'Long :'
-              end
-              object edtTablePosLat: TEdit
-                Left = 60
-                Top = 53
-                Width = 91
-                Height = 22
-                TabOrder = 0
-              end
-              object edtTablePosLong: TEdit
-                Left = 60
-                Top = 76
-                Width = 91
-                Height = 22
-                TabOrder = 1
-              end
-              object edtTableHeight: TEdit
-                Left = 69
-                Top = 146
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 2
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtTableWidth: TEdit
-                Left = 69
-                Top = 205
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 3
-                Text = '0'
-                OnKeyPress = OnKeyPress
-              end
-              object edtTableColumn: TEdit
-                Left = 169
-                Top = 146
-                Width = 30
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 4
-                Text = '0'
-              end
-              object edtTableRow: TEdit
-                Left = 169
-                Top = 205
-                Width = 30
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 5
-                Text = '0'
-              end
-              object edtTableRotationAngle: TEdit
-                Left = 30
-                Top = 272
-                Width = 30
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 6
-                Text = '0'
-              end
-            end
-            object grpNone: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 0
-            end
           end
           object pnlDynamic: TPanel
             Left = 51
@@ -3586,6 +2008,3920 @@ object OverlayEditorForm: TOverlayEditorForm
               TabOrder = 1
             end
           end
+          object pnlStatic: TPanel
+            Left = 51
+            Top = 62
+            Width = 230
+            Height = 330
+            BevelOuter = bvNone
+            ParentBackground = False
+            TabOrder = 0
+            object grpNone: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              TabOrder = 0
+            end
+            object grpArc: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 2
+              OnClick = grpArcClick
+              object Label80: TLabel
+                Left = 10
+                Top = 30
+                Width = 47
+                Height = 16
+                Caption = 'Centre :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label81: TLabel
+                Left = 64
+                Top = 223
+                Width = 21
+                Height = 16
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label82: TLabel
+                Left = 159
+                Top = 223
+                Width = 21
+                Height = 16
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label83: TLabel
+                Left = 10
+                Top = 123
+                Width = 47
+                Height = 16
+                Caption = 'Radius :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label84: TLabel
+                Left = 64
+                Top = 150
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl7: TLabel
+                Left = 10
+                Top = 196
+                Width = 37
+                Height = 16
+                Caption = 'Start :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl8: TLabel
+                Left = 110
+                Top = 196
+                Width = 30
+                Height = 16
+                Caption = 'End :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object SpeedButton7: TSpeedButton
+                Tag = 7
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object Label8: TLabel
+                Left = 25
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label64: TLabel
+                Left = 25
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object btnCopyArc: TImage
+                Left = 202
+                Top = 53
+                Width = 24
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnCopyArcClick
+              end
+              object btnPasteArc: TImage
+                Left = 202
+                Top = 77
+                Width = 24
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnPasteArcClick
+              end
+              object edtArcPosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+              object edtArcPosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 1
+              end
+              object edtArcRadius: TEdit
+                Left = 25
+                Top = 146
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 2
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtArcStartAngle: TEdit
+                Left = 25
+                Top = 219
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 3
+                Text = '0'
+              end
+              object edtArcEndAngle: TEdit
+                Left = 120
+                Top = 219
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 4
+                Text = '0'
+              end
+            end
+            object grpCircle: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 3
+              object lbl34: TLabel
+                Left = 10
+                Top = 30
+                Width = 47
+                Height = 16
+                Caption = 'Centre :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl35: TLabel
+                Left = 10
+                Top = 123
+                Width = 47
+                Height = 16
+                Caption = 'Radius :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl36: TLabel
+                Left = 59
+                Top = 150
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object SpeedButton5: TSpeedButton
+                Tag = 5
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object Label9: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label10: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object btnCopyCircle: TImage
+                Left = 202
+                Top = 53
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnCopyArcClick
+              end
+              object btnPasteCircle: TImage
+                Left = 202
+                Top = 77
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnPasteCircleClick
+              end
+              object edtCirclePosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 1
+              end
+              object edtCircleRadius: TEdit
+                Left = 20
+                Top = 146
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 2
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtCirclePosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+            end
+            object grpEllipse: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 4
+              object Label63: TLabel
+                Left = 10
+                Top = 30
+                Width = 47
+                Height = 16
+                Caption = 'Centre :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lblHorizontal: TLabel
+                Left = 20
+                Top = 150
+                Width = 61
+                Height = 16
+                Caption = 'Horizontal '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label78: TLabel
+                Left = 126
+                Top = 150
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lblVertical: TLabel
+                Left = 20
+                Top = 173
+                Width = 47
+                Height = 16
+                Caption = 'Vertical '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl6: TLabel
+                Left = 126
+                Top = 173
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object bvl1: TBevel
+                Left = 86
+                Top = 129
+                Width = 114
+                Height = 3
+              end
+              object Label79: TLabel
+                Left = 10
+                Top = 123
+                Width = 73
+                Height = 16
+                Caption = ' Semi - Axis '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object SpeedButton6: TSpeedButton
+                Tag = 6
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object Label11: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label12: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object btnCopyEllipse: TImage
+                Left = 202
+                Top = 53
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnCopyEllipseClick
+              end
+              object btnPasteEllipse: TImage
+                Left = 202
+                Top = 77
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnPasteEllipseClick
+              end
+              object edtEllipsePosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+              object edtEllipsePosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 1
+              end
+              object edtHorizontal: TEdit
+                Left = 87
+                Top = 146
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 2
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtVertical: TEdit
+                Left = 87
+                Top = 169
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 3
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+            end
+            object grpGrid: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 8
+              object Label85: TLabel
+                Left = 10
+                Top = 30
+                Width = 47
+                Height = 16
+                Caption = 'Centre :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label86: TLabel
+                Left = 20
+                Top = 209
+                Width = 37
+                Height = 16
+                Caption = 'Width '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label87: TLabel
+                Left = 98
+                Top = 150
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label88: TLabel
+                Left = 20
+                Top = 150
+                Width = 40
+                Height = 16
+                Caption = 'Height '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label89: TLabel
+                Left = 123
+                Top = 209
+                Width = 37
+                Height = 16
+                Caption = 'Count '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl9: TLabel
+                Left = 98
+                Top = 209
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl10: TLabel
+                Left = 123
+                Top = 150
+                Width = 33
+                Height = 16
+                Caption = 'Count'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object bvl2: TBevel
+                Left = 82
+                Top = 129
+                Width = 117
+                Height = 3
+              end
+              object lbl13: TLabel
+                Left = 10
+                Top = 123
+                Width = 68
+                Height = 16
+                Caption = 'Vertical Cell'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                Transparent = True
+              end
+              object bvl3: TBevel
+                Left = 101
+                Top = 255
+                Width = 99
+                Height = 3
+              end
+              object lbl14: TLabel
+                Left = 10
+                Top = 249
+                Width = 91
+                Height = 16
+                Caption = ' Rotation Angle '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = True
+              end
+              object lbl15: TLabel
+                Left = 59
+                Top = 276
+                Width = 21
+                Height = 16
+                Caption = 'deg'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object SpeedButton9: TSpeedButton
+                Tag = 9
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object Label90: TLabel
+                Left = 10
+                Top = 186
+                Width = 92
+                Height = 16
+                Caption = 'Horisontal Cells '
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                Transparent = True
+              end
+              object Bevel9: TBevel
+                Left = 106
+                Top = 192
+                Width = 94
+                Height = 3
+              end
+              object Label13: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label14: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object btnCopyGrid: TImage
+                Left = 202
+                Top = 53
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnCopyGridClick
+              end
+              object btnPasteGrid: TImage
+                Left = 202
+                Top = 77
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnPasteGridClick
+              end
+              object edtTablePosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+              object edtTablePosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 1
+              end
+              object edtTableHeight: TEdit
+                Left = 59
+                Top = 146
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 2
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtTableWidth: TEdit
+                Left = 59
+                Top = 205
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 3
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtTableColumn: TEdit
+                Left = 164
+                Top = 146
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 4
+                Text = '0'
+              end
+              object edtTableRow: TEdit
+                Left = 164
+                Top = 205
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 5
+                Text = '0'
+              end
+              object edtTableRotationAngle: TEdit
+                Left = 20
+                Top = 272
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 6
+                Text = '0'
+              end
+            end
+            object grpLine: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 1
+              object SpeedButton1: TSpeedButton
+                Tag = 1
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object Label47: TLabel
+                Left = 10
+                Top = 30
+                Width = 37
+                Height = 16
+                Caption = 'Start :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label48: TLabel
+                Left = 10
+                Top = 123
+                Width = 30
+                Height = 16
+                Caption = 'End :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object SpeedButton2: TSpeedButton
+                Tag = 2
+                Left = 156
+                Top = 146
+                Width = 43
+                Height = 45
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                OnClick = btnHandleShapePosition
+              end
+              object Label17: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label18: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label19: TLabel
+                Left = 20
+                Top = 150
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label20: TLabel
+                Left = 20
+                Top = 173
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object btnCopyStartLine: TImage
+                Left = 202
+                Top = 53
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnCopyStartLineClick
+              end
+              object btnPasteStartLine: TImage
+                Left = 202
+                Top = 77
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnPasteStartLineClick
+              end
+              object btnCopyEndLine: TImage
+                Left = 202
+                Top = 146
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnCopyEndLineClick
+              end
+              object btnPasteEndLine: TImage
+                Left = 202
+                Top = 170
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnPasteEndLineClick
+              end
+              object edtLineStartPosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+              object edtLineStartPosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 1
+              end
+              object edtLineEndPosLat: TEdit
+                Left = 64
+                Top = 146
+                Width = 91
+                Height = 22
+                TabOrder = 2
+              end
+              object edtLineEndPosLong: TEdit
+                Left = 64
+                Top = 169
+                Width = 91
+                Height = 22
+                TabOrder = 3
+              end
+            end
+            object grpPolygon: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 5
+              object Label91: TLabel
+                Left = 10
+                Top = 30
+                Width = 37
+                Height = 16
+                Caption = 'Point :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object SpeedButton10: TSpeedButton
+                Tag = 10
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                AllowAllUp = True
+                GroupIndex = 1
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object btnDeletePoly: TSpeedButton
+                Tag = 3
+                Left = 177
+                Top = 250
+                Width = 30
+                Height = 30
+                Cursor = crHandPoint
+                Hint = 'Clear Point'
+                AllowAllUp = True
+                Glyph.Data = {
+                  E6040000424DE604000000000000360000002800000014000000140000000100
+                  180000000000B0040000120B0000120B00000000000000000000FFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303030303030303FFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03030303030303
+                  0303030303030303030303030303030303030303030303030303FFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303030303030303030303030303
+                  03030303030303030303030303030303030303030303030303FFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFF030303030303030303030303030303030303030303
+                  030303030303030303030303030303030303030303030303FFFFFFFFFFFFFFFF
+                  FFFFFFFF03030303030303030303030303030303030303030303030303030303
+                  0303FFFFFF030303030303030303030303030303030303FFFFFFFFFFFF030303
+                  030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF03030303030303030303030303030303030303030303030303
+                  0303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFF030303030303030303030303030303030303030303030303FFFF
+                  FFFFFFFFFFFFFF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF
+                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF03030303
+                  0303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF030303030303
+                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFF0303030303
+                  03030303030303030303FFFFFFFFFFFFFFFFFF03030303030303030303030303
+                  0303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFEFEFE030303030303030303030303030303030303FFFFFFFFFF
+                  FF030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFF030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFF
+                  0303030303030303030303030303030303030303030303030303030303030303
+                  03030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF03
+                  0303030303030303030303030303030303030303030303030303030303030303
+                  030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0303
+                  03030303030303030303030303030303030303030303030303030303030303FF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF030303
+                  030303030303030303030303030303030303FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFF}
+                OnClick = btnDeletePolyClick
+              end
+              object Label21: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label22: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object btnCopyPolygon: TImage
+                Left = 202
+                Top = 55
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnCopyPolygonClick
+              end
+              object btnPastePolygon: TImage
+                Left = 202
+                Top = 77
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = btnPastePolygonClick
+              end
+              object edtPolyPosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+              object edtPolyPosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 1
+              end
+              object lvPolyVertex: TListView
+                AlignWithMargins = True
+                Left = 20
+                Top = 110
+                Width = 187
+                Height = 131
+                Columns = <
+                  item
+                    Caption = '+'
+                    Width = 25
+                  end
+                  item
+                    Alignment = taCenter
+                    Caption = 'Longitude'
+                    Width = 79
+                  end
+                  item
+                    Alignment = taCenter
+                    Caption = 'Latitude'
+                    Width = 79
+                  end>
+                GridLines = True
+                RowSelect = True
+                TabOrder = 2
+                ViewStyle = vsReport
+              end
+            end
+            object grpRectangle: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 6
+              object Label49: TLabel
+                Left = 10
+                Top = 30
+                Width = 65
+                Height = 16
+                Caption = 'Top - Left :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label50: TLabel
+                Left = 10
+                Top = 123
+                Width = 91
+                Height = 16
+                Caption = 'Bottom - Right :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object SpeedButton3: TSpeedButton
+                Tag = 3
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object SpeedButton4: TSpeedButton
+                Tag = 4
+                Left = 156
+                Top = 146
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object Label23: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label24: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label25: TLabel
+                Left = 20
+                Top = 150
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label26: TLabel
+                Left = 20
+                Top = 173
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object imgCopyStartRec: TImage
+                Left = 202
+                Top = 53
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgCopyStartRecClick
+              end
+              object imgPasteStartRec: TImage
+                Left = 202
+                Top = 77
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgPasteStartRecClick
+              end
+              object imgCopyEndRec: TImage
+                Left = 202
+                Top = 146
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgCopyEndRecClick
+              end
+              object imgPasteEndRec: TImage
+                Left = 202
+                Top = 170
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgPasteEndRecClick
+              end
+              object edtRectStartPosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+              object edtRectStartPosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 1
+              end
+              object edtRectEndPosLat: TEdit
+                Left = 64
+                Top = 146
+                Width = 91
+                Height = 22
+                TabOrder = 2
+              end
+              object edtRectEndPosLong: TEdit
+                Left = 64
+                Top = 169
+                Width = 91
+                Height = 22
+                TabOrder = 3
+              end
+            end
+            object grpSector: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              ParentBackground = False
+              ParentColor = False
+              TabOrder = 9
+              object lblSectorCenter: TLabel
+                Left = 10
+                Top = 30
+                Width = 47
+                Height = 16
+                Caption = 'Centre :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lblSectorInner: TLabel
+                Left = 20
+                Top = 149
+                Width = 39
+                Height = 16
+                Caption = 'Inner :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lblSectorOuter: TLabel
+                Left = 20
+                Top = 172
+                Width = 41
+                Height = 16
+                Caption = 'Outer :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lblSectorStartAngle: TLabel
+                Left = 20
+                Top = 238
+                Width = 37
+                Height = 16
+                Caption = 'Start :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lblSectorEndAngle: TLabel
+                Left = 20
+                Top = 261
+                Width = 30
+                Height = 16
+                Caption = 'End :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl2: TLabel
+                Left = 103
+                Top = 149
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl3: TLabel
+                Left = 103
+                Top = 172
+                Width = 18
+                Height = 16
+                Caption = 'nm'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl4: TLabel
+                Left = 103
+                Top = 238
+                Width = 25
+                Height = 16
+                Caption = 'deg.'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object lbl5: TLabel
+                Left = 103
+                Top = 261
+                Width = 25
+                Height = 16
+                Caption = 'deg.'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object bvlRadii: TBevel
+                Left = 56
+                Top = 129
+                Width = 143
+                Height = 3
+              end
+              object bvlAngle: TBevel
+                Left = 60
+                Top = 222
+                Width = 139
+                Height = 3
+              end
+              object lbl11: TLabel
+                Left = 10
+                Top = 123
+                Width = 42
+                Height = 16
+                Caption = ' Radius'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object lbl12: TLabel
+                Left = 10
+                Top = 216
+                Width = 46
+                Height = 16
+                Caption = ' Angles '
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+                Transparent = False
+              end
+              object SpeedButton8: TSpeedButton
+                Tag = 8
+                Left = 156
+                Top = 53
+                Width = 43
+                Height = 45
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clHighlight
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                ParentFont = False
+                OnClick = btnHandleShapePosition
+              end
+              object Label15: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label16: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWhite
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object imgCopySector: TImage
+                Left = 202
+                Top = 53
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgCopySectorClick
+              end
+              object imgPasteSector: TImage
+                Left = 202
+                Top = 77
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgPasteSectorClick
+              end
+              object edtSectorPosLat: TEdit
+                Left = 64
+                Top = 53
+                Width = 91
+                Height = 22
+                TabOrder = 0
+              end
+              object edtSectorInner: TEdit
+                Left = 64
+                Top = 146
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 1
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtSectorOuter: TEdit
+                Left = 64
+                Top = 169
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 2
+                Text = '0'
+                OnKeyPress = OnKeyPress
+              end
+              object edtSectorStartAngle: TEdit
+                Left = 64
+                Top = 235
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 3
+                Text = '0'
+                OnKeyPress = edtSectorStartAngleKeyPress
+              end
+              object edtSectorEndAngle: TEdit
+                Left = 64
+                Top = 258
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 4
+                Text = '0'
+                OnKeyPress = edtSectorEndAngleKeyPress
+              end
+              object edtSectorPosLong: TEdit
+                Left = 64
+                Top = 76
+                Width = 91
+                Height = 22
+                TabOrder = 5
+              end
+            end
+            object grpText: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              Color = 2499101
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentBackground = False
+              ParentColor = False
+              ParentFont = False
+              TabOrder = 7
+              object lblTextPosition: TLabel
+                Left = 10
+                Top = 30
+                Width = 37
+                Height = 16
+                Caption = 'Start :'
+              end
+              object lblTextField: TLabel
+                Left = 10
+                Top = 123
+                Width = 34
+                Height = 16
+                Caption = 'Text :'
+              end
+              object lblTextSize: TLabel
+                Left = 10
+                Top = 196
+                Width = 33
+                Height = 16
+                Caption = 'Size :'
+              end
+              object SpeedButton: TSpeedButton
+                Left = 156
+                Top = 54
+                Width = 43
+                Height = 45
+                Glyph.Data = {
+                  AA040000424DAA04000000000000360000002800000014000000130000000100
+                  18000000000074040000120B0000120B00000000000000000000D4DADDCCD4D7
+                  CFD6DACED5D9C6CDD2ECF1F4E7EDEE4A4D4E202020202020202020202020989D
+                  9EFCFFFFD0D7DACAD1D4D0D7DACFD6DACCD4D7D4DADDCED5D8C8D0D4C8D0D4C0
+                  C7CCE6EEF1E8EEF0343638000000060707000000070707000000000000979C9E
+                  F9FFFFC7CED3C4CCD0C8D0D4C8D0D4CED5D8CFD6DAC8D0D4C4CCD0E2ECF0DCE6
+                  EA3A3D3E0000006D727375797C0000002A2B2C95989A2222230000008D9395F6
+                  FEFFCED6DAC6CED2C8D0D4CFD6DACED5D8C0C8CCE6EFF3D1D9DD3B3D3E000000
+                  515557FFFFFF8B8E90000000202122EFF0F1C8CFD1111113000000888D8FF2FC
+                  FFCBD3D7C3CACFD0D7DBC7CED2EEF6F8DBE0E22B2C2E000000525455EFF9FDF8
+                  FFFF6A6E71000000191A1AC7CFD3FFFFFFAEB5B90C0D0D000000848A8CF4FDFF
+                  CCD4D8C9D0D4F2FAFCDCE4E5212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  760000001C1D1EC1C9CDD9E1E6F2FBFEBAC1C4040404000000868C8DFFFFFFD4
+                  DBDFD2D9DC2C2D2E0000006D7072FBFFFFDDE5EAC8D0D4ECF5F96D7174000000
+                  131415C5CDD1E7F0F4C6D0D4F9FDFFC3C7CA212224000000777D7DF7FFFF4041
+                  420000006C7071FFFFFFF1F9FCD7E0E3DFE8ECF0F9FC868B8E171718393C3DCF
+                  D8D9F0F9FDDAE3E7D9E3E8FFFFFFD5D8DA2528290000007E8183222222010001
+                  4D505160636447494B4B4E50454848545858BFC6C9D2DBDFDBE4E88B91934042
+                  434A4D4E494C4D4D5151686D6E2C2D2E00000022222224242400000000000000
+                  0000000000000000000000060606AFB5B8DBE4E8E9F2F7585B5E000000000000
+                  000000000000000000000000010101232323222222060607585B5C5E62634548
+                  4A4A4D50444748545758BFC6CAD0D8DCDAE3E78C91953E4143494B4E484B4D4D
+                  5051686C6E2C2D2F0000002222223F3F4000000075797CFFFFFFF0F8FCD6DFE3
+                  DFE8ECF0F9FC878C8E131313383A3AD0D8DBF0F8FDDAE3E7D9E3E8FFFFFFD5D9
+                  DA2628290000007E8184D2D9DC2C2E2F0000006C7172FBFFFFDDE5EAC8D0D4EB
+                  F5F96D7173000000131415C5CDD1E7F0F4C7D0D4F9FDFFC3C8CA212324000000
+                  787F7FF7FFFFF1FAFCDCE5E6212223000000575C5DEFF9FCD4DDE1DBE4E86F74
+                  750000001B1C1DC0C8CDD8E1E6F1FBFEBAC1C4040404000000858A8BFFFFFFD4
+                  DBDEC8CED2EFF6F8D9E0E22A2D2E000000525455EFF9FDF8FFFF6A6E71000000
+                  18191AC6CED2FFFFFFAFB5B90C0D0D000000848A8CF9FFFFCCD4D8C9CED3CED5
+                  D8BFC7CBE6EEF2D1D8DD3A3C3E000000505456FFFFFF898D8E0000001D2021EE
+                  F0F1C9CED1111113000000878C8FF3FCFFCED6DBC2CACFD0D7DBCFD6DAC8D0D4
+                  C4CCD0E4EDF2DFE7EC3A3C3E0000006D727374787A000000292B2C97999B2121
+                  220000008C9194EDF6FBCDD5D9C6CED2C8D0D4CFD6DACED5D8C8D0D4C8D0D4C0
+                  C8CDE8F0F2E8EEF0353639000000070707000000080808000000000000989EA0
+                  FAFFFFC4CBCFC4CCD0C8D0D4C8D0D4CED5D8D4DADDCCD4D7CFD6DACED5D8C5CD
+                  D1EBF1F3E9EEF04D4E502020202020202020202020209DA2A3FCFFFFD0D6DACB
+                  D2D6D0D7DACFD6DACCD4D7D4DADD}
+                OnClick = btnHandleShapePosition
+              end
+              object Label27: TLabel
+                Left = 20
+                Top = 57
+                Width = 34
+                Height = 16
+                Caption = 'Lat   :'
+              end
+              object Label28: TLabel
+                Left = 20
+                Top = 80
+                Width = 36
+                Height = 16
+                Caption = 'Long :'
+              end
+              object imgCopyText: TImage
+                Left = 202
+                Top = 54
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Copy Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000078069545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32373A34302B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32373A34302B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A38643438313465662D34
+                  3634332D373934662D386531322D6539376362356134623564312220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A38643161316361322D316164302D313034392D616463312D64626263
+                  62303133303965352220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C70686F746F73686F703A446F
+                  63756D656E74416E636573746F72733E203C7264663A4261673E203C7264663A
+                  6C693E61646F62653A646F6369643A70686F746F73686F703A30376631373437
+                  642D666635322D636434302D383834342D3833303533366262376262623C2F72
+                  64663A6C693E203C7264663A6C693E61646F62653A646F6369643A70686F746F
+                  73686F703A36383163373861622D643764342D363634632D393738352D663833
+                  6561303533656337313C2F7264663A6C693E203C2F7264663A4261673E203C2F
+                  70686F746F73686F703A446F63756D656E74416E636573746F72733E203C786D
+                  704D4D3A486973746F72793E203C7264663A5365713E203C7264663A6C692073
+                  744576743A616374696F6E3D2263726561746564222073744576743A696E7374
+                  616E636549443D22786D702E6969643A38653635663335322D376130302D6630
+                  34332D393936372D616262653234623136616461222073744576743A7768656E
+                  3D22323032352D30392D31355430383A33363A32362B30373A30302220737445
+                  76743A736F6674776172654167656E743D2241646F62652050686F746F73686F
+                  702032352E30202857696E646F777329222F3E203C7264663A6C692073744576
+                  743A616374696F6E3D227361766564222073744576743A696E7374616E636549
+                  443D22786D702E6969643A31306162646665312D343730352D643934632D6131
+                  66342D633866646139633762633064222073744576743A7768656E3D22323032
+                  362D30352D31315431343A35313A32372B30373A3030222073744576743A736F
+                  6674776172654167656E743D2241646F62652050686F746F73686F702032352E
+                  30202857696E646F777329222073744576743A6368616E6765643D222F222F3E
+                  203C7264663A6C692073744576743A616374696F6E3D22736176656422207374
+                  4576743A696E7374616E636549443D22786D702E6969643A3864343831346566
+                  2D343634332D373934662D386531322D65393763623561346235643122207374
+                  4576743A7768656E3D22323032362D30352D31325430393A32373A34302B3037
+                  3A3030222073744576743A736F6674776172654167656E743D2241646F626520
+                  50686F746F73686F702032352E30202857696E646F777329222073744576743A
+                  6368616E6765643D222F222F3E203C2F7264663A5365713E203C2F786D704D4D
+                  3A486973746F72793E203C2F7264663A4465736372697074696F6E3E203C2F72
+                  64663A5244463E203C2F783A786D706D6574613E203C3F787061636B65742065
+                  6E643D2272223F3E90F1C7C50000018F4944415478DADDD64B28445118C0F133
+                  A1290B2CA66C3CCBC2524AA2E415B143595B492C9492B2B1B153B220116BF258
+                  4D440C654811A52864A158D949C9A33CFEA7739677EE7C773A93F2D56F31CD9D
+                  F9CF3D73EF9C093DC556D45F4C48109E428FE0BD76ED71EFAEC2870863D1E798
+                  7E54601B9D92B8347C89019F6366D1867CC4D1818FA0E10CCC21D73E6EC59220
+                  5C84496CE0C09E79C2B85758079F718C1B746159102E453B9A11B5717DE69F41
+                  C37538C216EE938487316AA3FAC3B6600DFB89E292B0E43BCE410C551ECF8D61
+                  3C5D613D99CA5CD979C8C69B32B762DCEBB52EC35EA32FB40717E121D40882AB
+                  587719EE53E602F29B2F65EE82A8CBF09F2D7503AA93C47EB0830B97E1053409
+                  CE741E13FF62A9F526502008DEE1C565784FB8D4D3187419CE426192A8BE9D1E
+                  F1ED321C6442B8C226465209EBDFDA629C040CEB95A9442DCE5309F72AB3CD49
+                  2682465CDB95D2B7DF99E77208C241A64499BDBBDEAE54C2F10BCF28F3DD4A47
+                  6F8BDD2847195E8386C336180978B6FA2ABE5566073B4D76B0E45F665AE617FD
+                  77D6078D8C91EE0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgCopyTextClick
+              end
+              object imgPasteText: TImage
+                Left = 202
+                Top = 78
+                Width = 25
+                Height = 21
+                Cursor = crHandPoint
+                Hint = 'Paste Position'
+                ParentShowHint = False
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
+                  001A0806000000A0A1ECB4000000097048597300000B1300000B1301009A9C18
+                  0000069669545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F
+                  787061636B657420626567696E3D22EFBBBF222069643D2257354D304D704365
+                  6869487A7265537A4E54637A6B633964223F3E203C783A786D706D6574612078
+                  6D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D
+                  2241646F626520584D5020436F726520392E312D633030312037392E31343632
+                  3839392C20323032332F30362F32352D32303A30313A35352020202020202020
+                  223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777
+                  772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E
+                  7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D
+                  222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F
+                  6D2F7861702F312E302F2220786D6C6E733A64633D22687474703A2F2F707572
+                  6C2E6F72672F64632F656C656D656E74732F312E312F2220786D6C6E733A7068
+                  6F746F73686F703D22687474703A2F2F6E732E61646F62652E636F6D2F70686F
+                  746F73686F702F312E302F2220786D6C6E733A786D704D4D3D22687474703A2F
+                  2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E73
+                  3A73744576743D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F
+                  312E302F73547970652F5265736F757263654576656E74232220786D703A4372
+                  6561746F72546F6F6C3D2241646F62652050686F746F73686F702032352E3020
+                  2857696E646F7773292220786D703A437265617465446174653D22323032352D
+                  30392D31355430383A33363A32362B30373A30302220786D703A4D6F64696679
+                  446174653D22323032362D30352D31325430393A32353A33312B30373A303022
+                  20786D703A4D65746164617461446174653D22323032362D30352D3132543039
+                  3A32353A33312B30373A3030222064633A666F726D61743D22696D6167652F70
+                  6E67222070686F746F73686F703A436F6C6F724D6F64653D22332220786D704D
+                  4D3A496E7374616E636549443D22786D702E6969643A37633531306132622D35
+                  3562652D643034612D623731622D6666656636643539393331642220786D704D
+                  4D3A446F63756D656E7449443D2261646F62653A646F6369643A70686F746F73
+                  686F703A37656265663635342D393031622D373834362D623137652D63373230
+                  32613433613332642220786D704D4D3A4F726967696E616C446F63756D656E74
+                  49443D22786D702E6469643A38653635663335322D376130302D663034332D39
+                  3936372D616262653234623136616461223E203C786D704D4D3A486973746F72
+                  793E203C7264663A5365713E203C7264663A6C692073744576743A616374696F
+                  6E3D2263726561746564222073744576743A696E7374616E636549443D22786D
+                  702E6969643A38653635663335322D376130302D663034332D393936372D6162
+                  62653234623136616461222073744576743A7768656E3D22323032352D30392D
+                  31355430383A33363A32362B30373A3030222073744576743A736F6674776172
+                  654167656E743D2241646F62652050686F746F73686F702032352E3020285769
+                  6E646F777329222F3E203C7264663A6C692073744576743A616374696F6E3D22
+                  7361766564222073744576743A696E7374616E636549443D22786D702E696964
+                  3A31306162646665312D343730352D643934632D613166342D63386664613963
+                  3762633064222073744576743A7768656E3D22323032362D30352D3131543134
+                  3A35313A32372B30373A3030222073744576743A736F6674776172654167656E
+                  743D2241646F62652050686F746F73686F702032352E30202857696E646F7773
+                  29222073744576743A6368616E6765643D222F222F3E203C7264663A6C692073
+                  744576743A616374696F6E3D227361766564222073744576743A696E7374616E
+                  636549443D22786D702E6969643A37633531306132622D353562652D64303461
+                  2D623731622D666665663664353939333164222073744576743A7768656E3D22
+                  323032362D30352D31325430393A32353A33312B30373A303022207374457674
+                  3A736F6674776172654167656E743D2241646F62652050686F746F73686F7020
+                  32352E30202857696E646F777329222073744576743A6368616E6765643D222F
+                  222F3E203C2F7264663A5365713E203C2F786D704D4D3A486973746F72793E20
+                  3C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F
+                  783A786D706D6574613E203C3F787061636B657420656E643D2272223F3E0FB0
+                  69DA000001F24944415478DAC5964B28445118C7BFC9D812D94891D7C65B492C
+                  D4B018C9334BB250C8A39492286C95859548922485B5C786C8A34C8AC548090B
+                  1664E1CDC6FBFF75CEE431E78EFB9869BEFA357367CE3DBF7BBEF39D73AEED6A
+                  658E8211369DE221500B4215FFBD8269D0E96F7104B80663605FF17F3A680351
+                  E0C61FE27AD00512E548CBC0A2A25D295890233F058360D2ACB8042C8171B007
+                  4665AA97156D9D6016B48334D008CA351EF25FF18C4C5DB1BC3E00A93EFA3901
+                  C9F23B3FDC2DA83123E6D49D8356791D0EB2815DD1F68DC4DCDFCBEB1190021C
+                  66C4ABE0E887D848B0980BAEC08C7813B84D8AB9FAE349CCBD5FC52DF2F7188D
+                  3EC3B85FD9472FD8F287D801D6C0308982FBD490732D54812C39FA67ABE27E50
+                  47DF15EC2B62C119C8073B56C50324368C0C1D625E0977248ACC2BDD56C40DA0
+                  4771EF07A826B11C03224E02458A7B5FC03C896D3620E2A0A5DA29D3AD1A7137
+                  780C94B8103481903F6D9E409FFC342C5E078716531D0D2E8C8AF990B82471C4
+                  6989B9B82AC8FBAD84473A052249AC6343E209D9792EFDDE9DF42CA77712CBE9
+                  C18C38076C0317D825F176C1C10565D7996ACFCE6548CC91073A48BCFA78228E
+                  44C1E8D932792A8E653F2E236255F0D36F903824DC3EDAF1BC57824C9040060E
+                  095FC195DE4CE258B469B4E1B5CCAB820F1543C762C0E30BC9D4C107573E4063
+                  0000000049454E44AE426082}
+                ShowHint = True
+                Stretch = True
+                OnClick = imgPasteTextClick
+              end
+              object edtTextField: TEdit
+                Left = 20
+                Top = 146
+                Width = 135
+                Height = 24
+                MaxLength = 30
+                TabOrder = 0
+                Text = 'None'
+              end
+              object cbbTextSize: TComboBox
+                Left = 20
+                Top = 219
+                Width = 83
+                Height = 24
+                TabOrder = 1
+                Text = 'Small'
+                Items.Strings = (
+                  'Small'
+                  'Medium'
+                  'Large')
+              end
+              object edtTextPosLAt: TEdit
+                Left = 64
+                Top = 77
+                Width = 91
+                Height = 22
+                TabOrder = 2
+              end
+              object edtTextPosLong: TEdit
+                Left = 64
+                Top = 54
+                Width = 91
+                Height = 22
+                TabOrder = 3
+              end
+            end
+          end
         end
         object btnApply: TButton
           Left = 145
@@ -3644,6 +5980,8 @@ object OverlayEditorForm: TOverlayEditorForm
         Height = 23
         Align = alTop
         BevelOuter = bvNone
+        Color = 2499101
+        ParentBackground = False
         TabOrder = 0
         object ToolBar1: TToolBar
           Left = 22
@@ -3652,10 +5990,12 @@ object OverlayEditorForm: TOverlayEditorForm
           Height = 23
           Align = alClient
           Caption = 'ToolBar1'
+          Color = 2499101
           DoubleBuffered = False
           EdgeInner = esNone
           EdgeOuter = esNone
           Images = ImageList1
+          ParentColor = False
           ParentDoubleBuffered = False
           TabOrder = 0
           object btnDecreaseScale: TToolButton
@@ -3741,7 +6081,7 @@ object OverlayEditorForm: TOverlayEditorForm
           Height = 23
           Align = alLeft
           BevelOuter = bvNone
-          Color = clBtnShadow
+          Color = 2499101
           ParentBackground = False
           TabOrder = 1
         end
@@ -3754,6 +6094,8 @@ object OverlayEditorForm: TOverlayEditorForm
         Align = alBottom
         BevelOuter = bvNone
         BorderWidth = 3
+        Color = 2499101
+        ParentBackground = False
         TabOrder = 1
         object grpCursorPosition: TGroupBox
           Left = 3
@@ -3762,89 +6104,98 @@ object OverlayEditorForm: TOverlayEditorForm
           Height = 87
           Align = alClient
           Caption = 'Cursor Potition'
+          Color = 2499101
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentBackground = False
+          ParentColor = False
+          ParentFont = False
           TabOrder = 0
           object Label36: TLabel
             Left = 28
             Top = 32
-            Width = 120
-            Height = 14
+            Width = 128
+            Height = 16
             Caption = 'Bearing From Center :'
           end
           object Label61: TLabel
             Left = 28
             Top = 53
-            Width = 126
-            Height = 14
+            Width = 133
+            Height = 16
             Caption = 'Distance From Center :'
           end
           object Label62: TLabel
             Left = 332
             Top = 32
-            Width = 50
-            Height = 14
+            Width = 53
+            Height = 16
             Caption = 'Position :'
           end
           object Label65: TLabel
             Left = 332
             Top = 53
-            Width = 29
-            Height = 14
+            Width = 32
+            Height = 16
             Caption = 'Grid :'
           end
           object lBearingFCenter: TLabel
             Left = 169
             Top = 32
-            Width = 4
-            Height = 14
+            Width = 5
+            Height = 16
             Caption = '-'
           end
           object lDistanceFCenter: TLabel
             Left = 169
             Top = 53
-            Width = 4
-            Height = 14
+            Width = 5
+            Height = 16
             Caption = '-'
           end
           object lPosLat: TLabel
             Left = 401
             Top = 32
-            Width = 4
-            Height = 14
+            Width = 5
+            Height = 16
             Caption = '-'
           end
           object lGridLat: TLabel
             Left = 401
             Top = 53
-            Width = 4
-            Height = 14
+            Width = 5
+            Height = 16
             Caption = '-'
           end
           object Label66: TLabel
             Left = 210
             Top = 32
-            Width = 56
-            Height = 14
+            Width = 58
+            Height = 16
             Caption = 'degrees T'
           end
           object Label67: TLabel
             Left = 210
             Top = 53
-            Width = 17
-            Height = 14
+            Width = 18
+            Height = 16
             Caption = 'nm'
           end
           object lPosLong: TLabel
             Left = 499
             Top = 32
-            Width = 4
-            Height = 14
+            Width = 5
+            Height = 16
             Caption = '-'
           end
           object lGridLong: TLabel
             Left = 499
             Top = 53
-            Width = 4
-            Height = 14
+            Width = 5
+            Height = 16
             Caption = '-'
           end
         end
@@ -3877,7 +6228,7 @@ object OverlayEditorForm: TOverlayEditorForm
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000B80DE82801000000000000001C000000000000000000000000
+          01000118010000E839AC0401000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -3886,7 +6237,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000B80DE82801000000000000001C00000000000000000000000000000000
+          010000E839AC0401000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -3905,7 +6256,7 @@ object OverlayEditorForm: TOverlayEditorForm
       Height = 37
       Align = alBottom
       BevelOuter = bvNone
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
       TabOrder = 2
       object Panel1: TPanel
@@ -3919,7 +6270,7 @@ object OverlayEditorForm: TOverlayEditorForm
         object btnClose: TButton
           Tag = 3
           Left = 102
-          Top = 6
+          Top = 4
           Width = 75
           Height = 25
           Caption = 'Cancel'
@@ -3929,7 +6280,7 @@ object OverlayEditorForm: TOverlayEditorForm
         object btnOk: TButton
           Tag = 4
           Left = 21
-          Top = 6
+          Top = 4
           Width = 75
           Height = 25
           Caption = 'Ok'
@@ -3940,7 +6291,7 @@ object OverlayEditorForm: TOverlayEditorForm
       object btnScreenCapture: TButton
         Tag = 4
         Left = 106
-        Top = 18
+        Top = 4
         Width = 170
         Height = 25
         Caption = 'Screen Capture'
@@ -3961,27 +6312,9 @@ object OverlayEditorForm: TOverlayEditorForm
       Height = 5
       Align = alBottom
       BevelOuter = bvNone
+      Color = 2499101
       ParentBackground = False
       TabOrder = 3
-      object Image1: TImage
-        Left = 0
-        Top = 0
-        Width = 1294
-        Height = 5
-        Cursor = crHandPoint
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitWidth = 1584
-        ExplicitHeight = 8
-      end
     end
     object pnlVertical1: TPanel
       Left = 308
@@ -3990,27 +6323,9 @@ object OverlayEditorForm: TOverlayEditorForm
       Height = 748
       Align = alLeft
       BevelOuter = bvNone
+      Color = 2499101
       ParentBackground = False
       TabOrder = 4
-      object Image2: TImage
-        Left = 0
-        Top = 0
-        Width = 5
-        Height = 748
-        Cursor = crHandPoint
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitWidth = 1584
-        ExplicitHeight = 8
-      end
     end
   end
   object ImageList1: TImageList

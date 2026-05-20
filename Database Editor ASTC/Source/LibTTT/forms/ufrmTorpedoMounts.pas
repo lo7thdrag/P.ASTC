@@ -51,6 +51,7 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure btnEditLaunchersClick(Sender: TObject);
     procedure edtQuantityChange(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -87,8 +88,8 @@ uses
 
 procedure TfrmTorpedoMounts.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FBlindZoneView.Free;
-  Action := cafree;
+//  FBlindZoneView.Free;
+//  Action := cafree;
 end;
 
 procedure TfrmTorpedoMounts.FormCreate(Sender: TObject);
@@ -104,6 +105,11 @@ begin
     Width := pnlBlindZone.Width;
     OnClick := pnlBlindZoneClick;
   end;
+end;
+
+procedure TfrmTorpedoMounts.FormDestroy(Sender: TObject);
+begin
+  FBlindZoneView.Free;
 end;
 
 procedure TfrmTorpedoMounts.FormShow(Sender: TObject);

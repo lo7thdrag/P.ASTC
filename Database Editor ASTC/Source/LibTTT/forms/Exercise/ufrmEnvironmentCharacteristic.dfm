@@ -55,7 +55,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         ParentBackground = False
         TabOrder = 0
         object grpSelectedPoint: TGroupBox
-          Left = 9
+          Left = 12
           Top = 225
           Width = 313
           Height = 279
@@ -197,6 +197,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 44
             Height = 14
             Caption = 'Defaults'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label15: TLabel
             Left = 16
@@ -211,6 +217,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 69
             Height = 14
             Caption = 'Sonar Mode:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label17: TLabel
             Left = 12
@@ -218,6 +230,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 73
             Height = 14
             Caption = 'Sonar Depth:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label18: TLabel
             Left = 12
@@ -225,6 +243,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 115
             Height = 14
             Caption = 'Target Source Level:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label19: TLabel
             Left = 12
@@ -232,6 +256,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 118
             Height = 14
             Caption = 'Target Cross Section:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label20: TLabel
             Left = 12
@@ -239,6 +269,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 79
             Height = 14
             Caption = 'Target Depth:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label21: TLabel
             Left = 12
@@ -246,6 +282,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 96
             Height = 14
             Caption = 'Prediction Range:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label22: TLabel
             Left = 222
@@ -253,6 +295,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 23
             Height = 14
             Caption = 'feet'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label23: TLabel
             Left = 222
@@ -260,6 +308,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 14
             Height = 14
             Caption = 'dB'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label24: TLabel
             Left = 222
@@ -267,6 +321,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 34
             Height = 14
             Caption = 'dB m'#178
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label25: TLabel
             Left = 222
@@ -274,6 +334,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 23
             Height = 14
             Caption = 'feet'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label26: TLabel
             Left = 222
@@ -281,6 +347,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 17
             Height = 14
             Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object edtDefaults: TEdit
             Left = 12
@@ -670,6 +742,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           Height = 87
           Align = alClient
           Caption = 'Cursor Potition'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
           object Label28: TLabel
             Left = 28
@@ -677,6 +755,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 120
             Height = 14
             Caption = 'Bearing From Center :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label29: TLabel
             Left = 28
@@ -684,6 +768,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 126
             Height = 14
             Caption = 'Distance From Center :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label30: TLabel
             Left = 332
@@ -691,6 +781,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 50
             Height = 14
             Caption = 'Position :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label31: TLabel
             Left = 332
@@ -698,6 +794,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 29
             Height = 14
             Caption = 'Grid :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lBearingFCenter: TLabel
             Left = 169
@@ -705,6 +807,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 4
             Height = 14
             Caption = '-'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lDistanceFCenter: TLabel
             Left = 169
@@ -712,6 +820,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 4
             Height = 14
             Caption = '-'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lPosLat: TLabel
             Left = 401
@@ -733,6 +847,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 56
             Height = 14
             Caption = 'degrees T'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label33: TLabel
             Left = 210
@@ -740,6 +860,12 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Width = 17
             Height = 14
             Caption = 'nm'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lPosLong: TLabel
             Left = 499
@@ -787,7 +913,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000F041920401000000000000001C000000000000000000000000
+          01000118010000D86EB62801000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -796,7 +922,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000F041920401000000000000001C00000000000000000000000000000000
+          010000D86EB62801000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000

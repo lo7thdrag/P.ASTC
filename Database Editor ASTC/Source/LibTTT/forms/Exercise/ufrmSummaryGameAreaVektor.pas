@@ -222,7 +222,7 @@ begin
   finally
     frmVektorMapGameCenterEditor.Free;
   end;
-  
+
   btnApply.Enabled := True;
 end;
 

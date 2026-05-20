@@ -37,6 +37,12 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
       Width = 103
       Height = 14
       Caption = 'Game Area Name :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object edtName: TEdit
       Tag = 4

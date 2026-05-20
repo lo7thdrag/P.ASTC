@@ -113,6 +113,7 @@ type
     procedure mapLandMassMouseUp(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
     procedure btnCloseClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FSelectedGameArea : TGame_Environment_Definition;
 
@@ -207,7 +208,7 @@ implementation
 uses
   uBaseCoordSystem, ufrmSubEnviCharacteristic, ufrmVektorMapGameCenterEditor, Math,
   uScrCapture, ufCaptureRes, ufrmSummaryGameAreaVektor, uDataModuleTTT,
-  ufrmImportLandmassData, ComObj, StrUtils, uDBEditSetting;
+  ufrmImportLandmassData, ComObj, StrUtils, uDBEditSetting, uSimContainers;
 
 {$R *.dfm}
 
@@ -219,6 +220,14 @@ begin
   recycleList := TList.Create;
   FCanvas := TCanvas.Create;
   FConverter := TCoordConverter.Create;
+end;
+
+procedure TfrmLandmassEditor.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(objList);
+  FreeItemsAndFreeList(recycleList);
+//  TCanvas.Free;
+//  TCoordConverter.Free;
 end;
 
 procedure TfrmLandmassEditor.FormResize(Sender: TObject);

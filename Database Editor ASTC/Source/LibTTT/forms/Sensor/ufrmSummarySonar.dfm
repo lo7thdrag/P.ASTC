@@ -75,7 +75,7 @@ object frmSummarySonar: TfrmSummarySonar
       Top = 10
       Width = 634
       Height = 408
-      ActivePage = tsGeneral
+      ActivePage = tsCharacteristic
       Align = alClient
       TabHeight = 30
       TabOrder = 0

@@ -9,18 +9,20 @@ uses
 
 type
   TfrmAccousticDecoyOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllAcousticDecoyOnBoard: TListBox;
     lbAllAcousticDecoyDef: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -64,15 +68,19 @@ uses
 
 procedure TfrmAccousticDecoyOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllAcousticDecoyDefList);
-  FreeItemsAndFreeList(FAllAcousticDecoyOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmAccousticDecoyOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllAcousticDecoyDefList := TList.Create;
   FAllAcousticDecoyOnBoardList := TList.Create;
+end;
+
+procedure TfrmAccousticDecoyOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllAcousticDecoyDefList);
+  FreeItemsAndFreeList(FAllAcousticDecoyOnBoardList);
 end;
 
 procedure TfrmAccousticDecoyOnBoardPickList.FormShow(Sender: TObject);
@@ -138,6 +146,15 @@ begin
   UpdateAcousticDecoyList;
 end;
 
+procedure TfrmAccousticDecoyOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateAcousticDecoyList;
+  end;
+end;
+
 procedure TfrmAccousticDecoyOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -167,7 +184,7 @@ begin
   lbAllAcousticDecoyDef.Items.Clear;
   lbAllAcousticDecoyOnBoard.Items.Clear;
 
-  dmTTT.GetAllAcousticDecoyDef(FAllAcousticDecoyDefList);
+  dmTTT.GetFilterAcousticDecoyDef(FAllAcousticDecoyDefList, edtSearch.Text);
   dmTTT.GetAcousticDecoyOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllAcousticDecoyOnBoardList);
 
   for i := 0 to FAllAcousticDecoyDefList.Count - 1 do

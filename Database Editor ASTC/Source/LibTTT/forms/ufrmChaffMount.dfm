@@ -94,6 +94,7 @@ object frmChaffMountForm: TfrmChaffMountForm
       Height = 5
       Align = alTop
       BevelOuter = bvNone
+      Color = 2499101
       ParentBackground = False
       TabOrder = 1
     end
@@ -183,6 +184,7 @@ object frmChaffMountForm: TfrmChaffMountForm
       Height = 5
       Align = alBottom
       BevelOuter = bvNone
+      Color = 2499101
       ParentBackground = False
       TabOrder = 4
     end

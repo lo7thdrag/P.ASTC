@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSNRvsPODCurveList : TList;
@@ -51,7 +52,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSnrVsPodSummary, ufrmUsage, ufProgress;
+  uDataModuleTTT, ufrmSnrVsPodSummary, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -65,6 +66,11 @@ end;
 procedure TfrmAvailableSNRvsPODCurve.FormCreate(Sender: TObject);
 begin
   FSNRvsPODCurveList := TList.Create;
+end;
+
+procedure TfrmAvailableSNRvsPODCurve.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FSNRvsPODCurveList);
 end;
 
 procedure TfrmAvailableSNRvsPODCurve.FormShow(Sender: TObject);

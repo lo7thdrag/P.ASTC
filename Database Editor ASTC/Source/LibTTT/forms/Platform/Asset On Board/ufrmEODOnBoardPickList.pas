@@ -9,18 +9,20 @@ uses
 
 type
   TfrmEODOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllEODDef: TListBox;
     lbAllEODOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -63,15 +67,19 @@ uses
 
 procedure TfrmEODOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllEODDefList);
-  FreeItemsAndFreeList(FSelectedEOList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmEODOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllEODDefList := TList.Create;
   FSelectedEOList := TList.Create;
+end;
+
+procedure TfrmEODOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllEODDefList);
+  FreeItemsAndFreeList(FSelectedEOList);
 end;
 
 procedure TfrmEODOnBoardPickList.FormShow(Sender: TObject);
@@ -137,6 +145,15 @@ begin
   UpdateEOList;
 end;
 
+procedure TfrmEODOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateEOList;
+  end;
+end;
+
 procedure TfrmEODOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -166,7 +183,7 @@ begin
   lbAllEODDef.Items.Clear;
   lbAllEODOnBoard.Items.Clear;
 
-  dmTTT.GetAllEODef(FAllEODDefList);
+  dmTTT.GetFilterEODDef(FAllEODDefList, edtSearch.Text);
   dmTTT.GetEOOnBoard(FSelectedVehicle.FData.Vehicle_Index, FSelectedEOList);
 
   for i := 0 to FAllEODDefList.Count - 1 do

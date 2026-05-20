@@ -51,6 +51,8 @@ object frmReferencePointEditor: TfrmReferencePointEditor
         Width = 370
         Height = 688
         Align = alClient
+        Color = 2499101
+        ParentBackground = False
         TabOrder = 0
         object GroupBox2: TGroupBox
           Left = 12
@@ -174,6 +176,12 @@ object frmReferencePointEditor: TfrmReferencePointEditor
           Width = 349
           Height = 282
           Caption = 'Reference Point'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 1
           object lblType: TLabel
             Left = 12
@@ -504,6 +512,8 @@ object frmReferencePointEditor: TfrmReferencePointEditor
         Height = 23
         Align = alTop
         BevelOuter = bvNone
+        Color = 2499101
+        ParentBackground = False
         TabOrder = 0
         object ToolBar1: TToolBar
           Left = 25
@@ -588,7 +598,7 @@ object frmReferencePointEditor: TfrmReferencePointEditor
           Height = 23
           Align = alLeft
           BevelOuter = bvNone
-          Color = clBtnShadow
+          Color = 2499101
           ParentBackground = False
           TabOrder = 1
         end
@@ -601,6 +611,8 @@ object frmReferencePointEditor: TfrmReferencePointEditor
         Align = alBottom
         BevelOuter = bvNone
         BorderWidth = 3
+        Color = 2499101
+        ParentBackground = False
         TabOrder = 1
         object GroupBox1: TGroupBox
           Left = 3
@@ -609,6 +621,12 @@ object frmReferencePointEditor: TfrmReferencePointEditor
           Height = 87
           Align = alClient
           Caption = 'Cursor Potition'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
           object Label28: TLabel
             Left = 28
@@ -723,7 +741,7 @@ object frmReferencePointEditor: TfrmReferencePointEditor
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000D021920401000000000000001C000000000000000000000000
+          010001180100005866212701000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -732,7 +750,7 @@ object frmReferencePointEditor: TfrmReferencePointEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000D021920401000000000000001C00000000000000000000000000000000
+          0100005866212701000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -751,7 +769,7 @@ object frmReferencePointEditor: TfrmReferencePointEditor
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
       TabOrder = 2
       object Panel4: TPanel

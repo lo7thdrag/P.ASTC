@@ -9,18 +9,20 @@ uses
 
 type
   TfrmIFFOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Image1: TImage;
-    Label2: TLabel;
-    Label1: TLabel;
     btnAdd: TButton;
     btnEdit: TButton;
     btnRemove: TButton;
     lbAllIFFDef: TListBox;
     lbAllIFFOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -63,22 +67,27 @@ uses
 
 procedure TfrmIFFOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllIFFDefList);
-  FreeItemsAndFreeList(FAllIFFOnBoardList);
-  Action := cafree;
+//  FreeItemsAndFreeList(FAllIFFDefList);
+//  FreeItemsAndFreeList(FAllIFFOnBoardList);
+//  Action := cafree;
 end;
 
 procedure TfrmIFFOnBoardPickList.FormCreate(Sender: TObject);
-var
-  iff : TIFF_Sensor_On_Board;
 begin
   FAllIFFDefList := TList.Create;
   FAllIFFOnBoardList := TList.Create;
 
-  iff := TIFF_Sensor_On_Board.Create;
-  iff.FData.Instance_Identifier := 'IFF';
+  FSelectedIFF := TIFF_Sensor_On_Board.Create;
+  FSelectedIFF.FData.Instance_Identifier := 'IFF';
 
-  FAllIFFDefList.Add(iff);
+  FAllIFFDefList.Add(FSelectedIFF);
+end;
+
+procedure TfrmIFFOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllIFFDefList);
+  FreeItemsAndFreeList(FAllIFFOnBoardList);
+  FSelectedIFF.Free;
 end;
 
 procedure TfrmIFFOnBoardPickList.FormShow(Sender: TObject);
@@ -144,6 +153,15 @@ begin
   UpdateIFFList;
 end;
 
+procedure TfrmIFFOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateIFFList;
+  end;
+end;
+
 procedure TfrmIFFOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -173,6 +191,7 @@ begin
   lbAllIFFDef.Items.Clear;
   lbAllIFFOnBoard.Items.Clear;
 
+//  dmTTT.GetFilterIFFDef(FAllIFFDefList, edtSearch.Text);
   dmTTT.GetIFFOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllIFFOnBoardList);
 
   iff := TIFF_Sensor_On_Board.Create;

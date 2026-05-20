@@ -15,6 +15,7 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -28,8 +29,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1252
-    ExplicitHeight = 831
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -40,7 +39,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1252
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -65,7 +63,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 672
         DesignSize = (
           580
           57)
@@ -691,8 +688,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 1252
-      ExplicitHeight = 774
       object lstRuntimePlatformLibrary: TListBox
         Left = 10
         Top = 10
@@ -708,9 +703,6 @@ object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitTop = 0
-        ExplicitWidth = 1231
-        ExplicitHeight = 852
       end
     end
   end

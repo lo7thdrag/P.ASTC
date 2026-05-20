@@ -15,6 +15,7 @@ object frmAvailableVehicle: TfrmAvailableVehicle
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -896,7 +897,6 @@ object frmAvailableVehicle: TfrmAvailableVehicle
       Color = clBlack
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 46
       object lstVehicle: TListBox
         Left = 10
         Top = 0

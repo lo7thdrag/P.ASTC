@@ -16,6 +16,7 @@ object frmESMMount: TfrmESMMount
   Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -71,8 +72,6 @@ object frmESMMount: TfrmESMMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 330
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -83,10 +82,8 @@ object frmESMMount: TfrmESMMount
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 310
       object General: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 270
         object lblClassName: TStaticText
           Left = 15
           Top = 16

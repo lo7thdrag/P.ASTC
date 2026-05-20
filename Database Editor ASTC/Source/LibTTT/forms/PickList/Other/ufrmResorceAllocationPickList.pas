@@ -13,6 +13,9 @@ type
     pnl3Button: TPanel;
     btnCancel: TButton;
     btnAdd: TButton;
+    pnlTableHeader: TPanel;
+    Label2: TLabel;
+    edtSearch: TEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

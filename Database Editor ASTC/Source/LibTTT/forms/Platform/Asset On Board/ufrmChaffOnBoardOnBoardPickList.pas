@@ -9,20 +9,20 @@ uses
 
 type
   TfrmChaffOnBoardOnBoardPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditMount: TButton;
     btnRemove: TButton;
     lbAllChaffDef: TListBox;
     lbAllChaffOnBoard: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -35,6 +35,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditMountClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FAllChaffDefList : TList;
@@ -65,15 +67,19 @@ uses
 
 procedure TfrmChaffOnBoardOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllChaffDefList);
-  FreeItemsAndFreeList(FAllChaffOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmChaffOnBoardOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllChaffDefList := TList.Create;
   FAllChaffOnBoardList := TList.Create;
+end;
+
+procedure TfrmChaffOnBoardOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllChaffDefList);
+  FreeItemsAndFreeList(FAllChaffOnBoardList);
 end;
 
 procedure TfrmChaffOnBoardOnBoardPickList.FormShow(Sender: TObject);
@@ -137,6 +143,15 @@ begin
   UpdateChaffList;
 end;
 
+procedure TfrmChaffOnBoardOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateChaffList;
+  end;
+end;
+
 procedure TfrmChaffOnBoardOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -164,9 +179,8 @@ begin
   lbAllChaffDef.Items.Clear;
   lbAllChaffOnBoard.Items.Clear;
 
-  dmTTT.GetChaffDef(FAllChaffDefList);
-  dmTTT.GetChaffOnBoard(FSelectedVehicle.FData.Vehicle_Index,
-    FAllChaffOnBoardList);
+  dmTTT.GetFilterChaffDef(FAllChaffDefList, edtSearch.Text);
+  dmTTT.GetChaffOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllChaffOnBoardList);
 
   for i := 0 to FAllChaffDefList.Count - 1 do
   begin

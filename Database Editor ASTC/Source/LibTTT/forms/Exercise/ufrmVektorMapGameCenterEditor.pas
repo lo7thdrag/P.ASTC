@@ -50,6 +50,7 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedGameSector : TGame_Environment_Definition;
@@ -90,6 +91,12 @@ begin
   ClientWidth := Screen.Monitors[0].Width;
   ClientHeight := Screen.Monitors[0].Height;
 
+end;
+
+procedure TfrmVektorMapGameCenterEditor.FormDestroy(Sender: TObject);
+begin
+//  TCanvas.Free;
+//  TCoordConverter.Free;
 end;
 
 procedure TfrmVektorMapGameCenterEditor.FormShow(Sender: TObject);

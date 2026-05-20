@@ -30,9 +30,6 @@ object frmMotionPickList: TfrmMotionPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 0
-    ExplicitWidth = 280
-    ExplicitHeight = 428
     object lstAvailableMotion: TListBox
       Left = 10
       Top = 10
@@ -48,8 +45,6 @@ object frmMotionPickList: TfrmMotionPickList
       TabOrder = 0
       OnClick = lstAvailableMotionClick
       OnDblClick = lstAvailableMotionDblClick
-      ExplicitWidth = 260
-      ExplicitHeight = 408
     end
   end
   object pnl3Button: TPanel
@@ -62,27 +57,24 @@ object frmMotionPickList: TfrmMotionPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 428
-    ExplicitWidth = 280
     DesignSize = (
       494
       43)
     object btnCancel: TButton
       Left = 404
-      Top = 3
+      Top = 2
       Width = 80
       Height = 30
       Anchors = [akTop, akRight]
       Caption = 'Cancel'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -15
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
       OnClick = btnCancelClick
-      ExplicitLeft = 373
     end
     object btnAdd: TButton
       Left = 314
@@ -93,7 +85,7 @@ object frmMotionPickList: TfrmMotionPickList
       Caption = 'Pick'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -15
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False

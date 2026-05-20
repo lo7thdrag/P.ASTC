@@ -31,6 +31,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FLauncherOwner : E_LauncherOwner;
@@ -62,12 +63,17 @@ uses
 procedure TfLauncherList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 //  FreeItemsAndFreeList(FLauncherList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfLauncherList.FormCreate(Sender: TObject);
 begin
   FLauncherList := TList.Create;
+end;
+
+procedure TfLauncherList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FLauncherList);
 end;
 
 procedure TfLauncherList.FormShow(Sender: TObject);

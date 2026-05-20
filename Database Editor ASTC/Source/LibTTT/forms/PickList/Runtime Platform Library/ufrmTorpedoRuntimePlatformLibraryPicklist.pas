@@ -10,17 +10,19 @@ uses
 
 type
   TfrmTorpedoRuntimePlatformLibraryPicklist = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllTorprdoDef: TListBox;
     lbAllTorpedoOnRPL: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
  private
     FAllTorpedoDefList : TList;
@@ -53,7 +57,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -63,6 +67,13 @@ procedure TfrmTorpedoRuntimePlatformLibraryPicklist.FormCreate(Sender: TObject);
 begin
   FAllTorpedoDefList := TList.Create;
   FAllTorpedoOnRPList := TList.Create;
+end;
+
+procedure TfrmTorpedoRuntimePlatformLibraryPicklist.FormDestroy(
+  Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllTorpedoDefList);
+  FreeItemsAndFreeList(FAllTorpedoOnRPList);
 end;
 
 procedure TfrmTorpedoRuntimePlatformLibraryPicklist.FormShow(Sender: TObject);
@@ -111,6 +122,15 @@ begin
   UpdateTorpedoList;
 end;
 
+procedure TfrmTorpedoRuntimePlatformLibraryPicklist.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTorpedoList;
+  end;
+end;
+
 procedure TfrmTorpedoRuntimePlatformLibraryPicklist.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -142,7 +162,7 @@ begin
   lbAllTorprdoDef.Items.Clear;
   lbAllTorpedoOnRPL.Items.Clear;
 
-  dmTTT.GetAllTorpedoDef(FAllTorpedoDefList);
+  dmTTT.GetFilterTorpedoDef(FAllTorpedoDefList, edtSearch.Text);
   dmTTT.GetAllTorpedoPlatformLibraryEntry(FRuntimePlatformLibrary.FData.Platform_Library_Index,FAllTorpedoOnRPList);
 
   for i := 0 to FAllTorpedoDefList.Count - 1 do

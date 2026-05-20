@@ -72,6 +72,7 @@ type
     procedure btnEmbarkTypeClick(Sender: TObject);
     procedure lbAllVehicleClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -105,7 +106,7 @@ uses
   uDBAsset_Weapon, uDBBlind_Zone, uHelicopter_Land_Launch_Limits, newClassASTT,
   uVehicleSelect, ufrmMotionPickList, uChaffAssets, ufrmSummaryEOD,
   ufrmSummaryMAD, ufrmSummarySonar, ufrmSonobuoyMount, ufrmSummaryTorpedo, ufrmSummaryMine,
-  ufrmSummaryMissile, ufrmUsage, tttData, ufProgress;
+  ufrmSummaryMissile, ufrmUsage, tttData, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -119,6 +120,11 @@ end;
 procedure TfrmAvailableVehicle.FormCreate(Sender: TObject);
 begin
   FVehicleList := TList.Create;
+end;
+
+procedure TfrmAvailableVehicle.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FVehicleList);
 end;
 
 procedure TfrmAvailableVehicle.FormShow(Sender: TObject);

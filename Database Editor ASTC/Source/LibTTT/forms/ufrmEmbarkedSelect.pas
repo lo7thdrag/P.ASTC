@@ -12,7 +12,6 @@ type
     lstAllVehicle: TListBox;
     lstSelectedVehicle: TListBox;
     shp1: TShape;
-    btnFilter: TButton;
     grpFilter: TGroupBox;
     lblSensorType: TLabel;
     lbl1: TLabel;
@@ -34,17 +33,18 @@ type
     edtFilterSensorOnBoard: TEdit;
     btnSensorType: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditMount: TButton;
     btnRemove: TButton;
-    pnl3Button: TPanel;
+    btnFilter: TButton;
     btnClose: TButton;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
+    edtSearch: TEdit;
+    Label1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -70,6 +70,8 @@ type
     procedure chkSensorClick(Sender: TObject);
     procedure chkWeaponClick(Sender: TObject);
     procedure chkEmbarkedClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
   private
     FHostVehicle : TVehicle_Definition;
 
@@ -93,7 +95,7 @@ var
 implementation
 
 uses
-  ufrmEmbarkedInputName, uDataModuleTTT;
+  ufrmEmbarkedInputName, uDataModuleTTT, uSimContainers;
   {uSimDBEditor,uDBAsset_GameEnvironment,ufrmResourceAllocationSummary,
   uDataModuleTTT, ufrmResorceAllocationPickList,ufrmAvailableResourceAllocation,ufrmResourceAllocationInputName,ufrmAvailableVehicle,
   ufrmVehicleSummary, ufrmRuntimePlatformLibrarySummary, ufrmPredefinedPatternSummary, ufrmUsage,
@@ -109,6 +111,12 @@ procedure TfrmEmbarkedSelect.FormCreate(Sender: TObject);
 begin
   FVehicleList := TList.Create;
   FSelectedVehicleList := TList.Create;
+end;
+
+procedure TfrmEmbarkedSelect.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FVehicleList);
+  FreeItemsAndFreeList(FSelectedVehicleList);
 end;
 
 procedure TfrmEmbarkedSelect.FormShow(Sender: TObject);
@@ -242,6 +250,14 @@ begin
   cbbFilterWeaponType.Enabled := chkWeapon.Checked;
   btnWeaponType.Enabled := chkWeapon.Checked;
   UpdateVehicleList;
+end;
+
+procedure TfrmEmbarkedSelect.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateVehicleList;
+  end;
 end;
 
 function TfrmEmbarkedSelect.GetPlatformType(aTypeName: string): Integer;
@@ -406,7 +422,7 @@ begin
   lstAllVehicle.Items.Clear;
   lstSelectedVehicle.Items.Clear;
 
-  dmTTT.GetVehicleDef(FVehicleList);
+  dmTTT.GetFilterVehicleDef(FVehicleList, edtSearch.Text);
   dmTTT.GetHostedPlatform(FHostVehicle.FData.Vehicle_Index,FSelectedVehicleList);
 
   for i := 0 to FVehicleList.Count - 1 do

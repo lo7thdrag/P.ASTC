@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, uDBAsset_GameEnvironment;
+  Vcl.ExtCtrls, uDBAsset_GameEnvironment, uSimContainers;
 
 type
   TfrmAvailableGrapicalOverlay = class(TForm)
@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -65,6 +66,11 @@ end;
 procedure TfrmAvailableGrapicalOverlay.FormCreate(Sender: TObject);
 begin
   FOverlayList := TList.Create;
+end;
+
+procedure TfrmAvailableGrapicalOverlay.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FOverlayList);
 end;
 
 procedure TfrmAvailableGrapicalOverlay.FormShow(Sender: TObject);

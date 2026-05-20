@@ -76,7 +76,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       Top = 10
       Width = 439
       Height = 281
-      ActivePage = tsPlatforms
+      ActivePage = tsResources
       Align = alClient
       TabHeight = 30
       TabOrder = 0
@@ -171,7 +171,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Height = 22
           Date = 42300.000000000000000000
           Format = 'dd MMM yyyy'
-          Time = 0.714370370369579200
+          Time = 0.714370370369579100
           TabOrder = 6
           OnChange = dtpDateChange
         end
@@ -181,7 +181,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Width = 73
           Height = 22
           Date = 42300.000000000000000000
-          Time = 0.714370370369579200
+          Time = 0.714370370369579100
           Kind = dtkTime
           TabOrder = 7
           OnChange = dtpTimeChange
@@ -295,7 +295,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           end
           object btnVehicle: TButton
             Left = 18
-            Top = 70
+            Top = 45
             Width = 235
             Height = 45
             Caption = 'Vehicle...'

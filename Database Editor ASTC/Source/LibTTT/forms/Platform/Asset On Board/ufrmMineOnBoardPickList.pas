@@ -13,18 +13,20 @@ type
     mnscRuntimePlatformLibrary);
 
   TfrmMineOnBoardPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditTrack: TButton;
     btnRemove: TButton;
     lbAllMineDef: TListBox;
     lbAllMineOnBoard: TListBox;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -37,6 +39,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditTrackClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
 
   private
@@ -67,15 +71,19 @@ uses
 
 procedure TfrmMineOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FAllMineDefList);
-  FreeItemsAndFreeList(FAllMineOnBoardList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmMineOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllMineDefList := TList.Create;
   FAllMineOnBoardList := TList.Create;
+end;
+
+procedure TfrmMineOnBoardPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllMineDefList);
+  FreeItemsAndFreeList(FAllMineOnBoardList);
 end;
 
 procedure TfrmMineOnBoardPickList.FormShow(Sender: TObject);
@@ -142,6 +150,15 @@ begin
   UpdateMineList;
 end;
 
+procedure TfrmMineOnBoardPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMineList;
+  end;
+end;
+
 procedure TfrmMineOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -172,7 +189,7 @@ begin
   lbAllMineDef.Items.Clear;
   lbAllMineOnBoard.Items.Clear;
 
-  dmTTT.GetAllMineDef(FAllMineDefList);
+  dmTTT.GetFilterMineDef(FAllMineDefList, edtSearch.Text);
   dmTTT.GetMineOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllMineOnBoardList);
 
   for i := 0 to FAllMineDefList.Count - 1 do

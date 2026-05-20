@@ -36,7 +36,7 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
       Height = 16
       Caption = 'Class :'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -70,8 +70,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 302
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -83,10 +81,8 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
       TabOrder = 0
       TabWidth = 100
       OnChange = edtChange
-      ExplicitHeight = 282
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 242
         object lblPowerDensity: TLabel
           Left = 15
           Top = 24

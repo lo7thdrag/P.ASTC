@@ -35,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FGameDefaultsList : TList;
@@ -52,7 +53,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmGameDefaultSummary, ufrmUsage, newClassASTT, ufProgress;
+  uDataModuleTTT, ufrmGameDefaultSummary, ufrmUsage, newClassASTT, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -66,6 +67,11 @@ end;
 procedure TfrmAvailableGameDefaults.FormCreate(Sender: TObject);
 begin
   FGameDefaultsList := TList.Create;
+end;
+
+procedure TfrmAvailableGameDefaults.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FGameDefaultsList);
 end;
 
 procedure TfrmAvailableGameDefaults.FormShow(Sender: TObject);
