@@ -226,8 +226,8 @@ procedure TfrmLandmassEditor.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(objList);
   FreeItemsAndFreeList(recycleList);
-  TCanvas.Free;
-  TCoordConverter.Free;
+//  TCanvas.Free;
+//  TCoordConverter.Free;
 end;
 
 procedure TfrmLandmassEditor.FormResize(Sender: TObject);

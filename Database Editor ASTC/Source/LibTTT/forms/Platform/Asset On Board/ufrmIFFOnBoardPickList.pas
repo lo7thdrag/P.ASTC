@@ -73,23 +73,21 @@ begin
 end;
 
 procedure TfrmIFFOnBoardPickList.FormCreate(Sender: TObject);
-var
-  iff : TIFF_Sensor_On_Board;
 begin
   FAllIFFDefList := TList.Create;
   FAllIFFOnBoardList := TList.Create;
 
-  iff := TIFF_Sensor_On_Board.Create;
-  iff.FData.Instance_Identifier := 'IFF';
+  FSelectedIFF := TIFF_Sensor_On_Board.Create;
+  FSelectedIFF.FData.Instance_Identifier := 'IFF';
 
-  FAllIFFDefList.Add(iff);
+  FAllIFFDefList.Add(FSelectedIFF);
 end;
 
 procedure TfrmIFFOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllIFFDefList);
   FreeItemsAndFreeList(FAllIFFOnBoardList);
-  TIFF_Sensor_On_Board.Free;
+  FSelectedIFF.Free;
 end;
 
 procedure TfrmIFFOnBoardPickList.FormShow(Sender: TObject);

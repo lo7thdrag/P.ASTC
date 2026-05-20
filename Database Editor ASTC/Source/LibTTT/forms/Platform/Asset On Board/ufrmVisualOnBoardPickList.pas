@@ -72,23 +72,21 @@ begin
 end;
 
 procedure TfrmVisualOnBoardPickList.FormCreate(Sender: TObject);
-var
-  visual : TVisual_Sensor_On_Board;
 begin
   FAllVisualOnBoardList := TList.Create;
   FAllVisualDefList := TList.Create;
 
-  visual := TVisual_Sensor_On_Board.Create;
-  visual.FData.Instance_Identifier := 'Visual';
+  FSelectedVisual := TVisual_Sensor_On_Board.Create;
+  FSelectedVisual.FData.Instance_Identifier := 'Visual';
 
-  FAllVisualDefList.Add(visual);
+  FAllVisualDefList.Add(FSelectedVisual);
 end;
 
 procedure TfrmVisualOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllVisualOnBoardList);
   FreeItemsAndFreeList(FAllVisualDefList);
-  TVisual_Sensor_On_Board.Free;
+  FSelectedVisual.Free;
 end;
 
 procedure TfrmVisualOnBoardPickList.FormShow(Sender: TObject);

@@ -69,7 +69,7 @@ uses
 
 procedure TfrmTorpedoOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Act?ion := cafree;
+//  Act?ion := cafree;
 end;
 
 procedure TfrmTorpedoOnBoardPickList.FormCreate(Sender: TObject);

@@ -426,7 +426,7 @@ end;
 
 procedure TfrmImportLandmassData.FormDestroy(Sender: TObject);
 begin
-  TMap.Free;
+//  TMap.Free;
 end;
 
 procedure TfrmImportLandmassData.FormShow(Sender: TObject);

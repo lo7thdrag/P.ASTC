@@ -95,8 +95,8 @@ end;
 
 procedure TfrmVektorMapGameCenterEditor.FormDestroy(Sender: TObject);
 begin
-  TCanvas.Free;
-  TCoordConverter.Free;
+//  TCanvas.Free;
+//  TCoordConverter.Free;
 end;
 
 procedure TfrmVektorMapGameCenterEditor.FormShow(Sender: TObject);
