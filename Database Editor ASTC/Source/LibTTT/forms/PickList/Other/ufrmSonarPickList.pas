@@ -26,6 +26,7 @@ type
     procedure lstAvailableSonarDblClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedSonarId : Integer;
@@ -87,6 +88,14 @@ begin
   Close
 end;
 
+procedure TfrmSonarPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSonarList
+  end;
+end;
+
 procedure TfrmSonarPickList.lstAvailableSonarClick(Sender: TObject);
 begin
   if lstAvailableSonar.ItemIndex = -1 then
@@ -107,7 +116,8 @@ var
 begin
   lstAvailableSonar.Items.Clear;
 
-  dmTTT.GetAllSonarDef(FSonarList);
+  dmTTT.GetFilterSonarDef(FSonarList, edtSearch.Text);
+//  dmTTT.GetAllSonarDef(FSonarList);
 
   for i := 0 to FSonarList.Count - 1 do
   begin

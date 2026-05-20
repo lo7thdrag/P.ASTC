@@ -30,9 +30,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 0
-    ExplicitWidth = 279
-    ExplicitHeight = 428
     object lstAvailableSNRvsPOD: TListBox
       Left = 10
       Top = 10
@@ -48,7 +45,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       TabOrder = 0
       OnClick = lstAvailableSNRvsPODClick
       OnDblClick = lstAvailableSNRvsPODDblClick
-      ExplicitTop = 40
     end
   end
   object pnl3Button: TPanel
@@ -61,8 +57,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 428
-    ExplicitWidth = 279
     object btnCancel: TButton
       Left = 404
       Top = 2
@@ -117,9 +111,6 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
-    ExplicitLeft = 18
-    ExplicitTop = 18
-    ExplicitWidth = 474
     object Label2: TLabel
       Left = 166
       Top = 14
@@ -146,6 +137,7 @@ object frmSNRvsPODPickList: TfrmSNRvsPODPickList
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnKeyPress = edtSearchKeyPress
     end
   end
 end

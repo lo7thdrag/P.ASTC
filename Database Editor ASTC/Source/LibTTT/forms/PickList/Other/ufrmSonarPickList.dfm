@@ -30,7 +30,6 @@ object frmSonarPickList: TfrmSonarPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 628
     object lstAvailableSonar: TListBox
       Left = 10
       Top = 10
@@ -58,8 +57,6 @@ object frmSonarPickList: TfrmSonarPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 428
-    ExplicitWidth = 277
     object btnCancel: TButton
       Left = 404
       Top = 2
@@ -114,7 +111,6 @@ object frmSonarPickList: TfrmSonarPickList
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
-    ExplicitTop = 8
     object Label2: TLabel
       Left = 166
       Top = 14
@@ -141,6 +137,7 @@ object frmSonarPickList: TfrmSonarPickList
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnKeyPress = edtSearchKeyPress
     end
   end
 end

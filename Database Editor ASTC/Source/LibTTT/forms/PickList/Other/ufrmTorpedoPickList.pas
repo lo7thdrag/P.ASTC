@@ -25,6 +25,7 @@ type
     procedure lstAvailableTorpedoClick(Sender: TObject);
     procedure lstAvailableTorpedoDblClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FTorpedoList : TList;
@@ -87,6 +88,14 @@ begin
   Close
 end;
 
+procedure TfrmTorpedoPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTorpedoList
+  end;
+end;
+
 procedure TfrmTorpedoPickList.lstAvailableTorpedoClick(Sender: TObject);
 begin
   if lstAvailableTorpedo.ItemIndex = -1 then
@@ -107,7 +116,8 @@ var
 begin
   lstAvailableTorpedo.Items.Clear;
 
-  dmTTT.GetAllTorpedoDef(FTorpedoList);
+//  dmTTT.GetAllTorpedoDef(FTorpedoList);
+  dmTTT.GetFilterTorpedoDef(FTorpedoList, edtSearch.Text);
 
   for i := 0 to FTorpedoList.Count - 1 do
   begin

@@ -27,6 +27,7 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedMotionId : Integer;
@@ -86,6 +87,14 @@ begin
   Close;
 end;
 
+procedure TfrmMotionPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateMotionList
+  end;
+end;
+
 procedure TfrmMotionPickList.lstAvailableMotionClick(Sender: TObject);
 begin
   if lstAvailableMotion.ItemIndex = -1 then
@@ -106,7 +115,8 @@ var
 begin
   lstAvailableMotion.Items.Clear;
 
-  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+//  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
   for i := 0 to FMotionList.Count - 1 do
   begin
