@@ -8,7 +8,7 @@ uses
   OleCtrls, uMapXHandler, uCoordConvertor, uDBAsset_GameEnvironment, {TeCanvas,} ColorGrd, tttData,
   uMainStaticShape, uMainDynamicShape, uDrawOverlay,
   uLine, uArc, uTable, uRect, uPolygon,   uCircle, uEllipse, uSector, uText, uMainOverlay,
-  uFormula{, RzButton}, System.ImageList, Vcl.Imaging.pngimage;
+  uFormula{, RzButton}, System.ImageList, Vcl.Imaging.pngimage, RzBmpBtn;
 
 type
   E_OverlayMapCursor = (mcSelect, mcAdd, mcEdit);
@@ -53,16 +53,16 @@ type
     colorPanel: TPanel;
     colorChoose: TColorGrid;
     grbShape: TGroupBox;
-    btnText: TSpeedButton;
-    btnLine: TSpeedButton;
-    btnRectangle: TSpeedButton;
-    btnCircle: TSpeedButton;
-    btnEllipse: TSpeedButton;
-    btnArc: TSpeedButton;
-    btnSector: TSpeedButton;
-    btnGrid: TSpeedButton;
-    btnPolygon: TSpeedButton;
-    btnSelect: TSpeedButton;
+    btnText1: TSpeedButton;
+    btnLine1: TSpeedButton;
+    btnRectangle1: TSpeedButton;
+    btnCircle1: TSpeedButton;
+    btnEllipse1: TSpeedButton;
+    btnArc1: TSpeedButton;
+    btnSector1: TSpeedButton;
+    btnGrid1: TSpeedButton;
+    btnPolygon1: TSpeedButton;
+    btnSelect1: TSpeedButton;
     lblShape: TLabel;
     Label76: TLabel;
     Label77: TLabel;
@@ -379,6 +379,16 @@ type
     imgPasteSector: TImage;
     imgCopyText: TImage;
     imgPasteText: TImage;
+    btnLine: TRzBmpButton;
+    btnSelect: TRzBmpButton;
+    btnText: TRzBmpButton;
+    btnRectangle: TRzBmpButton;
+    btnCircle: TRzBmpButton;
+    btnEllipse: TRzBmpButton;
+    btnArc: TRzBmpButton;
+    btnSector: TRzBmpButton;
+    btnGrid: TRzBmpButton;
+    btnPolygon: TRzBmpButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -438,6 +448,17 @@ type
     procedure imgPasteSectorClick(Sender: TObject);
     procedure imgCopyTextClick(Sender: TObject);
     procedure imgPasteTextClick(Sender: TObject);
+    procedure edtArcRadiusDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtCircleRadiusDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtEllipseHorizontalDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtEllipseVerticalDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtTableHeightDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtTableWidthDChange(Sender: TObject);
+    procedure edtTableWidthDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSectorInnerDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSectorOuterDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSectorStartAngleDKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSectorEndAngleDKeyPress(Sender: TObject; var Key: Char);
 
   private
     Flatt : string;
@@ -1680,56 +1701,217 @@ begin
       case ShapeType of
         ovText:{Text}
         begin
-          if (edtTextRange.Text = '')or(edtTextBearing.Text = '')or
-             (cbbTextSizeD.Text = '')or(edtTextFieldD.Text = '') then
+          {$REGION ' Text '}
+          if (edtTextRange.Text = '') or (edtTextBearing.Text = '') or
+            (edtTextFieldD.Text = '') or (cbbTextSizeD.Text = '') then
+          begin
+            ShowMessage('Incomplete data input');
             Result := True;
+          end
+          else if (StrToInt(cbbTextSizeD.Text) > 72) or
+            (StrToInt(cbbTextSizeD.Text) = 0) then
+          begin
+            ShowMessage('Invalid size input');
+            Result := True;
+          end;
+          {$ENDREGION}
         end;
+//        begin
+//          if (edtTextRange.Text = '')or(edtTextBearing.Text = '')or
+//             (cbbTextSizeD.Text = '')or(edtTextFieldD.Text = '') then
+//            Result := True;
+//        end;
         ovLine:{Line}
         begin
-          if (edtLineStartRange.Text = '')or(edtLineStartBearing.Text = '')or
-             (edtLineEndRange.Text = '')or(edtLineEndBearing.Text = '') then
+          {$REGION ' Line '}
+          if (edtLineStartRange.Text = '') or
+            (edtLineStartBearing.Text = '') or (edtLineEndRange.Text = '')
+            or (edtLineEndBearing.Text = '') then
+          begin
+            ShowMessage('Incomplete data input');
             Result := True;
+          end
+          else if (edtLineStartRange.Text = edtLineEndRange.Text) and
+            (edtLineEndRange.Text = edtLineEndBearing.Text) then
+          begin
+            ShowMessage('Invalid input..., Start and End position can not be identical');
+            Result := True;
+          end;
+          {$ENDREGION}
         end;
+//        begin
+//          if (edtLineStartRange.Text = '')or(edtLineStartBearing.Text = '')or
+//             (edtLineEndRange.Text = '')or(edtLineEndBearing.Text = '') then
+//            Result := True;
+//        end;
         ovRectangle:{Rectangle}
         begin
-          if (edtRecStartRange.Text = '')or(edtRecStartBearing.Text = '')or
-             (edtRecEndRange.Text = '')or(edtRecEndBearing.Text = '') then
+          {$REGION ' Rectangle '}
+          if (edtRecStartBearing.Text = '')or(edtRecStartRange.Text = '')or
+          (edtRecStartRange.Text = '')or (edtRecStartBearing.Text = '')or
+          (edtRecEndBearing.Text= '')or (edtRectStartPosLat.Text= '')or
+          (edtRecEndRange.Text= '')or(edtRecEndBearing.Text= '') then
+          begin
+            ShowMessage( 'Incomplete data input' );
             Result := True;
+          end
+          else if (edtRecStartBearing.Text = edtRecStartRange.Text ) and (edtRecEndBearing.Text = edtRectStartPosLat.Text )then
+          begin
+            ShowMessage( 'Invalid input..., Top-Left and Bottom-Right position can not be identical' );
+            Result := True;;
+          end;
+          {$ENDREGION}
         end;
+//        begin
+//          if (edtRecStartRange.Text = '')or(edtRecStartBearing.Text = '')or
+//             (edtRecEndRange.Text = '')or(edtRecEndBearing.Text = '') then
+//            Result := True;
+//        end;
         ovCircle:{Circle}
         begin
-          if (edtCircleRange.Text = '')or(edtCircleBearing.Text = '')or
-             (edtCircleRadiusD.Text = '') then
+          {$REGION ' Circle '}
+          if (edtCircleBearing.Text = '')or (edtCircleRange.Text = '') or
+          (edtCircleRadiusD.Text = '')or(edtCircleBearing.text='')or
+          (edtCircleRange.Text= '') then
+          begin
+            ShowMessage('The provided input data is incomplete.');
             Result := True;
+          end
+             // Radius tidak boleh 0
+          else if StrToFloat(edtCircleRadiusD.Text) = 0 then
+          begin
+            ShowMessage('Invalid input. Radius must not be 0.');
+            Result := True;
+          end;
+          {$ENDREGION}
         end;
+//        begin
+//          if (edtCircleRange.Text = '')or(edtCircleBearing.Text = '')or
+//             (edtCircleRadiusD.Text = '') then
+//            Result := True;
+//        end;
         ovEllipse:{Ellipse}
         begin
-          if (edtEllipseRange.Text = '')or(edtEllipseBearing.Text = '')or
-             (edtEllipseHorizontalD.Text = '')or(edtEllipseVerticalD.Text = '') then
+          {$REGION ' Ellipse '}
+          if (edtEllipseBearing.Text = '')or (edtEllipseRange.Text = '')
+          or(edtEllipseHorizontalD.Text = '') or (edtEllipseVerticalD.Text = '') or
+          (edtEllipseRange.text= '') or (edtEllipseBearing.Text= '') then
+          begin
+            ShowMessage( 'Incomplete data input' );
             Result := True;
+          end
+          else if (edtEllipseHorizontalD.Text = '0') or (edtEllipseVerticalD.Text = '0')then
+          begin
+            ShowMessage( 'Invalid radius input, minimum radius > 0' );
+            Result := True;
+          end;
+          {$ENDREGION}
         end;
+//        begin
+//          if (edtEllipseRange.Text = '')or(edtEllipseBearing.Text = '')or
+//             (edtEllipseHorizontalD.Text = '')or(edtEllipseVerticalD.Text = '') then
+//            Result := True;
+//        end;
         ovArc:{Arc}
-        begin
-          if (edtArcRange.Text = '')or(edtArcBearing.Text = '')or
-             (edtArcRadiusD.Text = '')or(edtArcStartAngleD.Text = '')or
-             (edtArcEndAngleD.Text = '')then
+        {$REGION ' Arc '}
+          if (edtArcBearing.Text = '') or (edtArcRange.Text = '') or
+            (edtArcRadiusD.Text = '') or (edtArcStartAngleD.Text = '') or
+            (edtArcEndAngleD.Text = '') then
+          begin
+            ShowMessage( 'Incomplete data input' );
             Result := True;
-        end;
+          end
+          else if (edtArcRadiusD.Text = '0') then
+          begin
+            ShowMessage( 'Invalid radius input, minimum radius > 0' );
+            Result := True;
+          end
+          else if (edtArcEndAngleD.Text = edtArcStartAngleD.Text) then
+          begin
+            ShowMessage( 'Invalid input..., Start and End Angle can not be identical' );
+            Result := True;
+          end;
+          {$ENDREGION}
+//        begin
+//          if (edtArcRange.Text = '')or(edtArcBearing.Text = '')or
+//             (edtArcRadiusD.Text = '')or(edtArcStartAngleD.Text = '')or
+//             (edtArcEndAngleD.Text = '')then
+//            Result := True;
+//        end;
         ovSector:{Sector}
         begin
-          if (edtSectorRange.Text = '')or(edtSectorBearing.Text = '')or
-             (edtSectorInnerD.Text = '')or(edtSectorOuterD.Text = '')or
-             (edtSectorStartAngleD.Text = '')or(edtSectorEndAngleD.Text = '')then
-            Result := True;
+          {$REGION ' Sector '}
+          InnerRadius := StrToFloat(edtSectorInnerD.Text);
+          OuterRadius := StrToFloat(edtSectorOuterD.Text);
+
+          if(edtSectorInnerD.Text = '') or (edtSectorOuterD.Text = '')or
+          (edtSectorStartAngleD.Text = '') or (edtSectorEndAngleD.Text = '')or
+          (edtSectorRange.Text = '')or (edtSectorBearing.Text = '')then
+          begin
+          ShowMessage ('The provided input data is incomplete');
+          Result := True;
+          end
+          else if (InnerRadius <= 0) or (OuterRadius <= 0) then
+          begin
+          ShowMessage ('Invalid radius value. Radius must be greater than 0.');
+          Result := True;
+          end
+          else if (edtSectorStartAngleD.Text = edtSectorEndAngleD.Text) then
+          begin
+          ShowMessage ('Invalid input. Start Angle and End Angle cannot be same.');
+          Result := True;
+          end
+          else if (InnerRadius = OuterRadius) then
+          begin
+          ShowMessage ('Invalid input. Inner Radius and Outer Radius must not be same.');
+          Result := True;
+          end
+          else if (InnerRadius > OuterRadius) then
+          begin
+          ShowMessage ('Invalid input data. The Inner Radius value cannot exceed the Outer Radius value.');
+          Result := True;
+          end
+          else if (OuterRadius < InnerRadius) then
+          begin
+          ShowMessage ('Invalid input. Outer Radius must not be smaller than Inner Radius.');
+          Result := True;
+          end;
+          {$ENDREGION}
         end;
+//        begin
+//          if (edtSectorRange.Text = '')or(edtSectorBearing.Text = '')or
+//             (edtSectorInnerD.Text = '')or(edtSectorOuterD.Text = '')or
+//             (edtSectorStartAngleD.Text = '')or(edtSectorEndAngleD.Text = '')then
+//            Result := True;
+//        end;
         ovGrid:{Grid}
         begin
-          if (edtTableRange.Text = '')or(edtTableBearing.Text = '')or
-             (edtTableHeightD.Text = '')or(edtTableColumnD.Text = '')or
-             (edtTableWidthD.Text = '')or(edtTableRowD.Text = '')or
-             (edtRotationAngleD.Text = '')then
+          {$REGION ' Grid '}
+          if (edtTableRange.Text = '')or (edtTableRange.Text ='') or
+          (edtTableHeightD.Text = '')or (edtTableColumnD.Text = '') or
+          (edtTableWidthD.Text = '') or (edtTableRowD.Text = '')or
+          (edtRotationAngleD.Text = '')or(edtTableRange.Text ='')
+          or(edtTableRange.Text='') then
+          begin
+            ShowMessage( 'Incomplete Data Input' );
             Result := True;
+          end
+
+          else if (edtTableHeightD.Text = '0') or (edtTableColumnD.Text = '0') or (edtTableWidthD.Text = '0')
+          or (edtTableRowD.Text = '0') then
+          begin
+            ShowMessage( 'Invalid input, minimum Col, Row and height > 0' );
+            Result := True;
+          end;
+          {$ENDREGION}
         end;
+//        begin
+//          if (edtTableRange.Text = '')or(edtTableBearing.Text = '')or
+//             (edtTableHeightD.Text = '')or(edtTableColumnD.Text = '')or
+//             (edtTableWidthD.Text = '')or(edtTableRowD.Text = '')or
+//             (edtRotationAngleD.Text = '')then
+//            Result := True;
+//        end;
         ovPolygon:{Polygon}
         begin
           if lvPolyVertexD.Items.Count < 1 then
@@ -1972,6 +2154,86 @@ begin
   RefreshForm;
 end;
 
+procedure TOverlayEditorForm.edtArcRadiusDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtCircleRadiusDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtEllipseHorizontalDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtEllipseVerticalDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtSectorEndAngleDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
 procedure TOverlayEditorForm.edtSectorEndAngleKeyPress(Sender: TObject;
   var Key: Char);
 begin
@@ -1988,6 +2250,54 @@ begin
   end;
 end;
 
+procedure TOverlayEditorForm.edtSectorInnerDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtSectorOuterDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtSectorStartAngleDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
 procedure TOverlayEditorForm.edtSectorStartAngleKeyPress(Sender: TObject;
   var Key: Char);
 begin
@@ -1998,6 +2308,53 @@ begin
   end;
 
   if GetInput(TEdit(sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtTableHeightDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
+  begin
+    if Key = #46 then
+      Key := #0;
+  end;
+end;
+
+procedure TOverlayEditorForm.edtTableWidthDChange(Sender: TObject);
+begin
+//  if not(Key in [#48 .. #57, #8, #13, #46]) then
+//  begin
+//    Key := #0;
+//    Exit;
+//  end;
+//
+//  if GetInput(TEdit(Sender).Text) then
+//  begin
+//    if Key = #46 then
+//      Key := #0;
+//  end;
+end;
+
+procedure TOverlayEditorForm.edtTableWidthDKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not(Key in [#48 .. #57, #8, #13, #46]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  if GetInput(TEdit(Sender).Text) then
   begin
     if Key = #46 then
       Key := #0;
