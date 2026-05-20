@@ -472,7 +472,7 @@ begin
     layer := ENCmap.Layers.Item(i);
 
     if (layer.Name = 'Indonesia_Coastline_Darat') or
-      (layer.Name = 'LYR_DRAW') then
+      (layer.Name = 'LYR_DRAW') or (layer.Name = 'ID2000_land') then
       Continue;
 
     if SeparateString(layer.Name, '_', layerID, layerName) then
