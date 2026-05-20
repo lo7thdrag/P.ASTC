@@ -4,8 +4,8 @@ object frmMissileMount: TfrmMissileMount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Missile Mount'
-  ClientHeight = 439
-  ClientWidth = 432
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object frmMissileMount: TfrmMissileMount
   object pnl1Title: TPanel
     Left = 0
     Top = 0
-    Width = 432
+    Width = 434
     Height = 65
     Align = alTop
     BevelOuter = bvNone
@@ -50,7 +50,7 @@ object frmMissileMount: TfrmMissileMount
       Tag = 4
       Left = 10
       Top = 30
-      Width = 412
+      Width = 414
       Height = 24
       AutoSize = False
       Enabled = False
@@ -66,8 +66,8 @@ object frmMissileMount: TfrmMissileMount
   object pnl2ControlPage: TPanel
     Left = 0
     Top = 65
-    Width = 432
-    Height = 331
+    Width = 434
+    Height = 370
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
@@ -77,8 +77,8 @@ object frmMissileMount: TfrmMissileMount
     object PageControl1: TPageControl
       Left = 10
       Top = 10
-      Width = 412
-      Height = 311
+      Width = 414
+      Height = 350
       ActivePage = General
       Align = alClient
       TabHeight = 30
@@ -114,7 +114,7 @@ object frmMissileMount: TfrmMissileMount
         end
         object cbMountExtension: TComboBox
           Left = 12
-          Top = 103
+          Top = 102
           Width = 372
           Height = 22
           Style = csDropDownList
@@ -137,7 +137,7 @@ object frmMissileMount: TfrmMissileMount
         end
         object lblBlindZones: TStaticText
           Left = 12
-          Top = 147
+          Top = 149
           Width = 74
           Height = 18
           Caption = 'Blind Zones :'
@@ -186,7 +186,7 @@ object frmMissileMount: TfrmMissileMount
         end
         object pnlBlindZone: TPanel
           Left = 12
-          Top = 170
+          Top = 172
           Width = 66
           Height = 65
           TabOrder = 10
@@ -207,8 +207,8 @@ object frmMissileMount: TfrmMissileMount
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 396
-    Width = 432
+    Top = 435
+    Width = 434
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
@@ -216,29 +216,47 @@ object frmMissileMount: TfrmMissileMount
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 259
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 261
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 171
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 177
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 347
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 344
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

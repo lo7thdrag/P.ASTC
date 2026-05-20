@@ -4,8 +4,8 @@ object frmMADMount: TfrmMADMount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   MAD Mount'
-  ClientHeight = 351
-  ClientWidth = 442
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object frmMADMount: TfrmMADMount
   object pnl1Title: TPanel
     Left = 0
     Top = 0
-    Width = 442
+    Width = 434
     Height = 65
     Align = alTop
     BevelOuter = bvNone
@@ -29,15 +29,16 @@ object frmMADMount: TfrmMADMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 442
     object txtClass: TLabel
       Left = 10
       Top = 10
-      Width = 78
-      Height = 14
+      Width = 81
+      Height = 16
       Caption = 'Mount Name :'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -12
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -46,7 +47,7 @@ object frmMADMount: TfrmMADMount
       Tag = 4
       Left = 10
       Top = 30
-      Width = 422
+      Width = 414
       Height = 24
       AutoSize = False
       Enabled = False
@@ -62,41 +63,43 @@ object frmMADMount: TfrmMADMount
   object pnl2ControlPage: TPanel
     Left = 0
     Top = 65
-    Width = 442
-    Height = 243
+    Width = 434
+    Height = 370
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 233
+    ExplicitWidth = 442
+    ExplicitHeight = 243
     object PageControl1: TPageControl
       Left = 10
       Top = 10
-      Width = 422
-      Height = 223
+      Width = 414
+      Height = 350
       ActivePage = General
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 213
+      ExplicitWidth = 422
+      ExplicitHeight = 223
       object General: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 173
+        ExplicitWidth = 414
+        ExplicitHeight = 183
         object lblAntenna: TStaticText
-          Left = 15
-          Top = 26
+          Left = 94
+          Top = 146
           Width = 99
           Height = 18
           Caption = 'Antenna Height :'
           TabOrder = 0
         end
         object edtAntenna: TEdit
-          Left = 164
-          Top = 24
+          Left = 213
+          Top = 144
           Width = 68
           Height = 22
           TabOrder = 1
@@ -104,8 +107,8 @@ object frmMADMount: TfrmMADMount
           OnKeyPress = edtNumeralKeyPress
         end
         object lblFeetAntenna: TStaticText
-          Left = 246
-          Top = 26
+          Left = 285
+          Top = 146
           Width = 27
           Height = 18
           Caption = 'feet'
@@ -116,39 +119,58 @@ object frmMADMount: TfrmMADMount
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 308
-    Width = 442
+    Top = 435
+    Width = 434
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 303
+    ExplicitTop = 308
+    ExplicitWidth = 442
     object btnApply: TButton
-      Left = 277
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 261
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 196
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 177
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 358
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 344
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

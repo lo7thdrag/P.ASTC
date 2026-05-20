@@ -28,12 +28,12 @@ type
     lblFeetMaxOperational: TStaticText;
     pnl2ControlPage: TPanel;
     pnl1Title: TPanel;
-    txtClass: TLabel;
     edtName: TEdit;
     pnl3Button: TPanel;
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
+    txtClass: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

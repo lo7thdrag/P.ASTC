@@ -4,8 +4,8 @@ object frmRadarJammerMount: TfrmRadarJammerMount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Radar Jammer Mount'
-  ClientHeight = 302
-  ClientWidth = 389
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,58 +21,63 @@ object frmRadarJammerMount: TfrmRadarJammerMount
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 389
-    Height = 302
+    Width = 434
+    Height = 478
     Align = alClient
     BevelOuter = bvNone
-    BorderWidth = 5
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 389
+    ExplicitHeight = 302
     object pnl2ControlPage: TPanel
-      Left = 5
-      Top = 70
-      Width = 379
-      Height = 184
+      Left = 0
+      Top = 65
+      Width = 434
+      Height = 370
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 75
-      ExplicitHeight = 174
+      ExplicitLeft = 5
+      ExplicitTop = 70
+      ExplicitWidth = 379
+      ExplicitHeight = 184
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 359
-        Height = 164
+        Width = 414
+        Height = 350
         ActivePage = General
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 154
+        ExplicitWidth = 359
+        ExplicitHeight = 164
         object General: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 114
+          ExplicitWidth = 351
+          ExplicitHeight = 124
           object txtAntenna: TStaticText
-            Left = 21
-            Top = 18
+            Left = 94
+            Top = 146
             Width = 99
             Height = 18
             Caption = 'Antenna Height :'
             TabOrder = 0
           end
           object edtAntenna: TEdit
-            Left = 134
-            Top = 17
+            Left = 213
+            Top = 144
             Width = 68
             Height = 22
             TabOrder = 1
           end
           object txtFeetAntenna: TStaticText
-            Left = 208
-            Top = 19
+            Left = 285
+            Top = 146
             Width = 27
             Height = 18
             Caption = 'feet'
@@ -82,9 +87,9 @@ object frmRadarJammerMount: TfrmRadarJammerMount
       end
     end
     object pnl1Title: TPanel
-      Left = 5
-      Top = 5
-      Width = 379
+      Left = 0
+      Top = 0
+      Width = 434
       Height = 65
       Align = alTop
       BevelOuter = bvNone
@@ -92,6 +97,9 @@ object frmRadarJammerMount: TfrmRadarJammerMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 5
+      ExplicitTop = 5
+      ExplicitWidth = 379
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -109,7 +117,7 @@ object frmRadarJammerMount: TfrmRadarJammerMount
         Tag = 4
         Left = 10
         Top = 30
-        Width = 359
+        Width = 414
         Height = 24
         AutoSize = False
         Enabled = False
@@ -123,39 +131,60 @@ object frmRadarJammerMount: TfrmRadarJammerMount
       end
     end
     object pnl3Button: TPanel
-      Left = 5
-      Top = 254
-      Width = 379
+      Left = 0
+      Top = 435
+      Width = 434
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 5
+      ExplicitTop = 254
+      ExplicitWidth = 379
       object btnApply: TButton
-        Left = 213
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 261
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
       object btnOK: TButton
-        Left = 132
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 177
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
       end
       object btnCancel: TButton
-        Left = 294
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 344
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end

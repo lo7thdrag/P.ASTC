@@ -4,8 +4,8 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Visual Detector Mount'
-  ClientHeight = 328
-  ClientWidth = 433
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,36 +23,45 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 433
-    Height = 328
+    Width = 434
+    Height = 478
     Align = alClient
     BevelOuter = bvNone
-    BorderWidth = 5
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 433
+    ExplicitHeight = 328
     object pnl2ControlPage: TPanel
-      Left = 5
-      Top = 70
-      Width = 423
-      Height = 210
+      Left = 0
+      Top = 65
+      Width = 434
+      Height = 370
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 5
+      ExplicitTop = 70
+      ExplicitWidth = 423
+      ExplicitHeight = 210
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 403
-        Height = 190
+        Width = 414
+        Height = 350
         ActivePage = General
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
+        ExplicitWidth = 403
+        ExplicitHeight = 190
         object General: TTabSheet
           Caption = 'General'
+          ExplicitWidth = 395
+          ExplicitHeight = 150
           object lblBlindZones: TStaticText
             Left = 15
             Top = 19
@@ -98,9 +107,9 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
       end
     end
     object pnl1Title: TPanel
-      Left = 5
-      Top = 5
-      Width = 423
+      Left = 0
+      Top = 0
+      Width = 434
       Height = 65
       Align = alTop
       BevelOuter = bvNone
@@ -108,6 +117,9 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 5
+      ExplicitTop = 5
+      ExplicitWidth = 423
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -125,7 +137,7 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
         Tag = 4
         Left = 10
         Top = 30
-        Width = 403
+        Width = 414
         Height = 24
         AutoSize = False
         Enabled = False
@@ -139,39 +151,60 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
       end
     end
     object pnl3Button: TPanel
-      Left = 5
-      Top = 280
-      Width = 423
+      Left = 0
+      Top = 435
+      Width = 434
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 5
+      ExplicitTop = 280
+      ExplicitWidth = 423
       object btnApply: TButton
-        Left = 258
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 261
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
       object btnOK: TButton
         Left = 177
-        Top = 5
-        Width = 75
-        Height = 25
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
       end
       object btnCancel: TButton
-        Left = 339
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 344
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end

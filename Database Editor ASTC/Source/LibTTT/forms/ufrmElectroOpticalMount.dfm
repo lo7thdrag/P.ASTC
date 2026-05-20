@@ -4,8 +4,8 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Electro Optical Detector Mount'
-  ClientHeight = 438
-  ClientWidth = 407
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,38 +23,47 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 407
-    Height = 438
+    Width = 434
+    Height = 478
     Align = alClient
     BevelOuter = bvNone
-    BorderWidth = 5
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 407
+    ExplicitHeight = 438
     object pnl2ControlPage: TPanel
-      Left = 5
-      Top = 70
-      Width = 397
-      Height = 320
+      Left = 0
+      Top = 65
+      Width = 434
+      Height = 370
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 5
+      ExplicitTop = 70
+      ExplicitWidth = 397
+      ExplicitHeight = 320
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 377
-        Height = 300
+        Width = 414
+        Height = 350
         ActivePage = General
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
+        ExplicitWidth = 377
+        ExplicitHeight = 300
         object General: TTabSheet
           Caption = 'General'
+          ExplicitWidth = 369
+          ExplicitHeight = 260
           object lblClassName: TStaticText
-            Left = 16
+            Left = 12
             Top = 18
             Width = 72
             Height = 18
@@ -63,25 +72,25 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
           end
           object edtClassName: TEdit
             Tag = 4
-            Left = 14
+            Left = 12
             Top = 41
-            Width = 325
+            Width = 351
             Height = 22
             Enabled = False
             TabOrder = 1
           end
           object lblMountExtension: TStaticText
-            Left = 14
-            Top = 74
+            Left = 12
+            Top = 79
             Width = 104
             Height = 18
             Caption = 'Mount Extension :'
             TabOrder = 2
           end
           object cbMountExtension: TComboBox
-            Left = 14
-            Top = 97
-            Width = 325
+            Left = 12
+            Top = 102
+            Width = 351
             Height = 22
             Style = csDropDownList
             TabOrder = 3
@@ -102,8 +111,8 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
               'Starboard Mount')
           end
           object lblBlindZones: TStaticText
-            Left = 14
-            Top = 140
+            Left = 12
+            Top = 149
             Width = 74
             Height = 18
             Caption = 'Blind Zones :'
@@ -134,8 +143,8 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
             TabOrder = 7
           end
           object pnlBlindZone: TPanel
-            Left = 14
-            Top = 163
+            Left = 12
+            Top = 172
             Width = 66
             Height = 65
             TabOrder = 8
@@ -145,9 +154,9 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       end
     end
     object pnl1Title: TPanel
-      Left = 5
-      Top = 5
-      Width = 397
+      Left = 0
+      Top = 0
+      Width = 434
       Height = 65
       Align = alTop
       BevelOuter = bvNone
@@ -155,37 +164,49 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 5
+      ExplicitTop = 5
+      ExplicitWidth = 397
       object txtClass: TLabel
         Left = 10
         Top = 10
-        Width = 78
-        Height = 14
+        Width = 81
+        Height = 16
         Caption = 'Mount Name :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
       end
       object edtName: TEdit
         Tag = 4
         Left = 10
         Top = 30
-        Width = 358
+        Width = 414
         Height = 24
         AutoSize = False
         TabOrder = 0
       end
     end
     object pnl3Button: TPanel
-      Left = 5
-      Top = 390
-      Width = 397
+      Left = 0
+      Top = 435
+      Width = 434
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
-      Color = clBtnShadow
+      Color = 2499101
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 5
+      ExplicitTop = 390
+      ExplicitWidth = 397
       object imgExercise: TImage
         Left = 0
         Top = 0
-        Width = 397
+        Width = 434
         Height = 43
         Cursor = crHandPoint
         Align = alClient
@@ -26227,33 +26248,53 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
           DD82EF167CB7E0BB05DF2DF86EC1770BBE5BF0DD82EF167CB7E0BBF1FB7F0ADF
           FD137896051A35F25DBB0000000049454E44AE426082}
         Stretch = True
+        Visible = False
         ExplicitLeft = -7
         ExplicitTop = -7
+        ExplicitWidth = 397
       end
       object btnApply: TButton
-        Left = 227
-        Top = 6
-        Width = 75
-        Height = 25
+        Left = 261
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
       object btnOK: TButton
-        Left = 146
-        Top = 6
-        Width = 75
-        Height = 25
+        Left = 177
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
       end
       object btnCancel: TButton
-        Left = 308
-        Top = 6
-        Width = 75
-        Height = 25
+        Left = 344
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end

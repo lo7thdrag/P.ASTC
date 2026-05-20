@@ -4,8 +4,8 @@ object frmAirBubblesMounts: TfrmAirBubblesMounts
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Air Bubbles'
-  ClientHeight = 292
-  ClientWidth = 392
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,47 +21,55 @@ object frmAirBubblesMounts: TfrmAirBubblesMounts
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 392
-    Height = 292
+    Width = 434
+    Height = 478
     Align = alClient
     BevelOuter = bvNone
-    BorderWidth = 5
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 392
+    ExplicitHeight = 292
     object pnl2ControlPage: TPanel
-      Left = 5
-      Top = 70
-      Width = 382
-      Height = 174
+      Left = 0
+      Top = 65
+      Width = 434
+      Height = 370
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 5
+      ExplicitTop = 70
+      ExplicitWidth = 382
+      ExplicitHeight = 174
       object pgc1: TPageControl
         Left = 10
         Top = 10
-        Width = 362
-        Height = 154
+        Width = 414
+        Height = 350
         ActivePage = tsGeneral
         Align = alClient
-        TabHeight = 25
+        TabHeight = 30
         TabOrder = 0
         TabWidth = 75
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitTop = 31
+          ExplicitWidth = 354
+          ExplicitHeight = 119
           object txtQuantity: TStaticText
-            Left = 88
-            Top = 18
+            Left = 127
+            Top = 148
             Width = 63
             Height = 18
             Caption = 'Quantity  :'
             TabOrder = 0
           end
           object edtQuantity: TEdit
-            Left = 88
-            Top = 42
+            Left = 210
+            Top = 146
             Width = 68
             Height = 22
             NumbersOnly = True
@@ -71,9 +79,9 @@ object frmAirBubblesMounts: TfrmAirBubblesMounts
       end
     end
     object pnl1Title: TPanel
-      Left = 5
-      Top = 5
-      Width = 382
+      Left = 0
+      Top = 0
+      Width = 434
       Height = 65
       Align = alTop
       BevelOuter = bvNone
@@ -81,6 +89,9 @@ object frmAirBubblesMounts: TfrmAirBubblesMounts
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 5
+      ExplicitTop = 5
+      ExplicitWidth = 382
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -98,7 +109,7 @@ object frmAirBubblesMounts: TfrmAirBubblesMounts
         Tag = 4
         Left = 10
         Top = 30
-        Width = 362
+        Width = 414
         Height = 24
         AutoSize = False
         Enabled = False
@@ -112,39 +123,60 @@ object frmAirBubblesMounts: TfrmAirBubblesMounts
       end
     end
     object pnl3Button: TPanel
-      Left = 5
-      Top = 244
-      Width = 382
+      Left = 0
+      Top = 435
+      Width = 434
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 5
+      ExplicitTop = 244
+      ExplicitWidth = 382
       object btnApply: TButton
-        Left = 216
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 261
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
       object btnOK: TButton
-        Left = 135
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 177
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
       end
       object btnCancel: TButton
-        Left = 297
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 344
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end

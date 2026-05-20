@@ -33,7 +33,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
     object pnlEditor: TPanel
       Left = 0
       Top = 0
-      Width = 308
+      Width = 385
       Height = 744
       Align = alLeft
       BevelOuter = bvNone
@@ -49,13 +49,14 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       object grpName: TGroupBox
         Left = 0
         Top = 0
-        Width = 308
+        Width = 385
         Height = 44
         Align = alTop
         Color = 2499101
         ParentBackground = False
         ParentColor = False
         TabOrder = 0
+        ExplicitWidth = 308
         object edtName: TEdit
           Left = 69
           Top = 12
@@ -67,28 +68,41 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         object lblName: TStaticText
           Left = 8
           Top = 16
-          Width = 43
-          Height = 18
+          Width = 46
+          Height = 20
           Caption = 'Name :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 1
         end
       end
       object pnlSearch: TPanel
         Left = 0
         Top = 44
-        Width = 308
+        Width = 385
         Height = 53
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
+        ExplicitWidth = 308
         object lblSearch: TStaticText
           Left = 117
           Top = 29
-          Width = 49
-          Height = 18
+          Width = 53
+          Height = 20
           Caption = 'Search :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
           TabOrder = 0
         end
         object edtSearch: TEdit
@@ -104,39 +118,42 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       object grpSearchSelection: TGroupBox
         Left = 0
         Top = 97
-        Width = 308
+        Width = 385
         Height = 647
         Align = alClient
         Color = clBtnFace
         ParentBackground = False
         ParentColor = False
         TabOrder = 2
+        ExplicitWidth = 308
         object pnllist: TPanel
           Left = 2
           Top = 16
-          Width = 304
+          Width = 381
           Height = 629
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitWidth = 304
           object chklstArea: TCheckListBox
             Left = 0
             Top = 0
-            Width = 304
+            Width = 381
             Height = 629
             OnClickCheck = chklstAreaClickCheck
             Align = alClient
             ItemHeight = 14
             Sorted = True
             TabOrder = 0
+            ExplicitWidth = 304
           end
         end
       end
     end
     object pnlMap: TPanel
-      Left = 313
+      Left = 390
       Top = 0
-      Width = 1036
+      Width = 959
       Height = 744
       Align = alClient
       BevelOuter = bvNone
@@ -149,32 +166,36 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
+      ExplicitLeft = 313
+      ExplicitWidth = 1036
       object pnlToolBar: TPanel
         Left = 0
         Top = 0
-        Width = 1036
-        Height = 23
+        Width = 959
+        Height = 37
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1036
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
           Width = 22
-          Height = 23
+          Height = 37
           Align = alLeft
           BevelOuter = bvNone
           Color = 2499101
           ParentBackground = False
           TabOrder = 0
+          ExplicitHeight = 23
         end
         object ToolBar1: TToolBar
           Left = 22
           Top = 0
-          Width = 1014
-          Height = 23
+          Width = 937
+          Height = 37
           Align = alClient
           ButtonHeight = 23
           ButtonWidth = 28
@@ -183,6 +204,8 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           Images = ImageList1
           ParentColor = False
           TabOrder = 1
+          ExplicitWidth = 1014
+          ExplicitHeight = 23
           object btnDecreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -219,7 +242,8 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
               '512'
               '1024'
               '2048'
-              '2500')
+              '2500'
+              '3500')
           end
           object btnIncreaseScale: TToolButton
             Left = 118
@@ -290,9 +314,9 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       end
       object ENCmap: TMap
         Left = 0
-        Top = 23
-        Width = 1036
-        Height = 721
+        Top = 37
+        Width = 959
+        Height = 707
         ParentColor = False
         Align = alClient
         TabOrder = 1
@@ -301,22 +325,23 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         OnMouseDown = ENCmapMouseDown
         OnMapViewChanged = ENCmapMapViewChanged
         OnDrawUserLayer = ENCmapDrawUserLayer
+        ExplicitTop = 23
         ExplicitWidth = 1172
         ExplicitHeight = 786
         ControlData = {
-          8A1A0600136B0000844A0000010000000F0000FF0D47656F44696374696F6E61
+          8A1A06001E63000012490000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000040000500001
           010000640000000001F4010000050000800C000000000000000000000000FFFF
           FF000100000000000000000000000000000000000000000000000352E30B918F
-          CE119DE300AA004BB851010000009001DCCF080005417269616C000352E30B91
+          CE119DE300AA004BB85101000000900190B2080005417269616C000352E30B91
           8FCE119DE300AA004BB8510100000090015C790C0005417269616C0000000000
           00000000000000000000000000000000000000000000000000000000000000FF
           FFFF000000000000000001370000000000FFFFFF000000000000000352E30B91
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000C8CCB12801000000000000001C000000000000000000000000
+          0100011801000028C3D60001000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -325,7 +350,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000C8CCB12801000000000000001C00000000000000000000000000000000
+          01000028C3D60001000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -414,7 +439,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       end
     end
     object pnlVertical1: TPanel
-      Left = 308
+      Left = 385
       Top = 0
       Width = 5
       Height = 744
@@ -422,6 +447,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       BevelOuter = bvNone
       ParentBackground = False
       TabOrder = 4
+      ExplicitLeft = 308
       object Image2: TImage
         Left = 0
         Top = 0
