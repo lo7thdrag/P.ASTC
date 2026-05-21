@@ -299,6 +299,7 @@ type
 
     {$REGION ' Radar Definition '}
     function GetAllRadarDef(var aList: TList): Integer; {New}
+    function GetAllRadarCount: Integer;
     function GetRadarDef(const aClassName: string): Integer; overload;
     function GetFilterRadarDef(var aList: TList; aFilter: string): integer;
 
@@ -8569,6 +8570,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllRadarCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Radar_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 

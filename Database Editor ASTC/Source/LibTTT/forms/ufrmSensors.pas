@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  Vcl.Imaging.jpeg;
+  Vcl.Imaging.jpeg, Vcl.StdCtrls;
 
 type
   TfrmSensors = class(TForm)
@@ -16,6 +16,8 @@ type
     imgESM: TImage;
     imgSonobuoy: TImage;
     imgBackground: TImage;
+    lblRadarCount: TLabel;
+    lblEODCount: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
@@ -25,12 +27,14 @@ type
     procedure imgEODClick(Sender: TObject);
     procedure imgMADClick(Sender: TObject);
     procedure imgSonobuoyClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     iconName : string;
     filePath, imgChoice : string;
 
     procedure IconLoad;
+    procedure UpdateCountSensor;
 
   public
     { Public declarations }
@@ -42,12 +46,18 @@ var
 implementation
 
 uses
-  ufDBEditor, ufrmAvailableRadar, ufrmAvailableSonar, ufrmAvailableESM, ufrmAvailableEOD, ufrmAvailableMAD, ufrmAvailableSonobuoy;
+  ufDBEditor, ufrmAvailableRadar, ufrmAvailableSonar, ufrmAvailableESM, ufrmAvailableEOD, ufrmAvailableMAD, ufrmAvailableSonobuoy,
+  uDataModuleTTT;
 {$R *.dfm}
 
 procedure TfrmSensors.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
+end;
+
+procedure TfrmSensors.FormShow(Sender: TObject);
+begin
+  UpdateCountSensor;
 end;
 
 procedure TfrmSensors.IconLoad;
@@ -148,6 +158,13 @@ begin
 
   fDBEditor.LoadImageVariasi(0);
   frmAvailableSonobuoy.Show;
+end;
+
+procedure TfrmSensors.UpdateCountSensor;
+begin
+  {$REGION ' Radar '}
+  lblRadarCount.Caption := IntToStr(dmTTT.GetAllRadarCount) + ' Data';
+  {$ENDREGION}
 end;
 
 end.
