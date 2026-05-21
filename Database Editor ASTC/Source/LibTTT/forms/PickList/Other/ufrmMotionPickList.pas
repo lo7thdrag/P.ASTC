@@ -88,20 +88,10 @@ begin
 end;
 
 procedure TfrmMotionPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
-<<<<<<< HEAD
-begin
-  if Key = #13 then
-  begin
-    UpdateMotionList
-=======
-  var
-  i : Integer;
-  motion : TMotion_Characteristics;
 begin
   if Key = #13 then
   begin
     UpdateMotionList ;
->>>>>>> f195133ceb32a44a84e07ea25e3aaba3d20de7d3
   end;
 end;
 
@@ -127,17 +117,12 @@ begin
   dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
 //  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
-<<<<<<< HEAD
   dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
-=======
->>>>>>> f195133ceb32a44a84e07ea25e3aaba3d20de7d3
 
   for i := 0 to FMotionList.Count - 1 do
   begin
     motion := FMotionList.Items[i];
-
     lstAvailableMotion.Items.AddObject(motion.FData.Motion_Identifier, motion);
-
   end;
 end;
 
