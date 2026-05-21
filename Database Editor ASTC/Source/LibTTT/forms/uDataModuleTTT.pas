@@ -97,6 +97,7 @@ type
 
     {$REGION ' Resource Allocation '}
     function GetAllResourceAllocationDef(var aList: TList): Integer;
+    function GetFilterResurceAllocationDef(var aList: TList; aFilter: string): integer;
 
     //==Platform Instance
     function GetPlatformInstance(const aResourceAllocID, aPlatformType, aGetType: Integer; aName: string): Integer; overload;
@@ -222,6 +223,7 @@ type
     function GetAllEnvironmentDef(var aList: TList): Integer; {New}
     function GetEnvironmentDef(const aEnviIdentifier: string): Integer; overload;
     function GetEnvironmentDef(const aGameEnviID: Integer; var aResult: TGame_Environment_Definition): Boolean; overload;
+    function GetFilterEnvironmentDef(var aList: TList; aFilter: string): integer;
 
     function InsertEnvironmentDef(var aRec: TRecGame_Environment_Definition): Boolean;
     function UpdateEnvironmentDef(var aRec: TRecGame_Environment_Definition): Boolean;
@@ -243,6 +245,7 @@ type
 
     {$REGION ' Game Area '}
     function GetAllGameAreaDef(var aList: TList): Integer; {New}
+    function GetFilterGameAreaDef(var aList: TList; aFilter: String): Integer;
     function GetGameAreaDef(const aAreaIdentifier: string): Integer; overload;
     function GetGameAreaDef(const aGameAreaID: Integer; var aResult: TRecGame_Area_Definition): Boolean; overload;
 
@@ -1286,6 +1289,10 @@ type
     {$ENDREGION}
 
     {$REGION ' Nanti Dulu '}
+    {$REGION ' Group Member '}
+//    function GetFilterGroupChannelDef(var aList: TList; aFilter: string): integer;
+    {$ENDREGION}
+
     //==Platform Instance Identifier
     {jgn dulu}
     // --- 2.1.1 -- Platform Instance Detail --------------------------------------
@@ -5681,6 +5688,70 @@ begin
   end;
 end;
 
+function TdmTTT.GetFilterGameAreaDef(var aList: TList; aFilter: String): Integer;
+var
+  i : Integer;
+  rec : TGame_Environment_Definition;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Game_Area_Definition');
+    SQL.Add('WHERE Game_Area_Identifier like '  + quotedStr('%' + aFilter + '%'));
+    SQL.Add('ORDER BY Game_Area_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TGame_Environment_Definition.Create;
+
+        with rec.FGameArea do
+        begin
+          Game_Area_Index := FieldByName('Game_Area_Index').AsInteger;
+          Game_Area_Identifier := FieldByName('Game_Area_Identifier').AsString;
+          Game_Centre_Lat := FieldByName('Game_Centre_Lat').AsFloat;
+          Game_Centre_Long := FieldByName('Game_Centre_Long').AsFloat;
+          Game_X_Dimension := FieldByName('Game_X_Dimension').AsFloat;
+          Game_Y_Dimension := FieldByName('Game_Y_Dimension').AsFloat;
+          Use_Real_World := FieldByName('Use_Real_World').AsInteger;
+          Use_Artificial_Landmass := FieldByName('Use_Artificial_Landmass')
+            .AsInteger;
+          Detail_Map := FieldByName('Detail_Map').AsString;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
+  end;
+end;
+
 function TdmTTT.GetGameAreaDef(const aAreaIdentifier: string): Integer;
 begin
   Result := 0;
@@ -5871,6 +5942,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Clear or Create List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -5883,6 +5955,7 @@ begin
     end
     else
       aList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -5899,8 +5972,7 @@ begin
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
-          Motion_Characteristics := FieldByName('Motion_Characteristics')
-            .AsInteger;
+          Motion_Characteristics := FieldByName('Motion_Characteristics').AsInteger;
           Length := FieldByName('Length').AsSingle;
           Width := FieldByName('Width').AsSingle;
           Height := FieldByName('Height').AsSingle;
@@ -5910,58 +5982,37 @@ begin
           Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
           Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
           Magnetic_Cross := FieldByName('Magnetic_Cross').AsSingle;
-          Front_Visual_EO_Cross := FieldByName('Front_Visual_EO_Cross')
-            .AsSingle;
+          Front_Visual_EO_Cross := FieldByName('Front_Visual_EO_Cross').AsSingle;
           Side_Visual_EO_Cross := FieldByName('Side_Visual_EO_Cross').AsSingle;
           Front_Infrared_Cross := FieldByName('Front_Infrared_Cross').AsSingle;
           Side_Infrared_Cross := FieldByName('Side_Infrared_Cross').AsSingle;
-          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens')
-            .AsSingle;
-          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens')
-            .AsSingle;
-          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens')
-            .AsSingle;
-          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens')
-            .AsSingle;
-          Cavitation_Speed_Switch := FieldByName('Cavitation_Speed_Switch')
-            .AsSingle;
-          Time_of_Weapon_Impact := FieldByName('Time_of_Weapon_Impact')
-            .AsInteger;
-          Chaff_Seduction_Capable := FieldByName('Chaff_Seduction_Capable')
-            .AsBoolean;
+          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens').AsSingle;
+          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens').AsSingle;
+          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens').AsSingle;
+          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens').AsSingle;
+          Cavitation_Speed_Switch := FieldByName('Cavitation_Speed_Switch').AsSingle;
+          Time_of_Weapon_Impact := FieldByName('Time_of_Weapon_Impact').AsInteger;
+          Chaff_Seduction_Capable := FieldByName('Chaff_Seduction_Capable').AsBoolean;
           Seduction_Mode_Prob := FieldByName('Seduction_Mode_Prob').AsSingle;
-          Min_Delay_Between_Chaff_Rounds := FieldByName
-            ('Min_Delay_Between_Chaff_Rounds').AsInteger;
+          Min_Delay_Between_Chaff_Rounds := FieldByName('Min_Delay_Between_Chaff_Rounds').AsInteger;
           Max_Chaff_Salvo_Size := FieldByName('Max_Chaff_Salvo_Size').AsInteger;
           SARH_POH_Modifier := FieldByName('SARH_POH_Modifier').AsSingle;
           CG_POH_Modifier := FieldByName('CG_POH_Modifier').AsSingle;
           TARH_POH_Modifier := FieldByName('TARH_POH_Modifier').AsSingle;
           IR_POH_Modifier := FieldByName('IR_POH_Modifier').AsSingle;
           AR_POH_Modifier := FieldByName('AR_POH_Modifier').AsSingle;
-          Active_Acoustic_Tor_POH_Mod := FieldByName
-            ('Active_Acoustic_Tor_POH_Mod').AsSingle;
-          Passive_Acoustic_Tor_POH_Mod := FieldByName
-            ('Passive_Acoustic_Tor_POH_Mod').AsSingle;
-          Active_Passive_Tor_POH_Mod := FieldByName
-            ('Active_Passive_Tor_POH_Mod').AsSingle;
-          Wake_Home_POH_Modifier := FieldByName('Wake_Home_POH_Modifier')
-            .AsSingle;
-          Wire_Guide_POH_Modifier := FieldByName('Wire_Guide_POH_Modifier')
-            .AsSingle;
-          Mag_Mine_POH_Modifier := FieldByName('Mag_Mine_POH_Modifier')
-            .AsSingle;
-          Press_Mine_POH_Modifier := FieldByName('Press_Mine_POH_Modifier')
-            .AsSingle;
-          Impact_Mine_POH_Modifier := FieldByName('Impact_Mine_POH_Modifier')
-            .AsSingle;
-          Acoustic_Mine_POH_Modifier := FieldByName
-            ('Acoustic_Mine_POH_Modifier').AsSingle;
-          Sub_Comm_Antenna_Height := FieldByName('Sub_Comm_Antenna_Height')
-            .AsSingle;
-          Rel_Comm_Antenna_Height := FieldByName('Rel_Comm_Antenna_Height')
-            .AsSingle;
-          Max_Comm_Operating_Depth := FieldByName('Max_Comm_Operating_Depth')
-            .AsSingle;
+          Active_Acoustic_Tor_POH_Mod := FieldByName('Active_Acoustic_Tor_POH_Mod').AsSingle;
+          Passive_Acoustic_Tor_POH_Mod := FieldByName('Passive_Acoustic_Tor_POH_Mod').AsSingle;
+          Active_Passive_Tor_POH_Mod := FieldByName('Active_Passive_Tor_POH_Mod').AsSingle;
+          Wake_Home_POH_Modifier := FieldByName('Wake_Home_POH_Modifier').AsSingle;
+          Wire_Guide_POH_Modifier := FieldByName('Wire_Guide_POH_Modifier').AsSingle;
+          Mag_Mine_POH_Modifier := FieldByName('Mag_Mine_POH_Modifier').AsSingle;
+          Press_Mine_POH_Modifier := FieldByName('Press_Mine_POH_Modifier').AsSingle;
+          Impact_Mine_POH_Modifier := FieldByName('Impact_Mine_POH_Modifier').AsSingle;
+          Acoustic_Mine_POH_Modifier := FieldByName('Acoustic_Mine_POH_Modifier').AsSingle;
+          Sub_Comm_Antenna_Height := FieldByName('Sub_Comm_Antenna_Height').AsSingle;
+          Rel_Comm_Antenna_Height := FieldByName('Rel_Comm_Antenna_Height').AsSingle;
+          Max_Comm_Operating_Depth := FieldByName('Max_Comm_Operating_Depth').AsSingle;
           HF_Link_Capable := FieldByName('HF_Link_Capable').AsBoolean;
           UHF_Link_Capable := FieldByName('UHF_Link_Capable').AsBoolean;
           HF_Voice_Capable := FieldByName('HF_Voice_Capable').AsBoolean;
@@ -5973,58 +6024,36 @@ begin
           UHF_MHS_Capable := FieldByName('UHF_MHS_Capable').AsBoolean;
           SATCOM_MHS_Capable := FieldByName('SATCOM_MHS_Capable').AsBoolean;
           Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
-          Plat_Basing_Capability := FieldByName('Plat_Basing_Capability')
-            .AsBoolean;
+          Plat_Basing_Capability := FieldByName('Plat_Basing_Capability').AsBoolean;
           Chaff_Capability := FieldByName('Chaff_Capability').AsBoolean;
           Readying_Time := FieldByName('Readying_Time').AsInteger;
           Sonobuoy_Capable := FieldByName('Sonobuoy_Capable').AsBoolean;
           Nav_Light_Capable := FieldByName('Nav_Light_Capable').AsBoolean;
           Periscope_Depth := FieldByName('Periscope_Depth').AsSingle;
-          Periscope_Height_Above_Water := FieldByName
-            ('Periscope_Height_Above_Water').AsSingle;
-          Periscope_Front_Radar_Xsection := FieldByName
-            ('Periscope_Front_Radar_Xsection').AsSingle;
-          Periscope_Side_Radar_Xsection := FieldByName
-            ('Periscope_Side_Radar_Xsection').AsSingle;
-          Periscope_Front_Vis_Xsection := FieldByName
-            ('Periscope_Front_Vis_Xsection').AsSingle;
-          Periscope_Side_Vis_Xsection := FieldByName
-            ('Periscope_Side_Vis_Xsection').AsSingle;
-          Periscope_Front_IR_Xsection := FieldByName
-            ('Periscope_Front_IR_Xsection').AsSingle;
-          Periscope_Side_IR_Xsection := FieldByName
-            ('Periscope_Side_IR_Xsection').AsSingle;
+          Periscope_Height_Above_Water := FieldByName('Periscope_Height_Above_Water').AsSingle;
+          Periscope_Front_Radar_Xsection := FieldByName('Periscope_Front_Radar_Xsection').AsSingle;
+          Periscope_Side_Radar_Xsection := FieldByName('Periscope_Side_Radar_Xsection').AsSingle;
+          Periscope_Front_Vis_Xsection := FieldByName('Periscope_Front_Vis_Xsection').AsSingle;
+          Periscope_Side_Vis_Xsection := FieldByName('Periscope_Side_Vis_Xsection').AsSingle;
+          Periscope_Front_IR_Xsection := FieldByName('Periscope_Front_IR_Xsection').AsSingle;
+          Periscope_Side_IR_Xsection := FieldByName('Periscope_Side_IR_Xsection').AsSingle;
           Engagement_Range := FieldByName('Engagement_Range').AsSingle;
-          Auto_Air_Defense_Capable := FieldByName('Auto_Air_Defense_Capable')
-            .AsBoolean;
+          Auto_Air_Defense_Capable := FieldByName('Auto_Air_Defense_Capable').AsBoolean;
           Alert_State_Time := FieldByName('Alert_State_Time').AsSingle;
           Detectability_Type := FieldByName('Detectability_Type').AsInteger;
-          Max_Sonobuoys_To_Monitor := FieldByName('Max_Sonobuoys_To_Monitor')
-            .AsInteger;
-          Sonobuoy_Deploy_Max_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Max_Altitude').AsInteger;
-          Sonobuoy_Deploy_Min_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Min_Altitude').AsInteger;
-          Sonobuoy_Deploy_Max_Speed := FieldByName('Sonobuoy_Deploy_Max_Speed')
-            .AsInteger;
-          Air_Drop_Torpedo_Max_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Max_Altitude').AsInteger;
-          Air_Drop_Torpedo_Min_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Min_Altitude').AsInteger;
-          Air_Drop_Torpedo_Max_Speed := FieldByName
-            ('Air_Drop_Torpedo_Max_Speed')
-            .AsInteger;
+          Max_Sonobuoys_To_Monitor := FieldByName('Max_Sonobuoys_To_Monitor').AsInteger;
+          Sonobuoy_Deploy_Max_Altitude := FieldByName('Sonobuoy_Deploy_Max_Altitude').AsInteger;
+          Sonobuoy_Deploy_Min_Altitude := FieldByName('Sonobuoy_Deploy_Min_Altitude').AsInteger;
+          Sonobuoy_Deploy_Max_Speed := FieldByName('Sonobuoy_Deploy_Max_Speed').AsInteger;
+          Air_Drop_Torpedo_Max_Altitude := FieldByName('Air_Drop_Torpedo_Max_Altitude').AsInteger;
+          Air_Drop_Torpedo_Min_Altitude := FieldByName('Air_Drop_Torpedo_Min_Altitude').AsInteger;
+          Air_Drop_Torpedo_Max_Speed := FieldByName('Air_Drop_Torpedo_Max_Speed').AsInteger;
           TMA_Rate_Factor := FieldByName('TMA_Rate_Factor').AsSingle;
-          HMS_Noise_Reduction_Factor := FieldByName
-            ('HMS_Noise_Reduction_Factor').AsSingle;
-          TAS_Noise_Reduction_Factor := FieldByName
-            ('TAS_Noise_Reduction_Factor').AsSingle;
-          Infrared_Decoy_Capable := FieldByName('Infrared_Decoy_Capable')
-            .AsBoolean;
-          HF_Mid_Course_Update_Capable := FieldByName
-            ('HF_Mid_Course_Update_Capable').AsBoolean;
-          UHF_Mid_Course_Update_Capable := FieldByName
-            ('UHF_Mid_Course_Update_Capable').AsBoolean;
+          HMS_Noise_Reduction_Factor := FieldByName('HMS_Noise_Reduction_Factor').AsSingle;
+          TAS_Noise_Reduction_Factor := FieldByName('TAS_Noise_Reduction_Factor').AsSingle;
+          Infrared_Decoy_Capable := FieldByName('Infrared_Decoy_Capable').AsBoolean;
+          HF_Mid_Course_Update_Capable := FieldByName('HF_Mid_Course_Update_Capable').AsBoolean;
+          UHF_Mid_Course_Update_Capable := FieldByName('UHF_Mid_Course_Update_Capable').AsBoolean;
 //          SATCOM_Mid_Course_Update_Capable := FieldByName
 //            ('SATCOM_Mid_Course_Update_Capable').AsBoolean;
         end;
@@ -9943,6 +9972,112 @@ begin
     Open;
 
     Result := RecordCount;
+  end;
+end;
+
+function TdmTTT.GetFilterEnvironmentDef(var aList: TList; aFilter: string): integer;
+var
+  i : Integer;
+  rec : TGame_Environment_Definition;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Game_Environment_Definition a LEFT JOIN Global_Convergence_Zone b');
+    SQL.Add('ON a.Game_Enviro_Index = b.Game_Enviro_Index');
+    SQL.Add('WHERE Game_Enviro_Identifier like ' + QuotedStr('%' + aFilter + '%'));
+    SQL.Add('ORDER BY Game_Enviro_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TGame_Environment_Definition.Create;
+
+        with rec.FData do
+        begin
+          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
+          Game_Enviro_Identifier := FieldByName('Game_Enviro_Identifier').AsString;
+          Game_Area_Index := FieldByName('Game_Area_Index').AsInteger;
+          Wind_Speed := FieldByName('Wind_Speed').AsSingle;
+          Wind_Direction := FieldByName('Wind_Direction').AsSingle;
+          Daytime_Visual_Modifier := FieldByName('Daytime_Visual_Modifier').AsSingle;
+          Nighttime_Visual_Modifier := FieldByName('Nighttime_Visual_Modifier').AsSingle;
+          Daytime_Infrared_Modifier := FieldByName('Daytime_Infrared_Modifier').AsSingle;
+          Nighttime_Infrared_Modifier := FieldByName('Nighttime_Infrared_Modifier').AsSingle;
+          Sunrise := FieldByName('Sunrise').AsInteger;
+          Sunset := FieldByName('Sunset').AsInteger;
+          Period_of_Twilight := FieldByName('Period_of_Twilight').AsInteger;
+          Rain_Rate := FieldByName('Rain_Rate').AsInteger;
+          Cloud_Base_Height := FieldByName('Cloud_Base_Height').AsSingle;
+          Cloud_Attenuation := FieldByName('Cloud_Attenuation').AsInteger;
+          Sea_State := FieldByName('Sea_State').AsInteger;
+          Ocean_Current_Speed := FieldByName('Ocean_Current_Speed').AsSingle;
+          Ocean_Current_Direction := FieldByName('Ocean_Current_Direction').AsSingle;
+          Thermal_Layer_Depth := FieldByName('Thermal_Layer_Depth').AsSingle;
+          Sound_Velocity_Type := FieldByName('Sound_Velocity_Type').AsInteger;
+          Surface_Sound_Speed := FieldByName('Surface_Sound_Speed').AsSingle;
+          Layer_Sound_Speed := FieldByName('Layer_Sound_Speed').AsSingle;
+          Bottom_Sound_Speed := FieldByName('Bottom_Sound_Speed').AsSingle;
+          Bottomloss_Coefficient := FieldByName('Bottomloss_Coefficient').AsInteger;
+          Ave_Ocean_Depth := FieldByName('Ave_Ocean_Depth').AsSingle;
+          CZ_Active := FieldByName('CZ_Active').AsInteger;
+          Surface_Ducting_Active := FieldByName('Surface_Ducting_Active').AsInteger;
+          Upper_Limit_Surface_Duct_Depth := FieldByName('Upper_Limit_Surface_Duct_Depth').AsSingle;
+          Lower_Limit_Surface_Duct_Depth := FieldByName('Lower_Limit_Surface_Duct_Depth').AsSingle;
+          Sub_Ducting_Active := FieldByName('Sub_Ducting_Active').AsInteger;
+          Upper_Limit_Sub_Duct_Depth := FieldByName('Upper_Limit_Sub_Duct_Depth').AsSingle;
+          Lower_Limit_Sub_Duct_Depth := FieldByName('Lower_Limit_Sub_Duct_Depth').AsSingle;
+          Shipping_Rate := FieldByName('Shipping_Rate').AsInteger;
+          Shadow_Zone_Trans_Loss := FieldByName('Shadow_Zone_Trans_Loss').AsSingle;
+          Atmospheric_Refract_Modifier := FieldByName('Atmospheric_Refract_Modifier').AsSingle;
+          Barometric_Pressure := FieldByName('Barometric_Pressure').AsSingle;
+          Air_Temperature := FieldByName('Air_Temperature').AsSingle;
+          Surface_Temperature := FieldByName('Surface_Temperature').AsSingle;
+          Start_HF_Range_Gap := FieldByName('Start_HF_Range_Gap').AsSingle;
+          End_HF_Range_Gap := FieldByName('End_HF_Range_Gap').AsSingle;
+        end;
+
+        with rec.FGlobal_Conv do
+        begin
+          Converge_Index := FieldByName('Converge_Index').AsInteger;
+          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
+          Occurance_Range := FieldByName('Occurance_Range').AsSingle;
+          Width := FieldByName('Width').AsSingle;
+          Signal_Reduction_Term := FieldByName('Signal_Reduction_Term').AsSingle;
+          Increase_per_CZ := FieldByName('Increase_per_CZ').AsSingle;
+          Max_Sonar_Depth := FieldByName('Max_Sonar_Depth').AsSingle;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
   end;
 end;
 
@@ -18944,6 +19079,66 @@ begin
           Note_Index := FieldByName('Note_Index').AsInteger;
           Note_Type := FieldByName('Note_Type').AsInteger;
           Notes := FieldByName('Notes').AsString;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetFilterResurceAllocationDef(var aList: TList; aFilter: string): integer;
+var
+  i : Integer;
+  rec : TResource_Allocation;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Resource_Allocation');
+    SQL.Add('WHERE Allocation_Identifier like ' + QuotedStr('%' + aFilter + '%'));
+    SQL.Add('ORDER BY Allocation_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TResource_Allocation.Create;
+
+        with rec.FData do
+        begin
+          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
+          Allocation_Identifier := FieldByName('Allocation_Identifier').AsString;
+          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
+          Defaults_Index := FieldByName('Defaults_Index').AsInteger;
+          Role_List_Index := FieldByName('Role_List_Index').AsInteger;
+          Game_Start_Time := FieldByName('Game_Start_Time').AsFloat;
         end;
 
         aList.Add(rec);
@@ -39807,8 +40002,6 @@ begin
   end;
 end;
 
-//-----------------------------------------------------------------------------
-
 function TdmTTT.updateChaff_Def(var rec: TChaff_On_Board; id: string): Integer;
 begin
   result := -1;
@@ -39842,8 +40035,6 @@ begin
   end;
 end;
 
-//------------------------------------------------------------------------------
-
 function TdmTTT.deleteChaff_Def(id: Integer): Integer;
 begin
   result := -1;
@@ -39857,8 +40048,6 @@ begin
     ExecSQL;
   end;
 end;
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.getAllChaff_Launcher_On_Board(const id: Integer;
   var aRec: TList): Integer;
@@ -39916,30 +40105,6 @@ begin
   end;
 end;
 
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
 
 function TdmTTT.getAllDefensive_Jammer_On_Board(const id: Integer;
   var aRec: TList): Integer;
@@ -40338,11 +40503,6 @@ end;
       end;
     end;
   end;
-
-  //------------------------------------------------------------------------------
-
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.getAllFloating_Decoy_On_Board(const id: Integer;
   var aRec: TList): Integer;
@@ -42392,21 +42552,6 @@ begin
 
 end;
 
-// ------------------------------------------------------------------------------
-
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-
-//------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-
-// ---------------------------------------------------------------------------
-
 function TdmTTT.getTowed_Jammer_Def(const id: Integer; var aRec: TList;
   var rec: TTowed_Jammer_Decoy_On_Board): Integer;
 var
@@ -42666,10 +42811,6 @@ begin
     end;
   end;
 end;
-
-// ------------------------------------------------------------------------------
-
-////====================================================
 
 function TdmTTT.DeleteTowed_Jammer_Decoy_On_Board(const id: string): integer;
 begin
@@ -47470,56 +47611,6 @@ begin
   //end;
 
 end;
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-//-------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------
 
 function TdmTTT.GetSeaStateOnMissile(var sea: TSingleArray): boolean;
 var

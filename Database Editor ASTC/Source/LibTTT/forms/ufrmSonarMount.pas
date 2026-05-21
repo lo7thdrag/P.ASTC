@@ -11,7 +11,6 @@ uses
 type
   TfrmSonarMount = class(TForm)
     pnl1Title: TPanel;
-    txtClass: TLabel;
     edtName: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
@@ -35,6 +34,7 @@ type
     btnCancel: TButton;
     edtDeployTime: TMaskEdit;
     edtStowTime: TMaskEdit;
+    txtClass: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

@@ -9,17 +9,19 @@ uses
 
 type
   TfrmRuntimePlatformLibraryRAPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbPlatformLibraryAvailable: TListBox;
     lbPlatformLibrarySelected: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -30,6 +32,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedResourceAlloc : TResource_Allocation;
@@ -53,7 +57,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryResourceAllocation, ufrmRuntimePlatformLibrarySummary, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryResourceAllocation, uSimContainers, ufrmRuntimePlatformLibrarySummary, ufrmUsage;
 
 {$R *.dfm}
 
@@ -63,6 +67,12 @@ procedure TfrmRuntimePlatformLibraryRAPickList.FormCreate(Sender: TObject);
 begin
   FAllRPLDefList := TList.Create;
   FAllRPLOnRAList := TList.Create;
+end;
+
+procedure TfrmRuntimePlatformLibraryRAPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllRPLDefList);
+  FreeItemsAndFreeList(FAllRPLOnRAList);
 end;
 
 procedure TfrmRuntimePlatformLibraryRAPickList.FormShow(Sender: TObject);
@@ -112,6 +122,16 @@ begin
   UpdateRPLList;
 end;
 
+procedure TfrmRuntimePlatformLibraryRAPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateRPLList;
+  end;
+
+end;
+
 procedure TfrmRuntimePlatformLibraryRAPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -143,7 +163,8 @@ begin
   lbPlatformLibraryAvailable.Items.Clear;
   lbPlatformLibrarySelected.Items.Clear;
 
-  dmTTT.GetAllRuntimePlatformLibraryDef(FAllRPLDefList);
+//  dmTTT.GetAllRuntimePlatformLibraryDef(FAllRPLDefList);
+  dmTTT.GetFilterRuntimePlatformLibraryDef(FAllRPLDefList, edtSearch.Text);
   dmTTT.GetResourceLibraryMapping(FSelectedResourceAlloc.FData.Resource_Alloc_Index, FAllRPLOnRAList);
 
   for i := 0 to FAllRPLDefList.Count - 1 do

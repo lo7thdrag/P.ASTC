@@ -23,6 +23,8 @@ type
     procedure lbAllStudentClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FPickedStudenRoleId : Integer;
@@ -44,7 +46,7 @@ implementation
 
 uses
   uDataModuleTTT, ufrmStudentRoleSummary, ufrmSummaryResourceAllocation, ufrmAvailableResourceAllocation,
-  ufrmUsage;
+  ufrmUsage, uSimContainers;
 
 {$R *.dfm}
 
@@ -53,6 +55,11 @@ uses
 procedure TfrmStudentRolePickList.FormCreate(Sender: TObject);
 begin
   FStudentRoleList := TList.Create;
+end;
+
+procedure TfrmStudentRolePickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FStudentRoleList);
 end;
 
 procedure TfrmStudentRolePickList.FormShow(Sender: TObject);
@@ -78,6 +85,15 @@ begin
   Close;
 end;
 
+procedure TfrmStudentRolePickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateStudenRoleList
+  end;
+end;
+
 procedure TfrmStudentRolePickList.lbAllStudentClick(Sender: TObject);
 begin
   if lbAllStudent.ItemIndex = -1 then
@@ -95,8 +111,8 @@ var
 begin
   lbAllStudent.Items.Clear;
 
-
-  dmTTT.GetStudent_Role_List(0, FStudentRoleList, roleList);
+  dmTTT.GetFilterStudentRoleDef(FStudentRoleList, edtSearch.Text);
+//  dmTTT.GetStudent_Role_List(0, FStudentRoleList, roleList);
 
   for i := 0 to FStudentRoleList.Count - 1 do
   begin

@@ -15,6 +15,7 @@ object frmStudentRolePickList: TfrmStudentRolePickList
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -29,9 +30,6 @@ object frmStudentRolePickList: TfrmStudentRolePickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 0
-    ExplicitWidth = 274
-    ExplicitHeight = 327
     object lbAllStudent: TListBox
       Left = 10
       Top = 10
@@ -47,8 +45,6 @@ object frmStudentRolePickList: TfrmStudentRolePickList
       TabOrder = 0
       OnClick = lbAllStudentClick
       OnDblClick = btnAddClick
-      ExplicitWidth = 254
-      ExplicitHeight = 307
     end
   end
   object pnl3Button: TPanel
@@ -61,8 +57,6 @@ object frmStudentRolePickList: TfrmStudentRolePickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 327
-    ExplicitWidth = 274
     object btnCancel: TButton
       Left = 404
       Top = 2
@@ -117,7 +111,6 @@ object frmStudentRolePickList: TfrmStudentRolePickList
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
-    ExplicitTop = 8
     object Label2: TLabel
       Left = 166
       Top = 14
@@ -144,6 +137,7 @@ object frmStudentRolePickList: TfrmStudentRolePickList
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnKeyPress = edtSearchKeyPress
     end
   end
 end

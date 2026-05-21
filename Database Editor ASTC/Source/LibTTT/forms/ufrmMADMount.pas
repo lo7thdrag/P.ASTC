@@ -10,7 +10,6 @@ uses
 type
   TfrmMADMount = class(TForm)
     pnl1Title: TPanel;
-    txtClass: TLabel;
     edtName: TEdit;
     pnl2ControlPage: TPanel;
     PageControl1: TPageControl;
@@ -22,6 +21,7 @@ type
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
+    txtClass: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);

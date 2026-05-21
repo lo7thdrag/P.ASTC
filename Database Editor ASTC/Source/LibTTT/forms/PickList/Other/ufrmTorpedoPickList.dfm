@@ -30,9 +30,6 @@ object frmTorpedoPickList: TfrmTorpedoPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 0
-    ExplicitWidth = 280
-    ExplicitHeight = 423
     object lstAvailableTorpedo: TListBox
       Left = 10
       Top = 10
@@ -49,8 +46,6 @@ object frmTorpedoPickList: TfrmTorpedoPickList
       TabOrder = 0
       OnClick = lstAvailableTorpedoClick
       OnDblClick = lstAvailableTorpedoDblClick
-      ExplicitWidth = 260
-      ExplicitHeight = 403
     end
   end
   object pnl3Button: TPanel
@@ -63,8 +58,6 @@ object frmTorpedoPickList: TfrmTorpedoPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 428
-    ExplicitWidth = 280
     object btnCancel: TButton
       Left = 404
       Top = 2
@@ -119,7 +112,6 @@ object frmTorpedoPickList: TfrmTorpedoPickList
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
-    ExplicitTop = 8
     object Label2: TLabel
       Left = 166
       Top = 14
@@ -146,6 +138,7 @@ object frmTorpedoPickList: TfrmTorpedoPickList
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnKeyPress = edtSearchKeyPress
     end
   end
 end

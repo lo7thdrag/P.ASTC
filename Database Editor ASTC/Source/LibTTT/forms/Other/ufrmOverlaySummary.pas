@@ -288,7 +288,7 @@ begin
   cbbDomain.Visible := cbbType.ItemIndex = 1;
   cbbDomain.ItemIndex := 0;
 
-  btnEditOverlay.Enabled := False;
+//  btnEditOverlay.Enabled := False;
   btnApply.Enabled := True;
 
 end;
@@ -311,7 +311,7 @@ begin
 
     cbbDomain.ItemIndex := Domain;
 
-    btnEditOverlay.Enabled := Overlay_Index <> 0;
+//    btnEditOverlay.Enabled := Overlay_Index <> 0;
   end;
 end;
 
@@ -367,7 +367,7 @@ end;
 procedure TfrmOverlaySummary.edtNameChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
-  btnEditOverlay.Enabled := False;
+//  btnEditOverlay.Enabled := False;
 end;
 
 {$ENDREGION}

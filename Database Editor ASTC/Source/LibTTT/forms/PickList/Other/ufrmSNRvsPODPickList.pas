@@ -26,6 +26,7 @@ type
     procedure lstAvailableSNRvsPODDblClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedPODvsSNRId : Integer;
@@ -85,6 +86,15 @@ begin
   Close
 end;
 
+procedure TfrmSNRvsPODPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSNRvsPODList
+  end;
+end;
+
 procedure TfrmSNRvsPODPickList.lstAvailableSNRvsPODClick(Sender: TObject);
 begin
   if lstAvailableSNRvsPOD.ItemIndex = -1 then
@@ -106,7 +116,8 @@ var
 begin
   lstAvailableSNRvsPOD.Items.Clear;
 
-  dmTTT.GetAllPODvsSNRCurveDef(FSNRvsPODList);
+//  dmTTT.GetAllPODvsSNRCurveDef(FSNRvsPODList);
+  dmTTT.GetFilterPODvsSNRCurveDef(FSNRvsPODList, edtSearch.Text);
 
   for i := 0 to FSNRvsPODList.Count - 1 do
   begin

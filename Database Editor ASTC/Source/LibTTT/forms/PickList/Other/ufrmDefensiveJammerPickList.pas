@@ -9,18 +9,20 @@ uses
 
 type
   TfrmDefensiveJammerPickList = class(TForm)
-    pnl3Button: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    Image1: TImage;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
     btnAdd: TButton;
     btnEditMount: TButton;
     btnRemove: TButton;
     lbAllDefensiveJammerDef: TListBox;
     lbAllDefensveJammerOnBoard: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -32,6 +34,8 @@ type
     procedure btnRemoveClick(Sender: TObject);
     {tidak ada editmoun}
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
   FAllDefensiveJammerDefList : TList;
@@ -53,7 +57,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummarySelfDefensiveJammer;
+  uDataModuleTTT, ufrmSummarySelfDefensiveJammer, uSimContainers;
 
 {$R *.dfm}
 
@@ -63,6 +67,13 @@ procedure TfrmDefensiveJammerPickList.FormCreate(Sender: TObject);
 begin
   FAllDefensiveJammerDefList := TList.Create;
   FAllDefensiveJammerOnBoardList := TList.Create;
+end;
+
+procedure TfrmDefensiveJammerPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllDefensiveJammerDefList);
+  FreeItemsAndFreeList(FAllDefensiveJammerOnBoardList);
+
 end;
 
 procedure TfrmDefensiveJammerPickList.FormShow(Sender: TObject);
@@ -125,6 +136,16 @@ begin
   Result := True;
 end;
 
+procedure TfrmDefensiveJammerPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateDefensiveJammerList;
+  end;
+
+end;
+
 procedure TfrmDefensiveJammerPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -152,7 +173,8 @@ begin
   lbAllDefensiveJammerDef.Items.Clear;
   lbAllDefensveJammerOnBoard.Items.Clear;
 
-  dmTTT.GetAllSelfDefensiveJammerDef(FAllDefensiveJammerDefList);
+//  dmTTT.GetAllSelfDefensiveJammerDef(FAllDefensiveJammerDefList);
+  dmTTT.GetFilterSelfDefensiveJammerDef(FAllDefensiveJammerDefList, edtSearch.Text);
   dmTTT.GetSelfDefensiveJammerOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllDefensiveJammerOnBoardList);
 
   for i := 0 to FAllDefensiveJammerDefList.Count - 1 do

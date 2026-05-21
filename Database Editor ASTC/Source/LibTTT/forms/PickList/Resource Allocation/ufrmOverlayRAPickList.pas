@@ -10,17 +10,19 @@ uses
 type
   TfrmOverlayRAPickList = class(TForm)
     btnFilter: TButton;
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbOverlayAvailable: TListBox;
     lbOverlaySelect: TListBox;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
+    btnClose: TButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedResourceAlloc : TResource_Allocation;
@@ -54,7 +58,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmOverlaySummary;
+  uDataModuleTTT, ufrmOverlaySummary, uSimContainers;
 
 {$R *.dfm}
 
@@ -64,6 +68,13 @@ procedure TfrmOverlayRAPickList.FormCreate(Sender: TObject);
 begin
   FAllOverlayDefList := TList.Create;
   FAllOverlayOnRAList := TList.Create;
+end;
+
+procedure TfrmOverlayRAPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllOverlayDefList);
+  FreeItemsAndFreeList(FAllOverlayOnRAList);
+
 end;
 
 procedure TfrmOverlayRAPickList.FormShow(Sender: TObject);
@@ -113,6 +124,15 @@ begin
   UpdateOverlayList;
 end;
 
+procedure TfrmOverlayRAPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateOverlayList;
+  end;
+end;
+
 procedure TfrmOverlayRAPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
@@ -145,7 +165,8 @@ begin
   lbOverlayAvailable.Items.Clear;
   lbOverlaySelect.Items.Clear;
 
-  dmTTT.GetAllOverlayDef(FAllOverlayDefList);
+//  dmTTT.GetAllOverlayDef(FAllOverlayDefList);
+  dmTTT.GetFilterOverlayDef(FAllOverlayDefList, edtSearch.Text);
   dmTTT.GetResourceOverlayMapping(FSelectedResourceAlloc.FData.Resource_Alloc_Index, FAllOverlayOnRAList);
 
   for i := 0 to FAllOverlayDefList.Count - 1 do

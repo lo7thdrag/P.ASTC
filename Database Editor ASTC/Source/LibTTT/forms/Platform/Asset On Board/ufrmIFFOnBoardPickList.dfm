@@ -31,7 +31,6 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 365
     object lbl1: TLabel
       Left = 12
       Top = 544

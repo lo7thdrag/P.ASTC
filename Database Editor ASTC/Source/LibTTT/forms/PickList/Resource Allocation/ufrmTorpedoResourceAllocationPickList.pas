@@ -10,17 +10,19 @@ uses
 
 type
   TfrmTorpedoResourceAllocationPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllTorpedoDef: TListBox;
     lbAllTorpedoOnRA: TListBox;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -31,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedForce : Integer;
@@ -57,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -67,6 +71,12 @@ procedure TfrmTorpedoResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllTorpedoDefList := TList.Create;
   FAllTorpedoOnRAList := TList.Create;
+end;
+
+procedure TfrmTorpedoResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllTorpedoDefList);
+  FreeItemsAndFreeList(FAllTorpedoOnRAList);
 end;
 
 procedure TfrmTorpedoResourceAllocationPickList.FormShow(Sender: TObject);
@@ -118,6 +128,15 @@ begin
   UpdateTorpedoList;
 end;
 
+procedure TfrmTorpedoResourceAllocationPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateTorpedoList;
+  end;
+end;
+
 procedure TfrmTorpedoResourceAllocationPickList.btnCloseClick(Sender: TObject);
 begin
  Close;
@@ -149,7 +168,8 @@ begin
   lbAllTorpedoDef.Items.Clear;
   lbAllTorpedoOnRA.Items.Clear;
 
-  dmTTT.GetAllTorpedoDef(FAllTorpedoDefList);
+//  dmTTT.GetAllTorpedoDef(FAllTorpedoDefList);
+  dmTTT.GetFilterTorpedoDef(FAllTorpedoDefList, edtSearch.Text);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 3, FSelectedForce, FAllTorpedoOnRAList);
 
   for i := 0 to FAllTorpedoDefList.Count - 1 do

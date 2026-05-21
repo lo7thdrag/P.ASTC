@@ -23,13 +23,13 @@ type
     pnlMainBackground: TPanel;
     pnl2ControlPage: TPanel;
     pnl1Title: TPanel;
-    txtClass: TLabel;
     edtName: TEdit;
     pnl3Button: TPanel;
     imgExercise: TImage;
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
+    txtClass: TLabel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);

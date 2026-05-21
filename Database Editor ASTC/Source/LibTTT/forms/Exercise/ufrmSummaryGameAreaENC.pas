@@ -33,17 +33,19 @@ type
     btnCenterHook: TToolButton;
     grpName: TGroupBox;
     edtName: TEdit;
-    lblName: TStaticText;
     pnlSearch: TPanel;
-    lblSearch: TStaticText;
     edtSearch: TEdit;
-    grpSearchSelection: TGroupBox;
-    pnllist: TPanel;
-    chklstArea: TCheckListBox;
     btnOk: TButton;
     btnCancel: TButton;
     ENCmap: TMap;
     ProgressBar1: TProgressBar;
+    lblName: TLabel;
+    lblSearch: TLabel;
+    pnlListMap: TPanel;
+    chklstArea: TCheckListBox;
+    lbl2: TLabel;
+    pnlHeaderListMap: TPanel;
+    lblWidth: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -73,6 +75,7 @@ type
     procedure ENCmapMapViewChanged(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure lblWidthClick(Sender: TObject);
   private
     FSelectedGameArea : TGame_Environment_Definition;
 
@@ -104,7 +107,7 @@ type
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
     LastName : string;
 
-    function CekInput(IdAction : Integer): Boolean;
+    function CekInput: Boolean;
 
     property SelectedGameArea : TGame_Environment_Definition
       read FSelectedGameArea write FSelectedGameArea;
@@ -199,296 +202,6 @@ begin
   pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
 end;
 
-{$ENDREGION}
-
-procedure TfrmSummaryGameAreaENC.chklstAreaClickCheck(Sender: TObject);
-var
-  layerStr, layerID, layerName : string;
-  i, foundIndex : Integer;
-  layer : CMapXLayer;
-begin
-  layerStr := chklstArea.Items[chklstArea.ItemIndex];
-  SeparateString(layerStr, '=', layerID, layerName);
-
-  if FListFiltered.Find(layerID, foundIndex) then
-    FListFiltered.Delete(foundIndex)
-  else
-    FListFiltered.Add(layerID);
-
-  FListFiltered.Sort;
-
-  for i := 1 to ENCmap.Layers.Count do
-  begin
-    layer := ENCmap.Layers.Item(i);
-
-    if (layer.Name = 'Indonesia_Coastline_Darat') or
-      (layer.Name = 'LYR_DRAW') then
-      Continue;
-
-    SeparateString(layer.Name, '_', layerID, layerName);
-
-    if FListFiltered.Find(layerID, foundIndex) then
-    begin
-      layer.OverrideStyle := True;
-      layer.Style.RegionColor := clRed;
-    end
-    else
-      layer.OverrideStyle := False;
-  end;
-end;
-
-procedure TfrmSummaryGameAreaENC.CreateGeosetFile;
-var
-  myFile : TextFile;
-  i, j : Integer;
-  fileSource, fileDest : string;
-
-  dirP   : string;
-  ProgressPos : Integer;
-
-begin
-  AssignFile(myFile, 'ConfigureLayerENC.txt');
-  ReWrite(myFile);
-
-  for i := 0 to FListFiltered.Count - 1 do
-    Writeln(myFile, FListFiltered[i]);
-
-  CloseFile(myFile);
-
-  dirP := vAppDBSetting.MapDestPathENC + '\' + edtName.Text;
-  CreateDir(dirP);
-
-  fileSource := ExtractFilePath(ParamStr(0)) + '\ConfigureLayerENC.txt';
-  fileDest := dirP + '\' + edtName.Text + '.txt';
-
-  CopyFile(PChar(fileSource), PChar(fileDest), False);
-
-  FMap1.Layers.RemoveAll;
-
-  ProgressBar1.Visible := True;
-  ProgressBar1.Position := 0;
-
-  if FListFiltered.Count > 0 then
-    ProgressPos := Round(100/FListFiltered.Count)
-  else
-  begin
-    for j := 0 to Random(80) do
-      ProgressBar1.Position := j;
-  end;
-
-  for i := 0 to FListFiltered.Count - 1 do
-  begin
-    if FListFiltered[i] = 'indonesia-Background' then
-    begin
-      fileDest := vAppDBSetting.MapSourcePathENC + '\OTHER\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
-    end
-    else
-    begin
-      fileDest := vAppDBSetting.MapSourcePathENC + '\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
-    end;
-
-    FMap1.Layers.AddGeoSetLayers(fileDest);
-
-    ProgressBar1.Position := ProgressBar1.Position + ProgressPos;
-  end;
-
-  fileDest := dirP + '\' + edtName.Text + '.gst';
-  FMap1.SaveMapAsGeoset('final', fileDest);
-
-  ProgressBar1.Position := 100;
-  ProgressBar1.Visible := False;
-end;
-
-procedure TfrmSummaryGameAreaENC.btnCancelClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmSummaryGameAreaENC.UpAllToolbarButton;
-begin
-  btnSelect.Down := False;
-  btnMultiSelect.Down := False;
-  btnPan.Down := False;
-  btnZoomTool.Down := False;
-//  btnMoveTool.Down := False;
-  btnCenterHook.Down := False;
-end;
-
-procedure TfrmSummaryGameAreaENC.UpdateGeosetFile;
-var
-  MapDirPath : string;
-begin
-  MapDirPath := vAppDBSetting.MapDestPathENC + '\' + LastName;
-  DeleteGameAreaDirectory(MapDirPath, MapDirPath);
-  CreateGeosetFile;
-end;
-
-procedure TfrmSummaryGameAreaENC.btnOkClick(Sender: TObject);
-begin
-  with FSelectedGameArea do
-  begin
-    if not CekInput(FGameArea.Game_Area_Index)  then
-      Exit;
-
-    if (FGameArea.Game_Centre_Lat = 0) or (FGameArea.Game_Centre_Long = 0) then
-    begin
-      ShowMessage('Game Center has not been set.');
-      Exit;
-    end;
-
-    FGameArea.Game_Area_Identifier := edtName.Text;
-    FGameArea.Game_X_Dimension := DIMENSION;
-    FGameArea.Game_Y_Dimension := DIMENSION;
-    FGameArea.Use_Real_World := 0;
-    FGameArea.Use_Artificial_Landmass := 0;
-    FGameArea.Detail_Map := 'ENC';
-
-    {Buat Game Area Baru}
-    if FGameArea.Game_Area_Index = 0 then
-    begin
-      dmTTT.InsertGameAreaDef(FGameArea);
-      CreateGeosetFile;
-    end
-    {Update Game Area}
-    else
-    begin
-      dmTTT.UpdateGameAreaDef(FGameArea);
-      UpdateGeosetFile;
-    end;
-
-  end;
-
-  AfterClose := True;
-  Close;
-end;
-
-procedure TfrmSummaryGameAreaENC.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  str_details, str_id : string;
-begin
-  if Key = #13 then
-  begin
-    chklstArea.Items.Clear;
-
-    if edtSearch.Text = '' then
-      chklstArea.Items := FListMapIndex
-    else
-    begin
-      for i := 0 to FListMapIndex.Count - 1 do
-      begin
-        if Pos(edtSearch.Text, FListMapIndex[i]) <> 0 then
-          chklstArea.Items.Add(FListMapIndex[i]);
-      end;
-    end;
-    SetChecked;
-  end;
-end;
-
-procedure TfrmSummaryGameAreaENC.SetChecked;
-var
-  i, j : Integer;
-  layerStr, layerID, layerName : string;
-  checked : Boolean;
-begin
-  for i := 0 to chklstArea.Count - 1 do
-  begin
-    layerStr := chklstArea.Items[i];
-    SeparateString(layerStr, '=', layerID, layerName);
-
-    checked := False;
-    for j := 0 to FListFiltered.Count - 1 do
-    begin
-      if FListFiltered[j] = layerID then
-      begin
-        checked := True;
-        Break;
-      end;
-    end;
-
-    chklstArea.Checked[i] := checked;
-  end;
-end;
-
-procedure TfrmSummaryGameAreaENC.SetMapArea;
-var
-  i, foundIndex : Integer;
-  layerID, layerName : string;
-  layer : CMapXLayer;
-begin
-  FListFiltered.Sort;
-
-  for i := 1 to ENCmap.Layers.Count do
-  begin
-    layer := ENCmap.Layers.Item(i);
-
-    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') then
-      Continue;
-
-    SeparateString(layer.Name, '_', layerID, layerName);
-
-    if FListFiltered.Find(layerID, foundIndex) then
-    begin
-      layer.OverrideStyle := True;
-      layer.Style.RegionColor := clRed;
-    end
-    else
-      layer.OverrideStyle := False;
-  end;
-end;
-
-procedure TfrmSummaryGameAreaENC.DeleteGameAreaDirectory(const aPathName, aFileName: string);
-var
-  F : TSearchRec;
-begin
-  if FindFirst(aFileName + '*.*', faAnyFile, F) = 0 then
-  begin
-    try
-      repeat
-        if (F.Attr and faDirectory <> 0) then
-        begin
-          if (F.Name <> '.') and (F.Name <> '..') then
-            DeleteGameAreaDirectory(aPathName, aFileName + '\' + F.Name);
-        end
-        else
-          DeleteFile(aPathName + '\' + F.Name);
-      until FindNext(F) <> 0;
-    finally
-      FindClose(F);
-    end;
-
-    RemoveDir(aPathName);
-  end;
-end;
-
-procedure TfrmSummaryGameAreaENC.DrawCheckedLayer;
-var
-  i, j : Integer;
-  layer : CMapXLayer;
-  layerID, layerName : string;
-begin
-  for i := 1 to ENCmap.Layers.Count do
-  begin
-    layer := ENCmap.Layers.Item(i);
-
-    if (layer.Name = 'Indonesia_Coastline_Darat') or
-      (layer.Name = 'LYR_DRAW') or (layer.Name = 'ID2000_land') then
-      Continue;
-
-    if SeparateString(layer.Name, '_', layerID, layerName) then
-    begin
-      for j := 0 to FListFiltered.Count - 1 do
-      begin
-        if FListFiltered[j] = layerID then
-        begin
-          layer.OverrideStyle := True;
-          layer.Style.RegionColor := clRed;
-        end;
-      end;
-    end;
-  end;
-end;
-
 procedure TfrmSummaryGameAreaENC.FormShow(Sender: TObject);
 var
   i, itemMaxWidth, itemWidth : Integer;
@@ -531,54 +244,183 @@ begin
   ProgressBar1.Visible := False;
 end;
 
-procedure TfrmSummaryGameAreaENC.LoadList;
-var
-  pathConFile, nameGameArea : string;
+{$ENDREGION}
+
+{$REGION ' Button Handle '}
+
+procedure TfrmSummaryGameAreaENC.btnCancelClick(Sender: TObject);
 begin
-  FListFiltered.Clear;
-
-  if Assigned(FSelectedGameArea) then
-  begin
-    nameGameArea := FSelectedGameArea.FGameArea.Game_Area_Identifier;
-    pathConFile := vAppDBSetting.MapDestPathENC + '\' + nameGameArea;
-
-
-    if FileExists(pathConFile + '\' + nameGameArea  + '.txt') then
-      FListFiltered.LoadFromFile(pathConFile + '\' + nameGameArea  + '.txt');
-  end;
+  Close;
 end;
 
-procedure TfrmSummaryGameAreaENC.LoadENC(ENCGeoset: string);
-var
-  z : OleVariant;
-  i : Integer;
-  mInfo : CMapXLayerInfo;
+procedure TfrmSummaryGameAreaENC.btnOkClick(Sender: TObject);
 begin
-  if ENCmap = nil then
-    Exit;
-
-  InitOleVariant(z);
-  ENCmap.Layers.RemoveAll;
-  ENCmap.Geoset := ENCGeoset;
-
-  if ENCGeoset <> '' then
+  with FSelectedGameArea do
   begin
-    for i := 1 to ENCmap.Layers.Count do
+    if not CekInput then
+      Exit;
+
+    if (FGameArea.Game_Centre_Lat = 0) or (FGameArea.Game_Centre_Long = 0) then
     begin
-      ENCmap.Layers.Item(i).Selectable := False;
-      ENCmap.Layers.Item(i).Editable := False;
+      ShowMessage('Game Center has not been set.');
+      Exit;
     end;
 
-    mInfo := CoLayerInfo.Create;
-    mInfo.type_ := miLayerInfoTypeUserDraw;
-    mInfo.AddParameter('Name', 'LYR_DRAW');
-    FLyrDraw := ENCmap.Layers.Add(mInfo, 1);
+    FGameArea.Game_Area_Identifier := edtName.Text;
+    FGameArea.Game_X_Dimension := DIMENSION;
+    FGameArea.Game_Y_Dimension := DIMENSION;
+    FGameArea.Use_Real_World := 0;
+    FGameArea.Use_Artificial_Landmass := 0;
+    FGameArea.Detail_Map := 'ENC';
 
-    ENCmap.Layers.AnimationLayer := FLyrDraw;
-    ENCmap.MapUnit := miUnitNauticalMile;
+    {Buat Game Area Baru}
+    if FGameArea.Game_Area_Index = 0 then
+    begin
+      dmTTT.InsertGameAreaDef(FGameArea);
+      CreateGeosetFile;
+    end
+    {Update Game Area}
+    else
+    begin
+      dmTTT.UpdateGameAreaDef(FGameArea);
+      UpdateGeosetFile;
+    end;
+
   end;
 
-  ENCmap.BackColor := RGB(192, 224, 255);
+  AfterClose := True;
+  Close;
+end;
+
+function TfrmSummaryGameAreaENC.CekInput: Boolean;
+var
+  i, chkSpace, numSpace: Integer;
+begin
+  Result := False;
+
+  if edtName.Text = '' then
+  begin
+    ShowMessage('Incomplete data input');
+    Exit;
+  end;
+
+  if Copy(edtName.Text, 1, 1) = ' ' then
+  begin
+    chkSpace := Length(edtName.Text);
+    numSpace := 0;
+    for i := 1 to chkSpace do
+    begin
+      if edtName.Text[i] = #32 then
+        numSpace := numSpace + 1;
+    end;
+    if chkSpace = numSpace then
+    begin
+      ShowMessage('Please use another name');
+      Exit;
+    end;
+  end;
+
+  {Jika Class Name sudah ada}
+  if (dmTTT.GetGameAreaDef(edtName.Text)>0) then
+  begin
+    {Jika inputan baru}
+    if FSelectedGameArea.FGameArea.Game_Area_Index = 0 then
+    begin
+      ShowMessage('Please use another name');
+      Exit;
+    end
+    else if LastName <> edtName.Text then
+    begin
+      ShowMessage('Please use another name');
+      Exit;
+    end;
+  end;
+
+  Result := True;
+end;
+
+procedure TfrmSummaryGameAreaENC.chklstAreaClickCheck(Sender: TObject);
+var
+  layerStr, layerID, layerName : string;
+  i, foundIndex : Integer;
+  layer : CMapXLayer;
+begin
+  layerStr := chklstArea.Items[chklstArea.ItemIndex];
+  SeparateString(layerStr, '=', layerID, layerName);
+
+  if FListFiltered.Find(layerID, foundIndex) then
+    FListFiltered.Delete(foundIndex)
+  else
+    FListFiltered.Add(layerID);
+
+  SetMapArea
+
+//  FListFiltered.Sort;
+//
+//  for i := 1 to ENCmap.Layers.Count do
+//  begin
+//    layer := ENCmap.Layers.Item(i);
+//
+//    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or
+//       (layer.Name = 'ID2000_land') then
+//        Continue;
+//
+//    SeparateString(layer.Name, '_', layerID, layerName);
+//
+//    if FListFiltered.Find(layerID, foundIndex) then
+//    begin
+//      layer.OverrideStyle := True;
+//      layer.Style.RegionColor := clRed;
+//    end
+//    else
+//      layer.OverrideStyle := False;
+//  end;
+end;
+
+{$ENDREGION}
+
+{$REGION ' ToolBar Handle '}
+
+procedure TfrmSummaryGameAreaENC.btnDecreaseScaleClick(Sender: TObject);
+begin
+  if cbbScale.ItemIndex = 16 then
+    Exit;
+
+  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+  cbbScaleChange(cbbScale);
+end;
+
+procedure TfrmSummaryGameAreaENC.btnIncreaseScaleClick(Sender: TObject);
+begin
+  if cbbScale.ItemIndex = 0 then
+    Exit;
+
+  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+  cbbScaleChange(cbbScale);
+end;
+
+procedure TfrmSummaryGameAreaENC.cbbScaleChange(Sender: TObject);
+var
+  z : Double;
+  s : string;
+begin
+  ENCmap.OnMapViewChanged := nil;
+
+  if cbbScale.ItemIndex < 0  then Exit;
+
+  if (cbbScale.ItemIndex <= 500) then
+  begin
+   s := cbbScale.Items[cbbScale.ItemIndex];
+   try
+     z := StrToFloat(s);
+     ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
+   finally
+
+   end;
+  end
+  else cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
+//  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+
 end;
 
 procedure TfrmSummaryGameAreaENC.btnSelectClick(Sender: TObject);
@@ -590,27 +432,6 @@ begin
   ENCmap.MousePointer := miArrowCursor;
 end;
 
-procedure TfrmSummaryGameAreaENC.btnPanClick(Sender: TObject);
-begin
-  UpAllToolbarButton;
-  btnPan.Down := True;
-
-  ENCmap.CurrentTool := miPanTool;
-  ENCmap.MousePointer := miPanCursor;
-end;
-
-procedure TfrmSummaryGameAreaENC.btnDecreaseScaleClick(Sender: TObject);
-begin
-  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
-  cbbScaleChange(cbbScale);
-end;
-
-procedure TfrmSummaryGameAreaENC.btnIncreaseScaleClick(Sender: TObject);
-begin
-  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
-  cbbScaleChange(cbbScale);
-end;
-
 procedure TfrmSummaryGameAreaENC.btnZoomToolClick(Sender: TObject);
 begin
   UpAllToolbarButton;
@@ -618,6 +439,15 @@ begin
 
   ENCmap.CurrentTool := miZoomInTool;
   ENCmap.MousePointer := miZoomInCursor;
+end;
+
+procedure TfrmSummaryGameAreaENC.btnPanClick(Sender: TObject);
+begin
+  UpAllToolbarButton;
+  btnPan.Down := True;
+
+  ENCmap.CurrentTool := miPanTool;
+  ENCmap.MousePointer := miPanCursor;
 end;
 
 procedure TfrmSummaryGameAreaENC.btnMoveToolClick(Sender: TObject);
@@ -646,85 +476,304 @@ begin
   ENCmap.MousePointer := miCrossCursor;
 end;
 
-procedure TfrmSummaryGameAreaENC.cbbScaleChange(Sender: TObject);
+{$ENDREGION}
+
+{$REGION ' Map Handle '}
+
+procedure TfrmSummaryGameAreaENC.SelectionArea;
 var
-  z : Double;
-  s : string;
+  startX, startY, endX, endY,
+  i, foundIndex : Integer;
+  startLat, startLong, endLat, endLong : Double;
+  layer : CMapXLayer;
+  layerID, layerName : string;
 begin
-  ENCmap.OnMapViewChanged := nil;
 
-  if cbbScale.ItemIndex < 0  then Exit;
-
-  if (cbbScale.ItemIndex <= 500) then
+  {$REGION ' Validation Point Cursor '}
+  if FSelectionRectStart.X < FSelectionRectEnd.X then
   begin
-   s := cbbScale.Items[cbbScale.ItemIndex];
-   try
-     z := StrToFloat(s);
-     ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
-   finally
-
-   end;
+    startX := FSelectionRectStart.X;
+    endX := FSelectionRectEnd.X;
   end
-  else cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
-  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+  else
+  begin
+    startX := FSelectionRectEnd.X;
+    endX := FSelectionRectStart.X;
+  end;
 
-//  btnDecreaseScale.Enabled := cbbScale.ItemIndex > 0;
-//  btnIncreaseScale.Enabled := cbbScale.ItemIndex < (cbbScale.Items.Count - 1);
-//
-//  z := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
-//  ENCmap.ZoomTo(zoom, ENCmap.CenterX, ENCmap.CenterY);
+  if FSelectionRectStart.Y < FSelectionRectEnd.Y then
+  begin
+    startY := FSelectionRectStart.Y;
+    endY := FSelectionRectEnd.Y;
+  end
+  else
+  begin
+    startY := FSelectionRectEnd.Y;
+    endY := FSelectionRectStart.Y;
+  end;
+
+  FConverter.ConvertToMap(startX, startY, startLong, startLat);
+  FConverter.ConvertToMap(endX, endY, endLong, endLat);
+  {$ENDREGION}
+
+  {$REGION ' Select Area '}
+  for i := 1 to ENCmap.Layers.Count do
+  begin
+    layer := ENCmap.Layers.Item(i);
+
+    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or (layer.Name = 'ID2000_land') then
+      Continue;
+
+    {$REGION ' Select Single Area '}
+    if btnSelect.Down then
+    begin
+      if (startLong >= layer.Bounds.XMin) and (startLat <= layer.Bounds.YMax) and
+        (endLong <= layer.Bounds.XMax) and (endLat >= layer.Bounds.YMin) then
+      begin
+        SeparateString(layer.Name, '_', layerID, layerName);
+
+        if FListFiltered.Find(layerID, foundIndex) then
+          FListFiltered.Delete(foundIndex)
+        else
+          FListFiltered.Add(layerID);
+      end;
+    end;
+    {$ENDREGION}
+
+    {$REGION ' Select Multi Area '}
+    if btnMultiSelect.Down then
+    begin
+      if (layer.Bounds.XMin >= startLong) and (layer.Bounds.YMax <= startLat) and
+        (layer.Bounds.XMax <= endLong) and (layer.Bounds.YMin >= endLat) then
+      begin
+        SeparateString(layer.Name, '_', layerID, layerName);
+
+        if FListFiltered.Find(layerID, foundIndex) then
+          FListFiltered.Delete(foundIndex)
+        else
+          FListFiltered.Add(layerID);
+      end;
+    end;
+    {$ENDREGION}
+  end;
+
+  {$ENDREGION}
+
+  SetChecked;
+  SetMapArea;
 end;
 
-function TfrmSummaryGameAreaENC.CekInput(IdAction: Integer): Boolean;
+procedure TfrmSummaryGameAreaENC.SetChecked;
 var
-  i, chkSpace, numSpace: Integer;
+  i, j : Integer;
+  layerStr, layerID, layerName : string;
+  checked : Boolean;
 begin
-  Result := False;
-
-  if edtName.Text = '' then
+  for i := 0 to chklstArea.Count - 1 do
   begin
-    ShowMessage('Incomplete data input');
-    Exit;
-  end;
+    layerStr := chklstArea.Items[i];
+    SeparateString(layerStr, '=', layerID, layerName);
 
-  if (dmTTT.GetGame_Area_Def_By_Identifier(edtName.Text) > 0) and (IdAction = 0) then
-  begin
-    ShowMessage('Please use another name');
-    Exit;
-  end;
-
-  if Copy(edtName.Text, 1, 1) = ' ' then
-  begin
-    chkSpace := Length(edtName.Text);
-    numSpace := 0;
-    for i := 1 to chkSpace do
+    checked := False;
+    for j := 0 to FListFiltered.Count - 1 do
     begin
-      if edtName.Text[i] = #32 then
-        numSpace := numSpace + 1;
+      if FListFiltered[j] = layerID then
+      begin
+        checked := True;
+        Break;
+      end;
     end;
-    if chkSpace = numSpace then
-    begin
-      ShowMessage('Please use another name');
-      Exit;
-    end;
-  end;
 
-  if (IdAction <> 0) and (LastName <> edtName.Text)then
+    chklstArea.Checked[i] := checked;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.SetMapArea;
+var
+  i, foundIndex : Integer;
+  layerID, layerName : string;
+  layer : CMapXLayer;
+begin
+  FListFiltered.Sort;
+
+  for i := 1 to ENCmap.Layers.Count do
   begin
-    if (dmTTT.GetGame_Area_Def_By_Identifier(edtName.Text) > 0) then
+    layer := ENCmap.Layers.Item(i);
+
+    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or (layer.Name = 'ID2000_land') then
+       Continue;
+
+    SeparateString(layer.Name, '_', layerID, layerName);
+
+    if FListFiltered.Find(layerID, foundIndex) then
     begin
-      ShowMessage('Please use another name');
-      Exit;
+      layer.OverrideStyle := True;
+      layer.Style.RegionColor := clRed;
+    end
+    else
+      layer.OverrideStyle := False;
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.UpdateGeosetFile;
+var
+  MapDirPath : string;
+begin
+  MapDirPath := vAppDBSetting.MapDestPathENC + '\' + LastName;
+  DeleteGameAreaDirectory(MapDirPath, MapDirPath);
+  CreateGeosetFile;
+end;
+
+procedure TfrmSummaryGameAreaENC.CreateGeosetFile;
+var
+  myFile : TextFile;
+  i, j : Integer;
+  fileSource, fileDest : string;
+  dirP   : string;
+
+  indx   : string;
+  mtype  : string;
+  ProgressPos : Integer;
+
+begin
+  AssignFile(myFile, 'ConfigureLayerENC.txt');
+  ReWrite(myFile);
+
+  for i := 0 to FListFiltered.Count - 1 do
+    Writeln(myFile, FListFiltered[i]);
+
+  CloseFile(myFile);
+
+  dirP := vAppDBSetting.MapDestPathENC + '\' + edtName.Text;
+  CreateDir(dirP);
+
+  fileSource := ExtractFilePath(ParamStr(0)) + '\ConfigureLayerENC.txt';
+  fileDest := dirP + '\' + edtName.Text + '.txt';
+
+  CopyFile(PChar(fileSource), PChar(fileDest), False);
+
+  FMap1.Layers.RemoveAll;
+
+  ProgressBar1.Visible := True;
+  ProgressBar1.Position := 0;
+
+  if FListFiltered.Count > 0 then
+    ProgressPos := Round(100/FListFiltered.Count)
+  else
+  begin
+    for j := 0 to Random(80) do
+      ProgressBar1.Position := j;
+  end;
+
+  {Memaksa memberi background indonesia}
+  fileDest := vAppDBSetting.Pattern;
+  FMap1.Layers.AddGeoSetLayers(fileDest);
+
+  for i := 0 to FListFiltered.Count - 1 do
+  begin
+    if SeparateString(FListFiltered.Strings[I], '\', indx, mtype)then
+    begin
+      fileDest := vAppDBSetting.MapSourcePathENC + '\' + mtype + '\' + indx + '\' + indx + '.gst';
+    end
+    else
+    begin
+      fileDest := vAppDBSetting.MapSourcePathENC + '\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
+    end;
+
+    FMap1.Layers.AddGeoSetLayers(fileDest);
+
+    ProgressBar1.Position := ProgressBar1.Position + ProgressPos;
+  end;
+
+  fileDest := dirP + '\' + edtName.Text + '.gst';
+  FMap1.SaveMapAsGeoset('final', fileDest);
+
+  ProgressBar1.Position := 100;
+  ProgressBar1.Visible := False;
+end;
+
+procedure TfrmSummaryGameAreaENC.DeleteGameAreaDirectory(const aPathName, aFileName: string);
+var
+  F : TSearchRec;
+begin
+  if FindFirst(aFileName + '*.*', faAnyFile, F) = 0 then
+  begin
+    try
+      repeat
+        if (F.Attr and faDirectory <> 0) then
+        begin
+          if (F.Name <> '.') and (F.Name <> '..') then
+            DeleteGameAreaDirectory(aPathName, aFileName + '\' + F.Name);
+        end
+        else
+          DeleteFile(aPathName + '\' + F.Name);
+      until FindNext(F) <> 0;
+    finally
+      FindClose(F);
+    end;
+
+    RemoveDir(aPathName);
+  end;
+end;
+
+procedure TfrmSummaryGameAreaENC.DrawCheckedLayer;
+var
+  i, j : Integer;
+  layer : CMapXLayer;
+  layerID, layerName : string;
+begin
+  for i := 1 to ENCmap.Layers.Count do
+  begin
+    layer := ENCmap.Layers.Item(i);
+
+    if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or (layer.Name = 'ID2000_land') then
+        Continue;
+
+    if SeparateString(layer.Name, '_', layerID, layerName) then
+    begin
+      for j := 0 to FListFiltered.Count - 1 do
+      begin
+        if FListFiltered[j] = layerID then
+        begin
+          layer.OverrideStyle := True;
+          layer.Style.RegionColor := clRed;
+        end;
+      end;
     end;
   end;
+end;
 
-  if FListFiltered.Count < 1 then
+procedure TfrmSummaryGameAreaENC.UpAllToolbarButton;
+begin
+  btnSelect.Down := False;
+  btnMultiSelect.Down := False;
+  btnPan.Down := False;
+  btnZoomTool.Down := False;
+//  btnMoveTool.Down := False;
+  btnCenterHook.Down := False;
+end;
+
+procedure TfrmSummaryGameAreaENC.edtSearchKeyPress(Sender: TObject; var Key: Char);
+var
+  i : Integer;
+  str_details, str_id : string;
+begin
+  if Key = #13 then
   begin
-    ShowMessage('Map must be selected ');
-    Exit;
-  end;
+    chklstArea.Items.Clear;
 
-  Result := True;
+    if edtSearch.Text = '' then
+      chklstArea.Items := FListMapIndex
+    else
+    begin
+      for i := 0 to FListMapIndex.Count - 1 do
+      begin
+        if Pos(edtSearch.Text, FListMapIndex[i]) <> 0 then
+          chklstArea.Items.Add(FListMapIndex[i]);
+      end;
+    end;
+    SetChecked;
+  end;
 end;
 
 procedure TfrmSummaryGameAreaENC.ENCmapDrawUserLayer(ASender: TObject;
@@ -740,8 +789,7 @@ begin
       Pen.Color := clYellow;
       Pen.Width := 3;
       Brush.Style := bsClear;
-      Rectangle(FSelectionRectStart.X, FSelectionRectStart.Y,
-        FSelectionRectEnd.X, FSelectionRectEnd.Y);
+      Rectangle(FSelectionRectStart.X, FSelectionRectStart.Y, FSelectionRectEnd.X, FSelectionRectEnd.Y);
     end;
   end;
 end;
@@ -786,9 +834,21 @@ var
   layer : CMapXLayer;
   zoom : Double;
 begin
+
+  {$Region ' Select '}
   if btnSelect.Down then
   begin
-//    FListFiltered.Clear;
+    FSelectionRectStart := Point(X, Y);
+    FSelectionRectEnd := Point(X, Y);
+  end;
+  {$ENDREGION}
+
+  if btnMultiSelect.Down then
+  begin
+    FIsMouseDown := True;
+
+    FListFiltered.Clear;
+
     FSelectionRectStart := Point(X, Y);
     FSelectionRectEnd := Point(X, Y);
 
@@ -796,8 +856,8 @@ begin
 //    begin
 //      layer := ENCmap.Layers.Item(i);
 //
-//      if (layer.Name = 'Indonesia_Coastline_Darat') or
-//        (layer.Name = 'LYR_DRAW') then
+//      if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or
+//         (layer.Name = 'ID2000_land') then
 //        Continue;
 //
 //      layer.OverrideStyle := False;
@@ -806,41 +866,15 @@ begin
 //    ENCmap.Repaint;
   end;
 
-  if btnMultiSelect.Down then
-  begin
-    FListFiltered.Clear;
-    FSelectionRectStart := Point(X, Y);
-    FSelectionRectEnd := Point(X, Y);
-
-    FIsMouseDown := True;
-
-    for i := 1 to ENCmap.Layers.Count do
-    begin
-      layer := ENCmap.Layers.Item(i);
-
-      if (layer.Name = 'Indonesia_Coastline_Darat') or
-        (layer.Name = 'LYR_DRAW') then
-        Continue;
-
-      layer.OverrideStyle := False;
-    end;
-
-    ENCmap.Repaint;
-  end;
-
-//  if btnMoveTool.Down then
-//  begin
-//    zoom := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
-//    ENCmap.ZoomTo(zoom, X, Y);
-//  end;
+  {$Region ' Set Game Center '}
 
   if btnCenterHook.Down then
     with FSelectedGameArea.FGameArea do
       FConverter.ConvertToMap(X, Y, Game_Centre_Long, Game_Centre_Lat);
+  {$ENDREGION}
 end;
 
-procedure TfrmSummaryGameAreaENC.ENCmapMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
+procedure TfrmSummaryGameAreaENC.ENCmapMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   if btnMultiSelect.Down and FIsMouseDown then
   begin
@@ -849,8 +883,7 @@ begin
   end;
 end;
 
-procedure TfrmSummaryGameAreaENC.ENCmapMouseUp(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
+procedure TfrmSummaryGameAreaENC.ENCmapMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
   if btnSelect.Down then
   begin
@@ -867,106 +900,76 @@ begin
   end;
 end;
 
-procedure TfrmSummaryGameAreaENC.SelectionArea;
-var
-  startX, startY, endX, endY,
-  i, foundIndex : Integer;
-  startLat, startLong, endLat, endLong : Double;
-  layer : CMapXLayer;
-  layerID, layerName : string;
+procedure TfrmSummaryGameAreaENC.lblWidthClick(Sender: TObject);
 begin
-  {$REGION ' Validation Point Cursor '}
-  if FSelectionRectStart.X < FSelectionRectEnd.X then
+  if lblWidth.Caption = '>>>' then
   begin
-    startX := FSelectionRectStart.X;
-    endX := FSelectionRectEnd.X;
+    lblWidth.Caption := '<<<';
+    pnlEditor.Width := 700
   end
   else
   begin
-    startX := FSelectionRectEnd.X;
-    endX := FSelectionRectStart.X;
+    lblWidth.Caption := '>>>';
+    pnlEditor.Width := 385;
   end;
 
-  if FSelectionRectStart.Y < FSelectionRectEnd.Y then
-  begin
-    startY := FSelectionRectStart.Y;
-    endY := FSelectionRectEnd.Y;
-  end
-  else
-  begin
-    startY := FSelectionRectEnd.Y;
-    endY := FSelectionRectStart.Y;
-  end;
-
-  FConverter.ConvertToMap(startX, startY, startLong, startLat);
-  FConverter.ConvertToMap(endX, endY, endLong, endLat);
-  {$ENDREGION}
-
-  {$REGION ' Select Area '}
-  for i := 1 to ENCmap.Layers.Count do
-  begin
-    layer := ENCmap.Layers.Item(i);
-
-    if (layer.Name = 'Indonesia_Coastline_Darat') or
-      (layer.Name = 'LYR_DRAW') then
-      Continue;
-
-    {$REGION ' Select Single Area '}
-    if btnSelect.Down then
-    begin
-      if (startLong >= layer.Bounds.XMin) and
-        (startLat <= layer.Bounds.YMax) and
-        (endLong <= layer.Bounds.XMax) and
-        (endLat >= layer.Bounds.YMin) then
-      begin
-        SeparateString(layer.Name, '_', layerID, layerName);
-
-        if FListFiltered.Find(layerID, foundIndex) then
-        begin
-          FListFiltered.Delete(foundIndex);
-//          layer.OverrideStyle := False;
-        end
-        else
-        begin
-          FListFiltered.Add(layerID);
-//          layer.OverrideStyle := True;
-//          layer.Style.RegionColor := clRed;
-        end;
-      end;
-    end;
-    {$ENDREGION}
-
-    {$REGION ' Select Multi Area '}
-    if btnMultiSelect.Down then
-    begin
-      if (layer.Bounds.XMin >= startLong) and
-        (layer.Bounds.YMax <= startLat) and
-        (layer.Bounds.XMax <= endLong) and
-        (layer.Bounds.YMin >= endLat) then
-      begin
-        SeparateString(layer.Name, '_', layerID, layerName);
-
-        if FListFiltered.Find(layerID, foundIndex) then
-        begin
-          FListFiltered.Delete(foundIndex);
-//          layer.OverrideStyle := False;
-        end
-        else
-        begin
-          FListFiltered.Add(layerID);
-//          layer.OverrideStyle := True;
-//          layer.Style.RegionColor := clRed;
-        end;
-      end;
-    end;
-    {$ENDREGION}
-  end;
-
-  {$ENDREGION}
-
-  SetChecked;
-  SetMapArea;
 end;
+
+procedure TfrmSummaryGameAreaENC.LoadENC(ENCGeoset: string);
+var
+  z : OleVariant;
+  i : Integer;
+  mInfo : CMapXLayerInfo;
+begin
+  if ENCmap = nil then
+    Exit;
+
+  InitOleVariant(z);
+  ENCmap.Layers.RemoveAll;
+  ENCmap.Geoset := ENCGeoset;
+
+  if ENCGeoset <> '' then
+  begin
+    for i := 1 to ENCmap.Layers.Count do
+    begin
+      ENCmap.Layers.Item(i).Selectable := False;
+      ENCmap.Layers.Item(i).Editable := False;
+    end;
+
+    mInfo := CoLayerInfo.Create;
+    mInfo.type_ := miLayerInfoTypeUserDraw;
+    mInfo.AddParameter('Name', 'LYR_DRAW');
+    FLyrDraw := ENCmap.Layers.Add(mInfo, 1);
+
+    ENCmap.Layers.AnimationLayer := FLyrDraw;
+    ENCmap.MapUnit := miUnitNauticalMile;
+  end;
+
+  ENCmap.BackColor := RGB(192, 224, 255);
+end;
+
+{$ENDREGION}
+
+{$REGION ' File Handle '}
+
+procedure TfrmSummaryGameAreaENC.LoadList;
+var
+  pathConFile, nameGameArea : string;
+begin
+  FListFiltered.Clear;
+
+  if Assigned(FSelectedGameArea) then
+  begin
+    nameGameArea := FSelectedGameArea.FGameArea.Game_Area_Identifier;
+    pathConFile := vAppDBSetting.MapDestPathENC + '\' + nameGameArea;
+
+
+    if FileExists(pathConFile + '\' + nameGameArea  + '.txt') then
+      FListFiltered.LoadFromFile(pathConFile + '\' + nameGameArea  + '.txt');
+  end;
+end;
+
+{$ENDREGION}
 
 end.
 

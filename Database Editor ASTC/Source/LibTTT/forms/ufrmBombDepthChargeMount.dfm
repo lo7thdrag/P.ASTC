@@ -4,7 +4,7 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Bomb/Depth Charge Mount'
-  ClientHeight = 387
+  ClientHeight = 478
   ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
@@ -22,35 +22,43 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
     Left = 0
     Top = 0
     Width = 434
-    Height = 387
+    Height = 478
     Align = alClient
     BevelOuter = bvNone
-    BorderWidth = 5
     ParentBackground = False
     TabOrder = 0
+    ExplicitHeight = 387
     object pnl2ControlPage: TPanel
-      Left = 5
-      Top = 70
-      Width = 424
-      Height = 269
+      Left = 0
+      Top = 65
+      Width = 434
+      Height = 370
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 5
+      ExplicitTop = 70
+      ExplicitWidth = 424
+      ExplicitHeight = 269
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 404
-        Height = 249
+        Width = 414
+        Height = 350
         ActivePage = General
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
+        ExplicitWidth = 404
+        ExplicitHeight = 249
         object General: TTabSheet
           Caption = 'General'
+          ExplicitWidth = 396
+          ExplicitHeight = 209
           object lblClassName: TStaticText
             Left = 12
             Top = 18
@@ -100,7 +108,7 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
               'Starboard Mount')
           end
           object lblQuantity: TStaticText
-            Left = 104
+            Left = 129
             Top = 146
             Width = 59
             Height = 18
@@ -108,7 +116,7 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
             TabOrder = 4
           end
           object edtQuantity: TEdit
-            Left = 181
+            Left = 208
             Top = 144
             Width = 68
             Height = 22
@@ -120,9 +128,9 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       end
     end
     object pnl1Title: TPanel
-      Left = 5
-      Top = 5
-      Width = 424
+      Left = 0
+      Top = 0
+      Width = 434
       Height = 65
       Align = alTop
       BevelOuter = bvNone
@@ -130,15 +138,18 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitLeft = 5
+      ExplicitTop = 5
+      ExplicitWidth = 424
       object txtClass: TLabel
         Left = 10
         Top = 10
-        Width = 77
-        Height = 16
-        Caption = 'Mount Name:'
+        Width = 78
+        Height = 14
+        Caption = 'Mount Name :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -13
+        Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -147,7 +158,7 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
         Tag = 4
         Left = 10
         Top = 30
-        Width = 398
+        Width = 414
         Height = 24
         AutoSize = False
         Enabled = False
@@ -161,39 +172,60 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       end
     end
     object pnl3Button: TPanel
-      Left = 5
-      Top = 339
-      Width = 424
+      Left = 0
+      Top = 435
+      Width = 434
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 5
+      ExplicitTop = 339
+      ExplicitWidth = 424
       object btnApply: TButton
-        Left = 257
+        Left = 261
         Top = 5
-        Width = 75
-        Height = 25
+        Width = 80
+        Height = 30
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
       object btnOK: TButton
-        Left = 176
+        Left = 177
         Top = 5
-        Width = 75
-        Height = 25
+        Width = 80
+        Height = 30
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
       end
       object btnCancel: TButton
-        Left = 338
+        Left = 344
         Top = 5
-        Width = 75
-        Height = 25
+        Width = 80
+        Height = 30
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end

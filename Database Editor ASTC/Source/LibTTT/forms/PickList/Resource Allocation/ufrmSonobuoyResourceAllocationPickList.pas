@@ -10,19 +10,19 @@ uses
 
 type
   TfrmSonobuoyResourceAllocationPickList = class(TForm)
-    pnlButton: TPanel;
-    btnClose: TButton;
     pnlMain: TPanel;
-    imgExercise: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    Label2: TLabel;
     btnAdd: TButton;
     btnRemove: TButton;
     lbAllSonobuoyDef: TListBox;
     lbAllSonobuoyOnRA: TListBox;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
+    btnClose: TButton;
+    edtSearch: TEdit;
+    lbl1: TLabel;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
+    pnl5: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -33,6 +33,8 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnRemoveClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FSelectedForce : Integer;
@@ -59,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
 
@@ -69,6 +71,12 @@ procedure TfrmSonobuoyResourceAllocationPickList.FormCreate(Sender: TObject);
 begin
   FAllSonobuoyDefList := TList.Create;
   FAllSonobuoyOnRAList := TList.Create;
+end;
+
+procedure TfrmSonobuoyResourceAllocationPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAllSonobuoyDefList);
+  FreeItemsAndFreeList(FAllSonobuoyOnRAList);
 end;
 
 procedure TfrmSonobuoyResourceAllocationPickList.FormShow(Sender: TObject);
@@ -125,6 +133,15 @@ begin
   UpdateSonobuoyList;
 end;
 
+procedure TfrmSonobuoyResourceAllocationPickList.edtSearchKeyPress(
+  Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateSonobuoyList;
+  end;
+end;
+
 procedure TfrmSonobuoyResourceAllocationPickList.lbAllSonobuoyDefClick(Sender: TObject);
 begin
  if lbAllSonobuoyDef.ItemIndex = -1 then
@@ -151,7 +168,8 @@ begin
   lbAllSonobuoyDef.Items.Clear;
   lbAllSonobuoyOnRA.Items.Clear;
 
-  dmTTT.GetAllSonobuoyDef(FAllSonobuoyDefList);
+//  dmTTT.GetAllSonobuoyDef(FAllSonobuoyDefList);
+  dmTTT.GetFilterSonobuoyDef(FAllSonobuoyDefList, edtSearch.Text);
   dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 4, FSelectedForce, FAllSonobuoyOnRAList);
 
   for i := 0 to FAllSonobuoyDefList.Count - 1 do

@@ -88,9 +88,6 @@ begin
 end;
 
 procedure TfrmMotionPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
-  var
-  i : Integer;
-  motion : TMotion_Characteristics;
 begin
   if Key = #13 then
   begin
@@ -120,13 +117,12 @@ begin
   dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
 //  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
   for i := 0 to FMotionList.Count - 1 do
   begin
     motion := FMotionList.Items[i];
-
     lstAvailableMotion.Items.AddObject(motion.FData.Motion_Identifier, motion);
-
   end;
 end;
 

@@ -26,6 +26,7 @@ type
     procedure btnAddClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FPickedEnvironmentId : Integer;
@@ -86,6 +87,15 @@ begin
   Close;
 end;
 
+procedure TfrmEnvironmentPickList.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateEnvironmentList
+  end;
+end;
+
 procedure TfrmEnvironmentPickList.lbEnvironmentAvailableClick(Sender: TObject);
 begin
   if lbEnvironmentAvailable.ItemIndex = -1 then
@@ -105,6 +115,8 @@ var
   gameEnvi : TGame_Environment_Definition;
 begin
   lbEnvironmentAvailable.Items.Clear;
+
+  dmTTT.GetFilterEnvironmentDef(FEnvironmentList, edtSearch.Text);
 
   getEnvironments(FEnvironmentList);
 

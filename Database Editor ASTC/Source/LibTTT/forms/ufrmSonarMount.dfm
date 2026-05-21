@@ -4,8 +4,8 @@ object frmSonarMount: TfrmSonarMount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Sonar Mount'
-  ClientHeight = 442
-  ClientWidth = 431
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object frmSonarMount: TfrmSonarMount
   object pnl1Title: TPanel
     Left = 0
     Top = 0
-    Width = 431
+    Width = 434
     Height = 65
     Align = alTop
     BevelOuter = bvNone
@@ -31,15 +31,16 @@ object frmSonarMount: TfrmSonarMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 431
     object txtClass: TLabel
       Left = 10
-      Top = 8
-      Width = 78
-      Height = 14
+      Top = 10
+      Width = 81
+      Height = 16
       Caption = 'Mount Name :'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -12
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
@@ -48,7 +49,7 @@ object frmSonarMount: TfrmSonarMount
       Tag = 4
       Left = 10
       Top = 30
-      Width = 411
+      Width = 414
       Height = 24
       AutoSize = False
       Enabled = False
@@ -64,26 +65,32 @@ object frmSonarMount: TfrmSonarMount
   object pnl2ControlPage: TPanel
     Left = 0
     Top = 65
-    Width = 431
-    Height = 334
+    Width = 434
+    Height = 370
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 431
+    ExplicitHeight = 334
     object PageControl1: TPageControl
       Left = 10
       Top = 10
-      Width = 411
-      Height = 314
+      Width = 414
+      Height = 350
       ActivePage = General
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
+      ExplicitWidth = 411
+      ExplicitHeight = 314
       object General: TTabSheet
         Caption = 'General'
+        ExplicitWidth = 403
+        ExplicitHeight = 274
         object lblClassName: TStaticText
           Left = 12
           Top = 18
@@ -134,7 +141,7 @@ object frmSonarMount: TfrmSonarMount
         end
         object lblBlindZones: TStaticText
           Left = 12
-          Top = 147
+          Top = 149
           Width = 74
           Height = 18
           Caption = 'Blind Zones :'
@@ -200,7 +207,7 @@ object frmSonarMount: TfrmSonarMount
         end
         object pnlBlindZone: TPanel
           Left = 12
-          Top = 170
+          Top = 172
           Width = 66
           Height = 65
           TabOrder = 12
@@ -233,38 +240,58 @@ object frmSonarMount: TfrmSonarMount
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 399
-    Width = 431
+    Top = 435
+    Width = 434
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 399
+    ExplicitWidth = 431
     object btnApply: TButton
-      Left = 266
-      Top = 6
-      Width = 75
-      Height = 25
+      Left = 261
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 185
-      Top = 6
-      Width = 75
-      Height = 25
+      Left = 177
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 347
-      Top = 6
-      Width = 75
-      Height = 25
+      Left = 344
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

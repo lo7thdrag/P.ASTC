@@ -4,8 +4,8 @@ object frmfIRmount: TfrmfIRmount
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Infrared Decoy'
-  ClientHeight = 269
-  ClientWidth = 398
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object frmfIRmount: TfrmfIRmount
   object pnl1Title: TPanel
     Left = 0
     Top = 0
-    Width = 398
+    Width = 434
     Height = 65
     Align = alTop
     BevelOuter = bvNone
@@ -29,6 +29,7 @@ object frmfIRmount: TfrmfIRmount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 398
     object txtClass: TLabel
       Left = 10
       Top = 10
@@ -45,8 +46,8 @@ object frmfIRmount: TfrmfIRmount
     object edtName: TEdit
       Tag = 4
       Left = 10
-      Top = 27
-      Width = 378
+      Top = 30
+      Width = 414
       Height = 24
       AutoSize = False
       Enabled = False
@@ -62,41 +63,43 @@ object frmfIRmount: TfrmfIRmount
   object pnl2ControlPage: TPanel
     Left = 0
     Top = 65
-    Width = 398
-    Height = 161
+    Width = 434
+    Height = 370
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 152
+    ExplicitWidth = 398
+    ExplicitHeight = 161
     object pgc1: TPageControl
       Left = 10
       Top = 10
-      Width = 378
-      Height = 141
+      Width = 414
+      Height = 350
       ActivePage = tsGeneral
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 132
+      ExplicitWidth = 378
+      ExplicitHeight = 141
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 92
+        ExplicitWidth = 370
+        ExplicitHeight = 101
         object txtQuantity: TStaticText
-          Left = 9
-          Top = 23
+          Left = 128
+          Top = 146
           Width = 63
           Height = 18
           Caption = 'Quantity  :'
           TabOrder = 0
         end
         object edtQuantity: TEdit
-          Left = 79
-          Top = 21
+          Left = 211
+          Top = 144
           Width = 68
           Height = 22
           TabOrder = 1
@@ -107,38 +110,58 @@ object frmfIRmount: TfrmfIRmount
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 226
-    Width = 398
+    Top = 435
+    Width = 434
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 226
+    ExplicitWidth = 398
     object btnApply: TButton
-      Left = 218
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 261
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 137
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 177
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 299
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 344
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

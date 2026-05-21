@@ -4,8 +4,8 @@ object frmTorpedoMounts: TfrmTorpedoMounts
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Torpedo Mounts'
-  ClientHeight = 457
-  ClientWidth = 427
+  ClientHeight = 478
+  ClientWidth = 434
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,7 +23,7 @@ object frmTorpedoMounts: TfrmTorpedoMounts
   object pnl1Title: TPanel
     Left = 0
     Top = 0
-    Width = 427
+    Width = 434
     Height = 65
     Align = alTop
     BevelOuter = bvNone
@@ -31,6 +31,7 @@ object frmTorpedoMounts: TfrmTorpedoMounts
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 427
     object txtClass: TLabel
       Left = 10
       Top = 10
@@ -48,7 +49,7 @@ object frmTorpedoMounts: TfrmTorpedoMounts
       Tag = 4
       Left = 10
       Top = 30
-      Width = 407
+      Width = 414
       Height = 24
       AutoSize = False
       Enabled = False
@@ -64,26 +65,32 @@ object frmTorpedoMounts: TfrmTorpedoMounts
   object pnl2ControlPage: TPanel
     Left = 0
     Top = 65
-    Width = 427
-    Height = 349
+    Width = 434
+    Height = 370
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 427
+    ExplicitHeight = 349
     object PageControl1: TPageControl
       Left = 10
       Top = 10
-      Width = 407
-      Height = 329
+      Width = 414
+      Height = 350
       ActivePage = General
       Align = alClient
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
+      ExplicitWidth = 407
+      ExplicitHeight = 329
       object General: TTabSheet
         Caption = 'General'
+        ExplicitWidth = 399
+        ExplicitHeight = 289
         object lblClassName: TStaticText
           Left = 12
           Top = 18
@@ -134,7 +141,7 @@ object frmTorpedoMounts: TfrmTorpedoMounts
         end
         object lblBlindZones: TStaticText
           Left = 12
-          Top = 147
+          Top = 149
           Width = 74
           Height = 18
           Caption = 'Blind Zones :'
@@ -184,7 +191,7 @@ object frmTorpedoMounts: TfrmTorpedoMounts
         end
         object pnlBlindZone: TPanel
           Left = 12
-          Top = 170
+          Top = 172
           Width = 66
           Height = 65
           TabOrder = 10
@@ -205,38 +212,58 @@ object frmTorpedoMounts: TfrmTorpedoMounts
   end
   object pnl3Button: TPanel
     Left = 0
-    Top = 414
-    Width = 427
+    Top = 435
+    Width = 434
     Height = 43
     Align = alBottom
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 414
+    ExplicitWidth = 427
     object btnApply: TButton
-      Left = 262
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 261
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 181
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 177
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 343
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 344
+      Top = 2
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

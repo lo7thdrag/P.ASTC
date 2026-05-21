@@ -30,9 +30,6 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 0
-    ExplicitWidth = 272
-    ExplicitHeight = 327
     object lbEnvironmentAvailable: TListBox
       Left = 10
       Top = 10
@@ -48,8 +45,6 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
       TabOrder = 0
       OnClick = lbEnvironmentAvailableClick
       OnDblClick = lbEnvironmentAvailableDblClick
-      ExplicitWidth = 252
-      ExplicitHeight = 307
     end
   end
   object pnl3Button: TPanel
@@ -62,8 +57,6 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 327
-    ExplicitWidth = 272
     object btnCancel: TButton
       Left = 404
       Top = 2
@@ -118,7 +111,6 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     ParentShowHint = False
     ShowHint = False
     TabOrder = 2
-    ExplicitTop = 8
     object Label2: TLabel
       Left = 166
       Top = 14
@@ -145,6 +137,7 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnKeyPress = edtSearchKeyPress
     end
   end
 end
