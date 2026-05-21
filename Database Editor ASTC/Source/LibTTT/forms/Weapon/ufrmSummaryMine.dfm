@@ -82,26 +82,28 @@ object frmSummaryMine: TfrmSummaryMine
       TabWidth = 100
       object tsGeneral: TTabSheet
         Caption = 'General'
+        ExplicitLeft = -77
+        ExplicitTop = -75
         object lblCategory: TLabel
           Left = 20
           Top = 107
-          Width = 57
+          Width = 53
           Height = 14
-          Caption = 'Category :'
+          Caption = 'Category '
         end
         object lblMooringType: TLabel
           Left = 20
           Top = 134
-          Width = 83
+          Width = 79
           Height = 14
-          Caption = 'Mooring Type :'
+          Caption = 'Mooring Type '
         end
         object lblDetectabilityType: TLabel
           Left = 20
           Top = 161
-          Width = 108
+          Width = 104
           Height = 14
-          Caption = 'Detectability Type :'
+          Caption = 'Detectability Type '
         end
         object lbl1: TLabel
           Left = 232
@@ -113,9 +115,37 @@ object frmSummaryMine: TfrmSummaryMine
         object lblMaxLayingDepth: TLabel
           Left = 20
           Top = 188
-          Width = 134
+          Width = 130
           Height = 14
-          Caption = 'Maximum Laying Depth :'
+          Caption = 'Maximum Laying Depth '
+        end
+        object Label1: TLabel
+          Left = 153
+          Top = 107
+          Width = 4
+          Height = 14
+          Caption = ':'
+        end
+        object Label2: TLabel
+          Left = 153
+          Top = 134
+          Width = 4
+          Height = 14
+          Caption = ':'
+        end
+        object Label3: TLabel
+          Left = 153
+          Top = 161
+          Width = 4
+          Height = 14
+          Caption = ':'
+        end
+        object Label4: TLabel
+          Left = 153
+          Top = 188
+          Width = 4
+          Height = 14
+          Caption = ':'
         end
         object cbbCategory: TComboBox
           Left = 174
@@ -191,9 +221,9 @@ object frmSummaryMine: TfrmSummaryMine
           object lblLength: TLabel
             Left = 15
             Top = 23
-            Width = 47
+            Width = 39
             Height = 14
-            Caption = 'Length :'
+            Caption = 'Length'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -217,9 +247,9 @@ object frmSummaryMine: TfrmSummaryMine
           object lblWidth: TLabel
             Left = 15
             Top = 51
-            Width = 41
+            Width = 37
             Height = 14
-            Caption = 'Width :'
+            Caption = 'Width '
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -282,15 +312,36 @@ object frmSummaryMine: TfrmSummaryMine
           object lblHeight: TLabel
             Left = 15
             Top = 78
-            Width = 44
+            Width = 40
             Height = 14
-            Caption = 'Height :'
+            Caption = 'Height '
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
+          end
+          object Label5: TLabel
+            Left = 58
+            Top = 23
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label6: TLabel
+            Left = 58
+            Top = 51
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label7: TLabel
+            Left = 58
+            Top = 78
+            Width = 4
+            Height = 14
+            Caption = ':'
           end
           object edtLength: TEdit
             Left = 68
@@ -513,31 +564,49 @@ object frmSummaryMine: TfrmSummaryMine
     TabOrder = 2
     object btnApply: TButton
       Left = 640
-      Top = 5
-      Width = 75
-      Height = 25
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 720
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 725
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 560
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 555
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOKClick
     end

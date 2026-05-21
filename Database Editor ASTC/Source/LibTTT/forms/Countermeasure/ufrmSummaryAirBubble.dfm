@@ -70,8 +70,6 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 205
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -82,10 +80,8 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 185
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 145
         object lblMaxAcousticCross: TLabel
           Left = 19
           Top = 24
@@ -213,32 +209,50 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 202
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 194
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 282
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 279
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 122
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 109
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOKClick
     end

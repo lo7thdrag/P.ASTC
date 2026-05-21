@@ -249,6 +249,15 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label31: TLabel;
+    Label33: TLabel;
 
     procedure FormShow(Sender: TObject);
 

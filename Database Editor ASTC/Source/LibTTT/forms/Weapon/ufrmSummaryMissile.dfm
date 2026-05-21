@@ -2206,9 +2206,9 @@ object frmSummaryMissile: TfrmSummaryMissile
           object lblDetonationECMTARH: TLabel
             Left = 17
             Top = 24
-            Width = 69
+            Width = 65
             Height = 14
-            Caption = 'Detonation :'
+            Caption = 'Detonation '
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -2219,15 +2219,29 @@ object frmSummaryMissile: TfrmSummaryMissile
           object lblDetectionECMTARH: TLabel
             Left = 17
             Top = 51
-            Width = 62
+            Width = 58
             Height = 14
-            Caption = 'Detection :'
+            Caption = 'Detection '
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
+          end
+          object Label21: TLabel
+            Left = 81
+            Top = 24
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label22: TLabel
+            Left = 81
+            Top = 51
+            Width = 4
+            Height = 14
+            Caption = ':'
           end
           object cbbDetonationECMTARH: TComboBox
             Left = 96
@@ -2272,9 +2286,9 @@ object frmSummaryMissile: TfrmSummaryMissile
           object Label81: TLabel
             Left = 17
             Top = 24
-            Width = 65
+            Width = 61
             Height = 14
-            Caption = 'Detonation:'
+            Caption = 'Detonation'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -2285,15 +2299,29 @@ object frmSummaryMissile: TfrmSummaryMissile
           object Label82: TLabel
             Left = 17
             Top = 51
-            Width = 58
+            Width = 54
             Height = 14
-            Caption = 'Detection:'
+            Caption = 'Detection'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
+          end
+          object Label23: TLabel
+            Left = 81
+            Top = 24
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label24: TLabel
+            Left = 81
+            Top = 51
+            Width = 4
+            Height = 14
+            Caption = ':'
           end
           object cbbDetonationIRCM: TComboBox
             Left = 96
@@ -2328,9 +2356,9 @@ object frmSummaryMissile: TfrmSummaryMissile
           object lblFreqTerminalTARH: TLabel
             Left = 20
             Top = 24
-            Width = 65
+            Width = 57
             Height = 14
-            Caption = 'Frequency :'
+            Caption = 'Frequency'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -2341,9 +2369,9 @@ object frmSummaryMissile: TfrmSummaryMissile
           object Label84: TLabel
             Left = 20
             Top = 51
-            Width = 96
+            Width = 92
             Height = 14
-            Caption = 'Pulse Repetition :'
+            Caption = 'Pulse Repetition '
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -2367,9 +2395,9 @@ object frmSummaryMissile: TfrmSummaryMissile
           object Label86: TLabel
             Left = 20
             Top = 78
-            Width = 73
+            Width = 69
             Height = 14
-            Caption = 'Pulse Width :'
+            Caption = 'Pulse Width '
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -2380,9 +2408,9 @@ object frmSummaryMissile: TfrmSummaryMissile
           object Label87: TLabel
             Left = 300
             Top = 24
-            Width = 63
+            Width = 55
             Height = 14
-            Caption = 'Scan Rate :'
+            Caption = 'Scan Rate'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -2393,9 +2421,9 @@ object frmSummaryMissile: TfrmSummaryMissile
           object Label88: TLabel
             Left = 300
             Top = 51
-            Width = 110
+            Width = 106
             Height = 14
-            Caption = 'Transmitter Power :'
+            Caption = 'Transmitter Power '
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -2454,6 +2482,41 @@ object frmSummaryMissile: TfrmSummaryMissile
             Font.Name = 'Tahoma'
             Font.Style = []
             ParentFont = False
+          end
+          object Label25: TLabel
+            Left = 112
+            Top = 20
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label28: TLabel
+            Left = 112
+            Top = 52
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label29: TLabel
+            Left = 112
+            Top = 84
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label31: TLabel
+            Left = 409
+            Top = 24
+            Width = 4
+            Height = 14
+            Caption = ':'
+          end
+          object Label33: TLabel
+            Left = 409
+            Top = 51
+            Width = 4
+            Height = 14
+            Caption = ':'
           end
           object edtFreqTerminalTARH: TEdit
             Tag = 1
@@ -2620,32 +2683,50 @@ object frmSummaryMissile: TfrmSummaryMissile
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 650
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 641
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 730
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 726
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 570
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 556
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOKClick
     end

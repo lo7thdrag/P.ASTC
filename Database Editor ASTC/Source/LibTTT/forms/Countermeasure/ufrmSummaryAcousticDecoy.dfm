@@ -70,8 +70,6 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 268
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -82,10 +80,8 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 248
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 208
         object grpDecoyNoise: TGroupBox
           Left = 8
           Top = 11
@@ -183,29 +179,47 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 302
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 292
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 382
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 377
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 222
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 207
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOKClick
     end

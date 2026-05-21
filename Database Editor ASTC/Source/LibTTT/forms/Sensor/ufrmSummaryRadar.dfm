@@ -75,7 +75,7 @@ object frmSummaryRadar: TfrmSummaryRadar
       Top = 10
       Width = 742
       Height = 317
-      ActivePage = tsCharacteristic
+      ActivePage = tsNotes
       Align = alClient
       TabHeight = 30
       TabOrder = 0
@@ -848,8 +848,8 @@ object frmSummaryRadar: TfrmSummaryRadar
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 588
-      Top = 1
+      Left = 587
+      Top = 0
       Width = 80
       Height = 30
       Cursor = crHandPoint
@@ -864,8 +864,8 @@ object frmSummaryRadar: TfrmSummaryRadar
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 673
-      Top = 1
+      Left = 672
+      Top = 0
       Width = 80
       Height = 30
       Cursor = crHandPoint
@@ -880,8 +880,8 @@ object frmSummaryRadar: TfrmSummaryRadar
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 503
-      Top = 1
+      Left = 502
+      Top = 0
       Width = 80
       Height = 30
       Cursor = crHandPoint

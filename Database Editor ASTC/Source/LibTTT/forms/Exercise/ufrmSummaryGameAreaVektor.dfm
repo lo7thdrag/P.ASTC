@@ -113,17 +113,17 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
           object lblLatitude: TStaticText
             Left = 8
             Top = 26
-            Width = 57
+            Width = 49
             Height = 18
-            Caption = 'Latitude :'
+            Caption = 'Latitude'
             TabOrder = 0
           end
           object lblLongitude: TStaticText
             Left = 8
             Top = 55
-            Width = 67
+            Width = 59
             Height = 18
-            Caption = 'Longitude :'
+            Caption = 'Longitude'
             TabOrder = 3
           end
           object edtLatitude: TEdit
@@ -143,6 +143,22 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
             Height = 22
             TabOrder = 2
             OnChange = edtChange
+          end
+          object StaticText1: TStaticText
+            Left = 66
+            Top = 26
+            Width = 5
+            Height = 18
+            Caption = ':'
+            TabOrder = 4
+          end
+          object StaticText2: TStaticText
+            Left = 65
+            Top = 55
+            Width = 8
+            Height = 18
+            Caption = ':'
+            TabOrder = 5
           end
         end
         object grbDimensions: TGroupBox
@@ -248,29 +264,47 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 266
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 269
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 346
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 354
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 186
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 184
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOKClick
     end

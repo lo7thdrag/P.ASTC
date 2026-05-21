@@ -36,6 +36,8 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
+    StaticText1: TStaticText;
+    StaticText2: TStaticText;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

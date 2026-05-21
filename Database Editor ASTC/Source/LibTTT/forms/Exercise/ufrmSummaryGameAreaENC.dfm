@@ -58,7 +58,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         TabOrder = 0
         object lblName: TLabel
           Left = 16
-          Top = 3
+          Top = 15
           Width = 110
           Height = 16
           Caption = 'Game Area Name :'
@@ -70,8 +70,8 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           ParentFont = False
         end
         object edtName: TEdit
-          Left = 142
-          Top = 13
+          Left = 141
+          Top = 12
           Width = 233
           Height = 22
           TabOrder = 0
@@ -88,7 +88,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitTop = 708
         object lblSearch: TLabel
           Left = 5
           Top = 9
@@ -123,7 +122,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Color = 2499101
         ParentBackground = False
         TabOrder = 2
-        ExplicitWidth = 698
         object chklstArea: TCheckListBox
           Left = 5
           Top = 30
@@ -134,10 +132,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           ItemHeight = 14
           Sorted = True
           TabOrder = 0
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 385
-          ExplicitHeight = 595
         end
         object pnlHeaderListMap: TPanel
           Left = 5
@@ -212,7 +206,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 0
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -372,7 +365,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          0100011801000018DA1C1001000000000000001C000000000000000000000000
+          01000118010000986D950401000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -381,7 +374,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          01000018DA1C1001000000000000001C00000000000000000000000000000000
+          010000986D950401000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -421,20 +414,32 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         BevelOuter = bvNone
         TabOrder = 0
         object btnOk: TButton
-          Left = 14
-          Top = 6
-          Width = 75
-          Height = 25
+          Left = 13
+          Top = 3
+          Width = 80
+          Height = 30
           Caption = 'OK'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           TabOrder = 0
           OnClick = btnOkClick
         end
         object btnCancel: TButton
-          Left = 95
-          Top = 6
-          Width = 75
-          Height = 25
+          Left = 98
+          Top = 3
+          Width = 80
+          Height = 30
           Caption = 'Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           TabOrder = 1
           OnClick = btnCancelClick
         end
