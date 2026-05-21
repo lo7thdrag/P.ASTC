@@ -123,8 +123,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Color = 2499101
         ParentBackground = False
         TabOrder = 2
-        ExplicitTop = 122
-        ExplicitHeight = 595
+        ExplicitWidth = 698
         object chklstArea: TCheckListBox
           Left = 5
           Top = 30
@@ -484,7 +483,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Top = 0
         Width = 5
         Height = 744
-        Cursor = crHandPoint
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000

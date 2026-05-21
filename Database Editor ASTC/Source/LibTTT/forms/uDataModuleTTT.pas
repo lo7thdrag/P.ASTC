@@ -243,6 +243,7 @@ type
 
     {$REGION ' Game Area '}
     function GetAllGameAreaDef(var aList: TList): Integer; {New}
+    function GetFilterGameAreaDef(var aList: TList; aFilter: String): Integer;
     function GetGameAreaDef(const aAreaIdentifier: string): Integer; overload;
     function GetGameAreaDef(const aGameAreaID: Integer; var aResult: TRecGame_Area_Definition): Boolean; overload;
 
@@ -5633,6 +5634,70 @@ begin
     SQL.Clear;
     SQL.Add('SELECT *');
     SQL.Add('FROM Game_Area_Definition');
+    SQL.Add('ORDER BY Game_Area_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TGame_Environment_Definition.Create;
+
+        with rec.FGameArea do
+        begin
+          Game_Area_Index := FieldByName('Game_Area_Index').AsInteger;
+          Game_Area_Identifier := FieldByName('Game_Area_Identifier').AsString;
+          Game_Centre_Lat := FieldByName('Game_Centre_Lat').AsFloat;
+          Game_Centre_Long := FieldByName('Game_Centre_Long').AsFloat;
+          Game_X_Dimension := FieldByName('Game_X_Dimension').AsFloat;
+          Game_Y_Dimension := FieldByName('Game_Y_Dimension').AsFloat;
+          Use_Real_World := FieldByName('Use_Real_World').AsInteger;
+          Use_Artificial_Landmass := FieldByName('Use_Artificial_Landmass')
+            .AsInteger;
+          Detail_Map := FieldByName('Detail_Map').AsString;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetFilterGameAreaDef(var aList: TList; aFilter: String): Integer;
+var
+  i : Integer;
+  rec : TGame_Environment_Definition;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Game_Area_Definition');
+    SQL.Add('WHERE Game_Area_Identifier like '  + quotedStr('%' + aFilter + '%'));
     SQL.Add('ORDER BY Game_Area_Identifier');
     Open;
 
