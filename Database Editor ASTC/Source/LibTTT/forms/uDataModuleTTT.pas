@@ -97,6 +97,7 @@ type
 
     {$REGION ' Resource Allocation '}
     function GetAllResourceAllocationDef(var aList: TList): Integer;
+    function GetFilterResurceAllocationDef(var aList: TList; aFilter: string): integer;
 
     //==Platform Instance
     function GetPlatformInstance(const aResourceAllocID, aPlatformType, aGetType: Integer; aName: string): Integer; overload;
@@ -222,6 +223,7 @@ type
     function GetAllEnvironmentDef(var aList: TList): Integer; {New}
     function GetEnvironmentDef(const aEnviIdentifier: string): Integer; overload;
     function GetEnvironmentDef(const aGameEnviID: Integer; var aResult: TGame_Environment_Definition): Boolean; overload;
+    function GetFilterEnvironmentDef(var aList: TList; aFilter: string): integer;
 
     function InsertEnvironmentDef(var aRec: TRecGame_Environment_Definition): Boolean;
     function UpdateEnvironmentDef(var aRec: TRecGame_Environment_Definition): Boolean;
@@ -1285,6 +1287,10 @@ type
     {$ENDREGION}
 
     {$REGION ' Nanti Dulu '}
+    {$REGION ' Group Member '}
+//    function GetFilterGroupChannelDef(var aList: TList; aFilter: string): integer;
+    {$ENDREGION}
+
     //==Platform Instance Identifier
     {jgn dulu}
     // --- 2.1.1 -- Platform Instance Detail --------------------------------------
@@ -9924,6 +9930,112 @@ begin
     Open;
 
     Result := RecordCount;
+  end;
+end;
+
+function TdmTTT.GetFilterEnvironmentDef(var aList: TList; aFilter: string): integer;
+var
+  i : Integer;
+  rec : TGame_Environment_Definition;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Game_Environment_Definition a LEFT JOIN Global_Convergence_Zone b');
+    SQL.Add('ON a.Game_Enviro_Index = b.Game_Enviro_Index');
+    SQL.Add('WHERE Game_Enviro_Identifier like ' + QuotedStr('%' + aFilter + '%'));
+    SQL.Add('ORDER BY Game_Enviro_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TGame_Environment_Definition.Create;
+
+        with rec.FData do
+        begin
+          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
+          Game_Enviro_Identifier := FieldByName('Game_Enviro_Identifier').AsString;
+          Game_Area_Index := FieldByName('Game_Area_Index').AsInteger;
+          Wind_Speed := FieldByName('Wind_Speed').AsSingle;
+          Wind_Direction := FieldByName('Wind_Direction').AsSingle;
+          Daytime_Visual_Modifier := FieldByName('Daytime_Visual_Modifier').AsSingle;
+          Nighttime_Visual_Modifier := FieldByName('Nighttime_Visual_Modifier').AsSingle;
+          Daytime_Infrared_Modifier := FieldByName('Daytime_Infrared_Modifier').AsSingle;
+          Nighttime_Infrared_Modifier := FieldByName('Nighttime_Infrared_Modifier').AsSingle;
+          Sunrise := FieldByName('Sunrise').AsInteger;
+          Sunset := FieldByName('Sunset').AsInteger;
+          Period_of_Twilight := FieldByName('Period_of_Twilight').AsInteger;
+          Rain_Rate := FieldByName('Rain_Rate').AsInteger;
+          Cloud_Base_Height := FieldByName('Cloud_Base_Height').AsSingle;
+          Cloud_Attenuation := FieldByName('Cloud_Attenuation').AsInteger;
+          Sea_State := FieldByName('Sea_State').AsInteger;
+          Ocean_Current_Speed := FieldByName('Ocean_Current_Speed').AsSingle;
+          Ocean_Current_Direction := FieldByName('Ocean_Current_Direction').AsSingle;
+          Thermal_Layer_Depth := FieldByName('Thermal_Layer_Depth').AsSingle;
+          Sound_Velocity_Type := FieldByName('Sound_Velocity_Type').AsInteger;
+          Surface_Sound_Speed := FieldByName('Surface_Sound_Speed').AsSingle;
+          Layer_Sound_Speed := FieldByName('Layer_Sound_Speed').AsSingle;
+          Bottom_Sound_Speed := FieldByName('Bottom_Sound_Speed').AsSingle;
+          Bottomloss_Coefficient := FieldByName('Bottomloss_Coefficient').AsInteger;
+          Ave_Ocean_Depth := FieldByName('Ave_Ocean_Depth').AsSingle;
+          CZ_Active := FieldByName('CZ_Active').AsInteger;
+          Surface_Ducting_Active := FieldByName('Surface_Ducting_Active').AsInteger;
+          Upper_Limit_Surface_Duct_Depth := FieldByName('Upper_Limit_Surface_Duct_Depth').AsSingle;
+          Lower_Limit_Surface_Duct_Depth := FieldByName('Lower_Limit_Surface_Duct_Depth').AsSingle;
+          Sub_Ducting_Active := FieldByName('Sub_Ducting_Active').AsInteger;
+          Upper_Limit_Sub_Duct_Depth := FieldByName('Upper_Limit_Sub_Duct_Depth').AsSingle;
+          Lower_Limit_Sub_Duct_Depth := FieldByName('Lower_Limit_Sub_Duct_Depth').AsSingle;
+          Shipping_Rate := FieldByName('Shipping_Rate').AsInteger;
+          Shadow_Zone_Trans_Loss := FieldByName('Shadow_Zone_Trans_Loss').AsSingle;
+          Atmospheric_Refract_Modifier := FieldByName('Atmospheric_Refract_Modifier').AsSingle;
+          Barometric_Pressure := FieldByName('Barometric_Pressure').AsSingle;
+          Air_Temperature := FieldByName('Air_Temperature').AsSingle;
+          Surface_Temperature := FieldByName('Surface_Temperature').AsSingle;
+          Start_HF_Range_Gap := FieldByName('Start_HF_Range_Gap').AsSingle;
+          End_HF_Range_Gap := FieldByName('End_HF_Range_Gap').AsSingle;
+        end;
+
+        with rec.FGlobal_Conv do
+        begin
+          Converge_Index := FieldByName('Converge_Index').AsInteger;
+          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
+          Occurance_Range := FieldByName('Occurance_Range').AsSingle;
+          Width := FieldByName('Width').AsSingle;
+          Signal_Reduction_Term := FieldByName('Signal_Reduction_Term').AsSingle;
+          Increase_per_CZ := FieldByName('Increase_per_CZ').AsSingle;
+          Max_Sonar_Depth := FieldByName('Max_Sonar_Depth').AsSingle;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
   end;
 end;
 
@@ -18925,6 +19037,66 @@ begin
           Note_Index := FieldByName('Note_Index').AsInteger;
           Note_Type := FieldByName('Note_Type').AsInteger;
           Notes := FieldByName('Notes').AsString;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
+  end;
+end;
+
+function TdmTTT.GetFilterResurceAllocationDef(var aList: TList; aFilter: string): integer;
+var
+  i : Integer;
+  rec : TResource_Allocation;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Resource_Allocation');
+    SQL.Add('WHERE Allocation_Identifier like ' + QuotedStr('%' + aFilter + '%'));
+    SQL.Add('ORDER BY Allocation_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TResource_Allocation.Create;
+
+        with rec.FData do
+        begin
+          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
+          Allocation_Identifier := FieldByName('Allocation_Identifier').AsString;
+          Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
+          Defaults_Index := FieldByName('Defaults_Index').AsInteger;
+          Role_List_Index := FieldByName('Role_List_Index').AsInteger;
+          Game_Start_Time := FieldByName('Game_Start_Time').AsFloat;
         end;
 
         aList.Add(rec);

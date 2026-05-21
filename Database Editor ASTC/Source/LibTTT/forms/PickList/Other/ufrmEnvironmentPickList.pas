@@ -116,7 +116,7 @@ var
 begin
   lbEnvironmentAvailable.Items.Clear;
 
-//  dmTTT.GetFilterEnvironment(FEnvironmentList, edtSearch.Text);
+  dmTTT.GetFilterEnvironmentDef(FEnvironmentList, edtSearch.Text);
 
   getEnvironments(FEnvironmentList);
 
