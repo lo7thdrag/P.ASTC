@@ -33,17 +33,19 @@ type
     btnCenterHook: TToolButton;
     grpName: TGroupBox;
     edtName: TEdit;
-    lblName: TStaticText;
     pnlSearch: TPanel;
-    lblSearch: TStaticText;
     edtSearch: TEdit;
-    grpSearchSelection: TGroupBox;
-    pnllist: TPanel;
-    chklstArea: TCheckListBox;
     btnOk: TButton;
     btnCancel: TButton;
     ENCmap: TMap;
     ProgressBar1: TProgressBar;
+    lblName: TLabel;
+    lblSearch: TLabel;
+    pnlListMap: TPanel;
+    chklstArea: TCheckListBox;
+    lbl2: TLabel;
+    pnlHeaderListMap: TPanel;
+    lblWidth: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -73,6 +75,7 @@ type
     procedure ENCmapMapViewChanged(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure lblWidthClick(Sender: TObject);
   private
     FSelectedGameArea : TGame_Environment_Definition;
 
@@ -529,6 +532,21 @@ begin
 
   ProgressBar1.Position := 100;
   ProgressBar1.Visible := False;
+end;
+
+procedure TfrmSummaryGameAreaENC.lblWidthClick(Sender: TObject);
+begin
+  if lblWidth.Caption = '>>>' then
+  begin
+    lblWidth.Caption := '<<<';
+    pnlEditor.Width := 2
+  end
+  else
+  begin
+    lblWidth.Caption := '>>>';
+    pnlEditor.Width := 385;
+  end;
+
 end;
 
 procedure TfrmSummaryGameAreaENC.LoadList;

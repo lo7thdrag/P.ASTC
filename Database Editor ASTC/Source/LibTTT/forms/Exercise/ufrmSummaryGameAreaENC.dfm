@@ -56,96 +56,133 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         ParentBackground = False
         ParentColor = False
         TabOrder = 0
-        ExplicitWidth = 308
+        object lblName: TLabel
+          Left = 16
+          Top = 3
+          Width = 110
+          Height = 16
+          Caption = 'Game Area Name :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
         object edtName: TEdit
-          Left = 69
-          Top = 12
+          Left = 142
+          Top = 13
           Width = 233
           Height = 22
           TabOrder = 0
           Text = '(noname)'
         end
-        object lblName: TStaticText
-          Left = 8
-          Top = 16
-          Width = 46
-          Height = 20
-          Caption = 'Name :'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
-        end
       end
       object pnlSearch: TPanel
         Left = 0
-        Top = 44
+        Top = 709
         Width = 385
-        Height = 53
-        Align = alTop
+        Height = 35
+        Align = alBottom
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitWidth = 308
-        object lblSearch: TStaticText
-          Left = 117
-          Top = 29
-          Width = 53
-          Height = 20
+        ExplicitTop = 708
+        object lblSearch: TLabel
+          Left = 5
+          Top = 9
+          Width = 54
+          Height = 16
           Caption = 'Search :'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWhite
           Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 0
         end
         object edtSearch: TEdit
-          Left = 165
-          Top = 25
-          Width = 137
+          Left = 65
+          Top = 6
+          Width = 315
           Height = 22
           CharCase = ecUpperCase
-          TabOrder = 1
+          TabOrder = 0
           OnKeyPress = edtSearchKeyPress
         end
       end
-      object grpSearchSelection: TGroupBox
+      object pnlListMap: TPanel
         Left = 0
-        Top = 97
+        Top = 44
         Width = 385
-        Height = 647
+        Height = 665
         Align = alClient
-        Color = clBtnFace
+        BevelOuter = bvNone
+        BorderWidth = 5
+        Color = 2499101
         ParentBackground = False
-        ParentColor = False
         TabOrder = 2
-        ExplicitWidth = 308
-        object pnllist: TPanel
-          Left = 2
-          Top = 16
-          Width = 381
-          Height = 629
+        ExplicitTop = 122
+        ExplicitHeight = 595
+        object chklstArea: TCheckListBox
+          Left = 5
+          Top = 30
+          Width = 375
+          Height = 630
+          OnClickCheck = chklstAreaClickCheck
           Align = alClient
-          BevelOuter = bvNone
+          ItemHeight = 14
+          Sorted = True
           TabOrder = 0
-          ExplicitWidth = 304
-          object chklstArea: TCheckListBox
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 385
+          ExplicitHeight = 595
+        end
+        object pnlHeaderListMap: TPanel
+          Left = 5
+          Top = 5
+          Width = 375
+          Height = 25
+          Align = alTop
+          BevelOuter = bvNone
+          Color = 2499101
+          ParentBackground = False
+          TabOrder = 1
+          DesignSize = (
+            375
+            25)
+          object lbl2: TLabel
             Left = 0
-            Top = 0
-            Width = 381
-            Height = 629
-            OnClickCheck = chklstAreaClickCheck
-            Align = alClient
-            ItemHeight = 14
-            Sorted = True
-            TabOrder = 0
-            ExplicitWidth = 304
+            Top = 1
+            Width = 56
+            Height = 16
+            Caption = 'List Map :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Layout = tlCenter
+          end
+          object lblWidth: TLabel
+            Left = 348
+            Top = 1
+            Width = 27
+            Height = 16
+            Cursor = crHandPoint
+            Anchors = [akTop, akRight]
+            Caption = '>>>'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Layout = tlCenter
+            OnClick = lblWidthClick
           end
         end
       end
@@ -166,19 +203,17 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 313
-      ExplicitWidth = 1036
       object pnlToolBar: TPanel
         Left = 0
-        Top = 0
+        Top = 707
         Width = 959
         Height = 37
-        Align = alTop
+        Align = alBottom
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1036
+        ExplicitTop = 0
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -189,7 +224,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           Color = 2499101
           ParentBackground = False
           TabOrder = 0
-          ExplicitHeight = 23
         end
         object ToolBar1: TToolBar
           Left = 22
@@ -204,8 +238,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           Images = ImageList1
           ParentColor = False
           TabOrder = 1
-          ExplicitWidth = 1014
-          ExplicitHeight = 23
           object btnDecreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -314,7 +346,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       end
       object ENCmap: TMap
         Left = 0
-        Top = 37
+        Top = 0
         Width = 959
         Height = 707
         ParentColor = False
@@ -341,7 +373,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          0100011801000028C3D60001000000000000001C000000000000000000000000
+          0100011801000018DA1C1001000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -350,7 +382,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          01000028C3D60001000000000000001C00000000000000000000000000000000
+          01000018DA1C1001000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -447,7 +479,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       BevelOuter = bvNone
       ParentBackground = False
       TabOrder = 4
-      ExplicitLeft = 308
       object Image2: TImage
         Left = 0
         Top = 0
