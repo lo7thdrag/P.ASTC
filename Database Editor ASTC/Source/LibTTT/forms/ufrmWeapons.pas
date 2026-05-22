@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  Vcl.Imaging.jpeg;
+  Vcl.Imaging.jpeg, Vcl.StdCtrls;
 
 type
   TfrmWeapons = class(TForm)
@@ -15,6 +15,11 @@ type
     imgMine: TImage;
     imgTorpedo: TImage;
     imgBackground: TImage;
+    lblGunCount: TLabel;
+    lblBombCount: TLabel;
+    lblTorpedoCount: TLabel;
+    lblMineCount: TLabel;
+    lblMissileCount: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
@@ -23,12 +28,14 @@ type
     procedure imgMineClick(Sender: TObject);
     procedure imgGunClick(Sender: TObject);
     procedure imgBombClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     iconName : string;
     filePath, imgChoice : string;
 
     procedure IconLoad;
+    procedure UpdateCountWeapon;
 
   public
     { Public declarations }
@@ -40,7 +47,7 @@ var
 implementation
 
 uses
-  ufDBEditor, ufrmAvailableMissile, ufrmAvailableTorpedo, ufrmAvailableMine, ufrmAvailableGun, ufrmAvailableBomb;
+  ufDBEditor, ufrmAvailableMissile, ufrmAvailableTorpedo, ufrmAvailableMine, ufrmAvailableGun, ufrmAvailableBomb, uDataModuleTTT;
 
 
 {$R *.dfm}
@@ -48,6 +55,11 @@ uses
 procedure TfrmWeapons.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
+end;
+
+procedure TfrmWeapons.FormShow(Sender: TObject);
+begin
+  UpdateCountWeapon;
 end;
 
 procedure TfrmWeapons.IconLoad;
@@ -135,6 +147,29 @@ begin
 
   fDBEditor.LoadImageVariasi(0);
   frmAvailableTorpedo.Show;
+end;
+
+procedure TfrmWeapons.UpdateCountWeapon;
+begin
+  {$REGION ' Gun '}
+  lblGunCount.Caption := IntToStr(dmTTT.GetAllGunCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Missile '}
+  lblMissileCount.Caption := IntToStr(dmTTT.GetAllMissileCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Mine '}
+  lblMineCount.Caption := IntToStr(dmTTT.GetAllMineCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Bomb '}
+  lblBombCount.Caption := IntToStr(dmTTT.GetAllBombCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Torpedo '}
+  lblTorpedoCount.Caption := IntToStr(dmTTT.GetAllTorpedoCount) + ' Data';
+  {$ENDREGION}
 end;
 
 end.

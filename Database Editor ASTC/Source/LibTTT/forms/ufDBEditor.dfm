@@ -54,8 +54,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 0
-      ExplicitLeft = 6
-      ExplicitTop = 526
       object Image3: TImage
         Left = 32
         Top = 79
@@ -246,8 +244,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 1
-      ExplicitLeft = 6
-      ExplicitTop = 536
       object imgExercise: TImage
         Left = 0
         Top = 0
@@ -1185,8 +1181,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 378
       object imgPlatforms: TImage
         Tag = 1
         Left = 0
@@ -2131,8 +2125,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 3
-      ExplicitLeft = 10
-      ExplicitTop = 370
       object Image1: TImage
         Left = 30
         Top = 97
@@ -2223,8 +2215,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 4
-      ExplicitLeft = 10
-      ExplicitTop = 532
     end
     object pnl2PlatformsSparator: TPanel
       Left = 8
@@ -2239,8 +2229,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 5
-      ExplicitLeft = 6
-      ExplicitTop = 376
     end
     object pnl3Sensors: TPanel
       Tag = 2
@@ -2256,8 +2244,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 6
-      ExplicitLeft = -7
-      ExplicitTop = 35
       object imgSensors: TImage
         Tag = 2
         Left = 0
@@ -3195,8 +3181,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 7
-      ExplicitLeft = 17
-      ExplicitTop = 56
       object Image10: TImage
         Left = 32
         Top = 48
@@ -3481,8 +3465,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 8
-      ExplicitLeft = 6
-      ExplicitTop = 103
     end
     object pnl4Weapons: TPanel
       Tag = 2
@@ -3498,7 +3480,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 9
-      ExplicitTop = 271
       object imgWeapons: TImage
         Tag = 3
         Left = 0
@@ -4440,7 +4421,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 10
-      ExplicitTop = 311
       object Image16: TImage
         Left = 32
         Top = 17
@@ -4669,7 +4649,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 11
-      ExplicitTop = 336
     end
     object pnl5Countermeasur: TPanel
       Tag = 2
@@ -4685,7 +4664,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 12
-      ExplicitTop = 356
       object imgCountermeasures: TImage
         Tag = 4
         Left = 0
@@ -5646,7 +5624,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 13
-      ExplicitTop = 396
       object Image21: TImage
         Left = 32
         Top = 17
@@ -6004,7 +5981,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 14
-      ExplicitTop = 421
     end
     object pnl6Other: TPanel
       Tag = 2
@@ -6020,7 +5996,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 15
-      ExplicitTop = 441
       object imgOther: TImage
         Tag = 5
         Left = 0
@@ -6942,7 +6917,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 16
-      ExplicitTop = 481
       object Image48: TImage
         Left = 32
         Top = 17
@@ -7258,7 +7232,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 17
-      ExplicitTop = 506
     end
     object pnl8Shutdown: TPanel
       Tag = 2
@@ -7274,7 +7247,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 18
-      ExplicitTop = 526
       object imgShutdown: TImage
         Tag = 7
         Left = 0
@@ -8230,7 +8202,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 19
-      ExplicitTop = 566
       object Image66: TImage
         Left = 32
         Top = 17
@@ -8287,7 +8258,6 @@ object fDBEditor: TfDBEditor
       ParentBackground = False
       ParentDoubleBuffered = False
       TabOrder = 20
-      ExplicitTop = 591
     end
     object Panel1: TPanel
       Left = 8
@@ -32087,7 +32057,7 @@ object fDBEditor: TfDBEditor
     Height = 748
     Align = alRight
     BevelOuter = bvNone
-    Color = clBackground
+    Color = clBlack
     ParentBackground = False
     TabOrder = 5
   end

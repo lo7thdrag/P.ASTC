@@ -39,6 +39,7 @@ type
 
     {$REGION ' Scenario '}
     function GetAllScenarioDef(var aList: TList): Integer;
+    function GetAllScenarioCount: Integer;
     function GetScenarioDef(const aScenarioIdentifier: string): Integer; overload;
 
     function InsertScenarioDef(var aRec: TRecScenario_Definition): Boolean;
@@ -97,6 +98,7 @@ type
 
     {$REGION ' Resource Allocation '}
     function GetAllResourceAllocationDef(var aList: TList): Integer;
+    function GetAllResourceCount: Integer;
     function GetFilterResurceAllocationDef(var aList: TList; aFilter: string): integer;
 
     //==Platform Instance
@@ -221,6 +223,7 @@ type
 
     {$REGION ' Environtment '}
     function GetAllEnvironmentDef(var aList: TList): Integer; {New}
+    function GetAllEnvironmentCount: Integer;
     function GetEnvironmentDef(const aEnviIdentifier: string): Integer; overload;
     function GetEnvironmentDef(const aGameEnviID: Integer; var aResult: TGame_Environment_Definition): Boolean; overload;
     function GetFilterEnvironmentDef(var aList: TList; aFilter: string): integer;
@@ -245,6 +248,7 @@ type
 
     {$REGION ' Game Area '}
     function GetAllGameAreaDef(var aList: TList): Integer; {New}
+    function GetAllGameAreaCount: Integer;
     function GetFilterGameAreaDef(var aList: TList; aFilter: String): Integer;
     function GetGameAreaDef(const aAreaIdentifier: string): Integer; overload;
     function GetGameAreaDef(const aGameAreaID: Integer; var aResult: TRecGame_Area_Definition): Boolean; overload;
@@ -261,6 +265,7 @@ type
 
     {$REGION ' Vehicle '}
     function GetAllVehicleDef(var aList: TList): Integer;
+    function GetAllVehicleCount: Integer;
     function GetVehicleDef(const aClassName: string): Integer; overload;
     function GetFilterVehicleDef(var aList: TList; aFilter: string): integer;
 
@@ -320,6 +325,7 @@ type
 
     {$REGION ' Sonar Definition '}
     function GetAllSonarDef(var aList: TList): Integer; {New}
+    function GetAllSonarCount: Integer;
     function GetSonarDef(const aClassName: string): Integer; overload;
     function GetSonarDef(const aClassID: Integer; var aSonar: TSonar_On_Board): Boolean; overload;
     function GetFilterSonarDef(var aList: TList; aFilter: string): integer;
@@ -331,6 +337,7 @@ type
 
     {$REGION ' ESM Definition '}
     function GetAllESMDef(var aList: TList): Integer; {New}
+    function GetAllESMCount: Integer;
     function GetESMDef(const aClassName: string): Integer; overload;
     function GetFilterESMDef(var aList: TList; aFilter: string): integer;
 
@@ -341,6 +348,7 @@ type
 
     {$REGION ' EOD Definition '}
     function GetAllEODef(var aList: TList): Integer; {New}
+    function GetAllEODCount: Integer;
     function GetEODef(const aClassName: string): Integer; overload;
     function GetFilterEODDef(var aList: TList; aFilter: string): integer;
 
@@ -351,6 +359,7 @@ type
 
     {$REGION ' Sonobuoy Definition '}
     function GetAllSonobuoyDef(var aList: TList): Integer; {New}
+    function GetAllRSonobuoyCount: Integer;
     function GetSonobuoyDef(const aClassName: string): Integer; overload;
     function GetFilterSonobuoyDef(var aList: TList; aFilter: string): integer;
 
@@ -361,6 +370,7 @@ type
 
     {$REGION ' MAD Definition '}
     function GetAllMADDef(var aList: TList): Integer; {New}
+    function GetAllMADCount: Integer;
     function GetMADDef(const aClassName: string): Integer; overload;
     function GetFilterMADDef(var aList: TList; aFilter: string): integer;
 
@@ -430,6 +440,7 @@ type
 
     {$REGION ' Missile Definition '}
     function GetAllMissileDef(var aList: TList): Integer; {New}
+    function GetAllMissileCount: Integer;
     function GetMissileDef(const aClassName: string): Integer; overload;
     function GetFilterMissileDef(var aList: TList; aFilter: string): integer;
 
@@ -446,6 +457,7 @@ type
 
     {$REGION ' Torpedo Definition '}
     function GetAllTorpedoDef(var aList: TList): Integer; {New}
+    function GetAllTorpedoCount: Integer;
     function GetTorpedoDef(const aClassName: string): Integer; overload;
     function GetFilterTorpedoDef(var aList: TList; aFilter: string): integer;
 
@@ -461,6 +473,7 @@ type
 
     {$REGION ' Mine Definition '}
     function GetAllMineDef(var aList: TList): Integer; {New}
+    function GetAllMineCount: Integer;
     function GetMineDef(const aClassName: string): Integer; overload;
     function GetFilterMineDef(var aList: TList; aFilter: string): integer;
 
@@ -476,6 +489,7 @@ type
 
     {$REGION ' Gun Definition '}
     function GetAllGunDef(var aList: TList): Integer; {New}
+    function GetAllGunCount: Integer;
     function GetGunDef(const aClassName: string): Integer; overload;
     function GetFilterGunDef(var aList: TList; aFilter: string): integer;
 
@@ -492,6 +506,7 @@ type
 
     {$REGION ' Bomb Definition '}
     function GetAllBombDef(var aList: TList): Integer; {New}
+    function GetAllBombCount: Integer;
     function GetBombDef(const aClassName: string): Integer; overload;
     function GetFilterBombDef(var aList: TList; aFilter: string): integer;
 
@@ -643,6 +658,7 @@ type
 
     {$REGION ' Acoustic Decoy Definition '}
     function GetAllAcousticDecoyDef(var aList: TList): Integer; {New}
+    function GetAllAcousticDecoyCount: Integer;
     function GetAcousticDecoyDef(const aClassName: string): Integer; overload;
     function GetFilterAcousticDecoyDef(var aList: TList; aFilter: string): integer;
 
@@ -658,6 +674,7 @@ type
 
     {$REGION ' Air Bubble Definition '}
     function GetAllAirBubbleDef(var aList: TList): Integer; {New}
+    function GetAllAirBubbleCount: Integer;
     function GetAirBubbleDef(const aClassName: string): Integer; overload;
     function GetFilterAirBubbleDef(var aList: TList; aFilter: string): integer;
 
@@ -668,6 +685,7 @@ type
 
     {$REGION ' Chaff Definition '}
     function GetAllChaffDef(var aList: TList): Integer; {New}
+    function GetAllChaffCount: Integer;
     function GetChaffDef(const aClassName: string): Integer; overload;
     function GetFilterChaffDef(var aList: TList; aFilter: string): integer;
 
@@ -678,6 +696,7 @@ type
 
     {$REGION ' Infrared Decoy Definition '}
     function GetAllInfraredDecoyDef(var aList: TList): Integer; {New}
+    function GetAllInfraredDecoyCount: Integer;
     function GetInfraredDecoyDef(const aClassName: string): Integer; overload;
     function GetFilterInfraredDecoyDef(var aList: TList; aFilter: string): integer;
 
@@ -688,6 +707,7 @@ type
 
     {$REGION ' Floating Decoy Definition '}
     function GetAllFloatingDecoyDef(var aList: TList): Integer; {New}
+    function GetAllFloatingDecoyCount: Integer;
     function GetFloatingDecoyDef(const aClassName: string): Integer; overload;
     function GetFilterFloatingDecoyDef(var aList: TList; aFilter: string): integer;
 
@@ -698,6 +718,7 @@ type
 
     {$REGION ' Self Defensive Jammer Definition '}
     function GetAllSelfDefensiveJammerDef(var aList: TList): Integer; {New}
+    function GetAllSelfDefensiveCount: Integer;
     function GetSelfDefensiveJammerDef(const aClassName: string): Integer; overload;
     function GetFilterSelfDefensiveJammerDef(var aList: TList; aFilter: string): integer;
 
@@ -708,6 +729,7 @@ type
 
     {$REGION ' Towed Jammer / Decoy Definition '}
     function GetAllTowedJammerDecoyDef(var aList: TList): Integer; {New}
+    function GetAllTowedJammerCount: Integer;
     function GetTowedJammerDecoyDef(const aClassName: string): Integer; overload;
     function GetFilterTowedJammerDecoyDef(var aList: TList; aFilter: string): integer;
 
@@ -718,6 +740,7 @@ type
 
     {$REGION ' Radar Noise Jammer Definition '}
     function GetAllRadarNoiseJammerDef(var aList: TList): Integer; {New}
+    function GetAllRadarJammerCount: Integer;
     function GetRadarNoiseJammerDef(const aClassName: string): Integer; overload;
     function GetFilterRadarNoiseJammerDef(var aList: TList; aFilter: string): integer;
 
@@ -958,6 +981,7 @@ type
     {$REGION ' Runtime Platform Library '}
 
     function GetAllRuntimePlatformLibraryDef(var aList: TList): Integer;
+    function GetAllRPLCount: Integer;
     function GetRuntimePlatformLibraryDef(const aClassName: string): Integer; overload;
     function GetFilterRuntimePlatformLibraryDef(var aList: TList; aFilter: string): integer;
 
@@ -995,6 +1019,7 @@ type
 
     {$REGION ' Radar Activation Intervals '}
     function GetAllRadarActivationIntervalDef(var aList: TList): Integer;
+    function GetAllRadarActivationCount: Integer;
     function GetRadarActivationIntervalDef(const aClassName: string): Integer; overload;
     function GetFilterRadarActivationIntervalDef(var aList: TList; aFilter: string): integer;
 
@@ -1012,6 +1037,7 @@ type
 
     {$REGION ' Graphical Overlays '}
     function GetAllOverlayDef(var aList: TList): Integer;
+    function GetAllGraphicalOverlayCount: Integer;
     function GetOverlayDef(const aOverlayIdentifier: string): Integer; overload;
     function GetOverlayDef(const aOverlayID: Integer; var aResult: TRecOverlay_Definition): Boolean; overload;
     function GetFilterOverlayDef(var aList: TList; aFilter: string): integer;
@@ -1044,6 +1070,7 @@ type
     {$REGION ' Student Roles '}
 
     // Student Role Definition
+    function GetAllStudentRolesCount: Integer;
     function GetStudentRoleDef(const aStudentRoleID: Integer;var aList: TList): Integer; overload;
     function GetFilterStudentRoleDef(var aList: TList; aFilter: string): integer;
 
@@ -1062,6 +1089,7 @@ type
 
     {$REGION ' Game Defaults '}
     function GetAllGameDefaultDef(var aList: TList): Integer;
+    function GetAllGameDefaultsCount: Integer;
     function GetGameDefaultDef(const aClassName: string): Integer; overload;
     function GetFilterGameDefaultDef(var aList: TList; aFilter: string): integer;
 
@@ -1140,6 +1168,7 @@ type
 
     {$REGION ' SNR vs POD Curve '}
     function GetAllPODvsSNRCurveDef(var aList: TList): Integer;
+    function GetAllSNRvsPODCount: Integer;
     function GetPODvsSNRCurveDef(const aClassName: string): Integer; overload;
     function GetPODvsSNRCurveDef(const aClassID: Integer; var aPODvsSNRCurve: TRecPOD_vs_SNR_Curve_Definition): Boolean; overload;{u/ pick list}
     function GetFilterPODvsSNRCurveDef(var aList: TList; aFilter: string): integer;
@@ -2284,6 +2313,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllScenarioCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Scenario_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -3782,6 +3829,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllResourceCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Resource_Allocation');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 //==Platform Instance
 
 function TdmTTT.GetPlatformInstance(const aResourceAllocID, aPlatformType, aGetType: Integer; aName: string): Integer;
@@ -4860,6 +4925,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllEnvironmentCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Game_Environment_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetEnvironmentDef(const aEnviIdentifier: string): Integer;
 begin
   Result := 0;
@@ -5688,6 +5771,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllGameAreaCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Game_Area_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetFilterGameAreaDef(var aList: TList; aFilter: String): Integer;
 var
   i : Integer;
@@ -6069,6 +6170,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllVehicleCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Vehicle_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -9121,6 +9240,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllSonarCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Sonar_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetSonarDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -9642,6 +9779,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllESMCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM ESM_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetESMDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -9952,6 +10107,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllEODCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM EO_Detection_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -10391,6 +10564,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllRSonobuoyCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Sonobuoy_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetSonobuoyDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -10736,6 +10927,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllMADCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM MAD_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -12912,6 +13121,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllMissileCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Missile_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetMissileDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -13693,6 +13920,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllTorpedoCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Torpedo_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetTorpedoDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -14335,6 +14580,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllMineCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Mine_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetMineDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -14833,6 +15096,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllGunCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Gun_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -15382,6 +15663,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllBombCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Bomb_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -16962,6 +17261,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllAcousticDecoyCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Acoustic_Decoy_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetAcousticDecoyDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -17316,6 +17633,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllAirBubbleCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Air_Bubble_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetAirBubbleDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -17583,6 +17918,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllChaffCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Chaff_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetChaffDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -17681,7 +18034,6 @@ begin
     end;
   end;
 end;
-
 
 function TdmTTT.InsertChaffDef(var aRec: TRecChaff_Definition): Boolean;
 begin
@@ -17861,6 +18213,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllInfraredDecoyCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Infrared_Decoy_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -18133,6 +18503,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllFloatingDecoyCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Floating_Decoy_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -18413,6 +18801,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllSelfDefensiveCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Defensive_Jammer_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetSelfDefensiveJammerDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -18684,6 +19090,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllTowedJammerCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Towed_Decoy_Identifier');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -18991,6 +19415,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllRadarJammerCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Jammer_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -21154,6 +21596,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllRPLCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Runtime_Platform_Library');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetRuntimePlatformLibraryDef(const aClassName: string): Integer;
 begin
   Result := 0;
@@ -21991,6 +22451,24 @@ begin
   end;
 end;
 
+function TdmTTT.GetAllGraphicalOverlayCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Overlay_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
+
 function TdmTTT.GetOverlayDef(const aOverlayIdentifier: string): Integer;
 begin
   result := 0;
@@ -22250,6 +22728,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllRadarActivationCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Radar_Interval_List');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -22599,6 +23095,23 @@ end;
 {$ENDREGION}
 
 {$REGION ' Student Roles '}
+function TdmTTT.GetAllStudentRolesCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Radar_Definition');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
 
 function TdmTTT.GetStudentRoleList(var aList: TList): Integer;
 var
@@ -22920,6 +23433,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllGameDefaultsCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Game_Defaults');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -23462,9 +23993,6 @@ end;
 
 {$ENDREGION}
 
-{$REGION ' Student Roles '}
-{$ENDREGION}
-
 {$REGION ' SNR vs POD Curve '}
 
 function TdmTTT.GetAllPODvsSNRCurveDef(var aList: TList): Integer;
@@ -23519,6 +24047,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllSNRvsPODCount: Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM POD_vs_SNR_Curve_Definition');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 

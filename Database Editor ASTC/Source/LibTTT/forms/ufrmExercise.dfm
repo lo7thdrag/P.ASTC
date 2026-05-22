@@ -14,6 +14,7 @@ object frmExercise: TfrmExercise
   Visible = True
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -65158,5 +65159,61 @@ object frmExercise: TfrmExercise
     OnClick = ResourceAllocationClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
+  end
+  object lblScenarioCount: TLabel
+    Left = 283
+    Top = 36
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblGameAreaCount: TLabel
+    Left = 641
+    Top = 380
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblResourceCount: TLabel
+    Left = 67
+    Top = 787
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblEnvironmentCount: TLabel
+    Left = 1025
+    Top = 461
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
   end
 end

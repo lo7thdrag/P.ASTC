@@ -4,22 +4,26 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
+  Vcl.StdCtrls;
 
 type
   TfrmPlatforms = class(TForm)
     imgVehicle: TImage;
     imgBackground: TImage;
+    lblVehicleCount: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure imgVehicleClick(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     iconName : string;
     filePath, imgChoice : string;
 
     procedure IconLoad;
+    procedure UpdateCountPlatform;
 
   public
     { Public declarations }
@@ -32,13 +36,18 @@ var
 implementation
 
 uses
-  ufDBEditor, ufrmAvailableVehicle;
+  ufDBEditor, ufrmAvailableVehicle, uDataModuleTTT;
 
 {$R *.dfm}
 
 procedure TfrmPlatforms.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
+end;
+
+procedure TfrmPlatforms.FormShow(Sender: TObject);
+begin
+  UpdateCountPlatform;
 end;
 
 procedure TfrmPlatforms.IconLoad;
@@ -75,6 +84,13 @@ begin
   fDBEditor.LoadImageVariasi(0);
   frmAvailableVehicle.Show;
 
+end;
+
+procedure TfrmPlatforms.UpdateCountPlatform;
+begin
+  {$REGION ' Vehicle '}
+  lblVehicleCount.Caption := IntToStr(dmTTT.GetAllVehicleCount) + ' Data';
+  {$ENDREGION}
 end;
 
 end.
