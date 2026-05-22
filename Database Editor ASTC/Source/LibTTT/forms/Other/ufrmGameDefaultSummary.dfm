@@ -2089,38 +2089,62 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
     ParentBackground = False
     TabOrder = 2
     object btnSaveAsTrainer: TButton
-      Left = 21
-      Top = 5
-      Width = 180
-      Height = 25
+      Left = 10
+      Top = 0
+      Width = 185
+      Height = 30
       Caption = 'Save As Trainer Defaults'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnSaveAsTrainerClick
     end
     object btnApply: TButton
-      Left = 704
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 694
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 784
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 779
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 624
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 609
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 3
       OnClick = btnOKClick
     end

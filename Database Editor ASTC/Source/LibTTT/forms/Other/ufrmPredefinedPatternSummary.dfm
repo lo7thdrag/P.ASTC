@@ -27,8 +27,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
     Color = clBackground
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -3
-    ExplicitWidth = 431
     object Image2: TImage
       Left = 0
       Top = 0
@@ -59,9 +57,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
     Color = clBackground
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -3
-    ExplicitTop = 254
-    ExplicitWidth = 431
     object Image1: TImage
       Left = 0
       Top = 0
@@ -95,9 +90,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = -60
-    ExplicitWidth = 428
     object lblName: TLabel
       Left = 10
       Top = 6
@@ -138,8 +130,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 3
-    ExplicitWidth = 457
-    ExplicitHeight = 493
     object pcScenarioTabs: TPageControl
       Left = 10
       Top = 10
@@ -152,8 +142,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
       TabWidth = 100
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitWidth = 403
-        ExplicitHeight = 196
         object chkEventPattern: TCheckBox
           Left = 25
           Top = 20
@@ -263,42 +251,63 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 4
-    ExplicitLeft = -29
-    ExplicitTop = 563
-    ExplicitWidth = 457
     object btnOK: TButton
-      Left = 186
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 170
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnOKClick
     end
     object btnApply: TButton
-      Left = 266
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 255
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 347
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 340
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end
     object btnEditPattern: TButton
-      Left = 7
-      Top = 6
-      Width = 89
-      Height = 25
+      Left = 10
+      Top = 0
+      Width = 93
+      Height = 30
       Caption = 'Edit Pattern ..'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 3
       OnClick = btnEditPatternClick
     end

@@ -70,8 +70,6 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 366
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -82,10 +80,8 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
       TabHeight = 30
       TabOrder = 0
       TabWidth = 100
-      ExplicitHeight = 346
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 306
         object lblECMType: TLabel
           Left = 16
           Top = 16
@@ -300,29 +296,47 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
     ParentBackground = False
     TabOrder = 2
     object btnOK: TButton
-      Left = 176
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 160
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnOKClick
     end
     object btnApply: TButton
-      Left = 256
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 245
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 335
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 330
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

@@ -171,7 +171,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Height = 22
           Date = 42300.000000000000000000
           Format = 'dd MMM yyyy'
-          Time = 0.714370370369579100
+          Time = 0.714370370369579200
           TabOrder = 6
           OnChange = dtpDateChange
         end
@@ -181,7 +181,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           Width = 73
           Height = 22
           Date = 42300.000000000000000000
-          Time = 0.714370370369579100
+          Time = 0.714370370369579200
           Kind = dtkTime
           TabOrder = 7
           OnChange = dtpTimeChange
@@ -358,29 +358,47 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
     ParentBackground = False
     TabOrder = 2
     object btnOK: TButton
-      Left = 214
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 199
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 374
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 369
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnApply: TButton
-      Left = 294
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 284
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnApplyClick
     end

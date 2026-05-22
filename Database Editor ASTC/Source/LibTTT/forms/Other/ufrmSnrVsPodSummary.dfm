@@ -64,8 +64,6 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 61
-    ExplicitHeight = 127
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -76,10 +74,8 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 107
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 67
         object btnEditList: TButton
           Left = 23
           Top = 21
@@ -103,32 +99,50 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 135
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 127
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 215
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 212
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 55
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 42
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOkClick
     end

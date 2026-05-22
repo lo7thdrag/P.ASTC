@@ -175,38 +175,62 @@ object frmSummaryScenario: TfrmSummaryScenario
     TabOrder = 2
     object btnPreplayScenario: TButton
       Left = 10
-      Top = 5
-      Width = 104
-      Height = 25
+      Top = 0
+      Width = 119
+      Height = 30
       Caption = 'Preplay Scenario...'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       Visible = False
       OnClick = btnPreplayScenarioClick
     end
     object btnOK: TButton
-      Left = 186
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 171
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
     end
     object btnApply: TButton
-      Left = 266
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 256
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 346
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 341
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 3
       OnClick = btnCancelClick
     end

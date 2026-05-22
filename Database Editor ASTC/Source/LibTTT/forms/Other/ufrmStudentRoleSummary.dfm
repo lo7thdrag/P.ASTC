@@ -61,8 +61,6 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 61
-    ExplicitHeight = 125
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -73,10 +71,8 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 105
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 65
         object btnEditList: TButton
           Left = 18
           Top = 30
@@ -100,29 +96,47 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 130
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 115
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 210
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 200
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 50
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 30
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOkClick
     end
