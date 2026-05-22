@@ -35,6 +35,7 @@ type
     filePath, imgChoice : string;
 
     procedure IconLoad;
+
   public
     { Public declarations }
   end;
