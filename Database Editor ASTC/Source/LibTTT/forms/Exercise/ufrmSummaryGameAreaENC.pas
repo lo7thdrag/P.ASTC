@@ -19,7 +19,6 @@ type
     pnl3Button: TPanel;
     Panel1: TPanel;
     pnlSparatorHor1: TPanel;
-    Image1: TImage;
     pnlVertical1: TPanel;
     Image2: TImage;
     ToolBar1: TToolBar;
@@ -31,20 +30,20 @@ type
     btnZoomTool: TToolButton;
     btnPan: TToolButton;
     btnCenterHook: TToolButton;
-    grpName: TGroupBox;
-    edtName: TEdit;
     pnlSearch: TPanel;
     edtSearch: TEdit;
     btnOk: TButton;
     btnCancel: TButton;
     ENCmap: TMap;
     ProgressBar1: TProgressBar;
-    lblName: TLabel;
     lblSearch: TLabel;
     pnlListMap: TPanel;
     chklstArea: TCheckListBox;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    lblName: TLabel;
+    edtName: TEdit;
     lbl2: TLabel;
-    pnlHeaderListMap: TPanel;
     lblWidth: TLabel;
 
     procedure FormCreate(Sender: TObject);

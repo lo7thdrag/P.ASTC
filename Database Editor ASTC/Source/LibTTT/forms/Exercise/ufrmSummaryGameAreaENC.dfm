@@ -2,10 +2,10 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
   Left = 0
   Top = -55
   BorderIcons = []
-  BorderStyle = bsSingle
+  BorderStyle = bsNone
   Caption = 'ENC Map Editor'
-  ClientHeight = 786
-  ClientWidth = 1349
+  ClientHeight = 815
+  ClientWidth = 1355
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,17 +24,19 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 1349
-    Height = 786
+    Width = 1355
+    Height = 815
     Align = alClient
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 1349
+    ExplicitHeight = 786
     object pnlEditor: TPanel
       Left = 0
-      Top = 0
+      Top = 37
       Width = 385
-      Height = 744
+      Height = 736
       Align = alLeft
       BevelOuter = bvNone
       Color = clBtnShadow
@@ -46,48 +48,19 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      object grpName: TGroupBox
-        Left = 0
-        Top = 0
-        Width = 385
-        Height = 44
-        Align = alTop
-        Color = 2499101
-        ParentBackground = False
-        ParentColor = False
-        TabOrder = 0
-        object lblName: TLabel
-          Left = 16
-          Top = 15
-          Width = 110
-          Height = 16
-          Caption = 'Game Area Name :'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWhite
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object edtName: TEdit
-          Left = 141
-          Top = 12
-          Width = 233
-          Height = 22
-          TabOrder = 0
-          Text = '(noname)'
-        end
-      end
+      ExplicitTop = 0
+      ExplicitHeight = 744
       object pnlSearch: TPanel
         Left = 0
-        Top = 709
+        Top = 701
         Width = 385
         Height = 35
         Align = alBottom
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
-        TabOrder = 1
+        TabOrder = 0
+        ExplicitTop = 709
         object lblSearch: TLabel
           Left = 5
           Top = 9
@@ -113,81 +86,41 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       end
       object pnlListMap: TPanel
         Left = 0
-        Top = 44
+        Top = 0
         Width = 385
-        Height = 665
+        Height = 701
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 5
         Color = 2499101
         ParentBackground = False
-        TabOrder = 2
+        TabOrder = 1
+        ExplicitTop = 44
+        ExplicitHeight = 665
         object chklstArea: TCheckListBox
           Left = 5
-          Top = 30
+          Top = 5
           Width = 375
-          Height = 630
+          Height = 691
           OnClickCheck = chklstAreaClickCheck
           Align = alClient
           ItemHeight = 14
           Sorted = True
           TabOrder = 0
-        end
-        object pnlHeaderListMap: TPanel
-          Left = 5
-          Top = 5
-          Width = 375
-          Height = 25
-          Align = alTop
-          BevelOuter = bvNone
-          Color = 2499101
-          ParentBackground = False
-          TabOrder = 1
-          DesignSize = (
-            375
-            25)
-          object lbl2: TLabel
-            Left = 0
-            Top = 1
-            Width = 56
-            Height = 16
-            Caption = 'List Map :'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Layout = tlCenter
-          end
-          object lblWidth: TLabel
-            Left = 348
-            Top = 1
-            Width = 27
-            Height = 16
-            Cursor = crHandPoint
-            Anchors = [akTop, akRight]
-            Caption = '>>>'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWhite
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Layout = tlCenter
-            OnClick = lblWidthClick
-          end
+          ExplicitTop = 30
+          ExplicitHeight = 630
         end
       end
     end
     object pnlMap: TPanel
       Left = 390
-      Top = 0
-      Width = 959
-      Height = 744
+      Top = 37
+      Width = 965
+      Height = 736
       Align = alClient
       BevelOuter = bvNone
-      Color = clBtnShadow
+      BorderWidth = 5
+      Color = 2499101
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -196,16 +129,22 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
+      ExplicitTop = 0
+      ExplicitWidth = 959
+      ExplicitHeight = 744
       object pnlToolBar: TPanel
-        Left = 0
-        Top = 707
-        Width = 959
+        Left = 5
+        Top = 694
+        Width = 955
         Height = 37
         Align = alBottom
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 0
+        ExplicitTop = 707
+        ExplicitWidth = 959
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -220,7 +159,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         object ToolBar1: TToolBar
           Left = 22
           Top = 0
-          Width = 937
+          Width = 933
           Height = 37
           Align = alClient
           ButtonHeight = 23
@@ -230,6 +169,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           Images = ImageList1
           ParentColor = False
           TabOrder = 1
+          ExplicitWidth = 937
           object btnDecreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -337,10 +277,10 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         end
       end
       object ENCmap: TMap
-        Left = 0
-        Top = 0
-        Width = 959
-        Height = 707
+        Left = 5
+        Top = 5
+        Width = 955
+        Height = 689
         ParentColor = False
         Align = alClient
         TabOrder = 1
@@ -349,23 +289,24 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         OnMouseDown = ENCmapMouseDown
         OnMapViewChanged = ENCmapMapViewChanged
         OnDrawUserLayer = ENCmapDrawUserLayer
+        ExplicitLeft = 0
         ExplicitTop = 23
         ExplicitWidth = 1172
         ExplicitHeight = 786
         ControlData = {
-          8A1A06001E63000012490000010000000F0000FF0D47656F44696374696F6E61
+          8A1A0600B462000036470000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000040000500001
           010000640000000001F4010000050000800C000000000000000000000000FFFF
           FF000100000000000000000000000000000000000000000000000352E30B918F
-          CE119DE300AA004BB85101000000900190B2080005417269616C000352E30B91
+          CE119DE300AA004BB8510100000090014495080005417269616C000352E30B91
           8FCE119DE300AA004BB8510100000090015C790C0005417269616C0000000000
           00000000000000000000000000000000000000000000000000000000000000FF
           FFFF000000000000000001370000000000FFFFFF000000000000000352E30B91
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000986D950401000000000000001C000000000000000000000000
+          01000118010000187D1B2901000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -374,7 +315,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000986D950401000000000000001C00000000000000000000000000000000
+          010000187D1B2901000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -397,22 +338,25 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
     end
     object pnl3Button: TPanel
       Left = 0
-      Top = 749
-      Width = 1349
+      Top = 778
+      Width = 1355
       Height = 37
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
+      ExplicitTop = 749
+      ExplicitWidth = 1349
       object Panel1: TPanel
-        Left = 1164
+        Left = 1170
         Top = 0
         Width = 185
         Height = 37
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitLeft = 1164
         object btnOk: TButton
           Left = 13
           Top = 3
@@ -447,19 +391,33 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
     end
     object pnlSparatorHor1: TPanel
       Left = 0
-      Top = 744
-      Width = 1349
+      Top = 773
+      Width = 1355
       Height = 5
       Align = alBottom
       BevelOuter = bvNone
+      Color = clBlack
       ParentBackground = False
       TabOrder = 3
-      object Image1: TImage
+      ExplicitTop = 744
+      ExplicitWidth = 1349
+    end
+    object pnlVertical1: TPanel
+      Left = 385
+      Top = 37
+      Width = 5
+      Height = 736
+      Align = alLeft
+      BevelOuter = bvNone
+      ParentBackground = False
+      TabOrder = 4
+      ExplicitTop = 0
+      ExplicitHeight = 744
+      object Image2: TImage
         Left = 0
         Top = 0
-        Width = 1349
-        Height = 5
-        Cursor = crHandPoint
+        Width = 5
+        Height = 736
         Align = alClient
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
@@ -474,32 +432,88 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         ExplicitHeight = 8
       end
     end
-    object pnlVertical1: TPanel
-      Left = 385
+    object pnl2: TPanel
+      Left = 0
       Top = 0
-      Width = 5
-      Height = 744
-      Align = alLeft
+      Width = 1355
+      Height = 37
+      Align = alTop
       BevelOuter = bvNone
+      Color = 2499101
       ParentBackground = False
-      TabOrder = 4
-      object Image2: TImage
-        Left = 0
+      TabOrder = 5
+      ExplicitTop = 749
+      ExplicitWidth = 1349
+      DesignSize = (
+        1355
+        37)
+      object lblName: TLabel
+        Left = 990
+        Top = 12
+        Width = 119
+        Height = 16
+        Anchors = [akTop, akRight]
+        Caption = 'Game Area Name :'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbl2: TLabel
+        Left = 5
+        Top = 12
+        Width = 63
+        Height = 16
+        Caption = 'List Map :'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Layout = tlCenter
+      end
+      object lblWidth: TLabel
+        Left = 347
+        Top = 12
+        Width = 33
+        Height = 16
+        Cursor = crHandPoint
+        Caption = '>>>'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Layout = tlCenter
+        OnClick = lblWidthClick
+      end
+      object pnl3: TPanel
+        Left = 1170
         Top = 0
-        Width = 5
-        Height = 744
-        Align = alClient
-        Picture.Data = {
-          0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-          001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-          000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-          005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-          0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-          658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-          E3070080B203BC0200156C14659F0000000049454E44AE426082}
-        Stretch = True
-        ExplicitWidth = 1584
-        ExplicitHeight = 8
+        Width = 185
+        Height = 37
+        Align = alRight
+        BevelOuter = bvNone
+        TabOrder = 0
+      end
+      object edtName: TEdit
+        Left = 1117
+        Top = 9
+        Width = 233
+        Height = 24
+        Anchors = [akTop, akRight]
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = '(noname)'
       end
     end
   end
