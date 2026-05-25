@@ -14,6 +14,7 @@ object frmOther: TfrmOther
   Visible = True
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -65655,5 +65656,91 @@ object frmOther: TfrmOther
     OnClick = imgSNRClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
+  end
+  object lblGameDefaultCount: TLabel
+    Left = 110
+    Top = 29
+    Width = 209
+    Height = 41
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblGraphicalOverlayCount: TLabel
+    Left = 408
+    Top = 34
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblStudentRolesCount: TLabel
+    Left = 808
+    Top = 62
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblRPLCount: TLabel
+    Left = 490
+    Top = 446
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblSNRvsPODCount: TLabel
+    Left = 1276
+    Top = 32
+    Width = 209
+    Height = 41
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblRadarActivationCount: TLabel
+    Left = 1009
+    Top = 440
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
   end
 end

@@ -136,32 +136,50 @@ object frmOverlaySummary: TfrmOverlaySummary
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 107
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 96
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 187
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 181
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 27
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 11
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOkClick
     end

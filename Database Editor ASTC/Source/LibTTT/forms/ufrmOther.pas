@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  Vcl.Imaging.jpeg;
+  Vcl.Imaging.jpeg, Vcl.StdCtrls;
 
 type
   TfrmOther = class(TForm)
@@ -16,6 +16,12 @@ type
     imgRadarActivationIntervals: TImage;
     imgSNR: TImage;
     imgBackground: TImage;
+    lblGameDefaultCount: TLabel;
+    lblGraphicalOverlayCount: TLabel;
+    lblStudentRolesCount: TLabel;
+    lblRPLCount: TLabel;
+    lblSNRvsPODCount: TLabel;
+    lblRadarActivationCount: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
@@ -25,12 +31,14 @@ type
     procedure imgGameDefaultClick(Sender: TObject);
     procedure imgSNRClick(Sender: TObject);
     procedure imgRadarActivationIntervalsClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     iconName : string;
     filePath, imgChoice : string;
 
     procedure IconLoad;
+    procedure UpdateCountOther;
 
   public
     { Public declarations }
@@ -43,13 +51,18 @@ implementation
 
 uses
   ufDBEditor, ufrmAvailableRuntimePlatformLibrary, ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles, ufrmAvailableGameDefaults,
-  ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals;
+  ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals, uDataModuleTTT;
 
 {$R *.dfm}
 
 procedure TfrmOther.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
+end;
+
+procedure TfrmOther.FormShow(Sender: TObject);
+begin
+  UpdateCountOther;
 end;
 
 procedure TfrmOther.IconLoad;
@@ -150,6 +163,33 @@ begin
 
   fDBEditor.LoadImageVariasi(0);
   frmAvailableStudentRoles.Show;
+end;
+
+procedure TfrmOther.UpdateCountOther;
+begin
+  {$REGION ' Game Default '}
+  lblGameDefaultCount.Caption := IntToStr(dmTTT.GetAllGameDefaultsCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Graphical Overlay '}
+  lblGraphicalOverlayCount.Caption := IntToStr(dmTTT.GetAllGraphicalOverlayCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' RPL '}
+  lblRPLCount.Caption := IntToStr(dmTTT.GetAllRPLCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Student Roles '}
+  lblStudentRolesCount.Caption := IntToStr(dmTTT.GetAllStudentRolesCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Radar Activation '}
+  lblRadarActivationCount.Caption := IntToStr(dmTTT.GetAllRadarActivationCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' SNR vs POD Curve '}
+  lblSNRvsPODCount.Caption := IntToStr(dmTTT.GetAllSNRvsPODCount) + ' Data';
+  {$ENDREGION}
 end;
 
 end.

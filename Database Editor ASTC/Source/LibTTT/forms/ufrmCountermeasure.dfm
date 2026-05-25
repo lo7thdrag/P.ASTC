@@ -14,6 +14,7 @@ object frmCountermeasure: TfrmCountermeasure
   Visible = True
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -73222,5 +73223,117 @@ object frmCountermeasure: TfrmCountermeasure
     OnClick = imgInfraredDecoyClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
+  end
+  object lblAirBubbleCount: TLabel
+    Left = 85
+    Top = 240
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblTowedJammerCount: TLabel
+    Left = 33
+    Top = 547
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblChaffCount: TLabel
+    Left = 619
+    Top = 270
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblInfraredDecoyCount: TLabel
+    Left = 1133
+    Top = 271
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblRadarJammerCount: TLabel
+    Left = 1050
+    Top = 562
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblFloatingDecoyCount: TLabel
+    Left = 1032
+    Top = 831
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblAccousticDecoyCount: TLabel
+    Left = 637
+    Top = 388
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblSelfDefensiveCount: TLabel
+    Left = 31
+    Top = 827
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
   end
 end

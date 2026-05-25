@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  Vcl.Imaging.jpeg;
+  Vcl.Imaging.jpeg, Vcl.StdCtrls;
 
 type
   TfrmExercise = class(TForm)
@@ -14,6 +14,10 @@ type
     imgGameArea: TImage;
     imgResourceAllocation: TImage;
     imgBackground: TImage;
+    lblScenarioCount: TLabel;
+    lblGameAreaCount: TLabel;
+    lblResourceCount: TLabel;
+    lblEnvironmentCount: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
@@ -22,12 +26,15 @@ type
     procedure ResourceAllocationClick(Sender: TObject);
     procedure EnvironmentClick(Sender: TObject);
     procedure GameAreaClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
    private
     iconName : string;
     filePath, imgChoice : string;
 
     procedure IconLoad;
+    procedure UpdateCountExercise;
+
   public
     { Public declarations }
   end;
@@ -39,13 +46,18 @@ implementation
 
 uses
   ufDBEditor, ufrmAvailableScenario, ufrmAvailableResourceAllocation, ufrmAvailableEnvironments,
-  ufrmAvailableGameArea;
+  ufrmAvailableGameArea, uDataModuleTTT;
 
 {$R *.dfm}
 
 procedure TfrmExercise.FormActivate(Sender: TObject);
 begin
   WindowState := wsMaximized;
+end;
+
+procedure TfrmExercise.FormShow(Sender: TObject);
+begin
+  UpdateCountExercise;
 end;
 
 procedure TfrmExercise.IconLoad;
@@ -94,6 +106,25 @@ begin
 
   fDBEditor.LoadImageVariasi(0);
   frmAvailableScenario.Show;
+end;
+
+procedure TfrmExercise.UpdateCountExercise;
+begin
+  {$REGION ' Scenario '}
+  lblScenarioCount.Caption := IntToStr(dmTTT.GetAllScenarioCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Game Area '}
+  lblGameAreaCount.Caption := IntToStr(dmTTT.GetAllGameAreaCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Resource '}
+  lblResourceCount.Caption := IntToStr(dmTTT.GetAllResourceCount) + ' Data';
+  {$ENDREGION}
+
+  {$REGION ' Environment '}
+  lblEnvironmentCount.Caption := IntToStr(dmTTT.GetAllEnvironmentCount) + ' Data';
+  {$ENDREGION}
 end;
 
 procedure TfrmExercise.ResourceAllocationClick(Sender: TObject);

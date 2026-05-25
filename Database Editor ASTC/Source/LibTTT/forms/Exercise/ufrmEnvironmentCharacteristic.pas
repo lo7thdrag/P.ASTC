@@ -20,7 +20,6 @@ type
     btnMoveTool: TToolButton;
     btnCenterHook: TToolButton;
     Map1: TMap;
-    ImageList1: TImageList;
     pnlMainBackground: TPanel;
     pnlPlatform: TPanel;
     pnlSelectedPlatform: TPanel;
@@ -87,15 +86,21 @@ type
     edtPredictionRange: TEdit;
     btnCalculate: TButton;
     btnScreenCapture: TButton;
-    GroupBox2: TGroupBox;
-    lstSubEnvi: TListBox;
     pnlVertical1: TPanel;
     pnlAlignToolBar: TPanel;
-    btnNew: TImage;
-    btnEdit: TImage;
-    btnDelete: TImage;
-    Image2: TImage;
     Image1: TImage;
+    imgBackground: TImage;
+    il1: TImageList;
+    pnl1: TPanel;
+    imgNew: TImage;
+    imgEdit: TImage;
+    imgDelete: TImage;
+    pnl2: TPanel;
+    lstSubEnvi: TListBox;
+    lbl2: TLabel;
+    pnl1Header: TPanel;
+    pnl3: TPanel;
+    pnl4: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -143,6 +148,7 @@ type
     procedure Map1MapViewChanged(Sender: TObject);
     procedure lstSubEnviClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure GroupBox1Click(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -191,6 +197,20 @@ uses
 
 {$R *.dfm}
 
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmEnvironmentCharacteristic.FormCreate(Sender: TObject);
@@ -198,6 +218,8 @@ begin
   FSubAreaList := TList.Create;
   FConverter := TCoordConverter.Create;
   FCanvas := TCanvas.Create;
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmEnvironmentCharacteristic.FormResize(Sender: TObject);
@@ -227,6 +249,11 @@ begin
   FSelectedSubArea := nil;
   UpdateEnvironmentData;
   UpdateSelectedAreaData;
+end;
+
+procedure TfrmEnvironmentCharacteristic.GroupBox1Click(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}

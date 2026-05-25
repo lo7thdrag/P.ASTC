@@ -70306,8 +70306,8 @@ object frmSensors: TfrmSensors
     OnMouseLeave = IconMouseLeave
   end
   object lblRadarCount: TLabel
-    Left = 61
-    Top = 536
+    Left = 56
+    Top = 545
     Width = 209
     Height = 41
     AutoSize = False
@@ -70320,8 +70320,65 @@ object frmSensors: TfrmSensors
     ParentFont = False
   end
   object lblEODCount: TLabel
-    Left = 53
-    Top = 784
+    Left = 40
+    Top = 793
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblSonarCount: TLabel
+    Left = 88
+    Top = 266
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblESMCount: TLabel
+    Left = 852
+    Top = 457
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblSonobuoyCount: TLabel
+    Left = 1293
+    Top = 452
+    Width = 209
+    Height = 41
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblMADCount: TLabel
+    Left = 848
+    Top = 307
     Width = 209
     Height = 41
     AutoSize = False

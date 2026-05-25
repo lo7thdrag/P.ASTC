@@ -99,29 +99,47 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
     ParentBackground = False
     TabOrder = 2
     object btnOK: TButton
-      Left = 178
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 162
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnOKClick
     end
     object btnApply: TButton
-      Left = 258
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 247
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 338
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 332
+      Top = 0
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

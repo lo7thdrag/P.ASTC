@@ -187,21 +187,22 @@ begin
       tempList := TList.Create;
       if dmTTT.GetGameAreaAtEnvironment(Game_Area_Index, tempList) then
       begin
+        FreeItemsAndFreeList(tempList);
         ShowMessage('Cannot delete, because is already in used by some Environment');
         Exit;
-        FreeItemsAndFreeList(tempList);
       end;
 
       {Pengecekan Relasi Dengan Tabel Overlay Definition}
       if dmTTT.GetGameAreaAtOverlayDef(Game_Area_Index, tempList) then
       begin
+        FreeItemsAndFreeList(tempList);
         ShowMessage('Cannot delete, because is already in used by some Overlay');
         Exit;
-        FreeItemsAndFreeList(tempList);
       end;
+
       FreeItemsAndFreeList(tempList);
 
-      MapDirPath := vAppDBSetting.MapDestPathVECT + '\' + Game_Area_Identifier;
+      MapDirPath := vAppDBSetting.MapDestPathENC + '\' + Game_Area_Identifier;
       DeleteGameAreaDirectory(MapDirPath);
 
       if dmTTT.DeleteGameAreaDef(Game_Area_Index) then

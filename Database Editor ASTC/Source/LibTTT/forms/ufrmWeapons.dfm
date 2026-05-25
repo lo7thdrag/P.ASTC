@@ -14,6 +14,7 @@ object frmWeapons: TfrmWeapons
   Visible = True
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -66519,5 +66520,75 @@ object frmWeapons: TfrmWeapons
     OnClick = imgTorpedoClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
+  end
+  object lblGunCount: TLabel
+    Left = 483
+    Top = 353
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblBombCount: TLabel
+    Left = 1203
+    Top = 375
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblTorpedoCount: TLabel
+    Left = 858
+    Top = 821
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblMineCount: TLabel
+    Left = 463
+    Top = 473
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblMissileCount: TLabel
+    Left = 62
+    Top = 29
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
   end
 end

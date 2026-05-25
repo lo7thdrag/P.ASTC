@@ -14,6 +14,7 @@ object frmPlatforms: TfrmPlatforms
   Visible = True
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object imgBackground: TImage
@@ -68404,5 +68405,19 @@ object frmPlatforms: TfrmPlatforms
     OnClick = imgVehicleClick
     OnMouseEnter = IconMouseEnter
     OnMouseLeave = IconMouseLeave
+  end
+  object lblVehicleCount: TLabel
+    Left = 105
+    Top = 807
+    Width = 209
+    Height = 41
+    AutoSize = False
+    Caption = '0 Data'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -40
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
   end
 end
