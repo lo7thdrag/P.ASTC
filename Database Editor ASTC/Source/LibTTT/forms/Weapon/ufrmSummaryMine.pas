@@ -67,6 +67,8 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
 

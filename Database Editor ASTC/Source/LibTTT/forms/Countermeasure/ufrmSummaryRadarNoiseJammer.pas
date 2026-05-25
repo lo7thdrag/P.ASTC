@@ -46,6 +46,8 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
 

@@ -38,6 +38,8 @@ type
     btnOK: TButton;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

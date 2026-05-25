@@ -23,8 +23,6 @@ type
     pnl3: TPanel;
     pnl4: TPanel;
     pnl5: TPanel;
-    imgBackground: TImage;
-    pnlMainBackground: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

@@ -258,6 +258,8 @@ type
     Label29: TLabel;
     Label31: TLabel;
     Label33: TLabel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
 

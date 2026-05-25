@@ -44851,7 +44851,6 @@ object frmSummaryEnvironment: TfrmSummaryEnvironment
     BevelOuter = bvNone
     TabOrder = 0
     OnClick = pnlMainBackgroundClick
-    ExplicitHeight = 43
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44879,7 +44878,7 @@ object frmSummaryEnvironment: TfrmSummaryEnvironment
         Tag = 4
         Left = 10
         Top = 31
-        Width = 364
+        Width = 372
         Height = 24
         AutoSize = False
         Font.Charset = DEFAULT_CHARSET
@@ -44902,8 +44901,6 @@ object frmSummaryEnvironment: TfrmSummaryEnvironment
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 0
-      ExplicitHeight = 253
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44914,10 +44911,8 @@ object frmSummaryEnvironment: TfrmSummaryEnvironment
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 233
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 193
           object btnBrowseGameArea: TSpeedButton
             Left = 324
             Top = 42

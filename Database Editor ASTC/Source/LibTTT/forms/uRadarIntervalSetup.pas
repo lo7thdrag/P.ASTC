@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls, newClassASTT;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, newClassASTT, Vcl.Imaging.pngimage;
 
 type
   TfRadarIntervalSetup = class(TForm)
@@ -26,6 +26,8 @@ type
     btnOK: TButton;
     btnCancel: TButton;
     btnApply: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
