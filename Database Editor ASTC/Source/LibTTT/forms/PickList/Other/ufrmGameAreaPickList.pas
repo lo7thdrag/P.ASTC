@@ -14,9 +14,11 @@ type
     pnl3Button: TPanel;
     btnCancel: TButton;
     btnAdd: TButton;
-    pnlTableHeader: TPanel;
+    pnl1Header: TPanel;
     Label2: TLabel;
     edtSearch: TEdit;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -116,7 +118,7 @@ begin
   lbAvailableGameArea.Items.Clear;
 
 //  dmTTT.GetAllGameAreaDef(FGameAreaList);
-  dmTTT.GetFilterGameDefaultDef(FGameAreaList, edtSearch.Text);
+  dmTTT.GetFilterGameAreaDef(FGameAreaList, edtSearch.Text);
 
   for i := 0 to FGameAreaList.Count - 1 do
   begin

@@ -46,6 +46,8 @@ type
     btnOK: TButton;
     btnCancel: TButton;
     btnApply: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
 
@@ -75,6 +77,7 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure pnl2ControlPageClick(Sender: TObject);
 
   private
     FSelectedResourceAllocation : TResource_Allocation;
@@ -146,6 +149,11 @@ begin
   isOK := True;
   AfterClose := True;
   btnCancel.Enabled := True;
+end;
+
+procedure TfrmSummaryResourceAllocation.pnl2ControlPageClick(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}

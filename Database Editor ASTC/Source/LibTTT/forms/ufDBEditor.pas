@@ -167,6 +167,7 @@ type
     mnMotion: TLabel;
     Panel2: TPanel;
     Image2: TImage;
+    imgBackground: TImage;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);

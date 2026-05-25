@@ -23,6 +23,8 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
 
@@ -34,6 +36,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure pnlMainBackgroundClick(Sender: TObject);
 
   private
     FSelectedEnvironment : TGame_Environment_Definition;
@@ -74,6 +77,11 @@ begin
   isOK := True;
   AfterClose := True;
   btnCancel.Enabled := True;
+end;
+
+procedure TfrmSummaryEnvironment.pnlMainBackgroundClick(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}

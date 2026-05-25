@@ -12,15 +12,14 @@ type
   TfrmSummaryGameAreaENC = class(TForm)
     ImageList1: TImageList;
     pnlMainBackground: TPanel;
-    pnlEditor: TPanel;
-    pnlMap: TPanel;
+    pnl2Editor: TPanel;
+    pnl3Map: TPanel;
     pnlToolBar: TPanel;
     pnlAlignToolBar: TPanel;
-    pnl3Button: TPanel;
+    pnl4Bottom: TPanel;
     Panel1: TPanel;
     pnlSparatorHor1: TPanel;
     pnlVertical1: TPanel;
-    Image2: TImage;
     ToolBar1: TToolBar;
     btnDecreaseScale: TToolButton;
     cbbScale: TComboBox;
@@ -39,12 +38,13 @@ type
     lblSearch: TLabel;
     pnlListMap: TPanel;
     chklstArea: TCheckListBox;
-    pnl2: TPanel;
+    pnl1Header: TPanel;
     pnl3: TPanel;
     lblName: TLabel;
     edtName: TEdit;
     lbl2: TLabel;
     lblWidth: TLabel;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -75,6 +75,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure lblWidthClick(Sender: TObject);
+    procedure imgBackgroundClick(Sender: TObject);
   private
     FSelectedGameArea : TGame_Environment_Definition;
 
@@ -126,6 +127,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 procedure InitOleVariant(var TheVar: OleVariant);
 begin
   TVarData(TheVar).VType := varError;
@@ -163,7 +177,7 @@ begin
   FConverter := TCoordConverter.Create;
   FMap1 := TMap.Create(Self);
 
-  FListMapIndex.LoadFromFile(vAppDBSetting.MapSourcePathENC + '\' + 'mapindex.ini');
+  FListMapIndex.LoadFromFile(vAppDBSetting.MapSourcePathENC + '\ENC\' + 'mapindex.ini');
   chklstArea.Items := FListMapIndex;
 
   //Set Checklist Area Width
@@ -176,6 +190,8 @@ begin
       itemMaxWidth := itemWidth;
   end;
   SendMessage(chklstArea.Handle, LB_SETHORIZONTALEXTENT, itemMaxWidth + 20, 0);
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummaryGameAreaENC.FormDestroy(Sender: TObject);
@@ -206,7 +222,7 @@ var
   i, itemMaxWidth, itemWidth : Integer;
   sourceCopy, destCopy : string;
 begin
-  LoadENC(vAppDBSetting.MapSourceGeosetENC);
+  LoadENC(vAppDBSetting.MapSourcePathENC + '\AreaCoverage.gst');
   FConverter.FMap := ENCmap;
 
   UpAllToolbarButton;
@@ -241,6 +257,11 @@ begin
 
   ProgressBar1.Position := 100;
   ProgressBar1.Visible := False;
+end;
+
+procedure TfrmSummaryGameAreaENC.imgBackgroundClick(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}
@@ -382,15 +403,6 @@ end;
 
 procedure TfrmSummaryGameAreaENC.btnDecreaseScaleClick(Sender: TObject);
 begin
-  if cbbScale.ItemIndex = 16 then
-    Exit;
-
-  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
-  cbbScaleChange(cbbScale);
-end;
-
-procedure TfrmSummaryGameAreaENC.btnIncreaseScaleClick(Sender: TObject);
-begin
   if cbbScale.ItemIndex = 0 then
     Exit;
 
@@ -398,10 +410,20 @@ begin
   cbbScaleChange(cbbScale);
 end;
 
+procedure TfrmSummaryGameAreaENC.btnIncreaseScaleClick(Sender: TObject);
+begin
+  if cbbScale.ItemIndex = 17 then
+    Exit;
+
+  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+  cbbScaleChange(cbbScale);
+end;
+
 procedure TfrmSummaryGameAreaENC.cbbScaleChange(Sender: TObject);
 var
   z : Double;
   s : string;
+
 begin
   ENCmap.OnMapViewChanged := nil;
 
@@ -409,15 +431,16 @@ begin
 
   if (cbbScale.ItemIndex <= 500) then
   begin
-   s := cbbScale.Items[cbbScale.ItemIndex];
-   try
-     z := StrToFloat(s);
-     ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
-   finally
+    s := cbbScale.Items[cbbScale.ItemIndex];
+    try
+      z := StrToFloat(s);
+      ENCmap.ZoomTo(z, ENCmap.CenterX, ENCmap.CenterY);
+    finally
 
-   end;
+    end;
   end
-  else cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
+  else
+    cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
 //  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
 
 end;
@@ -665,18 +688,18 @@ begin
   end;
 
   {Memaksa memberi background indonesia}
-  fileDest := vAppDBSetting.Pattern;
+  fileDest := vAppDBSetting.MapSourcePathENC + '\Indonesia.gst' ;
   FMap1.Layers.AddGeoSetLayers(fileDest);
 
   for i := 0 to FListFiltered.Count - 1 do
   begin
     if SeparateString(FListFiltered.Strings[I], '\', indx, mtype)then
     begin
-      fileDest := vAppDBSetting.MapSourcePathENC + '\' + mtype + '\' + indx + '\' + indx + '.gst';
+      fileDest := vAppDBSetting.MapSourcePathENC + '\ENC\' + mtype + '\' + indx + '\' + indx + '.gst';
     end
     else
     begin
-      fileDest := vAppDBSetting.MapSourcePathENC + '\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
+      fileDest := vAppDBSetting.MapSourcePathENC + '\ENC\' + FListFiltered[i] + '\' + FListFiltered[i] + '.gst';
     end;
 
     FMap1.Layers.AddGeoSetLayers(fileDest);
@@ -904,12 +927,20 @@ begin
   if lblWidth.Caption = '>>>' then
   begin
     lblWidth.Caption := '<<<';
-    pnlEditor.Width := 700
+    lblWidth.Left := 662;
+    pnl2Editor.Width := 700;
+    edtSearch.Width := 630;
+
+    pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
   end
   else
   begin
     lblWidth.Caption := '>>>';
-    pnlEditor.Width := 385;
+    lblWidth.Left := 347;
+    pnl2Editor.Width := 385;
+    edtSearch.Width := 315;
+
+    pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
   end;
 
 end;

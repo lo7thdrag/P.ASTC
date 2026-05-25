@@ -24955,6 +24955,7 @@ end;
 
 function TdmTTT.GetGameAreaAtEnvironment(const id: Integer; var pList: TList): boolean;
 var
+  i : Integer;
   recEnvi: TGame_Environment_Definition;
 begin
   result := false;
@@ -24974,14 +24975,18 @@ begin
 
     result := RecordCount > 0;
 
-    if not Assigned(pList) then
+    if Assigned(pList) then
     begin
-      pList := TList.Create;
+      for i := 0 to pList.Count - 1 do
+      begin
+        recEnvi := pList.Items[i];
+        recEnvi.Free;
+      end;
+
+      pList.Clear;
     end
     else
-    begin
-      pList.Clear;
-    end;
+      pList := TList.Create;
 
     if not IsEmpty then
     begin
@@ -24993,8 +24998,7 @@ begin
         with recEnvi.FData do
         begin
           Game_Enviro_Index := FieldByName('Game_Enviro_Index').AsInteger;
-          Game_Enviro_Identifier := FieldByName('Game_Enviro_Identifier')
-            .AsString;
+          Game_Enviro_Identifier := FieldByName('Game_Enviro_Identifier').AsString;
           Game_Area_Index := FieldByName('Game_Area_Index').AsInteger;
         end;
 
@@ -25007,6 +25011,7 @@ end;
 
 function TdmTTT.GetGameAreaAtOverlayDef(const id: Integer; var pList: TList): boolean;
 var
+  i : Integer;
   recOverlay: TOverlay_Definition;
 begin
   result := false;
@@ -25026,14 +25031,18 @@ begin
 
     result := RecordCount > 0;
 
-    if not Assigned(pList) then
+    if Assigned(pList) then
     begin
-      pList := TList.Create;
+      for i := 0 to pList.Count - 1 do
+      begin
+        recOverlay := pList.Items[i];
+        recOverlay.Free;
+      end;
+
+      pList.Clear;
     end
     else
-    begin
-      pList.Clear;
-    end;
+      pList := TList.Create;
 
     if not IsEmpty then
     begin
