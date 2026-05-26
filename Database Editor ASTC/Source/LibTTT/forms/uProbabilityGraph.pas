@@ -7,7 +7,7 @@ uses
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, ImgList, ToolWin, Buttons,
   newClassASTT, System.ImageList,
 
-  uSimContainers;
+  uSimContainers, Vcl.Imaging.pngimage;
 
 type
   E_ProbabilityGraph = (pgTorpedo, pgMine, pgGunAir, pgGunSurfaceLand, pgBomb, pgSNRvsPOD);
@@ -55,12 +55,22 @@ type
     lblProbabilityMax: TLabel;
     edtProbabilityMax: TEdit;
     lbl4: TLabel;
-    imgGraph: TImage;
-    btnScreenCapture: TButton;
-    btnOK: TButton;
-    btnCancel: TButton;
-    btnApply: TButton;
     il1: TImageList;
+    pnlGrafik: TPanel;
+    pnlButton: TPanel;
+    imgGraph: TImage;
+    btnApply: TButton;
+    btnCancel: TButton;
+    btnOK: TButton;
+    btnScreenCapture: TButton;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    lbl5: TLabel;
+    lblAspect: TLabel;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    pnlMainGrafik: TPanel;
+    pnlAlignToolBar: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -81,6 +91,8 @@ type
     procedure edtProbabilityMinKeyPress(Sender: TObject; var Key: Char);
     procedure edtProbabilityMaxKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure pnlGrafikClick(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   private
     FProbabilityGraph : E_ProbabilityGraph;
     FSelectedProbObj : TObject;
@@ -124,6 +136,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TProbabilityGraph.FormShow(Sender: TObject);
@@ -140,7 +165,7 @@ begin
         Caption := 'Range vs. Probability of Detonation Curve for ' + Class_Identifier;
         lblCPAspect.Caption := 'Aspect:';
         lblSPAspect.Caption := 'Probability:';
-        grpAspect.Caption := 'Aspect';
+        lblAspect.Caption := 'Aspect';
         lbl1.Caption := 'unit';
         lbl2.Caption := 'unit';
 
@@ -175,7 +200,7 @@ begin
           Mine_Identifier;
         lblCPAspect.Caption := 'Range:';
         lblSPAspect.Caption := 'Range:';
-        grpAspect.Caption := 'Range';
+        lblAspect.Caption := 'Range';
         lbl1.Caption := 'nm';
         lbl2.Caption := 'nm';
 
@@ -189,7 +214,7 @@ begin
         Caption := 'Range vs. Probability of Hit Curve for ' + Gun_Identifier;
         lblCPAspect.Caption := 'Range:';
         lblSPAspect.Caption := 'Range:';
-        grpAspect.Caption := 'Range';
+        lblAspect.Caption := 'Range';
         lbl1.Caption := 'nm';
         lbl2.Caption := 'nm';
 
@@ -204,7 +229,7 @@ begin
         Caption := 'Range vs. Probability of Hit Curve for ' + Bomb_Identifier;
         lblCPAspect.Caption := 'Range:';
         lblSPAspect.Caption := 'Range:';
-        grpAspect.Caption := 'Range';
+        lblAspect.Caption := 'Range';
         lbl1.Caption := 'nm';
         lbl2.Caption := 'nm';
 
@@ -219,7 +244,7 @@ begin
           + Curve_Definition_Identifier;
         lblCPAspect.Caption := 'Ratio:';
         lblSPAspect.Caption := 'Ratio:';
-        grpAspect.Caption := 'Ratio';
+        lblAspect.Caption := 'Ratio';
         lbl1.Caption := 'dB';
         lbl2.Caption := 'dB';
 
@@ -341,12 +366,19 @@ procedure TProbabilityGraph.FormCreate(Sender: TObject);
 begin
   FProbabilityPointList := TList.Create;
   FDeletedProbabilityPointList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TProbabilityGraph.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FProbabilityPointList);
   FreeItemsAndFreeList(FDeletedProbabilityPointList);
+end;
+
+procedure TProbabilityGraph.FormResize(Sender: TObject);
+begin
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 131) / 2);
 end;
 
 {$ENDREGION}
@@ -1383,6 +1415,11 @@ begin
   end;
 
   UpdateProbabilityGraphForm;
+end;
+
+procedure TProbabilityGraph.pnlGrafikClick(Sender: TObject);
+begin
+
 end;
 
 {$ENDREGION}
