@@ -44869,7 +44869,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitHeight = 736
       object pnlSearch: TPanel
         Left = 0
         Top = 698
@@ -44880,7 +44879,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 701
         object lblSearch: TLabel
           Left = 5
           Top = 9
@@ -44915,7 +44913,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitHeight = 701
         object chklstArea: TCheckListBox
           Left = 5
           Top = 5
@@ -44926,7 +44923,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           ItemHeight = 14
           Sorted = True
           TabOrder = 0
-          ExplicitHeight = 691
         end
       end
     end
@@ -44947,7 +44943,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitHeight = 736
       object pnlToolBar: TPanel
         Left = 5
         Top = 691
@@ -44957,7 +44952,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 0
-        ExplicitTop = 694
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -44981,8 +44975,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           Images = ImageList1
           ParentColor = False
           TabOrder = 1
-          ExplicitLeft = 28
-          ExplicitTop = 1
           object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -44995,7 +44987,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 8
+            Top = 0
             Width = 90
             Height = 22
             Hint = 'Map Scales'
@@ -45119,7 +45111,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          010001180100008814920401000000000000001C000000000000000000000000
+          01000118010000D8CB9C0401000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45128,7 +45120,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          0100008814920401000000000000001C00000000000000000000000000000000
+          010000D8CB9C0401000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45166,7 +45158,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitHeight = 37
         object btnOk: TButton
           Left = 16
           Top = 6
@@ -45208,7 +45199,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       BevelOuter = bvNone
       Color = clBlack
       TabOrder = 3
-      ExplicitTop = 773
     end
     object pnlVertical1: TPanel
       Left = 385
@@ -45219,7 +45209,6 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       BevelOuter = bvNone
       Color = clBlack
       TabOrder = 4
-      ExplicitHeight = 736
     end
     object pnl1Header: TPanel
       Left = 0
@@ -45310,7 +45299,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
     Left = 552
     Top = 464
     Bitmap = {
-      494C010106002400040020002000ECE9D800FF00FFFFFFFFFFFFFFFF424D3600
+      494C010106002400040020002000ECE9D800FF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
       000000000000000000000000000000000000D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
@@ -46370,6 +46359,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
       8000000180000001800000018000000180000001800000018000000180000001
       8000000180000001800000018000000180000001800000018000000180000001
       8000000180000001800000018000000180000001800000018000000180000001
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000
+      000000000000}
   end
 end

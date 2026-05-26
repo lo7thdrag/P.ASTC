@@ -44852,10 +44852,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 392
-    ExplicitHeight = 188
     object pnl3Button: TPanel
       Left = 0
       Top = 366
@@ -44922,7 +44918,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       Color = 2499101
       TabOrder = 1
       OnClick = pnl2ControlPageClick
-      ExplicitHeight = 344
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44933,7 +44928,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitHeight = 324
         object tsGeneral: TTabSheet
           Caption = 'General'
           object btnBrowseEnvironment: TSpeedButton
@@ -45014,7 +45008,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             Height = 23
             Caption = '...'
             TabOrder = 5
-            Visible = False
             OnClick = btnStudentRoleListClick
           end
           object dtpDate: TDateTimePicker
@@ -45063,7 +45056,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             ReadOnly = True
             TabOrder = 9
             Text = '[None]'
-            Visible = False
           end
         end
         object tsPlatforms: TTabSheet
@@ -45138,7 +45130,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             TabOrder = 1
             object btnSatellite: TButton
               Left = 18
-              Top = 102
+              Top = 70
               Width = 235
               Height = 45
               Caption = 'Satellite...'
@@ -45148,7 +45140,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             end
             object btnVehicle: TButton
               Left = 18
-              Top = 45
+              Top = 70
               Width = 235
               Height = 45
               Caption = 'Vehicle...'
@@ -45160,7 +45152,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         object tsResources: TTabSheet
           Caption = 'Resources'
           ImageIndex = 2
-          ExplicitHeight = 284
           object btnRuntimePlatformLibraries: TButton
             Left = 23
             Top = 101
@@ -45181,7 +45172,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           end
           object btnCommunicationResources: TButton
             Left = 23
-            Top = 161
+            Top = 149
             Width = 375
             Height = 38
             Caption = 'Communication Channels ...'
