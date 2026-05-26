@@ -19104,7 +19104,7 @@ begin
   begin
     Close;
     SQL.Clear;
-    SQL.Add('SELECT * FROM Towed_Decoy_Identifier');
+    SQL.Add('SELECT * FROM Towed_Jammer_Decoy_Definition');
     Open;
 
     Result := RecordCount;
