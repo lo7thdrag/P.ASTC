@@ -31,10 +31,16 @@ object frmImportLandmassData: TfrmImportLandmassData
     TabOrder = 0
     object btnClose: TButton
       Left = 462
-      Top = 9
-      Width = 75
-      Height = 25
+      Top = 6
+      Width = 80
+      Height = 30
       Caption = 'Close'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnCloseClick
     end

@@ -741,7 +741,7 @@ object frmReferencePointEditor: TfrmReferencePointEditor
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          010001180100005866212701000000000000001C000000000000000000000000
+          0100011801000080EF611001000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -750,7 +750,7 @@ object frmReferencePointEditor: TfrmReferencePointEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          0100005866212701000000000000001C00000000000000000000000000000000
+          01000080EF611001000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -781,16 +781,16 @@ object frmReferencePointEditor: TfrmReferencePointEditor
         BevelOuter = bvNone
         TabOrder = 0
         object Button1: TButton
-          Left = 32
-          Top = 7
-          Width = 145
-          Height = 28
+          Left = 101
+          Top = 6
+          Width = 80
+          Height = 30
           Caption = 'Close'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -13
           Font.Name = 'Tahoma'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
           TabOrder = 0
           OnClick = btnCancelClick
@@ -798,15 +798,15 @@ object frmReferencePointEditor: TfrmReferencePointEditor
       end
       object Button2: TButton
         Left = 20
-        Top = 8
+        Top = 6
         Width = 145
-        Height = 28
+        Height = 30
         Caption = 'Screen Capture'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -12
+        Font.Height = -13
         Font.Name = 'Tahoma'
-        Font.Style = []
+        Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 1
         Visible = False

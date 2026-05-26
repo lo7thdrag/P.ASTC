@@ -552,7 +552,6 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       object tsSurfaceAndSubsurface: TTabSheet
         Caption = 'Surface and Subsurface'
         ImageIndex = 1
-        ExplicitLeft = 7
         object grbOceanCurrent: TGroupBox
           Left = 22
           Top = 14
@@ -1531,32 +1530,50 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     ParentBackground = False
     TabOrder = 2
     object btnOK: TButton
-      Left = 366
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 351
+      Top = 5
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnOKClick
     end
     object btnApply: TButton
-      Left = 446
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 436
+      Top = 5
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 526
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 521
+      Top = 5
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

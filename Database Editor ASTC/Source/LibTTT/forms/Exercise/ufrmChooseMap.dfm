@@ -27,13 +27,12 @@ object frmChooseMap: TfrmChooseMap
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 107
   end
   object grbDepthContours: TGroupBox
     Left = 12
     Top = 8
     Width = 241
-    Height = 89
+    Height = 96
     Caption = 'Map Selection'
     TabOrder = 0
     object rbENC: TRadioButton
@@ -42,15 +41,27 @@ object frmChooseMap: TfrmChooseMap
       Width = 113
       Height = 17
       Caption = 'ENC'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
     end
     object rbVector: TRadioButton
       Left = 23
-      Top = 55
+      Top = 57
       Width = 113
       Height = 17
       Caption = 'Vector'
       Checked = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 1
       TabStop = True
     end
@@ -66,22 +77,34 @@ object frmChooseMap: TfrmChooseMap
     ParentBackground = False
     TabOrder = 2
     object btnOK: TButton
-      Left = 95
-      Top = 2
-      Width = 75
-      Height = 25
+      Left = 88
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnOkClick
     end
     object btnCancel: TButton
-      Left = 176
-      Top = 2
-      Width = 75
-      Height = 25
+      Left = 173
+      Top = 0
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end

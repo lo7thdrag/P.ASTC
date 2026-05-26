@@ -44854,8 +44854,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
     BevelOuter = bvNone
     BorderWidth = 5
     TabOrder = 0
-    ExplicitWidth = 1594
-    ExplicitHeight = 872
     object pnlPlatform: TPanel
       Left = 5
       Top = 17
@@ -44871,8 +44869,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitTop = 5
-      ExplicitHeight = 811
       object pnlSelectedPlatform: TPanel
         Left = 0
         Top = 0
@@ -44883,9 +44879,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         BorderWidth = 5
         Color = 2499101
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = 2
-        ExplicitHeight = 803
         object grpSelectedPoint: TGroupBox
           Left = 5
           Top = 497
@@ -44901,9 +44894,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           ParentColor = False
           ParentFont = False
           TabOrder = 0
-          ExplicitLeft = 10
-          ExplicitTop = 503
-          ExplicitWidth = 312
           object Label7: TLabel
             Left = 22
             Top = 26
@@ -45416,10 +45406,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 3
-          ExplicitLeft = 0
-          ExplicitTop = 26
-          ExplicitWidth = 332
-          ExplicitHeight = 415
           object lstSubEnvi: TListBox
             Left = 0
             Top = 0
@@ -45434,9 +45420,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             ParentFont = False
             TabOrder = 0
             OnClick = lstSubEnviClick
-            ExplicitLeft = 5
-            ExplicitTop = 5
-            ExplicitHeight = 252
           end
         end
         object pnlSparatorHor1: TPanel
@@ -45447,8 +45430,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 4
-          ExplicitLeft = 12
-          ExplicitTop = 484
         end
       end
     end
@@ -45467,9 +45448,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitTop = 5
-      ExplicitWidth = 1244
-      ExplicitHeight = 811
       object pnlToolBar: TPanel
         Left = 0
         Top = 0
@@ -45479,9 +45457,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 0
-        ExplicitLeft = 1
-        ExplicitTop = 680
-        ExplicitWidth = 1242
         object ToolBar1: TToolBar
           Left = 22
           Top = 0
@@ -45497,8 +45472,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           ParentColor = False
           ParentDoubleBuffered = False
           TabOrder = 0
-          ExplicitWidth = 1220
-          ExplicitHeight = 30
           object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -45511,7 +45484,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 8
+            Top = 0
             Width = 95
             Height = 22
             Hint = 'Map Scales'
@@ -45600,7 +45573,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 1
-          ExplicitHeight = 23
         end
       end
       object pnlCursorPosition: TPanel
@@ -45626,10 +45598,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           ParentFont = False
           TabOrder = 0
           OnClick = GroupBox1Click
-          ExplicitLeft = 3
-          ExplicitTop = 32
-          ExplicitWidth = 1244
-          ExplicitHeight = 58
           DesignSize = (
             1250
             59)
@@ -45802,7 +45770,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          010001180100008814920401000000000000001C000000000000000000000000
+          0100011801000080EF611001000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45811,7 +45779,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          0100008814920401000000000000001C00000000000000000000000000000000
+          01000080EF611001000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45830,9 +45798,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 3
-        ExplicitLeft = 12
-        ExplicitTop = 484
-        ExplicitWidth = 322
       end
     end
     object pnl3Button: TPanel
@@ -45844,8 +45809,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 824
-      ExplicitWidth = 1584
       object Panel3: TPanel
         Left = 1405
         Top = 0
@@ -45854,7 +45817,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitLeft = 1399
         object Button1: TButton
           Left = 104
           Top = 7
@@ -45875,8 +45837,14 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         Left = 20
         Top = 8
         Width = 145
-        Height = 28
+        Height = 30
         Caption = 'Screen Capture'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         Visible = False
         OnClick = btnScreenCaptureClick
@@ -45890,8 +45858,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitTop = 5
-      ExplicitHeight = 811
       object Image1: TImage
         Left = 0
         Top = 0
@@ -45930,7 +45896,6 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitHeight = 37
       end
     end
   end

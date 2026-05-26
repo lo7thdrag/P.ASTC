@@ -30,10 +30,10 @@ object frmCubicleGroup: TfrmCubicleGroup
     ParentBackground = False
     TabOrder = 0
     object btClose: TButton
-      Left = 269
-      Top = 8
-      Width = 75
-      Height = 25
+      Left = 264
+      Top = 3
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Close'
       Font.Charset = DEFAULT_CHARSET

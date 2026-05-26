@@ -58,7 +58,6 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 504
     object Image1: TImage
       Left = 0
       Top = 0
@@ -89,9 +88,6 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 5
-    ExplicitTop = 5
-    ExplicitWidth = 447
     object lblName: TLabel
       Left = 10
       Top = 8
@@ -119,10 +115,6 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 5
-    ExplicitTop = 75
-    ExplicitWidth = 447
-    ExplicitHeight = 461
     object btnBrowse: TSpeedButton
       Left = 307
       Top = 107
@@ -379,36 +371,51 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
     Color = clBtnShadow
     ParentBackground = False
     TabOrder = 4
-    ExplicitLeft = 5
-    ExplicitTop = 541
-    ExplicitWidth = 447
     object btnApply: TButton
-      Left = 280
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 271
+      Top = 6
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnOK: TButton
-      Left = 199
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 186
+      Top = 6
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
     end
     object btnCancel: TButton
-      Left = 361
-      Top = 9
-      Width = 75
-      Height = 25
+      Left = 356
+      Top = 6
+      Width = 80
+      Height = 30
       Cursor = crHandPoint
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
     end

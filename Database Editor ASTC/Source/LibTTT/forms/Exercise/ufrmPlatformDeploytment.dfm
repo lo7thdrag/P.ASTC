@@ -47,7 +47,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
-      ExplicitHeight = 523
       object pnlSelectedPlatform: TPanel
         Left = 1
         Top = 1
@@ -57,7 +56,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 521
         object Label1: TLabel
           Left = 12
           Top = 9
@@ -2607,9 +2605,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 330
-      ExplicitWidth = 1033
-      ExplicitHeight = 523
       object pnlToolBar: TPanel
         Left = 1
         Top = 1
@@ -2620,7 +2615,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1031
         object ToolBar1: TToolBar
           Left = 14
           Top = 0
@@ -2634,7 +2628,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           Images = ImageList1
           ParentColor = False
           TabOrder = 0
-          ExplicitWidth = 1017
           object btnPrevious: TToolButton
             Left = 0
             Top = 0
@@ -2800,8 +2793,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitTop = 439
-        ExplicitWidth = 1031
         object grpCursorPosition: TGroupBox
           Left = 3
           Top = 3
@@ -2933,7 +2924,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           ParentColor = False
           ParentFont = False
           TabOrder = 1
-          ExplicitWidth = 447
           object Label65: TLabel
             Left = 12
             Top = 23
@@ -3044,7 +3034,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          0118010000E8EE922801000000000000001C0000000000000000000000000000
+          011801000080EF611001000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -3053,7 +3043,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          00E8EE922801000000000000001C000000000000000000000000000000000000
+          0080EF611001000000000000001C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -3079,8 +3069,14 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Left = 159
         Top = 10
         Width = 145
-        Height = 28
+        Height = 30
         Caption = 'Edit &Formations...'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         Visible = False
         WordWrap = True
@@ -3090,8 +3086,14 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Left = 8
         Top = 10
         Width = 145
-        Height = 28
+        Height = 30
         Caption = 'Screen Capture ...'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         Visible = False
         OnClick = btnScreenCaptureClick
@@ -3105,11 +3107,17 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         BevelOuter = bvNone
         TabOrder = 2
         object btnCancel: TButton
-          Left = 30
+          Left = 104
           Top = 10
-          Width = 145
-          Height = 28
+          Width = 80
+          Height = 30
           Caption = 'Close'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           TabOrder = 0
           OnClick = btnCancelClick
         end

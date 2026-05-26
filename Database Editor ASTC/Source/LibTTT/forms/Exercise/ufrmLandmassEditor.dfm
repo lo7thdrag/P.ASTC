@@ -395,7 +395,7 @@ object frmLandmassEditor: TfrmLandmassEditor
         8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
         918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
         6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-        010001180100005866212701000000000000001C000000000000000000000000
+        0100011801000080EF611001000000000000001C000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000002
         0000000000000000000000000000000000000000000000000000000000000000
@@ -404,7 +404,7 @@ object frmLandmassEditor: TfrmLandmassEditor
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         8076C000000000008056C0000000000080764000000000008056400100000018
-        0100005866212701000000000000001C00000000000000000000000000000000
+        01000080EF611001000000000000001C00000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000200000000
         0000000000000000000000000000000000000000000000000000000000000000
@@ -533,7 +533,7 @@ object frmLandmassEditor: TfrmLandmassEditor
           Visible = False
         end
         object btnDeleteAll: TButton
-          Left = 237
+          Left = 233
           Top = 518
           Width = 75
           Height = 25
@@ -553,41 +553,65 @@ object frmLandmassEditor: TfrmLandmassEditor
           OnClick = ckDisplayShadingClick
         end
         object btnOk: TButton
-          Left = 79
-          Top = 680
-          Width = 72
-          Height = 25
+          Left = 57
+          Top = 689
+          Width = 80
+          Height = 30
           Caption = 'Ok'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           TabOrder = 5
           Visible = False
           OnClick = btnOkClick
         end
         object btnCancel: TButton
-          Left = 157
-          Top = 680
-          Width = 72
-          Height = 25
+          Left = 142
+          Top = 689
+          Width = 80
+          Height = 30
           Caption = 'Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           TabOrder = 6
           Visible = False
           OnClick = btnCancelClick
         end
         object btnApply: TButton
-          Left = 235
-          Top = 680
-          Width = 72
-          Height = 25
+          Left = 228
+          Top = 689
+          Width = 80
+          Height = 30
           Caption = 'Apply'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           TabOrder = 7
           Visible = False
           OnClick = btnApplyClick
         end
         object btnScrCapture: TButton
-          Left = 156
-          Top = 721
+          Left = 158
+          Top = 725
           Width = 150
-          Height = 25
+          Height = 30
           Caption = 'Screen Capture'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
           TabOrder = 8
           Visible = False
           OnClick = btnScrCaptureClick
