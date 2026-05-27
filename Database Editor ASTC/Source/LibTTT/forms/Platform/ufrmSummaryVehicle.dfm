@@ -44852,10 +44852,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44872,9 +44868,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 894
       object Label1: TLabel
         Left = 10
         Top = 10
@@ -44915,10 +44908,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 894
-      ExplicitHeight = 525
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44929,10 +44918,12 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 874
-        ExplicitHeight = 505
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object lblNames: TLabel
             Left = 17
             Top = 20
@@ -45737,6 +45728,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPhysical: TTabSheet
           Caption = 'Physical'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object lblMotionCharacteristic: TLabel
             Left = 18
             Top = 20
@@ -46349,6 +46344,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsCharacteristic: TTabSheet
           Caption = 'Characteristic'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object grbAirDropLimitation: TGroupBox
             Left = 20
             Top = 20
@@ -46595,6 +46594,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPOH: TTabSheet
           Caption = 'POH Modifier'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object grbMissile: TGroupBox
             Left = 20
             Top = 10
@@ -47054,6 +47057,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsAssets: TTabSheet
           Caption = 'Assets'
           ImageIndex = 4
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object grbSensor: TGroupBox
             Left = 20
             Top = 20
@@ -47373,6 +47380,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPeriscope: TTabSheet
           Caption = 'Periscope'
           ImageIndex = 5
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object lblPeriscopeRadarMastCrossSection: TLabel
             Left = 20
             Top = 112
@@ -47631,8 +47642,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 6
-          ExplicitWidth = 866
-          ExplicitHeight = 465
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -47641,8 +47650,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
             Align = alClient
             TabOrder = 0
             OnChange = edtChange
-            ExplicitWidth = 846
-            ExplicitHeight = 445
           end
         end
       end
@@ -47656,9 +47663,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 525
-      ExplicitWidth = 894
       object btnApply: TButton
         Left = 717
         Top = 0

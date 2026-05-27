@@ -44852,10 +44852,6 @@ object frmSummaryMissile: TfrmSummaryMissile
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 645
-    ExplicitHeight = 382
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44866,9 +44862,6 @@ object frmSummaryMissile: TfrmSummaryMissile
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 816
       object Label1: TLabel
         Left = 10
         Top = 5
@@ -44909,24 +44902,18 @@ object frmSummaryMissile: TfrmSummaryMissile
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 816
-      ExplicitHeight = 552
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 794
         Height = 465
-        ActivePage = tsPhysical
+        ActivePage = tsSeekerSetting
         Align = alClient
         MultiLine = True
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
         StyleElements = [seFont, seClient]
-        ExplicitWidth = 796
-        ExplicitHeight = 532
         object tsGeneral: TTabSheet
           Caption = 'General'
           DoubleBuffered = True
@@ -47006,8 +46993,6 @@ object frmSummaryMissile: TfrmSummaryMissile
         object tsSeekerSetting: TTabSheet
           Caption = 'Seeker Settings'
           ImageIndex = 4
-          ExplicitWidth = 788
-          ExplicitHeight = 492
           object lblPrimaryTARH: TLabel
             Left = 157
             Top = 24
@@ -47526,9 +47511,6 @@ object frmSummaryMissile: TfrmSummaryMissile
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 552
-      ExplicitWidth = 816
       object btnApply: TButton
         Left = 639
         Top = 0

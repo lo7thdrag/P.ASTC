@@ -7,7 +7,7 @@ uses
   Dialogs, ImgList, ComCtrls, ToolWin, StdCtrls, ExtCtrls, uDBAssetObject,
   Buttons, math, System.ImageList,
 
-  uDBAsset_Radar, uSimContainers;
+  uDBAsset_Radar, uSimContainers, Vcl.Imaging.pngimage;
 
 type
   E_VerticalCoverageCurve = (vcCurve1 = 1, vcCurve2);
@@ -65,6 +65,12 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label4: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -188,7 +194,7 @@ end;
 
 {$ENDREGION}
 
-{$REGION ' Button Handle '}
+  {$REGION ' Button Handle '}
 
 procedure TfrmRadarCoverage.btnOKClick(Sender: TObject);
 begin

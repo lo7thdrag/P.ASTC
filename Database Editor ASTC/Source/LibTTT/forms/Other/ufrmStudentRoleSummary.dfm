@@ -14,6 +14,7 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -527
-    ExplicitTop = -253
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 289
       object Label1: TLabel
         Left = 11
         Top = 7
@@ -44899,10 +44893,6 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 289
-      ExplicitHeight = 191
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44913,12 +44903,8 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 269
-        ExplicitHeight = 171
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 261
-          ExplicitHeight = 131
           object btnEditList: TButton
             Left = 18
             Top = 30
@@ -44940,9 +44926,6 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 191
-      ExplicitWidth = 289
       object btnApply: TButton
         Left = 112
         Top = 0

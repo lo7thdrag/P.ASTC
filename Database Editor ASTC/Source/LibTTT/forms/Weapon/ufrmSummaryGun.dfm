@@ -15,6 +15,7 @@ object frmSummaryGun: TfrmSummaryGun
   OldCreateOrder = False
   Position = poScreenCenter
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44851,10 +44852,6 @@ object frmSummaryGun: TfrmSummaryGun
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 645
-    ExplicitHeight = 382
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44865,9 +44862,6 @@ object frmSummaryGun: TfrmSummaryGun
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 727
       object lblClass: TLabel
         Left = 10
         Top = 10
@@ -44908,23 +44902,17 @@ object frmSummaryGun: TfrmSummaryGun
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 727
-      ExplicitHeight = 532
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 705
         Height = 445
-        ActivePage = tsNGS
+        ActivePage = tsGeneral
         Align = alClient
         MultiLine = True
         TabHeight = 30
         TabOrder = 0
         TabWidth = 150
-        ExplicitWidth = 707
-        ExplicitHeight = 512
         object tsGeneral: TTabSheet
           Caption = 'General'
           object grpLethality: TGroupBox
@@ -45296,8 +45284,6 @@ object frmSummaryGun: TfrmSummaryGun
         object tsNGS: TTabSheet
           Caption = 'Naval Gunfire Support  '
           ImageIndex = 5
-          ExplicitWidth = 699
-          ExplicitHeight = 472
           object grpDamageRating: TGroupBox
             Left = 20
             Top = 141
@@ -45545,6 +45531,10 @@ object frmSummaryGun: TfrmSummaryGun
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -45568,9 +45558,6 @@ object frmSummaryGun: TfrmSummaryGun
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 532
-      ExplicitWidth = 727
       object btnApply: TButton
         Left = 552
         Top = 0

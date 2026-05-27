@@ -14,6 +14,7 @@ object frmSummaryEOD: TfrmSummaryEOD
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryEOD: TfrmSummaryEOD
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 368
-    ExplicitHeight = 215
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummaryEOD: TfrmSummaryEOD
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 400
       object lblName: TLabel
         Left = 10
         Top = 10
@@ -44907,10 +44901,6 @@ object frmSummaryEOD: TfrmSummaryEOD
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 400
-      ExplicitHeight = 308
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummaryEOD: TfrmSummaryEOD
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 380
-        ExplicitHeight = 288
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 372
-          ExplicitHeight = 248
           object txtSensorType: TLabel
             Left = 15
             Top = 24
@@ -45078,6 +45064,10 @@ object frmSummaryEOD: TfrmSummaryEOD
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -45099,9 +45089,6 @@ object frmSummaryEOD: TfrmSummaryEOD
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 308
-      ExplicitWidth = 400
       object btnApply: TButton
         Left = 225
         Top = 0

@@ -14,6 +14,7 @@ object frmSummaryBomb: TfrmSummaryBomb
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryBomb: TfrmSummaryBomb
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 368
-    ExplicitHeight = 215
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummaryBomb: TfrmSummaryBomb
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 520
       object lblClass: TLabel
         Left = 10
         Top = 5
@@ -44907,10 +44901,6 @@ object frmSummaryBomb: TfrmSummaryBomb
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 520
-      ExplicitHeight = 479
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44922,12 +44912,8 @@ object frmSummaryBomb: TfrmSummaryBomb
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 500
-        ExplicitHeight = 459
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 492
-          ExplicitHeight = 419
           object lblType: TLabel
             Left = 20
             Top = 20
@@ -45136,9 +45122,6 @@ object frmSummaryBomb: TfrmSummaryBomb
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 479
-      ExplicitWidth = 520
       object btnApply: TButton
         Left = 343
         Top = 0

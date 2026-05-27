@@ -14,6 +14,7 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -481
-    ExplicitTop = -174
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 335
       object lblName: TLabel
         Left = 10
         Top = 5
@@ -44907,10 +44901,6 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 335
-      ExplicitHeight = 270
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 315
-        ExplicitHeight = 250
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 307
-          ExplicitHeight = 210
           object txtMaxDepth: TLabel
             Left = 10
             Top = 23
@@ -45180,9 +45166,6 @@ object frmSummarySonobuoy: TfrmSummarySonobuoy
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 270
-      ExplicitWidth = 335
       object btnApply: TButton
         Left = 160
         Top = 0

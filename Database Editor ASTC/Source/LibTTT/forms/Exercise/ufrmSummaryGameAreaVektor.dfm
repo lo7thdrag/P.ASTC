@@ -44853,10 +44853,6 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -201
-    ExplicitTop = 73
-    ExplicitWidth = 645
-    ExplicitHeight = 382
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44867,9 +44863,6 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 444
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -44904,10 +44897,6 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 444
-      ExplicitHeight = 431
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44918,12 +44907,8 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 424
-        ExplicitHeight = 411
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 416
-          ExplicitHeight = 371
           object GroupBox1: TGroupBox
             Left = 10
             Top = 208
@@ -45108,9 +45093,6 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 431
-      ExplicitWidth = 444
       object btnApply: TButton
         Left = 267
         Top = 0

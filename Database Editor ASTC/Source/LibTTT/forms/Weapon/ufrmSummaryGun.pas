@@ -122,6 +122,7 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure edtClassChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedGun : TGun_Definition;
@@ -150,11 +151,29 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmSummaryGun.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
+end;
+
+procedure TfrmSummaryGun.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummaryGun.FormShow(Sender: TObject);

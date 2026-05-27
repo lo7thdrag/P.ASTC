@@ -14,6 +14,7 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44850,10 +44851,6 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 73
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 869
       object Label1: TLabel
         Left = 11
         Top = 7
@@ -44899,16 +44893,12 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 869
-      ExplicitHeight = 600
       object pgcData: TPageControl
         Left = 10
         Top = 10
         Width = 847
         Height = 522
-        ActivePage = tsESMIFF
+        ActivePage = tsUnderWater
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -44919,8 +44909,6 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 110
-        ExplicitWidth = 849
-        ExplicitHeight = 580
         object tsAboveWater: TTabSheet
           Caption = 'Above Water'
           object grpRadarEffect: TGroupBox
@@ -46445,8 +46433,6 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
         object tsESMIFF: TTabSheet
           Caption = 'ESM/IFF'
           ImageIndex = 4
-          ExplicitWidth = 841
-          ExplicitHeight = 540
           object lblESMBearingErrorRate: TLabel
             Left = 11
             Top = 90
@@ -46933,9 +46919,6 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 600
-      ExplicitWidth = 869
       object btnSaveAsTrainer: TButton
         Left = 10
         Top = 0

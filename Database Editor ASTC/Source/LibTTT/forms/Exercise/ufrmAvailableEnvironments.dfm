@@ -32,8 +32,6 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1252
-    ExplicitHeight = 831
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
@@ -44,7 +42,6 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1252
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -69,7 +66,6 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 672
         DesignSize = (
           580
           57)
@@ -652,6 +648,36 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
           Stretch = True
           OnClick = btnUsageClick
         end
+        object Label1: TLabel
+          Left = 13
+          Top = 18
+          Width = 72
+          Height = 21
+          Anchors = [akTop, akRight]
+          Caption = 'Search : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -21
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentFont = False
+        end
+        object edtSearch: TEdit
+          Left = 82
+          Top = 16
+          Width = 247
+          Height = 25
+          Anchors = [akTop, akRight]
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnKeyPress = edtSearchKeyPress
+        end
       end
     end
     object pnlTableList: TPanel
@@ -665,8 +691,6 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 1252
-      ExplicitHeight = 774
       object lstEnvironments: TListBox
         Left = 10
         Top = 10
@@ -683,8 +707,6 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 900
-        ExplicitHeight = 331
       end
     end
   end

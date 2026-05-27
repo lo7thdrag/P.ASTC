@@ -14,6 +14,7 @@ object fRadarIntervalSetup: TfRadarIntervalSetup
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44850,10 +44851,6 @@ object fRadarIntervalSetup: TfRadarIntervalSetup
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -386
-    ExplicitTop = -112
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnlAction: TPanel
       Left = 1
       Top = 313
@@ -44862,33 +44859,48 @@ object fRadarIntervalSetup: TfRadarIntervalSetup
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 314
-      ExplicitWidth = 477
       object btnApply: TButton
-        Left = 303
-        Top = 6
-        Width = 75
-        Height = 25
+        Left = 298
+        Top = -1
+        Width = 80
+        Height = 30
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 222
-        Top = 6
-        Width = 75
-        Height = 25
+        Left = 216
+        Top = -1
+        Width = 80
+        Height = 30
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 141
-        Top = 6
-        Width = 75
-        Height = 25
+        Left = 133
+        Top = -1
+        Width = 80
+        Height = 30
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnOKClick
       end
@@ -44901,17 +44913,14 @@ object fRadarIntervalSetup: TfRadarIntervalSetup
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 477
       object lblRadarIntervals: TStaticText
         Left = 16
         Top = 13
         Width = 86
         Height = 17
         Caption = 'Radar Intervals :'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
+        Font.Charset = EASTEUROPE_CHARSET
+        Font.Color = clWhite
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -44958,8 +44967,8 @@ object fRadarIntervalSetup: TfRadarIntervalSetup
         Width = 74
         Height = 17
         Caption = 'Time Interval :'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
+        Font.Charset = EASTEUROPE_CHARSET
+        Font.Color = clWhite
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -44980,6 +44989,12 @@ object fRadarIntervalSetup: TfRadarIntervalSetup
         Width = 43
         Height = 17
         Caption = 'seconds'
+        Font.Charset = EASTEUROPE_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 6
       end
       object btnAdd: TButton
@@ -45000,10 +45015,6 @@ object fRadarIntervalSetup: TfRadarIntervalSetup
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 477
-      ExplicitHeight = 355
       object lvIntervalData: TListView
         Left = 16
         Top = 6

@@ -17,6 +17,7 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
   OldCreateOrder = False
   ParentBiDiMode = False
   Position = poMainFormCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44853,10 +44854,6 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -514
-    ExplicitTop = -251
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44867,9 +44864,6 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 302
       object lbl1: TLabel
         Left = 11
         Top = 6
@@ -44902,10 +44896,6 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 302
-      ExplicitHeight = 193
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44916,12 +44906,8 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 282
-        ExplicitHeight = 173
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 274
-          ExplicitHeight = 133
           object btnEditList: TButton
             Left = 23
             Top = 21
@@ -44943,9 +44929,6 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 193
-      ExplicitWidth = 302
       object btnApply: TButton
         Left = 125
         Top = 0

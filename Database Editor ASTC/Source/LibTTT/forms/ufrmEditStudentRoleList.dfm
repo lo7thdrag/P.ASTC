@@ -44863,10 +44863,6 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 5
-      ExplicitTop = 5
-      ExplicitWidth = 295
-      ExplicitHeight = 353
       object lbl1: TLabel
         Left = 8
         Top = 8
@@ -44948,9 +44944,6 @@ object frmEditStudentRoleList: TfrmEditStudentRoleList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 358
-      ExplicitWidth = 295
       object btnApply: TButton
         Left = 135
         Top = 0

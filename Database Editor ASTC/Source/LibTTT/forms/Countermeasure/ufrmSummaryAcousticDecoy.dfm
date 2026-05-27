@@ -14,6 +14,7 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,8 +44851,6 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitTop = 8
-    ExplicitHeight = 43
     object pnl3Button: TPanel
       Left = 1
       Top = 342
@@ -44861,9 +44860,6 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 343
-      ExplicitWidth = 466
       object btnApply: TButton
         Left = 289
         Top = 0
@@ -44920,10 +44916,6 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 65
-      ExplicitWidth = 466
-      ExplicitHeight = 321
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44934,12 +44926,8 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 446
-        ExplicitHeight = 301
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 438
-          ExplicitHeight = 261
           object grpDecoyNoise: TGroupBox
             Left = 8
             Top = 11
@@ -45012,6 +45000,10 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -45036,9 +45028,6 @@ object frmSummaryAcousticDecoy: TfrmSummaryAcousticDecoy
       BorderWidth = 4
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 466
       object Label1: TLabel
         Left = 10
         Top = 9

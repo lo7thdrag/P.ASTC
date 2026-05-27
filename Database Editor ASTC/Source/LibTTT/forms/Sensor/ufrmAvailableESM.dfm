@@ -73,7 +73,7 @@ object frmAvailableESM: TfrmAvailableESM
           580
           57)
         object btnDelete: TImage
-          Left = 532
+          Left = 538
           Top = 13
           Width = 30
           Height = 30
@@ -203,7 +203,7 @@ object frmAvailableESM: TfrmAvailableESM
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 437
+          Left = 443
           Top = 13
           Width = 30
           Height = 30
@@ -307,7 +307,7 @@ object frmAvailableESM: TfrmAvailableESM
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 397
+          Left = 403
           Top = 13
           Width = 30
           Height = 30
@@ -430,7 +430,7 @@ object frmAvailableESM: TfrmAvailableESM
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 357
+          Left = 363
           Top = 13
           Width = 30
           Height = 30
@@ -522,7 +522,7 @@ object frmAvailableESM: TfrmAvailableESM
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 492
+          Left = 498
           Top = 13
           Width = 30
           Height = 30

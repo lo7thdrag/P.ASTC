@@ -14,6 +14,7 @@ object frmSummaryChaff: TfrmSummaryChaff
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryChaff: TfrmSummaryChaff
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 368
-    ExplicitHeight = 215
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummaryChaff: TfrmSummaryChaff
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 613
       object Label1: TLabel
         Left = 10
         Top = 10
@@ -44907,10 +44901,6 @@ object frmSummaryChaff: TfrmSummaryChaff
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 613
-      ExplicitHeight = 360
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummaryChaff: TfrmSummaryChaff
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 593
-        ExplicitHeight = 340
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 585
-          ExplicitHeight = 300
           object lblDissipationTimein100kt: TLabel
             Left = 15
             Top = 105
@@ -45196,9 +45182,6 @@ object frmSummaryChaff: TfrmSummaryChaff
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 360
-      ExplicitWidth = 613
       object btnApply: TButton
         Left = 436
         Top = 0

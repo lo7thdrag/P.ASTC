@@ -44852,10 +44852,6 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -1
-    ExplicitTop = 73
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44866,9 +44862,6 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 815
       object lblClass: TLabel
         Left = 10
         Top = 10
@@ -44909,23 +44902,17 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 815
-      ExplicitHeight = 588
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 793
         Height = 501
-        ActivePage = tsPhysical
+        ActivePage = tsGuidance
         Align = alClient
         MultiLine = True
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 795
-        ExplicitHeight = 568
         object tsGeneral: TTabSheet
           Caption = 'General'
           object lblDetectabilityType: TLabel
@@ -45480,8 +45467,6 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
         object tsPhysical: TTabSheet
           Caption = 'Physicsal'
           ImageIndex = 1
-          ExplicitWidth = 787
-          ExplicitHeight = 528
           object lblMotionCharacteristic: TLabel
             Left = 18
             Top = 20
@@ -46843,9 +46828,6 @@ object frmSummaryTorpedo: TfrmSummaryTorpedo
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 588
-      ExplicitWidth = 815
       object btnApply: TButton
         Left = 638
         Top = 0

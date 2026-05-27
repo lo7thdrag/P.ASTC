@@ -14,6 +14,7 @@ object frmSummaryMAD: TfrmSummaryMAD
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryMAD: TfrmSummaryMAD
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -314
-    ExplicitTop = -98
-    ExplicitWidth = 645
-    ExplicitHeight = 382
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummaryMAD: TfrmSummaryMAD
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 331
       object lblName: TLabel
         Left = 10
         Top = 10
@@ -44884,7 +44878,7 @@ object frmSummaryMAD: TfrmSummaryMAD
         Tag = 4
         Left = 10
         Top = 31
-        Width = 311
+        Width = 309
         Height = 24
         AutoSize = False
         Font.Charset = DEFAULT_CHARSET
@@ -44907,10 +44901,6 @@ object frmSummaryMAD: TfrmSummaryMAD
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 331
-      ExplicitHeight = 241
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummaryMAD: TfrmSummaryMAD
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 311
-        ExplicitHeight = 221
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 303
-          ExplicitHeight = 181
           object txtBaselineDetection: TLabel
             Left = 15
             Top = 24
@@ -44992,13 +44978,11 @@ object frmSummaryMAD: TfrmSummaryMAD
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
-          ExplicitWidth = 303
-          ExplicitHeight = 116
           object mmoNotes: TMemo
             Left = 0
             Top = 0
-            Width = 283
-            Height = 161
+            Width = 281
+            Height = 94
             Align = alClient
             Lines.Strings = (
               '')
@@ -45017,11 +45001,8 @@ object frmSummaryMAD: TfrmSummaryMAD
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 241
-      ExplicitWidth = 331
       object btnApply: TButton
-        Left = 156
+        Left = 154
         Top = 0
         Width = 80
         Height = 30
@@ -45037,7 +45018,7 @@ object frmSummaryMAD: TfrmSummaryMAD
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 241
+        Left = 239
         Top = 0
         Width = 80
         Height = 30
@@ -45053,7 +45034,7 @@ object frmSummaryMAD: TfrmSummaryMAD
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 71
+        Left = 69
         Top = 0
         Width = 80
         Height = 30

@@ -57,6 +57,7 @@ type
     procedure btnApplyClick(Sender: TObject);
 
     procedure btnPickClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedSonobuoy : TSonobuoy_On_Board;
@@ -84,8 +85,26 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 
 {$REGION ' Form Handle '}
+
+procedure TfrmSummarySonobuoy.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
+end;
 
 procedure TfrmSummarySonobuoy.FormShow(Sender: TObject);
 begin

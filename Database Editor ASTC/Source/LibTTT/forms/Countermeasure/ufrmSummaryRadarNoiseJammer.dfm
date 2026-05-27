@@ -14,6 +14,7 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -421
-    ExplicitTop = -67
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 395
       object lblClass: TLabel
         Left = 10
         Top = 10
@@ -44907,10 +44901,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 395
-      ExplicitHeight = 377
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44922,12 +44912,8 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
         TabOrder = 0
         TabWidth = 100
         OnChange = edtChange
-        ExplicitWidth = 375
-        ExplicitHeight = 357
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 367
-          ExplicitHeight = 317
           object lblPowerDensity: TLabel
             Left = 15
             Top = 24
@@ -45142,13 +45128,15 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 367
           ExplicitHeight = 252
           object mmoNotes: TMemo
             Left = 0
             Top = 0
-            Width = 347
-            Height = 297
+            Width = 345
+            Height = 230
             Align = alClient
             Lines.Strings = (
               '')
@@ -45166,9 +45154,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 377
-      ExplicitWidth = 395
       object btnApply: TButton
         Left = 221
         Top = 0

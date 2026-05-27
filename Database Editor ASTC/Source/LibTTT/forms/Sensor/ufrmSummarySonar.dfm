@@ -14,6 +14,7 @@ object frmSummarySonar: TfrmSummarySonar
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummarySonar: TfrmSummarySonar
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -162
-    ExplicitTop = 49
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummarySonar: TfrmSummarySonar
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 654
       object lblName: TLabel
         Left = 10
         Top = 5
@@ -44907,10 +44901,6 @@ object frmSummarySonar: TfrmSummarySonar
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 654
-      ExplicitHeight = 493
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44922,12 +44912,8 @@ object frmSummarySonar: TfrmSummarySonar
         TabOrder = 0
         TabWidth = 100
         StyleElements = [seFont, seClient]
-        ExplicitWidth = 634
-        ExplicitHeight = 473
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 626
-          ExplicitHeight = 368
           object grpActiveDetectionCapabilities: TGroupBox
             Left = 15
             Top = 71
@@ -45328,8 +45314,6 @@ object frmSummarySonar: TfrmSummarySonar
         object tsCharacteristic: TTabSheet
           Caption = 'Characteristics'
           ImageIndex = 1
-          ExplicitWidth = 626
-          ExplicitHeight = 433
           object txtSNRvsPODCurve: TLabel
             Left = 261
             Top = 120
@@ -45659,10 +45643,6 @@ object frmSummarySonar: TfrmSummarySonar
         object tsTowedArray: TTabSheet
           Caption = 'Towed Array'
           ImageIndex = 2
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object lblMinTowSpeed: TLabel
             Left = 31
             Top = 121
@@ -45865,13 +45845,11 @@ object frmSummarySonar: TfrmSummarySonar
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 3
-          ExplicitWidth = 626
-          ExplicitHeight = 368
           object mmoNotes: TMemo
             Left = 0
             Top = 0
-            Width = 606
-            Height = 413
+            Width = 604
+            Height = 346
             Align = alClient
             Lines.Strings = (
               '')
@@ -45890,9 +45868,6 @@ object frmSummarySonar: TfrmSummarySonar
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 493
-      ExplicitWidth = 654
       object btnApply: TButton
         Left = 479
         Top = 0

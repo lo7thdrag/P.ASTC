@@ -14,6 +14,7 @@ object frmOverlaySummary: TfrmOverlaySummary
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmOverlaySummary: TfrmOverlaySummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -543
-    ExplicitTop = -180
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmOverlaySummary: TfrmOverlaySummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 273
       object lbl1: TLabel
         Left = 11
         Top = 7
@@ -44899,10 +44893,6 @@ object frmOverlaySummary: TfrmOverlaySummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 273
-      ExplicitHeight = 264
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44913,12 +44903,8 @@ object frmOverlaySummary: TfrmOverlaySummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 253
-        ExplicitHeight = 244
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 245
-          ExplicitHeight = 204
           object lbl2: TLabel
             Left = 11
             Top = 21
@@ -44980,9 +44966,6 @@ object frmOverlaySummary: TfrmOverlaySummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 264
-      ExplicitWidth = 273
       object btnApply: TButton
         Left = 96
         Top = 0

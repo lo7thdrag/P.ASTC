@@ -15,6 +15,7 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44851,10 +44852,6 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -197
-    ExplicitTop = 73
-    ExplicitWidth = 645
-    ExplicitHeight = 382
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44865,9 +44862,6 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 448
       object Label1: TLabel
         Left = 10
         Top = 10
@@ -44908,10 +44902,6 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 448
-      ExplicitHeight = 414
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44922,12 +44912,8 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 428
-        ExplicitHeight = 394
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 420
-          ExplicitHeight = 354
           object lblLifetimeDuration: TLabel
             Left = 15
             Top = 234
@@ -45227,6 +45213,10 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -45250,9 +45240,6 @@ object frmSummaryFloatingDecoy: TfrmSummaryFloatingDecoy
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 414
-      ExplicitWidth = 448
       object btnApply: TButton
         Left = 271
         Top = 0

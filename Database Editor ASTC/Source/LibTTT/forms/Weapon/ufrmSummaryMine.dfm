@@ -14,6 +14,7 @@ object frmSummaryMine: TfrmSummaryMine
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryMine: TfrmSummaryMine
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 645
-    ExplicitHeight = 382
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummaryMine: TfrmSummaryMine
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 815
       object lblClass: TLabel
         Left = 10
         Top = 10
@@ -44907,10 +44901,6 @@ object frmSummaryMine: TfrmSummaryMine
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 815
-      ExplicitHeight = 469
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummaryMine: TfrmSummaryMine
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 795
-        ExplicitHeight = 449
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 787
-          ExplicitHeight = 409
           object lblCategory: TLabel
             Left = 20
             Top = 107
@@ -45404,9 +45390,6 @@ object frmSummaryMine: TfrmSummaryMine
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 469
-      ExplicitWidth = 815
       object btnApply: TButton
         Left = 638
         Top = 0

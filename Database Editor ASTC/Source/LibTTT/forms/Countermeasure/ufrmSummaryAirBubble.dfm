@@ -14,6 +14,7 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -98
-    ExplicitTop = 45
-    ExplicitWidth = 466
-    ExplicitHeight = 278
     object pnl3Button: TPanel
       Left = 1
       Top = 279
@@ -44863,9 +44860,6 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 280
-      ExplicitWidth = 368
       object btnApply: TButton
         Left = 191
         Top = 0
@@ -44925,10 +44919,6 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 65
-      ExplicitWidth = 368
-      ExplicitHeight = 258
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44939,12 +44929,8 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 348
-        ExplicitHeight = 238
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 340
-          ExplicitHeight = 198
           object lblMaxAcousticCross: TLabel
             Left = 19
             Top = 24
@@ -45049,6 +45035,10 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -45071,9 +45061,6 @@ object frmSummaryAirBubble: TfrmSummaryAirBubble
       BorderWidth = 4
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 368
       object Label1: TLabel
         Left = 10
         Top = 10

@@ -14,6 +14,7 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,8 +44851,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitTop = 70
-    ExplicitHeight = 257
     object pnl1Title: TPanel
       Left = 1
       Top = 6
@@ -44862,9 +44861,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 430
       object lblName: TLabel
         Left = 10
         Top = 6
@@ -44906,10 +44902,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 5
-      ExplicitWidth = 430
-      ExplicitHeight = 322
       object pcScenarioTabs: TPageControl
         Left = 10
         Top = 10
@@ -44920,12 +44912,8 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 410
-        ExplicitHeight = 302
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 402
-          ExplicitHeight = 262
           object chkEventPattern: TCheckBox
             Left = 25
             Top = 20
@@ -45034,9 +45022,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 332
-      ExplicitWidth = 430
       object btnOK: TButton
         Left = 168
         Top = 0
@@ -45108,9 +45093,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
       Color = clBackground
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 430
       object Image2: TImage
         Left = 0
         Top = 0
@@ -45140,9 +45122,6 @@ object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
       Color = clBackground
       ParentBackground = False
       TabOrder = 4
-      ExplicitLeft = 0
-      ExplicitTop = 370
-      ExplicitWidth = 430
       object Image1: TImage
         Left = 0
         Top = 0

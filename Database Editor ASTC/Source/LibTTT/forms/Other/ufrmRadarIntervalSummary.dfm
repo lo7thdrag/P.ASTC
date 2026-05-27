@@ -14,6 +14,7 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -394
-    ExplicitTop = -238
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 422
       object edtName: TEdit
         Left = 10
         Top = 31
@@ -44902,10 +44896,6 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 422
-      ExplicitHeight = 206
       object pcScenarioTabs: TPageControl
         Left = 10
         Top = 10
@@ -44916,12 +44906,8 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 402
-        ExplicitHeight = 186
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 394
-          ExplicitHeight = 146
           object btnEditList: TButton
             Left = 20
             Top = 30
@@ -44943,9 +44929,6 @@ object frmRadarIntervalSummary: TfrmRadarIntervalSummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 206
-      ExplicitWidth = 422
       object btnOK: TButton
         Left = 160
         Top = 0

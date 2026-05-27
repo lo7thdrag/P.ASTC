@@ -14,6 +14,7 @@ object frmSummarySatellite: TfrmSummarySatellite
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummarySatellite: TfrmSummarySatellite
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -451
-    ExplicitTop = -92
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummarySatellite: TfrmSummarySatellite
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 365
       object txtClass: TLabel
         Left = 10
         Top = 5
@@ -44907,10 +44901,6 @@ object frmSummarySatellite: TfrmSummarySatellite
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 365
-      ExplicitHeight = 352
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummarySatellite: TfrmSummarySatellite
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 345
-        ExplicitHeight = 332
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 337
-          ExplicitHeight = 292
           object lbl2: TLabel
             Left = 271
             Top = 121
@@ -45062,8 +45048,6 @@ object frmSummarySatellite: TfrmSummarySatellite
         object tsPhysical: TTabSheet
           Caption = 'Physical'
           ImageIndex = 1
-          ExplicitWidth = 337
-          ExplicitHeight = 227
           object grbDimensions: TGroupBox
             Left = 7
             Top = 16
@@ -45221,13 +45205,15 @@ object frmSummarySatellite: TfrmSummarySatellite
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 337
           ExplicitHeight = 227
           object mmoNotes: TMemo
             Left = 0
             Top = 0
-            Width = 317
-            Height = 272
+            Width = 315
+            Height = 205
             Align = alClient
             Lines.Strings = (
               ''
@@ -45247,9 +45233,6 @@ object frmSummarySatellite: TfrmSummarySatellite
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 352
-      ExplicitWidth = 365
       object btnApply: TButton
         Left = 190
         Top = 0

@@ -14,6 +14,7 @@ object frmSummaryRadar: TfrmSummaryRadar
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,8 +44851,6 @@ object frmSummaryRadar: TfrmSummaryRadar
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 65
-    ExplicitHeight = 337
     object pnl3Button: TPanel
       Left = 0
       Top = 402
@@ -44920,18 +44919,16 @@ object frmSummaryRadar: TfrmSummaryRadar
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitHeight = 380
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 742
         Height = 317
-        ActivePage = tsNotes
+        ActivePage = tsAntiJamming
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitHeight = 360
         object tsGeneral: TTabSheet
           Caption = 'General'
           object lblBaselineDelectionRange: TLabel
@@ -45677,7 +45674,6 @@ object frmSummaryRadar: TfrmSummaryRadar
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 3
-          ExplicitHeight = 320
           object mmoNotes: TMemo
             Left = 0
             Top = 0
@@ -45686,7 +45682,6 @@ object frmSummaryRadar: TfrmSummaryRadar
             Align = alClient
             TabOrder = 0
             OnChange = edtChange
-            ExplicitHeight = 300
           end
         end
       end

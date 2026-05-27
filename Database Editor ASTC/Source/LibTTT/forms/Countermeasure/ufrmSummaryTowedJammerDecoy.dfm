@@ -14,6 +14,7 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -199
-    ExplicitTop = 73
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 617
       object lblClass: TLabel
         Left = 10
         Top = 10
@@ -44907,10 +44901,6 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 617
-      ExplicitHeight = 537
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 597
-        ExplicitHeight = 517
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 589
-          ExplicitHeight = 477
           object lblECMType: TLabel
             Left = 14
             Top = 27
@@ -45458,9 +45444,6 @@ object frmSummaryTowedJammerDecoy: TfrmSummaryTowedJammerDecoy
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 537
-      ExplicitWidth = 617
       object btnApply: TButton
         Left = 441
         Top = 0

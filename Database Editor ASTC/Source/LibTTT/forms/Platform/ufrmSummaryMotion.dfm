@@ -14,6 +14,7 @@ object frmSummaryMotion: TfrmSummaryMotion
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryMotion: TfrmSummaryMotion
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -320
-    ExplicitTop = -27
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 31
@@ -44864,9 +44861,6 @@ object frmSummaryMotion: TfrmSummaryMotion
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 496
       object Label1: TLabel
         Left = 10
         Top = 10
@@ -44907,28 +44901,18 @@ object frmSummaryMotion: TfrmSummaryMotion
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 30
-      ExplicitWidth = 496
-      ExplicitHeight = 387
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 474
         Height = 300
-        ActivePage = tsEndurance
+        ActivePage = tsHorizontal
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 476
-        ExplicitHeight = 367
         object tsHorizontal: TTabSheet
           Caption = 'Horizontal'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object grpIRCM: TGroupBox
             Left = 19
             Top = 10
@@ -45213,10 +45197,6 @@ object frmSummaryMotion: TfrmSummaryMotion
         object tsVertical: TTabSheet
           Caption = 'Vertical'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object lblMaxAltitude: TLabel
             Left = 16
             Top = 24
@@ -45412,8 +45392,6 @@ object frmSummaryMotion: TfrmSummaryMotion
         object tsEndurance: TTabSheet
           Caption = 'Endurance'
           ImageIndex = 2
-          ExplicitWidth = 468
-          ExplicitHeight = 327
           object Label2: TLabel
             Left = 14
             Top = 19
@@ -45700,9 +45678,6 @@ object frmSummaryMotion: TfrmSummaryMotion
       BorderWidth = 4
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 496
       object lblTypeHorizontal: TLabel
         Left = 10
         Top = 11
@@ -45739,9 +45714,6 @@ object frmSummaryMotion: TfrmSummaryMotion
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 3
-      ExplicitLeft = 0
-      ExplicitTop = 417
-      ExplicitWidth = 496
       object btnApply: TButton
         Left = 321
         Top = 0

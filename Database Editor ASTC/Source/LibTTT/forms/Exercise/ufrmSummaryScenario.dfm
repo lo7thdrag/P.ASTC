@@ -44852,10 +44852,6 @@ object frmSummaryScenario: TfrmSummaryScenario
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -385
-    ExplicitTop = -113
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44866,9 +44862,6 @@ object frmSummaryScenario: TfrmSummaryScenario
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 431
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -44901,10 +44894,6 @@ object frmSummaryScenario: TfrmSummaryScenario
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 431
-      ExplicitHeight = 331
       object pcScenarioTabs: TPageControl
         Left = 10
         Top = 10
@@ -44915,14 +44904,8 @@ object frmSummaryScenario: TfrmSummaryScenario
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 411
-        ExplicitHeight = 311
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object StaticText1: TStaticText
             Left = 12
             Top = 16
@@ -44962,8 +44945,6 @@ object frmSummaryScenario: TfrmSummaryScenario
         object tsRelationships: TTabSheet
           Caption = 'Relationships'
           ImageIndex = 3
-          ExplicitWidth = 403
-          ExplicitHeight = 271
           object rgForce: TRadioGroup
             Left = 16
             Top = 3
@@ -45022,9 +45003,6 @@ object frmSummaryScenario: TfrmSummaryScenario
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 331
-      ExplicitWidth = 431
       object btnPreplayScenario: TButton
         Left = 10
         Top = 0

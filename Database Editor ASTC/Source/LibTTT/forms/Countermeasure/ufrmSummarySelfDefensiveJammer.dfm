@@ -14,6 +14,7 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -396
-    ExplicitTop = -3
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 420
       object lblClass: TLabel
         Left = 10
         Top = 10
@@ -44907,10 +44901,6 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 420
-      ExplicitHeight = 441
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44921,12 +44911,8 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 400
-        ExplicitHeight = 421
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 392
-          ExplicitHeight = 381
           object lblECMType: TLabel
             Left = 16
             Top = 16
@@ -45116,13 +45102,15 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitWidth = 392
           ExplicitHeight = 316
           object mmoNotes: TMemo
             Left = 0
             Top = 0
-            Width = 372
-            Height = 361
+            Width = 370
+            Height = 294
             Align = alClient
             Lines.Strings = (
               '')
@@ -45141,9 +45129,6 @@ object frmSummarySelfDefensiveJammer: TfrmSummarySelfDefensiveJammer
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 441
-      ExplicitWidth = 420
       object btnOK: TButton
         Left = 160
         Top = 0

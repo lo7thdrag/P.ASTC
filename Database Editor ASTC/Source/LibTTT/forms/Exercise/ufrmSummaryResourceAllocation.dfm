@@ -44852,10 +44852,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 16
-    ExplicitTop = 81
-    ExplicitWidth = 392
-    ExplicitHeight = 188
     object pnl3Button: TPanel
       Left = 0
       Top = 366
@@ -44922,18 +44918,16 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       Color = 2499101
       TabOrder = 1
       OnClick = pnl2ControlPageClick
-      ExplicitHeight = 344
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 439
         Height = 281
-        ActivePage = tsGeneral
+        ActivePage = tsResources
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitHeight = 324
         object tsGeneral: TTabSheet
           Caption = 'General'
           object btnBrowseEnvironment: TSpeedButton
@@ -45024,7 +45018,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             Height = 22
             Date = 42300.000000000000000000
             Format = 'dd MMM yyyy'
-            Time = 0.714370370369579200
+            Time = 0.714370370369579100
             TabOrder = 6
             OnChange = dtpDateChange
           end
@@ -45034,7 +45028,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             Width = 73
             Height = 22
             Date = 42300.000000000000000000
-            Time = 0.714370370369579200
+            Time = 0.714370370369579100
             Kind = dtkTime
             TabOrder = 7
             OnChange = dtpTimeChange
@@ -45160,7 +45154,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         object tsResources: TTabSheet
           Caption = 'Resources'
           ImageIndex = 2
-          ExplicitHeight = 284
           object btnRuntimePlatformLibraries: TButton
             Left = 23
             Top = 101

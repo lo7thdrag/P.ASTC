@@ -123,6 +123,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FSelectedMotion : TMotion_Characteristics;
@@ -149,7 +150,25 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
+
+procedure TfrmSummaryMotion.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
+end;
 
 procedure TfrmSummaryMotion.FormShow(Sender: TObject);
 begin

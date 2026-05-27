@@ -14,6 +14,7 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -267
-    ExplicitTop = 20
-    ExplicitWidth = 645
-    ExplicitHeight = 382
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44866,9 +44863,6 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
       DoubleBuffered = True
       ParentDoubleBuffered = False
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 378
       object lblClass: TLabel
         Left = 10
         Top = 5
@@ -44886,7 +44880,7 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
         Tag = 4
         Left = 10
         Top = 26
-        Width = 358
+        Width = 356
         Height = 24
         AutoSize = False
         Font.Charset = DEFAULT_CHARSET
@@ -44911,10 +44905,6 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
       DoubleBuffered = True
       ParentDoubleBuffered = False
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 378
-      ExplicitHeight = 359
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44925,12 +44915,8 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
-        ExplicitWidth = 358
-        ExplicitHeight = 339
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 350
-          ExplicitHeight = 299
           object lblMaxIRCrossSection: TLabel
             Left = 15
             Top = 22
@@ -45100,11 +45086,8 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
       DoubleBuffered = True
       ParentDoubleBuffered = False
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 359
-      ExplicitWidth = 378
       object btnApply: TButton
-        Left = 203
+        Left = 201
         Top = 0
         Width = 80
         Height = 30
@@ -45119,7 +45102,7 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 288
+        Left = 286
         Top = 0
         Width = 80
         Height = 30
@@ -45134,7 +45117,7 @@ object frmSummaryInfraredDecoy: TfrmSummaryInfraredDecoy
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 118
+        Left = 116
         Top = 0
         Width = 80
         Height = 30

@@ -14,6 +14,7 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -44850,10 +44851,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -487
-    ExplicitTop = -132
-    ExplicitWidth = 816
-    ExplicitHeight = 487
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44864,9 +44861,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 329
       object Label1: TLabel
         Left = 10
         Top = 10
@@ -44906,10 +44900,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 329
-      ExplicitHeight = 312
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44920,12 +44910,8 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 309
-        ExplicitHeight = 292
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 301
-          ExplicitHeight = 252
           object grbPlatforms: TGroupBox
             Left = 12
             Top = 6
@@ -44991,9 +44977,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 312
-      ExplicitWidth = 329
       object btnApply: TButton
         Left = 152
         Top = 0

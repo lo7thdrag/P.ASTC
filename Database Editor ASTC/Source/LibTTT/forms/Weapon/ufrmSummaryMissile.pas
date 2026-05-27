@@ -330,12 +330,27 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmSummaryMissile.FormCreate(Sender: TObject);
 begin
   FSelectedHybrid := THybrid_On_Board.Create;
   FSelectedMotion := TMotion_Characteristics.Create;
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSummaryMissile.FormDestroy(Sender: TObject);

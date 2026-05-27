@@ -20,6 +20,8 @@ type
     pnlTableList: TPanel;
     lstEnvironments: TListBox;
     Image1: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +35,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -325,6 +328,12 @@ begin
   end;
 
   subAreaEnviList.Free;
+end;
+
+procedure TfrmAvailableEnvironments.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+//
 end;
 
 {$ENDREGION}

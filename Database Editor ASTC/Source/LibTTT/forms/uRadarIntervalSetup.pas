@@ -43,6 +43,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedRadarInterval : TRadar_Interval_List;
@@ -62,9 +63,22 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRadarIntervalSummary;
+  uDataModuleTTT, ufrmRadarIntervalSummary, uSimContainers;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfRadarIntervalSetup.btnAddClick(Sender: TObject);
 var
@@ -223,6 +237,13 @@ end;
 procedure TfRadarIntervalSetup.FormCreate(Sender: TObject);
 begin
   FRadarIntervalDefList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfRadarIntervalSetup.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FRadarIntervalDefList);
 end;
 
 procedure TfRadarIntervalSetup.FormShow(Sender: TObject);
