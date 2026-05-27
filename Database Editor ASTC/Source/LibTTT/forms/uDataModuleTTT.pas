@@ -292,6 +292,7 @@ type
 
     {$REGION ' Motion '}
     function GetAllMotionCharacteristicDef(aList: TList): Integer;
+    function GetAllMotionCount: Integer;
     function GetMotionCharacteristicDef(const aClassName: string): Integer; overload;
     function GetMotionCharacteristicDef(const aClassID: Integer; var aMotion: TMotion_Characteristics): Boolean; overload;
     function GetFilterMotionCharacteristicDef(var aList: TList; aFilter: string): integer;
@@ -8277,6 +8278,24 @@ begin
         Next;
       end;
     end;
+  end;
+end;
+
+function TdmTTT.GetAllMotionCount: Integer;
+begin
+  Result := 0;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Motion_Characteristics ');
+    Open;
+
+    Result := RecordCount;
   end;
 end;
 
@@ -21598,7 +21617,7 @@ end;
 
 function TdmTTT.GetAllRPLCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;

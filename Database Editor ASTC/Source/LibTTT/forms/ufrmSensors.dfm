@@ -44846,8 +44846,8 @@ object frmSensors: TfrmSensors
     ExplicitHeight = 441
   end
   object imgSonar: TImage
-    Left = 9
-    Top = 11
+    Left = 1
+    Top = 287
     Width = 815
     Height = 296
     Cursor = crHandPoint
@@ -49045,7 +49045,7 @@ object frmSensors: TfrmSensors
   end
   object imgEOD: TImage
     Left = 29
-    Top = 600
+    Top = 608
     Width = 795
     Height = 298
     Cursor = crHandPoint
@@ -52418,9 +52418,9 @@ object frmSensors: TfrmSensors
     OnMouseLeave = IconMouseLeave
   end
   object imgMAD: TImage
-    Left = 814
+    Left = 800
     Top = 8
-    Width = 705
+    Width = 719
     Height = 393
     Cursor = crHandPoint
     Picture.Data = {
@@ -58681,8 +58681,8 @@ object frmSensors: TfrmSensors
     OnMouseLeave = IconMouseLeave
   end
   object imgRadar: TImage
-    Left = 21
-    Top = 319
+    Left = 11
+    Top = 21
     Width = 771
     Height = 290
     Cursor = crHandPoint
@@ -70306,8 +70306,8 @@ object frmSensors: TfrmSensors
     OnMouseLeave = IconMouseLeave
   end
   object lblRadarCount: TLabel
-    Left = 56
-    Top = 545
+    Left = 47
+    Top = 230
     Width = 209
     Height = 41
     AutoSize = False
@@ -70320,8 +70320,8 @@ object frmSensors: TfrmSensors
     ParentFont = False
   end
   object lblEODCount: TLabel
-    Left = 40
-    Top = 793
+    Left = 57
+    Top = 649
     Width = 209
     Height = 41
     AutoSize = False
@@ -70334,8 +70334,8 @@ object frmSensors: TfrmSensors
     ParentFont = False
   end
   object lblSonarCount: TLabel
-    Left = 88
-    Top = 266
+    Left = 78
+    Top = 526
     Width = 209
     Height = 41
     AutoSize = False
@@ -70348,8 +70348,8 @@ object frmSensors: TfrmSensors
     ParentFont = False
   end
   object lblESMCount: TLabel
-    Left = 852
-    Top = 457
+    Left = 860
+    Top = 465
     Width = 209
     Height = 41
     AutoSize = False
@@ -70363,7 +70363,7 @@ object frmSensors: TfrmSensors
   end
   object lblSonobuoyCount: TLabel
     Left = 1293
-    Top = 452
+    Top = 772
     Width = 209
     Height = 41
     Alignment = taRightJustify
@@ -70377,8 +70377,8 @@ object frmSensors: TfrmSensors
     ParentFont = False
   end
   object lblMADCount: TLabel
-    Left = 848
-    Top = 307
+    Left = 867
+    Top = 79
     Width = 209
     Height = 41
     AutoSize = False

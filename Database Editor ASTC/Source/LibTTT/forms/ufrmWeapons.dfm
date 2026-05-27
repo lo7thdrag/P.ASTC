@@ -58189,8 +58189,8 @@ object frmWeapons: TfrmWeapons
     OnMouseLeave = IconMouseLeave
   end
   object imgMine: TImage
-    Left = 424
-    Top = 464
+    Left = 419
+    Top = 468
     Width = 433
     Height = 418
     Cursor = crHandPoint
@@ -66522,8 +66522,8 @@ object frmWeapons: TfrmWeapons
     OnMouseLeave = IconMouseLeave
   end
   object lblGunCount: TLabel
-    Left = 483
-    Top = 353
+    Left = 435
+    Top = 42
     Width = 209
     Height = 41
     AutoSize = False
@@ -66536,8 +66536,8 @@ object frmWeapons: TfrmWeapons
     ParentFont = False
   end
   object lblBombCount: TLabel
-    Left = 1203
-    Top = 375
+    Left = 1198
+    Top = 359
     Width = 209
     Height = 41
     AutoSize = False
@@ -66550,8 +66550,8 @@ object frmWeapons: TfrmWeapons
     ParentFont = False
   end
   object lblTorpedoCount: TLabel
-    Left = 858
-    Top = 821
+    Left = 850
+    Top = 805
     Width = 209
     Height = 41
     AutoSize = False
@@ -66564,8 +66564,8 @@ object frmWeapons: TfrmWeapons
     ParentFont = False
   end
   object lblMineCount: TLabel
-    Left = 463
-    Top = 473
+    Left = 455
+    Top = 489
     Width = 209
     Height = 41
     AutoSize = False
@@ -66578,8 +66578,8 @@ object frmWeapons: TfrmWeapons
     ParentFont = False
   end
   object lblMissileCount: TLabel
-    Left = 62
-    Top = 29
+    Left = 76
+    Top = 42
     Width = 209
     Height = 41
     AutoSize = False

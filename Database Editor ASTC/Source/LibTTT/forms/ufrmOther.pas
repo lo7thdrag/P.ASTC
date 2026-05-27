@@ -9,25 +9,23 @@ uses
 
 type
   TfrmOther = class(TForm)
-    imgStudentRoles: TImage;
+    imgMotion: TImage;
     imgGraphicalOverlay: TImage;
     imgRuntimePlatfromLibrary: TImage;
     imgGameDefault: TImage;
-    imgRadarActivationIntervals: TImage;
     imgSNR: TImage;
     imgBackground: TImage;
     lblGameDefaultCount: TLabel;
     lblGraphicalOverlayCount: TLabel;
-    lblStudentRolesCount: TLabel;
+    lblMotionCount: TLabel;
     lblRPLCount: TLabel;
     lblSNRvsPODCount: TLabel;
-    lblRadarActivationCount: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
     procedure imgRuntimePlatfromLibraryClick(Sender: TObject);
     procedure imgGraphicalOverlayClick(Sender: TObject);
-    procedure imgStudentRolesClick(Sender: TObject);
+    procedure imgMotionClick(Sender: TObject);
     procedure imgGameDefaultClick(Sender: TObject);
     procedure imgSNRClick(Sender: TObject);
     procedure imgRadarActivationIntervalsClick(Sender: TObject);
@@ -75,9 +73,9 @@ begin
   begin
     imgGraphicalOverlay.Picture.LoadFromFile(filePath + 'imgGraphicalOverlay' + imgChoice);
   end
-  else if iconName = 'imgRadarActivationIntervals' then
+  else if iconName = 'imgMotion' then
   begin
-    imgRadarActivationIntervals.Picture.LoadFromFile(filePath + 'imgRadarActivationIntervals' + imgChoice);
+    imgMotion.Picture.LoadFromFile(filePath + 'imgMotion' + imgChoice);
   end
   else if iconName = 'imgRuntimePlatfromLibrary' then
   begin
@@ -87,10 +85,6 @@ begin
   begin
     imgSNR.Picture.LoadFromFile(filePath + 'imgSNR' + imgChoice);
   end
-  else if iconName = 'imgStudentRoles' then
-  begin
-    imgStudentRoles.Picture.LoadFromFile(filePath + 'imgStudentRoles' + imgChoice);
-  end;
 end;
 
 procedure TfrmOther.IconMouseEnter(Sender: TObject);
@@ -156,7 +150,7 @@ begin
   frmAvailableSNRvsPODCurve.Show;
 end;
 
-procedure TfrmOther.imgStudentRolesClick(Sender: TObject);
+procedure TfrmOther.imgMotionClick(Sender: TObject);
 begin
   if not Assigned(frmAvailableStudentRoles) then
     frmAvailableStudentRoles := TfrmAvailableStudentRoles.Create(self);
@@ -179,12 +173,8 @@ begin
   lblRPLCount.Caption := IntToStr(dmTTT.GetAllRPLCount) + ' Data';
   {$ENDREGION}
 
-  {$REGION ' Student Roles '}
-  lblStudentRolesCount.Caption := IntToStr(dmTTT.GetAllStudentRolesCount) + ' Data';
-  {$ENDREGION}
-
-  {$REGION ' Radar Activation '}
-  lblRadarActivationCount.Caption := IntToStr(dmTTT.GetAllRadarActivationCount) + ' Data';
+  {$REGION ' Motion '}
+  lblMotionCount.Caption := IntToStr(dmTTT.GetAllMotionCount) + ' Data';
   {$ENDREGION}
 
   {$REGION ' SNR vs POD Curve '}

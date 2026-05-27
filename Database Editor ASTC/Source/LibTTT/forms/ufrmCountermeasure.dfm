@@ -73225,8 +73225,8 @@ object frmCountermeasure: TfrmCountermeasure
     OnMouseLeave = IconMouseLeave
   end
   object lblAirBubbleCount: TLabel
-    Left = 85
-    Top = 240
+    Left = 45
+    Top = 64
     Width = 209
     Height = 41
     AutoSize = False
@@ -73239,10 +73239,11 @@ object frmCountermeasure: TfrmCountermeasure
     ParentFont = False
   end
   object lblTowedJammerCount: TLabel
-    Left = 33
-    Top = 547
+    Left = 353
+    Top = 478
     Width = 209
     Height = 41
+    Alignment = taRightJustify
     AutoSize = False
     Caption = '0 Data'
     Font.Charset = ANSI_CHARSET
@@ -73253,8 +73254,8 @@ object frmCountermeasure: TfrmCountermeasure
     ParentFont = False
   end
   object lblChaffCount: TLabel
-    Left = 619
-    Top = 270
+    Left = 631
+    Top = 50
     Width = 209
     Height = 41
     AutoSize = False
@@ -73267,10 +73268,11 @@ object frmCountermeasure: TfrmCountermeasure
     ParentFont = False
   end
   object lblInfraredDecoyCount: TLabel
-    Left = 1133
-    Top = 271
+    Left = 1298
+    Top = 209
     Width = 209
     Height = 41
+    Alignment = taRightJustify
     AutoSize = False
     Caption = '0 Data'
     Font.Charset = ANSI_CHARSET
@@ -73281,8 +73283,8 @@ object frmCountermeasure: TfrmCountermeasure
     ParentFont = False
   end
   object lblRadarJammerCount: TLabel
-    Left = 1050
-    Top = 562
+    Left = 1030
+    Top = 401
     Width = 209
     Height = 41
     AutoSize = False
@@ -73296,7 +73298,7 @@ object frmCountermeasure: TfrmCountermeasure
   end
   object lblFloatingDecoyCount: TLabel
     Left = 1032
-    Top = 831
+    Top = 815
     Width = 209
     Height = 41
     AutoSize = False
@@ -73309,8 +73311,8 @@ object frmCountermeasure: TfrmCountermeasure
     ParentFont = False
   end
   object lblAccousticDecoyCount: TLabel
-    Left = 637
-    Top = 388
+    Left = 643
+    Top = 396
     Width = 209
     Height = 41
     AutoSize = False
@@ -73323,8 +73325,8 @@ object frmCountermeasure: TfrmCountermeasure
     ParentFont = False
   end
   object lblSelfDefensiveCount: TLabel
-    Left = 31
-    Top = 827
+    Left = 45
+    Top = 650
     Width = 209
     Height = 41
     AutoSize = False

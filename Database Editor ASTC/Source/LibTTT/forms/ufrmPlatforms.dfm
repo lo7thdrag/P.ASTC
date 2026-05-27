@@ -68407,8 +68407,8 @@ object frmPlatforms: TfrmPlatforms
     OnMouseLeave = IconMouseLeave
   end
   object lblVehicleCount: TLabel
-    Left = 105
-    Top = 807
+    Left = 97
+    Top = 783
     Width = 209
     Height = 41
     AutoSize = False
