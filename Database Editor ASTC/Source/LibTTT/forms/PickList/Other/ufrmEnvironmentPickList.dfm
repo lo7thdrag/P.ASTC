@@ -57,9 +57,10 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 629
     object btnCancel: TButton
       Left = 404
-      Top = 2
+      Top = 1
       Width = 80
       Height = 30
       Caption = 'Cancel'
@@ -74,7 +75,7 @@ object frmEnvironmentPickList: TfrmEnvironmentPickList
     end
     object btnAdd: TButton
       Left = 314
-      Top = 2
+      Top = 1
       Width = 80
       Height = 30
       Caption = 'Pick'

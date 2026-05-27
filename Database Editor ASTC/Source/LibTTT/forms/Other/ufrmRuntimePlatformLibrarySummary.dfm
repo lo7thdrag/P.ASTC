@@ -69,8 +69,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 237
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -81,10 +79,8 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitHeight = 217
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitHeight = 177
         object grbPlatforms: TGroupBox
           Left = 12
           Top = 6
@@ -152,29 +148,47 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     ParentBackground = False
     TabOrder = 2
     object btnApply: TButton
-      Left = 164
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 154
+      Top = 1
+      Width = 80
+      Height = 30
       Caption = 'Apply'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
       OnClick = btnApplyClick
     end
     object btnCancel: TButton
-      Left = 244
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 239
+      Top = 1
+      Width = 80
+      Height = 30
       Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
       OnClick = btnCancelClick
     end
     object btnOK: TButton
-      Left = 84
-      Top = 5
-      Width = 75
-      Height = 25
+      Left = 69
+      Top = 1
+      Width = 80
+      Height = 30
       Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = btnOKClick
     end

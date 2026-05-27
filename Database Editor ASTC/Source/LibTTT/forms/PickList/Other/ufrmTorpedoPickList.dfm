@@ -60,13 +60,13 @@ object frmTorpedoPickList: TfrmTorpedoPickList
     TabOrder = 1
     object btnCancel: TButton
       Left = 404
-      Top = 2
+      Top = 0
       Width = 80
       Height = 30
       Caption = 'Cancel'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -16
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
@@ -74,14 +74,14 @@ object frmTorpedoPickList: TfrmTorpedoPickList
       OnClick = btnCancelClick
     end
     object btnAdd: TButton
-      Left = 314
-      Top = 2
+      Left = 319
+      Top = 0
       Width = 80
       Height = 30
       Caption = 'Pick'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -16
+      Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False

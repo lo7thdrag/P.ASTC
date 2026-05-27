@@ -44927,7 +44927,7 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
       Color = 2499101
       TabOrder = 2
       object btnApply: TButton
-        Left = 112
+        Left = 113
         Top = 0
         Width = 80
         Height = 30
@@ -44957,7 +44957,7 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 27
+        Left = 29
         Top = 0
         Width = 80
         Height = 30
