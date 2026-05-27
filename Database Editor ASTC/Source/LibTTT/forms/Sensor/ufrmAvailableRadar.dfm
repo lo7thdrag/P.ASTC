@@ -4,19 +4,17 @@ object frmAvailableRadar: TfrmAvailableRadar
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Radars'
-  ClientHeight = 461
-  ClientWidth = 884
+  ClientHeight = 500
+  ClientWidth = 900
   Color = clBtnFace
-  DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Tahoma'
   Font.Style = []
-  FormStyle = fsMDIChild
   OldCreateOrder = False
   Visible = True
-  OnActivate = FormActivate
+  WindowState = wsMaximized
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -25,23 +23,24 @@ object frmAvailableRadar: TfrmAvailableRadar
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 884
-    Height = 461
+    Width = 900
+    Height = 500
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
-    ParentBackground = False
     TabOrder = 0
+    ExplicitHeight = 942
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 884
+      Width = 900
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 884
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -56,7 +55,7 @@ object frmAvailableRadar: TfrmAvailableRadar
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 304
+        Left = 320
         Top = 0
         Width = 580
         Height = 57
@@ -66,6 +65,7 @@ object frmAvailableRadar: TfrmAvailableRadar
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 304
         DesignSize = (
           580
           57)
@@ -684,19 +684,21 @@ object frmAvailableRadar: TfrmAvailableRadar
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 884
-      Height = 404
+      Width = 900
+      Height = 443
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitWidth = 884
+      ExplicitHeight = 404
       object lbRadars: TListBox
         Left = 10
         Top = 10
-        Width = 864
-        Height = 384
+        Width = 880
+        Height = 423
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -707,6 +709,8 @@ object frmAvailableRadar: TfrmAvailableRadar
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitWidth = 864
+        ExplicitHeight = 384
       end
     end
   end

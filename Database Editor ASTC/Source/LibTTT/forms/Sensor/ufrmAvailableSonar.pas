@@ -25,7 +25,6 @@ type
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
@@ -56,16 +55,26 @@ uses
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableSonar.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableSonar.FormCreate(Sender: TObject);
 begin
   FSonarList := TList.Create;
+
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableSonar.FormDestroy(Sender: TObject);

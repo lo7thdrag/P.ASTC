@@ -25,7 +25,6 @@ type
     edtSearch: TEdit;
 
     procedure FormDestroy(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -57,16 +56,26 @@ uses
 
 {$R *.dfm}
 
-{$REGION ' Form Handle '}
-
-procedure TfrmAvailableRadar.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+{$REGION ' Form Handle '}
 
 procedure TfrmAvailableRadar.FormCreate(Sender: TObject);
 begin
   FRadarList := TList.Create;
+
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableRadar.FormDestroy(Sender: TObject);
@@ -77,6 +86,7 @@ end;
 procedure TfrmAvailableRadar.FormShow(Sender: TObject);
 begin
   UpdateRadarList;
+  WindowState := wsMaximized;
 end;
 
 {$ENDREGION}

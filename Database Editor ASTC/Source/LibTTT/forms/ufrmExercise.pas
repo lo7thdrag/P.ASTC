@@ -9,16 +9,16 @@ uses
 
 type
   TfrmExercise = class(TForm)
-    imgScenario: TImage;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
     imgEnvironment: TImage;
     imgGameArea: TImage;
     imgResourceAllocation: TImage;
-    imgBackground: TImage;
-    lblScenarioCount: TLabel;
+    imgScenario: TImage;
+    lblEnvironmentCount: TLabel;
     lblGameAreaCount: TLabel;
     lblResourceCount: TLabel;
-    lblEnvironmentCount: TLabel;
-    procedure FormActivate(Sender: TObject);
+    lblScenarioCount: TLabel;
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
 
@@ -27,6 +27,7 @@ type
     procedure EnvironmentClick(Sender: TObject);
     procedure GameAreaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
    private
     iconName : string;
@@ -50,9 +51,22 @@ uses
 
 {$R *.dfm}
 
-procedure TfrmExercise.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+procedure TfrmExercise.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmExercise.FormShow(Sender: TObject);

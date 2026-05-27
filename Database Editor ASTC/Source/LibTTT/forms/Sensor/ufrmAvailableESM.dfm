@@ -4,8 +4,8 @@ object frmAvailableESM: TfrmAvailableESM
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Electronic Support Measures'
-  ClientHeight = 461
-  ClientWidth = 884
+  ClientHeight = 500
+  ClientWidth = 900
   Color = cl3DDkShadow
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -13,7 +13,6 @@ object frmAvailableESM: TfrmAvailableESM
   Font.Height = -12
   Font.Name = 'Tahoma'
   Font.Style = []
-  FormStyle = fsMDIChild
   OldCreateOrder = False
   Visible = True
   OnActivate = FormActivate
@@ -25,25 +24,28 @@ object frmAvailableESM: TfrmAvailableESM
   object pnlMainTable: TPanel
     Left = 0
     Top = 0
-    Width = 884
-    Height = 461
+    Width = 900
+    Height = 500
     Align = alClient
     BevelOuter = bvNone
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 884
+    ExplicitHeight = 461
     object pnlTableHeader: TPanel
       Left = 0
       Top = 0
-      Width = 884
+      Width = 900
       Height = 57
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 884
       DesignSize = (
-        884
+        900
         57)
       object Label2: TLabel
         Left = 10
@@ -59,7 +61,7 @@ object frmAvailableESM: TfrmAvailableESM
         ParentFont = False
       end
       object pnlTableButton: TPanel
-        Left = 304
+        Left = 320
         Top = 0
         Width = 580
         Height = 57
@@ -69,6 +71,7 @@ object frmAvailableESM: TfrmAvailableESM
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 304
         DesignSize = (
           580
           57)
@@ -687,19 +690,21 @@ object frmAvailableESM: TfrmAvailableESM
     object pnlTableList: TPanel
       Left = 0
       Top = 57
-      Width = 884
-      Height = 404
+      Width = 900
+      Height = 443
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitWidth = 884
+      ExplicitHeight = 404
       object lbESM: TListBox
         Left = 10
         Top = 10
-        Width = 864
-        Height = 384
+        Width = 880
+        Height = 423
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -710,6 +715,8 @@ object frmAvailableESM: TfrmAvailableESM
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitWidth = 864
+        ExplicitHeight = 384
       end
     end
   end

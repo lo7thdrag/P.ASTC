@@ -9,14 +9,15 @@ uses
 
 type
   TfrmPlatforms = class(TForm)
-    imgVehicle: TImage;
     imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    imgVehicle: TImage;
     lblVehicleCount: TLabel;
-    procedure FormActivate(Sender: TObject);
     procedure imgVehicleClick(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     iconName : string;
@@ -40,9 +41,22 @@ uses
 
 {$R *.dfm}
 
-procedure TfrmPlatforms.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+procedure TfrmPlatforms.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmPlatforms.FormShow(Sender: TObject);

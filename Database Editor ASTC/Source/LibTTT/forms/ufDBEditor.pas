@@ -4,7 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, ImgList, jpeg, ExtCtrls, Vcl.Imaging.pngimage, Vcl.StdCtrls, ShellAPI;
+  Dialogs, Menus, ImgList, jpeg, ExtCtrls, Vcl.Imaging.pngimage, Vcl.StdCtrls, ShellAPI,
+
+  tttData;
 
 type
   TfDBEditor = class(TForm)
@@ -161,13 +163,13 @@ type
     pnlFooter: TPanel;
     img4: TImage;
     pnlSparatorFooter: TPanel;
-    Panel1: TPanel;
     pnlHome: TPanel;
     Image7: TImage;
     mnMotion: TLabel;
-    Panel2: TPanel;
-    Image2: TImage;
+    pnlSparatorCenterLeft: TPanel;
     imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    pnlSparatorCenterRight: TPanel;
 
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -191,12 +193,12 @@ type
 
     {$REGION ' Sensors Section '}
 
-    procedure RadarClick(Sender: TObject);
-    procedure SonarClick(Sender: TObject);
-    procedure ESMClick(Sender: TObject);
-    procedure ElectroOpticalDetectorClick(Sender: TObject);
-    procedure SonobuoyClick(Sender: TObject);
-    procedure MADClick(Sender: TObject);
+    procedure SubMenuClick(Sender: TObject);
+//    procedure SonarClick(Sender: TObject);
+//    procedure ESMClick(Sender: TObject);
+//    procedure ElectroOpticalDetectorClick(Sender: TObject);
+//    procedure SonobuoyClick(Sender: TObject);
+//    procedure MADClick(Sender: TObject);
 
     {$ENDREGION}
 
@@ -253,8 +255,6 @@ type
     procedure UnCollapseMenuClick();
     procedure MainMenuClick(Sender: TObject);
 
-    procedure imgShutdownClick(Sender: TObject);
-
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
 
@@ -268,13 +268,18 @@ type
     iconName : string;
     filePath, imgChoice : string;
 
+    FDockedForm : TForm;
+
     procedure IconLoad;
 
+    procedure DockForm(aForm: TForm);
+    procedure FormOnClose(Sender: TObject; var Action: TCloseAction);
 //    procedure LoadImageVariasi(i : byte);
 
   public
 
     procedure LoadImageVariasi(i : byte);
+    procedure FormFactory(aFormType: E_FormType; aDocked: Boolean = False);
 
   end;
 
@@ -307,8 +312,23 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 procedure TfDBEditor.FormCreate(Sender: TObject);
 begin
+  EnableComposited(pnlMainBackground);
+
   pnl1ExerciseBody.Height := 0;
   pnl2PlatformsBody.Height := 0;
   pnl3SensorsBody.Height := 0;
@@ -317,7 +337,6 @@ begin
   pnl6OtherBody.Height := 0;
   pnl8ShutdownBody.Height := 0;
 end;
-
 procedure TfDBEditor.FormShow(Sender: TObject);
 begin
   if ParamCount > 0 then
@@ -407,49 +426,16 @@ end;
 
 procedure TfDBEditor.MainMenuClick(Sender: TObject);
 begin
-//  LoadImageVariasi(1);
-  CollapseMenuClick(Sender);
-end;
-//
-//procedure TfDBEditor.imgPlatformsClick(Sender: TObject);
-//begin
-//  LoadImageVariasi(1);
-//  CollapseMenuClick(Sender);
-//end;
-//
-//procedure TfDBEditor.imgSensorsClick(Sender: TObject);
-//begin
-//
-//
-//  LoadImageVariasi(1);
-//  CollapseMenuClick(Sender);
-//end;
-//
-//procedure TfDBEditor.imgWeaponsClick(Sender: TObject);
-//begin
-//
-//  LoadImageVariasi(1);
-//  CollapseMenuClick(Sender);
-//end;
-//
-//procedure TfDBEditor.imgCountermeasuresClick(Sender: TObject);
-//begin
-//
-//
-//  LoadImageVariasi(1);
-//  CollapseMenuClick(Sender);
-//end;
-//
-//procedure TfDBEditor.imgOtherClick(Sender: TObject);
-//begin
-//
-//
-//  LoadImageVariasi(1);
-//  CollapseMenuClick(Sender);
-//end;
+  if Sender is TImage then
+    pnlActive := TImage(sender).Tag
+  else if Sender is TLabel then
+    pnlActive := TLabel(sender).Tag
+  else
+    Exit;
 
-procedure TfDBEditor.imgShutdownClick(Sender: TObject);
-begin
+  LoadImageVariasi(1);
+  FormFactory(E_FormType(pnlActive),True);
+
   CollapseMenuClick(Sender);
 end;
 
@@ -528,58 +514,18 @@ end;
 
 {$REGION ' Sensors Sub Menu Section '}
 
-procedure TfDBEditor.RadarClick(Sender: TObject);
+procedure TfDBEditor.SubMenuClick(Sender: TObject);
+var
+  subMenuTemp : Integer;
+
 begin
-  if not Assigned(frmAvailableRadar) then
-    frmAvailableRadar := TfrmAvailableRadar.Create(self);
+  if Sender is TLabel then
+    subMenuTemp := TLabel(sender).Tag
+  else
+    Exit;
 
   LoadImageVariasi(0);
-  frmAvailableRadar.Show;
-end;
-
-procedure TfDBEditor.SonarClick(Sender: TObject);
-begin
-   if not Assigned(frmAvailableSonar) then
-    frmAvailableSonar := TfrmAvailableSonar.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableSonar.Show;
-end;
-
-procedure TfDBEditor.ESMClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableESM) then
-    frmAvailableESM := TfrmAvailableESM.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableESM.Show;
-end;
-
-procedure TfDBEditor.ElectroOpticalDetectorClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableEOD) then
-    frmAvailableEOD := TfrmAvailableEOD.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableEOD.Show;
-end;
-
-procedure TfDBEditor.SonobuoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSonobuoy) then
-    frmAvailableSonobuoy := TfrmAvailableSonobuoy.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableSonobuoy.Show;
-end;
-
-procedure TfDBEditor.MADClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableMAD) then
-    frmAvailableMAD := TfrmAvailableMAD.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableMAD.Show;
+  FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 {$ENDREGION}
@@ -709,16 +655,7 @@ end;
 
 procedure TfDBEditor.LoadImageVariasi(i: byte);
 begin
-  if i=0 then
-  begin
-    pnlSparatorRight.Visible := False;
-    pnlVariasi.Visible := True;
-    pnlSparatorRight.Visible := True;
-  end
-  else
-  begin
-    pnlVariasi.Visible := False;
-  end;
+  pnlVariasi.Visible := i = 0;
 end;
 
 {$ENDREGION}
@@ -809,6 +746,11 @@ begin
   DisplayDimensionsinmetres1.Checked := True;
 end;
 
+procedure TfDBEditor.FormOnClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caHide;
+end;
+
 procedure TfDBEditor.ShutdownDatabaseEditor1Click(Sender: TObject);
 var warning : Integer;
 begin
@@ -845,6 +787,146 @@ end;
 
 {$REGION ' Navbar Section '}
 
+procedure TfDBEditor.DockForm(aForm: TForm);
+begin
+  if Assigned(FDockedForm) and (FDockedForm <> aForm) then
+    FDockedForm.Hide;
+
+  FDockedForm := aForm;
+
+  with FDockedForm do
+  begin
+    Left := 0;
+    Top := 0;
+    Position := poDefault;
+    BorderStyle := bsNone;
+    ParentColor := True;
+    Parent := pnlHome;
+    Align := alClient;
+    OnClose := FormOnClose;
+    Show;
+  end;
+end;
+
+procedure TfDBEditor.FormFactory(aFormType: E_FormType; aDocked: Boolean);
+var
+  aForm : TForm;
+begin
+  aForm := nil;
+
+  case aFormType of
+
+    {$REGION ' Main Menu '}
+    ftfrmSensor :
+    begin
+      if not Assigned(frmSensors) then
+          frmSensors := TfrmSensors.Create(self);
+
+      aForm := frmSensors;
+    end;
+    ftfrmWeapon :
+    begin
+      if not Assigned(frmWeapons) then
+          frmWeapons := TfrmWeapons.Create(self);
+
+      aForm := frmWeapons;
+    end;
+    ftfrmCountermaesure :
+    begin
+      if not Assigned(frmCountermeasure) then
+          frmCountermeasure := TfrmCountermeasure.Create(self);
+
+      aForm := frmCountermeasure;
+    end;
+    ftfrmPlatform :
+    begin
+      if not Assigned(frmPlatforms) then
+          frmPlatforms := TfrmPlatforms.Create(self);
+
+      aForm := frmPlatforms;
+    end;
+    ftfrmOther :
+    begin
+      if not Assigned(frmOther) then
+          frmOther := TfrmOther.Create(self);
+
+      aForm := frmOther;
+    end;
+    ftfrmExercise :
+    begin
+      if not Assigned(frmExercise) then
+          frmExercise := TfrmExercise.Create(self);
+
+      aForm := frmExercise;
+    end;
+    {$ENDREGION}
+
+    {$REGION ' Sensor Sub Menu '}
+    ftfrmAvailableRadar :
+    begin
+      if not Assigned(frmAvailableRadar) then
+          frmAvailableRadar := TfrmAvailableRadar.Create(self);
+
+      aForm := frmAvailableRadar;
+    end;
+    ftfrmAvailableSonar :
+    begin
+      if not Assigned(frmAvailableSonar) then
+          frmAvailableSonar := TfrmAvailableSonar.Create(self);
+
+      aForm := frmAvailableSonar;
+    end;
+    ftfrmAvailableESM :
+    begin
+      if not Assigned(frmAvailableESM) then
+          frmAvailableESM := TfrmAvailableESM.Create(self);
+
+      aForm := frmAvailableESM;
+    end;
+    ftfrmAvailableEOD :
+    begin
+      if not Assigned(frmAvailableEOD) then
+          frmAvailableEOD := TfrmAvailableEOD.Create(self);
+
+      aForm := frmAvailableEOD;
+    end;
+    ftfrmAvailableMAD :
+    begin
+      if not Assigned(frmAvailableMAD) then
+          frmAvailableMAD := TfrmAvailableMAD.Create(self);
+
+      aForm := frmAvailableMAD;
+    end;
+    ftfrmAvailableSonobuoy :
+    begin
+      if not Assigned(frmAvailableSonobuoy) then
+          frmAvailableSonobuoy := TfrmAvailableSonobuoy.Create(self);
+
+      aForm := frmAvailableSonobuoy;
+    end;
+    {$ENDREGION}
+
+    {$REGION ' Weapon Sub Menu '}
+    {$ENDREGION}
+
+    {$REGION ' Countermeasure Sub Menu '}
+    {$ENDREGION}
+
+    {$REGION ' Platform Sub Menu '}
+    {$ENDREGION}
+
+    {$REGION ' Other Sub Menu '}
+    {$ENDREGION}
+
+    {$REGION ' Exercise Sub Menu '}
+    {$ENDREGION}
+
+  end;
+
+  if Assigned(aForm) and aDocked then
+    DockForm(aForm);
+end;
+
 procedure TfDBEditor.IconLoad;
 begin
   if iconName = 'imgExercise' then
@@ -879,75 +961,15 @@ end;
 
 procedure TfDBEditor.CollapseMenuClick(Sender: TObject);
 begin
-  if Sender is TImage then
-    pnlActive := TImage(sender).Tag
-  else if Sender is TLabel then
-    pnlActive := TLabel(sender).Tag
-  else
-    Exit;
 
   case pnlActive of
-    0:
-    begin
-      if pnl1ExerciseBody.Height <> 0 then
-      begin
-        LoadImageVariasi(1);
-        frmExercise.BringToFront;
-        exit;
-      end;
-    end;
-    1:
-    begin
-      if pnl2PlatformsBody.Height <> 0 then
-      begin
-        LoadImageVariasi(1);
-        frmPlatforms.BringToFront;
-        exit;
-      end;
-    end;
-    2:
-    begin
-      if pnl3SensorsBody.Height <> 0 then
-      begin
-        LoadImageVariasi(1);
-        frmSensors.BringToFront;
-        exit;
-      end;
-    end;
-    3:
-    begin
-      if pnl4WeaponsBody.Height <> 0 then
-      begin
-        LoadImageVariasi(1);
-        frmWeapons.BringToFront;
-        exit;
-      end;
-    end;
-    4:
-    begin
-      if pnl5CountermeasuresBody.Height <> 0 then
-      begin
-        LoadImageVariasi(1);
-        frmCountermeasure.BringToFront;
-        exit;
-      end;
-    end;
-    5:
-    begin
-      if pnl6OtherBody.Height <> 0 then
-      begin
-        LoadImageVariasi(1);
-        frmOther.BringToFront;
-        exit;
-      end;
-    end;
-    7:
-    begin
-      if pnl8ShutdownBody.Height <> 0 then
-      begin
-        exit;
-      end;
-    end;
+    0: if pnl1ExerciseBody.Height <> 0 then exit;
+    1: if pnl2PlatformsBody.Height <> 0 then exit;
+    2: if pnl3SensorsBody.Height <> 0 then exit;
+    3: if pnl4WeaponsBody.Height <> 0 then exit;
+    4: if pnl5CountermeasuresBody.Height <> 0 then exit;
+    5: if pnl6OtherBody.Height <> 0 then exit;
+    7: if pnl8ShutdownBody.Height <> 0 then exit;
   end;
 
   UnCollapseMenuClick;
@@ -975,7 +997,6 @@ begin
   if not isFold then
     Exit;
 
-
   case pnlActive of
     0:
     begin
@@ -984,15 +1005,6 @@ begin
       else
       begin
         Timer1.Enabled := false;
-
-        LoadImageVariasi(1);
-
-        if not Assigned(frmExercise) then
-          frmExercise := TfrmExercise.Create(self)
-        else
-          frmExercise.Show;
-
-        pnlHome.Visible := False;
       end;
     end;
     1:
@@ -1002,15 +1014,6 @@ begin
       else
       begin
         Timer1.Enabled := false;
-
-        LoadImageVariasi(1);
-
-        if not Assigned(frmPlatforms) then
-          frmPlatforms := TfrmPlatforms.Create(self)
-        else
-          frmPlatforms.Show;
-
-        pnlHome.Visible := False;
       end;
     end;
     2:
@@ -1020,15 +1023,6 @@ begin
       else
       begin
         Timer1.Enabled := false;
-
-        LoadImageVariasi(1);
-
-        if not Assigned(frmSensors) then
-          frmSensors := TfrmSensors.Create(self)
-        else
-          frmSensors.Show;
-
-        pnlHome.Visible := False;
       end;
     end;
     3:
@@ -1038,15 +1032,6 @@ begin
       else
       begin
         Timer1.Enabled := false;
-
-        LoadImageVariasi(1);
-
-        if not Assigned(frmWeapons) then
-          frmWeapons := TfrmWeapons.Create(self)
-        else
-          frmWeapons.Show;
-
-        pnlHome.Visible := False;
       end;
     end;
     4:
@@ -1056,15 +1041,6 @@ begin
       else
       begin
         Timer1.Enabled := false;
-
-        LoadImageVariasi(1);
-
-        if not Assigned(frmCountermeasure) then
-          frmCountermeasure := TfrmCountermeasure.Create(self)
-        else
-          frmCountermeasure.Show;
-
-        pnlHome.Visible := False;
       end;
     end;
      5:
@@ -1074,15 +1050,6 @@ begin
       else
       begin
         Timer1.Enabled := false;
-
-        LoadImageVariasi(1);
-
-        if not Assigned(frmOther) then
-          frmOther := TfrmOther.Create(self)
-        else
-          frmOther.Show;
-
-        pnlHome.Visible := False;
       end;
     end;
     7:

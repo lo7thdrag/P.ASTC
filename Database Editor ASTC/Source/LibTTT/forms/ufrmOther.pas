@@ -9,18 +9,18 @@ uses
 
 type
   TfrmOther = class(TForm)
-    imgMotion: TImage;
-    imgGraphicalOverlay: TImage;
-    imgRuntimePlatfromLibrary: TImage;
-    imgGameDefault: TImage;
-    imgSNR: TImage;
     imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    imgGameDefault: TImage;
+    imgGraphicalOverlay: TImage;
+    imgMotion: TImage;
+    imgRuntimePlatfromLibrary: TImage;
+    imgSNR: TImage;
     lblGameDefaultCount: TLabel;
     lblGraphicalOverlayCount: TLabel;
     lblMotionCount: TLabel;
     lblRPLCount: TLabel;
     lblSNRvsPODCount: TLabel;
-    procedure FormActivate(Sender: TObject);
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
     procedure imgRuntimePlatfromLibraryClick(Sender: TObject);
@@ -30,6 +30,7 @@ type
     procedure imgSNRClick(Sender: TObject);
     procedure imgRadarActivationIntervalsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     iconName : string;
@@ -53,9 +54,22 @@ uses
 
 {$R *.dfm}
 
-procedure TfrmOther.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+procedure TfrmOther.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmOther.FormShow(Sender: TObject);

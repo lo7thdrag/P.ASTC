@@ -9,18 +9,18 @@ uses
 
 type
   TfrmWeapons = class(TForm)
-    imgMissile: TImage;
-    imgGun: TImage;
-    imgBomb: TImage;
-    imgMine: TImage;
-    imgTorpedo: TImage;
     imgBackground: TImage;
-    lblGunCount: TLabel;
+    pnlMainBackground: TPanel;
+    imgBomb: TImage;
+    imgGun: TImage;
+    imgMine: TImage;
+    imgMissile: TImage;
+    imgTorpedo: TImage;
     lblBombCount: TLabel;
-    lblTorpedoCount: TLabel;
+    lblGunCount: TLabel;
     lblMineCount: TLabel;
     lblMissileCount: TLabel;
-    procedure FormActivate(Sender: TObject);
+    lblTorpedoCount: TLabel;
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
     procedure imgMissileClick(Sender: TObject);
@@ -29,6 +29,7 @@ type
     procedure imgGunClick(Sender: TObject);
     procedure imgBombClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     iconName : string;
@@ -52,9 +53,22 @@ uses
 
 {$R *.dfm}
 
-procedure TfrmWeapons.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+procedure TfrmWeapons.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmWeapons.FormShow(Sender: TObject);

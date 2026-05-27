@@ -9,24 +9,24 @@ uses
 
 type
   TfrmCountermeasure = class(TForm)
-    imgTowedJammerIDecoy: TImage;
-    imgFloatingDecoy: TImage;
-    imgAirBubble: TImage;
-    imgAccousticDecoy: TImage;
-    imgSelfDefensiveJammer: TImage;
-    imgChaff: TImage;
-    imgRadarNoiseJammer: TImage;
-    imgInfraredDecoy: TImage;
     imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    imgAccousticDecoy: TImage;
+    imgAirBubble: TImage;
+    imgChaff: TImage;
+    imgFloatingDecoy: TImage;
+    imgInfraredDecoy: TImage;
+    imgRadarNoiseJammer: TImage;
+    imgSelfDefensiveJammer: TImage;
+    imgTowedJammerIDecoy: TImage;
+    lblAccousticDecoyCount: TLabel;
     lblAirBubbleCount: TLabel;
-    lblTowedJammerCount: TLabel;
     lblChaffCount: TLabel;
+    lblFloatingDecoyCount: TLabel;
     lblInfraredDecoyCount: TLabel;
     lblRadarJammerCount: TLabel;
-    lblFloatingDecoyCount: TLabel;
-    lblAccousticDecoyCount: TLabel;
     lblSelfDefensiveCount: TLabel;
-    procedure FormActivate(Sender: TObject);
+    lblTowedJammerCount: TLabel;
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
     procedure imgAccousticDecoyClick(Sender: TObject);
@@ -38,6 +38,7 @@ type
     procedure imgTowedJammerIDecoyClick(Sender: TObject);
     procedure imgRadarNoiseJammerClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     iconName : string;
@@ -61,9 +62,22 @@ uses
 
 {$R *.dfm}
 
-procedure TfrmCountermeasure.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+procedure TfrmCountermeasure.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmCountermeasure.FormShow(Sender: TObject);

@@ -214,6 +214,14 @@ const
   ovPolygon   = 9;
 
 type
+  E_FormType = (ftfrmExercise = 0, ftfrmPlatform, ftfrmSensor, ftfrmWeapon, ftfrmCountermaesure, ftfrmOther,
+    ftfrmAvailableRadar, ftfrmAvailableSonar, ftfrmAvailableESM, ftfrmAvailableEOD, ftfrmAvailableMAD, ftfrmAvailableSonobuoy,
+    ftPCSLocalControl, ftElemtMod, ftNetStatus, ftDataLogger, ftClientControl,
+    ftShipAlarm, ftNav_ComSys, ftTanksOverview, ftBilgeSystem,
+    ftAuxSystemOverview, ftTanksEditor, ftPMSOverview, ftVentSystem,
+    ftFireFightingSystem, ftACSControl, ftPropulsionConditions, ftTankSys,
+    ftACSTestFunction, ftFuelOilPanel, ftBallastPanel, ftFreshWaterPanel);
+
   E_BlindZoneCaller = (bzcFireControl = 1, bzcESM, bzcEO, bzcVisual,
     bzcPointEffect, bzcWeapon, bzcSonar, bzcRadar);
 

@@ -9,20 +9,20 @@ uses
 
 type
   TfrmSensors = class(TForm)
-    imgSonar: TImage;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
     imgEOD: TImage;
+    imgESM: TImage;
     imgMAD: TImage;
     imgRadar: TImage;
-    imgESM: TImage;
+    imgSonar: TImage;
     imgSonobuoy: TImage;
-    imgBackground: TImage;
-    lblRadarCount: TLabel;
     lblEODCount: TLabel;
-    lblSonarCount: TLabel;
     lblESMCount: TLabel;
-    lblSonobuoyCount: TLabel;
     lblMADCount: TLabel;
-    procedure FormActivate(Sender: TObject);
+    lblRadarCount: TLabel;
+    lblSonarCount: TLabel;
+    lblSonobuoyCount: TLabel;
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
     procedure imgRadarClick(Sender: TObject);
@@ -32,6 +32,7 @@ type
     procedure imgMADClick(Sender: TObject);
     procedure imgSonobuoyClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     iconName : string;
@@ -52,11 +53,25 @@ implementation
 uses
   ufDBEditor, ufrmAvailableRadar, ufrmAvailableSonar, ufrmAvailableESM, ufrmAvailableEOD, ufrmAvailableMAD, ufrmAvailableSonobuoy,
   uDataModuleTTT;
+
 {$R *.dfm}
 
-procedure TfrmSensors.FormActivate(Sender: TObject);
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
 begin
-  WindowState := wsMaximized;
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
+procedure TfrmSensors.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmSensors.FormShow(Sender: TObject);
