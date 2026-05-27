@@ -45008,7 +45008,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             Height = 23
             Caption = '...'
             TabOrder = 5
-            Visible = False
             OnClick = btnStudentRoleListClick
           end
           object dtpDate: TDateTimePicker
@@ -45057,7 +45056,6 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             ReadOnly = True
             TabOrder = 9
             Text = '[None]'
-            Visible = False
           end
         end
         object tsPlatforms: TTabSheet
@@ -45132,7 +45130,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             TabOrder = 1
             object btnSatellite: TButton
               Left = 18
-              Top = 102
+              Top = 70
               Width = 235
               Height = 45
               Caption = 'Satellite...'
@@ -45142,7 +45140,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             end
             object btnVehicle: TButton
               Left = 18
-              Top = 45
+              Top = 70
               Width = 235
               Height = 45
               Caption = 'Vehicle...'
@@ -45174,7 +45172,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           end
           object btnCommunicationResources: TButton
             Left = 23
-            Top = 161
+            Top = 149
             Width = 375
             Height = 38
             Caption = 'Communication Channels ...'

@@ -159,6 +159,10 @@ type
 
     FDrawRect : TRect;
     FIsMouseDown : Boolean;
+
+    FZoomRectStart : TPoint;
+    FZoomRectEnd : TPoint;
+
     FIsCapturingScreen : Boolean;
 
     FLyrDraw : CMapXLayer;
@@ -647,6 +651,9 @@ end;
 
 procedure TfrmEnvironmentCharacteristic.btnDecreaseScaleClick(Sender: TObject);
 begin
+  if cbbScale.ItemIndex = 0 then
+    Exit;
+
   cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
   cbbScaleChange(cbbScale);
 end;
@@ -671,17 +678,15 @@ begin
    end;
   end
   else cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
-  Map1.OnMapViewChanged := Map1MapViewChanged;
+//  Map1.OnMapViewChanged := Map1MapViewChanged;
 
-//  btnDecreaseScale.Enabled := cbbScale.ItemIndex > 0;
-//  btnIncreaseScale.Enabled := cbbScale.ItemIndex < (cbbScale.Items.Count - 1);
-//
-//  z := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
-//  Map1.ZoomTo(z, Map1.CenterX, Map1.CenterY);
 end;
 
 procedure TfrmEnvironmentCharacteristic.btnIncreaseScaleClick(Sender: TObject);
 begin
+  if cbbScale.ItemIndex = 17 then
+    Exit;
+
   cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
   cbbScaleChange(cbbScale);
 end;
@@ -783,18 +788,15 @@ begin
     begin
       subArea := FSubAreaList.Items[i];
 
-      if Assigned(FSelectedSubArea) and
-        (subArea.FData.Enviro_Index = FSelectedSubArea.FData.Enviro_Index) then
+      if Assigned(FSelectedSubArea) and (subArea.FData.Enviro_Index = FSelectedSubArea.FData.Enviro_Index) then
         Pen.Color := clYellow
       else
         Pen.Color := clWhite;
 
       with subArea do
       begin
-        FConverter.ConvertToScreen(FData.Longitude_1, FData.Latitude_1,
-          FRect.Left, FRect.Top);
-        FConverter.ConvertToScreen(FData.Longitude_2, FData.Latitude_2,
-          FRect.Right, FRect.Bottom);
+        FConverter.ConvertToScreen(FData.Longitude_1, FData.Latitude_1, FRect.Left, FRect.Top);
+        FConverter.ConvertToScreen(FData.Longitude_2, FData.Latitude_2, FRect.Right, FRect.Bottom);
 
 //        Rectangle(FRect);
         MoveTo(FRect.Left, FRect.Top);
@@ -807,6 +809,15 @@ begin
         LineTo(FRect.Left, FRect.Top);
       end;
     end;
+
+    if FIsMouseDown and btnZoomTool.Down then
+    begin
+      Pen.Color := clWhite;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
+    end;
   end;
 end;
 
@@ -818,8 +829,8 @@ begin
   begin
      if Map1.Zoom <= 0.125 then tempZoom := 0.125;
      if (Map1.Zoom > 0.125) AND (Map1.Zoom < 1) then tempZoom := Map1.Zoom;
-     if (Map1.Zoom >= 1) AND (Map1.Zoom <= 2500) then tempZoom := round(Map1.Zoom);
-     if Map1.Zoom > 2500 then tempZoom := 2500;
+     if (Map1.Zoom >= 1) AND (Map1.Zoom <= 3500) then tempZoom := round(Map1.Zoom);
+     if Map1.Zoom > 3500 then tempZoom := 3500;
 
      Map1.OnMapViewChanged := nil;
      Map1.ZoomTo(tempZoom, Map1.CenterX, Map1.CenterY);
@@ -859,10 +870,15 @@ begin
     FDrawRect := Rect(X, Y, X, Y);
   end;
 
-  if btnMoveTool.Down then
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down then
   begin
-//
+    FIsMouseDown := True;
+
+    FZoomRectStart := Point(X, Y);
+    FZoomRectEnd := Point(X, Y);
   end;
+  {$ENDREGION}
 
   if btnCenterHook.Down then
   begin
@@ -903,6 +919,14 @@ begin
     FDrawRect.BottomRight := Point(X, Y);
     Map1.Repaint;
   end;
+
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down and FIsMouseDown then
+  begin
+    FZoomRectEnd := Point(X, Y);
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmEnvironmentCharacteristic.Map1MouseUp(Sender: TObject;Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -1024,6 +1048,15 @@ begin
   end;
   {$ENDREGION}
 
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+    FZoomRectEnd:= Point(X, Y);
+    Map1.OnMapViewChanged := Map1MapViewChanged;
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmEnvironmentCharacteristic.LoadENC(aGeoset: string);

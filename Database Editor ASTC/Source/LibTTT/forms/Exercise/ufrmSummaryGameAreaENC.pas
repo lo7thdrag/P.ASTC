@@ -84,6 +84,8 @@ type
     FIsMouseDown : Boolean;
     FSelectionRectStart : TPoint;
     FSelectionRectEnd : TPoint;
+    FZoomRectStart : TPoint;
+    FZoomRectEnd : TPoint;
 
     FCanvas : TCanvas;
     FConverter : TCoordConverter;
@@ -441,7 +443,8 @@ begin
   end
   else
     cbbScale.ItemIndex := cbbScale.ItemIndex -1 ;
-//  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+
+  ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
 
 end;
 
@@ -813,6 +816,15 @@ begin
       Brush.Style := bsClear;
       Rectangle(FSelectionRectStart.X, FSelectionRectStart.Y, FSelectionRectEnd.X, FSelectionRectEnd.Y);
     end;
+
+    if FIsMouseDown and btnZoomTool.Down then
+    begin
+      Pen.Color := clWhite;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
+    end;
   end;
 end;
 
@@ -824,8 +836,8 @@ begin
   begin
      if ENCmap.Zoom <= 0.125 then tempZoom := 0.125;
      if (ENCmap.Zoom > 0.125) AND (ENCmap.Zoom < 1) then tempZoom := ENCmap.Zoom;
-     if (ENCmap.Zoom >= 1) AND (ENCmap.Zoom <= 2500) then tempZoom := round(ENCmap.Zoom);
-     if ENCmap.Zoom > 2500 then tempZoom := 2500;
+     if (ENCmap.Zoom >= 1) AND (ENCmap.Zoom <= 3500) then tempZoom := round(ENCmap.Zoom);
+     if ENCmap.Zoom > 3500 then tempZoom := 3500;
 
      ENCmap.OnMapViewChanged := nil;
      ENCmap.ZoomTo(tempZoom, ENCmap.CenterX, ENCmap.CenterY);
@@ -865,6 +877,7 @@ begin
   end;
   {$ENDREGION}
 
+  {$Region ' Set Multi Select '}
   if btnMultiSelect.Down then
   begin
     FIsMouseDown := True;
@@ -873,46 +886,59 @@ begin
 
     FSelectionRectStart := Point(X, Y);
     FSelectionRectEnd := Point(X, Y);
-
-//    for i := 1 to ENCmap.Layers.Count do
-//    begin
-//      layer := ENCmap.Layers.Item(i);
-//
-//      if (layer.Name = 'Indonesia_Coastline_Darat') or (layer.Name = 'LYR_DRAW') or
-//         (layer.Name = 'ID2000_land') then
-//        Continue;
-//
-//      layer.OverrideStyle := False;
-//    end;
-//
-//    ENCmap.Repaint;
   end;
+  {$ENDREGION}
+
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down then
+  begin
+    FIsMouseDown := True;
+
+    FZoomRectStart := Point(X, Y);
+    FZoomRectEnd := Point(X, Y);
+  end;
+  {$ENDREGION}
 
   {$Region ' Set Game Center '}
 
   if btnCenterHook.Down then
+  begin
     with FSelectedGameArea.FGameArea do
       FConverter.ConvertToMap(X, Y, Game_Centre_Long, Game_Centre_Lat);
+  end;
   {$ENDREGION}
 end;
 
 procedure TfrmSummaryGameAreaENC.ENCmapMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
+  {$Region ' Set Multi Select '}
   if btnMultiSelect.Down and FIsMouseDown then
   begin
     FSelectionRectEnd := Point(X, Y);
     ENCmap.Repaint;
   end;
+  {$ENDREGION}
+
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down and FIsMouseDown then
+  begin
+    FZoomRectEnd := Point(X, Y);
+    ENCmap.Repaint;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmSummaryGameAreaENC.ENCmapMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 begin
+  {$Region ' Set Select '}
   if btnSelect.Down then
   begin
     SelectionArea;
     ENCmap.Repaint;
   end;
+  {$ENDREGION}
 
+  {$Region ' Set Multi Select '}
   if btnMultiSelect.Down and FIsMouseDown then
   begin
     FIsMouseDown := False;
@@ -920,6 +946,17 @@ begin
     SelectionArea;
     ENCmap.Repaint;
   end;
+  {$ENDREGION}
+
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+    FZoomRectEnd:= Point(X, Y);
+    ENCmap.OnMapViewChanged := ENCmapMapViewChanged;
+    ENCmap.Repaint;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmSummaryGameAreaENC.lblWidthClick(Sender: TObject);

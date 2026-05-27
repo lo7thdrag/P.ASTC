@@ -22,6 +22,8 @@ type
     pnl4: TPanel;
     pnl5: TPanel;
     btnClose: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

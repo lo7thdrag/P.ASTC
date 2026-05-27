@@ -4,7 +4,7 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Runtime Platform Library'
-  ClientHeight = 355
+  ClientHeight = 309
   ClientWidth = 329
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     Left = 0
     Top = 0
     Width = 329
-    Height = 355
+    Height = 309
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44847,10 +44847,14 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     Left = 0
     Top = 0
     Width = 329
-    Height = 355
+    Height = 309
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
+<<<<<<< HEAD
+=======
+    ExplicitHeight = 355
+>>>>>>> 82133b9a3b9c8c1fdab1804ee8a18cbe5947daae
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44894,29 +44898,40 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       Left = 1
       Top = 66
       Width = 327
-      Height = 245
+      Height = 199
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
+<<<<<<< HEAD
+=======
+      ExplicitHeight = 245
+>>>>>>> 82133b9a3b9c8c1fdab1804ee8a18cbe5947daae
       object PageControl1: TPageControl
         Left = 10
         Top = 10
         Width = 307
-        Height = 225
+        Height = 179
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
+<<<<<<< HEAD
         object tsGeneral: TTabSheet
           Caption = 'General'
+=======
+        ExplicitHeight = 225
+        object tsGeneral: TTabSheet
+          Caption = 'General'
+          ExplicitHeight = 157
+>>>>>>> 82133b9a3b9c8c1fdab1804ee8a18cbe5947daae
           object grbPlatforms: TGroupBox
             Left = 12
             Top = 6
             Width = 266
-            Height = 149
+            Height = 115
             Caption = ' Platforms   '
             TabOrder = 0
             object btnVehicle: TButton
@@ -44930,7 +44945,7 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
             end
             object btnTorpedo: TButton
               Left = 14
-              Top = 71
+              Top = 66
               Width = 116
               Height = 25
               Caption = 'Torpedo ..'
@@ -44938,8 +44953,8 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
               OnClick = btnTorpedoClick
             end
             object btnMine: TButton
-              Left = 14
-              Top = 106
+              Left = 136
+              Top = 66
               Width = 116
               Height = 25
               Caption = 'Mine ..'
@@ -44957,11 +44972,12 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
             end
             object btnSonobuoy: TButton
               Left = 136
-              Top = 71
+              Top = 111
               Width = 116
               Height = 25
               Caption = 'Sonobuoy ..'
               TabOrder = 4
+              Visible = False
               OnClick = btnSonobuoyClick
             end
           end
@@ -44970,13 +44986,17 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     end
     object pnl3Button: TPanel
       Left = 1
-      Top = 311
+      Top = 265
       Width = 327
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
+<<<<<<< HEAD
+=======
+      ExplicitTop = 311
+>>>>>>> 82133b9a3b9c8c1fdab1804ee8a18cbe5947daae
       object btnApply: TButton
         Left = 152
         Top = 0
