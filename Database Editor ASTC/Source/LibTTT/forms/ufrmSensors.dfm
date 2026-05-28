@@ -44851,11 +44851,8 @@ object frmSensors: TfrmSensors
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 576
-    ExplicitTop = 368
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgEOD: TImage
+      Tag = 9
       Left = 29
       Top = 608
       Width = 795
@@ -48225,11 +48222,12 @@ object frmSensors: TfrmSensors
         0281402010080402814090402481402010080402814020482092402010080402
         8140201024FC7F3815CE9F36647C810000000049454E44AE426082}
       Stretch = True
-      OnClick = imgEODClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgESM: TImage
+      Tag = 8
       Left = 819
       Top = 400
       Width = 373
@@ -51867,11 +51865,12 @@ object frmSensors: TfrmSensors
         35D202F87DFBF66D7F734AC7AB7B449E559ED995A3B2DAFEA960D72BD53D9CF2
         586581FAFF0F401232D02A0156860000000049454E44AE426082}
       Stretch = True
-      OnClick = imgESMClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgMAD: TImage
+      Tag = 10
       Left = 800
       Top = 8
       Width = 719
@@ -58130,11 +58129,12 @@ object frmSensors: TfrmSensors
         57824498200882200882E84A9008130441100441105D89FF07BC439ED06374DB
         220000000049454E44AE426082}
       Stretch = True
-      OnClick = imgMADClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgRadar: TImage
+      Tag = 6
       Left = 11
       Top = 21
       Width = 771
@@ -62275,11 +62275,12 @@ object frmSensors: TfrmSensors
         81402010080402C1650021FE0281402010080402C16580FF0F524899F39E0C22
         1F0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgRadarClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgSonar: TImage
+      Tag = 7
       Left = 1
       Top = 287
       Width = 815
@@ -66473,11 +66474,12 @@ object frmSensors: TfrmSensors
         7F1BC00C66483EF65FEA8A6464EC844035DD1AB9DCB5D415C9C8C8C8C8C87823
         63B188C7FF079BDFDFD8FD92B4A00000000049454E44AE426082}
       Stretch = True
-      OnClick = imgSonarClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgSonobuoy: TImage
+      Tag = 11
       Left = 1171
       Top = 400
       Width = 373
@@ -70311,7 +70313,7 @@ object frmSensors: TfrmSensors
         13A2317403C01B765D9BA9CC542BEBAF2A3CFCE6E5FA9ACB05E2FF3F2066AD57
         FEC5767C0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgSonobuoyClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end

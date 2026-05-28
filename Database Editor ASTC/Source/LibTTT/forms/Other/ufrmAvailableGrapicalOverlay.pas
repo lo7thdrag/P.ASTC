@@ -22,10 +22,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
-
-    procedure FormActivate(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
@@ -72,20 +68,11 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableGrapicalOverlay.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
-procedure TfrmAvailableGrapicalOverlay.FormCreate(Sender: TObject);
-begin
-  FOverlayList := TList.Create;
-  EnableComposited(pnlMainTable);
-end;
-
 procedure TfrmAvailableGrapicalOverlay.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FOverlayList);
+
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableGrapicalOverlay.FormShow(Sender: TObject);

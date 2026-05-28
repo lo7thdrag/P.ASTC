@@ -22,9 +22,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
-
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -71,14 +68,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableTorpedo.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableTorpedo.FormCreate(Sender: TObject);
 begin
   FTorpedoList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 

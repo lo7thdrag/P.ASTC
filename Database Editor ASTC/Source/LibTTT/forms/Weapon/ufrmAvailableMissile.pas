@@ -23,9 +23,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
-
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -71,17 +68,12 @@ begin
       EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
 
-
 {$REGION ' Form Handle '}
-
-procedure TfrmAvailableMissile.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
 
 procedure TfrmAvailableMissile.FormCreate(Sender: TObject);
 begin
   FMissileList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -262,28 +254,10 @@ begin
 end;
 
 procedure TfrmAvailableMissile.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  missile : TMissile_On_Board;
-
 begin
   if Key = #13 then
   begin
-    lstMissile.Items.Clear;
-
-    dmTTT.GetFilterMissileDef(FMissileList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FMissileList.Count;
-
-    for i := 0 to FMissileList.Count - 1 do
-    begin
-      missile := FMissileList.Items[i];
-      lstMissile.Items.AddObject(missile.FDef.Class_Identifier, missile);
-      frmProgress.increase(missile.FDef.Class_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateMissileList
   end;
 end;
 
@@ -303,7 +277,7 @@ var
 begin
   lstMissile.Items.Clear;
 
-  dmTTT.GetAllMissileDef(FMissileList);
+  dmTTT.GetFilterMissileDef(FMissileList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

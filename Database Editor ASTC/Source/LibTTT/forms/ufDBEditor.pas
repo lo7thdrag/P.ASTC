@@ -176,18 +176,18 @@ type
 
     {$REGION ' Exercise Section '}
 
-    procedure ScenarioClick(Sender: TObject);
-    procedure ResourceAllocationClick(Sender: TObject);
-    procedure EnvironmentClick(Sender: TObject);
-    procedure GameAreaClick(Sender: TObject);
+//    procedure ScenarioClick(Sender: TObject);
+//    procedure ResourceAllocationClick(Sender: TObject);
+//    procedure EnvironmentClick(Sender: TObject);
+//    procedure GameAreaClick(Sender: TObject);
 
     {$ENDREGION}
 
     {$REGION ' Platform Section '}
 
-    procedure VehicleClick(Sender: TObject);
-    procedure SatelliteClick(Sender: TObject);
-    procedure MotionClick(Sender: TObject);
+//    procedure VehicleClick(Sender: TObject);
+//    procedure SatelliteClick(Sender: TObject);
+//    procedure MotionClick(Sender: TObject);
 
     {$ENDREGION}
 
@@ -204,36 +204,36 @@ type
 
     {$REGION ' Weapon Section '}
 
-    procedure MissileClick(Sender: TObject);
-    procedure TorpedoClick(Sender: TObject);
-    procedure MineClick(Sender: TObject);
-    procedure GunClick(Sender: TObject);
-    procedure BombClick(Sender: TObject);
+//    procedure MissileClick(Sender: TObject);
+//    procedure TorpedoClick(Sender: TObject);
+//    procedure MineClick(Sender: TObject);
+//    procedure GunClick(Sender: TObject);
+//    procedure BombClick(Sender: TObject);
 
     {$ENDREGION}
 
     {$REGION ' Countermeasure Section '}
 
-    procedure AcousticDecoyClick(Sender: TObject);
-    procedure AirBubbleClick(Sender: TObject);
-    procedure ChaffClick(Sender: TObject);
-    procedure InfraredDecoyClick(Sender: TObject);
-    procedure FloatingDecoyClick(Sender: TObject);
-    procedure SelfDefensiveJammerClick(Sender: TObject);
-    procedure TowedJammerDecoyClick(Sender: TObject);
-    procedure RadarNoiseJammerClick(Sender: TObject);
+//    procedure AcousticDecoyClick(Sender: TObject);
+//    procedure AirBubbleClick(Sender: TObject);
+//    procedure ChaffClick(Sender: TObject);
+//    procedure InfraredDecoyClick(Sender: TObject);
+//    procedure FloatingDecoyClick(Sender: TObject);
+//    procedure SelfDefensiveJammerClick(Sender: TObject);
+//    procedure TowedJammerDecoyClick(Sender: TObject);
+//    procedure RadarNoiseJammerClick(Sender: TObject);
 
     {$ENDREGION}
 
     {$REGION ' Other Section '}
 
-    procedure RuntimePlatformLibraryClick(Sender: TObject);
-    procedure PredefinedPatternsClick(Sender: TObject);
-    procedure RadarActivationIntervalsClick(Sender: TObject);
-    procedure GraphicalOverlaysClick(Sender: TObject);
-    procedure StudentRolesClick(Sender: TObject);
-    procedure GameDefaultsClick(Sender: TObject);
-    procedure SNRvsPODCurveClick(Sender: TObject);
+//    procedure RuntimePlatformLibraryClick(Sender: TObject);
+//    procedure PredefinedPatternsClick(Sender: TObject);
+//    procedure RadarActivationIntervalsClick(Sender: TObject);
+//    procedure GraphicalOverlaysClick(Sender: TObject);
+//    procedure StudentRolesClick(Sender: TObject);
+//    procedure GameDefaultsClick(Sender: TObject);
+//    procedure SNRvsPODCurveClick(Sender: TObject);
 
     {$ENDREGION}
 
@@ -257,6 +257,8 @@ type
 
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
+    procedure SubMenuMouseEnter(Sender: TObject);
+    procedure SuMenuMouseLeave(Sender: TObject);
 
     {$ENDREGION}
 
@@ -337,6 +339,7 @@ begin
   pnl6OtherBody.Height := 0;
   pnl8ShutdownBody.Height := 0;
 end;
+
 procedure TfDBEditor.FormShow(Sender: TObject);
 begin
   if ParamCount > 0 then
@@ -403,6 +406,10 @@ begin
   DisplayDimensionsinmetres1.Checked := False;
 end;
 
+procedure TfDBEditor.FormOnClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caHide;
+end;
 
 {$REGION ' Menu Section '}
 
@@ -428,8 +435,6 @@ procedure TfDBEditor.MainMenuClick(Sender: TObject);
 begin
   if Sender is TImage then
     pnlActive := TImage(sender).Tag
-  else if Sender is TLabel then
-    pnlActive := TLabel(sender).Tag
   else
     Exit;
 
@@ -439,80 +444,15 @@ begin
   CollapseMenuClick(Sender);
 end;
 
-{$ENDREGION}
-
-{$REGION ' Exercise Sub Menu Section '}
-
-procedure TfDBEditor.ScenarioClick(Sender: TObject);
+procedure TfDBEditor.SuMenuMouseLeave(Sender: TObject);
 begin
-  if not Assigned(frmAvailableScenario) then
-    frmAvailableScenario := TfrmAvailableScenario.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableScenario.Show;
+  TLabel(sender).Font.Color := clWhite;
 end;
 
-procedure TfDBEditor.ResourceAllocationClick(Sender: TObject);
+procedure TfDBEditor.SubMenuMouseEnter(Sender: TObject);
 begin
-  if not Assigned(frmAvailableResourceAllocation) then
-    frmAvailableResourceAllocation := TfrmAvailableResourceAllocation.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableResourceAllocation.Show;
+  TLabel(sender).Font.Color := clAqua;
 end;
-
-procedure TfDBEditor.EnvironmentClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableEnvironments) then
-    frmAvailableEnvironments := TfrmAvailableEnvironments.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableEnvironments.Show;
-end;
-
-procedure TfDBEditor.GameAreaClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableGameArea) then
-    frmAvailableGameArea := TfrmAvailableGameArea.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableGameArea.Show;
-end;
-
-{$ENDREGION}
-
-{$REGION ' Platforms Sub Menu Section '}
-
-procedure TfDBEditor.VehicleClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableVehicle) then
-    frmAvailableVehicle := TfrmAvailableVehicle.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableVehicle.Show;
-end;
-
-procedure TfDBEditor.SatelliteClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSatellite) then
-    frmAvailableSatellite := TfrmAvailableSatellite.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableSatellite.Show;
-end;
-
-procedure TfDBEditor.MotionClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableMotion) then
-    frmAvailableMotion := TfrmAvailableMotion.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableMotion.Show;
-end;
-
-{$ENDREGION}
-
-{$REGION ' Sensors Sub Menu Section '}
 
 procedure TfDBEditor.SubMenuClick(Sender: TObject);
 var
@@ -530,262 +470,12 @@ end;
 
 {$ENDREGION}
 
-{$REGION ' Weapons Sub Menu Section '}
-
-procedure TfDBEditor.MissileClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableMissile) then
-    frmAvailableMissile := TfrmAvailableMissile.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableMissile.Show;
-end;
-
-procedure TfDBEditor.TorpedoClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableTorpedo) then
-    frmAvailableTorpedo := TfrmAvailableTorpedo.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableTorpedo.Show;
-end;
-
-procedure TfDBEditor.MineClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableMine) then
-    frmAvailableMine := TfrmAvailableMine.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableMine.Show;
-end;
-
-procedure TfDBEditor.GunClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableGun) then
-    frmAvailableGun := TfrmAvailableGun.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableGun.Show;
-end;
-
-procedure TfDBEditor.BombClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableBomb) then
-    frmAvailableBomb := TfrmAvailableBomb.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableBomb.Show;
-end;
-
-{$ENDREGION}
-
-{$REGION ' Countermeasures Sub Menu Section '}
-
-procedure TfDBEditor.AcousticDecoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableAcousticDecoy) then
-    frmAvailableAcousticDecoy := TfrmAvailableAcousticDecoy.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableAcousticDecoy.Show;
-end;
-
-procedure TfDBEditor.AirBubbleClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableAirBubble) then
-    frmAvailableAirBubble := TfrmAvailableAirBubble.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableAirBubble.Show;
-end;
-
-procedure TfDBEditor.ChaffClick(Sender: TObject);
-begin
-   if not Assigned(frmAvailableChaff) then
-    frmAvailableChaff := TfrmAvailableChaff.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableChaff.Show;
-end;
-
-procedure TfDBEditor.SelfDefensiveJammerClick(Sender: TObject);
-begin
-   if not Assigned(frmAvailableSelfDefensiveJammer) then
-    frmAvailableSelfDefensiveJammer := TfrmAvailableSelfDefensiveJammer.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableSelfDefensiveJammer.Show;
-end;
-
-procedure TfDBEditor.InfraredDecoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableInfraredDecoy) then
-    frmAvailableInfraredDecoy := TfrmAvailableInfraredDecoy.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableInfraredDecoy.Show;
-end;
-
-procedure TfDBEditor.TowedJammerDecoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableTowedJammerDecoy) then
-    frmAvailableTowedJammerDecoy := TfrmAvailableTowedJammerDecoy.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableTowedJammerDecoy.Show;
-end;
-
-procedure TfDBEditor.RadarNoiseJammerClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableRadarNoiseJammer) then
-    frmAvailableRadarNoiseJammer := TfrmAvailableRadarNoiseJammer.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableRadarNoiseJammer.Show;
-end;
-
-procedure TfDBEditor.FloatingDecoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableFloatingDecoy) then
-    frmAvailableFloatingDecoy := TfrmAvailableFloatingDecoy.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableFloatingDecoy.Show;
-end;
+{$REGION ' Navbar Section '}
 
 procedure TfDBEditor.LoadImageVariasi(i: byte);
 begin
   pnlVariasi.Visible := i = 0;
 end;
-
-{$ENDREGION}
-
-{$REGION ' Other Sub Menu Section '}
-
-procedure TfDBEditor.RuntimePlatformLibraryClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableRuntimePlatformLibrary) then
-    frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableRuntimePlatformLibrary.Show;
-end;
-
-procedure TfDBEditor.PredefinedPatternsClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailablePredifinedPattern) then
-    frmAvailablePredifinedPattern := TfrmAvailablePredifinedPattern.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailablePredifinedPattern.Show;
-end;
-
-procedure TfDBEditor.RadarActivationIntervalsClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableRadarActivationIntervals) then
-    frmAvailableRadarActivationIntervals := TfrmAvailableRadarActivationIntervals.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableRadarActivationIntervals.Show;
-end;
-
-procedure TfDBEditor.GraphicalOverlaysClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableGrapicalOverlay) then
-    frmAvailableGrapicalOverlay := TfrmAvailableGrapicalOverlay.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableGrapicalOverlay.Show;
-end;
-
-procedure TfDBEditor.StudentRolesClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableStudentRoles) then
-    frmAvailableStudentRoles := TfrmAvailableStudentRoles.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableStudentRoles.Show;
-end;
-
-procedure TfDBEditor.GameDefaultsClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableGameDefaults) then
-    frmAvailableGameDefaults := TfrmAvailableGameDefaults.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableGameDefaults.Show;
-end;
-
-procedure TfDBEditor.SNRvsPODCurveClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSNRvsPODCurve) then
-    frmAvailableSNRvsPODCurve := TfrmAvailableSNRvsPODCurve.Create(self);
-
-  LoadImageVariasi(0);
-  frmAvailableSNRvsPODCurve.Show;
-end;
-
-{$ENDREGION}
-
-{$REGION ' Shutdown Sub Menu Section '}
-
-procedure TfDBEditor.AboutDatabaseEditor1Click(Sender: TObject);
-begin
-  ShellExecute(Handle, 'open', 'D:\TTT\help\Vol 6.pdf', '', '', 1);
-end;
-
-procedure TfDBEditor.DisplayDimensionsinfeet1Click(Sender: TObject);
-begin
-  DisplayDimensionsinfeet1.Checked := True;
-  DisplayDimensionsinmetres1.Checked := False;
-end;
-
-procedure TfDBEditor.DisplayDimensionsinmetres1Click(Sender: TObject);
-begin
-  DisplayDimensionsinfeet1.Checked := False;
-  DisplayDimensionsinmetres1.Checked := True;
-end;
-
-procedure TfDBEditor.FormOnClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := caHide;
-end;
-
-procedure TfDBEditor.ShutdownDatabaseEditor1Click(Sender: TObject);
-var warning : Integer;
-begin
-  warning := MessageDlg('Shutdown Database Editor?',mtWarning,[mbYes,mbNo],0);
-  if warning = mrYes then
-  begin
-    try
-      Self.Close;
-    finally
-      free;
-    end;
-  end;
-end;
-
-procedure TfDBEditor.ReportEditor1Click(Sender: TObject);
-begin
-//  with fOtherSingle do
-//  begin
-//    OtherFormShow := ofsReportEditor;
-//    ShowModal;
-//  end;
-end;
-
-procedure TfDBEditor.ReportViewer1Click(Sender: TObject);
-begin
-//  with fOtherSingle do
-//  begin
-//    OtherFormShow := ofsReportViewer;
-//    ShowModal;
-//  end;
-end;
-
-{$ENDREGION}
-
-{$REGION ' Navbar Section '}
 
 procedure TfDBEditor.DockForm(aForm: TForm);
 begin
@@ -859,6 +549,10 @@ begin
 
       aForm := frmExercise;
     end;
+    ftShutdown :
+    begin
+      Exit
+    end;
     {$ENDREGION}
 
     {$REGION ' Sensor Sub Menu '}
@@ -907,18 +601,186 @@ begin
     {$ENDREGION}
 
     {$REGION ' Weapon Sub Menu '}
+    ftfrmAvailableMissile :
+    begin
+      if not Assigned(frmAvailableMissile) then
+          frmAvailableMissile := TfrmAvailableMissile.Create(self);
+
+      aForm := frmAvailableMissile;
+    end;
+    ftfrmAvailableTorpedo :
+    begin
+      if not Assigned(frmAvailableTorpedo) then
+          frmAvailableTorpedo := TfrmAvailableTorpedo.Create(self);
+
+      aForm := frmAvailableTorpedo;
+    end;
+    ftfrmAvailableMine :
+    begin
+      if not Assigned(frmAvailableMine) then
+          frmAvailableMine := TfrmAvailableMine.Create(self);
+
+      aForm := frmAvailableMine;
+    end;
+    ftfrmAvailableGun :
+    begin
+      if not Assigned(frmAvailableGun) then
+          frmAvailableGun := TfrmAvailableGun.Create(self);
+
+      aForm := frmAvailableGun;
+    end;
+    ftfrmAvailableBomb :
+    begin
+      if not Assigned(frmAvailableBomb) then
+          frmAvailableBomb := TfrmAvailableBomb.Create(self);
+
+      aForm := frmAvailableBomb;
+    end;
     {$ENDREGION}
 
     {$REGION ' Countermeasure Sub Menu '}
+    ftfrmAvailableAcousticDecoy :
+    begin
+      if not Assigned(frmAvailableAcousticDecoy) then
+          frmAvailableAcousticDecoy := TfrmAvailableAcousticDecoy.Create(self);
+
+      aForm := frmAvailableAcousticDecoy;
+    end;
+    ftfrmAvailableAirBubble :
+    begin
+      if not Assigned(frmAvailableAirBubble) then
+          frmAvailableAirBubble := TfrmAvailableAirBubble.Create(self);
+
+      aForm := frmAvailableAirBubble;
+    end;
+    ftfrmAvailableChaff :
+    begin
+      if not Assigned(frmAvailableChaff) then
+          frmAvailableChaff := TfrmAvailableChaff.Create(self);
+
+      aForm := frmAvailableChaff;
+    end;
+    ftfrmAvailableSelfDefensiveJammer :
+    begin
+      if not Assigned(frmAvailableSelfDefensiveJammer) then
+          frmAvailableSelfDefensiveJammer := TfrmAvailableSelfDefensiveJammer.Create(self);
+
+      aForm := frmAvailableSelfDefensiveJammer;
+    end;
+    ftfrmAvailableInfraredDecoy :
+    begin
+      if not Assigned(frmAvailableInfraredDecoy) then
+          frmAvailableInfraredDecoy := TfrmAvailableInfraredDecoy.Create(self);
+
+      aForm := frmAvailableInfraredDecoy;
+    end;
+    ftfrmAvailableTowedJammerDecoy :
+    begin
+      if not Assigned(frmAvailableTowedJammerDecoy) then
+          frmAvailableTowedJammerDecoy := TfrmAvailableTowedJammerDecoy.Create(self);
+
+      aForm := frmAvailableTowedJammerDecoy;
+    end;
+    ftfrmAvailableRadarNoiseJammer :
+    begin
+      if not Assigned(frmAvailableRadarNoiseJammer) then
+          frmAvailableRadarNoiseJammer := TfrmAvailableRadarNoiseJammer.Create(self);
+
+      aForm := frmAvailableRadarNoiseJammer;
+    end;
+    ftfrmAvailableFloatingDecoy :
+    begin
+      if not Assigned(frmAvailableFloatingDecoy) then
+          frmAvailableFloatingDecoy := TfrmAvailableFloatingDecoy.Create(self);
+
+      aForm := frmAvailableFloatingDecoy;
+    end;
     {$ENDREGION}
 
     {$REGION ' Platform Sub Menu '}
+    ftfrmAvailableVehicle :
+    begin
+      if not Assigned(frmAvailableVehicle) then
+          frmAvailableVehicle := TfrmAvailableVehicle.Create(self);
+
+      aForm := frmAvailableVehicle;
+    end;
     {$ENDREGION}
 
     {$REGION ' Other Sub Menu '}
+    ftfrmAvailableRuntimePlatformLibrary :
+    begin
+      if not Assigned(frmAvailableRuntimePlatformLibrary) then
+          frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
+
+      aForm := frmAvailableRuntimePlatformLibrary;
+    end;
+    ftfrmAvailableGrapicalOverlay :
+    begin
+      if not Assigned(frmAvailableGrapicalOverlay) then
+          frmAvailableGrapicalOverlay := TfrmAvailableGrapicalOverlay.Create(self);
+
+      aForm := frmAvailableGrapicalOverlay;
+    end;
+    ftfrmAvailableStudentRoles :
+    begin
+      if not Assigned(frmAvailableStudentRoles) then
+          frmAvailableStudentRoles := TfrmAvailableStudentRoles.Create(self);
+
+      aForm := frmAvailableStudentRoles;
+    end;
+    ftfrmAvailableGameDefaults :
+    begin
+      if not Assigned(frmAvailableGameDefaults) then
+          frmAvailableGameDefaults := TfrmAvailableGameDefaults.Create(self);
+
+      aForm := frmAvailableGameDefaults;
+    end;
+    ftfrmAvailableSNRvsPODCurve :
+    begin
+      if not Assigned(frmAvailableSNRvsPODCurve) then
+          frmAvailableSNRvsPODCurve := TfrmAvailableSNRvsPODCurve.Create(self);
+
+      aForm := frmAvailableSNRvsPODCurve;
+    end;
+    ftfrmAvailableMotion :
+    begin
+      if not Assigned(frmAvailableMotion) then
+          frmAvailableMotion := TfrmAvailableMotion.Create(self);
+
+      aForm := frmAvailableMotion;
+    end;
     {$ENDREGION}
 
     {$REGION ' Exercise Sub Menu '}
+    ftfrmAvailableScenario :
+    begin
+      if not Assigned(frmAvailableScenario) then
+          frmAvailableScenario := TfrmAvailableScenario.Create(self);
+
+      aForm := frmAvailableScenario;
+    end;
+    ftfrmAvailableResourceAllocation :
+    begin
+      if not Assigned(frmAvailableResourceAllocation) then
+          frmAvailableResourceAllocation := TfrmAvailableResourceAllocation.Create(self);
+
+      aForm := frmAvailableResourceAllocation;
+    end;
+    ftfrmAvailableEnvironments :
+    begin
+      if not Assigned(frmAvailableEnvironments) then
+          frmAvailableEnvironments := TfrmAvailableEnvironments.Create(self);
+
+      aForm := frmAvailableEnvironments;
+    end;
+    ftfrmAvailableGameArea :
+    begin
+      if not Assigned(frmAvailableGameArea) then
+          frmAvailableGameArea := TfrmAvailableGameArea.Create(self);
+
+      aForm := frmAvailableGameArea;
+    end;
     {$ENDREGION}
 
   end;
@@ -1052,7 +914,7 @@ begin
         Timer1.Enabled := false;
       end;
     end;
-    7:
+    36:
     begin
       if pnl8ShutdownBody.Height < (mnShutdownDatabaseEditor.Top + 38) then
         pnl8ShutdownBody.Height := pnl8ShutdownBody.Height + 2
@@ -1062,6 +924,59 @@ begin
       end;
     end;
   end;
+end;
+
+{$ENDREGION}
+
+{$REGION ' Tidak Digunakan Section '}
+
+procedure TfDBEditor.AboutDatabaseEditor1Click(Sender: TObject);
+begin
+  ShellExecute(Handle, 'open', 'D:\TTT\help\Vol 6.pdf', '', '', 1);
+end;
+
+procedure TfDBEditor.DisplayDimensionsinfeet1Click(Sender: TObject);
+begin
+  DisplayDimensionsinfeet1.Checked := True;
+  DisplayDimensionsinmetres1.Checked := False;
+end;
+
+procedure TfDBEditor.DisplayDimensionsinmetres1Click(Sender: TObject);
+begin
+  DisplayDimensionsinfeet1.Checked := False;
+  DisplayDimensionsinmetres1.Checked := True;
+end;
+
+procedure TfDBEditor.ShutdownDatabaseEditor1Click(Sender: TObject);
+var warning : Integer;
+begin
+  warning := MessageDlg('Shutdown Database Editor?',mtWarning,[mbYes,mbNo],0);
+  if warning = mrYes then
+  begin
+    try
+      Self.Close;
+    finally
+      free;
+    end;
+  end;
+end;
+
+procedure TfDBEditor.ReportEditor1Click(Sender: TObject);
+begin
+//  with fOtherSingle do
+//  begin
+//    OtherFormShow := ofsReportEditor;
+//    ShowModal;
+//  end;
+end;
+
+procedure TfDBEditor.ReportViewer1Click(Sender: TObject);
+begin
+//  with fOtherSingle do
+//  begin
+//    OtherFormShow := ofsReportViewer;
+//    ShowModal;
+//  end;
 end;
 
 {$ENDREGION}

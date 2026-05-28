@@ -22,9 +22,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
-
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -57,7 +54,6 @@ uses
   uDataModuleTTT, ufrmGameDefaultSummary, ufrmUsage, newClassASTT, ufProgress, uSimContainers;
 
 {$R *.dfm}
-
 procedure EnableComposited(WinControl:TWinControl);
 var
   i:Integer;
@@ -73,14 +69,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableGameDefaults.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableGameDefaults.FormCreate(Sender: TObject);
 begin
   FGameDefaultsList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 

@@ -22,7 +22,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
 
     procedure FormCreate(Sender: TObject);
@@ -36,7 +35,6 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
-    procedure FormActivate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
   private
@@ -74,14 +72,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableBomb.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableBomb.FormCreate(Sender: TObject);
 begin
   FBombList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 

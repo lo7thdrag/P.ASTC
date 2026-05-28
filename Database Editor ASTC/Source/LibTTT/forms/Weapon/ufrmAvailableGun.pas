@@ -23,7 +23,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
 
     procedure FormCreate(Sender: TObject);
@@ -37,7 +36,6 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
-    procedure FormActivate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
 
@@ -59,7 +57,6 @@ implementation
 uses
   uDataModuleTTT, ufrmSummaryGun, ufrmUsage, ufProgress;
 {$R *.dfm}
-
 procedure EnableComposited(WinControl:TWinControl);
 var
   i:Integer;
@@ -75,14 +72,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableGun.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableGun.FormCreate(Sender: TObject);
 begin
   FGunList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 

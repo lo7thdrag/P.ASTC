@@ -22,10 +22,8 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -72,14 +70,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableMAD.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableMAD.FormCreate(Sender: TObject);
 begin
   FMADList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -230,27 +224,10 @@ begin
 end;
 
 procedure TfrmAvailableMAD.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  mad : TMAD_On_Board;
 begin
   if Key = #13 then
   begin
-    lbMAD.Items.Clear;
-
-    dmTTT.GetFilterMADDef(FMADList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FMADList.Count;
-
-    for i := 0 to FMADList.Count - 1 do
-    begin
-      mad := FMADList.Items[i];
-      lbMAD.Items.AddObject(mad.FMAD_Def.Class_Identifier, mad);
-      frmProgress.increase(mad.FMAD_Def.Class_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateMADList
   end;
 end;
 
@@ -269,7 +246,7 @@ var
 begin
   lbMAD.Items.Clear;
 
-  dmTTT.GetAllMADDef(FMADList);
+  dmTTT.GetFilterMADDef(FMADList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

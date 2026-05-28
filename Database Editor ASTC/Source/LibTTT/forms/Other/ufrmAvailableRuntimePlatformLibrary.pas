@@ -22,9 +22,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
-
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -37,7 +34,6 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
-    procedure pnlTableButtonClick(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -73,14 +69,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableRuntimePlatformLibrary.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableRuntimePlatformLibrary.FormCreate(Sender: TObject);
 begin
   FRuntimePlatformLibraryList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -228,12 +220,6 @@ begin
     Exit;
 
   FSelectedRuntimePlatformLibrary := TRuntime_Platform_Library(lstRuntimePlatformLibrary.Items.Objects[lstRuntimePlatformLibrary.ItemIndex]);
-end;
-
-procedure TfrmAvailableRuntimePlatformLibrary.pnlTableButtonClick(
-  Sender: TObject);
-begin
- //
 end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.UpdateRPLList;

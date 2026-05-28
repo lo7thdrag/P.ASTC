@@ -22,10 +22,8 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -71,14 +69,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableESM.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableESM.FormCreate(Sender: TObject);
 begin
   FESMList := Tlist.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -229,27 +223,10 @@ begin
 end;
 
 procedure TfrmAvailableESM.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  esm : TESM_On_Board;
 begin
   if Key = #13 then
   begin
-    lbESM.Items.Clear;
-
-    dmTTT.GetFilterESMDef(FESMList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FESMList.Count;
-
-    for i := 0 to FESMList.Count - 1 do
-    begin
-      esm := FESMList.Items[i];
-      lbESM.Items.AddObject(esm.FESM_Def.Class_Identifier, esm);
-      frmProgress.increase(esm.FESM_Def.Class_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateESMList
   end;
 
 end;
@@ -269,7 +246,7 @@ var
 begin
   lbESM.Items.Clear;
 
-  dmTTT.GetAllESMDef(FESMList);
+  dmTTT.GetFilterESMDef(FESMList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

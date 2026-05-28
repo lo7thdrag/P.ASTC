@@ -23,9 +23,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
-
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -38,7 +35,6 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
-    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -74,14 +70,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableChaff.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableChaff.FormCreate(Sender: TObject);
 begin
   FChaffList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -233,14 +225,6 @@ begin
 
 end;
 
-procedure TfrmAvailableChaff.edtSearchChange(Sender: TObject);
-begin
-//  if Key = #13 then
-//  begin
-//    UpdateChaffList
-//  end;
-end;
-
 procedure TfrmAvailableChaff.edtSearchKeyPress(Sender: TObject; var Key: Char);
 var
   i : Integer;
@@ -282,7 +266,6 @@ begin
   lstChaff.Items.Clear;
 
   dmTTT.GetAllChaffDef(FChaffList);
-//  dmTTT.GetFilterChaffDef(FChaffList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

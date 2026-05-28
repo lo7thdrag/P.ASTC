@@ -22,10 +22,8 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -55,7 +53,6 @@ uses
   uDataModuleTTT, ufrmSummarySonobuoy, ufrmUsage, ufProgress;
 
 {$R *.dfm}
-
 procedure EnableComposited(WinControl:TWinControl);
 var
   i:Integer;
@@ -71,14 +68,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableSonobuoy.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableSonobuoy.FormCreate(Sender: TObject);
 begin
   FSonobuoyList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -250,27 +243,10 @@ begin
 end;
 
 procedure TfrmAvailableSonobuoy.edtSearchKeyPress(Sender: TObject;var Key: Char);
-var
-  i : Integer;
-  sonobuoy : TSonobuoy_On_Board;
 begin
   if Key = #13 then
   begin
-    lbSonobuoy.Items.Clear;
-
-    dmTTT.GetFilterSonobuoyDef(FSonobuoyList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FSonobuoyList.Count;
-
-    for i := 0 to FSonobuoyList.Count - 1 do
-    begin
-      sonobuoy := FSonobuoyList.Items[i];
-      lbSonobuoy.Items.AddObject(sonobuoy.FDef.Class_Identifier, sonobuoy);
-      frmProgress.increase(sonobuoy.FDef.Class_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateSonobuoyList
   end;
 end;
 
@@ -289,7 +265,7 @@ var
 begin
   lbSonobuoy.Items.Clear;
 
-  dmTTT.GetAllSonobuoyDef(FSonobuoyList);
+  dmTTT.GetFilterSonobuoyDef(FSonobuoyList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

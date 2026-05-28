@@ -22,10 +22,8 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
     procedure lbSingleClick(Sender: TObject);
@@ -37,7 +35,6 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
-    procedure Label2Click(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -73,14 +70,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableMotion.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableMotion.FormCreate(Sender: TObject);
 begin
   FMotionList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -94,12 +87,7 @@ begin
   UpdateMotionList;
 end;
 
-{$ENDRprocedure TfrmAvailableMotion.Label2Click(Sender: TObject);
-begin
-
-end;
-
-EGION}
+{$ENDREGION}
 
 {$REGION ' Button Handle '}
 

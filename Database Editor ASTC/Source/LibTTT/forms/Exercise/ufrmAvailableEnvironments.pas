@@ -22,9 +22,6 @@ type
     Image1: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
-
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -37,7 +34,6 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
-    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -74,14 +70,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableEnvironments.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableEnvironments.FormCreate(Sender: TObject);
 begin
   FEnvironmentList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -305,8 +297,7 @@ var
 begin
   lstEnvironments.Items.Clear;
 
-//  dmTTT.GetAllEnvironmentDef(FEnvironmentList);
-  dmTTT.GetFilterEnvironmentDef(FEnvironmentList, edtSearch.Text);
+  dmTTT.GetAllEnvironmentDef(FEnvironmentList);
 
   for i := 0 to FEnvironmentList.Count - 1 do
   begin
@@ -347,18 +338,10 @@ begin
   subAreaEnviList.Free;
 end;
 
-procedure TfrmAvailableEnvironments.edtSearchChange(Sender: TObject);
-begin
-//
-end;
-
 procedure TfrmAvailableEnvironments.edtSearchKeyPress(Sender: TObject;
   var Key: Char);
 begin
-  if Key = #13 then
-  begin
-    UpdateEnvironmentList
-  end;
+//
 end;
 
 {$ENDREGION}

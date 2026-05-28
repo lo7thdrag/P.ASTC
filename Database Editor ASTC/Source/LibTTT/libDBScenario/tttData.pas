@@ -216,11 +216,14 @@ const
 type
   E_FormType = (ftfrmExercise = 0, ftfrmPlatform, ftfrmSensor, ftfrmWeapon, ftfrmCountermaesure, ftfrmOther,
     ftfrmAvailableRadar, ftfrmAvailableSonar, ftfrmAvailableESM, ftfrmAvailableEOD, ftfrmAvailableMAD, ftfrmAvailableSonobuoy,
-    ftPCSLocalControl, ftElemtMod, ftNetStatus, ftDataLogger, ftClientControl,
-    ftShipAlarm, ftNav_ComSys, ftTanksOverview, ftBilgeSystem,
-    ftAuxSystemOverview, ftTanksEditor, ftPMSOverview, ftVentSystem,
-    ftFireFightingSystem, ftACSControl, ftPropulsionConditions, ftTankSys,
-    ftACSTestFunction, ftFuelOilPanel, ftBallastPanel, ftFreshWaterPanel);
+    ftfrmAvailableMissile, ftfrmAvailableTorpedo, ftfrmAvailableMine, ftfrmAvailableGun, ftfrmAvailableBomb,
+    ftfrmAvailableAcousticDecoy, ftfrmAvailableAirBubble, ftfrmAvailableChaff, ftfrmAvailableSelfDefensiveJammer,ftfrmAvailableInfraredDecoy,
+    ftfrmAvailableTowedJammerDecoy, ftfrmAvailableRadarNoiseJammer, ftfrmAvailableFloatingDecoy,
+    ftfrmAvailableVehicle,
+    ftfrmAvailableRuntimePlatformLibrary, ftfrmAvailableGrapicalOverlay, ftfrmAvailableStudentRoles, ftfrmAvailableGameDefaults,
+    ftfrmAvailableSNRvsPODCurve, ftfrmAvailableMotion,
+    ftfrmAvailableScenario, ftfrmAvailableResourceAllocation, ftfrmAvailableEnvironments, ftfrmAvailableGameArea,
+    ftShutdown);
 
   E_BlindZoneCaller = (bzcFireControl = 1, bzcESM, bzcEO, bzcVisual,
     bzcPointEffect, bzcWeapon, bzcSonar, bzcRadar);

@@ -22,10 +22,8 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -71,14 +69,10 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableEOD.FormActivate(Sender: TObject);
-begin
-  WindowState := wsMaximized;
-end;
-
 procedure TfrmAvailableEOD.FormCreate(Sender: TObject);
 begin
   FEODList := TList.Create;
+
   EnableComposited(pnlMainTable);
 end;
 
@@ -228,27 +222,10 @@ begin
 end;
 
 procedure TfrmAvailableEOD.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  eod : TEOD_On_Board;
 begin
   if Key = #13 then
   begin
-    lbEOD.Items.Clear;
-
-    dmTTT.GetFilterEODDef(FEODList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FEODList.Count;
-
-    for i := 0 to FEODList.Count - 1 do
-    begin
-      eod := FEODList.Items[i];
-      lbEOD.Items.AddObject(eod.FEO_Def.Class_Identifier, eod);
-      frmProgress.increase(eod.FEO_Def.Class_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateEODList
   end;
 end;
 
@@ -267,7 +244,7 @@ var
 begin
   lbEOD.Items.Clear;
 
-  dmTTT.GetAllEODef(FEODList);
+  dmTTT.GetFilterEODDef(FEODList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

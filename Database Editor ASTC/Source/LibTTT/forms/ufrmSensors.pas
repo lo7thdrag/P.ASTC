@@ -23,14 +23,12 @@ type
     lblRadarCount: TLabel;
     lblSonarCount: TLabel;
     lblSonobuoyCount: TLabel;
+
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
-    procedure imgRadarClick(Sender: TObject);
-    procedure imgSonarClick(Sender: TObject);
-    procedure imgESMClick(Sender: TObject);
-    procedure imgEODClick(Sender: TObject);
-    procedure imgMADClick(Sender: TObject);
-    procedure imgSonobuoyClick(Sender: TObject);
+
+    procedure SubMenuClick(Sender: TObject);
+
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -52,7 +50,7 @@ implementation
 
 uses
   ufDBEditor, ufrmAvailableRadar, ufrmAvailableSonar, ufrmAvailableESM, ufrmAvailableEOD, ufrmAvailableMAD, ufrmAvailableSonobuoy,
-  uDataModuleTTT;
+  uDataModuleTTT, tttData;
 
 {$R *.dfm}
 
@@ -125,58 +123,19 @@ begin
   IconLoad;
 end;
 
-procedure TfrmSensors.imgEODClick(Sender: TObject);
+
+procedure TfrmSensors.SubMenuClick(Sender: TObject);
+var
+  subMenuTemp : Integer;
+
 begin
-  if not Assigned(frmAvailableEOD) then
-    frmAvailableEOD := TfrmAvailableEOD.Create(self);
+  if Sender is TImage then
+    subMenuTemp := TLabel(sender).Tag
+  else
+    Exit;
 
   fDBEditor.LoadImageVariasi(0);
-  frmAvailableEOD.Show;
-end;
-
-procedure TfrmSensors.imgESMClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableESM) then
-    frmAvailableESM := TfrmAvailableESM.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableESM.Show;
-end;
-
-procedure TfrmSensors.imgMADClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableMAD) then
-    frmAvailableMAD := TfrmAvailableMAD.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableMAD.Show;
-end;
-
-procedure TfrmSensors.imgRadarClick(Sender: TObject);
-begin
-   if not Assigned(frmAvailableRadar) then
-    frmAvailableRadar := TfrmAvailableRadar.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableRadar.Show;
-end;
-
-procedure TfrmSensors.imgSonarClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSonar) then
-    frmAvailableSonar := TfrmAvailableSonar.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableSonar.Show;
-end;
-
-procedure TfrmSensors.imgSonobuoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSonobuoy) then
-    frmAvailableSonobuoy := TfrmAvailableSonobuoy.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableSonobuoy.Show;
+  fDBEditor.FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 procedure TfrmSensors.UpdateCountSensor;

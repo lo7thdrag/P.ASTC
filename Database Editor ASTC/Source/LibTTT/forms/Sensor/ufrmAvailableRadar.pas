@@ -23,7 +23,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -87,7 +86,6 @@ end;
 procedure TfrmAvailableRadar.FormShow(Sender: TObject);
 begin
   UpdateRadarList;
-  WindowState := wsMaximized;
 end;
 
 {$ENDREGION}
@@ -231,27 +229,10 @@ begin
 end;
 
 procedure TfrmAvailableRadar.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  radar : TRadar_On_Board;
 begin
   if Key = #13 then
   begin
-    lbRadars.Items.Clear;
-
-    dmTTT.GetFilterRadarDef(FRadarList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FRadarList.Count;
-
-    for i := 0 to FRadarList.Count - 1 do
-    begin
-      radar := FRadarList.Items[i];
-      lbRadars.Items.AddObject(radar.FDef.Radar_Identifier, radar);
-      frmProgress.increase(radar.FDef.Radar_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateRadarList
   end;
 end;
 
@@ -270,7 +251,7 @@ var
 begin
   lbRadars.Items.Clear;
 
-  dmTTT.GetAllRadarDef(FRadarList);
+  dmTTT.GetFilterRadarDef(FRadarList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';
@@ -282,6 +263,7 @@ begin
     lbRadars.Items.AddObject(radar.FDef.Radar_Identifier, radar);
     frmProgress.increase(radar.FDef.Radar_Identifier);
   end;
+
   frmProgress.Free;
 end;
 

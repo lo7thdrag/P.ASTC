@@ -22,7 +22,6 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
-    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -236,27 +235,10 @@ begin
 end;
 
 procedure TfrmAvailableSonar.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  sonar : TSonar_On_Board;
 begin
   if Key = #13 then
   begin
-    lbSonar.Items.Clear;
-
-    dmTTT.GetFilterSonarDef(FSonarList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FSonarList.Count;
-
-    for i := 0 to FSonarList.Count - 1 do
-    begin
-      sonar := FSonarList.Items[i];
-      lbSonar.Items.AddObject(sonar.FDef.Sonar_Identifier, sonar);
-      frmProgress.increase(sonar.FDef.Sonar_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateSonarList
   end;
 end;
 
@@ -275,7 +257,7 @@ var
 begin
   lbSonar.Items.Clear;
 
-  dmTTT.GetAllSonarDef(FSonarList);
+  dmTTT.GetFilterSonarDef(FSonarList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

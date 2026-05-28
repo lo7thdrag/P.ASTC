@@ -146638,8 +146638,8 @@ object fDBEditor: TfDBEditor
           97C35DEDEF4FA245A70C6B65C4388392DB5A5C41FE326623F5470F4465E8FB23
           ED1194718967FA3FFFD9}
         Stretch = True
-        ExplicitLeft = -1
-        ExplicitTop = -1
+        ExplicitWidth = 3840
+        ExplicitHeight = 2160
       end
     end
     object pnlLeft: TPanel
@@ -146662,9 +146662,9 @@ object fDBEditor: TfDBEditor
       TabOrder = 3
       object pnl1ExerciseBody: TPanel
         Left = 20
-        Top = 669
+        Top = 485
         Width = 321
-        Height = 23
+        Height = 25
         Align = alTop
         BevelOuter = bvNone
         BorderWidth = 3
@@ -146782,6 +146782,7 @@ object fDBEditor: TfDBEditor
           Stretch = True
         end
         object mnEnvironment: TLabel
+          Tag = 34
           Left = 63
           Top = 79
           Width = 83
@@ -146796,9 +146797,12 @@ object fDBEditor: TfDBEditor
           Font.Style = []
           ParentColor = False
           ParentFont = False
-          OnClick = EnvironmentClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnGameArea: TLabel
+          Tag = 35
           Left = 63
           Top = 110
           Width = 77
@@ -146813,9 +146817,12 @@ object fDBEditor: TfDBEditor
           Font.Style = []
           ParentColor = False
           ParentFont = False
-          OnClick = GameAreaClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnResourceAllocation: TLabel
+          Tag = 33
           Left = 63
           Top = 48
           Width = 145
@@ -146830,9 +146837,12 @@ object fDBEditor: TfDBEditor
           Font.Style = []
           ParentColor = False
           ParentFont = False
-          OnClick = ResourceAllocationClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnScenario: TLabel
+          Tag = 32
           Left = 63
           Top = 17
           Width = 59
@@ -146847,12 +146857,14 @@ object fDBEditor: TfDBEditor
           Font.Style = []
           ParentColor = False
           ParentFont = False
-          OnClick = ScenarioClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
       end
       object pnl1Exercise: TPanel
         Left = 20
-        Top = 629
+        Top = 445
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -146863,6 +146875,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 1
+        ExplicitTop = 629
         object imgExercise: TImage
           Left = 0
           Top = 0
@@ -147789,7 +147802,7 @@ object fDBEditor: TfDBEditor
       object pnl2Platforms: TPanel
         Tag = 1
         Left = 20
-        Top = 459
+        Top = 275
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -147800,6 +147813,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 2
+        ExplicitTop = 459
         object imgPlatforms: TImage
           Tag = 1
           Left = 0
@@ -148733,7 +148747,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl2PlatformsBody: TPanel
         Left = 20
-        Top = 499
+        Top = 315
         Width = 321
         Height = 25
         Align = alTop
@@ -148800,9 +148814,10 @@ object fDBEditor: TfDBEditor
           ParentColor = False
           ParentFont = False
           Transparent = True
-          OnClick = SatelliteClick
+          OnClick = SubMenuClick
         end
         object mnVehicle: TLabel
+          Tag = 25
           Left = 63
           Top = 17
           Width = 49
@@ -148818,12 +148833,14 @@ object fDBEditor: TfDBEditor
           ParentColor = False
           ParentFont = False
           Transparent = True
-          OnClick = VehicleClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = IconMouseLeave
         end
       end
       object pnl1ExerciseSparator: TPanel
         Left = 20
-        Top = 692
+        Top = 510
         Width = 321
         Height = 20
         Align = alTop
@@ -148834,10 +148851,11 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 4
+        ExplicitTop = 692
       end
       object pnl2PlatformsSparator: TPanel
         Left = 20
-        Top = 524
+        Top = 340
         Width = 321
         Height = 20
         Align = alTop
@@ -148848,6 +148866,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 5
+        ExplicitTop = 524
       end
       object pnl3Sensors: TPanel
         Tag = 2
@@ -149791,7 +149810,7 @@ object fDBEditor: TfDBEditor
         Left = 20
         Top = 60
         Width = 321
-        Height = 209
+        Height = 25
         Align = alTop
         BevelOuter = bvNone
         BorderWidth = 3
@@ -149980,6 +149999,8 @@ object fDBEditor: TfDBEditor
           ParentFont = False
           Transparent = True
           OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnESM: TLabel
           Tag = 8
@@ -149999,6 +150020,8 @@ object fDBEditor: TfDBEditor
           ParentFont = False
           Transparent = True
           OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnMAD: TLabel
           Tag = 10
@@ -150018,6 +150041,8 @@ object fDBEditor: TfDBEditor
           ParentFont = False
           Transparent = True
           OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnRadar: TLabel
           Tag = 6
@@ -150037,6 +150062,8 @@ object fDBEditor: TfDBEditor
           ParentFont = False
           Transparent = True
           OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnSonar: TLabel
           Tag = 7
@@ -150056,6 +150083,8 @@ object fDBEditor: TfDBEditor
           ParentFont = False
           Transparent = True
           OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnSonobuoy: TLabel
           Tag = 11
@@ -150075,11 +150104,13 @@ object fDBEditor: TfDBEditor
           ParentFont = False
           Transparent = True
           OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
       end
       object pnl3SensorsSparator: TPanel
         Left = 20
-        Top = 269
+        Top = 85
         Width = 321
         Height = 20
         Align = alTop
@@ -150089,11 +150120,12 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 8
+        ExplicitTop = 269
       end
       object pnl4Weapons: TPanel
         Tag = 2
         Left = 20
-        Top = 289
+        Top = 105
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -150104,6 +150136,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 9
+        ExplicitTop = 289
         object imgWeapons: TImage
           Tag = 3
           Left = 0
@@ -151035,7 +151068,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl4WeaponsBody: TPanel
         Left = 20
-        Top = 329
+        Top = 145
         Width = 321
         Height = 25
         Align = alTop
@@ -151182,7 +151215,7 @@ object fDBEditor: TfDBEditor
           Stretch = True
         end
         object mnBomb: TLabel
-          Tag = 4
+          Tag = 16
           Left = 63
           Top = 141
           Width = 37
@@ -151195,10 +151228,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = BombClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnGun: TLabel
-          Tag = 3
+          Tag = 15
           Left = 63
           Top = 110
           Width = 26
@@ -151211,10 +151246,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = GunClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnMine: TLabel
-          Tag = 2
+          Tag = 14
           Left = 63
           Top = 79
           Width = 31
@@ -151227,9 +151264,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = MineClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnMissile: TLabel
+          Tag = 12
           Left = 63
           Top = 17
           Width = 48
@@ -151242,10 +151282,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = MissileClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnTorpedo: TLabel
-          Tag = 1
+          Tag = 13
           Left = 63
           Top = 48
           Width = 53
@@ -151258,12 +151300,14 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = TorpedoClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
       end
       object pnl4WeaponsSparator: TPanel
         Left = 20
-        Top = 354
+        Top = 170
         Width = 321
         Height = 20
         Align = alTop
@@ -151274,11 +151318,12 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 11
+        ExplicitTop = 354
       end
       object pnl5Countermeasur: TPanel
         Tag = 2
         Left = 20
-        Top = 374
+        Top = 190
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -151289,6 +151334,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 12
+        ExplicitTop = 374
         object imgCountermeasures: TImage
           Tag = 4
           Left = 0
@@ -152237,7 +152283,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl5CountermeasuresBody: TPanel
         Left = 20
-        Top = 414
+        Top = 230
         Width = 321
         Height = 25
         Align = alTop
@@ -152465,6 +152511,7 @@ object fDBEditor: TfDBEditor
           Stretch = True
         end
         object mnAcousticDecoy: TLabel
+          Tag = 17
           Left = 63
           Top = 17
           Width = 109
@@ -152477,10 +152524,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = AcousticDecoyClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnAirBubble: TLabel
-          Tag = 1
+          Tag = 18
           Left = 63
           Top = 48
           Width = 79
@@ -152493,10 +152542,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = AirBubbleClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnChaff: TLabel
-          Tag = 2
+          Tag = 19
           Left = 63
           Top = 79
           Width = 38
@@ -152509,10 +152560,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = ChaffClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnFloatingDecoy: TLabel
-          Tag = 4
+          Tag = 24
           Left = 63
           Top = 141
           Width = 107
@@ -152525,10 +152578,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = FloatingDecoyClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnInfraredDecoy: TLabel
-          Tag = 3
+          Tag = 21
           Left = 63
           Top = 110
           Width = 107
@@ -152541,10 +152596,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = InfraredDecoyClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnRadarNoiseJammer: TLabel
-          Tag = 7
+          Tag = 23
           Left = 63
           Top = 234
           Width = 150
@@ -152557,10 +152614,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = RadarNoiseJammerClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnSelfDefensiveJammer: TLabel
-          Tag = 5
+          Tag = 20
           Left = 63
           Top = 172
           Width = 162
@@ -152573,10 +152632,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = SelfDefensiveJammerClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnTowedJammerDecoy: TLabel
-          Tag = 6
+          Tag = 22
           Left = 63
           Top = 203
           Width = 176
@@ -152589,12 +152650,14 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = TowedJammerDecoyClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
       end
       object pnl5CountermeasuresSparator: TPanel
         Left = 20
-        Top = 439
+        Top = 255
         Width = 321
         Height = 20
         Align = alTop
@@ -152605,11 +152668,12 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 14
+        ExplicitTop = 439
       end
       object pnl6Other: TPanel
         Tag = 2
         Left = 20
-        Top = 544
+        Top = 360
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -152620,6 +152684,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 15
+        ExplicitTop = 544
         object imgOther: TImage
           Tag = 5
           Left = 0
@@ -153530,7 +153595,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl6OtherBody: TPanel
         Left = 20
-        Top = 584
+        Top = 400
         Width = 321
         Height = 25
         Align = alTop
@@ -153677,6 +153742,7 @@ object fDBEditor: TfDBEditor
           Stretch = True
         end
         object mnGameDefaults: TLabel
+          Tag = 29
           Left = 63
           Top = 110
           Width = 103
@@ -153689,9 +153755,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = GameDefaultsClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnGraphicalOverlays: TLabel
+          Tag = 27
           Left = 63
           Top = 48
           Width = 140
@@ -153704,11 +153773,14 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = GraphicalOverlaysClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnRuntimePlatformLibrary: TLabel
-          Left = 63
-          Top = 17
+          Tag = 26
+          Left = 58
+          Top = 21
           Width = 189
           Height = 21
           Cursor = crHandPoint
@@ -153719,9 +153791,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = RuntimePlatformLibraryClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnSNRvsPODCurve: TLabel
+          Tag = 30
           Left = 63
           Top = 79
           Width = 148
@@ -153734,9 +153809,12 @@ object fDBEditor: TfDBEditor
           Font.Name = 'Deusex'
           Font.Style = []
           ParentFont = False
-          OnClick = SNRvsPODCurveClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
         object mnStudentRoles: TLabel
+          Tag = 28
           Left = 63
           Top = 203
           Width = 99
@@ -153750,7 +153828,7 @@ object fDBEditor: TfDBEditor
           Font.Style = []
           ParentFont = False
           Visible = False
-          OnClick = StudentRolesClick
+          OnClick = SubMenuClick
         end
         object Image15: TImage
           Left = 32
@@ -153794,7 +153872,7 @@ object fDBEditor: TfDBEditor
           Font.Style = []
           ParentFont = False
           Visible = False
-          OnClick = RadarActivationIntervalsClick
+          OnClick = SubMenuClick
         end
         object Image7: TImage
           Left = 32
@@ -153825,6 +153903,7 @@ object fDBEditor: TfDBEditor
           Visible = False
         end
         object mnMotion: TLabel
+          Tag = 31
           Left = 63
           Top = 141
           Width = 47
@@ -153840,12 +153919,14 @@ object fDBEditor: TfDBEditor
           ParentColor = False
           ParentFont = False
           Transparent = True
-          OnClick = MotionClick
+          OnClick = SubMenuClick
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
       end
       object pnl6OtherSparator: TPanel
         Left = 20
-        Top = 609
+        Top = 425
         Width = 321
         Height = 20
         Align = alTop
@@ -153856,11 +153937,12 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 17
+        ExplicitTop = 609
       end
       object pnl8Shutdown: TPanel
         Tag = 2
         Left = 20
-        Top = 712
+        Top = 530
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -153871,8 +153953,9 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 18
+        ExplicitTop = 712
         object imgShutdown: TImage
-          Tag = 7
+          Tag = 36
           Left = 0
           Top = 0
           Width = 321
@@ -154815,7 +154898,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl8ShutdownBody: TPanel
         Left = 20
-        Top = 752
+        Top = 570
         Width = 321
         Height = 25
         Align = alTop
@@ -154866,11 +154949,13 @@ object fDBEditor: TfDBEditor
           Font.Style = []
           ParentFont = False
           OnClick = ShutdownDatabaseEditor1Click
+          OnMouseEnter = SubMenuMouseEnter
+          OnMouseLeave = SuMenuMouseLeave
         end
       end
       object pnl8ShutdownSparator: TPanel
         Left = 20
-        Top = 777
+        Top = 595
         Width = 321
         Height = 8
         Align = alTop
@@ -154880,6 +154965,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 20
+        ExplicitTop = 777
       end
     end
     object pnlSparatorFooter: TPanel

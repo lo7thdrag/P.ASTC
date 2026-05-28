@@ -78,7 +78,6 @@ begin
     if WinControl.Controls[i] is TWinControl then
       EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
-
 {$REGION ' Form Handle '}
 
 procedure TfrmRuntimePlatformLibrarySummary.FormCreate(Sender: TObject);
