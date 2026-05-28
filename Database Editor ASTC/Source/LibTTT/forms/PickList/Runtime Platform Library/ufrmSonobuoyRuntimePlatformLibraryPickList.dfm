@@ -44851,10 +44851,6 @@ object frmSonobuoyRuntimePlatformLibraryPickList: TfrmSonobuoyRuntimePlatformLib
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 352
-    ExplicitTop = 456
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnlMain: TPanel
       Left = 1
       Top = 1
@@ -44865,10 +44861,6 @@ object frmSonobuoyRuntimePlatformLibraryPickList: TfrmSonobuoyRuntimePlatformLib
       BorderWidth = 10
       Color = clMenuText
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 754
-      ExplicitHeight = 639
       object lbl1: TLabel
         Left = 12
         Top = 544
@@ -45015,12 +45007,12 @@ object frmSonobuoyRuntimePlatformLibraryPickList: TfrmSonobuoyRuntimePlatformLib
         end
       end
       object pnl5: TPanel
-        Left = -6
-        Top = 586
+        Left = -8
+        Top = 588
         Width = 760
         Height = 5
         BevelOuter = bvNone
-        Color = clAqua
+        Color = clTeal
         ParentBackground = False
         TabOrder = 7
       end

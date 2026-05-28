@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, uDBAsset_Sonar;
+  Dialogs, StdCtrls, uDBAsset_Sonar, Vcl.Imaging.pngimage, Vcl.ExtCtrls;
 
 type
   TfSonarPicklist = class(TForm)
@@ -16,6 +16,8 @@ type
     btnFilter: TButton;
     btnUsage: TButton;
     btnClose: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -28,6 +30,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FSonarList : TList;
     FSelectedSonar : TSonar_On_Board;
@@ -41,9 +44,22 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummarySonar, ufrmUsage;
+  uDataModuleTTT, ufrmSummarySonar, ufrmUsage, uSimContainers;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfSonarPicklist.btnCloseClick(Sender: TObject);
 begin
@@ -151,6 +167,13 @@ end;
 procedure TfSonarPicklist.FormCreate(Sender: TObject);
 begin
   FSonarList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfSonarPicklist.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FSonarList);
 end;
 
 procedure TfSonarPicklist.FormShow(Sender: TObject);

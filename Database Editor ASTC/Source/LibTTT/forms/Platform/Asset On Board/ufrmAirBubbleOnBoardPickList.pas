@@ -23,6 +23,8 @@ type
     pnl3: TPanel;
     pnl4: TPanel;
     pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -62,6 +64,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmAirBubbleOnBoardPickList.FormClose(Sender: TObject;var Action: TCloseAction);
@@ -71,8 +86,10 @@ end;
 
 procedure TfrmAirBubbleOnBoardPickList.FormCreate(Sender: TObject);
 begin
-  FAllAirBubbleDefList := TList.Create;
-  FAllAirBubbleOnBoardList := TList.Create;
+  FAllAirBubbleDefList      := TList.Create;
+  FAllAirBubbleOnBoardList  := TList.Create;
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmAirBubbleOnBoardPickList.FormDestroy(Sender: TObject);

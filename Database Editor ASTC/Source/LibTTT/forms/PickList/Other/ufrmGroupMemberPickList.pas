@@ -10,7 +10,6 @@ type
   E_GroupMemberFormCaller = (gmfcMember, gmfcComm);
 
   TfrmGroupMemberPickList = class(TForm)
-    pnlMainBackground: TPanel;
     pnlMain: TPanel;
     btnAdd: TButton;
     btnRemove: TButton;
@@ -24,6 +23,8 @@ type
     pnl3: TPanel;
     pnl4: TPanel;
     pnl5: TPanel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -36,6 +37,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure btnEditMountClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FCaller : E_GroupMemberFormCaller;
@@ -62,16 +64,37 @@ var
 implementation
 
 uses
-  uDataModuleTTT;
+  uDataModuleTTT, uSimContainers;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmGroupMemberPickList.FormCreate(Sender: TObject);
 begin
   FAvailableItemsList := TList.Create;
-  FSelectedItemsList := TList.Create;
+  FSelectedItemsList  := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmGroupMemberPickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FAvailableItemsList);
+  FreeItemsAndFreeList(FSelectedItemsList);
 end;
 
 procedure TfrmGroupMemberPickList.FormShow(Sender: TObject);

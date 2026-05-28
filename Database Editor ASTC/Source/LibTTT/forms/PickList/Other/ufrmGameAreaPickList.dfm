@@ -44851,10 +44851,6 @@ object frmGameAreaPickList: TfrmGameAreaPickList
     Height = 671
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 152
-    ExplicitTop = 240
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Header: TPanel
       Left = 1
       Top = 1
@@ -44877,9 +44873,6 @@ object frmGameAreaPickList: TfrmGameAreaPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 494
       object Label2: TLabel
         Left = 166
         Top = 14
@@ -44918,9 +44911,6 @@ object frmGameAreaPickList: TfrmGameAreaPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
       object btnCancel: TButton
         Left = 404
         Top = 2
@@ -44962,9 +44952,6 @@ object frmGameAreaPickList: TfrmGameAreaPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = -630
-      ExplicitWidth = 183
-      ExplicitHeight = 671
       object lbAvailableGameArea: TListBox
         Left = 10
         Top = 10
@@ -44980,8 +44967,6 @@ object frmGameAreaPickList: TfrmGameAreaPickList
         TabOrder = 0
         OnClick = lbAvailableGameAreaClick
         OnDblClick = lbAvailableGameAreaDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 651
       end
     end
   end
