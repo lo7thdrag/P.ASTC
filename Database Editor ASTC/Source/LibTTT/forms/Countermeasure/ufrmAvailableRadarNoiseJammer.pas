@@ -23,6 +23,7 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
+    imgBackground: TImage;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -37,6 +38,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure FormDestroy(Sender: TObject);
+    procedure pnlMainTableClick(Sender: TObject);
 
   private
    FUpdateList : Boolean;
@@ -57,6 +59,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmAvailableRadarNoiseJammer.FormActivate(Sender: TObject);
@@ -67,6 +82,7 @@ end;
 procedure TfrmAvailableRadarNoiseJammer.FormCreate(Sender: TObject);
 begin
   FRadarNoiseJammerList := TList.Create;
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableRadarNoiseJammer.FormDestroy(Sender: TObject);
@@ -243,7 +259,12 @@ begin
   FSelectedRadarNoiseJammer := TJammer_On_Board(lstRadarNoiseJammer.Items.Objects[lstRadarNoiseJammer.ItemIndex]);
 end;
 
-procedure TfrmAvailableRadarNoiseJammer.UpdateRadarNoiseJammerList;
+procedprocedure TfrmAvailableRadarNoiseJammer.pnlMainTableClick(Sender: TObject);
+begin
+
+end;
+
+ure TfrmAvailableRadarNoiseJammer.UpdateRadarNoiseJammerList;
 var
   i : Integer;
   radarnoisejammer : TJammer_On_Board;

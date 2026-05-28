@@ -23,6 +23,7 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
+    imgBackground: TImage;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -56,6 +57,18 @@ uses
   uDataModuleTTT, ufrmSummarySelfDefensiveJammer, ufrmUsage, ufProgress;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
@@ -67,6 +80,7 @@ end;
 procedure TfrmAvailableSelfDefensiveJammer.FormCreate(Sender: TObject);
 begin
   FSelfDefensiveJammerList := TList.Create;
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableSelfDefensiveJammer.FormDestroy(Sender: TObject);

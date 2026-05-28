@@ -149,6 +149,7 @@ type
     procedure lstSubEnviClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure GroupBox1Click(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -219,11 +220,18 @@ end;
 
 procedure TfrmEnvironmentCharacteristic.FormCreate(Sender: TObject);
 begin
-  FSubAreaList := TList.Create;
-  FConverter := TCoordConverter.Create;
-  FCanvas := TCanvas.Create;
+  FSubAreaList  := TList.Create;
+  FConverter    := TCoordConverter.Create;
+  FCanvas       := TCanvas.Create;
 
   EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmEnvironmentCharacteristic.FormDestroy(Sender: TObject);
+begin
+  FSubAreaList.Free;
+  FConverter.Free;
+  FCanvas.Free;
 end;
 
 procedure TfrmEnvironmentCharacteristic.FormResize(Sender: TObject);

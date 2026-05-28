@@ -83,6 +83,8 @@ type
     pnlAlignToolBar: TPanel;
     Image2: TImage;
     Image3: TImage;
+    ImageList2: TImageList;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -130,6 +132,7 @@ type
     procedure Map1MapViewChanged(Sender: TObject);
     procedure lstReferencePointClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FResourceAllocation : TResource_Allocation;
@@ -182,13 +185,35 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmReferencePointEditor.FormCreate(Sender: TObject);
 begin
   FReferencePointList := TList.Create;
-  FConverter := TCoordConverter.Create;
-  FCanvas := TCanvas.Create;
+  FConverter          := TCoordConverter.Create;
+  FCanvas             := TCanvas.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmReferencePointEditor.FormDestroy(Sender: TObject);
+begin
+  FReferencePointList.Free;
+  FConverter.Free;
+  FCanvas.Free;
 end;
 
 procedure TfrmReferencePointEditor.FormResize(Sender: TObject);

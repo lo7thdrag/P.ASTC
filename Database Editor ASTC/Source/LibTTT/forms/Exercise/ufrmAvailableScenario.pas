@@ -20,6 +20,9 @@ type
     btnNew: TImage;
     pnlTableList: TPanel;
     lstScenarioList: TListBox;
+    imgBackground: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -32,6 +35,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -56,6 +60,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmAvailableScenario.FormActivate(Sender: TObject);
@@ -67,6 +84,8 @@ procedure TfrmAvailableScenario.FormCreate(Sender: TObject);
 begin
   FScenarioList := TList.Create;
   FSelectedAssetDeployment := TAsset_Deployment.Create;
+
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableScenario.FormDestroy(Sender: TObject);
@@ -336,6 +355,15 @@ begin
   platInstList.Free;
 end;
 
+procedure TfrmAvailableScenario.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateScenarioList
+  end;
+end;
+
 procedure TfrmAvailableScenario.UpdateScenarioList;
 var
   i : Integer;
@@ -345,6 +373,7 @@ begin
   lstScenarioList.Items.Clear;
 
   dmTTT.GetAllScenarioDef(FScenarioList);
+//  dmTTT.GetFilterscenarioDef(FScenarioList, edtSearch.Text);
 
   for i := 0 to FScenarioList.Count - 1 do
   begin

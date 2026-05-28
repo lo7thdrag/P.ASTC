@@ -22,6 +22,7 @@ type
     Image1: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
+    imgBackground: TImage;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -36,6 +37,7 @@ type
     procedure btnUsageClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure edtSearchChange(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -57,6 +59,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmAvailableEnvironments.FormActivate(Sender: TObject);
@@ -67,6 +82,7 @@ end;
 procedure TfrmAvailableEnvironments.FormCreate(Sender: TObject);
 begin
   FEnvironmentList := TList.Create;
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableEnvironments.FormDestroy(Sender: TObject);
@@ -289,7 +305,8 @@ var
 begin
   lstEnvironments.Items.Clear;
 
-  dmTTT.GetAllEnvironmentDef(FEnvironmentList);
+//  dmTTT.GetAllEnvironmentDef(FEnvironmentList);
+  dmTTT.GetFilterEnvironmentDef(FEnvironmentList, edtSearch.Text);
 
   for i := 0 to FEnvironmentList.Count - 1 do
   begin
@@ -330,10 +347,18 @@ begin
   subAreaEnviList.Free;
 end;
 
+procedure TfrmAvailableEnvironments.edtSearchChange(Sender: TObject);
+begin
+//
+end;
+
 procedure TfrmAvailableEnvironments.edtSearchKeyPress(Sender: TObject;
   var Key: Char);
 begin
-//
+  if Key = #13 then
+  begin
+    UpdateEnvironmentList
+  end;
 end;
 
 {$ENDREGION}

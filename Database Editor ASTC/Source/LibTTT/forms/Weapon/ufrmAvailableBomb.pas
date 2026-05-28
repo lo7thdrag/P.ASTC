@@ -22,6 +22,7 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
+    imgBackground: TImage;
 
 
     procedure FormCreate(Sender: TObject);
@@ -58,6 +59,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmAvailableBomb.FormActivate(Sender: TObject);
@@ -68,6 +82,7 @@ end;
 procedure TfrmAvailableBomb.FormCreate(Sender: TObject);
 begin
   FBombList := TList.Create;
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailableBomb.FormDestroy(Sender: TObject);

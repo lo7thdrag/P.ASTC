@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls;
+  Dialogs, ExtCtrls, StdCtrls, Vcl.Imaging.pngimage;
 
 type
   TfVDDoublePickList = class(TForm)
@@ -21,9 +21,12 @@ type
     lbTempIdSel: TListBox;
     shp1: TShape;
     btnEditMount: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lbAllVDDblClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,13 +41,32 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryVehicle, uDBAsset_Sensor;
+  uDataModuleTTT, ufrmSummaryVehicle, uDBAsset_Sensor, uSimContainers;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfVDDoublePickList.FormCreate(Sender: TObject);
 begin
   vList := TList.Create;
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfVDDoublePickList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(vList);
 end;
 
 procedure TfVDDoublePickList.FormShow(Sender: TObject);

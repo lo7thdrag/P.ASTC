@@ -25,7 +25,7 @@ type
   end;
 
   TfrmRadarCoverage = class(TForm)
-    pnl1: TPanel;
+    pnlButton: TPanel;
     imgGraph: TImage;
     grp1: TGroupBox;
     lbllb1: TLabel;
@@ -54,13 +54,13 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
-    pnl2: TPanel;
+    pnlToolbar: TPanel;
     tlb1: TToolBar;
     btnSelect: TToolButton;
     btnAdd: TToolButton;
     btn4: TToolButton;
     btnDelete: TToolButton;
-    il1: TImageList;
+    il2: TImageList;
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
@@ -71,6 +71,10 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
+    pnlMainGrafik: TPanel;
+    pnlGrafik: TPanel;
+    il1: TImageList;
+    pnlAlignToolBar: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

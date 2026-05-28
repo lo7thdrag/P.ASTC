@@ -44852,10 +44852,6 @@ object ProbabilityGraph: TProbabilityGraph
     BevelOuter = bvNone
     BorderWidth = 10
     TabOrder = 0
-    ExplicitLeft = 200
-    ExplicitTop = 280
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnlGrafik: TPanel
       Left = 165
       Top = 10
@@ -44866,10 +44862,6 @@ object ProbabilityGraph: TProbabilityGraph
       Color = 2499101
       TabOrder = 0
       OnClick = pnlGrafikClick
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 585
-      ExplicitHeight = 457
       object pnlToolbar: TPanel
         Left = 0
         Top = 0
@@ -44879,6 +44871,8 @@ object ProbabilityGraph: TProbabilityGraph
         BevelOuter = bvNone
         BorderWidth = 10
         TabOrder = 0
+        ExplicitLeft = -3
+        ExplicitTop = 4
         object tlb1: TToolBar
           Left = 217
           Top = 10
@@ -44890,8 +44884,6 @@ object ProbabilityGraph: TProbabilityGraph
           Caption = 'tlb1'
           Images = il1
           TabOrder = 0
-          ExplicitLeft = 64
-          ExplicitWidth = 476
           object btnSelect: TToolButton
             Left = 0
             Top = 0
@@ -44947,10 +44939,6 @@ object ProbabilityGraph: TProbabilityGraph
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 272
-        ExplicitTop = 240
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object imgGraph: TImage
           Left = 10
           Top = 10
@@ -44975,7 +44963,6 @@ object ProbabilityGraph: TProbabilityGraph
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitHeight = 467
       object grpCursorPosition: TGroupBox
         Left = 9
         Top = 7
@@ -45234,7 +45221,7 @@ object ProbabilityGraph: TProbabilityGraph
       BevelOuter = bvNone
       TabOrder = 2
       OnClick = pnlGrafikClick
-      ExplicitTop = 494
+      ExplicitTop = 472
       object btnApply: TButton
         Left = 541
         Top = 14
@@ -45299,7 +45286,7 @@ object ProbabilityGraph: TProbabilityGraph
     Left = 184
     Top = 488
     Bitmap = {
-      494C010103001400040020002000ECE9D800FF00FFFFFFFFFFFFFFFF424D3600
+      494C010103001400040020002000ECE9D800FF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       000000000000000000000000000000000000D8E9EC00D8E9EC00D8E9EC00D8E9
       EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9EC00D8E9
@@ -45831,6 +45818,7 @@ object ProbabilityGraph: TProbabilityGraph
       8000000180000001800000010000000080000001800000018000000100000000
       8000000180000001800000010000000080000001800000018000000100000000
       8000000180000001800000010000000080000001800000018000000100000000
-      FFFFFFFFFFFFFFFFFFFFFFFF00000000}
+      FFFFFFFFFFFFFFFFFFFFFFFF0000000000000000000000000000000000000000
+      000000000000}
   end
 end

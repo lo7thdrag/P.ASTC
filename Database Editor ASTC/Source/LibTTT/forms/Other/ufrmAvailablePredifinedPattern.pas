@@ -19,8 +19,9 @@ type
     btnNew: TImage;
     pnlTableList: TPanel;
     lstPredifinedPatterns: TListBox;
-    pnlHorizontal: TPanel;
-    Image2: TImage;
+    imgBackground: TImage;
+    Label1: TLabel;
+    edtSearch: TEdit;
 
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -33,6 +34,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FPredifinedPatternList : TList;
@@ -51,6 +53,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmAvailablePredifinedPattern.FormActivate(Sender: TObject);
@@ -61,6 +76,7 @@ end;
 procedure TfrmAvailablePredifinedPattern.FormCreate(Sender: TObject);
 begin
   FPredifinedPatternList := TList.Create;
+  EnableComposited(pnlMainTable);
 end;
 
 procedure TfrmAvailablePredifinedPattern.FormShow(Sender: TObject);
@@ -182,6 +198,15 @@ begin
   end;
 end;
 
+procedure TfrmAvailablePredifinedPattern.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+if Key = #13 then
+  begin
+    UpdatePredifinedPatternList
+  end;
+end;
+
 procedure TfrmAvailablePredifinedPattern.lbSingleClick(Sender: TObject);
 begin
   FSelectedPredifinedPattern := TPredefined_Pattern(lstPredifinedPatterns.Items.Objects[lstPredifinedPatterns.ItemIndex]);
@@ -195,6 +220,7 @@ begin
   lstPredifinedPatterns.Items.Clear;
 
   dmTTT.GetPredefinedPatternDef(FPredifinedPatternList);
+//  dmTTT.GetFilterPredifi(FPredifinedPatternList, edtSearch.Text);
 
   for i := 0 to FPredifinedPatternList.Count - 1 do
   begin

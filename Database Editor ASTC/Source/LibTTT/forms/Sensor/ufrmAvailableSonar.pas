@@ -22,6 +22,7 @@ type
     btnUsage: TImage;
     Label1: TLabel;
     edtSearch: TEdit;
+    imgBackground: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);

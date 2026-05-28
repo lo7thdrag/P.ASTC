@@ -281,6 +281,8 @@ type
     btnCancel: TButton;
     pnlAlignToolBar: TPanel;
     Panel4: TPanel;
+    imgBackground: TImage;
+    il1: TImageList;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -385,6 +387,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmPlatformDeploytment.FormCreate(Sender: TObject);
@@ -396,7 +411,7 @@ begin
 
   Ruler := TRuler.Create(Self);
   Ruler.FRulerConverter := FConverter;
-
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmPlatformDeploytment.FormDestroy(Sender: TObject);
