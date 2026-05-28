@@ -9,13 +9,15 @@ uses
 
 type
   TfrmVektorMapGameCenterEditor = class(TForm)
+    pnlMap: TPanel;
+    VectorMap: TMap;
+    pnlSparatorHor2: TPanel;
+    pnlMainBackground: TPanel;
     pnl3Button: TPanel;
     Panel1: TPanel;
     btnOK: TButton;
     btnApply: TButton;
     btnCancel: TButton;
-    pnlMap: TPanel;
-    VectorMap: TMap;
     pnlRight: TPanel;
     GroupBox1: TGroupBox;
     lblLatitude: TLabel;
@@ -25,10 +27,7 @@ type
     edtWidth: TEdit;
     editLongitude: TEdit;
     editLatitude: TEdit;
-    pnlSparatorHor1: TPanel;
-    pnlSparatorHor2: TPanel;
-    Image2: TImage;
-    Image1: TImage;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -81,6 +80,19 @@ uses
 
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmVektorMapGameCenterEditor.FormCreate(Sender: TObject);
@@ -91,6 +103,7 @@ begin
   ClientWidth := Screen.Monitors[0].Width;
   ClientHeight := Screen.Monitors[0].Height;
 
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmVektorMapGameCenterEditor.FormDestroy(Sender: TObject);

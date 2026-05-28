@@ -280,7 +280,7 @@ begin
     if Game_Area_Index = 0 then
       edtName.Text := '(Unnamed)'
     else
-      edtName.Text := Game_Area_Identifier;
+      edtName.Text := Game_Area_Identifier;               -
 
     LastName := edtName.Text;
     edtLatitude.Text := formatDM_latitude(Game_Centre_Lat);

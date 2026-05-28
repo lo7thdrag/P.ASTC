@@ -84,6 +84,8 @@ type
     pnlSparatorHor2: TPanel;
     Image2: TImage;
     Image1: TImage;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormShow(Sender: TObject);
 
@@ -150,6 +152,19 @@ uses
   ufrmVektorMapGameCenterEditor, Math ;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfrmImportLandmassData.btnCloseClick(Sender: TObject);
 begin
@@ -422,6 +437,7 @@ end;
 procedure TfrmImportLandmassData.FormCreate(Sender: TObject);
 begin
   FMap := TMap.Create(nil);
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmImportLandmassData.FormDestroy(Sender: TObject);

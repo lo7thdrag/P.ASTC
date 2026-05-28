@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, uDBAssetObject, Grids,
-  uDBGame_Defaults,newClassASTT, Mask;
+  uDBGame_Defaults,newClassASTT, Mask, Vcl.Imaging.pngimage;
 
 type
   TfrmIFFMode = class(TForm)
@@ -268,6 +268,8 @@ type
     btnApply: TButton;
     medtRedInterCode1: TMaskEdit;
     edtRedInterCode1: TEdit;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -295,9 +297,23 @@ var
 
 implementation
 
-{$R *.dfm}
 uses
   uDataModuleTTT, ufrmGameDefaultSummary, uSimContainers;
+
+{$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfrmIFFMode.btnApplyClick(Sender: TObject);
 var
@@ -642,6 +658,7 @@ end;
 procedure TfrmIFFMode.FormCreate(Sender: TObject);
 begin
   FIFFList := TList.Create;
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmIFFMode.FormDestroy(Sender: TObject);

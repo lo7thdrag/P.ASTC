@@ -44925,7 +44925,7 @@ object frmSummaryGameAreaVektor: TfrmSummaryGameAreaVektor
               OnClick = btnImportLandmassDataClick
             end
             object btnEditLandmassData: TButton
-              Left = 207
+              Left = 205
               Top = 13
               Width = 148
               Height = 25
