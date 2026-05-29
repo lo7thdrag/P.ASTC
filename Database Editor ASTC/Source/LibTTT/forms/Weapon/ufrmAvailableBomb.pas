@@ -262,27 +262,10 @@ begin
 end;
 
 procedure TfrmAvailableBomb.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  bomb : TBomb_Definition;
 begin
   if Key = #13 then
   begin
-    lstBomb.Items.Clear;
-
-    dmTTT.GetFilterBombDef(FBombList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FBombList.Count;
-
-    for i := 0 to FBombList.Count - 1 do
-    begin
-      bomb := FBombList.Items[i];
-      lstBomb.Items.AddObject(bomb.FData.Bomb_Identifier, bomb);
-      frmProgress.increase(bomb.FData.Bomb_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateBombList
   end;
 end;
 
@@ -302,7 +285,8 @@ var
 begin
   lstBomb.Items.Clear;
 
-  dmTTT.GetAllBombDef(FBombList);
+//  dmTTT.GetAllBombDef(FBombList);
+  dmTTT.GetFilterBombDef(FBombList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

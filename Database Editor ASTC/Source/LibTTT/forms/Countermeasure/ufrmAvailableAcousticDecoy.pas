@@ -256,27 +256,10 @@ begin
 end;
 
 procedure TfrmAvailableAcousticDecoy.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  acousticdecoy : TAcoustic_Decoy_On_Board;
 begin
   if Key = #13 then
   begin
-    lstAcousticDecoy.Items.Clear;
-
-    dmTTT.GetFilterAcousticDecoyDef(FAcousticDecoyList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FAcousticDecoyList.Count;
-
-    for i := 0 to FAcousticDecoyList.Count - 1 do
-    begin
-      acousticdecoy := FAcousticDecoyList.Items[i];
-      lstAcousticDecoy.Items.AddObject(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoy);
-      frmProgress.increase(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateAcousticDecoyList
   end;
 end;
 
@@ -295,7 +278,7 @@ var
 begin
   lstAcousticDecoy.Items.Clear;
 
-  dmTTT.GetAllAcousticDecoyDef(FAcousticDecoyList);
+  dmTTT.GetFilterAcousticDecoyDef(FAcousticDecoyList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

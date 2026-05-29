@@ -219,27 +219,10 @@ begin
 end;
 
 procedure TfrmAvailableRadarNoiseJammer.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  radarnoisejammer : TJammer_On_Board;
 begin
   if Key = #13 then
   begin
-    lstRadarNoiseJammer.Items.Clear;
-
-    dmTTT.GetFilterRadarNoiseJammerDef(FRadarNoiseJammerList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FRadarNoiseJammerList.Count;
-
-    for i := 0 to FRadarNoiseJammerList.Count - 1 do
-    begin
-      radarnoisejammer := FRadarNoiseJammerList.Items[i];
-      lstRadarNoiseJammer.Items.AddObject(radarnoisejammer.FDef.Jammer_Identifier, radarnoisejammer);
-      frmProgress.increase(radarnoisejammer.FDef.Jammer_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateRadarNoiseJammerList
   end;
 end;
 
@@ -258,7 +241,8 @@ var
 begin
   lstRadarNoiseJammer.Items.Clear;
 
-  dmTTT.GetAllRadarNoiseJammerDef(FRadarNoiseJammerList);
+//  dmTTT.GetAllRadarNoiseJammerDef(FRadarNoiseJammerList);
+  dmTTT.GetFilterRadarNoiseJammerDef(FRadarNoiseJammerList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

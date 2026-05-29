@@ -237,7 +237,8 @@ var
 begin
   lstGameDefaults.Items.Clear;
 
-  dmTTT.GetAllGameDefaultDef(FGameDefaultsList);
+//  dmTTT.GetAllGameDefaultDef(FGameDefaultsList);
+  dmTTT.GetFilterGameDefaultDef(FGameDefaultsList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';
@@ -522,27 +523,10 @@ begin
 end;
 
 procedure TfrmAvailableGameDefaults.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  gamedefaults : TGame_Defaults;
 begin
   if Key = #13 then
   begin
-    lstGameDefaults.Items.Clear;
-
-    dmTTT.GetFilterGameDefaultDef(FGameDefaultsList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FGameDefaultsList.Count;
-
-    for i := 0 to FGameDefaultsList.Count - 1 do
-    begin
-      gamedefaults := FGameDefaultsList.Items[i];
-      lstGameDefaults.Items.AddObject(gamedefaults.FData.Defaults_Identifier, gamedefaults);
-      frmProgress.increase(gamedefaults.FData.Defaults_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateGameDefaultsList
   end;
 end;
 

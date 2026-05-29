@@ -659,7 +659,7 @@ object frmAvailableGameDefaults: TfrmAvailableGameDefaults
         end
         object edtSearch: TEdit
           Left = 82
-          Top = 16
+          Top = 17
           Width = 247
           Height = 25
           Anchors = [akLeft, akTop, akRight]

@@ -243,27 +243,10 @@ begin
 end;
 
 procedure TfrmAvailableRadarActivationIntervals.edtSearchKeyPress( Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  radaractivationintervals : TRadar_Interval_List;
 begin
   if Key = #13 then
   begin
-    lstRadarActivationIntervals.Items.Clear;
-
-    dmTTT.GetFilterRadarActivationIntervalDef(FRadarActivationIntervalsList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FRadarActivationIntervalsList.Count;
-
-    for i := 0 to FRadarActivationIntervalsList.Count - 1 do
-    begin
-      radaractivationintervals := FRadarActivationIntervalsList.Items[i];
-      lstRadarActivationIntervals.Items.AddObject(radaractivationintervals.FData.Interval_List_Identifier, radaractivationintervals);
-      frmProgress.increase(radaractivationintervals.FData.Interval_List_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateRadarActivationIntervalsList
   end;
 end;
 
@@ -274,7 +257,8 @@ var
 begin
   lstRadarActivationIntervals.Items.Clear;
 
-  dmTTT.GetAllRadarActivationIntervalDef(FRadarActivationIntervalsList);
+//  dmTTT.GetAllRadarActivationIntervalDef(FRadarActivationIntervalsList);
+  dmTTT.GetFilterRadarActivationIntervalDef(FRadarActivationIntervalsList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

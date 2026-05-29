@@ -240,27 +240,10 @@ begin
 end;
 
 procedure TfrmAvailableMotion.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  motion : TMotion_Characteristics;
 begin
   if Key = #13 then
   begin
-    lstMotions.Items.Clear;
-
-    dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FMotionList.Count;
-
-    for i := 0 to FMotionList.Count - 1 do
-    begin
-      motion := FMotionList.Items[i];
-      lstMotions.Items.AddObject(motion.FData.Motion_Identifier, motion);
-      frmProgress.increase(motion.FData.Motion_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateMotionList
   end;
 end;
 
@@ -279,7 +262,8 @@ var
 begin
   lstMotions.Items.Clear;
 
-  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+//  dmTTT.GetAllMotionCharacteristicDef(FMotionList);
+  dmTTT.GetFilterMotionCharacteristicDef(FMotionList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

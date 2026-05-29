@@ -220,27 +220,10 @@ begin
 end;
 
 procedure TfrmAvailableInfraredDecoy.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  infrareddecoy : TInfrared_Decoy_On_Board;
 begin
   if Key = #13 then
   begin
-    lstInfraredDecoy.Items.Clear;
-
-    dmTTT.GetFilterInfraredDecoyDef(FInfraredDecoyList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FInfraredDecoyList.Count;
-
-    for i := 0 to FInfraredDecoyList.Count - 1 do
-    begin
-      infrareddecoy := FInfraredDecoyList.Items[i];
-      lstInfraredDecoy.Items.AddObject(infrareddecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier, infrareddecoy);
-      frmProgress.increase(infrareddecoy.FInfraredDecoy_Def.Infrared_Decoy_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateInfraredDecoyList
   end;
 end;
 
@@ -259,7 +242,8 @@ var
 begin
   lstInfraredDecoy.Items.Clear;
 
-  dmTTT.GetAllInfraredDecoyDef(FInfraredDecoyList);
+//  dmTTT.GetAllInfraredDecoyDef(FInfraredDecoyList);
+  dmTTT.GetFilterInfraredDecoyDef(FInfraredDecoyList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

@@ -68,7 +68,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           580
           57)
         object btnDelete: TImage
-          Left = 537
+          Left = 533
           Top = 13
           Width = 30
           Height = 30
@@ -198,7 +198,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 442
+          Left = 438
           Top = 13
           Width = 30
           Height = 30
@@ -302,7 +302,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 402
+          Left = 398
           Top = 13
           Width = 30
           Height = 30
@@ -425,7 +425,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 362
+          Left = 358
           Top = 13
           Width = 30
           Height = 30
@@ -517,7 +517,7 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 497
+          Left = 493
           Top = 13
           Width = 30
           Height = 30
@@ -646,6 +646,35 @@ object frmAvailableResourceAllocation: TfrmAvailableResourceAllocation
           Proportional = True
           Stretch = True
           OnClick = btnUsageClick
+        end
+        object Label1: TLabel
+          Left = 13
+          Top = 18
+          Width = 72
+          Height = 21
+          Caption = 'Search : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -21
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentFont = False
+        end
+        object edtSearch: TEdit
+          Left = 82
+          Top = 16
+          Width = 247
+          Height = 25
+          Anchors = [akTop, akRight]
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnKeyPress = edtSearchKeyPress
         end
       end
     end

@@ -227,27 +227,10 @@ begin
 end;
 
 procedure TfrmAvailableAirBubble.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  airbubble : TAir_Bubble_Mount;
 begin
   if Key = #13 then
   begin
-    lstAirBubble.Items.Clear;
-
-    dmTTT.GetFilterAirBubbleDef(FAirBubbleList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FAirBubbleList.Count;
-
-    for i := 0 to FAirBubbleList.Count - 1 do
-    begin
-      airbubble := FAirBubbleList.Items[i];
-      lstAirBubble.Items.AddObject(airbubble.FAirBubble_Def.Air_Bubble_Identifier, airbubble);
-      frmProgress.increase(airbubble.FAirBubble_Def.Air_Bubble_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateAirBubbleList
   end;
 end;
 
@@ -266,7 +249,8 @@ var
 begin
   lstAirBubble.Items.Clear;
 
-  dmTTT.GetAllAirBubbleDef(FAirBubbleList);
+//  dmTTT.GetAllAirBubbleDef(FAirBubbleList);
+  dmTTT.GetFilterAirBubbleDef(FAirBubbleList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

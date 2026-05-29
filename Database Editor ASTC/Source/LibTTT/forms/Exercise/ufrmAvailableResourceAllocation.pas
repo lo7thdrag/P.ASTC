@@ -20,6 +20,8 @@ type
     btnUsage: TImage;
     pnlTableList: TPanel;
     lstResourceAllocation: TListBox;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -31,6 +33,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -435,6 +438,15 @@ begin
   runtimePlatformList.Free;
 end;
 
+procedure TfrmAvailableResourceAllocation.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateResourceAllocList
+  end;
+end;
+
 procedure TfrmAvailableResourceAllocation.lbSingleClick(Sender: TObject);
 begin
   if lstResourceAllocation.ItemIndex = -1 then
@@ -451,6 +463,7 @@ begin
   lstResourceAllocation.Items.Clear;
 
   dmTTT.GetResourceAllocationDef(FResourceAllocList);
+//  dmTTT.GetFilterResourceAllocationDef(FResourceAllocList, edtSearch.Text);
 
   for i := 0 to FResourceAllocList.Count - 1 do
   begin

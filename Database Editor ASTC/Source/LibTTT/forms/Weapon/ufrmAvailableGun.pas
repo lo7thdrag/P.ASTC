@@ -274,27 +274,10 @@ begin
 end;
 
 procedure TfrmAvailableGun.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  gun : TGun_Definition;
 begin
   if Key = #13 then
   begin
-    lstGun.Items.Clear;
-
-    dmTTT.GetFilterGunDef(FGunList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FGunList.Count;
-
-    for i := 0 to FGunList.Count - 1 do
-    begin
-      gun := FGunList.Items[i];
-      lstGun.Items.AddObject(gun.FData.Gun_Identifier, gun);
-      frmProgress.increase(gun.FData.Gun_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateGunList
   end;
 end;
 
@@ -306,7 +289,8 @@ var
 begin
   lstGun.Items.Clear;
 
-  dmTTT.GetAllGunDef(FGunList);
+//  dmTTT.GetAllGunDef(FGunList);
+  dmTTT.GetFilterGunDef(FGunList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

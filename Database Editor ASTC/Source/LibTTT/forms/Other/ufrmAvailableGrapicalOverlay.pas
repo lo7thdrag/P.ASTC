@@ -238,27 +238,10 @@ begin
 end;
 
 procedure TfrmAvailableGrapicalOverlay.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  overlay : TOverlay_Definition;
 begin
   if Key = #13 then
   begin
-    lstGrapicalOverlays.Items.Clear;
-
-    dmTTT.GetFilterOverlayDef(FOverlayList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FOverlayList.Count;
-
-    for i := 0 to FOverlayList.Count - 1 do
-    begin
-      overlay := FOverlayList.Items[i];
-      lstGrapicalOverlays.Items.AddObject(overlay.FData.Overlay_Identifier, overlay);
-      frmProgress.increase(overlay.FData.Overlay_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateOverlayList
   end;
 end;
 
@@ -276,7 +259,8 @@ var
 begin
   lstGrapicalOverlays.Items.Clear;
 
-  dmTTT.GetAllOverlayDef(FOverlayList);
+//  dmTTT.GetAllOverlayDef(FOverlayList);
+  dmTTT.GetFilterOverlayDef(FOverlayList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

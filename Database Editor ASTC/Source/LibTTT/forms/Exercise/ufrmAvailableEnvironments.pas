@@ -297,7 +297,8 @@ var
 begin
   lstEnvironments.Items.Clear;
 
-  dmTTT.GetAllEnvironmentDef(FEnvironmentList);
+//  dmTTT.GetAllEnvironmentDef(FEnvironmentList);
+  dmTTT.GetFilterEnvironmentDef(FEnvironmentList, edtSearch.Text);
 
   for i := 0 to FEnvironmentList.Count - 1 do
   begin
@@ -341,7 +342,10 @@ end;
 procedure TfrmAvailableEnvironments.edtSearchKeyPress(Sender: TObject;
   var Key: Char);
 begin
-//
+  if Key = #13 then
+  begin
+    UpdateEnvironmentList
+  end;
 end;
 
 {$ENDREGION}

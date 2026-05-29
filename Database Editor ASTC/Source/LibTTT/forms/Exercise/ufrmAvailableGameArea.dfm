@@ -30,7 +30,7 @@ object frmAvailableGameArea: TfrmAvailableGameArea
       Left = 0
       Top = 0
       Width = 884
-      Height = 57
+      Height = 46
       Align = alTop
       BevelOuter = bvNone
       Color = 2499101
@@ -38,7 +38,7 @@ object frmAvailableGameArea: TfrmAvailableGameArea
       TabOrder = 0
       object Label2: TLabel
         Left = 10
-        Top = 18
+        Top = 13
         Width = 147
         Height = 21
         Caption = 'List of Game Area '
@@ -53,19 +53,20 @@ object frmAvailableGameArea: TfrmAvailableGameArea
         Left = 304
         Top = 0
         Width = 580
-        Height = 57
+        Height = 46
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitHeight = 57
         DesignSize = (
           580
-          57)
+          46)
         object btnDelete: TImage
-          Left = 537
-          Top = 13
+          Left = 532
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -194,8 +195,8 @@ object frmAvailableGameArea: TfrmAvailableGameArea
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 442
-          Top = 13
+          Left = 437
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -298,8 +299,8 @@ object frmAvailableGameArea: TfrmAvailableGameArea
           OnClick = btnEditClick
         end
         object btnCopy: TImage
-          Left = 402
-          Top = 13
+          Left = 397
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -421,8 +422,8 @@ object frmAvailableGameArea: TfrmAvailableGameArea
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 362
-          Top = 13
+          Left = 357
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -513,8 +514,8 @@ object frmAvailableGameArea: TfrmAvailableGameArea
           OnClick = btnNewClick
         end
         object btnUsage: TImage
-          Left = 497
-          Top = 13
+          Left = 492
+          Top = 8
           Width = 30
           Height = 30
           Cursor = crHandPoint
@@ -643,24 +644,54 @@ object frmAvailableGameArea: TfrmAvailableGameArea
           Stretch = True
           OnClick = btnUsageClick
         end
+        object Label1: TLabel
+          Left = 13
+          Top = 13
+          Width = 72
+          Height = 21
+          Caption = 'Search : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -21
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentFont = False
+        end
+        object edtSearch: TEdit
+          Left = 95
+          Top = 10
+          Width = 247
+          Height = 25
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnKeyPress = edtSearchKeyPress
+        end
       end
     end
     object pnlTableList: TPanel
       Left = 0
-      Top = 57
+      Top = 46
       Width = 884
-      Height = 404
+      Height = 415
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
+      ExplicitTop = 57
+      ExplicitHeight = 404
       object lstGameArea: TListBox
         Left = 10
         Top = 10
         Width = 864
-        Height = 384
+        Height = 395
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -672,6 +703,8 @@ object frmAvailableGameArea: TfrmAvailableGameArea
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitTop = 6
+        ExplicitHeight = 384
       end
     end
   end

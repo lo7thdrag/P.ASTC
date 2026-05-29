@@ -217,27 +217,10 @@ begin
 end;
 
 procedure TfrmAvailableFloatingDecoy.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  floatingdecoy : TFloating_Decoy_On_Board;
 begin
   if Key = #13 then
   begin
-    lstFloatingDecoy.Items.Clear;
-
-    dmTTT.GetFilterFloatingDecoyDef(FFloatingDecoyList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FFloatingDecoyList.Count;
-
-    for i := 0 to FFloatingDecoyList.Count - 1 do
-    begin
-      floatingdecoy := FFloatingDecoyList.Items[i];
-      lstFloatingDecoy.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
-      frmProgress.increase(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateFloatingDecoyList
   end;
 end;
 
@@ -256,7 +239,8 @@ var
 begin
   lstFloatingDecoy.Items.Clear;
 
-  dmTTT.GetAllFloatingDecoyDef(FFloatingDecoyList);
+//  dmTTT.GetAllFloatingDecoyDef(FFloatingDecoyList);
+  dmTTT.GetFilterFloatingDecoyDef(FFloatingDecoyList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

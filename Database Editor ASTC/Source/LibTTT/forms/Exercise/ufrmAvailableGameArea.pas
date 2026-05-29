@@ -20,6 +20,8 @@ type
     pnlTableList: TPanel;
     lstGameArea: TListBox;
     btnUsage: TImage;
+    edtSearch: TEdit;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -31,6 +33,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure btnUsageClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -258,7 +261,8 @@ var
 begin
   lstGameArea.Items.Clear;
 
-  dmTTT.GetAllGameAreaDef(FGameAreaList);
+//  dmTTT.GetAllGameAreaDef(FGameAreaList);
+  dmTTT.GetFilterGameAreaDef(FGameAreaList, edtSearch.Text);
 
   for i := 0 to FGameAreaList.Count - 1 do
   begin
@@ -317,6 +321,15 @@ begin
     end;
 
     RemoveDir(aFileName);
+  end;
+end;
+
+procedure TfrmAvailableGameArea.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    UpdateGameAreaList
   end;
 end;
 

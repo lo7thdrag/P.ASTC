@@ -283,27 +283,10 @@ begin
 end;
 
 procedure TfrmAvailableMine.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  mine : TMine_On_Board;
 begin
   if Key = #13 then
   begin
-    lstMine.Items.Clear;
-
-    dmTTT.GetFilterMineDef(FMineList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FMineList.Count;
-
-    for i := 0 to FMineList.Count - 1 do
-    begin
-      mine := FMineList.Items[i];
-      lstMine.Items.AddObject(mine.FMine_Def.Mine_Identifier, mine);
-      frmProgress.increase(mine.FMine_Def.Mine_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateMineList
   end;
 end;
 
@@ -315,7 +298,8 @@ var
 begin
   lstMine.Items.Clear;
 
-  dmTTT.GetAllMineDef(FMineList);
+//  dmTTT.GetAllMineDef(FMineList);
+  dmTTT.GetFilterMineDef(FMineList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

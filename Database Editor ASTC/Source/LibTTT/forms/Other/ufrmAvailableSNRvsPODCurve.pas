@@ -238,7 +238,9 @@ var
   snrvspodcurve : TPOD_vs_SNR_Curve_Definition;
 begin
   lstSNRvsPODCurve.Clear;
-  dmTTT.GetAllPODvsSNRCurveDef(FSNRvsPODCurveList);
+
+//  dmTTT.GetAllPODvsSNRCurveDef(FSNRvsPODCurveList);
+  dmTTT.GetFilterPODvsSNRCurveDef(FSNRvsPODCurveList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';
@@ -286,26 +288,10 @@ begin
 end;
 
 procedure TfrmAvailableSNRvsPODCurve.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  snrvspodcurve : TPOD_vs_SNR_Curve_Definition;
 begin
   if Key = #13 then
   begin
-    lstSNRvsPODCurve.Clear;
-    dmTTT.GetFilterPODvsSNRCurveDef(FSNRvsPODCurveList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FSNRvsPODCurveList.Count;
-
-    for i := 0 to FSNRvsPODCurveList.Count - 1 do
-    begin
-      snrvspodcurve := FSNRvsPODCurveList.Items[i];
-      lstSNRvsPODCurve.Items.AddObject(snrvspodcurve.FData.Curve_Definition_Identifier,snrvspodcurve);
-      frmProgress.increase(snrvspodcurve.FData.Curve_Definition_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateSNRvsPODCurveList
   end;
 end;
 

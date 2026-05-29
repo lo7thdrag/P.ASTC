@@ -226,27 +226,10 @@ begin
 end;
 
 procedure TfrmAvailableChaff.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  chaff : TChaff_On_Board;
 begin
   if Key = #13 then
   begin
-    lstChaff.Items.Clear;
-
-    dmTTT.GetFilterChaffDef(FChaffList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FChaffList.Count;
-
-    for i := 0 to FChaffList.Count - 1 do
-    begin
-      chaff := FChaffList.Items[i];
-      lstChaff.Items.AddObject(chaff.FChaff_Def.Chaff_Identifier, chaff);
-      frmProgress.increase(chaff.FChaff_Def.Chaff_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateChaffList
   end;
 end;
 
@@ -265,7 +248,8 @@ var
 begin
   lstChaff.Items.Clear;
 
-  dmTTT.GetAllChaffDef(FChaffList);
+//  dmTTT.GetAllChaffDef(FChaffList);
+  dmTTT.GetFilterChaffDef(FChaffList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

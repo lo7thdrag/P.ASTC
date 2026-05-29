@@ -229,7 +229,8 @@ var
 begin
   lstRuntimePlatformLibrary.Items.Clear;
 
-  dmTTT.GetAllRuntimePlatformLibraryDef(FRuntimePlatformLibraryList);
+//  dmTTT.GetAllRuntimePlatformLibraryDef(FRuntimePlatformLibraryList);
+  dmTTT.GetFilterRuntimePlatformLibraryDef(FRuntimePlatformLibraryList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';
@@ -287,27 +288,10 @@ begin
 end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  runtimeplatformlibrary : TRuntime_Platform_Library;
 begin
   if Key = #13 then
   begin
-    lstRuntimePlatformLibrary.Items.Clear;
-
-    dmTTT.GetFilterRuntimePlatformLibraryDef(FRuntimePlatformLibraryList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FRuntimePlatformLibraryList.Count;
-
-    for i := 0 to FRuntimePlatformLibraryList.Count - 1 do
-    begin
-      runtimeplatformlibrary := FRuntimePlatformLibraryList.Items[i];
-      lstRuntimePlatformLibrary.Items.AddObject(runtimeplatformlibrary.FData.Library_Name, runtimeplatformlibrary);
-      frmProgress.increase(runtimeplatformlibrary.FData.Library_Name);
-    end;
-    frmProgress.Free;
+    UpdateRPLList
   end;
 end;
 
