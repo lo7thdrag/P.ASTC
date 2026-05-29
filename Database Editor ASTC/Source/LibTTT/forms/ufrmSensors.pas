@@ -123,7 +123,6 @@ begin
   IconLoad;
 end;
 
-
 procedure TfrmSensors.SubMenuClick(Sender: TObject);
 var
   subMenuTemp : Integer;

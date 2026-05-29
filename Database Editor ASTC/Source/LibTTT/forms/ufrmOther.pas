@@ -21,14 +21,12 @@ type
     lblMotionCount: TLabel;
     lblRPLCount: TLabel;
     lblSNRvsPODCount: TLabel;
+
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
-    procedure imgRuntimePlatfromLibraryClick(Sender: TObject);
-    procedure imgGraphicalOverlayClick(Sender: TObject);
-    procedure imgMotionClick(Sender: TObject);
-    procedure imgGameDefaultClick(Sender: TObject);
-    procedure imgSNRClick(Sender: TObject);
-    procedure imgRadarActivationIntervalsClick(Sender: TObject);
+
+    procedure SubMenuClick(Sender: TObject);
+
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -50,7 +48,7 @@ implementation
 
 uses
   ufDBEditor, ufrmAvailableRuntimePlatformLibrary, ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles, ufrmAvailableGameDefaults,
-  ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals, uDataModuleTTT;
+  ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals, uDataModuleTTT, tttData;
 
 {$R *.dfm}
 
@@ -119,58 +117,18 @@ begin
   IconLoad;
 end;
 
-procedure TfrmOther.imgGameDefaultClick(Sender: TObject);
+procedure TfrmOther.SubMenuClick(Sender: TObject);
+var
+  subMenuTemp : Integer;
+
 begin
-  if not Assigned(frmAvailableGameDefaults) then
-    frmAvailableGameDefaults := TfrmAvailableGameDefaults.Create(self);
+  if Sender is TImage then
+    subMenuTemp := TLabel(sender).Tag
+  else
+    Exit;
 
   fDBEditor.LoadImageVariasi(0);
-  frmAvailableGameDefaults.Show;
-end;
-
-procedure TfrmOther.imgGraphicalOverlayClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableGrapicalOverlay) then
-    frmAvailableGrapicalOverlay := TfrmAvailableGrapicalOverlay.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableGrapicalOverlay.Show;
-end;
-
-procedure TfrmOther.imgRadarActivationIntervalsClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableRadarActivationIntervals) then
-    frmAvailableRadarActivationIntervals := TfrmAvailableRadarActivationIntervals.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableRadarActivationIntervals.Show;
-end;
-
-procedure TfrmOther.imgRuntimePlatfromLibraryClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableRuntimePlatformLibrary) then
-    frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableRuntimePlatformLibrary.Show;
-end;
-
-procedure TfrmOther.imgSNRClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSNRvsPODCurve) then
-    frmAvailableSNRvsPODCurve := TfrmAvailableSNRvsPODCurve.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableSNRvsPODCurve.Show;
-end;
-
-procedure TfrmOther.imgMotionClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableStudentRoles) then
-    frmAvailableStudentRoles := TfrmAvailableStudentRoles.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableStudentRoles.Show;
+  fDBEditor.FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 procedure TfrmOther.UpdateCountOther;

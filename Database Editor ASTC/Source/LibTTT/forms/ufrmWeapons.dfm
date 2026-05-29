@@ -44851,11 +44851,8 @@ object frmWeapons: TfrmWeapons
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 576
-    ExplicitTop = 368
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgBomb: TImage
+      Tag = 16
       Left = 1147
       Top = 8
       Width = 390
@@ -47825,11 +47822,12 @@ object frmWeapons: TfrmWeapons
         569134A0DF48238D34B28AA401FD461A69A49155240DE837D248238DAC22F9FF
         01FB90E1C4F016D1680000000049454E44AE426082}
       Stretch = True
-      OnClick = imgBombClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgGun: TImage
+      Tag = 15
       Left = 405
       Top = 0
       Width = 761
@@ -53406,11 +53404,12 @@ object frmWeapons: TfrmWeapons
         219FC562B1582C168BC5DA61FAFF3524FBE4120E0B6B0000000049454E44AE42
         6082}
       Stretch = True
-      OnClick = imgGunClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgMine: TImage
+      Tag = 14
       Left = 419
       Top = 468
       Width = 433
@@ -56810,11 +56809,12 @@ object frmWeapons: TfrmWeapons
         757579A8C79803BCC2A54A027E472CFF69AC9B52AC728867D7FF0753080B1E5E
         83D59A0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgMineClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgMissile: TImage
+      Tag = 12
       Left = 9
       Top = 2
       Width = 390
@@ -61598,11 +61598,12 @@ object frmWeapons: TfrmWeapons
         3AFA77B6333B4FD96482F8FF0272329A2A8A4784FC0000000049454E44AE4260
         82}
       Stretch = True
-      OnClick = imgMissileClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgTorpedo: TImage
+      Tag = 13
       Left = 824
       Top = 441
       Width = 713
@@ -66527,7 +66528,7 @@ object frmWeapons: TfrmWeapons
         2184422010080402814020100C0C2114028140201008040281606008A1100804
         0281402010080403E3FF07D033E9551FD7E4330000000049454E44AE426082}
       Stretch = True
-      OnClick = imgTorpedoClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end

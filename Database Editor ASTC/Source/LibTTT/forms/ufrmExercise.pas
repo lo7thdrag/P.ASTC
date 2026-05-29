@@ -19,13 +19,12 @@ type
     lblGameAreaCount: TLabel;
     lblResourceCount: TLabel;
     lblScenarioCount: TLabel;
+
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
 
-    procedure ScenarioClick(Sender: TObject);
-    procedure ResourceAllocationClick(Sender: TObject);
-    procedure EnvironmentClick(Sender: TObject);
-    procedure GameAreaClick(Sender: TObject);
+    procedure SubMenuClick(Sender: TObject);
+
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -47,7 +46,7 @@ implementation
 
 uses
   ufDBEditor, ufrmAvailableScenario, ufrmAvailableResourceAllocation, ufrmAvailableEnvironments,
-  ufrmAvailableGameArea, uDataModuleTTT;
+  ufrmAvailableGameArea, uDataModuleTTT, tttData;
 
 {$R *.dfm}
 
@@ -113,13 +112,18 @@ begin
   IconLoad;
 end;
 
-procedure TfrmExercise.ScenarioClick(Sender: TObject);
+procedure TfrmExercise.SubMenuClick(Sender: TObject);
+var
+  subMenuTemp : Integer;
+
 begin
-  if not Assigned(frmAvailableScenario) then
-    frmAvailableScenario := TfrmAvailableScenario.Create(self);
+  if Sender is TImage then
+    subMenuTemp := TLabel(sender).Tag
+  else
+    Exit;
 
   fDBEditor.LoadImageVariasi(0);
-  frmAvailableScenario.Show;
+  fDBEditor.FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 procedure TfrmExercise.UpdateCountExercise;
@@ -139,33 +143,6 @@ begin
   {$REGION ' Environment '}
   lblEnvironmentCount.Caption := IntToStr(dmTTT.GetAllEnvironmentCount) + ' Data';
   {$ENDREGION}
-end;
-
-procedure TfrmExercise.ResourceAllocationClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableResourceAllocation) then
-    frmAvailableResourceAllocation := TfrmAvailableResourceAllocation.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableResourceAllocation.Show;
-end;
-
-procedure TfrmExercise.EnvironmentClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableEnvironments) then
-    frmAvailableEnvironments := TfrmAvailableEnvironments.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableEnvironments.Show;
-end;
-
-procedure TfrmExercise.GameAreaClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableGameArea) then
-    frmAvailableGameArea := TfrmAvailableGameArea.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableGameArea.Show;
 end;
 
 end.

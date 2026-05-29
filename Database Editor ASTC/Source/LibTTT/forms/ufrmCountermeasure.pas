@@ -27,16 +27,12 @@ type
     lblRadarJammerCount: TLabel;
     lblSelfDefensiveCount: TLabel;
     lblTowedJammerCount: TLabel;
+
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
-    procedure imgAccousticDecoyClick(Sender: TObject);
-    procedure imgAirBubbleClick(Sender: TObject);
-    procedure imgChaffClick(Sender: TObject);
-    procedure imgInfraredDecoyClick(Sender: TObject);
-    procedure imgFloatingDecoyClick(Sender: TObject);
-    procedure imgSelfDefensiveJammerClick(Sender: TObject);
-    procedure imgTowedJammerIDecoyClick(Sender: TObject);
-    procedure imgRadarNoiseJammerClick(Sender: TObject);
+
+    procedure SubMenuClick(Sender: TObject);
+
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -58,7 +54,8 @@ implementation
 
 uses
   ufDBEditor, ufrmAvailableAcousticDecoy, ufrmAvailableAirBubble, ufrmAvailableChaff, ufrmAvailableInfraredDecoy,
-  ufrmAvailableFloatingDecoy, ufrmAvailableSelfDefensiveJammer, ufrmAvailableTowedJammerDecoy, ufrmAvailableRadarNoiseJammer, uDataModuleTTT;
+  ufrmAvailableFloatingDecoy, ufrmAvailableSelfDefensiveJammer, ufrmAvailableTowedJammerDecoy, ufrmAvailableRadarNoiseJammer,
+  uDataModuleTTT, tttData;
 
 {$R *.dfm}
 
@@ -139,76 +136,18 @@ begin
   IconLoad;
 end;
 
-procedure TfrmCountermeasure.imgAccousticDecoyClick(Sender: TObject);
+procedure TfrmCountermeasure.SubMenuClick(Sender: TObject);
+var
+  subMenuTemp : Integer;
+
 begin
-  if not Assigned(frmAvailableAcousticDecoy) then
-    frmAvailableAcousticDecoy := TfrmAvailableAcousticDecoy.Create(self);
+  if Sender is TImage then
+    subMenuTemp := TLabel(sender).Tag
+  else
+    Exit;
 
   fDBEditor.LoadImageVariasi(0);
-  frmAvailableAcousticDecoy.Show;
-end;
-
-procedure TfrmCountermeasure.imgAirBubbleClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableAirBubble) then
-    frmAvailableAirBubble := TfrmAvailableAirBubble.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableAirBubble.Show;
-end;
-
-procedure TfrmCountermeasure.imgChaffClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableChaff) then
-    frmAvailableChaff := TfrmAvailableChaff.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableChaff.Show;
-end;
-
-procedure TfrmCountermeasure.imgFloatingDecoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableFloatingDecoy) then
-    frmAvailableFloatingDecoy := TfrmAvailableFloatingDecoy.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableFloatingDecoy.Show;
-end;
-
-procedure TfrmCountermeasure.imgInfraredDecoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableInfraredDecoy) then
-    frmAvailableInfraredDecoy := TfrmAvailableInfraredDecoy.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableInfraredDecoy.Show;
-end;
-
-procedure TfrmCountermeasure.imgRadarNoiseJammerClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableRadarNoiseJammer) then
-    frmAvailableRadarNoiseJammer := TfrmAvailableRadarNoiseJammer.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableRadarNoiseJammer.Show;
-end;
-
-procedure TfrmCountermeasure.imgSelfDefensiveJammerClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableSelfDefensiveJammer) then
-    frmAvailableSelfDefensiveJammer := TfrmAvailableSelfDefensiveJammer.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableSelfDefensiveJammer.Show;
-end;
-
-procedure TfrmCountermeasure.imgTowedJammerIDecoyClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableTowedJammerDecoy) then
-    frmAvailableTowedJammerDecoy := TfrmAvailableTowedJammerDecoy.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableTowedJammerDecoy.Show;
+  fDBEditor.FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 procedure TfrmCountermeasure.UpdateCountContermeasures;

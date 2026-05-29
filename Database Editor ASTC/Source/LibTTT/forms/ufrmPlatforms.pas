@@ -13,9 +13,12 @@ type
     pnlMainBackground: TPanel;
     imgVehicle: TImage;
     lblVehicleCount: TLabel;
-    procedure imgVehicleClick(Sender: TObject);
+
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
+
+    procedure SubMenuClick(Sender: TObject);
+
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -37,7 +40,7 @@ var
 implementation
 
 uses
-  ufDBEditor, ufrmAvailableVehicle, uDataModuleTTT;
+  ufDBEditor, ufrmAvailableVehicle, uDataModuleTTT, tttData;
 
 {$R *.dfm}
 
@@ -90,14 +93,18 @@ begin
   IconLoad;
 end;
 
-procedure TfrmPlatforms.imgVehicleClick(Sender: TObject);
+procedure TfrmPlatforms.SubMenuClick(Sender: TObject);
+var
+  subMenuTemp : Integer;
+
 begin
-  if not Assigned(frmAvailableVehicle) then
-    frmAvailableVehicle := TfrmAvailableVehicle.Create(self);
+  if Sender is TImage then
+    subMenuTemp := TLabel(sender).Tag
+  else
+    Exit;
 
   fDBEditor.LoadImageVariasi(0);
-  frmAvailableVehicle.Show;
-
+  fDBEditor.FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 procedure TfrmPlatforms.UpdateCountPlatform;

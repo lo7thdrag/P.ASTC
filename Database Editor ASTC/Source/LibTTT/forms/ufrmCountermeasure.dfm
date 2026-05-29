@@ -44850,11 +44850,8 @@ object frmCountermeasure: TfrmCountermeasure
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 576
-    ExplicitTop = 368
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgAccousticDecoy: TImage
+      Tag = 17
       Left = 583
       Top = 354
       Width = 426
@@ -48675,11 +48672,12 @@ object frmCountermeasure: TfrmCountermeasure
         D1451451C4AAE25E0669E2EDFAF5B1751948655168A28B28A28855C57A81F4FF
         0F16FF07AC5FD1A9880000000049454E44AE426082}
       Stretch = True
-      OnClick = imgAccousticDecoyClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgAirBubble: TImage
+      Tag = 18
       Left = 8
       Top = 8
       Width = 585
@@ -51885,11 +51883,12 @@ object frmCountermeasure: TfrmCountermeasure
         B16022C36030180C06A362C14486C16030180C46C5E2FF0176603AF0109AA00D
         0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgAirBubbleClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgChaff: TImage
+      Tag = 19
       Left = 604
       Top = 20
       Width = 509
@@ -55295,11 +55294,12 @@ object frmCountermeasure: TfrmCountermeasure
         905BB162C58A152B3D582C905BB162C58A152B3D58FE3FE2EE85D479E1B0B400
         00000049454E44AE426082}
       Stretch = True
-      OnClick = imgChaffClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgFloatingDecoy: TImage
+      Tag = 24
       Left = 979
       Top = 609
       Width = 542
@@ -58741,11 +58741,12 @@ object frmCountermeasure: TfrmCountermeasure
         68D10A164162B468D1A2458B162D5AB4824590182D5AB468D1A2458B16AD60FF
         1F80D968B6F47EB47F0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgFloatingDecoyClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgInfraredDecoy: TImage
+      Tag = 21
       Left = 1091
       Top = 20
       Width = 445
@@ -62079,11 +62080,12 @@ object frmCountermeasure: TfrmCountermeasure
         6B686868686894516812D7D0D0D0D0D028A3F87FBD80898E51EC61E700000000
         49454E44AE426082}
       Stretch = True
-      OnClick = imgInfraredDecoyClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgRadarNoiseJammer: TImage
+      Tag = 23
       Left = 992
       Top = 324
       Width = 529
@@ -66633,11 +66635,12 @@ object frmCountermeasure: TfrmCountermeasure
         81A1376FDEBC79F3E6CD9B37310F0CBD79F3E6CD9B376FDEBC897960E8CD9B37
         6FDEBC79F3E64DECFF03C167C5F3E1999E880000000049454E44AE426082}
       Stretch = True
-      OnClick = imgRadarNoiseJammerClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgSelfDefensiveJammer: TImage
+      Tag = 20
       Left = -2
       Top = 591
       Width = 605
@@ -69958,11 +69961,12 @@ object frmCountermeasure: TfrmCountermeasure
         3018750F263C0C0683C16030EA1E4C78180C0683C160D43DFE3FF53A93471495
         6DBA0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgSelfDefensiveJammerClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgTowedJammerIDecoy: TImage
+      Tag = 22
       Left = 14
       Top = 305
       Width = 563
@@ -73232,7 +73236,7 @@ object frmCountermeasure: TfrmCountermeasure
         04F9C14800274182040912A4557226000A4A0029418404701224489020415A2D
         FF1F8B07D6F97B42A1A80000000049454E44AE426082}
       Stretch = True
-      OnClick = imgTowedJammerIDecoyClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end

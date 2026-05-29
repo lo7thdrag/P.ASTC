@@ -21,13 +21,12 @@ type
     lblMineCount: TLabel;
     lblMissileCount: TLabel;
     lblTorpedoCount: TLabel;
+
     procedure IconMouseEnter(Sender: TObject);
     procedure IconMouseLeave(Sender: TObject);
-    procedure imgMissileClick(Sender: TObject);
-    procedure imgTorpedoClick(Sender: TObject);
-    procedure imgMineClick(Sender: TObject);
-    procedure imgGunClick(Sender: TObject);
-    procedure imgBombClick(Sender: TObject);
+
+    procedure SubMenuClick(Sender: TObject);
+
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
@@ -48,7 +47,8 @@ var
 implementation
 
 uses
-  ufDBEditor, ufrmAvailableMissile, ufrmAvailableTorpedo, ufrmAvailableMine, ufrmAvailableGun, ufrmAvailableBomb, uDataModuleTTT;
+  ufDBEditor, ufrmAvailableMissile, ufrmAvailableTorpedo, ufrmAvailableMine, ufrmAvailableGun, ufrmAvailableBomb, uDataModuleTTT,
+  tttData;
 
 
 {$R *.dfm}
@@ -118,49 +118,18 @@ begin
   IconLoad;
 end;
 
-procedure TfrmWeapons.imgBombClick(Sender: TObject);
+procedure TfrmWeapons.SubMenuClick(Sender: TObject);
+var
+  subMenuTemp : Integer;
+
 begin
-  if not Assigned(frmAvailableBomb) then
-    frmAvailableBomb := TfrmAvailableBomb.Create(self);
+  if Sender is TImage then
+    subMenuTemp := TLabel(sender).Tag
+  else
+    Exit;
 
   fDBEditor.LoadImageVariasi(0);
-  frmAvailableBomb.Show;
-end;
-
-procedure TfrmWeapons.imgGunClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableGun) then
-    frmAvailableGun := TfrmAvailableGun.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableGun.Show;
-end;
-
-procedure TfrmWeapons.imgMineClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableMine) then
-    frmAvailableMine := TfrmAvailableMine.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableMine.Show;
-end;
-
-procedure TfrmWeapons.imgMissileClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableMissile) then
-    frmAvailableMissile := TfrmAvailableMissile.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableMissile.Show;
-end;
-
-procedure TfrmWeapons.imgTorpedoClick(Sender: TObject);
-begin
-  if not Assigned(frmAvailableTorpedo) then
-    frmAvailableTorpedo := TfrmAvailableTorpedo.Create(self);
-
-  fDBEditor.LoadImageVariasi(0);
-  frmAvailableTorpedo.Show;
+  fDBEditor.FormFactory(E_FormType(subMenuTemp),True);
 end;
 
 procedure TfrmWeapons.UpdateCountWeapon;
