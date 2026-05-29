@@ -346,7 +346,8 @@ var
 begin
   lstVehicle.Items.Clear;
 
-  dmTTT.GetAllVehicleDef(FVehicleList);
+//  dmTTT.GetAllVehicleDef(FVehicleList);
+  dmTTT.GetFilterVehicleDef(FVehicleList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';
@@ -1135,27 +1136,10 @@ begin
 end;
 
 procedure TfrmAvailableVehicle.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  vehicle : TVehicle_Definition;
 begin
   if Key = #13 then
   begin
-    lstVehicle.Items.Clear;
-
-    dmTTT.GetFilterVehicleDef(FVehicleList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FVehicleList.Count;
-
-    for i := 0 to FVehicleList.Count - 1 do
-    begin
-      vehicle := FVehicleList.Items[i];
-      frmProgress.increase(vehicle.FData.Vehicle_Identifier);
-      lstVehicle.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
-    end;
-    frmProgress.Free;
+    UpdateVehicleList
   end;
 end;
 

@@ -248,27 +248,10 @@ begin
 end;
 
 procedure TfrmAvailableTorpedo.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  torpedo : TTorpedo_On_Board;
 begin
   if Key = #13 then
   begin
-    lstTorpedo.Items.Clear;
-
-    dmTTT.GetFilterTorpedoDef(FTorpedoList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FTorpedoList.Count;
-
-    for i := 0 to FTorpedoList.Count - 1 do
-    begin
-      torpedo := FTorpedoList.Items[i];
-      lstTorpedo.Items.AddObject(Torpedo.FDef.Class_Identifier, torpedo);
-      frmProgress.increase(Torpedo.FDef.Class_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateTorpedoList
   end;
 end;
 
@@ -287,7 +270,8 @@ var
 begin
   lstTorpedo.Items.Clear;
 
-  dmTTT.GetAllTorpedoDef(FTorpedoList);
+//  dmTTT.GetAllTorpedoDef(FTorpedoList);
+  dmTTT.GetFilterTorpedoDef(FTorpedoList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

@@ -229,7 +229,9 @@ var
   studentroles : TStudent_Role_List;
 begin
   lstStudentRoles.Clear;
-  dmTTT.GetStudentRoleList(FStudentRolesList);
+
+//  dmTTT.GetStudentRoleList(FStudentRolesList);
+  dmTTT.GetFilterStudentRoleDef(FStudentRolesList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';
@@ -276,26 +278,10 @@ begin
 end;
 
 procedure TfrmAvailableStudentRoles.edtSearchKeyPress(Sender: TObject;var Key: Char);
-var
-  i : Integer;
-  studentroles : TStudent_Role_List;
 begin
   if Key = #13 then
   begin
-    lstStudentRoles.Clear;
-    dmTTT.GetFilterStudentRoleDef(FStudentRolesList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FStudentRolesList.Count;
-
-    for i := 0 to FStudentRolesList.Count - 1 do
-    begin
-      studentroles := FStudentRolesList.Items[i];
-      lstStudentRoles.Items.AddObject(studentroles.FData.Role_List_Identifier,studentroles);
-      frmProgress.increase(studentroles.FData.Role_List_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateStudentRolesList
   end;
 end;
 

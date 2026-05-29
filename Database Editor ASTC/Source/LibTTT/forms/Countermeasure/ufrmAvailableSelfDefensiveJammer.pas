@@ -219,27 +219,10 @@ begin
 end;
 
 procedure TfrmAvailableSelfDefensiveJammer.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  selfdefensivejammer : TDefensive_Jammer_On_Board;
 begin
-  if Key = #13 then
+if Key = #13 then
   begin
-    lstSelfDefensiveJammer.Items.Clear;
-
-    dmTTT.GetFilterSelfDefensiveJammerDef(FSelfDefensiveJammerList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FSelfDefensiveJammerList.Count;
-
-    for i := 0 to FSelfDefensiveJammerList.Count - 1 do
-    begin
-      selfdefensivejammer := FSelfDefensiveJammerList.Items[i];
-      lstSelfDefensiveJammer.Items.AddObject(selfdefensivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, selfdefensivejammer);
-      frmProgress.increase(selfdefensivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateSelfDefensiveJammerList
   end;
 end;
 
@@ -258,7 +241,8 @@ var
 begin
   lstSelfDefensiveJammer.Items.Clear;
 
-  dmTTT.GetAllSelfDefensiveJammerDef(FSelfDefensiveJammerList);
+//  dmTTT.GetAllSelfDefensiveJammerDef(FSelfDefensiveJammerList);
+  dmTTT.GetFilterSelfDefensiveJammerDef(FSelfDefensiveJammerList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

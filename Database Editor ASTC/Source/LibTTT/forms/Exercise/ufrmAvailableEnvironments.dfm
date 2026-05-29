@@ -705,6 +705,7 @@ object frmAvailableEnvironments: TfrmAvailableEnvironments
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitTop = 6
       end
     end
   end

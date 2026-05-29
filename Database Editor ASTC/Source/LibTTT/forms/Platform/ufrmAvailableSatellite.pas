@@ -213,27 +213,10 @@ begin
 end;
 
 procedure TfrmAvailableSatellite.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  satellite : TSatellite_Definition;
 begin
   if Key = #13 then
   begin
-    lstSatellite.Items.Clear;
-
-    dmTTT.GetFilterSatelliteDef(FSatelliteList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FSatelliteList.Count;
-
-    for i := 0 to FSatelliteList.Count - 1 do
-    begin
-      satellite := FSatelliteList.Items[i];
-      lstSatellite.Items.AddObject(satellite.FData.Satellite_Identifier,satellite);
-      frmProgress.increase(satellite.FData.Satellite_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateSatelliteList
   end;
 end;
 
@@ -252,7 +235,8 @@ var
 begin
   lstSatellite.Items.Clear;
 
-  dmTTT.GetAllSatelliteDef(FSatelliteList);
+//  dmTTT.GetAllSatelliteDef(FSatelliteList);
+  dmTTT.GetFilterSatelliteDef(FSatelliteList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

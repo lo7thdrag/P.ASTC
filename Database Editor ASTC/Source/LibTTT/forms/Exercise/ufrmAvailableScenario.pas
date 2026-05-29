@@ -20,6 +20,8 @@ type
     btnNew: TImage;
     pnlTableList: TPanel;
     lstScenarioList: TListBox;
+    Label1: TLabel;
+    edtSearch: TEdit;
     procedure FormShow(Sender: TObject);
 
     procedure lstScenarioListClick(Sender: TObject);
@@ -29,6 +31,7 @@ type
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
     FUpdateList : Boolean;
@@ -337,6 +340,15 @@ begin
   platInstList.Free;
 end;
 
+procedure TfrmAvailableScenario.edtSearchKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+if Key = #13 then
+  begin
+    UpdateScenarioList
+  end;
+end;
+
 procedure TfrmAvailableScenario.UpdateScenarioList;
 var
   i : Integer;
@@ -346,6 +358,7 @@ begin
   lstScenarioList.Items.Clear;
 
   dmTTT.GetAllScenarioDef(FScenarioList);
+//  dmTTT.GetFilterScenarioDef(FScenarioList, edtSearch.Text);
 
   for i := 0 to FScenarioList.Count - 1 do
   begin

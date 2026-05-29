@@ -532,6 +532,35 @@ object frmAvailableScenario: TfrmAvailableScenario
           Stretch = True
           OnClick = btnNewClick
         end
+        object Label1: TLabel
+          Left = 13
+          Top = 18
+          Width = 72
+          Height = 21
+          Caption = 'Search : '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -21
+          Font.Name = 'Deusex'
+          Font.Style = []
+          ParentFont = False
+        end
+        object edtSearch: TEdit
+          Left = 82
+          Top = 17
+          Width = 247
+          Height = 25
+          Anchors = [akLeft, akTop, akRight]
+          AutoSize = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnKeyPress = edtSearchKeyPress
+        end
       end
     end
     object pnlTableList: TPanel

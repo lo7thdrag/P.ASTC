@@ -219,27 +219,10 @@ begin
 end;
 
 procedure TfrmAvailableTowedJammerDecoy.edtSearchKeyPress(Sender: TObject; var Key: Char);
-var
-  i : Integer;
-  towedjammerdecoy : TTowed_Jammer_Decoy_On_Board;
 begin
   if Key = #13 then
   begin
-    lstTowedJammerDecoy.Items.Clear;
-
-    dmTTT.GetFilterTowedJammerDecoyDef(FTowedJammerDecoyList, edtSearch.Text);
-
-    frmProgress := TfrmProgress.Create(nil);
-    frmProgress.Caption := 'Loading data from database';
-    frmProgress.MaxJob := FTowedJammerDecoyList.Count;
-
-    for i := 0 to FTowedJammerDecoyList.Count - 1 do
-    begin
-      towedjammerdecoy := FTowedJammerDecoyList.Items[i];
-      lstTowedJammerDecoy.Items.AddObject(towedjammerdecoy.FDef.Towed_Decoy_Identifier, towedjammerdecoy);
-      frmProgress.increase(towedjammerdecoy.FDef.Towed_Decoy_Identifier);
-    end;
-    frmProgress.Free;
+    UpdateTowedJammerDecoyList
   end;
 end;
 
@@ -258,7 +241,8 @@ var
 begin
   lstTowedJammerDecoy.Items.Clear;
 
-  dmTTT.GetAllTowedJammerDecoyDef(FTowedJammerDecoyList);
+//  dmTTT.GetAllTowedJammerDecoyDef(FTowedJammerDecoyList);
+  dmTTT.GetFilterTowedJammerDecoyDef(FTowedJammerDecoyList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
   frmProgress.Caption := 'Loading data from database';

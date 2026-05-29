@@ -32,8 +32,6 @@ object frmAvailableSatellite: TfrmAvailableSatellite
     Color = cl3DDkShadow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 889
-    ExplicitHeight = 435
     object pnlTableList: TPanel
       Left = 0
       Top = 46
@@ -44,10 +42,6 @@ object frmAvailableSatellite: TfrmAvailableSatellite
       Color = clScrollBar
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 50
-      ExplicitWidth = 776
-      ExplicitHeight = 407
       object lstSatellite: TListBox
         Left = 0
         Top = 0
@@ -56,15 +50,14 @@ object frmAvailableSatellite: TfrmAvailableSatellite
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = []
+        ItemHeight = 19
         ParentFont = False
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitWidth = 881
-        ExplicitHeight = 381
       end
     end
     object pnlTableHeader: TPanel
@@ -77,9 +70,6 @@ object frmAvailableSatellite: TfrmAvailableSatellite
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 4
-      ExplicitWidth = 881
       object Label2: TLabel
         Left = 3
         Top = 14
@@ -104,7 +94,6 @@ object frmAvailableSatellite: TfrmAvailableSatellite
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 353
         object btnDelete: TImage
           Left = 590
           Top = 9

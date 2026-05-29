@@ -60,7 +60,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 57
         DesignSize = (
           580
           46)
@@ -685,8 +684,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 57
-      ExplicitHeight = 404
       object lstGameArea: TListBox
         Left = 10
         Top = 10
@@ -703,8 +700,6 @@ object frmAvailableGameArea: TfrmAvailableGameArea
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitTop = 6
-        ExplicitHeight = 384
       end
     end
   end

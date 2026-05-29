@@ -659,7 +659,7 @@ object frmAvailableBomb: TfrmAvailableBomb
         end
         object edtSearch: TEdit
           Left = 82
-          Top = 16
+          Top = 17
           Width = 247
           Height = 25
           Anchors = [akTop, akRight]
@@ -694,9 +694,10 @@ object frmAvailableBomb: TfrmAvailableBomb
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = []
+        ItemHeight = 19
         ParentFont = False
         TabOrder = 0
         OnClick = lbSingleClick

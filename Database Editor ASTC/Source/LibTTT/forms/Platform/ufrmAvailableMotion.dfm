@@ -48,9 +48,10 @@ object frmAvailableMotion: TfrmAvailableMotion
         Height = 852
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = []
+        ItemHeight = 19
         ParentFont = False
         TabOrder = 0
         OnClick = lbSingleClick
