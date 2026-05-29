@@ -44852,11 +44852,8 @@ object frmExercise: TfrmExercise
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 576
-    ExplicitTop = 368
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgEnvironment: TImage
+      Tag = 34
       Left = 920
       Top = 444
       Width = 613
@@ -48706,11 +48703,12 @@ object frmExercise: TfrmExercise
         446E121212121212129614FE7FA72D3B13E6A37A050000000049454E44AE4260
         82}
       Stretch = True
-      OnClick = EnvironmentClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgGameArea: TImage
+      Tag = 35
       Left = 560
       Top = 4
       Width = 972
@@ -55016,11 +55014,12 @@ object frmExercise: TfrmExercise
         140A8542A15028140A854231C3F8FFD7B8BFEB948A26FF0000000049454E44AE
         426082}
       Stretch = True
-      OnClick = GameAreaClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgResourceAllocation: TImage
+      Tag = 33
       Left = 28
       Top = 451
       Width = 886
@@ -62054,11 +62053,12 @@ object frmExercise: TfrmExercise
         0200009095200A0000405682280000005909A200000064F503AD7B3E39ED5777
         430000000049454E44AE426082}
       Stretch = True
-      OnClick = ResourceAllocationClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgScenario: TImage
+      Tag = 32
       Left = 28
       Top = 4
       Width = 526
@@ -67478,7 +67478,7 @@ object frmExercise: TfrmExercise
         913710097C7FF111F9F8FD377A1211111111112EAA90F7FF036FFC885573DE15
         FE0000000049454E44AE426082}
       Stretch = True
-      OnClick = ScenarioClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end

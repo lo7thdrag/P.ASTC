@@ -44851,11 +44851,8 @@ object frmOther: TfrmOther
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 576
-    ExplicitTop = 368
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgGameDefault: TImage
+      Tag = 29
       Left = 581
       Top = 8
       Width = 436
@@ -50835,11 +50832,12 @@ object frmOther: TfrmOther
         B876ED5A0A9BD68A18148A16941CE0B9D4D9D9F96754C6E6544EE58A1CFE1F49
         AE42DA9F9F9E9C0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgGameDefaultClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgGraphicalOverlay: TImage
+      Tag = 27
       Left = 26
       Top = 21
       Width = 572
@@ -58023,11 +58021,12 @@ object frmOther: TfrmOther
         A888888888888888882AF1FF01731E2EDB978303160000000049454E44AE4260
         82}
       Stretch = True
-      OnClick = imgGraphicalOverlayClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgMotion: TImage
+      Tag = 31
       Left = 1023
       Top = 439
       Width = 498
@@ -64627,11 +64626,12 @@ object frmOther: TfrmOther
         C3C3A315E0499887878787878787472BC093300F0F0F0F0F0F0F8F56C0FF0F6F
         775800C306DFD30000000049454E44AE426082}
       Stretch = True
-      OnClick = imgMotionClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgRuntimePlatfromLibrary: TImage
+      Tag = 26
       Left = 9
       Top = 415
       Width = 566
@@ -70284,11 +70284,12 @@ object frmOther: TfrmOther
         AE777B124B2CB1C46E35FB690D6A3E55C917AA0136FF3FC2D1FA8C969F151E00
         00000049454E44AE426082}
       Stretch = True
-      OnClick = imgRuntimePlatfromLibraryClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
     object imgSNR: TImage
+      Tag = 30
       Left = 952
       Top = 21
       Width = 555
@@ -75171,7 +75172,7 @@ object frmOther: TfrmOther
         FEA659B264D95FD25350CE3AF9FF01654EC92982F694A00000000049454E44AE
         426082}
       Stretch = True
-      OnClick = imgSNRClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end

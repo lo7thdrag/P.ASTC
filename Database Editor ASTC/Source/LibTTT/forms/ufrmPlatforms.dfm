@@ -44849,11 +44849,8 @@ object frmPlatforms: TfrmPlatforms
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 576
-    ExplicitTop = 368
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgVehicle: TImage
+      Tag = 25
       Left = 21
       Top = -6
       Width = 1534
@@ -68412,7 +68409,7 @@ object frmPlatforms: TfrmPlatforms
         8220889E02DB9CEFB43A130441742CDF67E99B40C605044110441D5653A4FFFF
         C7333861F62665DC0000000049454E44AE426082}
       Stretch = True
-      OnClick = imgVehicleClick
+      OnClick = SubMenuClick
       OnMouseEnter = IconMouseEnter
       OnMouseLeave = IconMouseLeave
     end
