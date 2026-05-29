@@ -330,6 +330,7 @@ end;
 procedure TfDBEditor.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
+  EnableComposited(pnlLeft);
 
   pnl1ExerciseBody.Height := 0;
   pnl2PlatformsBody.Height := 0;
@@ -464,7 +465,7 @@ begin
   else
     Exit;
 
-  LoadImageVariasi(0);
+  LoadImageVariasi(1);
   FormFactory(E_FormType(subMenuTemp),True);
 end;
 
@@ -474,7 +475,8 @@ end;
 
 procedure TfDBEditor.LoadImageVariasi(i: byte);
 begin
-  pnlVariasi.Visible := i = 0;
+//  pnlVariasi.Visible := i = 0;
+  pnlVariasi.Visible := False;
 end;
 
 procedure TfDBEditor.DockForm(aForm: TForm);
