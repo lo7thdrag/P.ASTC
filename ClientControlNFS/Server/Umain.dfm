@@ -22,8 +22,8 @@ object MainForm: TMainForm
   PixelsPerInch = 96
   TextHeight = 13
   object btnShutdownAll: TImage
-    Left = 21
-    Top = 669
+    Left = 685
+    Top = 797
     Width = 117
     Height = 35
     Cursor = crHandPoint
@@ -429,8 +429,8 @@ object MainForm: TMainForm
   end
   object btnRestartAll: TImage
     Tag = 1
-    Left = 144
-    Top = 669
+    Left = 808
+    Top = 797
     Width = 117
     Height = 35
     Cursor = crHandPoint
@@ -836,13 +836,14 @@ object MainForm: TMainForm
   end
   object pnlINS1: TPanel
     Tag = 100
-    Left = 297
-    Top = 13
+    Left = 25
+    Top = 29
     Width = 100
-    Height = 100
+    Height = 52
+    Cursor = crHandPoint
     Hint = '192.168.84.138'
     Caption = 'pnlINS1'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -851,13 +852,14 @@ object MainForm: TMainForm
   end
   object pnlINS2: TPanel
     Tag = 100
-    Left = 401
-    Top = 13
+    Left = 129
+    Top = 29
     Width = 100
-    Height = 100
+    Height = 52
+    Cursor = crHandPoint
     Hint = '192.168.84.136'
     Caption = 'pnlINS2'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -865,13 +867,14 @@ object MainForm: TMainForm
   end
   object pnlINS3: TPanel
     Tag = 100
-    Left = 505
-    Top = 13
+    Left = 233
+    Top = 29
     Width = 100
-    Height = 100
+    Height = 52
+    Cursor = crHandPoint
     Hint = '192.168.1.30'
     Caption = 'pnlINS3'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -879,13 +882,14 @@ object MainForm: TMainForm
   end
   object pnlCub_01_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 13
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 189
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.11'
     Caption = 'pnlCub_01_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -894,13 +898,14 @@ object MainForm: TMainForm
   end
   object pnlCub_01_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 13
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 189
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.12'
     Caption = 'pnlCub_01_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -909,13 +914,14 @@ object MainForm: TMainForm
   end
   object pnlCub_01_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 13
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 263
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.11'
     Caption = 'pnlCub_01_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -924,13 +930,14 @@ object MainForm: TMainForm
   end
   object pnlCub_01_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 117
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 263
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.14'
     Caption = 'pnlCub_01_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -939,13 +946,14 @@ object MainForm: TMainForm
   end
   object pnlCub_01_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 117
-    Width = 100
-    Height = 100
+    Left = 0
+    Top = 221
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.15'
     Caption = 'pnlCub_01_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -954,13 +962,14 @@ object MainForm: TMainForm
   end
   object pnlCub_01_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 117
-    Width = 100
-    Height = 100
+    Left = 225
+    Top = 189
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.16'
     Caption = 'pnlCub_01_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -969,13 +978,14 @@ object MainForm: TMainForm
   end
   object pnlCub_02_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 117
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 361
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.21'
     Caption = 'pnlCub_02_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -984,13 +994,14 @@ object MainForm: TMainForm
   end
   object pnlCub_02_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 117
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 361
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.22'
     Caption = 'pnlCub_02_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -999,13 +1010,14 @@ object MainForm: TMainForm
   end
   object pnlCub_02_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 117
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 435
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.23'
     Caption = 'pnlCub_02_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1014,13 +1026,14 @@ object MainForm: TMainForm
   end
   object pnlCub_02_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 221
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 435
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.24'
     Caption = 'pnlCub_02_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1029,13 +1042,14 @@ object MainForm: TMainForm
   end
   object pnlCub_02_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 221
-    Width = 100
-    Height = 100
+    Left = 0
+    Top = 397
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.25'
     Caption = 'pnlCub_02_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1044,13 +1058,14 @@ object MainForm: TMainForm
   end
   object pnlCub_02_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 221
-    Width = 100
-    Height = 100
+    Left = 225
+    Top = 361
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.26'
     Caption = 'pnlCub_02_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1059,13 +1074,14 @@ object MainForm: TMainForm
   end
   object pnlCub_03_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 221
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 533
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.31'
     Caption = 'pnlCub_03_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1074,13 +1090,14 @@ object MainForm: TMainForm
   end
   object pnlCub_03_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 221
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 533
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.32'
     Caption = 'pnlCub_03_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1089,13 +1106,14 @@ object MainForm: TMainForm
   end
   object pnlCub_03_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 221
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 607
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.33'
     Caption = 'pnlCub_03_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1104,13 +1122,14 @@ object MainForm: TMainForm
   end
   object pnlCub_03_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 325
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 607
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.34'
     Caption = 'pnlCub_03_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1119,13 +1138,14 @@ object MainForm: TMainForm
   end
   object pnlCub_03_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 325
-    Width = 100
-    Height = 100
+    Left = 0
+    Top = 565
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.35'
     Caption = 'pnlCub_03_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1134,13 +1154,14 @@ object MainForm: TMainForm
   end
   object pnlCub_03_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 325
-    Width = 100
-    Height = 100
+    Left = 225
+    Top = 533
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.36'
     Caption = 'pnlCub_03_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1149,13 +1170,14 @@ object MainForm: TMainForm
   end
   object pnlCub_04_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 325
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 705
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.41'
     Caption = 'pnlCub_04_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1164,13 +1186,14 @@ object MainForm: TMainForm
   end
   object pnlCub_04_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 325
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 705
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.42'
     Caption = 'pnlCub_04_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1179,13 +1202,14 @@ object MainForm: TMainForm
   end
   object pnlCub_04_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 325
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 779
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.43'
     Caption = 'pnlCub_04_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1194,13 +1218,14 @@ object MainForm: TMainForm
   end
   object pnlCub_04_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 429
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 779
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.44'
     Caption = 'pnlCub_04_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1209,13 +1234,14 @@ object MainForm: TMainForm
   end
   object pnlCub_04_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 429
-    Width = 100
-    Height = 100
+    Left = 0
+    Top = 741
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.45'
     Caption = 'pnlCub_04_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1224,13 +1250,14 @@ object MainForm: TMainForm
   end
   object pnlCub_04_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 429
-    Width = 100
-    Height = 100
+    Left = 225
+    Top = 705
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.46'
     Caption = 'pnlCub_04_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1239,13 +1266,14 @@ object MainForm: TMainForm
   end
   object pnlCub_05_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 429
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 877
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.51'
     Caption = 'pnlCub_05_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1254,13 +1282,14 @@ object MainForm: TMainForm
   end
   object pnlCub_05_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 429
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 877
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.52'
     Caption = 'pnlCub_05_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1269,13 +1298,14 @@ object MainForm: TMainForm
   end
   object pnlCub_05_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 429
-    Width = 100
-    Height = 100
+    Left = 47
+    Top = 951
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.53'
     Caption = 'pnlCub_05_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1284,13 +1314,14 @@ object MainForm: TMainForm
   end
   object pnlCub_05_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 533
-    Width = 100
-    Height = 100
+    Left = 119
+    Top = 951
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.54'
     Caption = 'pnlCub_05_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1299,13 +1330,14 @@ object MainForm: TMainForm
   end
   object pnlCub_05_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 533
-    Width = 100
-    Height = 100
+    Left = 0
+    Top = 909
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.55'
     Caption = 'pnlCub_05_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1314,13 +1346,14 @@ object MainForm: TMainForm
   end
   object pnlCub_05_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 533
-    Width = 100
-    Height = 100
+    Left = 225
+    Top = 877
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.56'
     Caption = 'pnlCub_05_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1329,13 +1362,14 @@ object MainForm: TMainForm
   end
   object pnlCub_06_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 533
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 189
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.61'
     Caption = 'pnlCub_06_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1344,13 +1378,14 @@ object MainForm: TMainForm
   end
   object pnlCub_06_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 533
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 189
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.62'
     Caption = 'pnlCub_06_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1359,13 +1394,14 @@ object MainForm: TMainForm
   end
   object pnlCub_06_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 533
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 263
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.63'
     Caption = 'pnlCub_06_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1374,13 +1410,14 @@ object MainForm: TMainForm
   end
   object pnlCub_06_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 637
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 263
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.64'
     Caption = 'pnlCub_06_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1389,13 +1426,14 @@ object MainForm: TMainForm
   end
   object pnlCub_06_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 637
-    Width = 100
-    Height = 100
+    Left = 557
+    Top = 221
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.65'
     Caption = 'pnlCub_06_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1404,13 +1442,14 @@ object MainForm: TMainForm
   end
   object pnlCub_06_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 637
-    Width = 100
-    Height = 100
+    Left = 345
+    Top = 189
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.66'
     Caption = 'pnlCub_06_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1419,13 +1458,14 @@ object MainForm: TMainForm
   end
   object pnlCub_07_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 637
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 361
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.71'
     Caption = 'pnlCub_07_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1434,13 +1474,14 @@ object MainForm: TMainForm
   end
   object pnlCub_07_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 637
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 361
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.72'
     Caption = 'pnlCub_07_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1449,13 +1490,14 @@ object MainForm: TMainForm
   end
   object pnlCub_07_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 637
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 435
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.73'
     Caption = 'pnlCub_07_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1464,13 +1506,14 @@ object MainForm: TMainForm
   end
   object pnlCub_07_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 741
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 435
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.74'
     Caption = 'pnlCub_07_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1479,13 +1522,14 @@ object MainForm: TMainForm
   end
   object pnlCub_07_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 741
-    Width = 100
-    Height = 100
+    Left = 557
+    Top = 397
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.75'
     Caption = 'pnlCub_07_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1494,13 +1538,14 @@ object MainForm: TMainForm
   end
   object pnlCub_07_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 741
-    Width = 100
-    Height = 100
+    Left = 345
+    Top = 361
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.76'
     Caption = 'pnlCub_07_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1509,13 +1554,14 @@ object MainForm: TMainForm
   end
   object pnlCub_08_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 741
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 533
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.81'
     Caption = 'pnlCub_08_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1524,13 +1570,14 @@ object MainForm: TMainForm
   end
   object pnlCub_08_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 741
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 533
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.82'
     Caption = 'pnlCub_08_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1539,13 +1586,14 @@ object MainForm: TMainForm
   end
   object pnlCub_08_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 741
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 607
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.83'
     Caption = 'pnlCub_08_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1554,13 +1602,14 @@ object MainForm: TMainForm
   end
   object pnlCub_08_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 845
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 607
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.84'
     Caption = 'pnlCub_08_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1569,13 +1618,14 @@ object MainForm: TMainForm
   end
   object pnlCub_08_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 845
-    Width = 100
-    Height = 100
+    Left = 554
+    Top = 565
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.85'
     Caption = 'pnlCub_08_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1584,13 +1634,14 @@ object MainForm: TMainForm
   end
   object pnlCub_08_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 845
-    Width = 100
-    Height = 100
+    Left = 345
+    Top = 533
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.86'
     Caption = 'pnlCub_08_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1599,13 +1650,14 @@ object MainForm: TMainForm
   end
   object pnlCub_09_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 845
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 705
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.91'
     Caption = 'pnlCub_09_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1614,13 +1666,14 @@ object MainForm: TMainForm
   end
   object pnlCub_09_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 845
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 705
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.92'
     Caption = 'pnlCub_09_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1629,13 +1682,14 @@ object MainForm: TMainForm
   end
   object pnlCub_09_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 845
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 779
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.93'
     Caption = 'pnlCub_09_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1644,13 +1698,14 @@ object MainForm: TMainForm
   end
   object pnlCub_09_04: TPanel
     Tag = 100
-    Left = 297
-    Top = 949
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 779
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.94'
     Caption = 'pnlCub_09_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1659,13 +1714,14 @@ object MainForm: TMainForm
   end
   object pnlCub_09_05: TPanel
     Tag = 100
-    Left = 401
-    Top = 949
-    Width = 100
-    Height = 100
+    Left = 557
+    Top = 741
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.95'
     Caption = 'pnlCub_09_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1674,13 +1730,14 @@ object MainForm: TMainForm
   end
   object pnlCub_09_06: TPanel
     Tag = 100
-    Left = 505
-    Top = 949
-    Width = 100
-    Height = 100
+    Left = 345
+    Top = 705
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.96'
     Caption = 'pnlCub_09_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1689,13 +1746,14 @@ object MainForm: TMainForm
   end
   object pnlCub_10_01: TPanel
     Tag = 100
-    Left = 609
-    Top = 949
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 877
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.101'
     Caption = 'pnlCub_10_01'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1704,13 +1762,14 @@ object MainForm: TMainForm
   end
   object pnlCub_10_02: TPanel
     Tag = 100
-    Left = 713
-    Top = 949
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 877
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.102'
     Caption = 'pnlCub_10_02'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1719,13 +1778,14 @@ object MainForm: TMainForm
   end
   object pnlCub_10_03: TPanel
     Tag = 100
-    Left = 817
-    Top = 949
-    Width = 100
-    Height = 100
+    Left = 401
+    Top = 951
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.103'
     Caption = 'pnlCub_10_03'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1734,13 +1794,14 @@ object MainForm: TMainForm
   end
   object pnlCub_10_04: TPanel
     Tag = 100
-    Left = 26
-    Top = 791
-    Width = 100
-    Height = 100
+    Left = 473
+    Top = 951
+    Width = 66
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.104'
     Caption = 'pnlCub_10_04'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1749,13 +1810,14 @@ object MainForm: TMainForm
   end
   object pnlCub_10_05: TPanel
     Tag = 100
-    Left = 132
-    Top = 791
-    Width = 100
-    Height = 100
+    Left = 557
+    Top = 909
+    Width = 33
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.105'
     Caption = 'pnlCub_10_05'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1764,13 +1826,14 @@ object MainForm: TMainForm
   end
   object pnlCub_10_06: TPanel
     Tag = 100
-    Left = 97
-    Top = 897
-    Width = 100
-    Height = 100
+    Left = 345
+    Top = 877
+    Width = 36
+    Height = 68
+    Cursor = crHandPoint
     Hint = '192.168.1.106'
     Caption = 'pnlCub_10_06'
-    Color = clBackground
+    Color = cl3DDkShadow
     ParentBackground = False
     ParentShowHint = False
     ShowHint = True
@@ -1934,14 +1997,28 @@ object MainForm: TMainForm
   object pmPanel: TPopupMenu
     Left = 926
     Top = 134
-    object MenuItem1: TMenuItem
-      Tag = 1
-      Caption = 'Restart'
-      OnClick = btnSingleSystemClick
+    object GC1: TMenuItem
+      Caption = 'GC'
+      object Run1: TMenuItem
+        Caption = 'Run'
+        OnClick = btnRunClick
+      end
+      object Kill1: TMenuItem
+        Caption = 'Kill'
+        OnClick = btnKillClick
+      end
     end
-    object MenuItem2: TMenuItem
-      Caption = 'Shutdown'
-      OnClick = btnSingleSystemClick
+    object Console1: TMenuItem
+      Caption = 'Console'
+      object Restart1: TMenuItem
+        Tag = 1
+        Caption = 'Restart'
+        OnClick = btnSingleSystemClick
+      end
+      object Shutdown1: TMenuItem
+        Caption = 'Shutdown'
+        OnClick = btnSingleSystemClick
+      end
     end
   end
 end

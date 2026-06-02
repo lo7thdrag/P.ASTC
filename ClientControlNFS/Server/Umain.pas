@@ -79,10 +79,14 @@ type
     pnlCub_10_05: TPanel;
     pnlCub_10_06: TPanel;
     pmPanel: TPopupMenu;
-    MenuItem1: TMenuItem;
-    MenuItem2: TMenuItem;
     btnShutdownAll: TImage;
     btnRestartAll: TImage;
+    GC1: TMenuItem;
+    Console1: TMenuItem;
+    Run1: TMenuItem;
+    Kill1: TMenuItem;
+    Restart1: TMenuItem;
+    Shutdown1: TMenuItem;
 
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -96,8 +100,7 @@ type
     procedure btnKillClick(Sender: TObject);
     procedure btnRefreshSystemStateClick(Sender: TObject);
     procedure tmrCekAplicationTimer(Sender: TObject);
-    procedure lvSystemMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
+    
     procedure pnlMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
 
@@ -114,10 +117,10 @@ type
     procedure Client_Connect(const S: string);
     procedure Client_Disconnect(const S: string);
 
-    procedure UpdateSystemClientState;
+//    procedure UpdateSystemClientState;
     procedure UpdateWarnaPanel;
-    procedure UpdateConnectState(const S: string);
-    procedure UpdateDisconnectState(const S: string);
+//    procedure UpdateConnectState(const S: string);
+//    procedure UpdateDisconnectState(const S: string);
 
     procedure LoadConsoleList;
 
@@ -180,6 +183,7 @@ begin
   end;
 
   LoadConsoleList;
+  UpdateWarnaPanel;
 end;
 
 {$ENDREGION}
@@ -188,7 +192,7 @@ end;
 
 procedure TMainForm.btnRefreshSystemStateClick(Sender: TObject);
 begin
-  UpdateSystemClientState;
+//  UpdateSystemClientState;
 end;
 
 procedure TMainForm.btnRunClick(Sender: TObject);
@@ -198,32 +202,16 @@ end;
 
 procedure TMainForm.btnSingleSystemClick(Sender: TObject);
 var
-  li : TListItem;
-  ipaddress: string;
   CommandData: RecCommandData;
 
 begin
-  //ipaddress := TPanel(Sender).Hint;
   CommandData.command := TMenuItem(Sender).Tag;;
   server.SendDataToIPAddress(CommandID, @CommandData, FpnlIP);
 
-    case TButton(Sender).Tag of
-      0 : ShowMessage('Shutdown ' + ipaddress);
-      1 : ShowMessage('Restart ' + ipaddress);
+    case TMenuItem(Sender).Tag of
+      0 : ShowMessage('Shutdown ' + FpnlIP);
+      1 : ShowMessage('Restart ' + FpnlIP);
     end;
-//  if lvSystem.Selected <> nil then
-//  begin
-//    li := lvSystem.Items[lvSystem.Selected.Index];
-//    ipaddress := li.SubItems[0];
-//
-//    CommandData.command := TButton(Sender).Tag;
-//    server.SendDataToIPAddress(CommandID, @CommandData, ipaddress);
-//
-//    case TButton(Sender).Tag of
-//      0 : ShowMessage('Shutdown ' + ipaddress);
-//      1 : ShowMessage('Restart ' + ipaddress);
-//    end;
-//  end;
 end;
 
 procedure TMainForm.btnKillClick(Sender: TObject);
@@ -257,20 +245,20 @@ begin
   end;
 end;
 
-procedure TMainForm.UpdateConnectState(const S: string);
-begin
-
-end;
-
-procedure TMainForm.UpdateDisconnectState(const S: string);
-begin
-
-end;
-
-procedure TMainForm.UpdateSystemClientState;
-begin
-
-end;
+//procedure TMainForm.UpdateConnectState(const S: string);
+//begin
+//
+//end;
+//
+//procedure TMainForm.UpdateDisconnectState(const S: string);
+//begin
+//
+//end;
+//
+//procedure TMainForm.UpdateSystemClientState;
+//begin
+//
+//end;
 
 procedure TMainForm.UpdateWarnaPanel;
 var
@@ -301,12 +289,6 @@ begin
 
 end;
 
-procedure TMainForm.lvSystemMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-
-begin
-end;
-
 {$ENDREGION}
 
 {$REGION ' Join Section '}
@@ -318,7 +300,7 @@ begin
   ss := TStringList.Create;
   try
     server.GetConnectedList(ss);
-    UpdateConnectState(s);
+//    UpdateConnectState(s);
     UpdateWarnaPanel;
   finally
     ss.Free;
@@ -332,7 +314,7 @@ begin
   ss := TStringList.Create;
   try
     server.GetConnectedList(ss);
-    UpdateDisconnectState(s);
+//    UpdateDisconnectState(s);
     UpdateWarnaPanel;
   finally
     ss.Free;
