@@ -2319,7 +2319,7 @@ end;
 
 function TdmTTT.GetAllScenarioCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -3832,7 +3832,7 @@ end;
 
 function TdmTTT.GetAllResourceCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -4928,7 +4928,7 @@ end;
 
 function TdmTTT.GetAllEnvironmentCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -5774,7 +5774,7 @@ end;
 
 function TdmTTT.GetAllGameAreaCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -6176,7 +6176,7 @@ end;
 
 function TdmTTT.GetAllVehicleCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -6197,7 +6197,7 @@ var
   i : Integer;
   rec : TVehicle_Definition;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -8742,7 +8742,7 @@ end;
 
 function TdmTTT.GetAllRadarCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -9261,7 +9261,7 @@ end;
 
 function TdmTTT.GetAllSonarCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -9800,7 +9800,7 @@ end;
 
 function TdmTTT.GetAllESMCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -10131,7 +10131,7 @@ end;
 
 function TdmTTT.GetAllEODCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -10585,7 +10585,7 @@ end;
 
 function TdmTTT.GetAllRSonobuoyCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -10951,7 +10951,7 @@ end;
 
 function TdmTTT.GetAllMADCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -12993,7 +12993,7 @@ var
   i : Integer;
   rec : TMissile_On_Board;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -13142,7 +13142,7 @@ end;
 
 function TdmTTT.GetAllMissileCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -13941,7 +13941,7 @@ end;
 
 function TdmTTT.GetAllTorpedoCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -14525,7 +14525,7 @@ var
   i : Integer;
   rec : TMine_On_Board;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -14601,7 +14601,7 @@ end;
 
 function TdmTTT.GetAllMineCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -15120,7 +15120,7 @@ end;
 
 function TdmTTT.GetAllGunCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -15687,7 +15687,7 @@ end;
 
 function TdmTTT.GetAllBombCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -17282,7 +17282,7 @@ end;
 
 function TdmTTT.GetAllAcousticDecoyCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -17654,7 +17654,7 @@ end;
 
 function TdmTTT.GetAllAirBubbleCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -17939,7 +17939,7 @@ end;
 
 function TdmTTT.GetAllChaffCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -18237,7 +18237,7 @@ end;
 
 function TdmTTT.GetAllInfraredDecoyCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -18527,7 +18527,7 @@ end;
 
 function TdmTTT.GetAllFloatingDecoyCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -18822,7 +18822,7 @@ end;
 
 function TdmTTT.GetAllSelfDefensiveCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -19114,7 +19114,7 @@ end;
 
 function TdmTTT.GetAllTowedJammerCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -19439,7 +19439,7 @@ end;
 
 function TdmTTT.GetAllRadarJammerCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -22472,7 +22472,7 @@ end;
 
 function TdmTTT.GetAllGraphicalOverlayCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -23457,7 +23457,7 @@ end;
 
 function TdmTTT.GetAllGameDefaultsCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
@@ -24071,7 +24071,7 @@ end;
 
 function TdmTTT.GetAllSNRvsPODCount: Integer;
 begin
-  Result := -1;
+  Result := 0;
 
   if not ZConn.Connected then
     Exit;
