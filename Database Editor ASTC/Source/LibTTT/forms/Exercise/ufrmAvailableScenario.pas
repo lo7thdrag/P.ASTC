@@ -32,6 +32,7 @@ type
     procedure btnDeleteClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure FormCreate(Sender: TObject);
 
   private
     FUpdateList : Boolean;
@@ -70,6 +71,12 @@ begin
 end;
 
 {$REGION ' Form Handle '}
+
+procedure TfrmAvailableScenario.FormCreate(Sender: TObject);
+begin
+  FScenarioList := TList.Create;
+  FSelectedAssetDeployment := TAsset_Deployment.Create;
+end;
 
 procedure TfrmAvailableScenario.FormDestroy(Sender: TObject);
 begin
@@ -357,8 +364,8 @@ var
 begin
   lstScenarioList.Items.Clear;
 
-  dmTTT.GetAllScenarioDef(FScenarioList);
-//  dmTTT.GetFilterScenarioDef(FScenarioList, edtSearch.Text);
+//  dmTTT.GetAllScenarioDef(FScenarioList);
+  dmTTT.GetFilterScenarioDef(FScenarioList, edtSearch.Text);
 
   for i := 0 to FScenarioList.Count - 1 do
   begin

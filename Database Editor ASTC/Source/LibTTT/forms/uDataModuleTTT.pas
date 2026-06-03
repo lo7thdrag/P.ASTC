@@ -40,6 +40,7 @@ type
     {$REGION ' Scenario '}
     function GetAllScenarioDef(var aList: TList): Integer;
     function GetAllScenarioCount: Integer;
+    function GetFilterScenarioDef(var aList: TList; aFilter: string): integer;
     function GetScenarioDef(const aScenarioIdentifier: string): Integer; overload;
 
     function InsertScenarioDef(var aRec: TRecScenario_Definition): Boolean;
@@ -2332,6 +2333,63 @@ begin
     Open;
 
     Result := RecordCount;
+  end;
+end;
+
+function TdmTTT.GetFilterScenarioDef(var aList: TList; aFilter: string): integer;
+var
+  i : Integer;
+  rec : TScenario_Definition;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Scenario_Definition');
+    SQL.Add('WHERE Scenario_Identifier like ' + QuotedStr('%' + aFilter + '%'));
+    SQL.Add('ORDER BY Scenario_Identifier');
+    Open;
+
+    Result := RecordCount;
+
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+
+    if not IsEmpty then
+    begin
+      First;
+
+      while not Eof do
+      begin
+        rec := TScenario_Definition.Create;
+
+        with rec.FData do
+        begin
+          Scenario_Index := FieldByName('Scenario_Index').AsInteger;
+          Scenario_Identifier := FieldByName('Scenario_Identifier').AsString;
+          Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
+        end;
+
+        aList.Add(rec);
+        Next;
+      end;
+    end;
   end;
 end;
 
@@ -49886,7 +49944,7 @@ end;
 function TdmTTT.GetGameDefault(const aIndex: Integer;var aResult: TGame_Defaults): Boolean;
 begin
   Result := False;
-//  aResult := nil;
+  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -49923,15 +49981,13 @@ begin
         Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
         Max_Visual_Range := FieldByName('Max_Visual_Range').AsSingle;
         EO_Detection_Factor := FieldByName('EO_Detection_Factor').AsSingle;
-        Visual_Detection_Factor := FieldByName('Visual_Detection_Factor')
-          .AsSingle;
+        Visual_Detection_Factor := FieldByName('Visual_Detection_Factor').AsSingle;
         EO_Ident_Factor := FieldByName('EO_Ident_Factor').AsSingle;
         Visual_Ident_Factor := FieldByName('Visual_Ident_Factor').AsSingle;
         Sine_Period_Distance := FieldByName('Sine_Period_Distance').AsSingle;
         Sine_Period_Amplitude := FieldByName('Sine_Period_Amplitude').AsSingle;
         Short_Period_Distance := FieldByName('Short_Period_Distance').AsSingle;
-        Short_Period_Amplitude := FieldByName('Short_Period_Amplitude')
-          .AsSingle;
+        Short_Period_Amplitude := FieldByName('Short_Period_Amplitude').AsSingle;
         Long_Period_Distance := FieldByName('Long_Period_Distance').AsSingle;
         Long_Period_Amplitude := FieldByName('Long_Period_Amplitude').AsSingle;
         Very_Period_Distance := FieldByName('Very_Period_Distance').AsSingle;
@@ -49940,102 +49996,64 @@ begin
         Sur_Lost_Time := FieldByName('Sur_Lost_Time').AsInteger;
         Sub_Lost_Time := FieldByName('Sub_Lost_Time').AsInteger;
         ESM_Bearing_Lost_Time := FieldByName('ESM_Bearing_Lost_Time').AsInteger;
-        Sonar_Bearing_Lost_Time := FieldByName('Sonar_Bearing_Lost_Time')
-          .AsInteger;
+        Sonar_Bearing_Lost_Time := FieldByName('Sonar_Bearing_Lost_Time').AsInteger;
         Stale_Air_Time := FieldByName('Stale_Air_Time').AsInteger;
         Stale_Sur_Time := FieldByName('Stale_Sur_Time').AsInteger;
         Stale_Sub_Time := FieldByName('Stale_Sub_Time').AsInteger;
-        Stale_ESM_Bearing_Time := FieldByName('Stale_ESM_Bearing_Time')
-          .AsInteger;
-        Stale_Sonar_Bearing_Time := FieldByName('Stale_Sonar_Bearing_Time')
-          .AsInteger;
+        Stale_ESM_Bearing_Time := FieldByName('Stale_ESM_Bearing_Time').AsInteger;
+        Stale_Sonar_Bearing_Time := FieldByName('Stale_Sonar_Bearing_Time').AsInteger;
         POD_Check_Time := FieldByName('POD_Check_Time').AsInteger;
         TMA_Range_Rate := FieldByName('TMA_Range_Rate').AsSingle;
-        Frequency_Identity_Weighting := FieldByName
-          ('Frequency_Identity_Weighting').AsSingle;
-        PRF_Identity_Weighting := FieldByName('PRF_Identity_Weighting')
-          .AsSingle;
-        Pulsewidth_Identity_Weighting := FieldByName
-          ('Pulsewidth_Identity_Weighting').AsSingle;
-        Scan_Period_Identity_Weighting := FieldByName
-          ('Scan_Period_Identity_Weighting').AsSingle;
-        Crew_Eff_Heading_Error := FieldByName('Crew_Eff_Heading_Error')
-          .AsSingle;
+        Frequency_Identity_Weighting := FieldByName('Frequency_Identity_Weighting').AsSingle;
+        PRF_Identity_Weighting := FieldByName('PRF_Identity_Weighting').AsSingle;
+        Pulsewidth_Identity_Weighting := FieldByName('Pulsewidth_Identity_Weighting').AsSingle;
+        Scan_Period_Identity_Weighting := FieldByName('Scan_Period_Identity_Weighting').AsSingle;
+        Crew_Eff_Heading_Error := FieldByName('Crew_Eff_Heading_Error').AsSingle;
         Crew_Eff_Speed_Error := FieldByName('Crew_Eff_Speed_Error').AsSingle;
-        TMA_Relative_Bearing_Rate := FieldByName('TMA_Relative_Bearing_Rate')
-          .AsSingle;
-        Passive_Sonar_Max_Course_Error := FieldByName
-          ('Passive_Sonar_Max_Course_Error').AsSingle;
-        Passive_Sonar_Max_Speed_Error := FieldByName
-          ('Passive_Sonar_Max_Speed_Error').AsSingle;
+        TMA_Relative_Bearing_Rate := FieldByName('TMA_Relative_Bearing_Rate').AsSingle;
+        Passive_Sonar_Max_Course_Error := FieldByName('Passive_Sonar_Max_Course_Error').AsSingle;
+        Passive_Sonar_Max_Speed_Error := FieldByName('Passive_Sonar_Max_Speed_Error').AsSingle;
         ESM_Error_Corr_Rate := FieldByName('ESM_Error_Corr_Rate').AsSingle;
-        Chaff_Altitude_Threshold := FieldByName('Chaff_Altitude_Threshold')
-          .AsSingle;
+        Chaff_Altitude_Threshold := FieldByName('Chaff_Altitude_Threshold').AsSingle;
         MHS_Flash_Delay_Time := FieldByName('MHS_Flash_Delay_Time').AsSingle;
         MHS_Immed_Delay_Time := FieldByName('MHS_Immed_Delay_Time').AsSingle;
-        MHS_Priority_Delay_Time := FieldByName('MHS_Priority_Delay_Time')
-          .AsSingle;
-        MHS_Routine_Delay_Time := FieldByName('MHS_Routine_Delay_Time')
-          .AsSingle;
+        MHS_Priority_Delay_Time := FieldByName('MHS_Priority_Delay_Time').AsSingle;
+        MHS_Routine_Delay_Time := FieldByName('MHS_Routine_Delay_Time').AsSingle;
         Max_UWT_Range := FieldByName('Max_UWT_Range').AsSingle;
         Max_HF_Detect_Range := FieldByName('Max_HF_Detect_Range').AsSingle;
         Max_UHF_Detect_Range := FieldByName('Max_UHF_Detect_Range').AsSingle;
         Max_IFF_Range := FieldByName('Max_IFF_Range').AsSingle;
-        Track_History_Air_Sample_Rate := FieldByName
-          ('Track_History_Air_Sample_Rate').AsInteger;
-        Track_History_Air_Max_Points := FieldByName
-          ('Track_History_Air_Max_Points').AsInteger;
-        Track_History_Sample_Rate := FieldByName('Track_History_Sample_Rate')
-          .AsInteger;
-        Track_History_Max_Points := FieldByName('Track_History_Max_Points')
-          .AsInteger;
-        Auto_Gun_Interception_Range := FieldByName
-          ('Auto_Gun_Interception_Range').AsSingle;
-        Auto_Gun_Threshold_Speed := FieldByName('Auto_Gun_Threshold_Speed')
-          .AsSingle;
-        Clutter_Reduction_Scale := FieldByName('Clutter_Reduction_Scale')
-          .AsSingle;
-        Jam_Break_Lock_Time_Interval := FieldByName
-          ('Jam_Break_Lock_Time_Interval').AsInteger;
-        Missile_Reacquisition_Time := FieldByName('Missile_Reacquisition_Time')
-          .AsInteger;
-        Seduction_Bloom_Altitude := FieldByName('Seduction_Bloom_Altitude')
-          .AsInteger;
+        Track_History_Air_Sample_Rate := FieldByName('Track_History_Air_Sample_Rate').AsInteger;
+        Track_History_Air_Max_Points := FieldByName('Track_History_Air_Max_Points').AsInteger;
+        Track_History_Sample_Rate := FieldByName('Track_History_Sample_Rate').AsInteger;
+        Track_History_Max_Points := FieldByName('Track_History_Max_Points').AsInteger;
+        Auto_Gun_Interception_Range := FieldByName('Auto_Gun_Interception_Range').AsSingle;
+        Auto_Gun_Threshold_Speed := FieldByName('Auto_Gun_Threshold_Speed').AsSingle;
+        Clutter_Reduction_Scale := FieldByName('Clutter_Reduction_Scale').AsSingle;
+        Jam_Break_Lock_Time_Interval := FieldByName('Jam_Break_Lock_Time_Interval').AsInteger;
+        Missile_Reacquisition_Time := FieldByName('Missile_Reacquisition_Time').AsInteger;
+        Seduction_Bloom_Altitude := FieldByName('Seduction_Bloom_Altitude').AsInteger;
         Seduction_Bloom_Range := FieldByName('Seduction_Bloom_Range').AsSingle;
-        HF_Datalink_MHS_Trans_Freq := FieldByName('HF_Datalink_MHS_Trans_Freq')
-          .AsSingle;
-        UHF_Datalink_MHS_Trans_Freq := FieldByName
-          ('UHF_Datalink_MHS_Trans_Freq').AsSingle;
+        HF_Datalink_MHS_Trans_Freq := FieldByName('HF_Datalink_MHS_Trans_Freq').AsSingle;
+        UHF_Datalink_MHS_Trans_Freq := FieldByName('UHF_Datalink_MHS_Trans_Freq').AsSingle;
         Max_Num_Radar_Classes := FieldByName('Max_Num_Radar_Classes').AsInteger;
         Max_Num_Sonar_Classes := FieldByName('Max_Num_Sonar_Classes').AsInteger;
-        Max_Num_Sonobuoy_Classes := FieldByName('Max_Num_Sonobuoy_Classes')
-          .AsInteger;
+        Max_Num_Sonobuoy_Classes := FieldByName('Max_Num_Sonobuoy_Classes').AsInteger;
         Max_Num_EO_Classes := FieldByName('Max_Num_EO_Classes').AsInteger;
         Max_Num_ESM_Classes := FieldByName('Max_Num_ESM_Classes').AsInteger;
         Max_Num_MAD_Classes := FieldByName('Max_Num_MAD_Classes').AsInteger;
-        Max_Num_Fitted_Weap_Classes := FieldByName
-          ('Max_Num_Fitted_Weap_Classes')
-          .AsInteger;
-        Max_Num_Point_Effect_Classes := FieldByName
-          ('Max_Num_Point_Effect_Classes').AsInteger;
+        Max_Num_Fitted_Weap_Classes := FieldByName('Max_Num_Fitted_Weap_Classes').AsInteger;
+        Max_Num_Point_Effect_Classes := FieldByName('Max_Num_Point_Effect_Classes').AsInteger;
         HAFO_Min_Range := FieldByName('HAFO_Min_Range').AsSingle;
         HAFO_Max_Range := FieldByName('HAFO_Max_Range').AsSingle;
-        Engage_Guide_Stale_Target_Time := FieldByName
-          ('Engage_Guide_Stale_Target_Time').AsInteger;
-        Outrun_Guide_Stale_Target_Time := FieldByName
-          ('Outrun_Guide_Stale_Target_Time').AsInteger;
-        Shadow_Guide_Stale_Target_Time := FieldByName
-          ('Shadow_Guide_Stale_Target_Time').AsInteger;
-        Sonobuoy_Air_Deceleration := FieldByName('Sonobuoy_Air_Deceleration')
-          .AsSingle;
-        Sonobuoy_Air_Descent_Rate := FieldByName('Sonobuoy_Air_Descent_Rate')
-          .AsSingle;
-        Depth_Charge_Air_Deceleration := FieldByName
-          ('Depth_Charge_Air_Deceleration').AsSingle;
-        Depth_Charge_Air_Descent_Rate := FieldByName
-          ('Depth_Charge_Air_Descent_Rate').AsSingle;
-        Missile_Sea_Check_Interval := FieldByName('Missile_Sea_Check_Interval')
-          .AsInteger;
+        Engage_Guide_Stale_Target_Time := FieldByName('Engage_Guide_Stale_Target_Time').AsInteger;
+        Outrun_Guide_Stale_Target_Time := FieldByName('Outrun_Guide_Stale_Target_Time').AsInteger;
+        Shadow_Guide_Stale_Target_Time := FieldByName('Shadow_Guide_Stale_Target_Time').AsInteger;
+        Sonobuoy_Air_Deceleration := FieldByName('Sonobuoy_Air_Deceleration').AsSingle;
+        Sonobuoy_Air_Descent_Rate := FieldByName('Sonobuoy_Air_Descent_Rate').AsSingle;
+        Depth_Charge_Air_Deceleration := FieldByName('Depth_Charge_Air_Deceleration').AsSingle;
+        Depth_Charge_Air_Descent_Rate := FieldByName('Depth_Charge_Air_Descent_Rate').AsSingle;
+        Missile_Sea_Check_Interval := FieldByName('Missile_Sea_Check_Interval').AsInteger;
       end;
     end;
   end;

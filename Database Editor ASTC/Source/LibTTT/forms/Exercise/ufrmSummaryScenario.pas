@@ -151,41 +151,45 @@ end;
 
 procedure TfrmSummaryScenario.btnApplyClick(Sender: TObject);
 begin
+  if not CekInput then
+  begin
+    isOK := False;
+    Exit;
+  end;
+
+  {$REGION ' General '}
+  LastName := edtName.Text;
+  FSelectedScenario.FData.Scenario_Identifier := edtName.Text;
+  {$ENDREGION}
+
+  if FSelectedScenario.FData.Scenario_Index = 0 then
+  begin
+    if dmTTT.InsertScenarioDef(FSelectedScenario.FData) then
+    begin
+      with FSelectedAssetDeployment.FData do
+      begin
+        Deployment_Identifier := '(Scenario ' + IntToStr(FSelectedScenario.FData.Scenario_Index) + ')';
+        Scenario_Index := FSelectedScenario.FData.Scenario_Index;
+      end;
+
+      dmTTT.InsertAssetDeployment(FSelectedAssetDeployment.FData);
+      ShowMessage('Data has been saved');
+    end;
+  end
+  else
+  begin
+    if dmTTT.UpdateScenarioDef(FSelectedScenario.FData) then
+    begin
+      ShowMessage('Data has been updated');
+    end;
+
+  end;
+
   with FSelectedScenario do
   begin
-    if not CekInput then
-    begin
-      isOK := False;
-      Exit;
-    end;
 
-    {$REGION ' General '}
-    LastName := edtName.Text;
-    FData.Scenario_Identifier := edtName.Text;
-    {$ENDREGION}
 
-    if FData.Scenario_Index = 0 then
-    begin
-      if dmTTT.InsertScenarioDef(FData) then
-      begin
-        with FSelectedAssetDeployment.FData do
-        begin
-          Deployment_Identifier := '(Scenario ' + IntToStr(FData.Scenario_Index) + ')';
-          Scenario_Index := FData.Scenario_Index;
-        end;
 
-        dmTTT.InsertAssetDeployment(FSelectedAssetDeployment.FData);
-        ShowMessage('Data has been saved');
-      end;
-    end
-    else
-    begin
-      if dmTTT.UpdateScenarioDef(FData) then
-      begin
-        ShowMessage('Data has been updated');
-      end;
-
-    end;
   end;
 
   UpdateScenarioData;

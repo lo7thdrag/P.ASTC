@@ -44923,7 +44923,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         Top = 10
         Width = 439
         Height = 281
-        ActivePage = tsResources
+        ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -44931,40 +44931,40 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         object tsGeneral: TTabSheet
           Caption = 'General'
           object btnBrowseEnvironment: TSpeedButton
-            Left = 389
-            Top = 70
+            Left = 394
+            Top = 102
             Width = 23
             Height = 23
             Caption = '...'
             OnClick = btnBrowseEnvironmentClick
           end
           object btnBrowseDefaults: TSpeedButton
-            Left = 389
-            Top = 125
+            Left = 394
+            Top = 157
             Width = 23
             Height = 23
             Caption = '...'
             OnClick = btnBrowseDefaultsClick
           end
           object lblStartTime: TStaticText
-            Left = 229
-            Top = 9
+            Left = 234
+            Top = 23
             Width = 70
             Height = 18
             Caption = 'Start Time :'
             TabOrder = 0
           end
           object lblEnvironment: TStaticText
-            Left = 9
-            Top = 53
+            Left = 14
+            Top = 85
             Width = 73
             Height = 18
             Caption = 'Environment'
             TabOrder = 1
           end
           object edtEnvironment: TEdit
-            Left = 9
-            Top = 71
+            Left = 14
+            Top = 103
             Width = 374
             Height = 22
             Enabled = False
@@ -44978,16 +44978,16 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             Text = '[None]'
           end
           object lblDefaults: TStaticText
-            Left = 9
-            Top = 108
-            Width = 48
+            Left = 14
+            Top = 140
+            Width = 83
             Height = 18
-            Caption = 'Defaults'
+            Caption = 'Game Defaults'
             TabOrder = 3
           end
           object edtDefaults: TEdit
-            Left = 9
-            Top = 126
+            Left = 14
+            Top = 158
             Width = 374
             Height = 22
             Enabled = False
@@ -45003,38 +45003,39 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           end
           object btnStudentRoleList: TButton
             Left = 389
-            Top = 181
+            Top = 215
             Width = 23
             Height = 23
             Caption = '...'
             TabOrder = 5
+            Visible = False
             OnClick = btnStudentRoleListClick
           end
           object dtpDate: TDateTimePicker
-            Left = 229
-            Top = 27
+            Left = 234
+            Top = 41
             Width = 99
             Height = 22
             Date = 42300.000000000000000000
             Format = 'dd MMM yyyy'
-            Time = 0.714370370369579100
+            Time = 0.714370370369579200
             TabOrder = 6
             OnChange = dtpDateChange
           end
           object dtpTime: TDateTimePicker
-            Left = 334
-            Top = 27
+            Left = 339
+            Top = 41
             Width = 73
             Height = 22
             Date = 42300.000000000000000000
-            Time = 0.714370370369579100
+            Time = 0.714370370369579200
             Kind = dtkTime
             TabOrder = 7
             OnChange = dtpTimeChange
           end
           object StaticText1: TStaticText
             Left = 9
-            Top = 164
+            Top = 198
             Width = 98
             Height = 18
             Caption = 'Student Role List'
@@ -45043,7 +45044,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           end
           object edtStudent: TEdit
             Left = 9
-            Top = 182
+            Top = 216
             Width = 374
             Height = 22
             Enabled = False
@@ -45056,6 +45057,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
             ReadOnly = True
             TabOrder = 9
             Text = '[None]'
+            Visible = False
           end
         end
         object tsPlatforms: TTabSheet

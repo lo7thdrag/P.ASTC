@@ -496,6 +496,8 @@ begin
       FStartTime := FloatToDateTime(Game_Start_Time);
     end;
 
+    Role_List_Index := 26; {hardcode}
+
     {$REGION ' General '}
     LastName := edtName.Text;
 
@@ -546,7 +548,7 @@ begin
       GameDefault.Free;
     end
     else
-      edtEnvironment.Text := '(None)';
+      edtDefaults.Text := '(None)';
   end;
 end;
 
@@ -556,7 +558,7 @@ var
 begin
   with FSelectedResourceAllocation.FData do
   begin
-    dmTTT.CekStudent_Role_List(Role_List_Index, StudentRole);
+    dmTTT.CekStudent_Role_List(26{Role_List_Index}, StudentRole);
 
     if Assigned(StudentRole) then
       edtStudent.Text := StudentRole.FData.Role_List_Identifier

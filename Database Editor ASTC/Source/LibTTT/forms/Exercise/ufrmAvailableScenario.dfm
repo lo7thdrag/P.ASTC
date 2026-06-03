@@ -12,6 +12,7 @@ object frmAvailableScenario: TfrmAvailableScenario
   OldCreateOrder = False
   Visible = True
   WindowState = wsMaximized
+  OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
