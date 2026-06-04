@@ -44852,10 +44852,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -260
-    ExplicitTop = 8
-    ExplicitWidth = 754
-    ExplicitHeight = 639
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 41
@@ -44866,10 +44862,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 40
-      ExplicitWidth = 494
-      ExplicitHeight = 588
       object lbAvailableResAlloc: TListBox
         Left = 10
         Top = 10
@@ -44885,8 +44877,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
         TabOrder = 0
         OnClick = lbAvailableResAllocClick
         OnDblClick = lbAvailableResAllocDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 568
       end
     end
     object pnl3Button: TPanel
@@ -44898,11 +44888,8 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
       object btnCancel: TButton
-        Left = 404
+        Left = 402
         Top = 2
         Width = 80
         Height = 30
@@ -44917,7 +44904,7 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
         OnClick = btnCancelClick
       end
       object btnAdd: TButton
-        Left = 314
+        Left = 317
         Top = 2
         Width = 80
         Height = 30
@@ -44954,9 +44941,6 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 494
       object Label2: TLabel
         Left = 166
         Top = 14
@@ -44971,7 +44955,7 @@ object frmResorceAllocationPickList: TfrmResorceAllocationPickList
         ParentFont = False
       end
       object edtSearch: TEdit
-        Left = 237
+        Left = 235
         Top = 12
         Width = 247
         Height = 25

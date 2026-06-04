@@ -4,8 +4,8 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Student Role List'
-  ClientHeight = 234
-  ClientWidth = 289
+  ClientHeight = 282
+  ClientWidth = 352
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 289
-    Height = 234
+    Width = 352
+    Height = 282
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44846,38 +44846,41 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 289
-    Height = 234
+    Width = 352
+    Height = 282
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
+    ExplicitWidth = 289
+    ExplicitHeight = 234
     object pnl1Title: TPanel
       Left = 1
       Top = 1
-      Width = 287
+      Width = 350
       Height = 56
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
+      ExplicitWidth = 287
       object Label1: TLabel
         Left = 11
-        Top = 7
-        Width = 37
-        Height = 13
+        Top = 11
+        Width = 46
+        Height = 16
         Caption = 'Name  :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -11
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object edtName: TEdit
         Left = 11
-        Top = 25
-        Width = 266
+        Top = 29
+        Width = 325
         Height = 22
         TabOrder = 0
         OnChange = edtNameChange
@@ -44886,28 +44889,34 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 57
-      Width = 287
-      Height = 133
+      Width = 350
+      Height = 181
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
+      ExplicitWidth = 287
+      ExplicitHeight = 133
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 267
-        Height = 113
+        Width = 330
+        Height = 161
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
+        ExplicitWidth = 267
+        ExplicitHeight = 113
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitWidth = 259
+          ExplicitHeight = 73
           object btnEditList: TButton
-            Left = 18
-            Top = 30
+            Left = 49
+            Top = 48
             Width = 223
             Height = 25
             Caption = 'Edit List'
@@ -44919,16 +44928,18 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
     end
     object pnl3Button: TPanel
       Left = 1
-      Top = 190
-      Width = 287
+      Top = 238
+      Width = 350
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
+      ExplicitTop = 190
+      ExplicitWidth = 287
       object btnApply: TButton
-        Left = 113
-        Top = 0
+        Left = 176
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Apply'
@@ -44942,8 +44953,8 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 197
-        Top = 0
+        Left = 260
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Cancel'
@@ -44957,8 +44968,8 @@ object frmStudentRoleSummary: TfrmStudentRoleSummary
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 29
-        Top = 0
+        Left = 92
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'OK'

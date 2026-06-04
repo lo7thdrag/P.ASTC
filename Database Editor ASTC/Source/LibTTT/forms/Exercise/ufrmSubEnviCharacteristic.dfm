@@ -1531,7 +1531,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     TabOrder = 2
     object btnOK: TButton
       Left = 351
-      Top = 5
+      Top = 1
       Width = 80
       Height = 30
       Cursor = crHandPoint
@@ -1547,7 +1547,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     end
     object btnApply: TButton
       Left = 436
-      Top = 5
+      Top = 1
       Width = 80
       Height = 30
       Cursor = crHandPoint
@@ -1563,7 +1563,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     end
     object btnCancel: TButton
       Left = 521
-      Top = 5
+      Top = 1
       Width = 80
       Height = 30
       Cursor = crHandPoint

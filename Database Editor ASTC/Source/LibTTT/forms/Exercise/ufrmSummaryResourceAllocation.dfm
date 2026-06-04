@@ -44863,7 +44863,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       TabOrder = 0
       object btnOK: TButton
         Left = 199
-        Top = 0
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'OK'
@@ -44878,7 +44878,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       end
       object btnCancel: TButton
         Left = 369
-        Top = 0
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Cancel'
@@ -44893,7 +44893,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
       end
       object btnApply: TButton
         Left = 284
-        Top = 0
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Apply'

@@ -44850,8 +44850,6 @@ object frmGameDefaultsPickList: TfrmGameDefaultsPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitTop = 56
-    ExplicitHeight = 588
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 41
@@ -44862,10 +44860,6 @@ object frmGameDefaultsPickList: TfrmGameDefaultsPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 40
-      ExplicitWidth = 494
-      ExplicitHeight = 588
       object lbGameDefaultAvailable: TListBox
         Left = 10
         Top = 10
@@ -44881,8 +44875,6 @@ object frmGameDefaultsPickList: TfrmGameDefaultsPickList
         TabOrder = 0
         OnClick = lbGameDefaultAvailableClick
         OnDblClick = lbGameDefaultAvailableDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 568
       end
     end
     object pnl3Button: TPanel
@@ -44894,9 +44886,6 @@ object frmGameDefaultsPickList: TfrmGameDefaultsPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
       object btnCancel: TButton
         Left = 402
         Top = 2
@@ -44913,7 +44902,7 @@ object frmGameDefaultsPickList: TfrmGameDefaultsPickList
         OnClick = btnCloseClick
       end
       object btnAdd: TButton
-        Left = 312
+        Left = 317
         Top = 2
         Width = 80
         Height = 30
@@ -44950,7 +44939,6 @@ object frmGameDefaultsPickList: TfrmGameDefaultsPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
-      ExplicitTop = 5
       object Label2: TLabel
         Left = 166
         Top = 14

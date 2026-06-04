@@ -44874,8 +44874,8 @@ object frmGameAreaPickList: TfrmGameAreaPickList
       ShowHint = False
       TabOrder = 0
       object Label2: TLabel
-        Left = 166
-        Top = 14
+        Left = 164
+        Top = 15
         Width = 62
         Height = 21
         Caption = 'Search :'
@@ -44887,8 +44887,8 @@ object frmGameAreaPickList: TfrmGameAreaPickList
         ParentFont = False
       end
       object edtSearch: TEdit
-        Left = 237
-        Top = 12
+        Left = 235
+        Top = 13
         Width = 247
         Height = 25
         AutoSize = False
@@ -44912,8 +44912,8 @@ object frmGameAreaPickList: TfrmGameAreaPickList
       Color = 2499101
       TabOrder = 1
       object btnCancel: TButton
-        Left = 404
-        Top = 2
+        Left = 402
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Cancel'
@@ -44927,8 +44927,8 @@ object frmGameAreaPickList: TfrmGameAreaPickList
         OnClick = btnCancelClick
       end
       object btnAdd: TButton
-        Left = 314
-        Top = 2
+        Left = 317
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Pick'

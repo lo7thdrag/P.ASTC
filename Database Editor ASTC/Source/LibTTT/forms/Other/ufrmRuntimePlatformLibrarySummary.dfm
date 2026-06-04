@@ -36,7 +36,7 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       Height = 16
       Caption = 'Name :'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []

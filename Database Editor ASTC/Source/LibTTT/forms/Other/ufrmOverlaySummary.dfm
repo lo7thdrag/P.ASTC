@@ -4,8 +4,8 @@ object frmOverlaySummary: TfrmOverlaySummary
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = '   Overlay'
-  ClientHeight = 307
-  ClientWidth = 273
+  ClientHeight = 355
+  ClientWidth = 343
   Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object frmOverlaySummary: TfrmOverlaySummary
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 273
-    Height = 307
+    Width = 343
+    Height = 355
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44846,24 +44846,27 @@ object frmOverlaySummary: TfrmOverlaySummary
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 273
-    Height = 307
+    Width = 343
+    Height = 355
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
+    ExplicitWidth = 273
+    ExplicitHeight = 307
     object pnl1Title: TPanel
       Left = 1
       Top = 1
-      Width = 271
+      Width = 341
       Height = 56
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
+      ExplicitWidth = 271
       object lbl1: TLabel
         Left = 11
-        Top = 7
+        Top = 11
         Width = 43
         Height = 14
         Caption = 'Name  :'
@@ -44876,8 +44879,8 @@ object frmOverlaySummary: TfrmOverlaySummary
       end
       object edtName: TEdit
         Left = 11
-        Top = 26
-        Width = 250
+        Top = 30
+        Width = 316
         Height = 22
         TabOrder = 0
         OnChange = edtNameChange
@@ -44886,25 +44889,31 @@ object frmOverlaySummary: TfrmOverlaySummary
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 57
-      Width = 271
-      Height = 206
+      Width = 341
+      Height = 254
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
+      ExplicitWidth = 271
+      ExplicitHeight = 206
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 251
-        Height = 186
+        Width = 321
+        Height = 234
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
+        ExplicitWidth = 251
+        ExplicitHeight = 186
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitWidth = 243
+          ExplicitHeight = 146
           object lbl2: TLabel
             Left = 11
             Top = 21
@@ -44959,15 +44968,17 @@ object frmOverlaySummary: TfrmOverlaySummary
     end
     object pnl3Button: TPanel
       Left = 1
-      Top = 263
-      Width = 271
+      Top = 311
+      Width = 341
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
+      ExplicitTop = 263
+      ExplicitWidth = 271
       object btnApply: TButton
-        Left = 96
+        Left = 166
         Top = 0
         Width = 80
         Height = 30
@@ -44983,7 +44994,7 @@ object frmOverlaySummary: TfrmOverlaySummary
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 181
+        Left = 251
         Top = 0
         Width = 80
         Height = 30
@@ -44999,7 +45010,7 @@ object frmOverlaySummary: TfrmOverlaySummary
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 11
+        Left = 81
         Top = 0
         Width = 80
         Height = 30

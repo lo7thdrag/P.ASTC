@@ -44852,10 +44852,6 @@ object frmSonarPickList: TfrmSonarPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 280
-    ExplicitTop = 16
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 41
@@ -44866,10 +44862,6 @@ object frmSonarPickList: TfrmSonarPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 40
-      ExplicitWidth = 494
-      ExplicitHeight = 588
       object lstAvailableSonar: TListBox
         Left = 10
         Top = 10
@@ -44885,8 +44877,6 @@ object frmSonarPickList: TfrmSonarPickList
         TabOrder = 0
         OnClick = lstAvailableSonarClick
         OnDblClick = lstAvailableSonarDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 568
       end
     end
     object pnl3Button: TPanel
@@ -44898,11 +44888,8 @@ object frmSonarPickList: TfrmSonarPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
       object btnCancel: TButton
-        Left = 404
+        Left = 402
         Top = 2
         Width = 80
         Height = 30
@@ -44917,7 +44904,7 @@ object frmSonarPickList: TfrmSonarPickList
         OnClick = btnCancelClick
       end
       object btnAdd: TButton
-        Left = 314
+        Left = 317
         Top = 2
         Width = 80
         Height = 30
@@ -44954,9 +44941,6 @@ object frmSonarPickList: TfrmSonarPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 494
       object Label2: TLabel
         Left = 166
         Top = 14
@@ -44971,7 +44955,7 @@ object frmSonarPickList: TfrmSonarPickList
         ParentFont = False
       end
       object edtSearch: TEdit
-        Left = 237
+        Left = 235
         Top = 12
         Width = 247
         Height = 25

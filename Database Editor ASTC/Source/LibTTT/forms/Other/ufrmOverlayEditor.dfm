@@ -55,6 +55,7 @@ object OverlayEditorForm: TOverlayEditorForm
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitHeight = 747
         object grbColour: TGroupBox
           Left = 8
           Top = 3
@@ -8106,10 +8107,10 @@ object OverlayEditorForm: TOverlayEditorForm
           end
         end
         object btnApply: TButton
-          Left = 145
-          Top = 522
-          Width = 75
-          Height = 25
+          Left = 135
+          Top = 524
+          Width = 80
+          Height = 30
           Caption = 'Apply'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -8122,10 +8123,10 @@ object OverlayEditorForm: TOverlayEditorForm
         end
         object btnDelete: TButton
           Tag = 1
-          Left = 226
-          Top = 522
-          Width = 75
-          Height = 25
+          Left = 220
+          Top = 524
+          Width = 80
+          Height = 30
           Caption = 'Delete'
           Enabled = False
           Font.Charset = DEFAULT_CHARSET
@@ -8296,6 +8297,7 @@ object OverlayEditorForm: TOverlayEditorForm
           ParentColor = False
           ParentFont = False
           TabOrder = 0
+          ExplicitHeight = 90
           object Label36: TLabel
             Left = 28
             Top = 32
@@ -8410,7 +8412,7 @@ object OverlayEditorForm: TOverlayEditorForm
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000B821A20401000000000000001C000000000000000000000000
+          01000118010000A0EBB72A01000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -8419,7 +8421,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000B821A20401000000000000001C00000000000000000000000000000000
+          010000A0EBB72A01000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -8451,9 +8453,9 @@ object OverlayEditorForm: TOverlayEditorForm
         TabOrder = 0
         object btnClose: TButton
           Tag = 3
-          Left = 107
+          Left = 102
           Top = 0
-          Width = 75
+          Width = 80
           Height = 30
           Caption = 'Cancel'
           Font.Charset = DEFAULT_CHARSET
@@ -8467,9 +8469,9 @@ object OverlayEditorForm: TOverlayEditorForm
         end
         object btnOk: TButton
           Tag = 4
-          Left = 26
-          Top = 0
-          Width = 75
+          Left = 16
+          Top = 1
+          Width = 80
           Height = 30
           Caption = 'Ok'
           Font.Charset = DEFAULT_CHARSET
@@ -8484,9 +8486,9 @@ object OverlayEditorForm: TOverlayEditorForm
       end
       object btnScreenCapture: TButton
         Tag = 4
-        Left = 138
+        Left = 169
         Top = 1
-        Width = 170
+        Width = 130
         Height = 30
         Caption = 'Screen Capture'
         Font.Charset = DEFAULT_CHARSET

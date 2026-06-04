@@ -27,7 +27,6 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 387
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 65
@@ -39,10 +38,6 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 5
-      ExplicitTop = 70
-      ExplicitWidth = 424
-      ExplicitHeight = 269
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -53,12 +48,8 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 404
-        ExplicitHeight = 249
         object General: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 396
-          ExplicitHeight = 209
           object lblClassName: TStaticText
             Left = 12
             Top = 18
@@ -138,9 +129,6 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 5
-      ExplicitWidth = 424
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -181,12 +169,9 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 5
-      ExplicitTop = 339
-      ExplicitWidth = 424
       object btnApply: TButton
         Left = 261
-        Top = 5
+        Top = 6
         Width = 80
         Height = 30
         Caption = 'Apply'
@@ -201,7 +186,7 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       end
       object btnOK: TButton
         Left = 177
-        Top = 5
+        Top = 6
         Width = 80
         Height = 30
         Caption = 'OK'
@@ -216,7 +201,7 @@ object frmBombDepthChargeMount: TfrmBombDepthChargeMount
       end
       object btnCancel: TButton
         Left = 344
-        Top = 5
+        Top = 6
         Width = 80
         Height = 30
         Caption = 'Cancel'

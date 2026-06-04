@@ -47392,10 +47392,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           OnClick = btnBrowseClick
         end
         object btnApply: TButton
-          Left = 238
+          Left = 233
           Top = 472
-          Width = 75
-          Height = 25
+          Width = 80
+          Height = 30
           Caption = 'Deploy'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -47408,10 +47408,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           OnClick = btnApplyClick
         end
         object btnRemove: TButton
-          Left = 157
+          Left = 148
           Top = 472
-          Width = 75
-          Height = 25
+          Width = 80
+          Height = 30
           Caption = 'Remove'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -47507,7 +47507,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           end
           object cbbScale: TComboBox
             Left = 125
-            Top = 8
+            Top = 0
             Width = 72
             Height = 22
             Hint = 'Map Scales'
@@ -47863,7 +47863,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          011801000010380F0F01000000000000001C0000000000000000000000000000
+          01180100003074952A01000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -47872,7 +47872,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          0010380F0F01000000000000001C000000000000000000000000000000000000
+          003074952A01000000000000001C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000

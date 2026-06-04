@@ -4,8 +4,8 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = '   Game Center Editor'
-  ClientHeight = 457
-  ClientWidth = 784
+  ClientHeight = 485
+  ClientWidth = 780
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,8 +23,8 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 784
-    Height = 457
+    Width = 780
+    Height = 485
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44847,31 +44847,28 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 784
-    Height = 457
+    Width = 780
+    Height = 485
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 392
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 784
+    ExplicitHeight = 457
     object pnlMap: TPanel
       Left = 1
       Top = 1
-      Width = 782
-      Height = 339
+      Width = 778
+      Height = 367
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 784
-      ExplicitHeight = 336
+      ExplicitWidth = 782
+      ExplicitHeight = 339
       object VectorMap: TMap
         Left = 0
         Top = 0
-        Width = 782
-        Height = 339
+        Width = 778
+        Height = 367
         ParentColor = False
         Align = alClient
         TabOrder = 0
@@ -44883,19 +44880,19 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
         ExplicitWidth = 904
         ExplicitHeight = 476
         ControlData = {
-          8A1A0600D250000009230000010000000F0000FF0D47656F44696374696F6E61
+          8A1A060069500000EE250000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000000000500001
           0100000A0000000001F4010000050000800C000000000000000000000000FFFF
           FF000100000000000000000000000000000000000000000000000352E30B918F
-          CE119DE300AA004BB8510100000090017CE5070005417269616C000352E30B91
+          CE119DE300AA004BB8510100000090014495080005417269616C000352E30B91
           8FCE119DE300AA004BB851010000009001301B0F0005417269616C0000000000
           00000000000000000000000000000000000000000000000000000000000000FF
           FFFF000000000000000001370000000000FFFFFF000000000000000352E30B91
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          0100011801000030A10A10010000000C925E771C000000000000000000000000
+          01000118010000100C9F040100000054E597001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -44904,49 +44901,51 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          01000030A10A1001000000881300C01C00000000000000000000000000000000
+          010000100C9F04010000001A0000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
-          000000000000000000000000000000000000000000000038E997007D8BFE751F
-          00000000000000608BFE7568B3F20F245ED3D778E99700000000000000000000
+          000000000000000000000000000000000000000000000040000000FFFFFFFF80
+          E99700070000000000000000000000FCE6970054E59700000000000000000000
           000088B3400000000000408F400001000001}
       end
     end
     object pnlSparatorHor2: TPanel
       Left = 1
-      Top = 408
-      Width = 782
+      Top = 436
+      Width = 778
       Height = 5
       Align = alBottom
       BevelOuter = bvNone
       Color = clTeal
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 404
+      ExplicitTop = 408
+      ExplicitWidth = 782
     end
     object pnl3Button: TPanel
       Left = 1
-      Top = 413
-      Width = 782
+      Top = 441
+      Width = 778
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = -4
-      ExplicitTop = 402
+      ExplicitTop = 413
+      ExplicitWidth = 782
       object Panel1: TPanel
-        Left = 534
+        Left = 530
         Top = 0
         Width = 248
         Height = 43
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitLeft = 534
         object btnOK: TButton
           Left = 6
           Top = 6
@@ -44996,21 +44995,20 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
     end
     object pnlRight: TPanel
       Left = 1
-      Top = 340
-      Width = 782
+      Top = 368
+      Width = 778
       Height = 68
       Align = alBottom
       BevelOuter = bvNone
       BorderWidth = 5
       Color = 2499101
       TabOrder = 3
-      ExplicitLeft = 0
-      ExplicitTop = 379
-      ExplicitWidth = 784
+      ExplicitTop = 340
+      ExplicitWidth = 782
       object GroupBox1: TGroupBox
         Left = 5
         Top = 5
-        Width = 772
+        Width = 768
         Height = 58
         Align = alClient
         Caption = 'Game Area Setting'
@@ -45021,6 +45019,7 @@ object frmVektorMapGameCenterEditor: TfrmVektorMapGameCenterEditor
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 772
         object lblLatitude: TLabel
           Left = 114
           Top = 26

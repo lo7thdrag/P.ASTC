@@ -44850,8 +44850,6 @@ object frmMotionPickList: TfrmMotionPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitTop = 56
-    ExplicitHeight = 588
     object pnlTableHeader: TPanel
       Left = 1
       Top = 1
@@ -44874,9 +44872,6 @@ object frmMotionPickList: TfrmMotionPickList
       ParentShowHint = False
       ShowHint = False
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 494
       object Label2: TLabel
         Left = 166
         Top = 14
@@ -44891,7 +44886,7 @@ object frmMotionPickList: TfrmMotionPickList
         ParentFont = False
       end
       object edtSearch: TEdit
-        Left = 237
+        Left = 235
         Top = 12
         Width = 247
         Height = 25
@@ -44916,10 +44911,6 @@ object frmMotionPickList: TfrmMotionPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 494
-      ExplicitHeight = 628
       object lstAvailableMotion: TListBox
         Left = 10
         Top = 10
@@ -44935,8 +44926,6 @@ object frmMotionPickList: TfrmMotionPickList
         TabOrder = 0
         OnClick = lstAvailableMotionClick
         OnDblClick = lstAvailableMotionDblClick
-        ExplicitWidth = 474
-        ExplicitHeight = 608
       end
     end
     object pnl3Button: TPanel
@@ -44948,9 +44937,6 @@ object frmMotionPickList: TfrmMotionPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 628
-      ExplicitWidth = 494
       DesignSize = (
         492
         43)
@@ -44969,10 +44955,9 @@ object frmMotionPickList: TfrmMotionPickList
         ParentFont = False
         TabOrder = 0
         OnClick = btnCancelClick
-        ExplicitLeft = 404
       end
       object btnAdd: TButton
-        Left = 312
+        Left = 317
         Top = 2
         Width = 80
         Height = 30
@@ -44986,7 +44971,6 @@ object frmMotionPickList: TfrmMotionPickList
         ParentFont = False
         TabOrder = 1
         OnClick = btnAddClick
-        ExplicitLeft = 314
       end
     end
   end

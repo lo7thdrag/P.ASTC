@@ -4,8 +4,8 @@ object frmSummaryScenario: TfrmSummaryScenario
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Scenario'
-  ClientHeight = 374
-  ClientWidth = 431
+  ClientHeight = 376
+  ClientWidth = 449
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,8 +22,8 @@ object frmSummaryScenario: TfrmSummaryScenario
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 431
-    Height = 374
+    Width = 449
+    Height = 376
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44847,38 +44847,41 @@ object frmSummaryScenario: TfrmSummaryScenario
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 431
-    Height = 374
+    Width = 449
+    Height = 376
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
+    ExplicitWidth = 431
+    ExplicitHeight = 374
     object pnl1Title: TPanel
       Left = 1
       Top = 1
-      Width = 429
+      Width = 447
       Height = 65
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
+      ExplicitWidth = 429
       object txtClass: TLabel
         Left = 10
-        Top = 10
-        Width = 89
-        Height = 14
+        Top = 12
+        Width = 96
+        Height = 16
         Caption = 'Scenario Name :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -12
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object edtName: TEdit
         Left = 8
-        Top = 29
-        Width = 413
+        Top = 31
+        Width = 425
         Height = 22
         TabOrder = 0
         OnChange = edtChange
@@ -44887,28 +44890,32 @@ object frmSummaryScenario: TfrmSummaryScenario
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 66
-      Width = 429
-      Height = 264
+      Width = 447
+      Height = 266
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
+      ExplicitWidth = 429
+      ExplicitHeight = 264
       object pcScenarioTabs: TPageControl
         Left = 10
         Top = 10
-        Width = 409
-        Height = 244
-        ActivePage = tsRelationships
+        Width = 427
+        Height = 246
+        ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0
         TabWidth = 100
+        ExplicitWidth = 409
+        ExplicitHeight = 244
         object tsGeneral: TTabSheet
           Caption = 'General'
           object StaticText1: TStaticText
             Left = 12
-            Top = 16
+            Top = 15
             Width = 118
             Height = 18
             Caption = 'Resource Allocation :'
@@ -44916,7 +44923,7 @@ object frmSummaryScenario: TfrmSummaryScenario
           end
           object edResourceAllocation: TEdit
             Left = 12
-            Top = 39
+            Top = 38
             Width = 341
             Height = 22
             Enabled = False
@@ -44925,7 +44932,7 @@ object frmSummaryScenario: TfrmSummaryScenario
           end
           object btnPick: TBitBtn
             Left = 359
-            Top = 38
+            Top = 37
             Width = 23
             Height = 23
             Caption = '...'
@@ -44933,7 +44940,7 @@ object frmSummaryScenario: TfrmSummaryScenario
             OnClick = btnPickClick
           end
           object btnDeployPlatforms: TButton
-            Left = 3
+            Left = 12
             Top = 67
             Width = 135
             Height = 25
@@ -44945,9 +44952,11 @@ object frmSummaryScenario: TfrmSummaryScenario
         object tsRelationships: TTabSheet
           Caption = 'Relationships'
           ImageIndex = 3
+          ExplicitWidth = 401
+          ExplicitHeight = 204
           object rgForce: TRadioGroup
-            Left = 16
-            Top = 3
+            Left = 17
+            Top = 24
             Width = 129
             Height = 158
             Caption = 'Force'
@@ -44962,16 +44971,16 @@ object frmSummaryScenario: TfrmSummaryScenario
             TabOrder = 0
           end
           object gbPlatformRelationships: TGroupBox
-            Left = 151
-            Top = 3
-            Width = 227
+            Left = 152
+            Top = 24
+            Width = 250
             Height = 158
             Caption = 'Platform Relationships'
             TabOrder = 1
             OnClick = gbPlatformRelationshipsClick
             object btGroups: TButton
-              Left = 53
-              Top = 62
+              Left = 64
+              Top = 45
               Width = 121
               Height = 33
               Cursor = crHandPoint
@@ -44980,8 +44989,8 @@ object frmSummaryScenario: TfrmSummaryScenario
               OnClick = btGroupsClick
             end
             object btLinks: TButton
-              Left = 53
-              Top = 94
+              Left = 64
+              Top = 81
               Width = 121
               Height = 33
               Cursor = crHandPoint
@@ -44996,16 +45005,18 @@ object frmSummaryScenario: TfrmSummaryScenario
     end
     object pnl3Button: TPanel
       Left = 1
-      Top = 330
-      Width = 429
+      Top = 332
+      Width = 447
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
+      ExplicitTop = 330
+      ExplicitWidth = 429
       object btnPreplayScenario: TButton
         Left = 10
-        Top = 0
+        Top = 1
         Width = 119
         Height = 30
         Caption = 'Preplay Scenario...'
@@ -45020,8 +45031,8 @@ object frmSummaryScenario: TfrmSummaryScenario
         OnClick = btnPreplayScenarioClick
       end
       object btnOK: TButton
-        Left = 171
-        Top = 0
+        Left = 187
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'OK'
@@ -45035,8 +45046,8 @@ object frmSummaryScenario: TfrmSummaryScenario
         OnClick = btnOKClick
       end
       object btnApply: TButton
-        Left = 256
-        Top = 0
+        Left = 272
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Apply'
@@ -45050,8 +45061,8 @@ object frmSummaryScenario: TfrmSummaryScenario
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 341
-        Top = 0
+        Left = 357
+        Top = 1
         Width = 80
         Height = 30
         Caption = 'Cancel'

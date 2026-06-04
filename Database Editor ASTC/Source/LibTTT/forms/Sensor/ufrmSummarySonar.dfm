@@ -44863,7 +44863,7 @@ object frmSummarySonar: TfrmSummarySonar
       TabOrder = 0
       object lblName: TLabel
         Left = 10
-        Top = 5
+        Top = 12
         Width = 39
         Height = 16
         Caption = 'Class :'
@@ -44877,7 +44877,7 @@ object frmSummarySonar: TfrmSummarySonar
       object edtClass: TEdit
         Tag = 4
         Left = 10
-        Top = 26
+        Top = 33
         Width = 634
         Height = 24
         AutoSize = False

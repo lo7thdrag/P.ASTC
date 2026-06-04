@@ -44863,20 +44863,20 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
       TabOrder = 0
       object Label1: TLabel
         Left = 11
-        Top = 7
-        Width = 37
-        Height = 13
+        Top = 8
+        Width = 46
+        Height = 16
         Caption = 'Name  :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -11
+        Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object edtName: TEdit
         Left = 11
-        Top = 25
+        Top = 26
         Width = 846
         Height = 21
         TabOrder = 0
@@ -44898,7 +44898,7 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
         Top = 10
         Width = 847
         Height = 522
-        ActivePage = tsUnderWater
+        ActivePage = tsCommunication
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
