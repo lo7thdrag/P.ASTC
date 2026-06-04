@@ -3886,103 +3886,6 @@ object OverlayEditorForm: TOverlayEditorForm
                 ViewStyle = vsReport
               end
             end
-            object grpTextD: TGroupBox
-              Left = 0
-              Top = 0
-              Width = 230
-              Height = 330
-              Align = alClient
-              TabOrder = 0
-              object lbl17: TLabel
-                Left = 14
-                Top = 123
-                Width = 34
-                Height = 14
-                Caption = 'Text :'
-              end
-              object lbl18: TLabel
-                Left = 14
-                Top = 196
-                Width = 29
-                Height = 14
-                Caption = 'Size :'
-              end
-              object lbl91: TLabel
-                Left = 30
-                Top = 57
-                Width = 34
-                Height = 14
-                Caption = 'Range'
-              end
-              object lbl93: TLabel
-                Left = 111
-                Top = 80
-                Width = 21
-                Height = 14
-                Caption = 'deg'
-              end
-              object Label1: TLabel
-                Left = 30
-                Top = 80
-                Width = 40
-                Height = 14
-                Caption = 'Bearing'
-              end
-              object Label2: TLabel
-                Left = 111
-                Top = 57
-                Width = 17
-                Height = 14
-                Caption = 'nm'
-              end
-              object Label51: TLabel
-                Left = 14
-                Top = 30
-                Width = 35
-                Height = 14
-                Caption = 'Start :'
-              end
-              object edtTextRange: TEdit
-                Left = 72
-                Top = 53
-                Width = 35
-                Height = 22
-                MaxLength = 4
-                TabOrder = 0
-                Text = '0'
-              end
-              object edtTextFieldD: TEdit
-                Left = 30
-                Top = 146
-                Width = 162
-                Height = 22
-                MaxLength = 30
-                TabOrder = 1
-                Text = 'None'
-              end
-              object edtTextBearing: TEdit
-                Left = 72
-                Top = 76
-                Width = 35
-                Height = 22
-                MaxLength = 3
-                NumbersOnly = True
-                TabOrder = 2
-                Text = '0'
-              end
-              object cbbTextSizeD: TComboBox
-                Left = 30
-                Top = 219
-                Width = 82
-                Height = 22
-                TabOrder = 3
-                Text = 'Small'
-                Items.Strings = (
-                  'Small'
-                  'Medium'
-                  'Large')
-              end
-            end
             object grpRectangleD: TGroupBox
               Left = 0
               Top = 0
@@ -4097,6 +4000,103 @@ object OverlayEditorForm: TOverlayEditorForm
                 NumbersOnly = True
                 TabOrder = 3
                 Text = '0'
+              end
+            end
+            object grpTextD: TGroupBox
+              Left = 0
+              Top = 0
+              Width = 230
+              Height = 330
+              Align = alClient
+              TabOrder = 0
+              object lbl17: TLabel
+                Left = 14
+                Top = 123
+                Width = 34
+                Height = 14
+                Caption = 'Text :'
+              end
+              object lbl18: TLabel
+                Left = 14
+                Top = 196
+                Width = 29
+                Height = 14
+                Caption = 'Size :'
+              end
+              object lbl91: TLabel
+                Left = 30
+                Top = 57
+                Width = 34
+                Height = 14
+                Caption = 'Range'
+              end
+              object lbl93: TLabel
+                Left = 111
+                Top = 80
+                Width = 21
+                Height = 14
+                Caption = 'deg'
+              end
+              object Label1: TLabel
+                Left = 30
+                Top = 80
+                Width = 40
+                Height = 14
+                Caption = 'Bearing'
+              end
+              object Label2: TLabel
+                Left = 111
+                Top = 57
+                Width = 17
+                Height = 14
+                Caption = 'nm'
+              end
+              object Label51: TLabel
+                Left = 14
+                Top = 30
+                Width = 35
+                Height = 14
+                Caption = 'Start :'
+              end
+              object edtTextRange: TEdit
+                Left = 72
+                Top = 53
+                Width = 35
+                Height = 22
+                MaxLength = 4
+                TabOrder = 0
+                Text = '0'
+              end
+              object edtTextFieldD: TEdit
+                Left = 30
+                Top = 146
+                Width = 162
+                Height = 22
+                MaxLength = 30
+                TabOrder = 1
+                Text = 'None'
+              end
+              object edtTextBearing: TEdit
+                Left = 72
+                Top = 76
+                Width = 35
+                Height = 22
+                MaxLength = 3
+                NumbersOnly = True
+                TabOrder = 2
+                Text = '0'
+              end
+              object cbbTextSizeD: TComboBox
+                Left = 30
+                Top = 219
+                Width = 82
+                Height = 22
+                TabOrder = 3
+                Text = 'Small'
+                Items.Strings = (
+                  'Small'
+                  'Medium'
+                  'Large')
               end
             end
           end
@@ -5756,7 +5756,6 @@ object OverlayEditorForm: TOverlayEditorForm
               ParentBackground = False
               ParentColor = False
               TabOrder = 1
-              ExplicitTop = -2
               object SpeedButton1: TSpeedButton
                 Tag = 1
                 Left = 156
@@ -8049,7 +8048,13 @@ object OverlayEditorForm: TOverlayEditorForm
                 Top = 146
                 Width = 135
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
                 MaxLength = 30
+                ParentFont = False
                 TabOrder = 0
                 Text = 'None'
               end
@@ -8058,6 +8063,12 @@ object OverlayEditorForm: TOverlayEditorForm
                 Top = 219
                 Width = 83
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 1
                 Text = 'Small'
                 Items.Strings = (
@@ -8070,6 +8081,12 @@ object OverlayEditorForm: TOverlayEditorForm
                 Top = 77
                 Width = 91
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 2
               end
               object edtTextPosLong: TEdit
@@ -8077,6 +8094,12 @@ object OverlayEditorForm: TOverlayEditorForm
                 Top = 54
                 Width = 91
                 Height = 24
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -13
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 3
               end
             end
@@ -8387,7 +8410,7 @@ object OverlayEditorForm: TOverlayEditorForm
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          0100011801000030A10A1001000000000000001C000000000000000000000000
+          01000118010000B821A20401000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -8396,7 +8419,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          01000030A10A1001000000000000001C00000000000000000000000000000000
+          010000B821A20401000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
