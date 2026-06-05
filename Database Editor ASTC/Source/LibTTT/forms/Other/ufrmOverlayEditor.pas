@@ -389,6 +389,8 @@ type
     btnSector: TRzBmpButton;
     btnGrid: TRzBmpButton;
     btnPolygon: TRzBmpButton;
+    imgBackground: TImage;
+    il1: TImageList;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -1934,12 +1936,12 @@ begin
             ShowMessage( 'Incomplete data input' );
             Result := True;
           end
-          else if (StrToInt(cbbTextSize.Text) > 72) or
-            (StrToInt(cbbTextSize.Text) = 0) then
-          begin
-            ShowMessage( 'Invalid size input' );
-            Result := True;
-          end;
+//          else if (StrToInt(cbbTextSize.Text) > 72) or
+//            (StrToInt(cbbTextSize.Text) = 0) then
+//          begin
+//            ShowMessage( 'Invalid size input' );
+//            Result := True;
+//          end;
 //          if (cbbTextSize.Text = '') or (edtTextPosLong.Text = '') then
 //            Result := True;
           {$ENDREGION}
