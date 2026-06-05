@@ -2,10 +2,10 @@ object OverlayEditorForm: TOverlayEditorForm
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsNone
+  BorderStyle = bsSingle
   Caption = 'Overlay '
-  ClientHeight = 901
-  ClientWidth = 1600
+  ClientHeight = 872
+  ClientWidth = 1594
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,8 +24,8 @@ object OverlayEditorForm: TOverlayEditorForm
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 1600
-    Height = 901
+    Width = 1594
+    Height = 872
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44843,12 +44843,14 @@ object OverlayEditorForm: TOverlayEditorForm
     Stretch = True
     ExplicitLeft = -300
     ExplicitTop = -82
+    ExplicitWidth = 1600
+    ExplicitHeight = 901
   end
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 1600
-    Height = 901
+    Width = 1594
+    Height = 872
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
@@ -44858,7 +44860,7 @@ object OverlayEditorForm: TOverlayEditorForm
       Left = 0
       Top = 0
       Width = 308
-      Height = 859
+      Height = 830
       Align = alLeft
       BevelOuter = bvNone
       Color = clBtnShadow
@@ -44874,7 +44876,7 @@ object OverlayEditorForm: TOverlayEditorForm
         Left = 0
         Top = 0
         Width = 308
-        Height = 859
+        Height = 830
         Align = alClient
         Color = 2499101
         TabOrder = 0
@@ -52966,8 +52968,8 @@ object OverlayEditorForm: TOverlayEditorForm
     object pnlMap: TPanel
       Left = 313
       Top = 0
-      Width = 1287
-      Height = 859
+      Width = 1281
+      Height = 830
       Align = alClient
       BevelOuter = bvNone
       Color = clBtnShadow
@@ -52983,17 +52985,18 @@ object OverlayEditorForm: TOverlayEditorForm
       object pnlToolBar: TPanel
         Left = 0
         Top = 0
-        Width = 1287
+        Width = 1281
         Height = 37
         Align = alTop
         BevelOuter = bvNone
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
+        ExplicitWidth = 1287
         object ToolBar1: TToolBar
           Left = 22
           Top = 0
-          Width = 1265
+          Width = 1259
           Height = 37
           Align = alClient
           ButtonHeight = 38
@@ -53007,6 +53010,7 @@ object OverlayEditorForm: TOverlayEditorForm
           ParentColor = False
           ParentDoubleBuffered = False
           TabOrder = 0
+          ExplicitWidth = 1265
           object btnDecreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -53098,17 +53102,19 @@ object OverlayEditorForm: TOverlayEditorForm
       end
       object pnlCursorPosition: TPanel
         Left = 0
-        Top = 800
-        Width = 1287
+        Top = 771
+        Width = 1281
         Height = 59
         Align = alBottom
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 1
+        ExplicitTop = 800
+        ExplicitWidth = 1287
         object grpCursorPosition: TGroupBox
           Left = 0
           Top = 0
-          Width = 1287
+          Width = 1281
           Height = 59
           Align = alClient
           Caption = 'Cursor Potition'
@@ -53121,88 +53127,87 @@ object OverlayEditorForm: TOverlayEditorForm
           TabOrder = 0
           ExplicitLeft = 3
           ExplicitTop = 3
-          ExplicitWidth = 1281
           ExplicitHeight = 57
           object Label36: TLabel
             Left = 28
-            Top = 20
+            Top = 26
             Width = 128
             Height = 16
             Caption = 'Bearing From Center :'
           end
           object Label61: TLabel
             Left = 388
-            Top = 20
+            Top = 26
             Width = 133
             Height = 16
             Caption = 'Distance From Center :'
           end
           object Label62: TLabel
             Left = 607
-            Top = 20
+            Top = 26
             Width = 53
             Height = 16
             Caption = 'Position :'
           end
           object Label65: TLabel
             Left = 959
-            Top = 20
+            Top = 26
             Width = 32
             Height = 16
             Caption = 'Grid :'
           end
           object lBearingFCenter: TLabel
             Left = 169
-            Top = 20
+            Top = 26
             Width = 5
             Height = 16
             Caption = '-'
           end
           object lDistanceFCenter: TLabel
             Left = 529
-            Top = 20
+            Top = 26
             Width = 5
             Height = 16
             Caption = '-'
           end
           object lPosLat: TLabel
             Left = 676
-            Top = 20
+            Top = 26
             Width = 5
             Height = 16
             Caption = '-'
           end
           object lGridLat: TLabel
             Left = 1028
-            Top = 20
+            Top = 26
             Width = 5
             Height = 16
             Caption = '-'
           end
           object Label66: TLabel
             Left = 210
-            Top = 20
+            Top = 26
             Width = 58
             Height = 16
             Caption = 'degrees T'
           end
           object Label67: TLabel
             Left = 570
-            Top = 20
+            Top = 26
             Width = 18
             Height = 16
             Caption = 'nm'
           end
           object lPosLong: TLabel
             Left = 774
-            Top = 20
+            Top = 26
             Width = 5
             Height = 16
             Caption = '-'
           end
           object lGridLong: TLabel
             Left = 1126
-            Top = 20
+            Top = 26
             Width = 5
             Height = 16
             Caption = '-'
@@ -53212,8 +53217,8 @@ object OverlayEditorForm: TOverlayEditorForm
       object Map1: TMap
         Left = 0
         Top = 37
-        Width = 1287
-        Height = 763
+        Width = 1281
+        Height = 734
         ParentColor = False
         Align = alClient
         TabOrder = 2
@@ -53227,12 +53232,12 @@ object OverlayEditorForm: TOverlayEditorForm
         ExplicitWidth = 981
         ExplicitHeight = 632
         ControlData = {
-          8A1A060004850000DC4E0000010000000F0000FF0D47656F44696374696F6E61
+          8A1A060065840000DC4B0000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000
           0000000000000000000000000000000000000000000600010000040000500001
           0100000A0000000001F4010000050000800C000000000000000000000000FFFF
           FF000100000000000000000000000000000000000000000000000352E30B918F
-          CE119DE300AA004BB851010000009001A47F090005417269616C000352E30B91
+          CE119DE300AA004BB851010000009001C027090005417269616C000352E30B91
           8FCE119DE300AA004BB8510100000090015C790C0005417269616C0000000000
           00000000000000000000000000000000000000000000000000000000000000FF
           FFFF000000000000000001370000000000FFFFFF000000000000000352E30B91
@@ -53262,8 +53267,8 @@ object OverlayEditorForm: TOverlayEditorForm
     end
     object pnl3Button: TPanel
       Left = 0
-      Top = 864
-      Width = 1600
+      Top = 835
+      Width = 1594
       Height = 37
       Align = alBottom
       BevelOuter = bvNone
@@ -53272,7 +53277,7 @@ object OverlayEditorForm: TOverlayEditorForm
       ExplicitTop = 753
       ExplicitWidth = 1294
       object Panel1: TPanel
-        Left = 1415
+        Left = 1409
         Top = 0
         Width = 185
         Height = 37
@@ -53332,8 +53337,8 @@ object OverlayEditorForm: TOverlayEditorForm
     end
     object pnlSparatorHor1: TPanel
       Left = 0
-      Top = 859
-      Width = 1600
+      Top = 830
+      Width = 1594
       Height = 5
       Align = alBottom
       BevelOuter = bvNone
@@ -53346,7 +53351,7 @@ object OverlayEditorForm: TOverlayEditorForm
       Left = 308
       Top = 0
       Width = 5
-      Height = 859
+      Height = 830
       Align = alLeft
       BevelOuter = bvNone
       Color = 2499101

@@ -44851,8 +44851,6 @@ object frmOverlaySummary: TfrmOverlaySummary
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitWidth = 273
-    ExplicitHeight = 307
     object pnl1Title: TPanel
       Left = 1
       Top = 1
@@ -44863,7 +44861,6 @@ object frmOverlaySummary: TfrmOverlaySummary
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      ExplicitWidth = 271
       object lbl1: TLabel
         Left = 11
         Top = 11
@@ -44896,8 +44893,6 @@ object frmOverlaySummary: TfrmOverlaySummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitWidth = 271
-      ExplicitHeight = 206
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44908,12 +44903,8 @@ object frmOverlaySummary: TfrmOverlaySummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 251
-        ExplicitHeight = 186
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 243
-          ExplicitHeight = 146
           object lbl2: TLabel
             Left = 11
             Top = 21
@@ -44929,11 +44920,17 @@ object frmOverlaySummary: TfrmOverlaySummary
             Caption = 'Domain  :'
           end
           object btnEditOverlay: TButton
-            Left = 14
+            Left = 47
             Top = 91
             Width = 219
             Height = 25
             Caption = 'Edit Overlay Shape...'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
             OnClick = btnEditOverlayClick
           end
@@ -44975,8 +44972,6 @@ object frmOverlaySummary: TfrmOverlaySummary
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitTop = 263
-      ExplicitWidth = 271
       object btnApply: TButton
         Left = 166
         Top = 0

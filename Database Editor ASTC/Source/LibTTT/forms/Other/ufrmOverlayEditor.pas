@@ -461,6 +461,7 @@ type
     procedure edtSectorOuterDKeyPress(Sender: TObject; var Key: Char);
     procedure edtSectorStartAngleDKeyPress(Sender: TObject; var Key: Char);
     procedure edtSectorEndAngleDKeyPress(Sender: TObject; var Key: Char);
+    procedure btnApplyClick(Sender: TObject);
 
   private
     Flatt : string;
@@ -1710,12 +1711,12 @@ begin
             ShowMessage('Incomplete data input');
             Result := True;
           end
-          else if (StrToInt(cbbTextSizeD.Text) > 72) or
-            (StrToInt(cbbTextSizeD.Text) = 0) then
-          begin
-            ShowMessage('Invalid size input');
-            Result := True;
-          end;
+//          else if (StrToInt(cbbTextSizeD.Text) > 72) or
+//            (StrToInt(cbbTextSizeD.Text) = 0) then
+//          begin
+//            ShowMessage('Invalid size input');
+//            Result := True;
+//          end;
           {$ENDREGION}
         end;
 //        begin
@@ -2138,8 +2139,8 @@ begin
 
   end;
 
-  if Result then
-    ShowMessage('Incomplete data input');
+//  if Result then
+//    ShowMessage('Incomplete data input');
 end;
 
 procedure TOverlayEditorForm.colorChooseChange(Sender: TObject);
@@ -2461,6 +2462,39 @@ begin
   btnMoveMap.Down := True;
   Map1.CurrentTool  := miPanTool;
   Map1.MousePointer  := miPanCursor;
+end;
+
+procedure TOverlayEditorForm.btnApplyClick(Sender: TObject);
+begin
+//  if CekInput(ShapeType) then
+//    Exit;
+//
+//  case ShapeType of
+//    ovText:
+//      GbrText;
+//    ovLine:
+//      GbrLine;
+//    ovRectangle:
+//      GbrRectangle;
+//    ovCircle:
+//      GbrCircle;
+//    ovEllipse:
+//      GbrEllipse;
+//    ovArc:
+//      GbrArc;
+//    ovSector:
+//      GbrSector;
+//    ovGrid:
+//      GbrGrid;
+//    ovPolygon:
+//      GbrPolygon;
+//  end;
+//
+//  btnSelect.OnClick(btnSelect);
+//  btnOk.Enabled := True;
+//
+//  Map1.Refresh;
+//  Map1.Repaint
 end;
 
 procedure TOverlayEditorForm.btnCenterOnGameClick(Sender: TObject);
