@@ -87,6 +87,25 @@ type
     Kill1: TMenuItem;
     Restart1: TMenuItem;
     Shutdown1: TMenuItem;
+    AdvSmoothPanel14: TAdvSmoothPanel;
+    AdvSmoothPanel13: TAdvSmoothPanel;
+    btnRunSessionVoip: TImage;
+    btnStopSessionVoip: TImage;
+    imgSessionVoip: TImage;
+    lblStatusSessionVoip: TLabel;
+    Label20: TLabel;
+    AdvSmoothPanel18: TAdvSmoothPanel;
+    imgBackground: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -211,6 +230,10 @@ begin
     case TMenuItem(Sender).Tag of
       0 : ShowMessage('Shutdown ' + FpnlIP);
       1 : ShowMessage('Restart ' + FpnlIP);
+      2 : ShowMessage('Run GC ' + FpnlIP);
+      3 : ShowMessage('Run Simclient ' + FpnlIP);
+      4 : ShowMessage('Kill GC ' + FpnlIP);
+      5 : ShowMessage('Kill Simclient ' + FpnlIP);
     end;
 end;
 
