@@ -44923,7 +44923,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         Top = 10
         Width = 439
         Height = 281
-        ActivePage = tsGeneral
+        ActivePage = tsResources
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -45156,7 +45156,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           ImageIndex = 2
           object btnRuntimePlatformLibraries: TButton
             Left = 23
-            Top = 101
+            Top = 80
             Width = 375
             Height = 38
             Caption = 'Runtime Platform Libraries...'
@@ -45165,16 +45165,17 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           end
           object btnReferencePointsResources: TButton
             Left = 23
-            Top = 53
+            Top = 29
             Width = 375
             Height = 38
             Caption = 'Reference Points...'
             TabOrder = 1
+            Visible = False
             OnClick = btnReferencePointsResourcesClick
           end
           object btnCommunicationResources: TButton
             Left = 23
-            Top = 149
+            Top = 124
             Width = 375
             Height = 38
             Caption = 'Communication Channels ...'
@@ -45184,7 +45185,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
           end
           object btnOverlaysResources: TButton
             Left = 23
-            Top = 149
+            Top = 124
             Width = 375
             Height = 38
             Caption = 'Overlays...'
