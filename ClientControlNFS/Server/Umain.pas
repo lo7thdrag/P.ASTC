@@ -13,7 +13,6 @@ uses
 type
   TMainForm = class(TForm)
     GetPacketTimer: TTimer;
-    ilClientStateColor: TImageList;
     tmrCekAplication: TTimer;
     pnlINS1: TPanel;
     pnlINS2: TPanel;
@@ -87,14 +86,6 @@ type
     Kill1: TMenuItem;
     Restart1: TMenuItem;
     Shutdown1: TMenuItem;
-    AdvSmoothPanel14: TAdvSmoothPanel;
-    AdvSmoothPanel13: TAdvSmoothPanel;
-    btnRunSessionVoip: TImage;
-    btnStopSessionVoip: TImage;
-    imgSessionVoip: TImage;
-    lblStatusSessionVoip: TLabel;
-    Label20: TLabel;
-    AdvSmoothPanel18: TAdvSmoothPanel;
     imgBackground: TImage;
     Label1: TLabel;
     Label2: TLabel;
@@ -106,6 +97,12 @@ type
     Label8: TLabel;
     Label9: TLabel;
     Label10: TLabel;
+    pnlSessionServer: TPanel;
+    img1: TImage;
+    img2: TImage;
+    SessionServer1: TMenuItem;
+    Run2: TMenuItem;
+    Kill2: TMenuItem;
 
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -137,11 +134,12 @@ type
     procedure Client_Disconnect(const S: string);
 
 //    procedure UpdateSystemClientState;
-    procedure UpdateWarnaPanel;
+    procedure UpdateConsoleState;
+    procedure UpdateServerState;
 //    procedure UpdateConnectState(const S: string);
 //    procedure UpdateDisconnectState(const S: string);
 
-    procedure LoadConsoleList;
+//    procedure LoadConsoleList;
 
     procedure Server_Log(const S: string);
 
@@ -201,8 +199,7 @@ begin
     GetPacketTimer.Enabled := True;
   end;
 
-  LoadConsoleList;
-  UpdateWarnaPanel;
+  UpdateConsoleState;
 end;
 
 {$ENDREGION}
@@ -216,7 +213,15 @@ end;
 
 procedure TMainForm.btnRunClick(Sender: TObject);
 begin
-//
+  {$REGION ' Session Server '}
+  if not GetApp(vNetSetting.Sessionapp) then
+  begin
+    FAppGame.FExecFname := vNetSetting.Sessionurl + vNetSetting.Sessionapp;
+    FAppGame.Executes;
+  end
+  else
+    ShowMessage('Can not Run, double load Session Server');
+  {$ENDREGION}
 end;
 
 procedure TMainForm.btnSingleSystemClick(Sender: TObject);
@@ -231,59 +236,20 @@ begin
       0 : ShowMessage('Shutdown ' + FpnlIP);
       1 : ShowMessage('Restart ' + FpnlIP);
       2 : ShowMessage('Run GC ' + FpnlIP);
-      3 : ShowMessage('Run Simclient ' + FpnlIP);
+//      3 : ShowMessage('Run Simclient ' + FpnlIP);
       4 : ShowMessage('Kill GC ' + FpnlIP);
-      5 : ShowMessage('Kill Simclient ' + FpnlIP);
+//      5 : ShowMessage('Kill Simclient ' + FpnlIP);
     end;
 end;
 
 procedure TMainForm.btnKillClick(Sender: TObject);
-var
-  CommandData: RecCommandData;
-
 begin
-  case TImage(Sender).Tag of
-    2 : KillApp(vNetSetting.Nafsserverapp);
-    4 : KillApp(vNetSetting.Nafsbridgeapp);
-    6 :
-    begin
-      CommandData.command := 4;
-      server.SendDataToIPAddress(CommandID, @CommandData, vNetSetting.InstNafs);
-    end;
-    8 : KillApp(vNetSetting.Nsfsserverapp);
-    10 : KillApp(vNetSetting.Nsfsbridgeapp);
-    12 :
-    begin
-      CommandData.command := 4;
-      server.SendDataToIPAddress(CommandID, @CommandData, vNetSetting.InstNsfs);
-    end;
-    14 : KillApp(vNetSetting.Nssfsserverapp);
-    16 : KillApp(vNetSetting.Nssfsbridgeapp);
-    18 :
-    begin
-      CommandData.command := 4;
-      server.SendDataToIPAddress(CommandID, @CommandData, vNetSetting.InstNssfs);
-    end;
-    20 : KillApp(vNetSetting.Sessionvoipapp);
-  end;
+  {$REGION ' Session Server '}
+  KillApp(vNetSetting.Sessionapp);
+  {$ENDREGION}
 end;
 
-//procedure TMainForm.UpdateConnectState(const S: string);
-//begin
-//
-//end;
-//
-//procedure TMainForm.UpdateDisconnectState(const S: string);
-//begin
-//
-//end;
-//
-//procedure TMainForm.UpdateSystemClientState;
-//begin
-//
-//end;
-
-procedure TMainForm.UpdateWarnaPanel;
+procedure TMainForm.UpdateConsoleState;
 var
   i : Integer;
 
@@ -296,7 +262,7 @@ begin
       begin
         if server.getClientState(TPanel(Components[i]).Hint) then
         begin
-          TPanel(Components[i]).Color := clLime;
+          TPanel(Components[i]).Color := clYellow;
         end
         else
         begin
@@ -307,9 +273,22 @@ begin
   end;
 end;
 
-procedure TMainForm.LoadConsoleList;
+procedure TMainForm.UpdateServerState;
 begin
-
+  if GetApp(vNetSetting.sessionapp) then
+  begin
+    if pnlSessionServer.Color <> clLime then
+    begin
+      pnlSessionServer.Color := clLime;
+    end;
+  end
+  else
+  begin
+    if pnlSessionServer.Color <> clYellow then
+    begin
+      pnlSessionServer.Color := clYellow
+    end;
+  end;
 end;
 
 {$ENDREGION}
@@ -323,8 +302,8 @@ begin
   ss := TStringList.Create;
   try
     server.GetConnectedList(ss);
-//    UpdateConnectState(s);
-    UpdateWarnaPanel;
+    UpdateConsoleState;
+    UpdateServerState;
   finally
     ss.Free;
   end;
@@ -337,8 +316,8 @@ begin
   ss := TStringList.Create;
   try
     server.GetConnectedList(ss);
-//    UpdateDisconnectState(s);
-    UpdateWarnaPanel;
+    UpdateConsoleState;
+    UpdateServerState;
   finally
     ss.Free;
   end;
@@ -415,7 +394,7 @@ end;
 
 procedure TMainForm.tmrCekAplicationTimer(Sender: TObject);
 begin
-//
+  UpdateServerState;
 end;
 
 procedure TMainForm.GetPacketTimerTimer(Sender: TObject);
@@ -440,6 +419,20 @@ begin
 if ( Button = mbright ) then
   begin
     FpnlIP := TPanel(Sender).Hint;
+
+    if TPanel(Sender).Tag = 100 then
+    begin
+      GC1.Visible := True;
+      Console1.Visible := True;
+      SessionServer1.Visible := False;
+    end
+    else
+    begin
+      GC1.Visible := False;
+      Console1.Visible := False;
+      SessionServer1.Visible := True;
+    end;
+
     GetCursorPos(p);
 
     pmPanel.Popup(p.X, p.Y);

@@ -30,27 +30,8 @@ type
     AutoStart : Boolean;
 
     Clientapp : string;
-    Nafsserverapp : string;
-    Nafsbridgeapp : string;
-    Nsfsserverapp : string;
-    Nsfsbridgeapp : string;
-    Nssfsserverapp : string;
-    Nssfsbridgeapp : string;
-    Sessionvoipapp : string;
-
-    Nafsserver : string;
-    Nafsbridge : string;
-    Nsfsserver : string;
-    Nsfsbridge : string;
-    Nssfsserver : string;
-    Nssfsbridge : string;
-    Sessionvoip : string;
-
-    InstNafs : string;
-    InstNsfs : string;
-    InstNssfs : string;
-
-    ClientMode : string;
+    Sessionapp : string;
+    sessionurl : string;
 
     INS_01 : string;
     INS_02 : string;
@@ -169,27 +150,8 @@ begin
     AutoStart       := INIFReadBool(inif, c_net, 'autostart', true);
 
     clientapp       := INIFReadString(inif, c_app, 'clientapp', c_APP_NAME);
-    nafsserverapp   := INIFReadString(inif, c_app, 'nafsserverapp', c_APP_NAME);
-    nafsbridgeapp   := INIFReadString(inif, c_app, 'nafsbridgeapp', c_APP_NAME);
-    nsfsserverapp   := INIFReadString(inif, c_app, 'nsfsserverapp', c_APP_NAME);
-    nsfsbridgeapp   := INIFReadString(inif, c_app, 'nsfsbridgeapp', c_APP_NAME);
-    nssfsserverapp  := INIFReadString(inif, c_app, 'nssfsserverapp', c_APP_NAME);
-    nssfsbridgeapp  := INIFReadString(inif, c_app, 'nssfsbridgeapp', c_APP_NAME);
-    sessionvoipapp  := INIFReadString(inif, c_app, 'sessionvoipapp', c_APP_NAME);
-
-    Nafsserver      := INIFReadString(inif, c_url, 'nafsserver', c_URL_APP);
-    Nafsbridge      := INIFReadString(inif, c_url, 'nafsbridge', c_URL_APP);
-    Nsfsserver      := INIFReadString(inif, c_url, 'nsfsserver', c_URL_APP);
-    Nsfsbridge      := INIFReadString(inif, c_url, 'nsfsbridge', c_URL_APP);
-    Nssfsserver     := INIFReadString(inif, c_url, 'nssfsserver', c_URL_APP);
-    Nssfsbridge     := INIFReadString(inif, c_url, 'nssfsbridge',c_URL_APP);
-    Sessionvoip     := INIFReadString(inif, c_url, 'sessionvoip',c_URL_APP);
-
-    InstNafs        := INIFReadString(inif, c_url, 'instNafs',  '192.168.1.1');
-    InstNsfs        := INIFReadString(inif, c_url, 'instNsfs',  '192.168.1.1');
-    InstNssfs       := INIFReadString(inif, c_url, 'instNssfs',  '192.168.1.1');
-
-    ClientMode      := INIFReadString(inif, c_intworld, 'clientmode',  'NAFS');
+    sessionapp      := INIFReadString(inif, c_app, 'sessionapp', c_APP_NAME);
+    sessionurl      := INIFReadString(inif, c_url, 'sessionurl', c_URL_APP);
 
     INS_01          := INIFReadString(inif, c_ipconsole, 'INS_01', '');
     INS_02          := INIFReadString(inif, c_ipconsole, 'INS_02', '');
