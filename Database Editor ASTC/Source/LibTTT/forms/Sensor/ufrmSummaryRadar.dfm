@@ -44924,7 +44924,7 @@ object frmSummaryRadar: TfrmSummaryRadar
         Top = 10
         Width = 742
         Height = 317
-        ActivePage = tsAntiJamming
+        ActivePage = tsCharacteristic
         Align = alClient
         TabHeight = 30
         TabOrder = 0

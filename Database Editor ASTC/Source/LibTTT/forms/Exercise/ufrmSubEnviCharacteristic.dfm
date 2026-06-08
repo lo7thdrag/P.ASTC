@@ -62,21 +62,23 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
   end
   object pnl2ControlPage: TPanel
     Left = 0
-    Top = 70
+    Top = 65
     Width = 611
-    Height = 604
+    Height = 609
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 10
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 70
+    ExplicitHeight = 604
     object PageControl1: TPageControl
       Left = 10
       Top = 10
       Width = 591
-      Height = 584
-      ActivePage = tsAboveWater
+      Height = 589
+      ActivePage = tsSurfaceAndSubsurface
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -87,8 +89,10 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       TabHeight = 30
       TabOrder = 0
       TabWidth = 140
+      ExplicitHeight = 584
       object tsAboveWater: TTabSheet
         Caption = 'Above Water'
+        ExplicitHeight = 544
         object grpVisibilityFactors: TGroupBox
           Left = 23
           Top = 117
@@ -552,6 +556,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       object tsSurfaceAndSubsurface: TTabSheet
         Caption = 'Surface and Subsurface'
         ImageIndex = 1
+        ExplicitHeight = 544
         object grbOceanCurrent: TGroupBox
           Left = 22
           Top = 14
@@ -1143,6 +1148,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       object tsConvergenceZones: TTabSheet
         Caption = 'Convergence Zones'
         ImageIndex = 2
+        ExplicitHeight = 544
         object grbCoverageZones: TGroupBox
           Left = 21
           Top = 32
@@ -1302,6 +1308,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       object tsBoundaries: TTabSheet
         Caption = 'Boundaries'
         ImageIndex = 3
+        ExplicitHeight = 544
         object grbTopLeft: TGroupBox
           Left = 15
           Top = 3
@@ -1531,7 +1538,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     TabOrder = 2
     object btnOK: TButton
       Left = 351
-      Top = 1
+      Top = 6
       Width = 80
       Height = 30
       Cursor = crHandPoint
@@ -1547,7 +1554,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     end
     object btnApply: TButton
       Left = 436
-      Top = 1
+      Top = 6
       Width = 80
       Height = 30
       Cursor = crHandPoint
@@ -1563,7 +1570,7 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     end
     object btnCancel: TButton
       Left = 521
-      Top = 1
+      Top = 6
       Width = 80
       Height = 30
       Cursor = crHandPoint
@@ -1578,37 +1585,6 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       OnClick = btnCancelClick
     end
   end
-  object pnlSparatorHor1: TPanel
-    Left = 0
-    Top = 65
-    Width = 611
-    Height = 5
-    Align = alTop
-    BevelOuter = bvNone
-    ParentBackground = False
-    TabOrder = 3
-    object Image2: TImage
-      Left = 0
-      Top = 0
-      Width = 611
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
-    end
-  end
   object pnlSparatorHor2: TPanel
     Left = 0
     Top = 674
@@ -1616,28 +1592,9 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     Height = 5
     Align = alBottom
     BevelOuter = bvNone
+    Color = clTeal
     ParentBackground = False
-    TabOrder = 4
-    object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 611
-      Height = 5
-      Cursor = crHandPoint
-      Align = alClient
-      Picture.Data = {
-        0954506E67496D61676589504E470D0A1A0A0000000D49484452000003FB0000
-        001408020000005DE0BAA7000000097048597300000B1300000B1301009A9C18
-        000000824944415478DAEDD6410900300CC0C0D6BFE9AA188370A720CFEC0000
-        005DFB3B00000078C8F103004099E307008032C70F0000658E1F0000CA1C3F00
-        0094397E00002873FC000050E6F80100A0CCF103004099E307008032C70F0000
-        658E1F0000CA1C3F000094397E00002873FC000050E6F80100A0CCF103004099
-        E3070080B203BC0200156C14659F0000000049454E44AE426082}
-      Stretch = True
-      ExplicitLeft = -2
-      ExplicitTop = -2
-      ExplicitWidth = 8
-      ExplicitHeight = 637
-    end
+    TabOrder = 3
+    ExplicitTop = 673
   end
 end

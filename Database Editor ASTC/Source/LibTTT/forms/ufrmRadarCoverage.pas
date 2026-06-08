@@ -159,7 +159,6 @@ end;
 procedure TfrmRadarCoverage.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FVerticalCoverageList);
-
 end;
 
 procedure TfrmRadarCoverage.FormShow(Sender: TObject);

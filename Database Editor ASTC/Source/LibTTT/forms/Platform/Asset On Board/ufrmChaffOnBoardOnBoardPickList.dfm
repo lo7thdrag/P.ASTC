@@ -44850,10 +44850,6 @@ object frmChaffOnBoardOnBoardPickList: TfrmChaffOnBoardOnBoardPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 48
-    ExplicitWidth = 494
-    ExplicitHeight = 588
     object pnlMain: TPanel
       Left = 1
       Top = 1
@@ -44864,10 +44860,6 @@ object frmChaffOnBoardOnBoardPickList: TfrmChaffOnBoardOnBoardPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 754
-      ExplicitHeight = 639
       object lbl1: TLabel
         Left = 12
         Top = 544
@@ -45032,7 +45024,7 @@ object frmChaffOnBoardOnBoardPickList: TfrmChaffOnBoardOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of available Radars'
+          Caption = 'List of Available Radars'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite

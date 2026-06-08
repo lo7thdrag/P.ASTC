@@ -12,7 +12,6 @@ type
     pnlSparatorHor1: TPanel;
     Image2: TImage;
     pnlSparatorHor2: TPanel;
-    Image1: TImage;
     pnl1Title: TPanel;
     lblName: TLabel;
     edtName: TEdit;
@@ -44,6 +43,8 @@ type
     btnApply: TButton;
     btnOK: TButton;
     btnCancel: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -96,6 +97,18 @@ uses
   uDataModuleTTT, ufrmGroupMemberPickList;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfrmCubicleGroupAllocation.btnAddExternalCommClick(Sender: TObject);
 begin
@@ -363,6 +376,8 @@ procedure TfrmCubicleGroupAllocation.FormCreate(Sender: TObject);
 begin
   FMemberList := TList.Create;
   FCommChannelList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmCubicleGroupAllocation.FormShow(Sender: TObject);

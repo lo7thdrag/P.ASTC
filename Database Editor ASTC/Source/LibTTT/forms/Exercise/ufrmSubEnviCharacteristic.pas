@@ -176,13 +176,10 @@ type
     grbCommunicationEffects: TGroupBox;
     cbHFTransmission: TCheckBox;
     pnl3Button: TPanel;
-    pnlSparatorHor1: TPanel;
     pnlSparatorHor2: TPanel;
     btnOK: TButton;
     btnApply: TButton;
     btnCancel: TButton;
-    Image2: TImage;
-    Image1: TImage;
 
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);

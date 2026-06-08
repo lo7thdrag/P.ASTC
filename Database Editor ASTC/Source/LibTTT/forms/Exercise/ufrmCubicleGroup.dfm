@@ -44852,10 +44852,6 @@ object frmCubicleGroup: TfrmCubicleGroup
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 163
-    ExplicitTop = 16
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl3Button: TPanel
       Left = 1
       Top = 415
@@ -44865,9 +44861,6 @@ object frmCubicleGroup: TfrmCubicleGroup
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 416
-      ExplicitWidth = 348
       object btClose: TButton
         Left = 264
         Top = 3
@@ -44895,10 +44888,6 @@ object frmCubicleGroup: TfrmCubicleGroup
       BorderWidth = 4
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 348
-      ExplicitHeight = 459
       object pnlTableHeader: TPanel
         Left = 4
         Top = 4
@@ -44908,8 +44897,6 @@ object frmCubicleGroup: TfrmCubicleGroup
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 0
-        ExplicitLeft = 6
-        ExplicitTop = 0
         object Label2: TLabel
           Left = 0
           Top = 19
@@ -44933,7 +44920,6 @@ object frmCubicleGroup: TfrmCubicleGroup
           BorderWidth = 4
           Color = 2499101
           TabOrder = 0
-          ExplicitLeft = 184
           object btnDelete: TImage
             Left = 126
             Top = 12
@@ -45390,8 +45376,6 @@ object frmCubicleGroup: TfrmCubicleGroup
         BevelOuter = bvNone
         Color = clScrollBar
         TabOrder = 1
-        ExplicitWidth = 340
-        ExplicitHeight = 406
         object lstGroup: TListBox
           Left = 0
           Top = 0
@@ -45402,8 +45386,6 @@ object frmCubicleGroup: TfrmCubicleGroup
           TabOrder = 0
           OnClick = lstGroupClick
           OnDblClick = btnEditClick
-          ExplicitWidth = 340
-          ExplicitHeight = 406
         end
       end
     end

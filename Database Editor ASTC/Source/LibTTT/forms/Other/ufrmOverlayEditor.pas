@@ -462,6 +462,7 @@ type
     procedure edtSectorStartAngleDKeyPress(Sender: TObject; var Key: Char);
     procedure edtSectorEndAngleDKeyPress(Sender: TObject; var Key: Char);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     Flatt : string;
@@ -557,6 +558,18 @@ uses
   uDBEditSetting, uDataModuleTTT, uRecord;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
@@ -576,6 +589,16 @@ begin
 
   DrawFlagPoint := TDrawFlagPoint.Create;
   DrawFlagPoint.Converter := FConverter;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TOverlayEditorForm.FormDestroy(Sender: TObject);
+begin
+  FConverter.Free;
+  FCanvas.Free;
+  DrawOverlay.Free;
+  DrawFlagPoint.Free;
 end;
 
 procedure TOverlayEditorForm.FormResize(Sender: TObject);
@@ -592,16 +615,16 @@ begin
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
     begin
-      btnZoom.Enabled := False;
-      btnMoveMap.Enabled := False;
-      btnCenterOnGame.Enabled := False;
+      btnZoom.Visible := False;
+      btnMoveMap.Visible := False;
+      btnCenterOnGame.Visible := False;
 
-      ToolBar1.Visible := False;
+//      ToolBar1.Visible := False;
 
       aGeoset := vAppDBSetting.Pattern;
       loadMap(aGeoset);
 
-      setCBScale(16);
+      setCBScale(2500);
       cbSetScale.ItemIndex := cbSetScale.Items.Count - 1;
       cbSetScaleChange(Sender);
 
@@ -615,9 +638,9 @@ begin
     end;
     osStatic :
     begin
-      btnZoom.Enabled := True;
-      btnMoveMap.Enabled := True;
-      btnCenterOnGame.Enabled := True;
+      btnZoom.Visible := True;
+      btnMoveMap.Visible := True;
+      btnCenterOnGame.Visible := True;
 
       aGeoset := vAppDBSetting.MapSourcePathVECT + '\IndonesiaBackground\Indonesia.gst';
       loadMap(aGeoset);
@@ -837,16 +860,17 @@ end;
 
 procedure TOverlayEditorForm.GameCenterDynamic;
 var
-  i, cx, cy, ex, ey, fx, fy, r: Integer;
+  i, cx, cy, ex, ey, fx, fy, r, rTemp: Integer;
   dx, dy : Double;
   point : TRect;
 begin
   inherited;
 
+  rTemp := Round(StrToInt(cbSetScale.Text)/8);
   {Menggambar ring range}
   for i := 1 to 4 do
   begin
-    dx := Map1.CenterX + (i*2)/60;
+    dx := Map1.CenterX + (i*rTemp)/60;
     dy := Map1.CenterY;
 
     FConverter.ConvertToScreen(Map1.CenterX, Map1.CenterY, cx, cy);
@@ -868,7 +892,15 @@ begin
       Pen.Width   := 1;
 
       Ellipse(point.Left, point.Top, point.Right, point.Bottom);
+
+      Font.Size := 12;
+
+      TextOut((cx - r), cy, IntToStr(i*rTemp));
+      TextOut((cx + r), cy, IntToStr(i*rTemp));
+      TextOut(cx, cy - r, IntToStr(i*rTemp));
+      TextOut(cx, cy + r, IntToStr(i*rTemp));
     end;
+
   end;
 
   {Menggambar cross center}
@@ -879,6 +911,7 @@ begin
     MoveTo(point.Left, fy); LineTo(point.Right, fy);
     MoveTo(fx,point.Top); LineTo(fx, point.Bottom);
   end;
+
 end;
 
 procedure TOverlayEditorForm.OnKeyPress(Sender: TObject; var Key: Char);
@@ -1693,9 +1726,6 @@ var
 begin
   Result := False;
 
-//  if (edtName.Text = '') then
-//    Result := True;
-
   case OverlayDef.FData.Static_Overlay of
 
     {$REGION ' Dynamic Section '}
@@ -1711,48 +1741,28 @@ begin
             ShowMessage('Incomplete data input');
             Result := True;
           end
-//          else if (StrToInt(cbbTextSizeD.Text) > 72) or
-//            (StrToInt(cbbTextSizeD.Text) = 0) then
-//          begin
-//            ShowMessage('Invalid size input');
-//            Result := True;
-//          end;
           {$ENDREGION}
         end;
-//        begin
-//          if (edtTextRange.Text = '')or(edtTextBearing.Text = '')or
-//             (cbbTextSizeD.Text = '')or(edtTextFieldD.Text = '') then
-//            Result := True;
-//        end;
         ovLine:{Line}
         begin
           {$REGION ' Line '}
-          if (edtLineStartRange.Text = '') or
-            (edtLineStartBearing.Text = '') or (edtLineEndRange.Text = '')
-            or (edtLineEndBearing.Text = '') then
+          if (edtLineStartRange.Text = '') or (edtLineStartBearing.Text = '') or
+             (edtLineEndRange.Text = '') or (edtLineEndBearing.Text = '') then
           begin
             ShowMessage('Incomplete data input');
             Result := True;
           end
-          else if (edtLineStartRange.Text = edtLineEndRange.Text) and
-            (edtLineEndRange.Text = edtLineEndBearing.Text) then
+          else if (edtLineStartRange.Text = edtLineEndRange.Text) and (edtLineEndRange.Text = edtLineEndBearing.Text) then
           begin
             ShowMessage('Invalid input..., Start and End position can not be identical');
             Result := True;
           end;
           {$ENDREGION}
         end;
-//        begin
-//          if (edtLineStartRange.Text = '')or(edtLineStartBearing.Text = '')or
-//             (edtLineEndRange.Text = '')or(edtLineEndBearing.Text = '') then
-//            Result := True;
-//        end;
         ovRectangle:{Rectangle}
         begin
           {$REGION ' Rectangle '}
           if (edtRecStartBearing.Text = '')or(edtRecStartRange.Text = '')or
-          (edtRecStartRange.Text = '')or (edtRecStartBearing.Text = '')or
-          (edtRecEndBearing.Text= '')or (edtRectStartPosLat.Text= '')or
           (edtRecEndRange.Text= '')or(edtRecEndBearing.Text= '') then
           begin
             ShowMessage( 'Incomplete data input' );
@@ -1765,17 +1775,11 @@ begin
           end;
           {$ENDREGION}
         end;
-//        begin
-//          if (edtRecStartRange.Text = '')or(edtRecStartBearing.Text = '')or
-//             (edtRecEndRange.Text = '')or(edtRecEndBearing.Text = '') then
-//            Result := True;
-//        end;
         ovCircle:{Circle}
         begin
           {$REGION ' Circle '}
           if (edtCircleBearing.Text = '')or (edtCircleRange.Text = '') or
-          (edtCircleRadiusD.Text = '')or(edtCircleBearing.text='')or
-          (edtCircleRange.Text= '') then
+             (edtCircleRadiusD.Text = '') then
           begin
             ShowMessage('The provided input data is incomplete.');
             Result := True;
@@ -1788,17 +1792,11 @@ begin
           end;
           {$ENDREGION}
         end;
-//        begin
-//          if (edtCircleRange.Text = '')or(edtCircleBearing.Text = '')or
-//             (edtCircleRadiusD.Text = '') then
-//            Result := True;
-//        end;
         ovEllipse:{Ellipse}
         begin
           {$REGION ' Ellipse '}
           if (edtEllipseBearing.Text = '')or (edtEllipseRange.Text = '')
-          or(edtEllipseHorizontalD.Text = '') or (edtEllipseVerticalD.Text = '') or
-          (edtEllipseRange.text= '') or (edtEllipseBearing.Text= '') then
+              or(edtEllipseHorizontalD.Text = '') or (edtEllipseVerticalD.Text = '') then
           begin
             ShowMessage( 'Incomplete data input' );
             Result := True;
@@ -1810,16 +1808,11 @@ begin
           end;
           {$ENDREGION}
         end;
-//        begin
-//          if (edtEllipseRange.Text = '')or(edtEllipseBearing.Text = '')or
-//             (edtEllipseHorizontalD.Text = '')or(edtEllipseVerticalD.Text = '') then
-//            Result := True;
-//        end;
         ovArc:{Arc}
         {$REGION ' Arc '}
           if (edtArcBearing.Text = '') or (edtArcRange.Text = '') or
-            (edtArcRadiusD.Text = '') or (edtArcStartAngleD.Text = '') or
-            (edtArcEndAngleD.Text = '') then
+             (edtArcRadiusD.Text = '') or (edtArcStartAngleD.Text = '') or
+             (edtArcEndAngleD.Text = '') then
           begin
             ShowMessage( 'Incomplete data input' );
             Result := True;
@@ -1835,12 +1828,6 @@ begin
             Result := True;
           end;
           {$ENDREGION}
-//        begin
-//          if (edtArcRange.Text = '')or(edtArcBearing.Text = '')or
-//             (edtArcRadiusD.Text = '')or(edtArcStartAngleD.Text = '')or
-//             (edtArcEndAngleD.Text = '')then
-//            Result := True;
-//        end;
         ovSector:{Sector}
         begin
           {$REGION ' Sector '}
@@ -1881,20 +1868,13 @@ begin
           end;
           {$ENDREGION}
         end;
-//        begin
-//          if (edtSectorRange.Text = '')or(edtSectorBearing.Text = '')or
-//             (edtSectorInnerD.Text = '')or(edtSectorOuterD.Text = '')or
-//             (edtSectorStartAngleD.Text = '')or(edtSectorEndAngleD.Text = '')then
-//            Result := True;
-//        end;
         ovGrid:{Grid}
         begin
           {$REGION ' Grid '}
-          if (edtTableRange.Text = '')or (edtTableRange.Text ='') or
-          (edtTableHeightD.Text = '')or (edtTableColumnD.Text = '') or
-          (edtTableWidthD.Text = '') or (edtTableRowD.Text = '')or
-          (edtRotationAngleD.Text = '')or(edtTableRange.Text ='')
-          or(edtTableRange.Text='') then
+          if (edtTableRange.Text = '') or (edtTableBearing.Text = '') or
+             (edtTableHeightD.Text = '') or (edtTableColumnD.Text = '') or
+             (edtTableWidthD.Text = '') or (edtTableRowD.Text = '') or
+             (edtRotationAngleD.Text = '') then
           begin
             ShowMessage( 'Incomplete Data Input' );
             Result := True;
@@ -1908,17 +1888,13 @@ begin
           end;
           {$ENDREGION}
         end;
-//        begin
-//          if (edtTableRange.Text = '')or(edtTableBearing.Text = '')or
-//             (edtTableHeightD.Text = '')or(edtTableColumnD.Text = '')or
-//             (edtTableWidthD.Text = '')or(edtTableRowD.Text = '')or
-//             (edtRotationAngleD.Text = '')then
-//            Result := True;
-//        end;
         ovPolygon:{Polygon}
         begin
           if lvPolyVertexD.Items.Count < 1 then
+          begin
+            ShowMessage( 'Incomplete Data Input'  );
             Result := True;
+          end;
         end;
       end;
     end;
@@ -2031,8 +2007,8 @@ begin
         begin
           {$REGION ' Arc '}
           if (edtArcPosLong.Text = '') or (edtArcPosLat.Text = '') or
-            (edtArcRadius.Text = '') or (edtArcEndAngle.Text = '') or
-            (edtArcStartAngle.Text = '') then
+             (edtArcRadius.Text = '') or (edtArcEndAngle.Text = '') or
+             (edtArcStartAngle.Text = '') then
           begin
             ShowMessage( 'Incomplete data input' );
             Result := True;
@@ -2047,9 +2023,6 @@ begin
             ShowMessage( 'Invalid input..., Start and End Angle can not be identical' );
             Result := True;
           end;
-//          if (edtArcRadius.Text = '') or (edtArcPosLong.Text = '') or (edtArcStartAngle.Text = '')
-//            or (edtArcEndAngle.Text = '')then
-//            Result := True;
           {$ENDREGION}
         end;
         ovSector:{Sector}
@@ -2129,8 +2102,7 @@ begin
             ShowMessage( 'Incomplete Data Input'  );
             Result := True;
           end;
-//          if lvPolyVertex.Items.Count < 1 then
-//            Result := True;
+
           {$ENDREGION}
         end;
       end;
@@ -2138,9 +2110,6 @@ begin
     {$ENDREGION}
 
   end;
-
-//  if Result then
-//    ShowMessage('Incomplete data input');
 end;
 
 procedure TOverlayEditorForm.colorChooseChange(Sender: TObject);
@@ -2424,6 +2393,10 @@ begin
   else
     cbSetScale.ItemIndex  := cbSetScale.ItemIndex - 1;
   Map1.OnMapViewChanged   := Map1MapViewChanged;
+
+//  case OverlayDef.FData.Static_Overlay of
+//      osDynamic: GameCenterDynamic;
+//  end;
 
   NormalizeMousePointer;
 //  RefreshZoomButton;
@@ -3022,7 +2995,7 @@ begin
 
     case OverlayDef.FData.Static_Overlay of
       osDynamic: GameCenterDynamic;
-  //    osStatic : GameCenterStatic;
+//      osStatic : GameCenterStatic;
     end;
 
     DrawOverlay.drawAll(FCanvas, Map1);

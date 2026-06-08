@@ -44851,8 +44851,6 @@ object frmRadarCoverage: TfrmRadarCoverage
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitWidth = 783
-    ExplicitHeight = 585
     object pnlButton: TPanel
       Left = 1
       Top = 1
@@ -44860,7 +44858,6 @@ object frmRadarCoverage: TfrmRadarCoverage
       Height = 529
       Align = alClient
       TabOrder = 0
-      ExplicitLeft = 2
       object btnOK: TButton
         Left = 471
         Top = 486
@@ -45202,9 +45199,6 @@ object frmRadarCoverage: TfrmRadarCoverage
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitLeft = 1
-        ExplicitTop = 16
-        ExplicitWidth = 548
         object pnlAlignToolBar: TPanel
           Left = 0
           Top = 0
@@ -45214,9 +45208,6 @@ object frmRadarCoverage: TfrmRadarCoverage
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 1
-          ExplicitLeft = -6
-          ExplicitTop = 3
-          ExplicitHeight = 56
         end
         object tlb1: TToolBar
           Left = 207
@@ -45229,8 +45220,6 @@ object frmRadarCoverage: TfrmRadarCoverage
           Caption = 'tlb1'
           Images = il1
           TabOrder = 0
-          ExplicitLeft = 213
-          ExplicitTop = 10
           object btn4: TToolButton
             Left = 0
             Top = 0
