@@ -103,6 +103,7 @@ type
     SessionServer1: TMenuItem;
     Run2: TMenuItem;
     Kill2: TMenuItem;
+    lbl1: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -416,21 +417,30 @@ procedure TMainForm.pnlMouseDown(Sender: TObject; Button: TMouseButton; Shift: T
 var
     p : TPoint;
 begin
-if ( Button = mbright ) then
+  if ( Button = mbright ) then
   begin
-    FpnlIP := TPanel(Sender).Hint;
-
-    if TPanel(Sender).Tag = 100 then
-    begin
-      GC1.Visible := True;
-      Console1.Visible := True;
-      SessionServer1.Visible := False;
-    end
-    else
+    if Sender is TLabel then
     begin
       GC1.Visible := False;
       Console1.Visible := False;
       SessionServer1.Visible := True;
+    end
+    else if Sender is TPanel then
+    begin
+      FpnlIP := TPanel(Sender).Hint;
+
+      if TPanel(Sender).Tag = 100 then
+      begin
+        GC1.Visible := True;
+        Console1.Visible := True;
+        SessionServer1.Visible := False;
+      end
+      else
+      begin
+        GC1.Visible := False;
+        Console1.Visible := False;
+        SessionServer1.Visible := True;
+      end;
     end;
 
     GetCursorPos(p);
