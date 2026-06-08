@@ -113,7 +113,8 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-
+  Show;
+  SetForegroundWindow( Handle );
 end;
 
 {$ENDREGION}
@@ -349,7 +350,6 @@ var
   AppData: RecAppData;
 
 begin
-  {procedure untuk melakukan pengecekan app instruktur}
 
   value := GetApp;
 
@@ -358,16 +358,7 @@ begin
 
   AppState := value;
 
-  if vNetSetting.ClientMode = 'NSFS' then
-    AppData.command := 0
-  else if vNetSetting.ClientMode = 'NAFS' then
-    AppData.command := 1
-  else if vNetSetting.ClientMode = 'NSSFS' then
-    AppData.command := 2;
-
   AppData.state := AppState;
-  AppData.appName := vNetSetting.ClientMode;
-
   Client.SendData(CommandApp, @AppData);
 
 end;

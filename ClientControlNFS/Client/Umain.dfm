@@ -43,10 +43,10 @@ object MainForm: TMainForm
     Caption.GradientType = gtHorizontal
     Caption.LineColor = clBlack
     Caption.Line = False
-    Fill.Color = 14939662
-    Fill.ColorTo = 16777164
-    Fill.ColorMirror = 16777164
-    Fill.ColorMirrorTo = 14939662
+    Fill.Color = cl3DDkShadow
+    Fill.ColorTo = cl3DDkShadow
+    Fill.ColorMirror = cl3DDkShadow
+    Fill.ColorMirrorTo = cl3DDkShadow
     Fill.GradientType = gtVertical
     Fill.GradientMirrorType = gtVertical
     Fill.BorderColor = clSilver
@@ -109,7 +109,7 @@ object MainForm: TMainForm
     Top = 1
   end
   object PopupMenu1: TPopupMenu
-    Left = 107
+    Left = 147
     Top = 1
     object Show1: TMenuItem
       Caption = '&Show'
@@ -122,7 +122,7 @@ object MainForm: TMainForm
   end
   object tmrCekApplication: TTimer
     OnTimer = tmrCekApplicationTimer
-    Left = 74
-    Top = 2
+    Left = 226
+    Top = 10
   end
 end

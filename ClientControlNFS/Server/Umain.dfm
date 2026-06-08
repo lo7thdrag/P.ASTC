@@ -39474,6 +39474,7 @@ object MainForm: TMainForm
       D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4
       C7D0D4C7D0D4C7D0D4C7D0D47A00}
     Stretch = True
+    OnClick = btnMultipleSystemClick
   end
   object btnRestartAll: TImage
     Tag = 1
@@ -39981,6 +39982,7 @@ object MainForm: TMainForm
       D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4
       C7D0D4C7D0D4C7D0D4C7D0D46164}
     Stretch = True
+    OnClick = btnMultipleSystemClick
   end
   object Label1: TLabel
     Left = 236
@@ -40113,6 +40115,7 @@ object MainForm: TMainForm
     ParentFont = False
   end
   object img1: TImage
+    Tag = 2
     Left = 32
     Top = 30
     Width = 137
@@ -40617,9 +40620,10 @@ object MainForm: TMainForm
       D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4
       C7D0D4C7D0D4C7D0D4C7D0D46164}
     Stretch = True
+    OnClick = btnMultipleSystemClick
   end
   object img2: TImage
-    Tag = 1
+    Tag = 4
     Left = 32
     Top = 70
     Width = 137
@@ -41124,6 +41128,7 @@ object MainForm: TMainForm
       D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4C7D0D4
       C7D0D4C7D0D4C7D0D4C7D0D46164}
     Stretch = True
+    OnClick = btnMultipleSystemClick
   end
   object pnlINS1: TPanel
     Tag = 100
@@ -41155,7 +41160,7 @@ object MainForm: TMainForm
     Width = 13
     Height = 67
     Cursor = crHandPoint
-    Hint = '192.168.84.136'
+    Hint = '192.168.0.102'
     BevelOuter = bvNone
     Caption = '2'
     Color = cl3DDkShadow
@@ -41169,6 +41174,7 @@ object MainForm: TMainForm
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
+    OnMouseDown = pnlMouseDown
   end
   object pnlINS3: TPanel
     Tag = 100
@@ -41191,6 +41197,7 @@ object MainForm: TMainForm
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
+    OnMouseDown = pnlMouseDown
   end
   object pnlCub_01_01: TPanel
     Tag = 100

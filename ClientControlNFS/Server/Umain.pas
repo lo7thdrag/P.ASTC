@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
 
   uTCPServer, ShellApi, Vcl.Imaging.jpeg, Vcl.ComCtrls, System.ImageList,
-  Vcl.ImgList, Vcl.Imaging.pngimage, AdvSmoothPanel, Vcl.Menus;
+  Vcl.ImgList, Vcl.Imaging.pngimage, AdvSmoothPanel, Vcl.Menus, uNetBaseSocket;
 
 type
   TMainForm = class(TForm)
@@ -110,12 +110,13 @@ type
     procedure FormShow(Sender: TObject);
 
     procedure btnSingleSystemClick(Sender: TObject);
+    procedure btnMultipleSystemClick(Sender: TObject);
 
     procedure GetPacketTimerTimer(Sender: TObject);
 
     procedure btnRunClick(Sender: TObject);
     procedure btnKillClick(Sender: TObject);
-    procedure btnRefreshSystemStateClick(Sender: TObject);
+//    procedure btnRefreshSystemStateClick(Sender: TObject);
     procedure tmrCekAplicationTimer(Sender: TObject);
     
     procedure pnlMouseDown(Sender: TObject; Button: TMouseButton;
@@ -207,11 +208,6 @@ end;
 
 {$REGION ' System Section '}
 
-procedure TMainForm.btnRefreshSystemStateClick(Sender: TObject);
-begin
-//  UpdateSystemClientState;
-end;
-
 procedure TMainForm.btnRunClick(Sender: TObject);
 begin
   {$REGION ' Session Server '}
@@ -230,17 +226,66 @@ var
   CommandData: RecCommandData;
 
 begin
-  CommandData.command := TMenuItem(Sender).Tag;;
+
+  if TMenuItem(Sender).Tag = 2 then
+  begin
+    if not GetApp(vNetSetting.sessionapp) then
+    begin
+      ShowMessage('Session Server is not running, run session server first');
+      Exit;
+    end
+  end;
+
+  CommandData.command := TMenuItem(Sender).Tag;
   server.SendDataToIPAddress(CommandID, @CommandData, FpnlIP);
 
-    case TMenuItem(Sender).Tag of
-      0 : ShowMessage('Shutdown ' + FpnlIP);
-      1 : ShowMessage('Restart ' + FpnlIP);
-      2 : ShowMessage('Run GC ' + FpnlIP);
-//      3 : ShowMessage('Run Simclient ' + FpnlIP);
-      4 : ShowMessage('Kill GC ' + FpnlIP);
-//      5 : ShowMessage('Kill Simclient ' + FpnlIP);
+  case TMenuItem(Sender).Tag of
+    0 : ShowMessage('Shutdown ' + FpnlIP);
+    1 : ShowMessage('Restart ' + FpnlIP);
+    2 : ShowMessage('Run GC ' + FpnlIP);
+  //      3 : ShowMessage('Run Simclient ' + FpnlIP);
+    4 : ShowMessage('Kill GC ' + FpnlIP);
+  //      5 : ShowMessage('Kill Simclient ' + FpnlIP);
+  end;
+end;
+
+procedure TMainForm.btnMultipleSystemClick(Sender: TObject);
+var
+  i : Integer;
+  CommandData: RecCommandData;
+  ipAddress : string;
+
+begin
+  if TImage(Sender).Tag = 2 then
+  begin
+    if not GetApp(vNetSetting.sessionapp) then
+    begin
+      ShowMessage('Session Server is not running, run session server first');
+      Exit;
+    end
+  end;
+
+  for i := 0 to ComponentCount-1 do
+  begin
+    if Components[i] is TPanel then
+    begin
+      if TPanel(Components[i]).Tag = 100 then
+      begin
+        ipAddress := TPanel(Components[i]).Hint;
+        CommandData.command := TImage(Sender).Tag;
+
+        server.SendDataToIPAddress(CommandID, @CommandData, ipAddress);
+
+      end;
     end;
+  end;
+
+  case TImage(Sender).Tag of
+    0 : ShowMessage('Shutdown All PC');
+    1 : ShowMessage('Restart All PC');
+    2 : ShowMessage('Run All GC ');
+    4 : ShowMessage('Kill All GC ');
+  end;
 end;
 
 procedure TMainForm.btnKillClick(Sender: TObject);
@@ -304,7 +349,7 @@ begin
   try
     server.GetConnectedList(ss);
     UpdateConsoleState;
-    UpdateServerState;
+//    UpdateServerState;
   finally
     ss.Free;
   end;
@@ -318,7 +363,7 @@ begin
   try
     server.GetConnectedList(ss);
     UpdateConsoleState;
-    UpdateServerState;
+//    UpdateServerState;
   finally
     ss.Free;
   end;
@@ -404,13 +449,39 @@ begin
 end;
 
 procedure TMainForm.NetRecv_AppData(apRec: PAnsiChar; aSize: word);
+var
+  i : Integer;
+  rec: ^RecAppData;
+
 begin
-//
+  rec := @apRec^;
+
+  if rec = nil then
+    Exit;
+
+  for i := 0 to ComponentCount-1 do
+  begin
+    if Components[i] is TPanel then
+    begin
+      if TPanel(Components[i]).Hint = LongIp_To_StrIp(rec.pid.ipSender) then
+      begin
+        if rec.state then
+        begin
+          TPanel(Components[i]).Color := clLime;
+        end
+        else
+        begin
+          TPanel(Components[i]).Color := clYellow;
+        end;
+
+      end;
+    end;
+  end;
 end;
 
 procedure TMainForm.NetRecv_CommandData(apRec: PAnsiChar; aSize: word);
 begin
-//
+  //
 end;
 
 procedure TMainForm.pnlMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
