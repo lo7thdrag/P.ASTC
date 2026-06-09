@@ -44872,6 +44872,12 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
         Top = 29
         Width = 426
         Height = 22
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         OnKeyPress = edtNameKeyPress
       end

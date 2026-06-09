@@ -44899,7 +44899,7 @@ object frmSummaryScenario: TfrmSummaryScenario
         Top = 10
         Width = 427
         Height = 246
-        ActivePage = tsRelationships
+        ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0

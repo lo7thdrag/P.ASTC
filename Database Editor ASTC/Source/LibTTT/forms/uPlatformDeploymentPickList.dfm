@@ -44852,10 +44852,6 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = -504
-    ExplicitTop = -172
-    ExplicitWidth = 754
-    ExplicitHeight = 639
     object Panel1: TPanel
       Left = 1
       Top = 6
@@ -44866,9 +44862,6 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 250
       object GroupBox1: TGroupBox
         Left = 10
         Top = 10
@@ -44883,16 +44876,24 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 230
         object cbForce: TCheckBox
           Left = 16
           Top = 24
           Width = 97
           Height = 17
           Caption = 'Force'
-          Color = 2499101
+          Color = clWhite
+          DoubleBuffered = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ParentColor = False
+          ParentDoubleBuffered = False
+          ParentFont = False
           TabOrder = 0
+          StyleElements = [seClient, seBorder]
           OnClick = cbForceClick
         end
         object cbClassification: TCheckBox
@@ -44901,9 +44902,18 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
           Width = 97
           Height = 17
           Caption = 'Classification'
-          Color = 2499101
+          Color = clWhite
+          DoubleBuffered = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ParentColor = False
+          ParentDoubleBuffered = False
+          ParentFont = False
           TabOrder = 1
+          StyleElements = [seClient, seBorder]
           OnClick = cbClassificationClick
         end
         object cbHide: TCheckBox
@@ -44912,9 +44922,18 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
           Width = 97
           Height = 17
           Caption = 'Hide if Deployed'
-          Color = 2499101
+          Color = clWhite
+          DoubleBuffered = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           ParentColor = False
+          ParentDoubleBuffered = False
+          ParentFont = False
           TabOrder = 2
+          StyleElements = [seClient, seBorder]
           OnClick = cbHideClick
         end
         object cbxForce: TComboBox
@@ -44966,10 +44985,6 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 5
-      ExplicitWidth = 250
-      ExplicitHeight = 414
       object lbPlatforms: TListBox
         Left = 10
         Top = 10
@@ -44980,8 +44995,6 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
         TabOrder = 0
         OnClick = lbPlatformsClick
         OnDblClick = btnOKClick
-        ExplicitWidth = 230
-        ExplicitHeight = 394
       end
     end
     object pnl3Button: TPanel
@@ -44993,9 +45006,6 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 424
-      ExplicitWidth = 250
       object btnCancel: TButton
         Left = 165
         Top = 9
@@ -45052,9 +45062,6 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
       BevelOuter = bvNone
       Color = clTeal
       TabOrder = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 250
     end
     object pnlSparatorHor2: TPanel
       Left = 1
@@ -45065,9 +45072,6 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
       BevelOuter = bvNone
       Color = clTeal
       TabOrder = 4
-      ExplicitLeft = 0
-      ExplicitTop = 462
-      ExplicitWidth = 250
     end
   end
 end
