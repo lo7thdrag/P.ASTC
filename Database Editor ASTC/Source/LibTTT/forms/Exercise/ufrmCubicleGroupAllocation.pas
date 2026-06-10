@@ -11,7 +11,6 @@ type
   TfrmCubicleGroupAllocation = class(TForm)
     pnlSparatorHor1: TPanel;
     Image2: TImage;
-    pnlSparatorHor2: TPanel;
     pnl1Title: TPanel;
     lblName: TLabel;
     edtName: TEdit;
@@ -45,6 +44,7 @@ type
     btnCancel: TButton;
     pnlMainBackground: TPanel;
     imgBackground: TImage;
+    pnlSparatorHor2: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -459,8 +459,7 @@ var
 begin
   lstMembers.Items.Clear;
 
-  dmTTT.GetCubicleGroupAssignment(FSelectedCubicleGroup.FData.Group_Index,
-    FMemberList);
+  dmTTT.GetCubicleGroupAssignment(FSelectedCubicleGroup.FData.Group_Index,FMemberList);
 
   for i := 0 to FMemberList.Count - 1 do
   begin

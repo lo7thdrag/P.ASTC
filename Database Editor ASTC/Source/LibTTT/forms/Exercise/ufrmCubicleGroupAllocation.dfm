@@ -4,7 +4,7 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
   BorderIcons = []
   BorderStyle = bsToolWindow
   Caption = 'Group in TestScenario'
-  ClientHeight = 589
+  ClientHeight = 410
   ClientWidth = 457
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
     Left = 0
     Top = 0
     Width = 457
-    Height = 589
+    Height = 410
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44847,9 +44847,10 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
     Left = 0
     Top = 0
     Width = 457
-    Height = 589
+    Height = 410
     Align = alClient
     TabOrder = 0
+    ExplicitHeight = 589
     object pnl1Title: TPanel
       Left = 1
       Top = 6
@@ -44886,12 +44887,13 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
       Left = 1
       Top = 71
       Width = 455
-      Height = 474
+      Height = 295
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 1
+      ExplicitTop = 70
       object btnBrowse: TSpeedButton
         Left = 307
         Top = 107
@@ -44919,11 +44921,12 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
       end
       object grbExternalComm: TGroupBox
         Left = 10
-        Top = 263
+        Top = 424
         Width = 426
-        Height = 183
+        Height = 22
         Caption = 'External Communication Channels'
         TabOrder = 1
+        Visible = False
         object btnAddExternalComm: TButton
           Left = 339
           Top = 24
@@ -45035,6 +45038,7 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
           Caption = 'Move Up'
           Enabled = False
           TabOrder = 2
+          Visible = False
           OnClick = btnMoveUpMembersClick
         end
         object btnMoveDownMembers: TButton
@@ -45046,6 +45050,7 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
           Caption = 'Move Down'
           Enabled = False
           TabOrder = 3
+          Visible = False
           OnClick = btnMoveDownMembersClick
         end
         object lstMembers: TListView
@@ -45066,8 +45071,14 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
               Width = 180
             end>
           ColumnClick = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
           GridLines = True
           RowSelect = True
+          ParentFont = False
           TabOrder = 4
           ViewStyle = vsReport
           OnClick = lstMembersClick
@@ -45137,19 +45148,30 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
           TabOrder = 0
         end
       end
+      object pnlSparatorHor2: TPanel
+        Left = -2
+        Top = 276
+        Width = 457
+        Height = 5
+        BevelOuter = bvNone
+        Color = clTeal
+        ParentBackground = False
+        TabOrder = 5
+      end
     end
     object pnl3Button: TPanel
       Left = 1
-      Top = 545
+      Top = 366
       Width = 455
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = clBtnShadow
       TabOrder = 2
+      ExplicitTop = 545
       object btnApply: TButton
         Left = 271
-        Top = 3
+        Top = -1
         Width = 80
         Height = 30
         Cursor = crHandPoint
@@ -45165,7 +45187,7 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
       end
       object btnOK: TButton
         Left = 186
-        Top = 3
+        Top = -1
         Width = 80
         Height = 30
         Cursor = crHandPoint
@@ -45181,7 +45203,7 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
       end
       object btnCancel: TButton
         Left = 356
-        Top = 3
+        Top = -1
         Width = 80
         Height = 30
         Cursor = crHandPoint
@@ -45226,16 +45248,6 @@ object frmCubicleGroupAllocation: TfrmCubicleGroupAllocation
         ExplicitWidth = 457
         ExplicitHeight = 1
       end
-    end
-    object pnlSparatorHor2: TPanel
-      Left = 0
-      Top = 532
-      Width = 457
-      Height = 5
-      BevelOuter = bvNone
-      Color = clTeal
-      ParentBackground = False
-      TabOrder = 4
     end
   end
 end
