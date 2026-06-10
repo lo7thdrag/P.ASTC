@@ -28,6 +28,9 @@ type
     pnlSparatorHor2: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
+    lblForce: TLabel;
+    lblClassification: TLabel;
+    lblHide: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

@@ -44876,12 +44876,50 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        object lblForce: TLabel
+          Left = 37
+          Top = 26
+          Width = 30
+          Height = 14
+          Caption = 'Force'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblClassification: TLabel
+          Left = 37
+          Top = 49
+          Width = 66
+          Height = 14
+          Caption = 'Classification'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblHide: TLabel
+          Left = 37
+          Top = 73
+          Width = 89
+          Height = 14
+          Caption = 'Hide if Deployed'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
         object cbForce: TCheckBox
           Left = 16
           Top = 24
-          Width = 97
+          Width = 17
           Height = 17
-          Caption = 'Force'
           Color = clWhite
           DoubleBuffered = False
           Font.Charset = DEFAULT_CHARSET
@@ -44899,9 +44937,8 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
         object cbClassification: TCheckBox
           Left = 16
           Top = 47
-          Width = 97
+          Width = 17
           Height = 17
-          Caption = 'Classification'
           Color = clWhite
           DoubleBuffered = False
           Font.Charset = DEFAULT_CHARSET
@@ -44919,9 +44956,8 @@ object frmPlatformDeploymentPickList: TfrmPlatformDeploymentPickList
         object cbHide: TCheckBox
           Left = 16
           Top = 71
-          Width = 97
+          Width = 17
           Height = 17
-          Caption = 'Hide if Deployed'
           Color = clWhite
           DoubleBuffered = False
           Font.Charset = DEFAULT_CHARSET
