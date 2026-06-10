@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, Buttons, StdCtrls, uExecuter, uTCPClient, ExtCtrls,
-  VrControls, VrButtons, acPNG;
+  VrControls, VrButtons, {acPNG,} Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
 
 type
 
@@ -28,14 +28,20 @@ type
     mnLogout2: TMenuItem;
     mnContent1: TMenuItem;
     mnAbout: TMenuItem;
-    btnConnect: TVrDemoButton;
-    btnEditor: TVrDemoButton;
-    btnStart: TVrDemoButton;
-    btnTerminate: TVrDemoButton;
-    lblConsoleName: TLabel;
-    imgBackGround: TImage;
-    pnlDragWindow: TPanel;
+    btnConnect1: TVrDemoButton;
+    btnEditor1: TVrDemoButton;
+    btnStart1: TVrDemoButton;
+    btnTerminate1: TVrDemoButton;
     imgClose: TImage;
+    pnlBackground: TPanel;
+    pnlButton: TPanel;
+    imgBackground: TImage;
+    pnlBTN: TPanel;
+    btnStart: TImage;
+    btnTerminate: TImage;
+    btnConnect: TImage;
+    btnEditor: TImage;
+    lblConsoleName: TLabel;
     procedure mnStart1Click(Sender: TObject);
     procedure mnConnect1Click(Sender: TObject);
     procedure mnTerminate1Click(Sender: TObject);
@@ -47,6 +53,8 @@ type
     procedure pnlDragWindowMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure imgCloseClick(Sender: TObject);
+    procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
+      var Resize: Boolean);
   private
     { Private declarations }
     isCtrl: Boolean;
@@ -395,6 +403,27 @@ begin
   end;
   Application.Restore;
 
+end;
+
+procedure TfrmMainGC.FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer; var Resize: Boolean);
+var
+  tempTop : Integer;
+begin
+//  lblConsoleName.Left := ((Width - lblConsoleName.Width) div 2);
+//  lblConsoleName.Top  := Round(Height * 0.2);
+//
+//  pnlBTN.Left := ((Width - lblConsoleName.Width) div 2);
+//  pnlBTN.Top  := Round(Height * 0.40);
+
+  lblConsoleName.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
+  lblConsoleName.Top := (pnlBackground.Height-lblConsoleName.Height)div 4;
+
+  pnlBTN.Left := (pnlBackground.Width-pnlBTN.Width)div 2;
+
+  tempTop := (pnlBackground.Height-pnlBTN.Height)div 4;
+  pnlBTN.Top := tempTop * 3;
+
+  imgClose.Left := pnlBackground.Width-50;
 end;
 
 procedure TfrmMainGC.FormCreate(Sender: TObject);

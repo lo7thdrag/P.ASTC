@@ -5,7 +5,7 @@ object frmConnectTerminate: TfrmConnectTerminate
   Caption = 'Connect'
   ClientHeight = 451
   ClientWidth = 470
-  Color = clBtnFace
+  Color = 2499101
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
