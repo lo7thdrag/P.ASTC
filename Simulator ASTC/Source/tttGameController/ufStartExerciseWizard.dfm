@@ -35,6 +35,92 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
     BevelOuter = bvNone
     TabOrder = 0
   end
+  object pnlExerciseName: TPanel
+    Left = 0
+    Top = 59
+    Width = 782
+    Height = 552
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 139
+      Top = 153
+      Width = 347
+      Height = 56
+      Caption = 
+        'Type a name for your exercise. '#13#10'The name can contain up to 60 c' +
+        'haracters ( including space ), '#13#10'but cannot contain any of the f' +
+        'ollowing characters: '#13#10'\/ . " : * ? < > | .'
+    end
+    object Label2: TLabel
+      Left = 139
+      Top = 243
+      Width = 31
+      Height = 14
+      Caption = 'Name'
+    end
+    object edExerciseName: TEdit
+      Left = 192
+      Top = 240
+      Width = 443
+      Height = 22
+      MaxLength = 60
+      TabOrder = 0
+      Text = 'Exercise Name'
+    end
+    object Panel2: TPanel
+      Left = 0
+      Top = 495
+      Width = 782
+      Height = 57
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 1
+      DesignSize = (
+        782
+        57)
+      object Bevel2: TBevel
+        Left = 0
+        Top = 0
+        Width = 782
+        Height = 2
+        Align = alTop
+      end
+      object btnExcName_Cancel: TButton
+        Left = 683
+        Top = 17
+        Width = 75
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = '&Cancel'
+        TabOrder = 0
+        OnClick = btnExcName_CancelClick
+      end
+      object btnExcName_Next: TButton
+        Left = 560
+        Top = 17
+        Width = 75
+        Height = 25
+        Align = alCustom
+        Anchors = [akTop, akRight]
+        Caption = '&Next >'
+        TabOrder = 1
+        OnClick = btnExcName_NextClick
+      end
+      object btnExcName_Back: TButton
+        Left = 483
+        Top = 17
+        Width = 75
+        Height = 25
+        Align = alCustom
+        Anchors = [akTop, akRight]
+        Caption = '< &Back'
+        TabOrder = 2
+        OnClick = btnExcName_BackClick
+      end
+    end
+  end
   object pnlCubicleMapping: TPanel
     Left = 0
     Top = 59
@@ -438,92 +524,6 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         Caption = '< &Back'
         TabOrder = 2
         OnClick = btnAudio_BackClick
-      end
-    end
-  end
-  object pnlExerciseName: TPanel
-    Left = 0
-    Top = 59
-    Width = 782
-    Height = 552
-    Align = alClient
-    BevelOuter = bvNone
-    TabOrder = 1
-    object Label1: TLabel
-      Left = 139
-      Top = 153
-      Width = 347
-      Height = 56
-      Caption = 
-        'Type a name for your exercise. '#13#10'The name can contain up to 60 c' +
-        'haracters ( including space ), '#13#10'but cannot contain any of the f' +
-        'ollowing characters: '#13#10'\/ . " : * ? < > | .'
-    end
-    object Label2: TLabel
-      Left = 139
-      Top = 243
-      Width = 31
-      Height = 14
-      Caption = 'Name'
-    end
-    object edExerciseName: TEdit
-      Left = 192
-      Top = 240
-      Width = 443
-      Height = 22
-      MaxLength = 60
-      TabOrder = 0
-      Text = 'Exercise Name'
-    end
-    object Panel2: TPanel
-      Left = 0
-      Top = 495
-      Width = 782
-      Height = 57
-      Align = alBottom
-      BevelOuter = bvNone
-      TabOrder = 1
-      DesignSize = (
-        782
-        57)
-      object Bevel2: TBevel
-        Left = 0
-        Top = 0
-        Width = 782
-        Height = 2
-        Align = alTop
-      end
-      object btnExcName_Cancel: TButton
-        Left = 683
-        Top = 17
-        Width = 75
-        Height = 25
-        Anchors = [akTop, akRight]
-        Caption = '&Cancel'
-        TabOrder = 0
-        OnClick = btnExcName_CancelClick
-      end
-      object btnExcName_Next: TButton
-        Left = 560
-        Top = 17
-        Width = 75
-        Height = 25
-        Align = alCustom
-        Anchors = [akTop, akRight]
-        Caption = '&Next >'
-        TabOrder = 1
-        OnClick = btnExcName_NextClick
-      end
-      object btnExcName_Back: TButton
-        Left = 483
-        Top = 17
-        Width = 75
-        Height = 25
-        Align = alCustom
-        Anchors = [akTop, akRight]
-        Caption = '< &Back'
-        TabOrder = 2
-        OnClick = btnExcName_BackClick
       end
     end
   end

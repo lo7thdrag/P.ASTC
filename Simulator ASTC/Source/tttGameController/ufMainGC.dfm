@@ -93957,7 +93957,6 @@ object frmMainGC: TfrmMainGC
       Height = 76
       BevelOuter = bvNone
       TabOrder = 0
-      Visible = False
       object btnTerminate1: TVrDemoButton
         Tag = 2
         Left = 19
@@ -187868,7 +187867,7 @@ object frmMainGC: TfrmMainGC
         OnClick = mnStartDatabaseDeveloper1Click
       end
       object btnStart: TImage
-        Left = 19
+        Left = 53
         Top = 8
         Width = 160
         Height = 60
