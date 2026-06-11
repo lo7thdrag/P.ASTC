@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, Buttons, StdCtrls, uExecuter, uTCPClient, ExtCtrls,
-  VrControls, VrButtons, {acPNG,} Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
+  VrControls, VrButtons, {acPNG,} Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,
+  RzBmpBtn;
 
 type
 
@@ -28,20 +29,15 @@ type
     mnLogout2: TMenuItem;
     mnContent1: TMenuItem;
     mnAbout: TMenuItem;
-    btnConnect1: TVrDemoButton;
-    btnEditor1: TVrDemoButton;
-    btnStart1: TVrDemoButton;
-    btnTerminate1: TVrDemoButton;
     imgClose: TImage;
     pnlBackground: TPanel;
-    pnlButton: TPanel;
     imgBackground: TImage;
-    pnlBTN: TPanel;
-    btnStart: TImage;
-    btnTerminate: TImage;
-    btnConnect: TImage;
-    btnEditor: TImage;
     lblConsoleName: TLabel;
+    btnEditor: TRzBmpButton;
+    btnConnect: TRzBmpButton;
+    btnTerminate: TRzBmpButton;
+    btnStart: TRzBmpButton;
+    pnlButton: TPanel;
     procedure mnStart1Click(Sender: TObject);
     procedure mnConnect1Click(Sender: TObject);
     procedure mnTerminate1Click(Sender: TObject);
@@ -91,7 +87,18 @@ uses
   uGameData_TTT;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
 
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TfrmMainGC.mnStart1Click(Sender: TObject);
 var
@@ -285,7 +292,8 @@ begin
     mnAbout.Enabled := true;
 
   DefaultMonitor := dmPrimary;
-{$REGION 'Hide Menu'}
+
+  {$REGION 'Hide Menu'}
   mnSession.Visible := False;
     mnStart1.Visible      := False;
     mnConnect1.Visible    := False;
@@ -307,7 +315,7 @@ begin
   mnHelp.Visible := False;
     mnContent1.Visible := False;
     mnAbout.Visible := False;
-{$ENDREGION}
+  {$ENDREGION}
 //  if theClient.IsController then begin
 //    Left    := Screen.Monitors[0].Left;
 //    Width   := Screen.Monitors[0].Width div 2;
@@ -329,11 +337,14 @@ begin
   btnStart.Visible := False;
   btnConnect.Visible := True;
   btnEditor.Visible := False;
+  btnTerminate.Visible := False;
 
-  if theClient.IsController then begin
+  if theClient.IsController then
+  begin
     btnStart.Visible := True;
     btnConnect.Visible := True;
     btnEditor.Visible := True;
+    btnTerminate.Visible := True;
   end;
 end;
 
@@ -409,19 +420,13 @@ procedure TfrmMainGC.FormCanResize(Sender: TObject; var NewWidth, NewHeight: Int
 var
   tempTop : Integer;
 begin
-//  lblConsoleName.Left := ((Width - lblConsoleName.Width) div 2);
-//  lblConsoleName.Top  := Round(Height * 0.2);
-//
-//  pnlBTN.Left := ((Width - lblConsoleName.Width) div 2);
-//  pnlBTN.Top  := Round(Height * 0.40);
-
   lblConsoleName.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
   lblConsoleName.Top := (pnlBackground.Height-lblConsoleName.Height)div 4;
 
-  pnlBTN.Left := (pnlBackground.Width-pnlBTN.Width)div 2;
+  pnlButton.Left := (pnlBackground.Width-pnlButton.Width)div 2;
 
-  tempTop := (pnlBackground.Height-pnlBTN.Height)div 4;
-  pnlBTN.Top := tempTop * 3;
+  tempTop := (pnlBackground.Height-pnlButton.Height)div 4;
+  pnlButton.Top := tempTop * 3;
 
   imgClose.Left := pnlBackground.Width-50;
 end;
@@ -450,6 +455,9 @@ begin
   FConnectTimer.Interval := 5000;
   FConnectTimer.OnTimer := OnConnectTimer;
   FConnectTimer.Enabled := true;
+
+  EnableComposited(pnlBackground);
+  EnableComposited(pnlButton);
 end;
 
 procedure TfrmMainGC.FormDestroy(Sender: TObject);
