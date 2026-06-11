@@ -21,6 +21,7 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     FTT : TMSTimer;
     FLastRecvMS : LongWord;
@@ -64,7 +65,7 @@ var
 
 implementation
 uses
-  uLibSettingTTT, uGameData_TTT;
+  uLibSettingTTT, uGameData_TTT, ufrmRealTime;
 
 {$R *.dfm}
 
@@ -156,19 +157,40 @@ end;
 
 procedure TfrmMainGT.FormResize(Sender: TObject);
 begin
-  lblRTCaption.Left := ((Width - lblRTCaption.Width) div 2);
-  lblRTCaption.Top := Round(Height * 0.1);
+//  lblRTCaption.Left := ((Width - lblRTCaption.Width) div 2);
+//  lblRTCaption.Top := Round(Height * 0.1);
 
-  lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
-  lblServerTIME.Top := Round(Height * 0.25);
+//  lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
+//  lblServerTIME.Top := Round(Height * 0.25);
 
   lblGTCaption.Left := ((Width - lblGTCaption.Width) div 2);
-  lblGTCaption.Top := Round(Height * 0.52);
+  lblGTCaption.Top := Round(Height * 0.2);
 
   lblGameTime.Left := ((Width - lblGameTime.Width) div 2);
-  lblGameTime.Top  := Round(Height * 0.67);
+  lblGameTime.Top  := Round(Height * 0.55);
+
 
   Bevel2.Height := Height div 2;
+end;
+
+procedure TfrmMainGT.FormShow(Sender: TObject);
+begin
+  if Screen.MonitorCount > 1 then
+  begin
+    Width := Screen.Monitors[vGameDataSetting.TacticalScreen].Width;
+    Height := Screen.Monitors[vGameDataSetting.TacticalScreen].Height;
+    Left := Screen.Monitors[vGameDataSetting.TacticalScreen].Left;
+    Top := Screen.Monitors[vGameDataSetting.TacticalScreen].Top;
+  end
+  else
+  begin
+    Width := Screen.Monitors[0].Width;
+    Height := Screen.Monitors[0].Height;
+    Left := Screen.Monitors[0].Left;
+    Top := Screen.Monitors[0].Top;
+  end;
+
+  ufRealTime.Show
 end;
 
 procedure TfrmMainGT.netRecv_GameTime(apRec: PAnsiChar; aSize: Word);
@@ -255,9 +277,9 @@ end;
 
 procedure TfrmMainGT.Timer1Timer(Sender: TObject);
 begin
-  SetServerTime(Now);
-  if not first then
-    SetGameTime(FVTime.GetTime);
+  SetGameTime(Now);
+//  if not first then
+//    SetGameTime(FVTime.GetTime);
 end;
 
 end.

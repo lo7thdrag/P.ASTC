@@ -4,8 +4,8 @@ object frmMainGT: TfrmMainGT
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'Tactical Team Trainer Game Time'
-  ClientHeight = 794
-  ClientWidth = 1441
+  ClientHeight = 746
+  ClientWidth = 1393
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,13 +20,14 @@ object frmMainGT: TfrmMainGT
   WindowState = wsMaximized
   OnCreate = FormCreate
   OnResize = FormResize
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Bevel1: TBevel
     Left = 0
     Top = 354
-    Width = 1441
-    Height = 440
+    Width = 1393
+    Height = 392
     Align = alClient
     ExplicitTop = 0
     ExplicitWidth = 1366
@@ -35,21 +36,21 @@ object frmMainGT: TfrmMainGT
   object Bevel3: TBevel
     Left = 0
     Top = 354
-    Width = 1441
-    Height = 440
+    Width = 1393
+    Height = 392
     Align = alClient
+    Shape = bsTopLine
     Style = bsRaised
-    ExplicitTop = 8
-    ExplicitWidth = 1342
-    ExplicitHeight = 354
+    ExplicitTop = 0
   end
   object Bevel2: TBevel
     Left = 0
     Top = 0
-    Width = 1441
+    Width = 1393
     Height = 354
     Align = alTop
     Style = bsRaised
+    Visible = False
     ExplicitLeft = 64
     ExplicitTop = 56
     ExplicitWidth = 793
@@ -66,17 +67,18 @@ object frmMainGT: TfrmMainGT
     Font.Name = 'Verdana'
     Font.Style = []
     ParentFont = False
+    Visible = False
   end
   object lblGTCaption: TLabel
-    Left = 64
-    Top = 440
-    Width = 812
-    Height = 129
+    Left = -285
+    Top = 405
+    Width = 1496
+    Height = 266
     Caption = 'Assumption Time'
-    Font.Charset = DEFAULT_CHARSET
+    Font.Charset = ANSI_CHARSET
     Font.Color = 8454016
-    Font.Height = -107
-    Font.Name = 'Tahoma'
+    Font.Height = -267
+    Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
     Transparent = True
@@ -93,17 +95,18 @@ object frmMainGT: TfrmMainGT
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    Visible = False
   end
   object lblGameTime: TLabel
-    Left = 360
-    Top = 560
-    Width = 872
-    Height = 155
+    Left = 11
+    Top = 562
+    Width = 1668
+    Height = 266
     Caption = ' 00 : 00 : 00 '
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clLime
-    Font.Height = -128
-    Font.Name = 'Verdana'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = 8454016
+    Font.Height = -267
+    Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
   end
