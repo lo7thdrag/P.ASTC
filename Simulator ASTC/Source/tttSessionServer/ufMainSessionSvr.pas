@@ -10,7 +10,6 @@ uses
 type
   TfrmMainSessionSvr = class(TForm)
     pnlBottom: TPanel;
-    sBar: TStatusBar;
     PageControl1: TPageControl;
     tsClients: TTabSheet;
     tsLogs: TTabSheet;
@@ -27,6 +26,7 @@ type
     imgBackground: TImage;
     pnlMainBackground: TPanel;
     spbOnline: TSpeedButton;
+    sBar: TStatusBar;
     procedure spbOnlineClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lvConnectionCompare(Sender: TObject; Item1, Item2: TListItem;
