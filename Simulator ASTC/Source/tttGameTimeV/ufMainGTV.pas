@@ -116,6 +116,7 @@ begin
   first := true;
   vSettingFile := getFileSetting;
   LoadFF_NetSetting(vSettingFile, vNetSetting);
+  LoadFF_GameSetting(vSettingFile, vGameDataSetting);
 
   LoadFF_NetClientSetting(vSettingFile, vNetClientSetting);
 

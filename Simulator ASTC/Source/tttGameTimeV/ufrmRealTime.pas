@@ -11,13 +11,13 @@ type
     lblServerTIME: TLabel;
     lblRTCaption: TLabel;
     Timer1: TTimer;
-    bntMinimize: TButton;
     Bevel1: TBevel;
     procedure Timer1Timer(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure bntMinimizeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,7 +39,12 @@ uses
 
 procedure TufRealTime.bntMinimizeClick(Sender: TObject);
 begin
-   WindowState := wsMinimized;
+//   WindowState := wsMinimized;
+end;
+
+procedure TufRealTime.FormCreate(Sender: TObject);
+begin
+  LoadFF_NetSetting(vSettingFile, vNetSetting);
 end;
 
 procedure TufRealTime.FormKeyDown(Sender: TObject; var Key: Word;

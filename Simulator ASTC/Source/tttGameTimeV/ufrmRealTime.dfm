@@ -4,8 +4,8 @@ object ufRealTime: TufRealTime
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'ufRealTime'
-  ClientHeight = 698
-  ClientWidth = 1345
+  ClientHeight = 674
+  ClientWidth = 1321
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,6 +16,7 @@ object ufRealTime: TufRealTime
   OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
+  OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnResize = FormResize
   OnShow = FormShow
@@ -24,8 +25,8 @@ object ufRealTime: TufRealTime
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 1345
-    Height = 698
+    Width = 1321
+    Height = 674
     Align = alClient
     ExplicitLeft = 520
     ExplicitTop = 200
@@ -35,12 +36,12 @@ object ufRealTime: TufRealTime
   object lblRTCaption: TLabel
     Left = -309
     Top = 129
-    Width = 905
-    Height = 266
+    Width = 677
+    Height = 199
     Caption = 'Real Time'
     Font.Charset = ANSI_CHARSET
     Font.Color = 16777152
-    Font.Height = -267
+    Font.Height = -200
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
@@ -48,24 +49,15 @@ object ufRealTime: TufRealTime
   object lblServerTIME: TLabel
     Left = -1
     Top = 302
-    Width = 1668
-    Height = 266
+    Width = 1252
+    Height = 199
     Caption = ' 00 : 00 : 00 '
     Font.Charset = ANSI_CHARSET
     Font.Color = 16777152
-    Font.Height = -267
+    Font.Height = -200
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
-  end
-  object bntMinimize: TButton
-    Left = 1027
-    Top = 16
-    Width = 40
-    Height = 30
-    Caption = '_'
-    TabOrder = 0
-    OnClick = bntMinimizeClick
   end
   object Timer1: TTimer
     Interval = 500

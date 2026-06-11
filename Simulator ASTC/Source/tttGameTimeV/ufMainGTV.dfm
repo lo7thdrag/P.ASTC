@@ -4,8 +4,8 @@ object frmMainGT: TfrmMainGT
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'Tactical Team Trainer Game Time'
-  ClientHeight = 722
-  ClientWidth = 1369
+  ClientHeight = 698
+  ClientWidth = 1345
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -27,8 +27,8 @@ object frmMainGT: TfrmMainGT
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 1369
-    Height = 722
+    Width = 1345
+    Height = 698
     Align = alClient
     ExplicitWidth = 1366
     ExplicitHeight = 369
@@ -50,12 +50,12 @@ object frmMainGT: TfrmMainGT
   object lblGTCaption: TLabel
     Left = -297
     Top = 150
-    Width = 1496
-    Height = 266
+    Width = 1117
+    Height = 199
     Caption = 'Assumption Time'
     Font.Charset = ANSI_CHARSET
     Font.Color = 8454016
-    Font.Height = -267
+    Font.Height = -200
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
@@ -78,12 +78,12 @@ object frmMainGT: TfrmMainGT
   object lblGameTime: TLabel
     Left = -1
     Top = 307
-    Width = 1668
-    Height = 266
+    Width = 1252
+    Height = 199
     Caption = ' 00 : 00 : 00 '
     Font.Charset = ANSI_CHARSET
     Font.Color = 8454016
-    Font.Height = -267
+    Font.Height = -200
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
