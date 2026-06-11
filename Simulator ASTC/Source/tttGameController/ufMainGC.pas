@@ -110,7 +110,8 @@ begin
 
   mr := frmStartSession.ShowModal;
 
-  if (mr = mrOK) then begin
+  if (mr = mrOK) then
+  begin
     theClient.RequestOnlineList;
 
     frmStartExerciseWizard.ExerciseName := frmStartSession.SelectedName;

@@ -36,15 +36,15 @@ var
 
 begin
 
-  MyMsg := RegisterWindowMessage('TTTSessionServer_Message');
-  Mutex := CreateMutex(nil, True, 'TTTSessionServer_Mutex');
+  MyMsg := RegisterWindowMessage('ASTCSessionServer_Message');
+  Mutex := CreateMutex(nil, True, 'ASTCSessionServer_Mutex');
   if (Mutex = 0) OR (GetLastError = ERROR_ALREADY_EXISTS) then
   begin
 
     SendMessage(HWND_BROADCAST, MyMsg, 0, 0);
 
     Application.MessageBox('Another Session Server has already running.',
-      'TTT Session Server', MB_OK + MB_ICONINFORMATION);
+      'Session Server', MB_OK + MB_ICONINFORMATION);
 
   end
   else begin
@@ -53,8 +53,7 @@ begin
 
     uNetSessionServer.BeginServer;
 
-    TStyleManager.TrySetStyle('CustomStyleGlow');
-    Application.Title := 'TTT Session Server';
+    Application.Title := 'ASTC Session Server';
 	  Application.CreateForm(TfrmMainSessionSvr, frmMainSessionSvr);
     Application.CreateForm(TfrmMainSessionSvr, frmMainSessionSvr);
     theServer.OnStateChange       := frmMainSessionSvr.ServerChangeState;

@@ -21,3 +21,6 @@ Database Editor ASTC/Bin/PDBEditor.exe
 /ClientControlNFS/Server/__history
 /ClientControlNFS/LibNets/__history
 /ClientControlNFS/Client/__history
+/Simulator ASTC/Source/tttGameController/__history
+/Simulator ASTC/Source/tttSessionServer/__history
+/Simulator ASTC/Source/tttSessionServer/__recovery

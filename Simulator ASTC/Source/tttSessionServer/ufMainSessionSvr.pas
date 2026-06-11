@@ -5,22 +5,17 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, Buttons, ExtCtrls, StdCtrls, OverbyteIcsWSocketS,
-  OverbyteIcsWSocket, uBaseNetHandler, uNetSessionData;
+  OverbyteIcsWSocket, uBaseNetHandler, uNetSessionData, Vcl.Imaging.pngimage;
 
 type
   TfrmMainSessionSvr = class(TForm)
-    pnlTOP: TPanel;
     pnlBottom: TPanel;
     sBar: TStatusBar;
-    Panel4: TPanel;
-    spbOnline: TSpeedButton;
     PageControl1: TPageControl;
     tsClients: TTabSheet;
     tsLogs: TTabSheet;
     lvConnection: TListView;
-    Label1: TLabel;
     pnlSession: TPanel;
-    Label2: TLabel;
     Label3: TLabel;
     mmLogs: TMemo;
     tsNetLog: TTabSheet;
@@ -29,6 +24,9 @@ type
     Label4: TLabel;
     edExerciseName: TEdit;
     lblSession: TLabel;
+    imgBackground: TImage;
+    pnlMainBackground: TPanel;
+    spbOnline: TSpeedButton;
     procedure spbOnlineClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure lvConnectionCompare(Sender: TObject; Item1, Item2: TListItem;
