@@ -14,8 +14,6 @@ type
     lblRTCaption: TLabel;
     lblGameTime: TLabel;
     Bevel1: TBevel;
-    Bevel2: TBevel;
-    Bevel3: TBevel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -170,7 +168,7 @@ begin
   lblGameTime.Top  := Round(Height * 0.55);
 
 
-  Bevel2.Height := Height div 2;
+//  Bevel2.Height := Height div 2;
 end;
 
 procedure TfrmMainGT.FormShow(Sender: TObject);
@@ -277,7 +275,7 @@ end;
 
 procedure TfrmMainGT.Timer1Timer(Sender: TObject);
 begin
-  SetGameTime(Now);
+//  SetGameTime(Now);
 //  if not first then
 //    SetGameTime(FVTime.GetTime);
 end;

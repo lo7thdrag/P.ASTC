@@ -1,11 +1,11 @@
 object frmMainGT: TfrmMainGT
   Left = 281
-  Top = 254
+  Top = 0
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'Tactical Team Trainer Game Time'
-  ClientHeight = 746
-  ClientWidth = 1393
+  ClientHeight = 722
+  ClientWidth = 1369
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,6 +17,7 @@ object frmMainGT: TfrmMainGT
   GlassFrame.Bottom = 20
   GlassFrame.SheetOfGlass = True
   OldCreateOrder = False
+  Position = poDesigned
   WindowState = wsMaximized
   OnCreate = FormCreate
   OnResize = FormResize
@@ -25,35 +26,12 @@ object frmMainGT: TfrmMainGT
   TextHeight = 13
   object Bevel1: TBevel
     Left = 0
-    Top = 354
-    Width = 1393
-    Height = 392
+    Top = 0
+    Width = 1369
+    Height = 722
     Align = alClient
-    ExplicitTop = 0
     ExplicitWidth = 1366
     ExplicitHeight = 369
-  end
-  object Bevel3: TBevel
-    Left = 0
-    Top = 354
-    Width = 1393
-    Height = 392
-    Align = alClient
-    Shape = bsTopLine
-    Style = bsRaised
-    ExplicitTop = 0
-  end
-  object Bevel2: TBevel
-    Left = 0
-    Top = 0
-    Width = 1393
-    Height = 354
-    Align = alTop
-    Style = bsRaised
-    Visible = False
-    ExplicitLeft = 64
-    ExplicitTop = 56
-    ExplicitWidth = 793
   end
   object lblServerTIME: TLabel
     Left = 360
@@ -70,8 +48,8 @@ object frmMainGT: TfrmMainGT
     Visible = False
   end
   object lblGTCaption: TLabel
-    Left = -285
-    Top = 405
+    Left = -297
+    Top = 150
     Width = 1496
     Height = 266
     Caption = 'Assumption Time'
@@ -98,8 +76,8 @@ object frmMainGT: TfrmMainGT
     Visible = False
   end
   object lblGameTime: TLabel
-    Left = 11
-    Top = 562
+    Left = -1
+    Top = 307
     Width = 1668
     Height = 266
     Caption = ' 00 : 00 : 00 '

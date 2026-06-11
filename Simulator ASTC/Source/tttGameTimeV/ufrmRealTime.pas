@@ -8,11 +8,11 @@ uses
 
 type
   TufRealTime = class(TForm)
-    Panel1: TPanel;
     lblServerTIME: TLabel;
     lblRTCaption: TLabel;
     Timer1: TTimer;
     bntMinimize: TButton;
+    Bevel1: TBevel;
     procedure Timer1Timer(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
