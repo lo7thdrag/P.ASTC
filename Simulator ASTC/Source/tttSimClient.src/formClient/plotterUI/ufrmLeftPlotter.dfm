@@ -1,0 +1,31 @@
+object frmLeftPlotter: TfrmLeftPlotter
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'frmLeftPlotter'
+  ClientHeight = 504
+  ClientWidth = 140
+  Color = 141979
+  TransparentColor = True
+  TransparentColorValue = 3091499
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlContainer: TPanel
+    Left = 0
+    Top = 0
+    Width = 140
+    Height = 504
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 141979
+    ParentBackground = False
+    TabOrder = 0
+  end
+end
