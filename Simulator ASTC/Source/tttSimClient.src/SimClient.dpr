@@ -135,9 +135,6 @@ uses
   uNetVoipCtrl_Server in '..\LibTTT\netTTT\uNetVoipCtrl_Server.pas',
   DosCommand in '..\SimFramework\LibComponent\DosCommand\DosCommand.pas',
   uAppUtils in '..\SimFramework\LibBaseUtils\uAppUtils.pas',
-  uDBEditSetting in '..\tttDBEditor.src\uDBEditSetting.pas',
-  uOverlayOther in '..\tttDBEditor.src\uOverlayOther.pas',
-  uOverlayRecord in '..\tttDBEditor.src\uOverlayRecord.pas',
   uT3Listener in '..\LibTTT\libUnit\uT3Listener.pas',
   uSettingCoordinate in '..\LibTTT\forms\uSettingCoordinate.pas' {fSettingCoordinate},
   uSnapshotData in '..\tttReplay\uSnapshotData.pas',
@@ -146,14 +143,10 @@ uses
   uSnapshotRec in '..\tttReplay\uSnapshotRec.pas',
   uGameSetting in '..\LibTTT\uGameSetting.pas',
   uWeaponWaypoint in '..\LibTTT\libObjects\uWeaponWaypoint.pas',
-  uDrawOverlay in '..\tttDBEditor.src\uDrawOverlay.pas',
-  uMainOverlay in '..\tttDBEditor.src\uMainOverlay.pas',
-  uRecord in '..\tttDBEditor.src\uRecord.pas',
   uT3DataLink in '..\LibTTT\libUnit\uT3DataLink.pas',
   uPictureFilter in '..\LibTTT\forms\uPictureFilter.pas' {fPictureFilter},
   ufSurfaceToSurfaceMissile in '..\LibTTT\forms\ufSurfaceToSurfaceMissile.pas' {frmSurfaceSurfaceMissileControl},
   uCalculationEnvi in '..\LibTTT\uCalculationEnvi.pas',
-  uFormula in '..\tttDBEditor.src\uFormula.pas',
   uFLanding in '..\LibTTT\forms\uFLanding.pas' {frmLanding},
   uFormUtil in '..\LibTTT\uFormUtil.pas',
   uDBAsset_Reference_Point in '..\LibTTT\libDBScenario\uDBAsset_Reference_Point.pas',
@@ -188,11 +181,18 @@ uses
   uFormationManager in '..\LibTTT\uFormationManager.pas',
   uFilter in '..\LibTTT\libVisual\uFilter.pas',
   uOverlayTemplateEditor in '..\LibTTT\forms\uOverlayTemplateEditor.pas' {fmOverlayEditor},
-  uMainDynamicShape in '..\tttDBEditor.src\uMainDynamicShape.pas',
-  uMainStaticShape in '..\tttDBEditor.src\uMainStaticShape.pas',
   U_Helper in '..\LibTTT\U_Helper.pas',
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  uDBEditSetting in '..\DBEditor.src\uDBEditSetting.pas',
+  uDrawOverlay in '..\DBEditor.src\uDrawOverlay.pas',
+  uFormula in '..\DBEditor.src\uFormula.pas',
+  uMainDynamicShape in '..\DBEditor.src\uMainDynamicShape.pas',
+  uMainOverlay in '..\DBEditor.src\uMainOverlay.pas',
+  uMainStaticShape in '..\DBEditor.src\uMainStaticShape.pas',
+  uOverlayOther in '..\DBEditor.src\uOverlayOther.pas',
+  uOverlayRecord in '..\DBEditor.src\uOverlayRecord.pas',
+  uRecord in '..\DBEditor.src\uRecord.pas';
 
 {$R *.res}
 
@@ -206,8 +206,8 @@ begin
 
   //Application.MainFormOnTaskbar := True;
 
-  TStyleManager.TrySetStyle('CustomStyleGlow');
-  Application.Title := 'Tactical Team Trainer';
+//  TStyleManager.TrySetStyle('CustomStyleGlow');
+//  Application.Title := 'Tactical Team Trainer';
   Application.CreateForm(TdmTTT, dmTTT);
   Application.CreateForm(TfrmTacticalDisplay, frmTacticalDisplay);
   Application.CreateForm(TfrmToteDisplay, frmToteDisplay);
