@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, ZConnection, DB, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset;
+  ZAbstractDataset, ZDataset, Vcl.Imaging.pngimage;
 
 type
 
@@ -14,6 +14,8 @@ type
     Panel1: TPanel;
     btnOK: TButton;
     btnCancel: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
     procedure FormCreate(Sender: TObject);
     procedure lvScenarioChange(Sender: TObject; Item: TListItem;
       Change: TItemChange);

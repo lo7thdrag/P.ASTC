@@ -96135,6 +96135,7 @@ object frmMainGC: TfrmMainGC
           694B7E694B7E694B7E694B7E694B7E694B7E694B826D5089765B}
         Color = clBtnFace
         TabOrder = 3
+        Visible = False
         OnClick = mnTerminate1Click
       end
       object btnConnect: TRzBmpButton
