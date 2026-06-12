@@ -1,4 +1,4 @@
-program tttSimClient;
+program SimClient;
 
 {$DEFINE CLIENT}
 

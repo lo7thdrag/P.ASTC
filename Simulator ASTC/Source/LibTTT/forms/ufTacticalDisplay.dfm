@@ -54,6 +54,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       OnMouseLeave = TacticalDisplayControlPanelMouseLeave
       OnMouseMove = TacticalDisplayControlPanelMouseMove
       object tsOwnShip: TTabSheet
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         inline fmOwnShip1: TfmOwnShip
           Left = 0
           Top = 0
@@ -5859,6 +5863,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       end
       object tsFireControl: TTabSheet
         ImageIndex = 5
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         inline fmFireControl1: TfmFireControl
           Left = 0
           Top = 0
@@ -6257,6 +6265,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       TabOrder = 0
       object tsHook: TTabSheet
         Caption = 'Hook'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lbTrackHook: TLabel
           Left = 100
           Top = 5
@@ -6876,6 +6888,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       object tsDetection: TTabSheet
         Caption = 'Detection'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lbTrackDetection: TLabel
           Left = 137
           Top = 5
@@ -7043,6 +7059,10 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       object tsIFF: TTabSheet
         Caption = 'IFF'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lbTrackIff: TLabel
           Left = 91
           Top = 3
@@ -7816,7 +7836,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
             918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
             6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-            01000118010000D0CB4D0F01000000000000001C000000000000000000000000
+            01000118010000E00E030601000000000000001C000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000002
             0000000000000000000000000000000000000000000000000000000000000000
@@ -7825,15 +7845,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             8076C000000000008056C0000000000080764000000000008056400100000018
-            010000D0CB4D0F010000006469B1771C00000000000000000000000000000000
+            010000E00E030601000000341701001C00000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000200000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000098
-            C62B1214E497000C0DB41200000000CC11010000000000000000000000000000
+            00000000000000000000000000000000000000000000003417010000000000CC
+            E897007E0D9F131B100100000000000000000020E99700000000000000000000
             000088B3400000000000408F400001000001}
         end
       end

@@ -26,3 +26,5 @@ Database Editor ASTC/Bin/PDBEditor.exe
 /Simulator ASTC/Source/tttSessionServer/__recovery
 /Simulator ASTC/Comp
 /Simulator ASTC/Source/GameController/__history
+/Simulator ASTC/Source/LibTTT/forms/__history
+/Simulator ASTC/Source/tttSimClient.src/__history
