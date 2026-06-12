@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.pas,D:\datasam\project\T3Cvs\T3Ver.02\tttReplay\uSnapshotGCData.pas=D:\datasam\project\T3Cvs\T3Ver.02\tttGameController\Unit1.pas</Transaction>
+    <Transaction>2026-06-12 11:56:20.048,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\Unit1.pas</Transaction>
+    <Transaction>2026-06-12 11:56:36.578,D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\ufrmSetting.pas=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\Unit1.pas</Transaction>
+    <Transaction>2026-06-12 11:56:36.578,D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\ufrmSetting.dfm=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\Unit1.dfm</Transaction>
+    <Transaction>2026-06-12 12:48:54.995,D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\ufrmSetting.pas=</Transaction>
+    <Transaction>2026-06-12 12:48:55.088,D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\ufStartExerciseWizard.pas=</Transaction>
+    <Transaction>2026-06-12 12:49:11.658,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\uDMGC.pas</Transaction>
+    <Transaction>2026-06-12 12:49:11.712,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufAudioTrackSetting.pas</Transaction>
+    <Transaction>2026-06-12 12:49:11.774,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufConnectTerminate.pas</Transaction>
+    <Transaction>2026-06-12 12:49:11.840,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufMainGC.pas</Transaction>
+    <Transaction>2026-06-12 12:49:11.910,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufStartExerciseWizard.pas</Transaction>
+    <Transaction>2026-06-12 12:49:11.966,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufStartReplayRecorded.pas</Transaction>
+    <Transaction>2026-06-12 12:49:12.023,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufStartSession.pas</Transaction>
+    <Transaction>2026-06-12 14:50:10.667,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufrmSetting.pas</Transaction>
+    <Transaction>2026-06-12 14:51:20.216,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\Unit1.pas</Transaction>
+    <Transaction>2026-06-12 14:51:50.441,D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufrmRoleSetting.pas=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\Unit1.pas</Transaction>
+    <Transaction>2026-06-12 14:51:50.441,D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufrmRoleSetting.dfm=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttGameController\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

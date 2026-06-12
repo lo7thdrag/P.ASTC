@@ -4,8 +4,8 @@ object ufRealTime: TufRealTime
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'ufRealTime'
-  ClientHeight = 674
-  ClientWidth = 1321
+  ClientHeight = 650
+  ClientWidth = 1297
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -25,8 +25,8 @@ object ufRealTime: TufRealTime
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 1321
-    Height = 674
+    Width = 1297
+    Height = 650
     Align = alClient
     ExplicitLeft = 520
     ExplicitTop = 200

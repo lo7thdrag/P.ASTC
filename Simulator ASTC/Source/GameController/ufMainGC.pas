@@ -86,7 +86,7 @@ implementation
 uses
   uNetSessionClient, ufStartSession, ufConnectTerminate, ufStartExerciseWizard,
   uLibSettingTTT , ufStartReplayRecorded, uGamePlayType, uSRRFunction, uSnapshotGCRec,
-  uGameData_TTT;
+  uGameData_TTT, ufrmRoleSetting;
 
 {$R *.dfm}
 procedure EnableComposited(WinControl:TWinControl);
@@ -478,7 +478,7 @@ end;
 
 procedure TfrmMainGC.imgSettingClick(Sender: TObject);
 begin
-  //
+  frmRoleSetting.Show;
 end;
 
 end.

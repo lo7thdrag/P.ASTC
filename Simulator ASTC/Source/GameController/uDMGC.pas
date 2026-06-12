@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, ZAbstractRODataset, ZAbstractDataset, ZDataset,
-  ZConnection, dialogs, ZAbstractTable, DateUtils;
+  ZConnection, dialogs, ZAbstractTable, DateUtils, ZAbstractConnection;
 
 type
 

@@ -1,22 +1,25 @@
-unit ufrmSetting;
+unit ufrmRoleSetting;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls,
+
+  uLibSettingTTT;
 
 type
-  TfrmSetting = class(TForm)
+  TfrmRoleSetting = class(TForm)
     pnlMainBackground: TPanel;
-    btnCancel: TButton;
-    btnOK: TButton;
     imgBackground: TImage;
-    cbbSetting: TComboBox;
+    cbbRole: TComboBox;
     lblRole: TLabel;
+    btnOK: TButton;
+    btnCancel: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure btnOKClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,7 +27,7 @@ type
   end;
 
 var
-  frmSetting: TfrmSetting;
+  frmRoleSetting: TfrmRoleSetting;
 
 implementation
 
@@ -42,12 +45,20 @@ begin
       EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
 
-procedure TfrmSetting.btnCancelClick(Sender: TObject);
+procedure TfrmRoleSetting.btnCancelClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmSetting.FormCreate(Sender: TObject);
+procedure TfrmRoleSetting.btnOKClick(Sender: TObject);
+begin
+  vGameDataSetting.Role := cbbRole.ItemIndex;
+  SaveFF_GameSetting(vSettingFile, vGameDataSetting);
+
+  Close
+end;
+
+procedure TfrmRoleSetting.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;

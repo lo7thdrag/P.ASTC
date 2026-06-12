@@ -44,7 +44,7 @@ end;
 
 procedure TufRealTime.FormCreate(Sender: TObject);
 begin
-  LoadFF_GameSetting(vSettingFile, vGameDataSetting);
+  LoadFF_NetSetting(vSettingFile, vNetSetting);
 end;
 
 procedure TufRealTime.FormKeyDown(Sender: TObject; var Key: Word;

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, ComCtrls, Menus, uT3GroupList, uSRRFunction,
-  uSnapshotUtils, uSnapshotGCRec, uSnapshotGCData , uDMGC;
+  uSnapshotUtils, uSnapshotGCRec, uSnapshotGCData , uDMGC, Vcl.Imaging.pngimage;
 
 type
 
@@ -45,12 +45,6 @@ type
     btnMapping_Cancel: TButton;
     btnMapping_Back: TButton;
     tvMapping: TTreeView;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
     btnMapToControllers: TButton;
     btnClearAllConfig: TButton;
     btnAudio_Back: TButton;
@@ -67,6 +61,9 @@ type
     pnlButtomDev: TPanel;
     lvConsole: TListView;
     btnExcName_Back: TButton;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
+    Bevel6: TBevel;
     procedure btnExcName_CancelClick(Sender: TObject);
     procedure btnExcName_NextClick(Sender: TObject);
     procedure btnAudio_BackClick(Sender: TObject);

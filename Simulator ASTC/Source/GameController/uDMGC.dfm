@@ -3,6 +3,14 @@ object DMGC: TDMGC
   Height = 190
   Width = 429
   object zConn: TZConnection
+    ControlsCodePage = cCP_UTF16
+    Catalog = ''
+    HostName = ''
+    Port = 0
+    Database = ''
+    User = ''
+    Password = ''
+    Protocol = ''
     Left = 24
     Top = 40
   end

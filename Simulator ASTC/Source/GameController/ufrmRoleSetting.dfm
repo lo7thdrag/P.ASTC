@@ -1,36 +1,37 @@
-object frmConnectTerminate: TfrmConnectTerminate
+object frmRoleSetting: TfrmRoleSetting
   Left = 0
   Top = 0
-  BorderWidth = 1
-  Caption = 'Connect'
-  ClientHeight = 451
-  ClientWidth = 470
-  Color = 2499101
+  BorderIcons = []
+  BorderStyle = bsSingle
+  ClientHeight = 152
+  ClientWidth = 301
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 470
-    Height = 451
+    Width = 301
+    Height = 152
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 48
-    ExplicitTop = 416
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitTop = -152
+    ExplicitWidth = 470
+    ExplicitHeight = 451
     object imgBackground: TImage
-      Left = 1
-      Top = 1
-      Width = 468
-      Height = 449
+      Left = 0
+      Top = 0
+      Width = 301
+      Height = 152
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000001FB0000
@@ -4298,24 +4299,68 @@ object frmConnectTerminate: TfrmConnectTerminate
         6549B826A0F02F28956D776E219FC38BF7DA0403A67CCEE6205DED250611E327
         6B3CD72008FBFF07693C48CBEF7115170000000049454E44AE426082}
       Stretch = True
-      ExplicitLeft = 328
-      ExplicitTop = 120
-      ExplicitWidth = 105
-      ExplicitHeight = 105
+      ExplicitLeft = 2
+      ExplicitTop = 2
+      ExplicitWidth = 633
+      ExplicitHeight = 297
     end
-    object tvMapping: TTreeView
-      Left = 16
+    object lblRole: TLabel
+      Left = 15
       Top = 16
-      Width = 438
-      Height = 388
-      Align = alCustom
-      Anchors = [akLeft, akTop, akRight, akBottom]
-      Indent = 19
+      Width = 91
+      Height = 21
+      Caption = 'Role Mode :'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -21
+      Font.Name = 'Deusex'
+      Font.Style = []
+      ParentFont = False
+    end
+    object cbbRole: TComboBox
+      Left = 78
+      Top = 62
+      Width = 145
+      Height = 27
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ItemIndex = 0
+      ParentFont = False
       TabOrder = 0
+      Text = 'Plotter'
+      Items.Strings = (
+        'Plotter'
+        'Navigasi'
+        'Atas Air'
+        'Bawah Air'
+        'General')
+    end
+    object btnOK: TButton
+      Left = 125
+      Top = 110
+      Width = 80
+      Height = 30
+      Align = alCustom
+      Anchors = [akRight, akBottom]
+      Caption = 'OK'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ModalResult = 1
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnOKClick
+      ExplicitLeft = 266
+      ExplicitTop = 169
     end
     object btnCancel: TButton
-      Left = 374
-      Top = 417
+      Left = 208
+      Top = 110
       Width = 80
       Height = 30
       Align = alCustom
@@ -4328,25 +4373,10 @@ object frmConnectTerminate: TfrmConnectTerminate
       Font.Style = [fsBold]
       ModalResult = 2
       ParentFont = False
-      TabOrder = 1
-      OnClick = btnCancelClick
-    end
-    object btnOK: TButton
-      Left = 291
-      Top = 417
-      Width = 80
-      Height = 30
-      Align = alCustom
-      Anchors = [akRight, akBottom]
-      Caption = '&Connect'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ModalResult = 1
-      ParentFont = False
       TabOrder = 2
+      OnClick = btnCancelClick
+      ExplicitLeft = 349
+      ExplicitTop = 169
     end
   end
 end
