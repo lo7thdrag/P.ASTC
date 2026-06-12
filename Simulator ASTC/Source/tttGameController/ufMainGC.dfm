@@ -93836,6 +93836,7 @@ object frmMainGC: TfrmMainGC
       Top = 16
       Width = 30
       Height = 30
+      Cursor = crHandPoint
       Anchors = [akTop, akRight]
       Picture.Data = {
         07544269746D6170361B0000424D361B00000000000036000000280000003000
@@ -94083,6 +94084,7 @@ object frmMainGC: TfrmMainGC
       Top = 16
       Width = 30
       Height = 30
+      Cursor = crHandPoint
       Anchors = [akTop, akRight]
       Picture.Data = {
         07544269746D6170361B0000424D361B00000000000036000000280000003000
