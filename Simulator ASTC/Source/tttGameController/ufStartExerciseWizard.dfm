@@ -280,109 +280,6 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
       OnClick = btnClearAllConfigClick
     end
   end
-  object pnlDevPreplay: TPanel
-    Left = 0
-    Top = 59
-    Width = 782
-    Height = 552
-    Align = alClient
-    BevelOuter = bvNone
-    TabOrder = 4
-    OnClick = pnlDevPreplayClick
-    object Panel6: TPanel
-      Left = 0
-      Top = 495
-      Width = 782
-      Height = 57
-      Align = alBottom
-      BevelOuter = bvNone
-      TabOrder = 0
-      DesignSize = (
-        782
-        57)
-      object Bevel5: TBevel
-        Left = 0
-        Top = 0
-        Width = 782
-        Height = 2
-        Align = alTop
-      end
-      object Button1: TButton
-        Left = 683
-        Top = 17
-        Width = 75
-        Height = 25
-        Anchors = [akTop, akRight]
-        Caption = '&Cancel'
-        TabOrder = 0
-        OnClick = btnExcName_CancelClick
-      end
-      object btnDevPreplay: TButton
-        Left = 560
-        Top = 17
-        Width = 75
-        Height = 25
-        Align = alCustom
-        Anchors = [akTop, akRight]
-        Caption = '&Next >'
-        TabOrder = 1
-        OnClick = btnDevPreplayClick
-      end
-    end
-    object pnlTopDev: TPanel
-      Left = 0
-      Top = 0
-      Width = 782
-      Height = 41
-      Align = alTop
-      TabOrder = 1
-      object lblHeader: TLabel
-        Left = 40
-        Top = 15
-        Width = 161
-        Height = 19
-        Caption = 'Developer Preplay :'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-    end
-    object pnlButtomDev: TPanel
-      Left = 0
-      Top = 41
-      Width = 782
-      Height = 454
-      Align = alClient
-      Caption = 'pnlButtomDev'
-      TabOrder = 2
-      object lvConsole: TListView
-        Left = 1
-        Top = 1
-        Width = 780
-        Height = 452
-        Align = alClient
-        Columns = <
-          item
-            Caption = 'IP Address'
-            Width = 200
-          end
-          item
-            Caption = 'Console Name'
-            Width = 325
-          end
-          item
-            Caption = 'Status'
-            Width = 250
-          end>
-        GridLines = True
-        TabOrder = 0
-        ViewStyle = vsReport
-      end
-    end
-  end
   object pnlRecordOption: TPanel
     Left = 0
     Top = 59
@@ -524,6 +421,109 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         Caption = '< &Back'
         TabOrder = 2
         OnClick = btnAudio_BackClick
+      end
+    end
+  end
+  object pnlDevPreplay: TPanel
+    Left = 0
+    Top = 59
+    Width = 782
+    Height = 552
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 4
+    OnClick = pnlDevPreplayClick
+    object Panel6: TPanel
+      Left = 0
+      Top = 495
+      Width = 782
+      Height = 57
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 0
+      DesignSize = (
+        782
+        57)
+      object Bevel5: TBevel
+        Left = 0
+        Top = 0
+        Width = 782
+        Height = 2
+        Align = alTop
+      end
+      object Button1: TButton
+        Left = 683
+        Top = 17
+        Width = 75
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = '&Cancel'
+        TabOrder = 0
+        OnClick = btnExcName_CancelClick
+      end
+      object btnDevPreplay: TButton
+        Left = 560
+        Top = 17
+        Width = 75
+        Height = 25
+        Align = alCustom
+        Anchors = [akTop, akRight]
+        Caption = '&Next >'
+        TabOrder = 1
+        OnClick = btnDevPreplayClick
+      end
+    end
+    object pnlTopDev: TPanel
+      Left = 0
+      Top = 0
+      Width = 782
+      Height = 41
+      Align = alTop
+      TabOrder = 1
+      object lblHeader: TLabel
+        Left = 40
+        Top = 15
+        Width = 161
+        Height = 19
+        Caption = 'Developer Preplay :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object pnlButtomDev: TPanel
+      Left = 0
+      Top = 41
+      Width = 782
+      Height = 454
+      Align = alClient
+      Caption = 'pnlButtomDev'
+      TabOrder = 2
+      object lvConsole: TListView
+        Left = 1
+        Top = 1
+        Width = 780
+        Height = 452
+        Align = alClient
+        Columns = <
+          item
+            Caption = 'IP Address'
+            Width = 200
+          end
+          item
+            Caption = 'Console Name'
+            Width = 325
+          end
+          item
+            Caption = 'Status'
+            Width = 250
+          end>
+        GridLines = True
+        TabOrder = 0
+        ViewStyle = vsReport
       end
     end
   end

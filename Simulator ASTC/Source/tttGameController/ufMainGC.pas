@@ -38,6 +38,7 @@ type
     btnTerminate: TRzBmpButton;
     btnStart: TRzBmpButton;
     pnlButton: TPanel;
+    imgSetting: TImage;
     procedure mnStart1Click(Sender: TObject);
     procedure mnConnect1Click(Sender: TObject);
     procedure mnTerminate1Click(Sender: TObject);
@@ -51,6 +52,7 @@ type
     procedure imgCloseClick(Sender: TObject);
     procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
       var Resize: Boolean);
+    procedure imgSettingClick(Sender: TObject);
   private
     { Private declarations }
     isCtrl: Boolean;
@@ -338,14 +340,14 @@ begin
   btnStart.Visible := False;
   btnConnect.Visible := True;
   btnEditor.Visible := False;
-  btnTerminate.Visible := False;
+//  btnTerminate.Visible := False;
 
   if theClient.IsController then
   begin
     btnStart.Visible := True;
     btnConnect.Visible := True;
     btnEditor.Visible := True;
-    btnTerminate.Visible := True;
+//    btnTerminate.Visible := True;
   end;
 end;
 
@@ -429,7 +431,7 @@ begin
   tempTop := (pnlBackground.Height-pnlButton.Height)div 4;
   pnlButton.Top := tempTop * 3;
 
-  imgClose.Left := pnlBackground.Width-50;
+//  imgClose.Left := pnlBackground.Width-50;
 end;
 
 procedure TfrmMainGC.FormCreate(Sender: TObject);
@@ -472,6 +474,11 @@ end;
 procedure TfrmMainGC.imgCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmMainGC.imgSettingClick(Sender: TObject);
+begin
+  //
 end;
 
 end.
