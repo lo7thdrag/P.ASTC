@@ -14,6 +14,7 @@ object frmStartSession: TfrmStartSession
   Font.Style = []
   FormStyle = fsStayOnTop
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 14
@@ -4316,14 +4317,13 @@ object frmStartSession: TfrmStartSession
         end
         item
           Caption = 'Type'
-          Width = 120
+          Width = 165
         end
         item
           Caption = 'Date / Time'
-          Width = 150
+          Width = 165
         end
         item
-          Width = 10
         end>
       GridLines = True
       RowSelect = True

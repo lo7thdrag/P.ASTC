@@ -15,7 +15,6 @@ type
   end;
 
   TfrmStartExerciseWizard = class(TForm)
-    Panel1: TPanel;
     Bevel1: TBevel;
     pnlExerciseName: TPanel;
     pnlRecordOption: TPanel;
@@ -56,14 +55,12 @@ type
     Bevel5: TBevel;
     Button1: TButton;
     btnDevPreplay: TButton;
-    pnlTopDev: TPanel;
-    lblHeader: TLabel;
     pnlButtomDev: TPanel;
     lvConsole: TListView;
     btnExcName_Back: TButton;
     pnlMainBackground: TPanel;
     imgBackground: TImage;
-    Bevel6: TBevel;
+    lblHeader: TLabel;
     procedure btnExcName_CancelClick(Sender: TObject);
     procedure btnExcName_NextClick(Sender: TObject);
     procedure btnAudio_BackClick(Sender: TObject);

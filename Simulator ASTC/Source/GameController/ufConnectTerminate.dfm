@@ -12,6 +12,7 @@ object frmConnectTerminate: TfrmConnectTerminate
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13

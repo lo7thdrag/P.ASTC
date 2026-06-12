@@ -1,10 +1,10 @@
 object frmStartExerciseWizard: TfrmStartExerciseWizard
   Left = 0
   Top = 0
-  BorderWidth = 5
+  BorderIcons = []
   Caption = 'Exercise Start Wizard'
-  ClientHeight = 611
-  ClientWidth = 782
+  ClientHeight = 621
+  ClientWidth = 792
   Color = clBtnFace
   DefaultMonitor = dmDesktop
   Font.Charset = DEFAULT_CHARSET
@@ -14,6 +14,7 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
   Font.Style = []
   FormStyle = fsStayOnTop
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -22,16 +23,17 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 782
+    Width = 792
     Height = 2
     Align = alTop
     ExplicitTop = 57
+    ExplicitWidth = 782
   end
   object imgBackground: TImage
     Left = 0
     Top = 2
-    Width = 782
-    Height = 609
+    Width = 792
+    Height = 619
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000001FB0000
@@ -4307,166 +4309,23 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
   object pnlMainBackground: TPanel
     Left = 0
     Top = 2
-    Width = 782
-    Height = 609
+    Width = 792
+    Height = 619
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 635
-    ExplicitHeight = 299
-    object Panel1: TPanel
-      Left = 1
-      Top = 1
-      Width = 780
-      Height = 51
-      Align = alTop
-      BevelOuter = bvNone
-      DoubleBuffered = False
-      ParentDoubleBuffered = False
-      TabOrder = 4
-      object Bevel6: TBevel
-        Left = 0
-        Top = 51
-        Width = 780
-        Height = 2
-      end
-    end
-    object pnlDevPreplay: TPanel
-      Left = 1
-      Top = 52
-      Width = 780
-      Height = 556
-      Align = alClient
-      BevelOuter = bvNone
-      TabOrder = 2
-      OnClick = pnlDevPreplayClick
-      ExplicitLeft = 16
-      ExplicitTop = 58
-      ExplicitHeight = 550
-      object Panel6: TPanel
-        Left = 0
-        Top = 499
-        Width = 780
-        Height = 57
-        Align = alBottom
-        BevelOuter = bvNone
-        TabOrder = 0
-        ExplicitTop = 495
-        ExplicitWidth = 782
-        DesignSize = (
-          780
-          57)
-        object Bevel5: TBevel
-          Left = 0
-          Top = 0
-          Width = 780
-          Height = 2
-          Align = alTop
-          ExplicitWidth = 782
-        end
-        object Button1: TButton
-          Left = 684
-          Top = 14
-          Width = 80
-          Height = 30
-          Anchors = [akTop, akRight]
-          Caption = '&Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 0
-          OnClick = btnExcName_CancelClick
-        end
-        object btnDevPreplay: TButton
-          Left = 600
-          Top = 14
-          Width = 80
-          Height = 30
-          Align = alCustom
-          Anchors = [akTop, akRight]
-          Caption = '&Next >'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 1
-          OnClick = btnDevPreplayClick
-        end
-      end
-      object pnlTopDev: TPanel
-        Left = 0
-        Top = 0
-        Width = 780
-        Height = 41
-        Align = alTop
-        TabOrder = 1
-        ExplicitWidth = 782
-        object lblHeader: TLabel
-          Left = 9
-          Top = 13
-          Width = 161
-          Height = 19
-          Caption = 'Developer Preplay :'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
-      end
-      object pnlButtomDev: TPanel
-        Left = 16
-        Top = 41
-        Width = 748
-        Height = 452
-        Caption = 'pnlButtomDev'
-        TabOrder = 2
-        object lvConsole: TListView
-          Left = 1
-          Top = 1
-          Width = 746
-          Height = 450
-          Align = alClient
-          Columns = <
-            item
-              Caption = 'IP Address'
-              Width = 200
-            end
-            item
-              Caption = 'Console Name'
-              Width = 325
-            end
-            item
-              Caption = 'Status'
-              Width = 250
-            end>
-          GridLines = True
-          TabOrder = 0
-          ViewStyle = vsReport
-          ExplicitWidth = 780
-          ExplicitHeight = 452
-        end
-      end
-    end
+    ExplicitWidth = 782
+    ExplicitHeight = 609
     object pnlExerciseName: TPanel
       Left = 1
-      Top = 52
-      Width = 780
-      Height = 556
+      Top = 1
+      Width = 790
+      Height = 617
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 59
-      ExplicitWidth = 782
-      ExplicitHeight = 552
+      ExplicitTop = 52
+      ExplicitWidth = 780
+      ExplicitHeight = 556
       object Label1: TLabel
         Left = 139
         Top = 153
@@ -4495,27 +4354,27 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
       end
       object Panel2: TPanel
         Left = 0
-        Top = 499
-        Width = 780
+        Top = 560
+        Width = 790
         Height = 57
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitTop = 495
-        ExplicitWidth = 782
+        ExplicitTop = 499
+        ExplicitWidth = 780
         DesignSize = (
-          780
+          790
           57)
         object Bevel2: TBevel
           Left = 0
           Top = 0
-          Width = 780
+          Width = 790
           Height = 2
           Align = alTop
           ExplicitWidth = 782
         end
         object btnExcName_Cancel: TButton
-          Left = 684
+          Left = 694
           Top = 17
           Width = 80
           Height = 30
@@ -4529,9 +4388,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 0
           OnClick = btnExcName_CancelClick
+          ExplicitLeft = 684
         end
         object btnExcName_Next: TButton
-          Left = 561
+          Left = 571
           Top = 17
           Width = 80
           Height = 30
@@ -4546,9 +4406,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 1
           OnClick = btnExcName_NextClick
+          ExplicitLeft = 561
         end
         object btnExcName_Back: TButton
-          Left = 478
+          Left = 488
           Top = 17
           Width = 80
           Height = 30
@@ -4563,21 +4424,21 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 2
           OnClick = btnExcName_BackClick
+          ExplicitLeft = 478
         end
       end
     end
     object pnlRecordOption: TPanel
       Left = 1
-      Top = 52
-      Width = 780
-      Height = 556
+      Top = 1
+      Width = 790
+      Height = 617
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 59
-      ExplicitWidth = 782
-      ExplicitHeight = 552
+      ExplicitTop = 52
+      ExplicitWidth = 780
+      ExplicitHeight = 556
       object Label3: TLabel
         Left = 24
         Top = 16
@@ -4608,21 +4469,21 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
       object gbAudioOption: TGroupBox
         Left = 24
         Top = 81
-        Width = 736
-        Height = 400
+        Width = 746
+        Height = 461
         Align = alCustom
         Anchors = [akLeft, akTop, akRight, akBottom]
         Caption = 'Audio Track Settings'
         TabOrder = 2
         Visible = False
-        ExplicitWidth = 738
-        ExplicitHeight = 396
+        ExplicitWidth = 736
+        ExplicitHeight = 400
         DesignSize = (
-          736
-          400)
+          746
+          461)
         object btnAddAudio: TButton
           Left = 16
-          Top = 343
+          Top = 404
           Width = 104
           Height = 45
           Anchors = [akLeft, akBottom]
@@ -4630,11 +4491,11 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           TabOrder = 0
           WordWrap = True
           OnClick = btnAddAudioClick
-          ExplicitTop = 339
+          ExplicitTop = 343
         end
         object btnRemoveAudio: TButton
           Left = 136
-          Top = 343
+          Top = 404
           Width = 104
           Height = 45
           Anchors = [akLeft, akBottom]
@@ -4642,11 +4503,11 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           TabOrder = 1
           WordWrap = True
           OnClick = btnRemoveAudioClick
-          ExplicitTop = 339
+          ExplicitTop = 343
         end
         object btnClearAudio: TButton
-          Left = 590
-          Top = 340
+          Left = 600
+          Top = 401
           Width = 133
           Height = 45
           Anchors = [akRight, akBottom]
@@ -4654,45 +4515,45 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           TabOrder = 2
           WordWrap = True
           OnClick = btnClearAudioClick
-          ExplicitLeft = 592
-          ExplicitTop = 336
+          ExplicitLeft = 590
+          ExplicitTop = 340
         end
         object tvAudioOption: TTreeView
           Left = 16
           Top = 20
-          Width = 707
-          Height = 314
+          Width = 717
+          Height = 375
           Align = alCustom
           Anchors = [akLeft, akTop, akRight, akBottom]
           Indent = 19
           TabOrder = 3
-          ExplicitWidth = 709
-          ExplicitHeight = 310
+          ExplicitWidth = 707
+          ExplicitHeight = 314
         end
       end
       object Panel3: TPanel
         Left = 0
-        Top = 499
-        Width = 780
+        Top = 560
+        Width = 790
         Height = 57
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 3
-        ExplicitTop = 495
-        ExplicitWidth = 782
+        ExplicitTop = 499
+        ExplicitWidth = 780
         DesignSize = (
-          780
+          790
           57)
         object Bevel3: TBevel
           Left = 0
           Top = 0
-          Width = 780
+          Width = 790
           Height = 2
           Align = alTop
           ExplicitWidth = 782
         end
         object btnAudio_Next: TButton
-          Left = 561
+          Left = 571
           Top = 17
           Width = 80
           Height = 30
@@ -4707,9 +4568,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 0
           OnClick = btnAudio_NextClick
+          ExplicitLeft = 561
         end
         object btnAudio_Cancel: TButton
-          Left = 684
+          Left = 694
           Top = 17
           Width = 80
           Height = 30
@@ -4723,9 +4585,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 1
           OnClick = btnExcName_CancelClick
+          ExplicitLeft = 684
         end
         object btnAudio_Back: TButton
-          Left = 478
+          Left = 488
           Top = 17
           Width = 80
           Height = 30
@@ -4740,44 +4603,44 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 2
           OnClick = btnAudio_BackClick
+          ExplicitLeft = 478
         end
       end
     end
     object pnlCubicleMapping: TPanel
       Left = 1
-      Top = 52
-      Width = 780
-      Height = 556
+      Top = 1
+      Width = 790
+      Height = 617
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 0
-      ExplicitTop = 59
-      ExplicitWidth = 782
-      ExplicitHeight = 552
+      ExplicitTop = 52
+      ExplicitWidth = 780
+      ExplicitHeight = 556
       object Panel4: TPanel
         Left = 0
-        Top = 499
-        Width = 780
+        Top = 560
+        Width = 790
         Height = 57
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitTop = 495
-        ExplicitWidth = 782
+        ExplicitTop = 499
+        ExplicitWidth = 780
         DesignSize = (
-          780
+          790
           57)
         object Bevel4: TBevel
           Left = 0
           Top = 0
-          Width = 780
+          Width = 790
           Height = 2
           Align = alTop
           ExplicitWidth = 782
         end
         object btnMapping_Finish: TButton
-          Left = 561
+          Left = 571
           Top = 17
           Width = 80
           Height = 30
@@ -4792,9 +4655,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 0
           OnClick = btnMapping_FinishClick
+          ExplicitLeft = 561
         end
         object btnMapping_Cancel: TButton
-          Left = 684
+          Left = 694
           Top = 17
           Width = 80
           Height = 30
@@ -4808,9 +4672,10 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 1
           OnClick = btnExcName_CancelClick
+          ExplicitLeft = 684
         end
         object btnMapping_Back: TButton
-          Left = 478
+          Left = 488
           Top = 17
           Width = 80
           Height = 30
@@ -4825,13 +4690,14 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
           ParentFont = False
           TabOrder = 2
           OnClick = btnMapping_BackClick
+          ExplicitLeft = 478
         end
       end
       object tvMapping: TTreeView
         Left = 16
         Top = 16
         Width = 748
-        Height = 381
+        Height = 442
         Align = alCustom
         Anchors = [akLeft, akTop, akBottom]
         Indent = 19
@@ -4839,11 +4705,11 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         TabOrder = 1
         OnChange = tvMappingChange
         OnContextPopup = tvMappingContextPopup
-        ExplicitHeight = 375
+        ExplicitHeight = 381
       end
       object btnMapToControllers: TButton
         Left = 45
-        Top = 421
+        Top = 482
         Width = 123
         Height = 60
         Align = alCustom
@@ -4852,11 +4718,11 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         TabOrder = 2
         WordWrap = True
         OnClick = btnMapToControllersClick
-        ExplicitTop = 417
+        ExplicitTop = 421
       end
       object btnClearAllConfig: TButton
         Left = 206
-        Top = 421
+        Top = 482
         Width = 124
         Height = 60
         Align = alCustom
@@ -4865,7 +4731,124 @@ object frmStartExerciseWizard: TfrmStartExerciseWizard
         TabOrder = 3
         WordWrap = True
         OnClick = btnClearAllConfigClick
-        ExplicitTop = 417
+        ExplicitTop = 421
+      end
+    end
+    object pnlDevPreplay: TPanel
+      Left = 1
+      Top = 1
+      Width = 790
+      Height = 617
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 2
+      OnClick = pnlDevPreplayClick
+      ExplicitLeft = 2
+      ExplicitTop = 6
+      ExplicitWidth = 780
+      ExplicitHeight = 607
+      object lblHeader: TLabel
+        Left = 17
+        Top = 12
+        Width = 161
+        Height = 19
+        Caption = 'Developer Preplay :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Panel6: TPanel
+        Left = 0
+        Top = 560
+        Width = 790
+        Height = 57
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitTop = 499
+        ExplicitWidth = 780
+        DesignSize = (
+          790
+          57)
+        object Bevel5: TBevel
+          Left = 0
+          Top = 0
+          Width = 790
+          Height = 2
+          Align = alTop
+          ExplicitWidth = 782
+        end
+        object Button1: TButton
+          Left = 694
+          Top = 14
+          Width = 80
+          Height = 30
+          Anchors = [akTop, akRight]
+          Caption = '&Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          OnClick = btnExcName_CancelClick
+          ExplicitLeft = 684
+        end
+        object btnDevPreplay: TButton
+          Left = 610
+          Top = 14
+          Width = 80
+          Height = 30
+          Align = alCustom
+          Anchors = [akTop, akRight]
+          Caption = '&Next >'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 1
+          OnClick = btnDevPreplayClick
+          ExplicitLeft = 600
+        end
+      end
+      object pnlButtomDev: TPanel
+        Left = 16
+        Top = 43
+        Width = 748
+        Height = 487
+        Caption = 'pnlButtomDev'
+        TabOrder = 1
+        object lvConsole: TListView
+          Left = 1
+          Top = 1
+          Width = 746
+          Height = 485
+          Align = alClient
+          Columns = <
+            item
+              Caption = 'IP Address'
+              Width = 200
+            end
+            item
+              Caption = 'Console Name'
+              Width = 325
+            end
+            item
+              Caption = 'Status'
+              Width = 250
+            end>
+          GridLines = True
+          TabOrder = 0
+          ViewStyle = vsReport
+          ExplicitTop = -5
+          ExplicitHeight = 450
+        end
       end
     end
   end
