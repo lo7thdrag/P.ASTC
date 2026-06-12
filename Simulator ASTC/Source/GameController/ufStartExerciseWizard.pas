@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, ComCtrls, Menus, uT3GroupList, uSRRFunction,
-  uSnapshotUtils, uSnapshotGCRec, uSnapshotGCData , uDMGC, Vcl.Imaging.pngimage;
+  uSnapshotUtils, uSnapshotGCRec, uSnapshotGCData , uDMGC;
 
 type
 
@@ -67,11 +67,6 @@ type
     pnlButtomDev: TPanel;
     lvConsole: TListView;
     btnExcName_Back: TButton;
-    pnlMainBackground: TPanel;
-    imgBackground: TImage;
-    Image1: TImage;
-    lblY: TLabel;
-    lblN: TLabel;
     procedure btnExcName_CancelClick(Sender: TObject);
     procedure btnExcName_NextClick(Sender: TObject);
     procedure btnAudio_BackClick(Sender: TObject);
@@ -158,19 +153,6 @@ uses
   ufStartSession, uLibSettingTTT, uTCPDatatype;
 
 {$R *.dfm}
-
-procedure EnableComposited(WinControl:TWinControl);
-var
-  i:Integer;
-  NewExStyle:DWORD;
-begin
-  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
-  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
-
-  for I := 0 to WinControl.ControlCount - 1 do
-    if WinControl.Controls[i] is TWinControl then
-      EnableComposited(TWinControl(WinControl.Controls[i]));
-end;
 
 procedure GetSnapshotAssignInfoFromFile (const id : integer  ; const s : string ) ;
 var
@@ -528,7 +510,6 @@ begin
   FCubicleList.Sorted := true;
 
   FGList := TList.Create;
-  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmStartExerciseWizard.FormDestroy(Sender: TObject);

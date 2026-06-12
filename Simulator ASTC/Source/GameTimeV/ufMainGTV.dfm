@@ -4,8 +4,8 @@ object frmMainGT: TfrmMainGT
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'Tactical Team Trainer Game Time'
-  ClientHeight = 698
-  ClientWidth = 1345
+  ClientHeight = 674
+  ClientWidth = 1321
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -27,8 +27,8 @@ object frmMainGT: TfrmMainGT
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 1345
-    Height = 698
+    Width = 1321
+    Height = 674
     Align = alClient
     ExplicitWidth = 1366
     ExplicitHeight = 369

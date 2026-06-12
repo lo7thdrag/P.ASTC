@@ -10,7 +10,7 @@ uses
   , uNetUDPnode, tttData, uGameData_TTT,
   newClassASTT, uNewMessage, uLibSettingTTT, uCommTTT, Mask,
   uT3Listener, uT3DataLink, uT3Missile, uT3Vehicle, uT3Unit
-  ,uT3MissileDetail, uT3DetectedTrack, System.ImageList, acPNG,
+  ,uT3MissileDetail, uT3DetectedTrack, System.ImageList,{ acPNG,}
   Vcl.Imaging.pngimage;
 
 type
