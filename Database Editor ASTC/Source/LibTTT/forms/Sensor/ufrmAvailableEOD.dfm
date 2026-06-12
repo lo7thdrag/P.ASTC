@@ -73,7 +73,9 @@ object frmAvailableEOD: TfrmAvailableEOD
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Hint = 'Remove Data'
           Anchors = [akTop, akRight]
+          ParentShowHint = False
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -194,16 +196,19 @@ object frmAvailableEOD: TfrmAvailableEOD
             A190877F12965F993FFA93F80FF928810146BA10790000000049454E44AE4260
             82}
           Proportional = True
+          ShowHint = True
           Stretch = True
           OnClick = btnDeleteClick
         end
         object btnEdit: TImage
-          Left = 437
-          Top = 13
+          Left = 433
+          Top = 12
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Hint = 'Edit Data'
           Anchors = [akTop, akRight]
+          ParentShowHint = False
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -298,6 +303,7 @@ object frmAvailableEOD: TfrmAvailableEOD
             A9C441F81A627305C561FC256BFACB1636C384E7CF6CF0D332EDBB3D6570C025
             146EFF030A1EE0EEE4E034710000000049454E44AE426082}
           Proportional = True
+          ShowHint = True
           Stretch = True
           OnClick = btnEditClick
         end
@@ -307,7 +313,9 @@ object frmAvailableEOD: TfrmAvailableEOD
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Hint = 'Copy Data'
           Anchors = [akTop, akRight]
+          ParentShowHint = False
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -421,6 +429,7 @@ object frmAvailableEOD: TfrmAvailableEOD
             81FF24DCA3A3155237B502BE12F1A01E9EC4528214F1B4D1C8503D3D63545F1F
             0232764B85E9FE3BFD0F7A891B10CC178DC70000000049454E44AE426082}
           Proportional = True
+          ShowHint = True
           Stretch = True
           OnClick = btnCopyClick
         end
@@ -430,7 +439,9 @@ object frmAvailableEOD: TfrmAvailableEOD
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Hint = 'Add New Data'
           Anchors = [akTop, akRight]
+          ParentShowHint = False
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -513,6 +524,7 @@ object frmAvailableEOD: TfrmAvailableEOD
             7DEE0A23B12BCCF2E5AB11C6E6B49290B03A33F33E58A22B4C36B8B029CF46B8
             FC4B5B3C5313B059F0D2F62F7F3AE2B0F9505AC00000000049454E44AE426082}
           Proportional = True
+          ShowHint = True
           Stretch = True
           OnClick = btnNewClick
         end
@@ -522,7 +534,9 @@ object frmAvailableEOD: TfrmAvailableEOD
           Width = 30
           Height = 30
           Cursor = crHandPoint
+          Hint = 'Usaga Data'
           Anchors = [akTop, akRight]
+          ParentShowHint = False
           Picture.Data = {
             0954506E67496D61676589504E470D0A1A0A0000000D494844520000001E0000
             001E08060000003B30AEA2000000097048597300000B1300000B1301009A9C18
@@ -644,6 +658,7 @@ object frmAvailableEOD: TfrmAvailableEOD
             7D87F13F0EF43FE513868E611C9A077DEA13C68EDB71B3D964191ED61B54AAB1
             9FF40933DBF5FFFE68FB37F60A53EC3314F77B0000000049454E44AE426082}
           Proportional = True
+          ShowHint = True
           Stretch = True
           OnClick = btnUsageClick
         end
