@@ -119,7 +119,7 @@ var
 begin
   if lbRadars.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar... !');
+    ShowMessage('Silahkan pilih salah satu data Radar ... !');
     Exit;
   end;
 
@@ -145,7 +145,7 @@ procedure TfrmAvailableRadar.btnEditClick(Sender: TObject);
 begin
   if lbRadars.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Radar ... !');
     Exit;
   end;
 
@@ -172,11 +172,11 @@ var
 begin
   if lbRadars.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar Data ... !');
+    ShowMessage('Silahkan pilih salah satu data Radar ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -187,7 +187,7 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetSensor_On_Board_By_Index(1, Radar_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
@@ -197,7 +197,7 @@ begin
       dmTTT.DeleteNoteStorage(7, Radar_Index);
 
       if dmTTT.DeleteRadarDef(Radar_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -209,7 +209,7 @@ procedure TfrmAvailableRadar.btnUsageClick(Sender: TObject);
 begin
   if lbRadars.ItemIndex = -1 then
   begin
-    ShowMessage('Select Radar... !');
+    ShowMessage('Silahkan pilih salah satu data Radar ... !');
     Exit;
   end;
 
@@ -254,7 +254,7 @@ begin
   dmTTT.GetFilterRadarDef(FRadarList, edtSearch.Text);
 
   frmProgress := TfrmProgress.Create(nil);
-  frmProgress.Caption := 'Loading data from database';
+  frmProgress.Caption := 'Mengisi data dari database';
   frmProgress.MaxJob := FRadarList.Count;
 
   for i := 0 to FRadarList.Count - 1 do

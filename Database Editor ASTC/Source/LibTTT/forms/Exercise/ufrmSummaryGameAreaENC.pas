@@ -284,7 +284,7 @@ begin
 
     if (FGameArea.Game_Centre_Lat = 0) or (FGameArea.Game_Centre_Long = 0) then
     begin
-      ShowMessage('Game Center has not been set.');
+      ShowMessage('Game Center Belum di set.');
       Exit;
     end;
 
@@ -905,6 +905,9 @@ begin
   begin
     with FSelectedGameArea.FGameArea do
       FConverter.ConvertToMap(X, Y, Game_Centre_Long, Game_Centre_Lat);
+
+    ShowMessage('Game Center telah berhasil diset');
+
   end;
   {$ENDREGION}
 end;

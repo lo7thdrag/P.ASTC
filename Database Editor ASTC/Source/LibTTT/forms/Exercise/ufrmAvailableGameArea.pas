@@ -184,7 +184,7 @@ var
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area ... !');
     Exit;
   end;
 
@@ -228,7 +228,7 @@ procedure TfrmAvailableGameArea.btnUsageClick(Sender: TObject);
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area ... !');
     Exit;
   end;
 
