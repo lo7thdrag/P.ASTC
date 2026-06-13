@@ -28,7 +28,6 @@ type
     pnlMap: TPanel;
     pnlToolBar: TPanel;
     pnlCursorPosition: TPanel;
-    grpCursorPosition: TGroupBox;
     Label36: TLabel;
     Label61: TLabel;
     Label62: TLabel;
@@ -47,12 +46,10 @@ type
     pnlSparatorHor1: TPanel;
     btnScreenCapture: TButton;
     pnlOverlayEditor: TPanel;
-    pnlVertical1: TPanel;
+    pnlVertical2: TPanel;
     pnlAlignToolBar: TPanel;
-    grbColour: TGroupBox;
     colorPanel: TPanel;
     colorChoose: TColorGrid;
-    grbShape: TGroupBox;
     btnText1: TSpeedButton;
     btnLine1: TSpeedButton;
     btnRectangle1: TSpeedButton;
@@ -391,6 +388,15 @@ type
     btnPolygon: TRzBmpButton;
     imgBackground: TImage;
     il1: TImageList;
+    pnl1Header: TPanel;
+    pnl3: TPanel;
+    pnlColor: TPanel;
+    pnlShape: TPanel;
+    lblColor: TLabel;
+    Label29: TLabel;
+    pnlVertical1: TPanel;
+    pnlVertical3: TPanel;
+    Panel2: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -893,6 +899,7 @@ begin
 
       Ellipse(point.Left, point.Top, point.Right, point.Bottom);
 
+      Font.Color := clGray;
       Font.Size := 12;
 
       TextOut((cx - r), cy, IntToStr(i*rTemp));
@@ -1417,7 +1424,7 @@ end;
 
 procedure TOverlayEditorForm.txtColorSelectClick(Sender: TObject);
 begin
-  grbColour.Visible := True;
+  pnlColor.Visible := True;
 end;
 
 procedure TOverlayEditorForm.UpdateCursorPositionData(const X, Y: Integer);

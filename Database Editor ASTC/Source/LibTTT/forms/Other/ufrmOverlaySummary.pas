@@ -332,7 +332,7 @@ begin
 
     cbbDomain.ItemIndex := Domain;
 
-//    btnEditOverlay.Enabled := Overlay_Index <> 0;
+    btnEditOverlay.Enabled := Overlay_Index <> 0;
   end;
 end;
 

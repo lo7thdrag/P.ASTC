@@ -44918,6 +44918,7 @@ object frmOverlaySummary: TfrmOverlaySummary
             Width = 52
             Height = 14
             Caption = 'Domain  :'
+            Visible = False
           end
           object btnEditOverlay: TButton
             Left = 47
@@ -44925,6 +44926,7 @@ object frmOverlaySummary: TfrmOverlaySummary
             Width = 219
             Height = 25
             Caption = 'Edit Overlay Shape...'
+            Enabled = False
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -12
@@ -44941,6 +44943,7 @@ object frmOverlaySummary: TfrmOverlaySummary
             Height = 22
             Style = csDropDownList
             TabOrder = 1
+            Visible = False
             OnChange = cbbDomainChange
             Items.Strings = (
               'Air'

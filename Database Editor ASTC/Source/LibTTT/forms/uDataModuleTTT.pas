@@ -8447,6 +8447,7 @@ end;
 
 function TdmTTT.GetFilterMotionCharacteristicDef(var aList: TList;aFilter: string): integer;
 var
+  i : Integer;
   rec : TMotion_Characteristics;
 begin
   Result := -1;
@@ -8467,7 +8468,15 @@ begin
     Result := RecordCount;
 
     if Assigned(aList) then
-      aList.Clear
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
     else
       aList := TList.Create;
 

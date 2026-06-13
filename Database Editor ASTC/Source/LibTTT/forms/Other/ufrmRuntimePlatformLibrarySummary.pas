@@ -25,8 +25,8 @@ type
     btnApply: TButton;
     btnCancel: TButton;
     btnOK: TButton;
-    pnlMainBackground: TPanel;
     imgBackground: TImage;
+    pnlMainBackground: TPanel;
 
     procedure FormShow(Sender: TObject);
     procedure btnVehicleClick(Sender: TObject);

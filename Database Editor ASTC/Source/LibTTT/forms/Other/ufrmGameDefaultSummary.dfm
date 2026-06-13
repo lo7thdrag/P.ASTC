@@ -44898,7 +44898,7 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
         Top = 10
         Width = 847
         Height = 522
-        ActivePage = tsCommunication
+        ActivePage = tsAboveWater
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -46932,6 +46932,7 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
+        Visible = False
         OnClick = btnSaveAsTrainerClick
       end
       object btnApply: TButton
