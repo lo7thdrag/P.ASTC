@@ -192,7 +192,14 @@ uses
   uMainStaticShape in '..\DBEditor.src\uMainStaticShape.pas',
   uOverlayOther in '..\DBEditor.src\uOverlayOther.pas',
   uOverlayRecord in '..\DBEditor.src\uOverlayRecord.pas',
-  uRecord in '..\DBEditor.src\uRecord.pas';
+  uRecord in '..\DBEditor.src\uRecord.pas',
+  ufrmRight in 'formClient\NavigasiUI\ufrmRight.pas' {frmRight},
+  ufrmTools in 'formClient\NavigasiUI\ufrmTools.pas' {frmTools},
+  ufrmHelp in 'formClient\NavigasiUI\ufrmHelp.pas' {frmHelp},
+  ufrmMapTools in 'formClient\NavigasiUI\ufrmMapTools.pas' {frmMapTools},
+  ufrmPlatformTools in 'formClient\NavigasiUI\ufrmPlatformTools.pas' {frmPlatfromTools},
+  ufrmTop in 'formClient\NavigasiUI\ufrmTop.pas' {frmTop},
+  ufrmViewNavigasi in 'ufrmViewNavigasi.pas' {frmViewNavigasi};
 
 {$R *.res}
 
@@ -217,6 +224,13 @@ begin
   Application.CreateForm(TfrmEditNonRealTimeTrack, frmEditNonRealTimeTrack);
   Application.CreateForm(TfrmFormationAddRemMembers, frmFormationAddRemMembers);
   Application.CreateForm(TfmOverlayEditor, fmOverlayEditor);
+  Application.CreateForm(TfrmRight, frmRight);
+  Application.CreateForm(TfrmTools, frmTools);
+  Application.CreateForm(TfrmHelp, frmHelp);
+  Application.CreateForm(TfrmMapTools, frmMapTools);
+  Application.CreateForm(TfrmPlatfromTools, frmPlatfromTools);
+  Application.CreateForm(TfrmTop, frmTop);
+  Application.CreateForm(TfrmViewNavigasi, frmViewNavigasi);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 
