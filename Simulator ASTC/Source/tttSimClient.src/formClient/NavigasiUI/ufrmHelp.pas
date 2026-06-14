@@ -4,7 +4,9 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzBmpBtn;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RzBmpBtn,
+
+  ufrmKeyboard;
 
 type
   TfrmHelp = class(TForm)
@@ -12,6 +14,7 @@ type
     btnKeyboard: TRzBmpButton;
     btnManualBook: TRzBmpButton;
     btnWindowedScreen: TRzBmpButton;
+    procedure btnKeyboardClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,5 +27,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmHelp.btnKeyboardClick(Sender: TObject);
+begin
+  frmKeyboard.Show;
+end;
 
 end.

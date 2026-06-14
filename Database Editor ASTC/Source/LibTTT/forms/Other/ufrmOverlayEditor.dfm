@@ -44853,8 +44853,6 @@ object OverlayEditorForm: TOverlayEditorForm
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1594
-    ExplicitHeight = 872
     object pnlEditor: TPanel
       Left = 10
       Top = 37
@@ -44870,20 +44868,14 @@ object OverlayEditorForm: TOverlayEditorForm
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitHeight = 830
       object pnlOverlayEditor: TPanel
         Left = 0
         Top = 0
         Width = 308
         Height = 816
         Align = alClient
-        BevelOuter = bvNone
         Color = 2499101
-        ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 830
         object btnApply: TButton
           Left = 128
           Top = 583
@@ -44917,17 +44909,16 @@ object OverlayEditorForm: TOverlayEditorForm
           OnClick = btnHandleShapeEditor
         end
         object pnlColor: TPanel
-          Left = 0
-          Top = 0
-          Width = 308
+          Left = 1
+          Top = 1
+          Width = 306
           Height = 138
           Align = alTop
-          BevelOuter = bvNone
           Color = 2499101
           TabOrder = 2
-          ExplicitLeft = 1
-          ExplicitTop = 1
-          ExplicitWidth = 306
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 308
           object lblColor: TLabel
             Left = 14
             Top = 16
@@ -44981,17 +44972,17 @@ object OverlayEditorForm: TOverlayEditorForm
           end
         end
         object pnlShape: TPanel
-          Left = 0
-          Top = 138
-          Width = 308
+          Left = 1
+          Top = 139
+          Width = 306
           Height = 441
           Align = alTop
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 3
-          ExplicitLeft = 1
-          ExplicitTop = 139
-          ExplicitWidth = 306
+          ExplicitLeft = 0
+          ExplicitTop = 138
+          ExplicitWidth = 308
           object Label29: TLabel
             Left = 14
             Top = 24
@@ -53587,26 +53578,19 @@ object OverlayEditorForm: TOverlayEditorForm
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 313
-      ExplicitTop = 0
-      ExplicitWidth = 1281
-      ExplicitHeight = 830
       object pnlToolBar: TPanel
         Left = 0
         Top = 0
         Width = 1262
         Height = 37
         Align = alTop
-        BevelOuter = bvNone
         Color = 2499101
-        ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1281
         object ToolBar1: TToolBar
-          Left = 22
-          Top = 0
-          Width = 1240
-          Height = 37
+          Left = 23
+          Top = 1
+          Width = 1238
+          Height = 35
           Align = alClient
           ButtonHeight = 38
           ButtonWidth = 39
@@ -53619,7 +53603,10 @@ object OverlayEditorForm: TOverlayEditorForm
           ParentColor = False
           ParentDoubleBuffered = False
           TabOrder = 0
-          ExplicitWidth = 1259
+          ExplicitLeft = 22
+          ExplicitTop = 0
+          ExplicitWidth = 1240
+          ExplicitHeight = 37
           object btnDecreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -53697,15 +53684,18 @@ object OverlayEditorForm: TOverlayEditorForm
           end
         end
         object pnlAlignToolBar: TPanel
-          Left = 0
-          Top = 0
+          Left = 1
+          Top = 1
           Width = 22
-          Height = 37
+          Height = 35
           Align = alLeft
           BevelOuter = bvNone
           Color = 2499101
           ParentBackground = False
           TabOrder = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitHeight = 37
         end
       end
       object pnlCursorPosition: TPanel
@@ -53714,12 +53704,8 @@ object OverlayEditorForm: TOverlayEditorForm
         Width = 1262
         Height = 59
         Align = alBottom
-        BevelOuter = bvNone
         Color = 2499101
-        ParentBackground = False
         TabOrder = 1
-        ExplicitTop = 771
-        ExplicitWidth = 1281
         DesignSize = (
           1262
           59)
@@ -53913,7 +53899,7 @@ object OverlayEditorForm: TOverlayEditorForm
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          0100011801000088397F2B01000000000000001C000000000000000000000000
+          01000118010000887CA82901000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -53922,7 +53908,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          01000088397F2B01000000000000001C00000000000000000000000000000000
+          010000887CA82901000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -53952,7 +53938,6 @@ object OverlayEditorForm: TOverlayEditorForm
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 4
-        ExplicitTop = 709
       end
     end
     object pnl3Button: TPanel
@@ -53972,8 +53957,6 @@ object OverlayEditorForm: TOverlayEditorForm
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitLeft = 1409
-        ExplicitHeight = 37
         object btnClose: TButton
           Tag = 3
           Left = 95
@@ -54033,8 +54016,6 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 3
-      ExplicitLeft = 308
-      ExplicitHeight = 822
     end
     object pnl1Header: TPanel
       Left = 0
@@ -54045,7 +54026,6 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 4
-      ExplicitTop = 8
       object pnl3: TPanel
         Left = 1415
         Top = 0
@@ -54065,9 +54045,6 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 5
-      ExplicitLeft = -2
-      ExplicitTop = 43
-      ExplicitHeight = 822
     end
     object pnlVertical3: TPanel
       Left = 1590
@@ -54078,9 +54055,6 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 6
-      ExplicitLeft = 1262
-      ExplicitTop = 89
-      ExplicitHeight = 822
     end
   end
   object ImageList1: TImageList

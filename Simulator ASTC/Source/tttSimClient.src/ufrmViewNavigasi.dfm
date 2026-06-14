@@ -2460,8 +2460,8 @@ object frmViewNavigasi: TfrmViewNavigasi
     TabOrder = 2
   end
   object btnWindowedScreen: TRzBmpButton
-    Left = 50
-    Top = 85
+    Left = 42
+    Top = 77
     Width = 65
     Height = 65
     Hint = 'Full Screen'

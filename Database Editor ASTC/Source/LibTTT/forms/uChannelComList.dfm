@@ -15,6 +15,7 @@ object fChannelComList: TfChannelComList
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShortCut = FormShortCut
   OnShow = FormShow
   PixelsPerInch = 96

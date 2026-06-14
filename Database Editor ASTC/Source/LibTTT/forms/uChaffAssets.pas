@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, ExtCtrls, StdCtrls, uDBAsset_Vehicle, Vcl.Mask, uSimContainers;
+  Dialogs, ComCtrls, ExtCtrls, StdCtrls, uDBAsset_Vehicle, Vcl.Mask, uSimContainers,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmChaffAssets = class(TForm)
@@ -43,6 +44,8 @@ type
     btnApply: TButton;
     edtMinDelay: TMaskEdit;
     edtTimeWeaponImpact: TMaskEdit;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -65,6 +68,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
 
   private
@@ -89,18 +93,36 @@ uses
   uDataModuleTTT, ufrmChaffOnBoardOnBoardPickList, ufrmChaffLauncher, uDBAsset_Countermeasure;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {$REGION ' Form Handle '}
 
 procedure TfrmChaffAssets.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  FreeItemsAndFreeList(FChaffLauncherList);
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmChaffAssets.FormCreate(Sender: TObject);
 begin
   FChaffLauncherList := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmChaffAssets.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FChaffLauncherList);
 end;
 
 procedure TfrmChaffAssets.FormShow(Sender: TObject);

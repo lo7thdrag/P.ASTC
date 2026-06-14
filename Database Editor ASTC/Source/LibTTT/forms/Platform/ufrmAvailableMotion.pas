@@ -97,8 +97,10 @@ begin
   try
     with frmSummaryMotion do
     begin
-     SelectedMotion := TMotion_Characteristics.Create;
+      SelectedMotion := TMotion_Characteristics.Create;
       ShowModal;
+      SelectedMotion.Free;
+
       FUpdateList := AfterClose;
     end;
   finally

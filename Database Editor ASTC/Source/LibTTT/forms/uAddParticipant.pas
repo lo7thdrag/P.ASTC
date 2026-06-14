@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls;
+  Dialogs, StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.pngimage;
 
 type
   TAddParticipantForm = class(TForm)
@@ -15,8 +15,11 @@ type
     btOK: TButton;
     btCancel: TButton;
     verLabel: TLabel;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
     procedure btCancelClick(Sender: TObject);
     procedure btOKClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,6 +35,18 @@ uses
   ComCtrls, uLinkWindow;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TAddParticipantForm.btCancelClick(Sender: TObject);
 begin
@@ -54,6 +69,11 @@ begin
     verLabel.Caption := 'There are empty fields';
 
   Self.Close;
+end;
+
+procedure TAddParticipantForm.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 end.

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ComCtrls, Buttons, ExtCtrls;
+  Dialogs, StdCtrls, ComCtrls, Buttons, ExtCtrls, Vcl.Imaging.pngimage;
 
 type
   TEventsWindowForm = class(TForm)
@@ -93,8 +93,11 @@ type
     ComboBox2: TComboBox;
     Edit1: TEdit;
     UpDown1: TUpDown;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
     procedure btnCancelClick(Sender: TObject);
     procedure lstEventsClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -107,10 +110,27 @@ var
 implementation
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TEventsWindowForm.btnCancelClick(Sender: TObject);
 begin
   Self.Close;
+end;
+
+procedure TEventsWindowForm.FormCreate(Sender: TObject);
+begin
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TEventsWindowForm.lstEventsClick(Sender: TObject);

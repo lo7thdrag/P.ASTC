@@ -28,6 +28,7 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FSelectedResourceAlloc : TResource_Allocation;
 
@@ -49,7 +50,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, uCommunicationsChannels;
+  uDataModuleTTT, uCommunicationsChannels, uSimContainers;
 
 {$R *.dfm}
 
@@ -130,6 +131,11 @@ end;
 procedure TfChannelComList.FormCreate(Sender: TObject);
 begin
   FSelectedComChannelList := TList.Create;
+end;
+
+procedure TfChannelComList.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(FSelectedComChannelList);
 end;
 
 procedure TfChannelComList.FormShortCut(var Msg: TWMKey; var Handled: Boolean);

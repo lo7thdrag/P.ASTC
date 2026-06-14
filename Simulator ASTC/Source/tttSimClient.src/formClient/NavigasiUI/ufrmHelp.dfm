@@ -1644,6 +1644,7 @@ object frmHelp: TfrmHelp
     Layout = blGlyphTop
     Spacing = 1
     TabOrder = 1
+    OnClick = btnKeyboardClick
   end
   object btnManualBook: TRzBmpButton
     Left = 42
@@ -2462,8 +2463,8 @@ object frmHelp: TfrmHelp
     TabOrder = 2
   end
   object btnWindowedScreen: TRzBmpButton
-    Left = 50
-    Top = 156
+    Left = 42
+    Top = 148
     Width = 65
     Height = 65
     Hint = 'Full Screen'

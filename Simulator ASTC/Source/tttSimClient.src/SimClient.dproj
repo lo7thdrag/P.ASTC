@@ -448,6 +448,10 @@
             <Form>frmViewNavigasi</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="formClient\NavigasiUI\ufrmKeyboard.pas">
+            <Form>frmKeyboard</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_tttSimClient\default.txaPackage"/>
         <None Include="ModelSupport_tttSimClient\uFormationEditorForm\default.txvpck"/>
         <None Include="ModelSupport_tttSimClient\ufTacticalDisplay\default.txvpck"/>

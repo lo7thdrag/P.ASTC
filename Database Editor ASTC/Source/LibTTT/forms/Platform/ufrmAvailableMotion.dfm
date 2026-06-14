@@ -31,8 +31,6 @@ object frmAvailableMotion: TfrmAvailableMotion
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1252
-    ExplicitHeight = 831
     object pnlTableList: TPanel
       Left = 0
       Top = 57
@@ -44,8 +42,6 @@ object frmAvailableMotion: TfrmAvailableMotion
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 1252
-      ExplicitHeight = 774
       object lstMotions: TListBox
         Left = 10
         Top = 10
@@ -62,9 +58,6 @@ object frmAvailableMotion: TfrmAvailableMotion
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
-        ExplicitTop = 0
-        ExplicitWidth = 1231
-        ExplicitHeight = 852
       end
     end
     object pnlTableHeader: TPanel
@@ -77,7 +70,6 @@ object frmAvailableMotion: TfrmAvailableMotion
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 1252
       object Label2: TLabel
         Left = 10
         Top = 18
@@ -102,7 +94,6 @@ object frmAvailableMotion: TfrmAvailableMotion
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 672
         DesignSize = (
           580
           57)

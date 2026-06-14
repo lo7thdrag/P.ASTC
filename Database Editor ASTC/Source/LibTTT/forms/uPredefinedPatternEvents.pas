@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, uDBAsset_Sensor, uSensor, uDBAsset_Radar, uDBAsset_Sonar,
-  uDBAsset_Countermeasure, uDBAsset_Weapon, uDBAsset_Scripted, uTrainingPattern;
+  uDBAsset_Countermeasure, uDBAsset_Weapon, uDBAsset_Scripted, uTrainingPattern,
+  Vcl.Imaging.pngimage;
 
 type
   TEditEvents = class(TForm)
@@ -57,6 +58,8 @@ type
     IFFName: TEdit;
     weaponName: TComboBox;
     weaponEvent: TEdit;
+    pnlMainBackground: TPanel;
+    imgBackground: TImage;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -65,6 +68,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure lbListClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
     event : String;
@@ -102,9 +106,21 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmPredefinedPatternSummary;
+  uDataModuleTTT, ufrmPredefinedPatternSummary, uSimContainers;
 
 {$R *.dfm}
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TEditEvents.getDataRadar;
 begin
@@ -153,6 +169,23 @@ begin
   bombList    := TList.Create;
   jammerList  := TList.Create;
   iffList     := TList.Create;
+
+  EnableComposited(pnlMainBackground);
+end;
+
+procedure TEditEvents.FormDestroy(Sender: TObject);
+begin
+  FreeItemsAndFreeList(myList);
+  pRadarEvent.Free;
+  FreeItemsAndFreeList(radarList);
+  FreeItemsAndFreeList(sonarList);
+  FreeItemsAndFreeList(missileList);
+  FreeItemsAndFreeList(torpedoList);
+  FreeItemsAndFreeList(minesList);
+  FreeItemsAndFreeList(gunList);
+  FreeItemsAndFreeList(bombList);
+  FreeItemsAndFreeList(jammerList);
+  FreeItemsAndFreeList(iffList);
 end;
 
 procedure TEditEvents.getRadar;

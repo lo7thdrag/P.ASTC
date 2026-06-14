@@ -199,7 +199,8 @@ uses
   ufrmMapTools in 'formClient\NavigasiUI\ufrmMapTools.pas' {frmMapTools},
   ufrmPlatformTools in 'formClient\NavigasiUI\ufrmPlatformTools.pas' {frmPlatfromTools},
   ufrmTop in 'formClient\NavigasiUI\ufrmTop.pas' {frmTop},
-  ufrmViewNavigasi in 'ufrmViewNavigasi.pas' {frmViewNavigasi};
+  ufrmViewNavigasi in 'ufrmViewNavigasi.pas' {frmViewNavigasi},
+  ufrmKeyboard in 'formClient\NavigasiUI\ufrmKeyboard.pas' {frmKeyboard};
 
 {$R *.res}
 
@@ -231,6 +232,7 @@ begin
   Application.CreateForm(TfrmPlatfromTools, frmPlatfromTools);
   Application.CreateForm(TfrmTop, frmTop);
   Application.CreateForm(TfrmViewNavigasi, frmViewNavigasi);
+  Application.CreateForm(TfrmKeyboard, frmKeyboard);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 
