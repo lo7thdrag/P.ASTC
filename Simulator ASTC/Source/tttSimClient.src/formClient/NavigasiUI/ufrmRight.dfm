@@ -1,11 +1,12 @@
 object frmRight: TfrmRight
   Left = 0
   Top = 0
+  Align = alRight
   BorderStyle = bsNone
   Caption = 'frmRight'
-  ClientHeight = 543
-  ClientWidth = 150
-  Color = clBtnFace
+  ClientHeight = 870
+  ClientWidth = 120
+  Color = clCream
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -18,12 +19,14 @@ object frmRight: TfrmRight
   object pnlContainer: TPanel
     Left = 0
     Top = 0
-    Width = 150
-    Height = 543
+    Width = 120
+    Height = 870
     Align = alClient
     BevelOuter = bvNone
-    Color = 141979
+    Color = clSkyBlue
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 150
+    ExplicitHeight = 543
   end
 end

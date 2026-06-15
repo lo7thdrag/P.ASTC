@@ -4,7 +4,7 @@ object frmLeft: TfrmLeft
   BorderStyle = bsNone
   Caption = 'frmLeft'
   ClientHeight = 870
-  ClientWidth = 150
+  ClientWidth = 120
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,10 +17,12 @@ object frmLeft: TfrmLeft
   object pnlContent: TPanel
     Left = 0
     Top = 0
-    Width = 150
+    Width = 120
     Height = 870
     Align = alClient
     BevelOuter = bvNone
+    Color = clRed
+    ParentBackground = False
     TabOrder = 0
     ExplicitWidth = 114
   end

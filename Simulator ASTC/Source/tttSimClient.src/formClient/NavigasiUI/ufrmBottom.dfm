@@ -1,8 +1,10 @@
 object frmBottom: TfrmBottom
   Left = 0
   Top = 0
-  ClientHeight = 299
-  ClientWidth = 635
+  Anchors = [akBottom]
+  BorderStyle = bsNone
+  ClientHeight = 98
+  ClientWidth = 1680
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -10,6 +12,26 @@ object frmBottom: TfrmBottom
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1680
+    Height = 98
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 141979
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+    ExplicitLeft = -526
+    ExplicitWidth = 1161
+  end
 end
