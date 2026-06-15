@@ -343,6 +343,7 @@ begin
   btnConnect.Visible := True;
   btnEditor.Visible := False;
   imgSetting.Visible := True;
+  lblRole.Visible := True;
 //  btnTerminate.Visible := False;
 
   if theClient.IsController then
@@ -351,6 +352,7 @@ begin
     btnConnect.Visible := True;
     btnEditor.Visible := True;
     imgSetting.Visible := False;
+    lblRole.Visible := False;
 //    btnTerminate.Visible := True;
   end;
 end;
@@ -431,7 +433,7 @@ begin
   lblConsoleName.Top := (pnlBackground.Height-lblConsoleName.Height)div 4;
 
   lblRole.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
-  lblRole.Top := (pnlBackground.Height-lblConsoleName.Height)div 10;
+  lblRole.Top := (pnlBackground.Height-lblConsoleName.Height)div 7;
 
   pnlButton.Left := (pnlBackground.Width-pnlButton.Width)div 2;
 
