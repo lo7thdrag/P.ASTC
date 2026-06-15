@@ -119,7 +119,7 @@ var
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Self Defensive Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 
@@ -145,7 +145,7 @@ procedure TfrmAvailableSelfDefensiveJammer.btnEditClick(Sender: TObject);
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Self Defensive Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 
@@ -172,11 +172,11 @@ var
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -185,14 +185,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(6, Defensive_Jammer_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(16, Defensive_Jammer_Index);
 
       if dmTTT.DeleteSelfDefensiveJammerDef(Defensive_Jammer_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateSelfDefensiveJammerList;
@@ -203,7 +203,7 @@ procedure TfrmAvailableSelfDefensiveJammer.btnUsageClick(Sender: TObject);
 begin
   if lstSelfDefensiveJammer.ItemIndex = -1 then
   begin
-    ShowMessage('Select Self Defensive Jammer... !');
+    ShowMessage('Silahkan pilih salah satu data Self Defensive Jammer ... !');
     Exit;
   end;
 

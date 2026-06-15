@@ -170,7 +170,7 @@ var
 begin
   if lstEnvironments.ItemIndex = -1 then
   begin
-    ShowMessage('Select Environtment... !');
+    ShowMessage('Silahkan pilih salah satu data Environtment ... !');
     Exit;
   end;
 
@@ -224,11 +224,11 @@ var
 begin
   if lstEnvironments.ItemIndex = -1 then
   begin
-    ShowMessage('Select Environtment !');
+    ShowMessage('Silahkan pilih salah satu data Environtment ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Environment ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -239,7 +239,7 @@ begin
       tempList := TList.Create;
       if dmTTT.GetEnvironmentAtResourceAllocation(Game_Enviro_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Resource Allocation');
         Exit;
         FreeItemsAndFreeList(tempList);
       end;
@@ -251,7 +251,7 @@ begin
 
       if dmTTT.DeleteEnvironmentDef(Game_Enviro_Index) then
       begin
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
       end;
     end;
 
@@ -263,7 +263,7 @@ procedure TfrmAvailableEnvironments.btnUsageClick(Sender: TObject);
 begin
   if lstEnvironments.ItemIndex = -1 then
   begin
-    ShowMessage('Select Environtment !');
+    ShowMessage('Silahkan pilih salah satu data Environtment ... !');
     Exit;
   end;
 

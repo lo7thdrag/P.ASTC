@@ -139,7 +139,7 @@ begin
       if dmTTT.InsertMADDef(FMAD_Def) then
       begin
         dmTTT.InsertNoteStorage(11, FMAD_Def.MAD_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -147,7 +147,7 @@ begin
       if dmTTT.UpdateMADDef(FMAD_Def) then
       begin
         dmTTT.UpdateNoteStorage(FMAD_Def.MAD_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
 
@@ -195,7 +195,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -213,7 +213,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -224,12 +224,12 @@ begin
     {Jika inputan baru}
     if FSelectedMAD.FMAD_Def.MAD_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

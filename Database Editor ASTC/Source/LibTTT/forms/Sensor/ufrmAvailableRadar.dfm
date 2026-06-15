@@ -433,7 +433,7 @@ object frmAvailableRadar: TfrmAvailableRadar
           OnClick = btnCopyClick
         end
         object btnNew: TImage
-          Left = 357
+          Left = 361
           Top = 13
           Width = 30
           Height = 30

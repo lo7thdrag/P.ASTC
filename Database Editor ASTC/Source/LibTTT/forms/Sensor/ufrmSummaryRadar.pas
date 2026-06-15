@@ -267,7 +267,7 @@ begin
       if dmTTT.InsertRadarDef(FDef) then
       begin
         dmTTT.InsertNoteStorage(7, FDef.Radar_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -275,7 +275,7 @@ begin
       if dmTTT.UpdateRadarDef(FDef) then
       begin
         dmTTT.UpdateNoteStorage(FDef.Radar_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -467,7 +467,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -485,7 +485,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -496,12 +496,12 @@ begin
     {Jika inputan baru}
     if FSelectedRadar.FDef.Radar_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -509,7 +509,7 @@ begin
   {Jika inputan SNR vs POD of Detection Curve masih kosong}
   if FSelectedRadar.FDef.Curve_Definition_Index = 0 then
   begin
-    ShowMessage('Select SNR vs POD of Detection Curve');
+    ShowMessage('SNR vs POD of Detection Curve belum dipilh');
     Exit;
   end;
 

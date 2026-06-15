@@ -119,7 +119,7 @@ var
 begin
   if lstMine.ItemIndex = -1 then
   begin
-    ShowMessage('Select Mine... !');
+    ShowMessage('Silahkan pilih salah satu data Mine ... !');
     Exit;
   end;
 
@@ -150,7 +150,7 @@ procedure TfrmAvailableMine.btnEditClick(Sender: TObject);
 begin
   if lstMine.ItemIndex = -1 then
   begin
-    ShowMessage('Select Mine... !');
+    ShowMessage('Silahkan pilih salah satu data Mine ... !');
     Exit;
   end;
 
@@ -179,11 +179,11 @@ var
 begin
   if lstMine.ItemIndex = -1 then
   begin
-    ShowMessage('Select Mine... !');
+    ShowMessage('Silahkan pilih salah satu data Mine ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -195,7 +195,7 @@ begin
       {Pengecekan Relasi Dengan Resource Allocation}
       if dmTTT.GetPlatformInstanceAtResourceAllocation(5, Mine_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some resource allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data resource allocation');
         tempList.Free;
         Exit;
       end;
@@ -203,7 +203,7 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetFittedWeaponAtVehicleOnBoard(9, Mine_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         tempList.Free;
         Exit;
       end;
@@ -215,7 +215,7 @@ begin
       dmTTT.DeleteNoteStorage(3, Mine_Index);
 
       if dmTTT.DeleteMineDef(Mine_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -227,7 +227,7 @@ procedure TfrmAvailableMine.btnUsageClick(Sender: TObject);
 begin
   if lstMine.ItemIndex = -1 then
   begin
-    ShowMessage('Select Mine... !');
+    ShowMessage('Silahkan pilih salah satu data Mine ... !');
     Exit;
   end;
 

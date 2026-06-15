@@ -120,7 +120,7 @@ var
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 
@@ -146,7 +146,7 @@ procedure TfrmAvailableInfraredDecoy.btnEditClick(Sender: TObject);
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 
@@ -173,11 +173,11 @@ var
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -186,14 +186,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(4, Infrared_Decoy_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(23, Infrared_Decoy_Index);
 
       if dmTTT.DeleteInfraredDecoyDef(Infrared_Decoy_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateInfraredDecoyList;
@@ -204,7 +204,7 @@ procedure TfrmAvailableInfraredDecoy.btnUsageClick(Sender: TObject);
 begin
   if lstInfraredDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Infrared Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Infrared Decoy ... !');
     Exit;
   end;
 

@@ -119,7 +119,7 @@ var
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 
@@ -145,7 +145,7 @@ procedure TfrmAvailableChaff.btnEditClick(Sender: TObject);
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 
@@ -172,11 +172,11 @@ var
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -185,14 +185,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(3, Chaff_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(19, Chaff_Index);
 
       if dmTTT.DeleteChaffDef(Chaff_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -204,7 +204,7 @@ procedure TfrmAvailableChaff.btnUsageClick(Sender: TObject);
 begin
   if lstChaff.ItemIndex = -1 then
   begin
-    ShowMessage('Select Chaff... !');
+    ShowMessage('Silahkan pilih salah satu data Chaff ... !');
     Exit;
   end;
 

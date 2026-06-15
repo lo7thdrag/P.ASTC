@@ -122,7 +122,7 @@ var
 begin
   if lstScenarioList.ItemIndex = -1 then
   begin
-    ShowMessage('Select Scenario... !');
+    ShowMessage('Silahkan pilih salah satu data Scenario ... !');
     Exit;
   end;
 
@@ -158,7 +158,7 @@ procedure TfrmAvailableScenario.btnEditClick(Sender: TObject);
 begin
   if lstScenarioList.ItemIndex = -1 then
   begin
-    ShowMessage('Select Scenario... !');
+    ShowMessage('Silahkan pilih salah satu data Scenario ... !');
     Exit;
   end;
 
@@ -185,11 +185,11 @@ var
 begin
   if lstScenarioList.ItemIndex = -1 then
   begin
-    ShowMessage('Select Scenario !');
+    ShowMessage('Silahkan pilih salah satu data Scenario ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Scenario ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then

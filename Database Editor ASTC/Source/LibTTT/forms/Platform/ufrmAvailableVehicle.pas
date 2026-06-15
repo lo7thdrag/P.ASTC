@@ -173,7 +173,7 @@ var
 begin
   if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Vehicle... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 
@@ -205,7 +205,7 @@ procedure TfrmAvailableVehicle.btnEditClick(Sender: TObject);
 begin
   if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Vehicle... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 
@@ -233,11 +233,11 @@ var
 begin
   if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Vehicle... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -249,7 +249,7 @@ begin
       {Pengecekan Relasi Dengan Resource Allocation}
       if dmTTT.GetPlatformInstanceAtResourceAllocation(1, Vehicle_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some resource allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data resource allocation');
         tempList.Free;
         Exit;
       end;
@@ -257,7 +257,7 @@ begin
       {Pengecekan Relasi Dengan Runtime Platform Library}
       if dmTTT.GetPlatformAtPlatformLibraryEntry(1, Vehicle_Index, tempList) > 0 then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Runtime Platform Library');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Runtime Platform Library');
         tempList.Free;
         Exit;
       end;
@@ -265,7 +265,7 @@ begin
 
       if dmTTT.GetHostPlatformCount(Vehicle_Index) > 0 then
       begin
-        ShowMessage('Cannot delete, This vehicle used as Embarked Platform by some Vehicle');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
@@ -301,7 +301,7 @@ begin
       dmTTT.DeleteHostedPlatform(1, Vehicle_Index);
 
       if dmTTT.DeleteVehicleDef(Vehicle_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateVehicleList;
@@ -312,7 +312,7 @@ procedure TfrmAvailableVehicle.btnUsageClick(Sender: TObject);
 begin
   if lstVehicle.ItemIndex = -1 then
   begin
-    ShowMessage('Select Mine... !');
+    ShowMessage('Silahkan pilih salah satu data Vehicle ... !');
     Exit;
   end;
 

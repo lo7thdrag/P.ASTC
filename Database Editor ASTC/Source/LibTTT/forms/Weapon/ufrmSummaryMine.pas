@@ -205,7 +205,7 @@ begin
       if dmTTT.InsertMineDef(FMine_Def) then
       begin
         dmTTT.InsertNoteStorage(3, FMine_Def.Mine_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -213,7 +213,7 @@ begin
       if dmTTT.UpdateMineDef(FMine_Def) then
       begin
         dmTTT.UpdateNoteStorage(FMine_Def.Mine_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
 
@@ -317,7 +317,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -335,7 +335,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -346,12 +346,12 @@ begin
     {Jika inputan baru}
     if FSelectedMine.FMine_Def.Mine_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

@@ -118,7 +118,7 @@ var
 begin
   if lbSonar.ItemIndex = -1 then
   begin
-    ShowMessage('Select Sonar... !');
+    ShowMessage('Silahkan pilih salah satu data Sonar ... !');
     Exit;
   end;
 
@@ -144,7 +144,7 @@ procedure TfrmAvailableSonar.btnEditClick(Sender: TObject);
 begin
   if lbSonar.ItemIndex = -1 then
   begin
-    ShowMessage('Select Sonar... !');
+    ShowMessage('Silahkan pilih salah satu data Sonar ... !');
     Exit;
   end;
 
@@ -172,11 +172,11 @@ var
 begin
   if lbSonar.ItemIndex = -1 then
   begin
-    ShowMessage('Select Sonar... !');
+    ShowMessage('Silahkan pilih salah satu data Sonar ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -187,7 +187,7 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetSensor_On_Board_By_Index(4, Sonar_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
@@ -195,7 +195,7 @@ begin
       tempList := TList.Create;
       if dmTTT.GetSonarAtSonobuoyDef(Sonar_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Sonobuoy Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Sonobuoy Definition');
         FreeItemsAndFreeList(tempList);
         Exit;
       end;
@@ -204,7 +204,7 @@ begin
       dmTTT.DeleteNoteStorage(9, Sonar_Index);
 
       if dmTTT.DeleteSonarDef(Sonar_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateSonarList;
@@ -215,7 +215,7 @@ procedure TfrmAvailableSonar.btnUsageClick(Sender: TObject);
 begin
   if lbSonar.ItemIndex = -1 then
   begin
-    ShowMessage('Select Sonar... !');
+    ShowMessage('Silahkan pilih salah satu data Sonar ... !');
     Exit;
   end;
 
