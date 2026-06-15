@@ -39,6 +39,7 @@ type
     btnStart: TRzBmpButton;
     pnlButton: TPanel;
     imgSetting: TImage;
+    lblRole: TLabel;
     procedure mnStart1Click(Sender: TObject);
     procedure mnConnect1Click(Sender: TObject);
     procedure mnTerminate1Click(Sender: TObject);
@@ -53,6 +54,7 @@ type
     procedure FormCanResize(Sender: TObject; var NewWidth, NewHeight: Integer;
       var Resize: Boolean);
     procedure imgSettingClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     isCtrl: Boolean;
@@ -340,6 +342,7 @@ begin
   btnStart.Visible := False;
   btnConnect.Visible := True;
   btnEditor.Visible := False;
+  imgSetting.Visible := True;
 //  btnTerminate.Visible := False;
 
   if theClient.IsController then
@@ -347,6 +350,7 @@ begin
     btnStart.Visible := True;
     btnConnect.Visible := True;
     btnEditor.Visible := True;
+    imgSetting.Visible := False;
 //    btnTerminate.Visible := True;
   end;
 end;
@@ -426,6 +430,9 @@ begin
   lblConsoleName.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
   lblConsoleName.Top := (pnlBackground.Height-lblConsoleName.Height)div 4;
 
+  lblRole.Left := (pnlBackground.Width-lblConsoleName.Width)div 2;
+  lblRole.Top := (pnlBackground.Height-lblConsoleName.Height)div 10;
+
   pnlButton.Left := (pnlBackground.Width-pnlButton.Width)div 2;
 
   tempTop := (pnlBackground.Height-pnlButton.Height)div 4;
@@ -469,6 +476,24 @@ begin
      FAppReplay.Terminates;
 
   FAppReplay.Free;
+end;
+
+procedure TfrmMainGC.FormShow(Sender: TObject);
+var
+  FileName: string;
+begin
+  {ExtractFile dari Folder}
+  FileName := ExtractFilePath(ParamStr(0)) + 'Setting.ini';
+  if LoadFF_GameSetting(FileName, vGameDataSetting) then
+  begin
+    case vGameDataSetting.Role of
+        0: lblrole.Caption := 'Plotter';
+        1: lblrole.Caption := 'Navigasi';
+        2: lblrole.Caption := 'Atas Air';
+        3: lblrole.Caption := 'BawahAir';
+        4: lblrole.Caption := 'General';
+    end;
+  end;
 end;
 
 procedure TfrmMainGC.imgCloseClick(Sender: TObject);
