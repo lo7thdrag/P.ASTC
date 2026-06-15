@@ -1,9 +1,9 @@
-object frmRight: TfrmRight
+object frmLeft: TfrmLeft
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'frmRight'
-  ClientHeight = 543
+  Caption = 'frmLeft'
+  ClientHeight = 870
   ClientWidth = 150
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,18 +12,16 @@ object frmRight: TfrmRight
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object pnlContainer: TPanel
+  object pnlContent: TPanel
     Left = 0
     Top = 0
     Width = 150
-    Height = 543
+    Height = 870
     Align = alClient
     BevelOuter = bvNone
-    Color = 141979
-    ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 114
   end
 end

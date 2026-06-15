@@ -841,6 +841,12 @@ type
     procedure DisplayTabDetail(Sender: TObject);
     procedure DisplayTabDetection(Sender: TObject);
     procedure DisplayTabIFF(Sender: TObject);
+
+    procedure SetUpPlotterUI;
+    procedure SetUpNavigasiUI;
+//    procedure SetUpPlotterUI;
+//    procedure SetUpPlotterUI;
+//    procedure SetUpPlotterUI;
   public
     { Public declarations }
     focusedTrack: TSimObject;
@@ -933,7 +939,9 @@ uses
   uLibSettingTTT, uGamePlayType, DateUtils, uT3Radar, uDataTypes, uT3Gun,
   uFormationEditorForm, uT3Sonar, uT3OtherSensor, ufrmNGSGunSetup,
   uT3Sonobuoy, uSnapshotDLG, ufmDetailPlan, uT3HybridOnVehicle, uT3Visual, uWaypointEditor,
-  uT3Mine;
+  uT3Mine,
+
+  ufrmTop, ufrmRight, ufrmLeft, ufrmBottom;
 {$R *.dfm}
 
 const
@@ -3825,7 +3833,38 @@ begin
         cbAssumeControl.Items.Clear;
       end;
     crpCubicle:
-      begin
+      begin  {0:Poltter; 1:Navigasi; 2:Atas Air; 3:BawahAir; 4:General}
+        case vGameDataSetting.Role of
+          0:
+          begin
+            {$REGION ' Plotter '}
+            SetUpPlotterUI;
+            {$ENDREGION}
+          end;
+          1:
+          begin
+            {$REGION ' Navigasi '}
+            SetUpNavigasiUI;
+            {$ENDREGION}
+          end;
+          2:
+          begin
+            {$REGION ' Atas Air '}
+            {$ENDREGION}
+          end;
+          3:
+          begin
+            {$REGION ' BawahAir '}
+            {$ENDREGION}
+          end;
+          4:
+          begin
+            {$REGION ' General '}
+            {$ENDREGION}
+          end;
+        end;
+
+
         ToolButton27.Hide;
         ToolButton31.Hide;
         ToolButton35.Hide;
@@ -3838,7 +3877,7 @@ begin
         ToolBtnAnnotate.Hide;
         ToolBtnFind.Hide;
         ToolBtnSnapshot.Hide;
-		
+
         ToolBtnRemovePlatformOrTrack.Hide;    //mk
 		    fmPlatformGuidance1.mnReturntoBase1.Enabled := False;
 
@@ -3900,6 +3939,27 @@ begin
 
   fPictureCentreSettings.FormStyle := fsStayOnTop;
   fPictureCentreSettings.Show;
+end;
+
+procedure TfrmTacticalDisplay.SetUpNavigasiUI;
+begin
+  pnlTop.Visible := False;
+  pnlBottom.Visible := False;
+  pnlLeft.Visible := False;
+
+  frmTop.Show;
+  frmTop.align := alTop;
+  frmLeft.Show;
+  frmLeft.align := alLeft;
+  frmRight.Show;
+  frmRight.align := alRight;
+  frmBottom.Show;
+  frmBottom.align := alBottom;
+end;
+
+procedure TfrmTacticalDisplay.SetUpPlotterUI;
+begin
+//
 end;
 
 procedure TfrmTacticalDisplay.Split1Click(Sender: TObject);
