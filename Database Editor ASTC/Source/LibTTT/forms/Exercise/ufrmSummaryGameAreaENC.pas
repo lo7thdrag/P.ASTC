@@ -10,16 +10,15 @@ uses
 
 type
   TfrmSummaryGameAreaENC = class(TForm)
-    ImageList1: TImageList;
+    ilToolbar: TImageList;
     pnlMainBackground: TPanel;
     pnl2Editor: TPanel;
     pnl3Map: TPanel;
     pnlToolBar: TPanel;
     pnlAlignToolBar: TPanel;
     pnl4Bottom: TPanel;
-    Panel1: TPanel;
     pnlSparatorHor1: TPanel;
-    pnlVertical1: TPanel;
+    pnlVertical2: TPanel;
     ToolBar1: TToolBar;
     btnDecreaseScale: TToolButton;
     cbbScale: TComboBox;
@@ -39,12 +38,18 @@ type
     pnlListMap: TPanel;
     chklstArea: TCheckListBox;
     pnl1Header: TPanel;
-    pnl3: TPanel;
+    imgBackground: TImage;
+    pnl3SparatorHor1: TPanel;
+    pnlVertical1: TPanel;
+    pnlVertical3: TPanel;
+    pnlGameAreaEditor: TPanel;
+    pnlIdentification: TPanel;
     lblName: TLabel;
     edtName: TEdit;
+    pnlCaption: TPanel;
     lbl2: TLabel;
     lblWidth: TLabel;
-    imgBackground: TImage;
+    pnl2SparatorHor1: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -967,18 +972,20 @@ begin
   if lblWidth.Caption = '>>>' then
   begin
     lblWidth.Caption := '<<<';
-    lblWidth.Left := 662;
+//    lblWidth.Left := 662;
     pnl2Editor.Width := 700;
-    edtSearch.Width := 630;
+    edtSearch.Width := 619;
+    edtName.Width := 680;
 
     pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
   end
   else
   begin
     lblWidth.Caption := '>>>';
-    lblWidth.Left := 347;
+//    lblWidth.Left := 347;
     pnl2Editor.Width := 385;
-    edtSearch.Width := 315;
+    edtSearch.Width := 304;
+    edtName.Width := 365;
 
     pnlAlignToolBar.Width := round((pnlToolBar.Width - 219) / 2);
   end;

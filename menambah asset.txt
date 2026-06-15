@@ -18,3 +18,7 @@ RPL
 
 - exercise belum dicek semua
 - vehicle belum dicek semua
+
+- cursor belum Kembali normal saat select platvorm pada form deployment
+- cursor zoom harusnya menggambar kotak daerah yang di zoom pada form deployment
+- menambah tool layer map pada setiap tampilan form map

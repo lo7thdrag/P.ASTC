@@ -81,6 +81,15 @@ const
   C_NauticalMile_To_Yard = 2025.37183;
   C_KiloMetre_To_NauticalMile = 0.53996;
   C_Yard_To_NauticalMile = 0.0004937;
+  C_Feet_To_Meter = 0.3048;
+  C_Meter_To_Feet = 3.281;
+  C_Meter_To_NauticalMile = 1 / C_NauticalMile_To_Metre;
+  C_Meter_To_Degree = C_Meter_To_NauticalMile * C_NauticalMile_To_Degree;
+  C_Degree_To_Meter = 111319.49081869110446433493412896;
+  C_Degree_To_Feet = C_Degree_To_NauticalMile * C_NauticalMile_To_Feet;
+  C_MS_To_KNOTS = 1.9438449412;
+  C_Gravitasi = 9.807;
+  C_KNOTS_To_MS = 0.5144444;
 
 implementation
 
