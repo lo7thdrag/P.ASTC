@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
   Vcl.StdCtrls,
 
-  uLibSettingTTT;
+  uLibSettingTTT, ufMainGC;
 
 type
   TfrmRoleSetting = class(TForm)
@@ -54,6 +54,7 @@ procedure TfrmRoleSetting.btnOKClick(Sender: TObject);
 begin
   vGameDataSetting.Role := cbbRole.ItemIndex;
   SaveFF_GameSetting(vSettingFile, vGameDataSetting);
+  frmMainGC.lblrole.Caption := cbbRole.Text;
 
   Close
 end;

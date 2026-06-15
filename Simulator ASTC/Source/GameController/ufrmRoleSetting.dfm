@@ -24,9 +24,6 @@ object frmRoleSetting: TfrmRoleSetting
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = -152
-    ExplicitWidth = 470
-    ExplicitHeight = 451
     object imgBackground: TImage
       Left = 0
       Top = 0
@@ -4355,8 +4352,6 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
-      ExplicitLeft = 266
-      ExplicitTop = 169
     end
     object btnCancel: TButton
       Left = 208
@@ -4375,8 +4370,6 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
-      ExplicitLeft = 349
-      ExplicitTop = 169
     end
   end
 end

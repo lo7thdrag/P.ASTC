@@ -1,32 +1,29 @@
-object frmRight: TfrmRight
+object frmLeft: TfrmLeft
   Left = 0
   Top = 0
-  Align = alRight
   BorderStyle = bsNone
-  Caption = 'frmRight'
+  Caption = 'frmLeft'
   ClientHeight = 870
   ClientWidth = 120
-  Color = clCream
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object pnlContainer: TPanel
+  object pnlContent: TPanel
     Left = 0
     Top = 0
     Width = 120
     Height = 870
     Align = alClient
     BevelOuter = bvNone
-    Color = clSkyBlue
+    Color = clRed
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 150
-    ExplicitHeight = 543
+    ExplicitWidth = 114
   end
 end

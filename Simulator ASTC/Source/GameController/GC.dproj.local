@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899-12-30 00:00:00.000.pas,D:\datasam\project\T3Cvs\T3Ver.02\tttGameController\Unit1.pas=D:\datasam\project\T3Cvs\T3Ver.02\tttReplay\uSnapshotGCData.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,D:\datasam\project\T3Cvs\T3Ver.02\tttReplay\uSnapshotGCData.pas=D:\datasam\project\T3Cvs\T3Ver.02\tttGameController\Unit1.pas</Transaction>
+    <Transaction>2026-06-15 12:50:22.522,=D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\GameController\ufrmRoleSetting.pas</Transaction>
   </Transactions>
 </BorlandProject>

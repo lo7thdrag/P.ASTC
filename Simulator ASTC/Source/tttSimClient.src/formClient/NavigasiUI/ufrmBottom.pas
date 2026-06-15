@@ -1,13 +1,13 @@
-unit ufrmTop;
+unit ufrmBottom;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, RzBmpBtn, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
 
 type
-  TfrmTop = class(TForm)
+  TfrmBottom = class(TForm)
     Panel1: TPanel;
   private
     { Private declarations }
@@ -16,14 +16,10 @@ type
   end;
 
 var
-  frmTop: TfrmTop;
+  frmBottom: TfrmBottom;
 
 implementation
 
-uses
-  ufTacticalDisplay, ufrmRight;
-
 {$R *.dfm}
-
 
 end.

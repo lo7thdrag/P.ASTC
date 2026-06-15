@@ -197,7 +197,7 @@ const
 function getFileSetting: string;
 begin
 //  result := ChangeFileExt(ParamStr(0), '.ini');
-  result := ExtractFilePath(ParamStr(0)) + 'tttsetting.ini';
+  result := ExtractFilePath(ParamStr(0)) + 'Setting.ini';
 end;
 //==============================================================================
 
