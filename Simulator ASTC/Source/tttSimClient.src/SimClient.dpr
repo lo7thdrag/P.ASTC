@@ -196,7 +196,8 @@ uses
   ufrmRight in 'formClient\NavigasiUI\ufrmRight.pas' {frmRight},
   ufrmTop in 'formClient\NavigasiUI\ufrmTop.pas' {frmTop},
   ufrmLeft in 'formClient\NavigasiUI\ufrmLeft.pas' {frmLeft},
-  ufrmBottom in 'formClient\NavigasiUI\ufrmBottom.pas' {frmBottom};
+  ufrmBottom in 'formClient\NavigasiUI\ufrmBottom.pas' {frmBottom},
+  ufrmRight2 in 'formClient\NavigasiUI\ufrmRight2.pas' {frmRight2};
 
 {$R *.res}
 
@@ -225,6 +226,7 @@ begin
   Application.CreateForm(TfrmTop, frmTop);
   Application.CreateForm(TfrmLeft, frmLeft);
   Application.CreateForm(TfrmBottom, frmBottom);
+  Application.CreateForm(TfrmRight2, frmRight2);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 

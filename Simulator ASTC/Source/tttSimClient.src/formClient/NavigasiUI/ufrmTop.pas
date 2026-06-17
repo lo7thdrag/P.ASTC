@@ -9,6 +9,10 @@ uses
 type
   TfrmTop = class(TForm)
     Panel1: TPanel;
+    cbSetScale: TComboBox;
+    btnIncreaseScale: TRzBmpButton;
+    btnDecreaseScale: TRzBmpButton;
+    btnSelect: TRzBmpButton;
   private
     { Private declarations }
   public
