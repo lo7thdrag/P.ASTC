@@ -18,7 +18,9 @@ uses
   {Hambali uDynamicOverlay,}uOverlayTemplateEditor, uDrawOverlay, ufmMapWindow, ufmSensor,
   ufmPlatformGuidance, ufmControlled, ufmOwnShip,
   uChangeSonobuoyDepth, uChangeSonobuoyEndurance, uTransferSonobuoy,
-  uChangeTorpedoDepth, uChangeTorpedoCourse, uT3DataLink, System.ImageList, CommCtrl ;
+  uChangeTorpedoDepth, uChangeTorpedoCourse, uT3DataLink, System.ImageList, CommCtrl ,
+
+  ufrmRightToolsPlotter, ufrmLeftToolsPlotter, ufrmTopPlotter, uTMapTouch2;
 
 type
 
@@ -842,11 +844,8 @@ type
     procedure DisplayTabDetection(Sender: TObject);
     procedure DisplayTabIFF(Sender: TObject);
 
-    procedure SetUpPlotterUI;
+//    procedure SetUpPlotterUI;
     procedure SetUpNavigasiUI;
-//    procedure SetUpPlotterUI;
-//    procedure SetUpPlotterUI;
-//    procedure SetUpPlotterUI;
   public
     { Public declarations }
     focusedTrack: TSimObject;
@@ -859,6 +858,8 @@ type
     FRangeRingOnHook: Boolean;
     FHookOnPlatform: Boolean;
     isStatusMerge: Boolean;
+
+      Map1 : TMapXTouch;
 
     procedure Initialize;
 
@@ -908,6 +909,8 @@ type
     procedure addStatus_Yellow(status: String);
     procedure RefreshTracks;
     procedure RemoveListandForm(ctrlObj: TObject);
+
+    procedure SetUpPlotterUI;
 
     function setFocusedESMTrack(isDown : Boolean; mx, my : Double) : Boolean;
     function IsFireControlActivated : Boolean; //cek apakah fire ada salah satu fire control yang aktif
@@ -3562,9 +3565,53 @@ end;
 
 procedure TfrmTacticalDisplay.OnHookedTrack2Click(Sender: TObject);
 begin
-  if Assigned(focusedTrack) and (focusedTrack is TT3Unit) then
-    VSimMap.SetMapCenter(TT3Unit(focusedTrack).getPositionX,
-      TT3Unit(focusedTrack).getPositionY);
+   OnGameCentre1.Checked := False;
+  Pan1.Checked := False;
+  FHookOnPlatform := not FHookOnPlatform;
+  if Sender is TMenuItem then
+  begin
+    if ToolBtnCentreOnHook.Down then
+    begin
+      ToolBtnCentreOnHook.Down := False;
+      OnHookedTrack2.Checked := False;
+    end
+    else
+    begin
+      ToolBtnCentreOnHook.Down := True;
+      ToolBtnCentreOnGameCentre.Down := False;
+//      btnPan.Down := False;
+      StatusBar1.Panels[0].Text := TMenuItem(Sender).Hint;
+      OnHookedTrack2.Checked := True;
+//      if Assigned(focusedTrack) and (focusedTrack is TT3Unit) then
+//      begin
+//        VSimMap.SetMapCenter(TT3Unit(focusedTrack).getPositionX,
+//          TT3Unit(focusedTrack).getPositionY);
+//        FLastMapCenterY := TT3Unit(focusedTrack).getPositionY;
+//        FLastMapCenterX := TT3Unit(focusedTrack).getPositionX;
+//      end;
+      if FHookOnPlatform then
+      begin
+        try
+          simMgrClient.MyCenterHookedPlatfom := focusedTrack;
+
+          VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX,
+                simMgrClient.MyCenterHookedPlatfom.getPositionY);
+          FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
+          FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
+          OnHookedTrack2.Checked := True;
+          Pan1.Checked := False;
+          ToolBtnPan.Down := False;
+          Map1.CurrentTool := mtSelectObject;
+        except
+          focusedTrack := nil;
+          simMgrClient.MyCenterHookedPlatfom := nil;
+        end;
+      end
+    end;
+  end;
+//  if Assigned(focusedTrack) and (focusedTrack is TT3Unit) then
+//    VSimMap.SetMapCenter(TT3Unit(focusedTrack).getPositionX,
+//      TT3Unit(focusedTrack).getPositionY);
 end;
 
 procedure TfrmTacticalDisplay.OnRadarBtnClick(Sender: TObject);
@@ -3947,19 +3994,60 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible := False;
 
-  frmTop.Show;
-  frmTop.align := alTop;
   frmLeft.Show;
   frmLeft.align := alLeft;
   frmRight.Show;
   frmRight.align := alRight;
   frmBottom.Show;
+  frmTop.Show;
+  frmTop.align := alTop;
   frmBottom.align := alBottom;
 end;
 
 procedure TfrmTacticalDisplay.SetUpPlotterUI;
-begin
-//
+  begin
+  pnlTop.Hide;
+  pnlLeft.Hide;
+  pnlTop.Hide;
+//  pnlMenubar.Hide;
+
+  StatusBar1.Visible := False;
+  pnlStatusRed.Visible := False;
+  pnlStatusYellow.Visible := False;
+  Label22.Visible := False;
+
+  frmTopPlotter := TfrmTopPlotter.Create(nil);
+  frmTopPlotter.Parent := Self;
+//  frmRightToolsPlotter.align := alRight;
+  frmTopPlotter.pnlContent.Visible := False;
+  frmTopPlotter.Left := Screen.Width - 26;
+  frmTopPlotter.Show;
+
+  frmRightToolsPlotter := TfrmRightToolsPlotter.Create(nil);
+  frmRightToolsPlotter.Parent := Self;
+//  frmRightToolsPlotter.align := alRight;
+  frmRightToolsPlotter.pnlContent.Visible := False;
+  frmRightToolsPlotter.Show;
+
+  frmLeftToolsPlotter := TfrmLeftToolsPlotter.Create(nil);
+  frmLeftToolsPlotter.Parent := Self;
+//  frmLeftToolsPlotter.align := alLeft;
+  frmLeftToolsPlotter.pnlContent.Visible := False;
+  frmLeftToolsPlotter.Show;
+
+  Menu := nil;
+
+  // default full screen
+  tbtnFullScreenClick(nil);
+
+  Panel1.Color := StringToColor('$002F2C2B');
+  Panel1.Font.Color := clBtnFace;
+
+  pnlBottom.Color := StringToColor('$002F2C2B');
+
+  pnlBottom.BevelInner := bvNone;
+  pnlBottom.BevelKind := bkNone;
+  pnlBottom.BevelOuter := bvNone;
 end;
 
 procedure TfrmTacticalDisplay.Split1Click(Sender: TObject);
@@ -4756,10 +4844,22 @@ end;
 
 procedure TfrmTacticalDisplay.ToolBtnOptionsClick(Sender: TObject);
 begin
-  if focusedTrack <> nil then
+   if (Sender is TMenuItem){ or (Sender = nil)} then
+  begin
+    if ToolBtnOptions.Down then
+      ToolBtnOptions.Down := False
+    else
+      ToolBtnOptions.Down := True;
+  end;
+
+  if (ToolBtnOptions.Down) then
   begin
     fmMapWindow1.Map.CurrentTool := mtAnchorTool;
     fSettingCoordinate.Show;
+  end
+  else
+  begin
+    fSettingCoordinate.Hide;
   end;
 
   if fmMapWindow1.Map.CurrentTool = mtAnchorTool then

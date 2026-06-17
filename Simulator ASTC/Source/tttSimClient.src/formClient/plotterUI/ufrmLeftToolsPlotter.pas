@@ -48,7 +48,7 @@ var
 implementation
 
 uses ufTacticalDisplay, uSimMgr_Client,
-  uMapXHandler, MapXLib_TLB, Math, tttData, uBrowseMap, uRuler;
+  uMapXHandler, MapXLib_TLB, Math, tttData, uRuler{uBrowseMap};
 
 const
   CMin_Z = 0;
@@ -94,13 +94,13 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnAirMapClick(Sender: TObject);
 begin
-  simMgrClient.SwitchMap(1);
+//  simMgrClient.SwitchMap(1);
 
 end;
 
 procedure TfrmLeftToolsPlotter.btnBrowseMapClick(Sender: TObject);
 begin
-  frmBrowseMap.Show;
+//  frmBrowseMap.Show;
 end;
 
 procedure TfrmLeftToolsPlotter.btnCenterGameClick(Sender: TObject);
@@ -137,8 +137,8 @@ begin
 
         VSimMap.SetMapCenter(simMgrClient.MyCenterHookedPlatfom.getPositionX,
               simMgrClient.MyCenterHookedPlatfom.getPositionY);
-        FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
-        FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
+//        FLastMapCenterY := simMgrClient.MyCenterHookedPlatfom.getPositionY;
+//        FLastMapCenterX := simMgrClient.MyCenterHookedPlatfom.getPositionX;
       except
         focusedTrack := nil;
         simMgrClient.MyCenterHookedPlatfom := nil;
@@ -186,7 +186,7 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnLandMapClick(Sender: TObject);
 begin
-  simMgrClient.SwitchMap(2);
+//  simMgrClient.SwitchMap(2);
 
 end;
 
@@ -197,11 +197,11 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnOptionsClick(Sender: TObject);
 begin
-  if frmTacticalDisplay.btnOptions.Down then
-      frmTacticalDisplay.btnOptions.Down := False
+  if frmTacticalDisplay.ToolBtnOptions.Down then
+      frmTacticalDisplay.ToolBtnOptions.Down := False
     else
-      frmTacticalDisplay.btnOptions.Down := True;
-  frmTacticalDisplay.btnOptionsClick(nil)
+      frmTacticalDisplay.ToolBtnOptions.Down := True;
+  frmTacticalDisplay.ToolBtnOptionsClick(nil)
 end;
 
 procedure TfrmLeftToolsPlotter.btnPanClick(Sender: TObject);
@@ -257,12 +257,12 @@ begin
       StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
 
       frmRuler.Show;
-
-      {Untuk mengembalikan tomol pan ke semula}
+//
+//      {Untuk mengembalikan tomol pan ke semula}
       btnPan.Down := False;
       Map1.IsPan := True;
-//      simMgrClient.LineVisual.Visible := True;
-//      simMgrClient.LineVisual.ShowRangeBearing := True;
+////      simMgrClient.LineVisual.Visible := True;
+////      simMgrClient.LineVisual.ShowRangeBearing := True;
     end
     else
     begin
@@ -278,7 +278,7 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnSeaMapClick(Sender: TObject);
 begin
-  simMgrClient.SwitchMap(3);
+//  simMgrClient.SwitchMap(3);
 end;
 
 procedure TfrmLeftToolsPlotter.btnToolClick(Sender: TObject);

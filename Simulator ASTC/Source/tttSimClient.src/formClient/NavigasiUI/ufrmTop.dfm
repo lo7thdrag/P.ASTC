@@ -4,7 +4,7 @@ object frmTop: TfrmTop
   BorderStyle = bsNone
   Caption = 'frmTop'
   ClientHeight = 56
-  ClientWidth = 1161
+  ClientWidth = 1826
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object frmTop: TfrmTop
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1161
+    Width = 1826
     Height = 56
     Align = alClient
     BevelOuter = bvNone
@@ -30,9 +30,152 @@ object frmTop: TfrmTop
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
+    object lbl1: TLabel
+      Left = 655
+      Top = 9
+      Width = 87
+      Height = 16
+      Caption = 'CHART SCALE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 655
+      Top = 31
+      Width = 78
+      Height = 16
+      Caption = 'VIEW SCALE'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblChartScale: TLabel
+      Left = 755
+      Top = 9
+      Width = 18
+      Height = 16
+      Caption = '---'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblViewScale: TLabel
+      Left = 755
+      Top = 31
+      Width = 18
+      Height = 16
+      Caption = '---'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 841
+      Top = 9
+      Width = 25
+      Height = 16
+      Caption = 'COG'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 1009
+      Top = 9
+      Width = 25
+      Height = 16
+      Caption = 'SOG'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 896
+      Top = 16
+      Width = 24
+      Height = 23
+      Caption = '---'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 1064
+      Top = 16
+      Width = 24
+      Height = 23
+      Caption = '---'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 1125
+      Top = 21
+      Width = 16
+      Height = 16
+      Caption = 'Kn'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 1192
+      Top = 9
+      Width = 30
+      Height = 16
+      Caption = 'TIME'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblTime: TLabel
+      Left = 1203
+      Top = 25
+      Width = 24
+      Height = 23
+      Caption = '---'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object cbSetScale: TComboBox
-      Left = 495
-      Top = 13
+      Left = 364
+      Top = 12
       Width = 174
       Height = 32
       Hint = 'Select Scale'
@@ -45,8 +188,8 @@ object frmTop: TfrmTop
       TabOrder = 0
     end
     object btnIncreaseScale: TRzBmpButton
-      Left = 460
-      Top = 14
+      Left = 328
+      Top = 13
       Width = 30
       Hint = ' Increase Scale'
       Bitmaps.TransparentColor = clOlive
@@ -151,8 +294,8 @@ object frmTop: TfrmTop
       TabOrder = 1
     end
     object btnDecreaseScale: TRzBmpButton
-      Left = 674
-      Top = 14
+      Left = 540
+      Top = 13
       Width = 30
       Hint = 'Decrease Scale'
       Bitmaps.TransparentColor = clOlive
@@ -257,8 +400,8 @@ object frmTop: TfrmTop
       TabOrder = 2
     end
     object btnSelect: TRzBmpButton
-      Left = 710
-      Top = 14
+      Left = 574
+      Top = 13
       Width = 30
       Hint = 'Decrease Scale'
       Bitmaps.TransparentColor = clOlive
@@ -362,5 +505,45 @@ object frmTop: TfrmTop
       ParentFont = False
       TabOrder = 3
     end
+    object pnl1: TPanel
+      Left = 629
+      Top = 0
+      Width = 1
+      Height = 57
+      TabOrder = 4
+    end
+    object Panel2: TPanel
+      Left = 815
+      Top = -1
+      Width = 1
+      Height = 57
+      TabOrder = 5
+    end
+    object Panel4: TPanel
+      Left = 983
+      Top = -1
+      Width = 1
+      Height = 57
+      TabOrder = 6
+    end
+    object Panel3: TPanel
+      Left = 1166
+      Top = -1
+      Width = 1
+      Height = 57
+      TabOrder = 7
+    end
+    object Panel5: TPanel
+      Left = 1311
+      Top = -1
+      Width = 1
+      Height = 57
+      TabOrder = 8
+    end
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 1272
+    Top = 16
   end
 end

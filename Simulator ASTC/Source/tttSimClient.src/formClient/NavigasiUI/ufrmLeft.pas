@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, RzBmpBtn,
   Vcl.Imaging.pngimage, VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series,
-  VCLTee.TeeProcs, VCLTee.Chart, VrControls, VrWheel, Vcl.StdCtrls;
+  VCLTee.TeeProcs, VCLTee.Chart, VrControls, VrWheel, Vcl.StdCtrls, Vcl.ComCtrls,
+  VrMeter, AdvSmoothLabel;
 
 type
   TfrmLeft = class(TForm)
@@ -21,31 +22,33 @@ type
     lblLong: TLabel;
     lblHeading: TLabel;
     lblSpeed: TLabel;
-    Label9: TLabel;
-    lblWind: TLabel;
-    Label10: TLabel;
+    pnlEnvironment: TPanel;
+    pnlTemp: TPanel;
+    advsmthlbl5: TAdvSmoothLabel;
+    AdvSmoothLabel1: TAdvSmoothLabel;
     Label11: TLabel;
-    pnlRouteInformation: TPanel;
+    AdvSmoothLabel2: TAdvSmoothLabel;
+    tbTemp: TTrackBar;
+    edtWaterTemp: TEdit;
+    tbSeaState: TTrackBar;
+    edtSeaState: TEdit;
+    Panel2: TPanel;
     Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    lblTime: TLabel;
-    lblBearring: TLabel;
-    lblDist: TLabel;
-    lblTrack: TLabel;
+    VrWheel1: TVrWheel;
+    AdvSmoothLabel5: TAdvSmoothLabel;
+    AdvSmoothLabel6: TAdvSmoothLabel;
+    edtCurrentDirec: TEdit;
     Panel1: TPanel;
     lblTittle1: TLabel;
     vrwhlWindDirec: TVrWheel;
-    pnlDepthKet: TPanel;
-    Label12: TLabel;
-    chtDepth: TChart;
-    Series1: THorizBarSeries;
-    pnlDepth: TPanel;
-    lblDepthBellow: TLabel;
-    WindDirection: TPanel;
-    lblWindDirection: TLabel;
+    AdvSmoothLabel3: TAdvSmoothLabel;
+    AdvSmoothLabel4: TAdvSmoothLabel;
+    edtWindDirec: TEdit;
+    Label5: TLabel;
+    tbCurrentSpeed: TTrackBar;
+    edtCurrentSpeed: TEdit;
+    tbWindSpeed: TTrackBar;
+    edtWindSpeed: TEdit;
   private
     { Private declarations }
   public

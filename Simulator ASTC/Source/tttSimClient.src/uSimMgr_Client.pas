@@ -309,6 +309,9 @@ type
     FPatternMapping : TList;
     SubEnviArea : TSubEnvironmentArea;
 
+    //Temporary
+     DrawRuler : TDrawRuler;
+
     procedure DrawAll(aCnv: TCanvas);
     procedure OnMapChange(sender: TObject);
     procedure netSend_CmdPlatform(const pi_id: integer;

@@ -33,6 +33,8 @@ const
   mtEditOverlayStatic   = 109;
   mtAddOverlay      = 110;
 
+   mtRuler = 119;
+
   //choco
   mtEditWaypoint  = 111;
 
@@ -451,6 +453,11 @@ type
   //TMissileKind                = (msl_SS, msl_SA, msl_AA, msl_AS, msl_LA, msl_HM, msl_TM);
   TPopUpMode                  = (ppPopUP, ppSeaSkim);
   //TMissileAir_TargetingMethod = (MA_Direct, MA_AIMPOINT, MA_BEARING);
+
+   TDSiWindowsVersion = (wvUnknown, wvWin31, wvWin95, wvWin95OSR2, wvWin98,
+    wvWin98SE, wvWinME, wvWin9x, wvWinNT3, wvWinNT4, wvWin2000, wvWinXP,
+    wvWinNT, wvWinServer2003, wvWinVista);
+
 
   TOnWaypointChange = procedure (id : Integer) of object; //choco
   TOnNextWaypointChange = procedure (WaypointID, aShipID: Integer;

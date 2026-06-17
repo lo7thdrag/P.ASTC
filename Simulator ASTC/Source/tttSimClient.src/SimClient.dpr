@@ -197,7 +197,15 @@ uses
   ufrmTop in 'formClient\NavigasiUI\ufrmTop.pas' {frmTop},
   ufrmLeft in 'formClient\NavigasiUI\ufrmLeft.pas' {frmLeft},
   ufrmBottom in 'formClient\NavigasiUI\ufrmBottom.pas' {frmBottom},
-  ufrmRight2 in 'formClient\NavigasiUI\ufrmRight2.pas' {frmRight2};
+  ufrmRight2 in 'formClient\NavigasiUI\ufrmRight2.pas' {frmRight2},
+  ufrmLeftPlotter in 'formClient\plotterUI\ufrmLeftPlotter.pas' {frmLeftPlotter},
+  ufrmLeftToolsPlotter in 'formClient\plotterUI\ufrmLeftToolsPlotter.pas' {frmLeftToolsPlotter},
+  ufrmRightPlotter in 'formClient\plotterUI\ufrmRightPlotter.pas' {frmRightPlotter},
+  ufrmRightToolsPlotter in 'formClient\plotterUI\ufrmRightToolsPlotter.pas' {frmRightToolsPlotter},
+  ufrmTopPlotter in 'formClient\plotterUI\ufrmTopPlotter.pas' {frmTopPlotter},
+  uTMapTouch2 in '..\LibTTT\uTMapTouch2.pas',
+  uRuler in '..\LibTTT\forms\uRuler.pas' {frmRuler},
+  ufrmKeyboard in 'formClient\plotterUI\ufrmKeyboard.pas' {frmKeyboard};
 
 {$R *.res}
 
@@ -227,6 +235,13 @@ begin
   Application.CreateForm(TfrmLeft, frmLeft);
   Application.CreateForm(TfrmBottom, frmBottom);
   Application.CreateForm(TfrmRight2, frmRight2);
+  Application.CreateForm(TfrmLeftPlotter, frmLeftPlotter);
+  Application.CreateForm(TfrmLeftToolsPlotter, frmLeftToolsPlotter);
+  Application.CreateForm(TfrmRightPlotter, frmRightPlotter);
+  Application.CreateForm(TfrmRightToolsPlotter, frmRightToolsPlotter);
+  Application.CreateForm(TfrmTopPlotter, frmTopPlotter);
+  Application.CreateForm(TfrmRuler, frmRuler);
+  Application.CreateForm(TfrmKeyboard, frmKeyboard);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 
