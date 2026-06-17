@@ -1391,10 +1391,10 @@ begin
   {$Region ' Set Zoom '}
   if btnZoomTool.Down then
   begin
-    FIsMouseDown := True;
-
-    FZoomRectStart := Point(X, Y);
-    FZoomRectEnd := Point(X, Y);
+//    FIsMouseDown := True;
+//
+//    FZoomRectStart := Point(X, Y);
+//    FZoomRectEnd := Point(X, Y);
   end;
   {$ENDREGION}
 
