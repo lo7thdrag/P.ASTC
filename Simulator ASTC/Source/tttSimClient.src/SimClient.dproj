@@ -440,6 +440,35 @@
             <Form>frmRight2</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="formClient\plotterUI\ufrmLeftPlotter.pas">
+            <Form>frmLeftPlotter</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\plotterUI\ufrmLeftToolsPlotter.pas">
+            <Form>frmLeftToolsPlotter</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\plotterUI\ufrmRightPlotter.pas">
+            <Form>frmRightPlotter</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\plotterUI\ufrmRightToolsPlotter.pas">
+            <Form>frmRightToolsPlotter</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\plotterUI\ufrmTopPlotter.pas">
+            <Form>frmTopPlotter</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\LibTTT\uTMapTouch2.pas"/>
+        <DCCReference Include="..\LibTTT\forms\uRuler.pas">
+            <Form>frmRuler</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\plotterUI\ufrmKeyboard.pas">
+            <Form>frmKeyboard</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_tttSimClient\default.txaPackage"/>
         <None Include="ModelSupport_tttSimClient\uFormationEditorForm\default.txvpck"/>
         <None Include="ModelSupport_tttSimClient\ufTacticalDisplay\default.txvpck"/>
@@ -590,13 +619,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uT3UnitContainer\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uGameData_TTT\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uT3Sensor\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uT3UnitContainer\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -608,7 +637,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uGameData_TTT\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uT3Sensor\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
