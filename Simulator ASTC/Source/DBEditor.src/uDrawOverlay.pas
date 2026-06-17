@@ -65,6 +65,27 @@ type
     property Converter : TCoordConverter read FConverter write SetConverter;
   end;
 
+  TDrawRuler = class
+  private
+    FConverter: TCoordConverter;
+    procedure SetConverter(const Value: TCoordConverter);
+
+  protected
+
+  public
+    postStart : t2DPoint;
+    postEnd : t2DPoint;
+    IsVisible : Boolean;
+
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure Clear;
+    procedure Draw(FCanvas: TCanvas);
+
+    property Converter : TCoordConverter read FConverter write SetConverter;
+  end;
+
 implementation
 {$IFDEF CLIENT}
 uses
@@ -1660,6 +1681,34 @@ begin
 end;
 
 procedure TDrawFlagPoint.SetConverter(const Value: TCoordConverter);
+begin
+  FConverter := Value;
+end;
+
+{ TDrawRuler }
+
+procedure TDrawRuler.Clear;
+begin
+
+end;
+
+constructor TDrawRuler.Create;
+begin
+
+end;
+
+destructor TDrawRuler.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TDrawRuler.Draw(FCanvas: TCanvas);
+begin
+
+end;
+
+procedure TDrawRuler.SetConverter(const Value: TCoordConverter);
 begin
   FConverter := Value;
 end;

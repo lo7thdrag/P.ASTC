@@ -6,7 +6,7 @@ interface
 
 uses
 
-  uDataTypes, Windows, SysUtils;
+  uDataTypes, Windows, SysUtils, tttData;
 
 type
   TPointBOL = record
@@ -89,6 +89,9 @@ type
   // Tambahan
   function CalcPositionAhead(const ptOrg: t2DPoint; const aRange, aDirection: double ) : t2DPoint;
   {nautical mile, Cartesian}
+
+   //get win version
+  function DSiGetWindowsVersion: TDSiWindowsVersion;
 
   function GetFormatSettings(): TFormatSettings;
 const
@@ -193,6 +196,50 @@ begin
     result := deltaR <= radius;
   end;
 end;
+
+function DSiGetWindowsVersion: TDSiWindowsVersion;
+var
+  versionInfo: TOSVersionInfo;
+begin
+  versionInfo.dwOSVersionInfoSize := SizeOf(versionInfo);
+  GetVersionEx(versionInfo);
+  Result := wvUnknown;
+  case versionInfo.dwPlatformID of
+    VER_PLATFORM_WIN32s: Result := wvWin31;
+    VER_PLATFORM_WIN32_WINDOWS:
+      case versionInfo.dwMinorVersion of
+        0:
+          if Trim(versionInfo.szCSDVersion[1]) = 'B' then
+            Result := wvWin95OSR2
+          else
+            Result := wvWin95;
+        10:
+          if Trim(versionInfo.szCSDVersion[1]) = 'A' then
+            Result := wvWin98SE
+          else
+            Result := wvWin98;
+        90:
+          if (versionInfo.dwBuildNumber = 73010104) then
+             Result := wvWinME;
+      else
+        Result := wvWin9x;
+      end; //case versionInfo.dwMinorVersion
+    VER_PLATFORM_WIN32_NT:
+      case versionInfo.dwMajorVersion of
+        3: Result := wvWinNT3;
+        4: Result := wvWinNT4;
+        5:
+          case versionInfo.dwMinorVersion of
+            0: Result := wvWin2000;
+            1: Result := wvWinXP;
+            2: Result := wvWinServer2003;
+          else
+            Result := wvWinNT
+          end; //case versionInfo.dwMinorVersion
+        6: Result := wvWinVista;
+      end; //case versionInfo.dwMajorVersion
+  end; //versionInfo.dwPlatformID
+end; { DSiGetWindowsVersion }
 
 // PointInPolygon() function
 function IsPointInPolygon(const x, y: Integer; x1, y1, x2, y2, x3, y3, x4,
