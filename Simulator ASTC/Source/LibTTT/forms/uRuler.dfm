@@ -6,7 +6,7 @@ object frmRuler: TfrmRuler
   Caption = 'Ruler'
   ClientHeight = 248
   ClientWidth = 279
-  Color = 996732
+  Color = 6111773
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -25,6 +25,9 @@ object frmRuler: TfrmRuler
     Top = 9
     Width = 256
     Height = 231
+    Color = 6111773
+    ParentBackground = False
+    ParentColor = False
     TabOrder = 0
     object btn1: TSpeedButton
       Tag = 1
