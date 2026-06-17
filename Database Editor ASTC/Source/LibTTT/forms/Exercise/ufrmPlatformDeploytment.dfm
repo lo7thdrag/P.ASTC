@@ -45566,6 +45566,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             TabWidth = 120
             object tsInitial: TTabSheet
               Caption = 'Initial'
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 0
+              ExplicitHeight = 0
               object Label3: TLabel
                 Left = 15
                 Top = 43
@@ -45947,6 +45951,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               Caption = 'Lateral'
               ImageIndex = 1
               TabVisible = False
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 0
+              ExplicitHeight = 0
               object Panel2: TPanel
                 Left = 0
                 Top = 43
@@ -48031,6 +48039,10 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               Caption = 'Vertical'
               ImageIndex = 2
               TabVisible = False
+              ExplicitLeft = 0
+              ExplicitTop = 0
+              ExplicitWidth = 0
+              ExplicitHeight = 0
               object lAltitude: TLabel
                 Left = 15
                 Top = 18
