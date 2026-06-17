@@ -44,6 +44,8 @@ object frmBottom: TfrmBottom
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitLeft = 32
+      ExplicitWidth = 1648
       DesignSize = (
         1680
         61)

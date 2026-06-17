@@ -3,8 +3,8 @@ object frmLeft: TfrmLeft
   Top = 0
   BorderStyle = bsNone
   Caption = 'frmLeft'
-  ClientHeight = 917
-  ClientWidth = 267
+  ClientHeight = 964
+  ClientWidth = 265
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,19 +17,19 @@ object frmLeft: TfrmLeft
   object pnlContent: TPanel
     Left = 0
     Top = 0
-    Width = 267
-    Height = 917
+    Width = 265
+    Height = 964
     Align = alClient
     BevelOuter = bvNone
     Color = 6111773
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 796
+    ExplicitHeight = 917
     object pnlNavigationBar: TPanel
       Left = 8
       Top = 0
       Width = 249
-      Height = 193
+      Height = 161
       BevelOuter = bvSpace
       Color = 6111773
       ParentBackground = False
@@ -89,9 +89,9 @@ object frmLeft: TfrmLeft
       object Label3: TLabel
         Left = 8
         Top = 109
-        Width = 28
+        Width = 86
         Height = 16
-        Caption = 'STW'
+        Caption = 'Actual Speed'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
         Font.Height = -13
@@ -151,202 +151,24 @@ object frmLeft: TfrmLeft
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label9: TLabel
-        Left = 8
-        Top = 132
-        Width = 76
-        Height = 16
-        Caption = 'Wind Speed'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblWind: TLabel
-        Left = 98
-        Top = 132
-        Width = 18
-        Height = 16
-        Caption = '---'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label10: TLabel
-        Left = 8
-        Top = 155
-        Width = 39
-        Height = 16
-        Caption = 'Depth'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label11: TLabel
-        Left = 98
-        Top = 155
-        Width = 18
-        Height = 16
-        Caption = '---'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-    end
-    object pnlRouteInformation: TPanel
-      Left = 8
-      Top = 201
-      Width = 249
-      Height = 140
-      Color = 6111773
-      ParentBackground = False
-      TabOrder = 1
-      object Label4: TLabel
-        Left = 8
-        Top = 5
-        Width = 120
-        Height = 21
-        Caption = 'Route Infomation'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -21
-        Font.Name = 'Deusex'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label5: TLabel
-        Left = 8
-        Top = 40
-        Width = 29
-        Height = 16
-        Caption = 'Time'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label6: TLabel
-        Left = 8
-        Top = 63
-        Width = 49
-        Height = 16
-        Caption = 'Bearing'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label7: TLabel
-        Left = 8
-        Top = 86
-        Width = 56
-        Height = 16
-        Caption = 'Distance'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label8: TLabel
-        Left = 8
-        Top = 109
-        Width = 84
-        Height = 16
-        Caption = 'Track Course'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblTime: TLabel
-        Left = 110
-        Top = 40
-        Width = 18
-        Height = 16
-        Caption = '---'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblBearring: TLabel
-        Left = 110
-        Top = 63
-        Width = 18
-        Height = 16
-        Caption = '---'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblDist: TLabel
-        Left = 110
-        Top = 86
-        Width = 18
-        Height = 16
-        Caption = '---'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object lblTrack: TLabel
-        Left = 110
-        Top = 108
-        Width = 18
-        Height = 16
-        Caption = '---'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
     end
     object Panel1: TPanel
       Left = 8
-      Top = 349
+      Top = 199
       Width = 249
-      Height = 182
+      Height = 309
       Color = 6111773
       ParentBackground = False
-      TabOrder = 2
+      TabOrder = 1
       DesignSize = (
         249
-        182)
+        309)
       object lblTittle1: TLabel
         Left = 8
         Top = 12
-        Width = 104
+        Width = 32
         Height = 21
-        Caption = 'Wind Direction'
+        Caption = 'Wind'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -21
@@ -356,7 +178,7 @@ object frmLeft: TfrmLeft
       end
       object vrwhlWindDirec: TVrWheel
         Left = 74
-        Top = 39
+        Top = 63
         Width = 100
         Height = 100
         MaxValue = 360
@@ -1312,104 +1134,270 @@ object frmLeft: TfrmLeft
           0000}
         Anchors = [akTop, akRight]
       end
-      object WindDirection: TPanel
-        Left = 160
-        Top = 144
-        Width = 85
+      object AdvSmoothLabel3: TAdvSmoothLabel
+        Left = 8
+        Top = 35
+        Width = 135
         Height = 33
-        BevelOuter = bvSpace
-        TabOrder = 0
-        object lblWindDirection: TLabel
-          Left = 36
-          Top = 10
-          Width = 15
-          Height = 21
-          Caption = '---'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -21
-          Font.Name = 'Deusex'
-          Font.Style = []
-          ParentFont = False
-        end
+        Fill.ColorMirror = clNone
+        Fill.ColorMirrorTo = clNone
+        Fill.GradientType = gtVertical
+        Fill.GradientMirrorType = gtSolid
+        Fill.BorderColor = clNone
+        Fill.Rounding = 0
+        Fill.ShadowOffset = 0
+        Fill.Glow = gmNone
+        Caption.Text = 'Wind Direction'
+        Caption.Location = plCenterLeft
+        Caption.Font.Charset = DEFAULT_CHARSET
+        Caption.Font.Color = clWindowText
+        Caption.Font.Height = -13
+        Caption.Font.Name = 'Tahoma'
+        Caption.Font.Style = [fsBold]
+        Caption.ColorStart = clSilver
+        Caption.ColorEnd = clWhite
+        CaptionShadow.Text = 'Wind Direction'
+        CaptionShadow.Font.Charset = DEFAULT_CHARSET
+        CaptionShadow.Font.Color = clWindowText
+        CaptionShadow.Font.Height = -27
+        CaptionShadow.Font.Name = 'Tahoma'
+        CaptionShadow.Font.Style = []
+        Version = '1.6.1.0'
+        Anchors = [akTop, akRight]
       end
-    end
-  end
-  object pnlDepthKet: TPanel
-    Left = 8
-    Top = 539
-    Width = 249
-    Height = 266
-    Color = 6111773
-    ParentBackground = False
-    TabOrder = 1
-    object Label12: TLabel
-      Left = 8
-      Top = 10
-      Width = 136
-      Height = 21
-      Caption = 'Depth Bellow Keel'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -21
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentFont = False
-    end
-    object chtDepth: TChart
-      Left = 1
-      Top = 48
-      Width = 247
-      Height = 217
-      BottomWall.Brush.Gradient.EndColor = 3947580
-      Gradient.EndColor = 6111773
-      Gradient.StartColor = 12492935
-      Gradient.Visible = True
-      Legend.Title.Visible = False
-      RightWall.Brush.Gradient.EndColor = 3947580
-      Title.Text.Strings = (
-        '')
-      LeftAxis.Automatic = False
-      LeftAxis.AutomaticMaximum = False
-      LeftAxis.AutomaticMinimum = False
-      LeftAxis.Grid.Visible = False
-      LeftAxis.Inverted = True
-      LeftAxis.Maximum = 20.000000000000000000
-      LeftAxis.Minimum = 12.000000000000000000
-      BevelOuter = bvNone
-      TabOrder = 0
-      DefaultCanvas = 'TGDIPlusCanvas'
-      ColorPaletteIndex = 13
-      object Series1: THorizBarSeries
-        BarBrush.Gradient.Direction = gdLeftRight
-        BarBrush.Gradient.EndColor = clBlack
-        Gradient.Direction = gdLeftRight
-        Gradient.EndColor = clBlack
-        XValues.Name = 'Bar'
-        XValues.Order = loNone
-        YValues.Name = 'Y'
-        YValues.Order = loAscending
+      object vrmSpeedWind: TVrMeter
+        Left = 8
+        Top = 204
+        Width = 234
+        Height = 97
+        Scale.Percent1 = 60
+        Scale.Ticks = 75
+        NeedleColor = 6111773
+        Bevel.BorderColor = 6111773
+        Bevel.InnerShadow = 6111773
+        Bevel.InnerHighlight = 6111773
+        Bevel.InnerWidth = 2
+        Bevel.InnerStyle = bsLowered
+        Bevel.InnerSpace = 1
+        Bevel.InnerColor = 6111773
+        Bevel.OuterShadow = 6111773
+        Bevel.OuterHighlight = 6111773
+        Bevel.OuterStyle = bsNone
+        Bevel.OuterOutline = osOuter
+        Bevel.OuterColor = 6111773
+        Spacing = 25
+        Caption = 'Knots'
+        Color = 6111773
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
       end
-    end
-    object pnlDepth: TPanel
-      Left = 160
-      Top = 5
-      Width = 85
-      Height = 33
-      BevelOuter = bvSpace
-      TabOrder = 1
-      object lblDepthBellow: TLabel
-        Left = 36
-        Top = 10
-        Width = 15
+      object AdvSmoothLabel4: TAdvSmoothLabel
+        Left = 8
+        Top = 167
+        Width = 135
+        Height = 33
+        Fill.ColorMirror = clNone
+        Fill.ColorMirrorTo = clNone
+        Fill.GradientType = gtVertical
+        Fill.GradientMirrorType = gtSolid
+        Fill.BorderColor = clNone
+        Fill.Rounding = 0
+        Fill.ShadowOffset = 0
+        Fill.Glow = gmNone
+        Caption.Text = 'Wind Speed'
+        Caption.Location = plCenterLeft
+        Caption.Font.Charset = DEFAULT_CHARSET
+        Caption.Font.Color = clWindowText
+        Caption.Font.Height = -13
+        Caption.Font.Name = 'Tahoma'
+        Caption.Font.Style = [fsBold]
+        Caption.ColorStart = clSilver
+        Caption.ColorEnd = clWhite
+        CaptionShadow.Text = 'Wind Speed'
+        CaptionShadow.Font.Charset = DEFAULT_CHARSET
+        CaptionShadow.Font.Color = clWindowText
+        CaptionShadow.Font.Height = -27
+        CaptionShadow.Font.Name = 'Tahoma'
+        CaptionShadow.Font.Style = []
+        Version = '1.6.1.0'
+        Anchors = [akTop, akRight]
+      end
+      object edtWindDirec: TEdit
+        Left = 201
+        Top = 142
+        Width = 41
         Height = 21
-        Caption = '---'
+        TabOrder = 0
+        Text = '0'
+      end
+    end
+    object pnlTemp: TPanel
+      Left = 4
+      Top = 700
+      Width = 249
+      Height = 251
+      TabOrder = 2
+      DesignSize = (
+        249
+        251)
+      object Label13: TLabel
+        Left = 8
+        Top = 8
+        Width = 76
+        Height = 21
+        Caption = 'Temperatur'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -21
         Font.Name = 'Deusex'
         Font.Style = []
         ParentFont = False
+      end
+      object advsmthlbl5: TAdvSmoothLabel
+        Left = 8
+        Top = 35
+        Width = 135
+        Height = 33
+        Fill.ColorMirror = clNone
+        Fill.ColorMirrorTo = clNone
+        Fill.GradientType = gtVertical
+        Fill.GradientMirrorType = gtSolid
+        Fill.BorderColor = clNone
+        Fill.Rounding = 0
+        Fill.ShadowOffset = 0
+        Fill.Glow = gmNone
+        Caption.Text = 'Water Temperature'
+        Caption.Location = plCenterLeft
+        Caption.Font.Charset = DEFAULT_CHARSET
+        Caption.Font.Color = clWindowText
+        Caption.Font.Height = -13
+        Caption.Font.Name = 'Tahoma'
+        Caption.Font.Style = [fsBold]
+        Caption.ColorStart = clSilver
+        Caption.ColorEnd = clWhite
+        CaptionShadow.Text = 'Water Temperature'
+        CaptionShadow.Font.Charset = DEFAULT_CHARSET
+        CaptionShadow.Font.Color = clWindowText
+        CaptionShadow.Font.Height = -27
+        CaptionShadow.Font.Name = 'Tahoma'
+        CaptionShadow.Font.Style = []
+        Version = '1.6.1.0'
+        Anchors = [akTop, akRight]
+      end
+      object AdvSmoothLabel1: TAdvSmoothLabel
+        Left = 8
+        Top = 130
+        Width = 135
+        Height = 33
+        Fill.ColorMirror = clNone
+        Fill.ColorMirrorTo = clNone
+        Fill.GradientType = gtVertical
+        Fill.GradientMirrorType = gtSolid
+        Fill.BorderColor = clNone
+        Fill.Rounding = 0
+        Fill.ShadowOffset = 0
+        Fill.Glow = gmNone
+        Caption.Text = 'Sea State'
+        Caption.Location = plCenterLeft
+        Caption.Font.Charset = DEFAULT_CHARSET
+        Caption.Font.Color = clWindowText
+        Caption.Font.Height = -13
+        Caption.Font.Name = 'Tahoma'
+        Caption.Font.Style = [fsBold]
+        Caption.ColorStart = clSilver
+        Caption.ColorEnd = clWhite
+        CaptionShadow.Text = 'Sea State'
+        CaptionShadow.Font.Charset = DEFAULT_CHARSET
+        CaptionShadow.Font.Color = clWindowText
+        CaptionShadow.Font.Height = -27
+        CaptionShadow.Font.Name = 'Tahoma'
+        CaptionShadow.Font.Style = []
+        Version = '1.6.1.0'
+        Anchors = [akTop, akRight]
+      end
+      object Label11: TLabel
+        Left = 98
+        Top = 224
+        Width = 8
+        Height = 16
+        Caption = '0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object AdvSmoothLabel2: TAdvSmoothLabel
+        Left = 8
+        Top = 216
+        Width = 57
+        Height = 33
+        Fill.ColorMirror = clNone
+        Fill.ColorMirrorTo = clNone
+        Fill.GradientType = gtVertical
+        Fill.GradientMirrorType = gtSolid
+        Fill.BorderColor = clNone
+        Fill.Rounding = 0
+        Fill.ShadowOffset = 0
+        Fill.Glow = gmNone
+        Caption.Text = 'Depth'
+        Caption.Location = plCenterLeft
+        Caption.Font.Charset = DEFAULT_CHARSET
+        Caption.Font.Color = clWindowText
+        Caption.Font.Height = -13
+        Caption.Font.Name = 'Tahoma'
+        Caption.Font.Style = [fsBold]
+        Caption.ColorStart = clSilver
+        Caption.ColorEnd = clWhite
+        CaptionShadow.Text = 'Depth'
+        CaptionShadow.Font.Charset = DEFAULT_CHARSET
+        CaptionShadow.Font.Color = clWindowText
+        CaptionShadow.Font.Height = -27
+        CaptionShadow.Font.Name = 'Tahoma'
+        CaptionShadow.Font.Style = []
+        Version = '1.6.1.0'
+        Anchors = [akTop, akRight]
+      end
+      object tbTemp: TTrackBar
+        Left = 8
+        Top = 63
+        Width = 233
+        Height = 29
+        Max = 100
+        Position = 30
+        TabOrder = 0
+      end
+      object edtWaterTemp: TEdit
+        Left = 193
+        Top = 96
+        Width = 41
+        Height = 21
+        TabOrder = 1
+        Text = '0'
+      end
+      object tbSeaState: TTrackBar
+        Left = 8
+        Top = 158
+        Width = 233
+        Height = 29
+        Max = 5
+        Min = 1
+        Position = 3
+        TabOrder = 2
+      end
+      object edtSeaState: TEdit
+        Left = 193
+        Top = 191
+        Width = 41
+        Height = 21
+        TabOrder = 3
+        Text = '0'
       end
     end
   end

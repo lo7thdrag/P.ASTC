@@ -3947,13 +3947,13 @@ begin
   pnlBottom.Visible := False;
   pnlLeft.Visible := False;
 
-  frmTop.Show;
-  frmTop.align := alTop;
   frmLeft.Show;
   frmLeft.align := alLeft;
   frmRight.Show;
   frmRight.align := alRight;
   frmBottom.Show;
+  frmTop.Show;
+  frmTop.align := alTop;
   frmBottom.align := alBottom;
 end;
 
