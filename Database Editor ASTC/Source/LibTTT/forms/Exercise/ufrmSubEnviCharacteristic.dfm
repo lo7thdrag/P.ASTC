@@ -71,8 +71,6 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 70
-    ExplicitHeight = 604
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -89,10 +87,8 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       TabHeight = 30
       TabOrder = 0
       TabWidth = 140
-      ExplicitHeight = 584
       object tsAboveWater: TTabSheet
         Caption = 'Above Water'
-        ExplicitHeight = 544
         object grpVisibilityFactors: TGroupBox
           Left = 23
           Top = 117
@@ -556,7 +552,6 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       object tsSurfaceAndSubsurface: TTabSheet
         Caption = 'Surface and Subsurface'
         ImageIndex = 1
-        ExplicitHeight = 544
         object grbOceanCurrent: TGroupBox
           Left = 22
           Top = 14
@@ -1148,7 +1143,6 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       object tsConvergenceZones: TTabSheet
         Caption = 'Convergence Zones'
         ImageIndex = 2
-        ExplicitHeight = 544
         object grbCoverageZones: TGroupBox
           Left = 21
           Top = 32
@@ -1308,7 +1302,6 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
       object tsBoundaries: TTabSheet
         Caption = 'Boundaries'
         ImageIndex = 3
-        ExplicitHeight = 544
         object grbTopLeft: TGroupBox
           Left = 15
           Top = 3
@@ -1595,6 +1588,5 @@ object frmSubEnviCharacteristic: TfrmSubEnviCharacteristic
     Color = clTeal
     ParentBackground = False
     TabOrder = 3
-    ExplicitTop = 673
   end
 end

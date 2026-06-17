@@ -30,11 +30,8 @@ object frmTop: TfrmTop
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 24
-    ExplicitTop = 8
-    ExplicitWidth = 1325
     object lbl1: TLabel
-      Left = 591
+      Left = 655
       Top = 9
       Width = 87
       Height = 16
@@ -47,7 +44,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object Label1: TLabel
-      Left = 591
+      Left = 655
       Top = 31
       Width = 78
       Height = 16
@@ -60,7 +57,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object lblChartScale: TLabel
-      Left = 691
+      Left = 755
       Top = 9
       Width = 18
       Height = 16
@@ -73,7 +70,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object lblViewScale: TLabel
-      Left = 691
+      Left = 755
       Top = 31
       Width = 18
       Height = 16
@@ -86,7 +83,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 777
+      Left = 841
       Top = 9
       Width = 25
       Height = 16
@@ -99,7 +96,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 945
+      Left = 1009
       Top = 9
       Width = 25
       Height = 16
@@ -112,7 +109,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 832
+      Left = 896
       Top = 16
       Width = 24
       Height = 23
@@ -125,7 +122,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 1000
+      Left = 1064
       Top = 16
       Width = 24
       Height = 23
@@ -138,7 +135,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 1061
+      Left = 1125
       Top = 21
       Width = 16
       Height = 16
@@ -151,7 +148,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object Label7: TLabel
-      Left = 1128
+      Left = 1192
       Top = 9
       Width = 30
       Height = 16
@@ -164,8 +161,8 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object lblTime: TLabel
-      Left = 1139
-      Top = 27
+      Left = 1203
+      Top = 25
       Width = 24
       Height = 23
       Caption = '---'
@@ -177,7 +174,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object lblName: TLabel
-      Left = 1573
+      Left = 8
       Top = 17
       Width = 91
       Height = 21
@@ -190,7 +187,7 @@ object frmTop: TfrmTop
       ParentFont = False
     end
     object cbSetScale: TComboBox
-      Left = 300
+      Left = 364
       Top = 12
       Width = 174
       Height = 32
@@ -204,7 +201,7 @@ object frmTop: TfrmTop
       TabOrder = 0
     end
     object btnIncreaseScale: TRzBmpButton
-      Left = 264
+      Left = 328
       Top = 13
       Width = 30
       Hint = ' Increase Scale'
@@ -310,7 +307,7 @@ object frmTop: TfrmTop
       TabOrder = 1
     end
     object btnDecreaseScale: TRzBmpButton
-      Left = 476
+      Left = 540
       Top = 13
       Width = 30
       Hint = 'Decrease Scale'
@@ -416,7 +413,7 @@ object frmTop: TfrmTop
       TabOrder = 2
     end
     object btnSelect: TRzBmpButton
-      Left = 510
+      Left = 574
       Top = 13
       Width = 30
       Hint = 'Decrease Scale'
@@ -522,35 +519,35 @@ object frmTop: TfrmTop
       TabOrder = 3
     end
     object pnl1: TPanel
-      Left = 565
+      Left = 629
       Top = 0
       Width = 1
       Height = 57
       TabOrder = 4
     end
     object Panel2: TPanel
-      Left = 751
+      Left = 815
       Top = -1
       Width = 1
       Height = 57
       TabOrder = 5
     end
     object Panel4: TPanel
-      Left = 919
+      Left = 983
       Top = -1
       Width = 1
       Height = 57
       TabOrder = 6
     end
     object Panel3: TPanel
-      Left = 1102
+      Left = 1166
       Top = -1
       Width = 1
       Height = 57
       TabOrder = 7
     end
     object Panel5: TPanel
-      Left = 1247
+      Left = 1311
       Top = -1
       Width = 1
       Height = 57
@@ -558,7 +555,7 @@ object frmTop: TfrmTop
     end
     object edtRoleName: TEdit
       Tag = 4
-      Left = 1670
+      Left = 105
       Top = 16
       Width = 149
       Height = 24
@@ -571,5 +568,10 @@ object frmTop: TfrmTop
       ParentFont = False
       TabOrder = 9
     end
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 1272
+    Top = 16
   end
 end

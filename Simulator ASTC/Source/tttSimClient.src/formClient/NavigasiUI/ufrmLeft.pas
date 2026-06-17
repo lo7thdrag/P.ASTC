@@ -22,23 +22,34 @@ type
     lblLong: TLabel;
     lblHeading: TLabel;
     lblSpeed: TLabel;
+    pnlEnvironment: TPanel;
+    pnlTemp: TPanel;
+    Label13: TLabel;
+    advsmthlbl5: TAdvSmoothLabel;
+    AdvSmoothLabel1: TAdvSmoothLabel;
+    Label11: TLabel;
+    AdvSmoothLabel2: TAdvSmoothLabel;
+    tbTemp: TTrackBar;
+    edtWaterTemp: TEdit;
+    tbSeaState: TTrackBar;
+    edtSeaState: TEdit;
+    Panel2: TPanel;
+    Label4: TLabel;
+    VrWheel1: TVrWheel;
+    AdvSmoothLabel5: TAdvSmoothLabel;
+    AdvSmoothLabel6: TAdvSmoothLabel;
+    edtCurrentDirec: TEdit;
     Panel1: TPanel;
     lblTittle1: TLabel;
     vrwhlWindDirec: TVrWheel;
-    pnlTemp: TPanel;
-    Label13: TLabel;
-    tbTemp: TTrackBar;
-    advsmthlbl5: TAdvSmoothLabel;
-    edtWaterTemp: TEdit;
-    AdvSmoothLabel1: TAdvSmoothLabel;
-    tbSeaState: TTrackBar;
-    edtSeaState: TEdit;
-    Label11: TLabel;
-    AdvSmoothLabel2: TAdvSmoothLabel;
     AdvSmoothLabel3: TAdvSmoothLabel;
-    edtWindDirec: TEdit;
-    vrmSpeedWind: TVrMeter;
     AdvSmoothLabel4: TAdvSmoothLabel;
+    edtWindDirec: TEdit;
+    Label5: TLabel;
+    tbCurrentSpeed: TTrackBar;
+    edtCurrentSpeed: TEdit;
+    tbWindSpeed: TTrackBar;
+    edtWindSpeed: TEdit;
   private
     { Private declarations }
   public

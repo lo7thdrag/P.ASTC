@@ -31,6 +31,8 @@ type
     Panel5: TPanel;
     lblName: TLabel;
     edtRoleName: TEdit;
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,5 +49,10 @@ uses
 
 {$R *.dfm}
 
+
+procedure TfrmTop.Timer1Timer(Sender: TObject);
+begin
+  lblTime.Caption := FormatDateTime('hh:nn:ss', Now);
+end;
 
 end.
