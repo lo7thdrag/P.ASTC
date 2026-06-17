@@ -44852,10 +44852,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
     DoubleBuffered = False
     ParentDoubleBuffered = False
     TabOrder = 0
-    ExplicitLeft = 184
-    ExplicitTop = 80
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object pnl1Title: TPanel
       Left = 0
       Top = 0
@@ -44905,8 +44901,6 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 0
-      ExplicitHeight = 312
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -44917,10 +44911,8 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitHeight = 292
         object tsGeneral: TTabSheet
           Caption = 'General'
-          ExplicitHeight = 252
           object grbPlatforms: TGroupBox
             Left = 12
             Top = 6

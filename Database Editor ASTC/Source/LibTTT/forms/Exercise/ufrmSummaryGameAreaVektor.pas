@@ -193,14 +193,14 @@ begin
     begin
       if dmTTT.InsertGameAreaDef(FGameArea) then
       begin
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
     begin
       if dmTTT.UpdateGameAreaDef(FGameArea) then
       begin
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -301,7 +301,7 @@ begin
   {Jika inputan class name kosong}
   if (edtName.Text = '')then
   begin
-    ShowMessage('Please insert Game area name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -318,7 +318,7 @@ begin
     end;
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -329,12 +329,12 @@ begin
     {Jika inputan baru}
     if FSelectedGameArea.FGameArea.Game_Area_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

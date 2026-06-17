@@ -136,7 +136,7 @@ begin
         FGlobal_Conv.Game_Enviro_Index := FData.Game_Enviro_Index;
         dmTTT.InsertGlobalConvergenceZone(FGlobal_Conv);
 
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -144,7 +144,7 @@ begin
       if dmTTT.UpdateEnvironmentDef(FData) then
       begin
         dmTTT.UpdateGlobalConvergenceZone(FGlobal_Conv);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -208,7 +208,7 @@ begin
   {Jika inputan class name kosong}
   if (edtName.Text = '') or (edtName.Text = ' ') then
   begin
-    ShowMessage('Please use another class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -224,7 +224,7 @@ begin
     end;
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -235,19 +235,19 @@ begin
     {Jika inputan baru}
     if FSelectedEnvironment.FData.Game_Enviro_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
 
   if FSelectedEnvironment.FGameArea.Game_Area_Index = 0 then
   begin
-    ShowMessage('Select Game Area for this Environment.');
+    ShowMessage('Game Area belum dipilh');
     Exit;
   end;
 

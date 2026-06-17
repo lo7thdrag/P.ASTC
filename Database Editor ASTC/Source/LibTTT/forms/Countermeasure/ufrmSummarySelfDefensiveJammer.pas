@@ -169,7 +169,7 @@ begin
       if dmTTT.InsertSelfDefensiveJammerDef(FDefensiveJammer_Def) then
       begin
         dmTTT.InsertNoteStorage(16, FDefensiveJammer_Def.Defensive_Jammer_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -177,7 +177,7 @@ begin
       if dmTTT.UpdateSelfDefensiveJammerDef(FDefensiveJammer_Def) then
       begin
         dmTTT.UpdateNoteStorage(FDefensiveJammer_Def.Defensive_Jammer_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -269,7 +269,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -287,7 +287,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -298,12 +298,12 @@ begin
     {Jika inputan baru}
     if FSelectedDefensiveJammer.FDefensiveJammer_Def.Defensive_Jammer_Index= 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
