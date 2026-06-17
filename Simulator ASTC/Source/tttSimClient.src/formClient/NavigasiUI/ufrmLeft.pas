@@ -24,7 +24,6 @@ type
     lblSpeed: TLabel;
     pnlEnvironment: TPanel;
     pnlTemp: TPanel;
-    Label13: TLabel;
     advsmthlbl5: TAdvSmoothLabel;
     AdvSmoothLabel1: TAdvSmoothLabel;
     Label11: TLabel;

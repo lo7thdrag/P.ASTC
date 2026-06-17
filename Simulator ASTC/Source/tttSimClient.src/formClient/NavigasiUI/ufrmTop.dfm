@@ -173,19 +173,6 @@ object frmTop: TfrmTop
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object lblName: TLabel
-      Left = 8
-      Top = 17
-      Width = 91
-      Height = 21
-      Caption = 'Role Name :'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -21
-      Font.Name = 'Deusex'
-      Font.Style = []
-      ParentFont = False
-    end
     object cbSetScale: TComboBox
       Left = 364
       Top = 12
@@ -552,21 +539,6 @@ object frmTop: TfrmTop
       Width = 1
       Height = 57
       TabOrder = 8
-    end
-    object edtRoleName: TEdit
-      Tag = 4
-      Left = 105
-      Top = 16
-      Width = 149
-      Height = 24
-      AutoSize = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 9
     end
   end
   object Timer1: TTimer

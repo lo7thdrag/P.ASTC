@@ -53,22 +53,9 @@ object frmLeft: TfrmLeft
         DesignSize = (
           297
           228)
-        object Label13: TLabel
-          Left = 8
-          Top = 8
-          Width = 76
-          Height = 21
-          Caption = 'Temperatur'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -21
-          Font.Name = 'Deusex'
-          Font.Style = []
-          ParentFont = False
-        end
         object advsmthlbl5: TAdvSmoothLabel
           Left = 8
-          Top = 27
+          Top = 11
           Width = 135
           Height = 33
           Fill.ColorMirror = clNone
@@ -99,7 +86,7 @@ object frmLeft: TfrmLeft
         end
         object AdvSmoothLabel1: TAdvSmoothLabel
           Left = 8
-          Top = 95
+          Top = 91
           Width = 135
           Height = 33
           Fill.ColorMirror = clNone
@@ -130,7 +117,7 @@ object frmLeft: TfrmLeft
         end
         object Label11: TLabel
           Left = 111
-          Top = 192
+          Top = 188
           Width = 8
           Height = 16
           Caption = '0'
@@ -143,7 +130,7 @@ object frmLeft: TfrmLeft
         end
         object AdvSmoothLabel2: TAdvSmoothLabel
           Left = 8
-          Top = 184
+          Top = 180
           Width = 57
           Height = 33
           Fill.ColorMirror = clNone
@@ -174,7 +161,7 @@ object frmLeft: TfrmLeft
         end
         object tbTemp: TTrackBar
           Left = 8
-          Top = 63
+          Top = 47
           Width = 235
           Height = 29
           Max = 100
@@ -183,7 +170,7 @@ object frmLeft: TfrmLeft
         end
         object edtWaterTemp: TEdit
           Left = 247
-          Top = 63
+          Top = 47
           Width = 41
           Height = 21
           TabOrder = 1
@@ -191,7 +178,7 @@ object frmLeft: TfrmLeft
         end
         object tbSeaState: TTrackBar
           Left = 8
-          Top = 134
+          Top = 130
           Width = 235
           Height = 29
           Max = 5
@@ -201,7 +188,7 @@ object frmLeft: TfrmLeft
         end
         object edtSeaState: TEdit
           Left = 247
-          Top = 134
+          Top = 130
           Width = 41
           Height = 21
           TabOrder = 3

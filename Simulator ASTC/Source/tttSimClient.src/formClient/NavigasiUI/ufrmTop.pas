@@ -29,8 +29,6 @@ type
     Label7: TLabel;
     lblTime: TLabel;
     Panel5: TPanel;
-    lblName: TLabel;
-    edtRoleName: TEdit;
     Timer1: TTimer;
     procedure Timer1Timer(Sender: TObject);
   private
