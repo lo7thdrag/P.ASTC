@@ -326,7 +326,7 @@ begin
 
   if FSelectedSonobuoy.FDef.Sonar_Index = 0 then
   begin
-    ShowMessage('Sonar Definition not selected');
+    ShowMessage('Sonar Definition Belum Ditentukan');
     Exit;
   end;
 

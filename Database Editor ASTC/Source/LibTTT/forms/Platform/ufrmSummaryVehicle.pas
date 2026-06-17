@@ -1636,7 +1636,7 @@ begin
   {Jika inputan Motion Characteristic masih kosong}
   if FSelectedVehicle.FData.Motion_Characteristics = 0 then
   begin
-    ShowMessage('Motion Characteristics not selected');
+    ShowMessage('Motion Characteristics Belum Ditemukan');
     Exit;
   end;
 

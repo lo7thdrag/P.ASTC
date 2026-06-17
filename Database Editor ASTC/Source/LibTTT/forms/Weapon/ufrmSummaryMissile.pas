@@ -1023,21 +1023,21 @@ begin
   {Jika Hybrid tercentang, Torpedo Definition tidak boleh kosong}
   if chkHybridTorpedoDefinition.Checked and (FSelectedHybrid.FTorpedo_Def.Torpedo_Index = 0) then
   begin
-    ShowMessage('Torpedo Definition not selected');
+    ShowMessage('Torpedo Definition Belum Ditemukan');
     Exit;
   end;
 
   {Jika inputan Motion Characteristic masih kosong}
   if FSelectedMissile.FDef.Motion_Index = 0 then
   begin
-    ShowMessage('Motion Characteristics not selected');
+    ShowMessage('Motion Characteristics Belum Ditemukan');
     Exit;
   end;
 
   {Jika inputan Primary Target Domain masih kosong}
   if cbbPrimaryTargetDomain.Text= '' then
   begin
-    ShowMessage('Primary Target Domain not selected');
+    ShowMessage('Primary Target Domain Belum Ditemukan');
     Exit;
   end;
 

@@ -126,9 +126,20 @@ begin
     FData.Library_Name := edtName.Text;
 
     if FData.Platform_Library_Index = 0 then
-      dmTTT.InsertRuntimePlatformLibraryDef(FData)
+    begin
+      if dmTTT.InsertRuntimePlatformLibraryDef(FData) then
+      begin
+        ShowMessage('Data berhasil disimpan');
+      end;
+    end
     else
-      dmTTT.UpdateRuntimePlatformLibraryDef(FData);
+    begin
+        if dmTTT.UpdateRuntimePlatformLibraryDef(FData) then
+        begin
+          ShowMessage('Data berhasil diperbarui');
+        end;
+    end;
+
   end;
 
   UpdateButtonState;

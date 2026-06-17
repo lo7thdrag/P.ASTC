@@ -518,28 +518,28 @@ begin
   TimeToSecond(medtIntegrationPeriodActive.Text, second);
   if second > 32400 then
   begin
-    ShowMessage('Integration Period Active is too long');
+    ShowMessage('Integration Period Active Terlalu Lama');
     Exit;
   end;
 
   TimeToSecond(medtIntegrationPeriodPassive.Text, second);
   if second > 32400 then
   begin
-    ShowMessage('Integration Period Passive is too long');
+    ShowMessage('Integration Period Passive Terlalu Lama');
     Exit;
   end;
 
   TimeToSecond(medtTimeToIdentifyTarget.Text, second);
   if second > 32400 then
   begin
-    ShowMessage('Time to identity target is too long');
+    ShowMessage('Time to identity target Terlalu Lama');
     Exit;
   end;
 
   TimeToSecond(medtArrayKinkingSettleTime.Text, second);
   if second > 32400 then
   begin
-    ShowMessage('Time Required to Settle Kinked Array is too long');
+    ShowMessage('Time Required to Settle Kinked Array Terlalu Lama');
     Exit;
   end;
 
