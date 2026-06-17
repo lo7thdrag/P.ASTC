@@ -290,6 +290,7 @@ type
     lblGridLong: TLabel;
     pnl2: TPanel;
     btnCancel: TButton;
+    btnLayerTool: TToolButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -446,7 +447,7 @@ end;
 
 procedure TfrmPlatformDeploytment.FormResize(Sender: TObject);
 begin
-  pnlAlignToolBar.Width := round((pnlToolBar.Width - 273) / 2);
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 395) / 2);
   pnlCursor.Width := round((pnlCursorPosition.Width - 22) / 2);
 end;
 
@@ -1387,6 +1388,16 @@ begin
   end;
   {$ENDREGION}
 
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down then
+  begin
+    FIsMouseDown := True;
+
+    FZoomRectStart := Point(X, Y);
+    FZoomRectEnd := Point(X, Y);
+  end;
+  {$ENDREGION}
+
   {$REGION ' Klik Kanan '}
   if Button = mbRight then
   begin
@@ -1666,6 +1677,9 @@ begin
 
   FHookedPlatform := TPlatform_Instance(lvPlatform.Selected.Data);
   UpdateHookedPlatformData;
+
+  Map1.MousePointer := miDefaultCursor;
+  Map1.CurrentTool := miArrowTool;
 
 end;
 

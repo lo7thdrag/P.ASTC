@@ -44855,8 +44855,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
     BorderWidth = 5
     Color = 2499101
     TabOrder = 0
-    ExplicitWidth = 1600
-    ExplicitHeight = 901
     object pnl3Map: TPanel
       Left = 326
       Top = 30
@@ -44872,10 +44870,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitLeft = 325
-      ExplicitTop = 5
-      ExplicitWidth = 1270
-      ExplicitHeight = 848
       object pnlToolBar: TPanel
         Left = 0
         Top = 0
@@ -44886,7 +44880,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 1270
         object ToolBar1: TToolBar
           Left = 14
           Top = 0
@@ -44900,7 +44893,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           Images = ilToolbar
           ParentColor = False
           TabOrder = 0
-          ExplicitWidth = 1256
+          ExplicitWidth = 395
           object btnDecreaseScale: TToolButton
             Left = 0
             Top = 0
@@ -45010,6 +45003,12 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             ImageIndex = 9
             OnClick = btn_RulerClick
           end
+          object btnLayerTool: TToolButton
+            Left = 353
+            Top = 0
+            Caption = 'btnLayerTool'
+            ImageIndex = 10
+          end
         end
         object pnlAlignToolBar: TPanel
           Left = 0
@@ -45034,8 +45033,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitTop = 765
-        ExplicitWidth = 1270
         object Panel4: TPanel
           Left = 561
           Top = 3
@@ -45220,9 +45217,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           Align = alClient
           Color = 2499101
           TabOrder = 2
-          ExplicitLeft = 575
-          ExplicitTop = 0
-          ExplicitWidth = 20
           object Label65: TLabel
             Left = 40
             Top = 18
@@ -45383,7 +45377,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000957696E6764696E6773
           0000000000000001000100FFFFFF000200FFFFFF000000000000010000000000
-          0118010000A094841201000000000000001C0000000000000000000000000000
+          0118010000209DED1001000000000000001C0000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000020000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45392,7 +45386,7 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000008076
           C000000000008056C00000000000807640000000000080564001000000180100
-          00A094841201000000000000001C000000000000000000000000000000000000
+          00209DED1001000000000000001C000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000002000000000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45412,7 +45406,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 3
-        ExplicitWidth = 940
       end
       object pnl3SparatorHor2: TPanel
         Left = 0
@@ -45423,8 +45416,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 4
-        ExplicitTop = 773
-        ExplicitWidth = 1262
       end
     end
     object pnl4Bottom: TPanel
@@ -45436,8 +45427,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitTop = 853
-      ExplicitWidth = 1590
       DesignSize = (
         1596
         43)
@@ -45500,9 +45489,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 1600
     end
     object pnl2Editor: TPanel
       Left = 15
@@ -45534,9 +45520,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitLeft = 5
-        ExplicitTop = 30
-        ExplicitWidth = 320
         object pnlSelectedPlatform: TPanel
           Left = 0
           Top = 472
@@ -45583,8 +45566,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             TabWidth = 120
             object tsInitial: TTabSheet
               Caption = 'Initial'
-              ExplicitWidth = 298
-              ExplicitHeight = 370
               object Label3: TLabel
                 Left = 15
                 Top = 43
@@ -45966,8 +45947,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               Caption = 'Lateral'
               ImageIndex = 1
               TabVisible = False
-              ExplicitWidth = 298
-              ExplicitHeight = 370
               object Panel2: TPanel
                 Left = 0
                 Top = 43
@@ -45976,8 +45955,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                 Align = alClient
                 BevelOuter = bvNone
                 TabOrder = 0
-                ExplicitWidth = 298
-                ExplicitHeight = 327
                 object grbDefaultKosong: TGroupBox
                   Left = 0
                   Top = 0
@@ -45985,8 +45962,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 16
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                 end
                 object grbCircleOnPointGuidance: TGroupBox
                   Left = 0
@@ -45995,8 +45970,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 9
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label30: TLabel
                     Left = 11
                     Top = 200
@@ -46122,8 +46095,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 0
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label25: TLabel
                     Left = 16
                     Top = 19
@@ -46355,8 +46326,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Align = alClient
                   TabOrder = 3
                   OnClick = btnApplyClick
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label48: TLabel
                     Left = 158
                     Top = 47
@@ -46488,8 +46457,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 4
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label51: TLabel
                     Left = 17
                     Top = 29
@@ -46597,8 +46564,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 10
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object lblHelm: TLabel
                     Left = 16
                     Top = 19
@@ -46653,8 +46618,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 8
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label12: TLabel
                     Left = 16
                     Top = 19
@@ -46761,8 +46724,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 7
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object lblPredefined: TLabel
                     Left = 16
                     Top = 19
@@ -46818,8 +46779,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 14
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label10: TLabel
                     Left = 16
                     Top = 19
@@ -46975,8 +46934,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 13
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label18: TLabel
                     Left = 16
                     Top = 19
@@ -47106,8 +47063,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 2
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label45: TLabel
                     Left = 165
                     Top = 48
@@ -47239,8 +47194,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 1
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label39: TLabel
                     Left = 16
                     Top = 100
@@ -47343,8 +47296,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 15
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label20: TLabel
                     Left = 13
                     Top = 18
@@ -47414,8 +47365,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 5
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label52: TLabel
                     Left = 16
                     Top = 19
@@ -47523,8 +47472,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 12
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label19: TLabel
                     Left = 16
                     Top = 19
@@ -47689,8 +47636,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 6
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object lblCourse: TLabel
                     Left = 16
                     Top = 19
@@ -47745,8 +47690,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 17
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Bevel1: TBevel
                     Left = 16
                     Top = 24
@@ -47928,8 +47871,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                   Height = 242
                   Align = alClient
                   TabOrder = 11
-                  ExplicitWidth = 298
-                  ExplicitHeight = 327
                   object Label35: TLabel
                     Left = 16
                     Top = 130
@@ -48056,7 +47997,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
                 BevelOuter = bvNone
                 Caption = 'Panel1'
                 TabOrder = 1
-                ExplicitWidth = 298
                 object cbLateralGuid: TComboBox
                   Tag = 2
                   Left = 1
@@ -48091,8 +48031,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
               Caption = 'Vertical'
               ImageIndex = 2
               TabVisible = False
-              ExplicitWidth = 298
-              ExplicitHeight = 370
               object lAltitude: TLabel
                 Left = 15
                 Top = 18
@@ -48138,9 +48076,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             Color = 2499101
             ParentBackground = False
             TabOrder = 3
-            ExplicitLeft = 0
-            ExplicitTop = 551
-            ExplicitWidth = 362
             object btnRemove: TButton
               Left = 117
               Top = 10
@@ -48185,8 +48120,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           Color = 2499101
           ParentBackground = False
           TabOrder = 1
-          ExplicitWidth = 362
-          ExplicitHeight = 475
           object pnlCaption: TPanel
             Left = 10
             Top = 10
@@ -48197,7 +48130,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             Color = 2499101
             ParentBackground = False
             TabOrder = 0
-            ExplicitWidth = 365
             object lbl2: TLabel
               Left = 0
               Top = 10
@@ -48248,10 +48180,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
             TabOrder = 1
             ViewStyle = vsReport
             OnClick = lvPlatformClick
-            ExplicitLeft = 7
-            ExplicitTop = 529
-            ExplicitWidth = 307
-            ExplicitHeight = 292
           end
         end
         object pnl2SparatorHor1: TPanel
@@ -48263,9 +48191,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 2
-          ExplicitLeft = -6
-          ExplicitTop = 244
-          ExplicitWidth = 362
         end
       end
     end
@@ -48278,9 +48203,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 4
-      ExplicitLeft = 0
-      ExplicitTop = 25
-      ExplicitHeight = 745
     end
     object pnlVertical2: TPanel
       Left = 316
@@ -48291,9 +48213,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = clBlack
       TabOrder = 5
-      ExplicitLeft = 395
-      ExplicitTop = 25
-      ExplicitHeight = 745
     end
     object pnlVertical3: TPanel
       Left = 1591
@@ -48304,9 +48223,6 @@ object frmPlatformDeploytment: TfrmPlatformDeploytment
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 6
-      ExplicitLeft = 1345
-      ExplicitTop = 25
-      ExplicitHeight = 745
     end
   end
   object ilToolbar: TImageList

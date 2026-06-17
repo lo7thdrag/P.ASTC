@@ -145,7 +145,7 @@ begin
       if dmTTT.InsertAcousticDecoyDef(FAccousticDecoy_Def) then
       begin
         dmTTT.InsertNoteStorage(20, FAccousticDecoy_Def.Decoy_Index, FNote);
-        ShowMessage('Data has been saved');
+        ShowMessage('Data berhasil disimpan');
       end;
     end
     else
@@ -153,7 +153,7 @@ begin
       if dmTTT.UpdateAcousticDecoyDef(FAccousticDecoy_Def) then
       begin
         dmTTT.UpdateNoteStorage(FAccousticDecoy_Def.Decoy_Index, FNote);
-        ShowMessage('Data has been updated');
+        ShowMessage('Data berhasil diperbarui');
       end;
     end;
   end;
@@ -235,7 +235,7 @@ begin
   {Jika inputan class name kosong}
   if (edtClass.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -253,7 +253,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -264,12 +264,12 @@ begin
     {Jika inputan baru}
     if FSelectedAcousticDecoy.FAccousticDecoy_Def.Decoy_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
