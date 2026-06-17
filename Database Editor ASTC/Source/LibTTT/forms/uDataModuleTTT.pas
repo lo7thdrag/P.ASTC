@@ -2285,6 +2285,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -2297,6 +2298,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -2360,6 +2362,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -2372,6 +2375,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -3872,6 +3876,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -3884,6 +3889,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -4924,6 +4930,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -4936,6 +4943,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -5811,6 +5819,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -5823,6 +5832,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -5893,6 +5903,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -5905,6 +5916,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -6296,6 +6308,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -6308,6 +6321,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -8002,6 +8016,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -8014,6 +8029,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -8282,6 +8298,7 @@ end;
 
 function TdmTTT.GetAllMotionCharacteristicDef(aList: TList): Integer;
 var
+  i : Integer;
   rec : TMotion_Characteristics;
 begin
   Result := -1;
@@ -8300,10 +8317,20 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
-      aList.Clear
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -8490,6 +8517,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -8502,6 +8530,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -8751,6 +8780,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -8763,6 +8793,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -8891,6 +8922,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -8903,6 +8935,7 @@ begin
     end
     else
       aList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -9249,6 +9282,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -9261,6 +9295,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -9497,6 +9532,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan list '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -9509,6 +9545,7 @@ begin
     end
     else
       aList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -9819,6 +9856,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -9831,6 +9869,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -9949,6 +9988,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -9961,6 +10001,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -10172,6 +10213,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -10184,6 +10226,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -10280,6 +10323,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -10292,6 +10336,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -10386,6 +10431,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -10398,6 +10444,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -10551,6 +10598,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -10563,6 +10611,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -10735,6 +10784,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -10747,6 +10797,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -10995,6 +11046,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -11007,6 +11059,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -11100,6 +11153,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -11112,6 +11166,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -13100,6 +13155,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -13112,6 +13168,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -13902,6 +13959,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -13914,6 +13972,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -14632,6 +14691,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -14644,6 +14704,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -14750,6 +14811,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -14762,6 +14824,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -15121,6 +15184,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -15133,6 +15197,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -15269,6 +15334,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -15281,6 +15347,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -15725,6 +15792,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -15737,6 +15805,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -15836,6 +15905,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -15848,6 +15918,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -17327,6 +17398,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -17339,6 +17411,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -17431,6 +17504,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -17443,6 +17517,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -17693,6 +17768,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -17705,6 +17781,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -17803,6 +17880,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkam List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -17815,6 +17893,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -17971,6 +18050,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -17983,6 +18063,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -18088,6 +18169,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -18100,6 +18182,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -18274,6 +18357,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -18286,6 +18370,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -18387,6 +18472,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -18399,6 +18485,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -18560,6 +18647,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -18572,6 +18660,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -18676,6 +18765,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -18688,6 +18778,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -18861,6 +18952,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -18873,6 +18965,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -18971,6 +19064,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -18983,6 +19077,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -19139,6 +19234,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -19151,6 +19247,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -19263,6 +19360,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -19275,6 +19373,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -19476,6 +19575,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -19488,6 +19588,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -19588,6 +19689,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -19600,6 +19702,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -19661,6 +19764,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -19673,6 +19777,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -21676,14 +21781,20 @@ begin
 
     result := RecordCount;
 
-    if not Assigned(aList) then
+    {$REGION ' Membersihkan List '}
+    if Assigned(aList) then
     begin
-      aList.Create;
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
     end
     else
-    begin
-      aList.Clear;
-    end;
+      aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -21764,14 +21875,20 @@ begin
 
     result := RecordCount;
 
-    if not Assigned(aList) then
+    {$REGION ' Membersihkan List '}
+    if Assigned(aList) then
     begin
-      aList.Create;
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
     end
     else
-    begin
-      aList.Clear;
-    end;
+      aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -22522,6 +22639,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -22534,6 +22652,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -22656,6 +22775,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -22668,6 +22788,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -22805,6 +22926,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -22817,6 +22939,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -23379,6 +23502,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ''}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -23391,6 +23515,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -23605,6 +23730,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -23617,6 +23743,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -24125,6 +24252,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -24137,6 +24265,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -24251,6 +24380,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -24263,6 +24393,7 @@ begin
     end
     else
       aList := TList.Create;
+      {$ENDREGION}
 
     if not IsEmpty then
     begin
