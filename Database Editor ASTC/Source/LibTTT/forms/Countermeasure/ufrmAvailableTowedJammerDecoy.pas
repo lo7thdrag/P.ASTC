@@ -119,7 +119,7 @@ var
 begin
   if lstTowedJammerDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Towed Jammer Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Towed Jammer Decoy ... !');
     Exit;
   end;
 
@@ -145,7 +145,7 @@ procedure TfrmAvailableTowedJammerDecoy.btnEditClick(Sender: TObject);
 begin
   if lstTowedJammerDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Towed Jammer Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Towed Jammer Decoy ... !');
     Exit;
   end;
 
@@ -172,11 +172,11 @@ var
 begin
   if lstTowedJammerDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Towed Jammer Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Towed Jammer Decoy ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -185,14 +185,14 @@ begin
     begin
       if dmTTT.GetCountermeasure_On_Board_By_Index(7, Towed_Decoy_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(17, Towed_Decoy_Index);
 
       if dmTTT.DeleteTowedJammerDef(Towed_Decoy_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateTowedJammerDecoyList;
@@ -203,7 +203,7 @@ procedure TfrmAvailableTowedJammerDecoy.btnUsageClick(Sender: TObject);
 begin
   if lstTowedJammerDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Towed Jammer Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data Towed Jammer Decoy ... !');
     Exit;
   end;
 

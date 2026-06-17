@@ -695,9 +695,13 @@ begin
           end;
         end;
       end;
+      ShowMessage('Data berhasil disimpan');
     end
     else
-      dmTTT.UpdateGameDefaultDef(FData);
+    begin
+      if dmTTT.UpdateGameDefaultDef(FData) then
+        ShowMessage('Data berhasil diperbarui');
+    end;
   end;
 
   UpdateGameDefaultData;
@@ -941,7 +945,7 @@ begin
   {Jika inputan class name kosong}
   if (edtName.Text = '') or (edtName.Text = ' ') then
   begin
-    ShowMessage('Please use another name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -957,7 +961,7 @@ begin
     end;
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -968,12 +972,12 @@ begin
     {Jika inputan baru}
     if FSelectedGameDefault.FData.Defaults_Index= 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if FLastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

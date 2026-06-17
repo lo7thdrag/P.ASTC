@@ -9,24 +9,28 @@ uses
 type
   TfrmTop = class(TForm)
     Panel1: TPanel;
-    Label2: TLabel;
+    cbSetScale: TComboBox;
+    btnIncreaseScale: TRzBmpButton;
+    btnDecreaseScale: TRzBmpButton;
+    btnSelect: TRzBmpButton;
+    pnl1: TPanel;
+    lbl1: TLabel;
     Label1: TLabel;
+    lblChartScale: TLabel;
+    lblViewScale: TLabel;
+    Panel2: TPanel;
+    Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    cbSetScale: TComboBox;
-    cbAssumeControl: TComboBox;
-    btnHook: TRzBmpButton;
-    btMapTools: TRzBmpButton;
-    Button1: TButton;
-    btnPlatform: TRzBmpButton;
-    btnPfOptions: TRzBmpButton;
-    btnOptions: TRzBmpButton;
-    Button2: TButton;
-    btnHelp: TRzBmpButton;
-    btnViewDisplay: TRzBmpButton;
-    btnFullScreen: TRzBmpButton;
-    btnDecreaseScale: TRzBmpButton;
-    btnIncreaseScale: TRzBmpButton;
+    Label5: TLabel;
+    Label6: TLabel;
+    Panel4: TPanel;
+    Panel3: TPanel;
+    Label7: TLabel;
+    lblTime: TLabel;
+    Panel5: TPanel;
+    lblName: TLabel;
+    edtRoleName: TEdit;
   private
     { Private declarations }
   public
@@ -38,6 +42,10 @@ var
 
 implementation
 
+uses
+  ufTacticalDisplay, ufrmRight;
+
 {$R *.dfm}
+
 
 end.

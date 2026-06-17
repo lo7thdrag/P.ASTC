@@ -1597,60 +1597,67 @@ BEGIN
 END
 
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\Controls.res */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uDataModuleTTT.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufProgress.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uDataModuleTTT.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufProgress.dfm */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\Buttons.res */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\ExtDlgs.res */
-/* C:\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRCURSORS.D32 */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uLaunchPlatform.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmControlled.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmFireControl.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufmDetailPlan.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufmWeaponCtrl.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTrackTargetDetail.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSelectRecipient.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uNewMessage.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmMapWindow.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufToteDisplay.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\ufLog.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufSurfaceToSurfaceMissile.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmNGSGunSetup.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunAutoManual.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunCIWS.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmWeapon.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmCounterMeasure.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmEMCON.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSettingCoordinate.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmSensor.dfm */
-/* C:\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRWHEEL.D32 */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uWaypointEditor.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmPlatformGuidance.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFLanding.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmOwnShip.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyDepth.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyEndurance.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTransferSonobuoy.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoDepth.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoCourse.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureCentreControl.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTrackHistory.dfm */
-/* C:\Komponen\DbEditor TTT\Raize Components 6.2.3 FS D10.4 Sydney\Source\RzCommonBitmaps.res */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureFilter.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uRPLibrary.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditRealTimeTrack.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufChangeTrackNumber.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufMergeTracks.dfm */
+/* C:\Users\Caecilia Maiya\Delphi Installer\Komponen\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRCURSORS.D32 */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uLaunchPlatform.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmControlled.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmFireControl.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufmDetailPlan.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufmWeaponCtrl.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTrackTargetDetail.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSelectRecipient.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uNewMessage.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmMapWindow.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufToteDisplay.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\ufLog.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufSurfaceToSurfaceMissile.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmNGSGunSetup.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunAutoManual.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunCIWS.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmWeapon.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmCounterMeasure.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmEMCON.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSettingCoordinate.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmSensor.dfm */
+/* C:\Users\Caecilia Maiya\Delphi Installer\Komponen\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRWHEEL.D32 */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uWaypointEditor.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmPlatformGuidance.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFLanding.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmOwnShip.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyDepth.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyEndurance.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTransferSonobuoy.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoDepth.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoCourse.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureCentreControl.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTrackHistory.dfm */
+/* C:\Users\Caecilia Maiya\Delphi Installer\Komponen\Komponen\DbEditor TTT\Raize Components 6.2.3 FS D10.4 Sydney\Source\RzCommonBitmaps.res */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureFilter.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uRPLibrary.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditRealTimeTrack.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufChangeTrackNumber.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufMergeTracks.dfm */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\CategoryButtons.res */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditNonRealTimeTrack.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttRemote\uRemoteHost.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationMembersDetail.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationAddRemMembers.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorPanel.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorForm.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttReplay\uSnapshotDLG.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTacticalDisplay.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uOverlayTemplateEditor.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufDBSetting.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\ufChangeTrackNum.dfm */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.res */
-/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.drf */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditNonRealTimeTrack.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttRemote\uRemoteHost.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationMembersDetail.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationAddRemMembers.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorPanel.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorForm.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttReplay\uSnapshotDLG.dfm */
+/* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\TeeFonts.res */
+/* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\TeeResou.res */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmLeft.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmBottom.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmRight2.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmRight.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmTop.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTacticalDisplay.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uOverlayTemplateEditor.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufDBSetting.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\ufChangeTrackNum.dfm */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.res */
+/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.drf */

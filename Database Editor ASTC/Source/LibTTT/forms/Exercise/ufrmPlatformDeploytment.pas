@@ -7,7 +7,7 @@ uses
   Dialogs, ExtCtrls, StdCtrls, Buttons, ImgList, OleCtrls, MapXLib_TLB,
   ComCtrls, ToolWin, uDBAsset_Deploy, uDBAssetObject, uDBAsset_GameEnvironment,
   uCoordConvertor, uObjectVisuals, uTRuler, System.ImageList,
-  Vcl.Imaging.pngimage, uSimContainers;
+  Vcl.Imaging.pngimage, uSimContainers, tttData, uBaseCoordSystem;
 
 type
   E_MapClickEvent = (mceHook, mceMove, mceApproximatePosition,
@@ -17,9 +17,6 @@ type
     pnlToolBar: TPanel;
     ToolBar1: TToolBar;
     btnHook: TToolButton;
-    btnPrevious: TToolButton;
-    btnNext: TToolButton;
-    btnLeftSeparator: TToolButton;
     btnDecreaseScale: TToolButton;
     cbbScale: TComboBox;
     btnIncreaseScale: TToolButton;
@@ -28,22 +25,6 @@ type
     btnMoveTool: TToolButton;
     btnCenterHook: TToolButton;
     pnlCursorPosition: TPanel;
-    grpCursorPosition: TGroupBox;
-    Label59: TLabel;
-    lBearingFCenter: TLabel;
-    Label63: TLabel;
-    lbcenterx: TLabel;
-    Label60: TLabel;
-    lDistanceFCenter: TLabel;
-    Label64: TLabel;
-    lbcentery: TLabel;
-    Label61: TLabel;
-    lPosLat: TLabel;
-    lPosLong: TLabel;
-    Label62: TLabel;
-    lGridLat: TLabel;
-    lGridLong: TLabel;
-    GroupBox1: TGroupBox;
     Label65: TLabel;
     lbHookedName: TLabel;
     Label77: TLabel;
@@ -58,8 +39,8 @@ type
     Label1: TLabel;
     edPlatform: TEdit;
     btnBrowse: TBitBtn;
-    HookContactInfoTraineeDisplay: TPageControl;
-    tsHook: TTabSheet;
+    pgcPlatformData: TPageControl;
+    tsInitial: TTabSheet;
     StaticText1: TStaticText;
     StaticText25: TStaticText;
     dtpActivationTime: TDateTimePicker;
@@ -94,7 +75,7 @@ type
     StaticText6: TStaticText;
     cbVerticalSpeed: TComboBox;
     btnIFFActivation: TButton;
-    tsDetails: TTabSheet;
+    tsLateral: TTabSheet;
     Panel1: TPanel;
     cbLateralGuid: TComboBox;
     Panel2: TPanel;
@@ -249,18 +230,15 @@ type
     Label52: TLabel;
     edtTarget_OutRunGuidance: TEdit;
     spbtnTarget_OutRunGuidance: TSpeedButton;
-    tsDetection: TTabSheet;
+    tsVertical: TTabSheet;
     lAltitude: TLabel;
     edAltitudeDepth: TEdit;
     Label66: TLabel;
-    btnRemove: TButton;
-    btnApply: TButton;
     Map1: TMap;
-    ImageList1: TImageList;
     btn_Ruler: TToolButton;
-    pnlPlatform: TPanel;
+    pnlDeployPlatformEditor: TPanel;
     pnlMainBackground: TPanel;
-    pnlMap: TPanel;
+    pnl3Map: TPanel;
     grbWayPointGuidance: TGroupBox;
     Bevel1: TBevel;
     Label2: TLabel;
@@ -274,15 +252,45 @@ type
     cmbType_WayPointGuidance: TComboBox;
     edtRadius_WayPointGuidance: TEdit;
     btnEditWaypoints_WayPointGuidance: TButton;
-    pnl3Button: TPanel;
+    pnl4Bottom: TPanel;
     btnEditFormaions: TButton;
     btnScreenCapture: TButton;
-    Panel3: TPanel;
-    btnCancel: TButton;
     pnlAlignToolBar: TPanel;
     Panel4: TPanel;
     imgBackground: TImage;
-    il1: TImageList;
+    ilToolbar: TImageList;
+    txt1: TStaticText;
+    lvPlatform: TListView;
+    pnl1Header: TPanel;
+    pnl2Editor: TPanel;
+    pnlListPlatform: TPanel;
+    pnlCaption: TPanel;
+    lbl2: TLabel;
+    pnlVertical1: TPanel;
+    pnlVertical2: TPanel;
+    pnl2SparatorHor1: TPanel;
+    pnlButton: TPanel;
+    btnRemove: TButton;
+    btnApply: TButton;
+    pnl3SparatorHor1: TPanel;
+    pnlVertical3: TPanel;
+    pnl3SparatorHor2: TPanel;
+    pnlCursor: TPanel;
+    lbl3: TLabel;
+    lblBearingFCenter: TLabel;
+    lbl4: TLabel;
+    lblDistanceFCenter: TLabel;
+    lbl5: TLabel;
+    lbl6: TLabel;
+    lbl7: TLabel;
+    lblPosLat: TLabel;
+    lbl8: TLabel;
+    lblGridLat: TLabel;
+    lblPosLong: TLabel;
+    lblGridLong: TLabel;
+    pnl2: TPanel;
+    btnCancel: TButton;
+    btnLayerTool: TToolButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -331,12 +339,16 @@ type
     procedure btn_RulerClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure lvPlatformClick(Sender: TObject);
+
   private
     FSelectedAssetDeployment : TAsset_Deployment;
     FSelectedResourceAlloc : TResource_Allocation;
     FSelectedEnviArea : TGame_Environment_Definition;
 
     FPlatformActivationList : TList;
+    FPlatformInstanceOnScenarioList : TList;
+
     FHookedPlatform : TPlatform_Instance;
     FSelectedPlatform : TPlatform_Instance;
     FOriginalPlatform : TPlatform_Instance;
@@ -352,6 +364,8 @@ type
     FPointX, FPointY : Integer;
     FS_PointXObj, FS_PointYObj, FE_PointXObj, FE_PointYObj : Integer;
 
+    procedure DeployPlatformInstance;
+
     procedure UpdateCursorPositionData(const X, Y: Integer);
     procedure UpdatePlatformActivationList;
     procedure UpdateHookedPlatformData;
@@ -364,6 +378,9 @@ type
 
     procedure LoadMap(aGeoset: string);
     procedure LoadENC(aGeoset: string);
+
+    procedure LoadAllPlatformInstance;
+
     function GetSymbol(const aType, aDomain: Integer): string;
     function GetColor(const aForce: Integer): TColor;
   public
@@ -382,7 +399,7 @@ implementation
 
 uses
   uDataModuleTTT, uPlatformDeploymentPickList, uWaypointEditorPanel,
-  uOtherSingleList, uFormationeditor, uScrCapture, uBaseCoordSystem,
+  uOtherSingleList, uFormationeditor, uScrCapture,
   uDBEditSetting, uDBPattern;
 
 {$R *.dfm}
@@ -404,19 +421,24 @@ end;
 
 procedure TfrmPlatformDeploytment.FormCreate(Sender: TObject);
 begin
+  FPlatformInstanceOnScenarioList := TList.Create;
   FPlatformActivationList := TList.Create;
+
   FCanvas := TCanvas.Create;
   FConverter := TCoordConverter.Create;
   FBmpSym := TBitmapSymbol.Create;
 
   Ruler := TRuler.Create(Self);
   Ruler.FRulerConverter := FConverter;
+
   EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmPlatformDeploytment.FormDestroy(Sender: TObject);
 begin
+  FreeItemsAndFreeList(FPlatformInstanceOnScenarioList);
   FreeItemsAndFreeList(FPlatformActivationList);
+
   FCanvas.Free;
   FConverter.Free;
   FBmpSym.Free;
@@ -425,13 +447,15 @@ end;
 
 procedure TfrmPlatformDeploytment.FormResize(Sender: TObject);
 begin
-  pnlAlignToolBar.Width := round((pnlToolBar.Width - 273) / 2);
-  grpCursorPosition.Width := round((pnlCursorPosition.Width - 22) / 2);
+  pnlAlignToolBar.Width := round((pnlToolBar.Width - 395) / 2);
+  pnlCursor.Width := round((pnlCursorPosition.Width - 22) / 2);
 end;
 
 procedure TfrmPlatformDeploytment.FormShow(Sender: TObject);
 begin
+  tsInitial.Show;
 
+  {$Region ' Load Map Area '}
   with FSelectedEnviArea.FGameArea do
   begin
     if Detail_Map = 'VektorMap' then
@@ -448,22 +472,19 @@ begin
   cbbScale.ItemIndex := cbbScale.Items.Count - 1;
   cbbScaleChange(cbbScale);
 
-  UpdatePlatformActivationList;
+  {$ENDREGION}
+
+  {$Region ' Load Platform '}
+  LoadAllPlatformInstance;
+  {$ENDREGION}
 
   FHookedPlatform := nil;
   FSelectedPlatform := nil;
   FOriginalPlatform := nil;
 
-  btnHook.Click;
-  tsHook.Show;
-
-  UpdateSelectedPlatformData;
-  btnApply.Enabled := False;
-
   if Ruler.FObjRulerVisible then
   begin
-    if (Ruler.btn_PStart.Down) or (Ruler.btn_PEnd.Down)
-      or (Ruler.btn_RStart.Down) then
+    if (Ruler.btn_PStart.Down) or (Ruler.btn_PEnd.Down) or (Ruler.btn_RStart.Down) then
     begin
       Map1.CurrentTool := miArrowTool;
       Map1.MousePointer := miCrossCursor;
@@ -475,6 +496,12 @@ begin
     DrawRuler;
     Map1.Repaint;
   end;
+
+//  btnApply.Enabled := False;
+  btnHook.Click;
+
+  UpdateSelectedPlatformData;
+  UpdatePlatformActivationList;
 
   Map1.Repaint;
 end;
@@ -501,16 +528,16 @@ begin
 
       if ShowModal = mrOk then
       begin
-      FSelectedPlatform := SelectedPlatform;
+        FSelectedPlatform := SelectedPlatform;
 
-      HookContactInfoTraineeDisplay.Visible := True;
-      btnRemove.Visible := True;
-      btnApply.Visible := True;
+        pgcPlatformData.Visible := True;
+//        btnRemove.Visible := True;
+//        btnApply.Visible := True;
 
-      UpdateSelectedPlatformData;
+        UpdateSelectedPlatformData;
 
-      Map1.Repaint;
-    end;
+        Map1.Repaint;
+      end;
     end;
   finally
     frmPlatformDeploymentPickList.Free;
@@ -524,14 +551,21 @@ begin
 
   with FSelectedPlatform do
   begin
-    if FActivation.Platform_Event_Index = 0 then
-      dmTTT.InsertPlatformActivation(FActivation)
-    else
-      dmTTT.UpdatePlatformActivation(FActivation);
+    FActivation.Init_Position_Latitude := dmsToLatt(edLatPosition.Text);
+    FActivation.Init_Position_Longitude := dmsToLong(edLongPosition.Text);;
+    FActivation.Init_Position_Cartesian_X := Abs(FActivation.Init_Position_Longitude - FSelectedEnviArea.FGameArea.Game_Centre_Long) * 60;
+    FActivation.Init_Position_Cartesian_Y := Abs(FActivation.Init_Position_Latitude - FSelectedEnviArea.FGameArea.Game_Centre_Lat) * 60;
+
+//    if FActivation.Platform_Event_Index = 0 then
+//      dmTTT.InsertPlatformActivation(FActivation)
+//    else
+//      dmTTT.UpdatePlatformActivation(FActivation);
   end;
 
+  DeployPlatformInstance;
+
   UpdatePlatformActivationList;
-  btnApply.Enabled := False;
+//  btnApply.Enabled := False;
   Map1.Repaint;
 end;
 
@@ -547,7 +581,23 @@ begin
 end;
 
 procedure TfrmPlatformDeploytment.btnCancelClick(Sender: TObject);
+var
+  temp1 : Integer;
+  temp2 : Integer;
+
 begin
+  {Mengambil Platform Instance yg ada di RA ini}
+  temp1 := dmTTT.CountPlatFormInstance(FSelectedResourceAlloc.FData.Resource_Alloc_Index);
+
+  {Mengambil Platform Instance yg sdh di deploy di Scenario ini}
+  temp2 := dmTTT.CountPlatformActivation(FSelectedAssetDeployment.FData.Deployment_Index);
+
+  if temp1 <> temp2 then
+  begin
+    ShowMessage('Platform belum ter-Deploy seluruhnya');
+    Exit;
+  end;
+
   if Assigned(FOriginalPlatform) then
   begin
     FSelectedPlatform.FActivation := FOriginalPlatform.FActivation;
@@ -573,9 +623,6 @@ end;
 
 procedure TfrmPlatformDeploytment.btnOKClick(Sender: TObject);
 begin
-  if btnApply.Enabled then
-    btnApply.Click;
-
   Close;
 end;
 
@@ -622,37 +669,33 @@ var
 begin
   FConverter.ConvertToMap(X, Y, dx, dy);
 
-  lBearingFCenter.Caption := FormatFloat('0.00',
+  lblBearingFCenter.Caption := FormatFloat('0.00',
     CalcBearing(FSelectedEnviArea.FGameArea.Game_Centre_Long,
     FSelectedEnviArea.FGameArea.Game_Centre_Lat, dx, dy));
 
-  lDistanceFCenter.Caption := FormatFloat('0.00',
+  lblDistanceFCenter.Caption := FormatFloat('0.00',
     CalcRange(FSelectedEnviArea.FGameArea.Game_Centre_Long,
     FSelectedEnviArea.FGameArea.Game_Centre_Lat, dx, dy));
 
-  lPosLat.Caption := formatDM_latitude(dy);
-  lPosLong.Caption := formatDM_longitude(dx);
+  lblPosLat.Caption := formatDM_latitude(dy);
+  lblPosLong.Caption := formatDM_longitude(dx);
 
   diffX := Abs(dx - FSelectedEnviArea.FGameArea.Game_Centre_Long) * 60;
   diffY := Abs(dy - FSelectedEnviArea.FGameArea.Game_Centre_Lat) * 60;
 
   if dy < FSelectedEnviArea.FGameArea.Game_Centre_Lat then
-    lGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm S'
   else
-    lGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
+    lblGridLat.Caption := FormatFloat('0.00', diffY) + ' nm N';
 
   if dx < FSelectedEnviArea.FGameArea.Game_Centre_Long then
-    lGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm W'
   else
-    lGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
+    lblGridLong.Caption := FormatFloat('0.00', diffX) + ' nm E';
 end;
 
 procedure TfrmPlatformDeploytment.UpdateHookedPlatformData;
 begin
-  HookContactInfoTraineeDisplay.Visible := Assigned(FHookedPlatform);
-  btnRemove.Visible := Assigned(FHookedPlatform);
-  btnApply.Visible := Assigned(FHookedPlatform);
-
   if not Assigned(FHookedPlatform) then
   begin
     lbHookedName.Caption := '-';
@@ -688,6 +731,12 @@ begin
     FSelectedPlatform := FHookedPlatform;
     UpdateSelectedPlatformData;
   end;
+
+  Map1.Repaint;
+
+//  pgcPlatformData.Visible := Assigned(FHookedPlatform);
+//  btnRemove.Visible := Assigned(FHookedPlatform);
+//  btnApply.Visible := Assigned(FHookedPlatform);
 end;
 
 procedure TfrmPlatformDeploytment.UpdatePlatformActivationList;
@@ -1008,13 +1057,34 @@ begin
   cbVerticalSpeed.Enabled := Assigned(FSelectedPlatform);
   cbLateralGuid.Enabled := Assigned(FSelectedPlatform);
   edAltitudeDepth.Enabled := Assigned(FSelectedPlatform);
-  btnRemove.Enabled := Assigned(FSelectedPlatform);
+//  btnRemove.Enabled := Assigned(FSelectedPlatform);
 
   if Assigned(FSelectedPlatform) then
   begin
     with FSelectedPlatform do
     begin
       edPlatform.Text := FData.Instance_Name;
+
+      if Vehicle.FData.Platform_Domain = Ord(vhdAir) then
+      begin
+        edAltitude.Enabled := True;
+        StaticText10.Caption := 'Altitude';
+        txt1.Caption := 'feet';
+
+        edAltitude.Text := FormatFloat('0.00', FActivation.Init_Altitude * C_Meter_To_Feet);
+      end
+      else
+      begin
+        if Vehicle.FData.Platform_Domain = Ord(vhdSubsurface) then
+          edAltitude.Enabled := True
+        else
+          edAltitude.Enabled := False;
+
+        StaticText10.Caption := 'Depth';
+        txt1.Caption := 'meter';
+
+        edAltitude.Text := FormatFloat('0.00', FActivation.Init_Altitude);
+      end;
 
       with FActivation do
       begin
@@ -1050,18 +1120,21 @@ begin
     edPlatform.Text := 'No Platform Selected';
 
 //    dtpActivationTime.Time := 10;
+
     edLatPosition.Text := '';
     edLongPosition.Text := '';
     edVert.Text := '';
     edHorz.Text := '';
     edCourse.Text := '';
-    edHelmAngle.Text := '';
     cbGroundSpeed.ItemIndex := -1;
     edAltitude.Text := '';
+
     cbVerticalSpeed.ItemIndex := -1;
     cbLateralGuid.ItemIndex := -1;
-    UpdateSelectedPlatformLateralData;
     edAltitudeDepth.Text := '';
+    edHelmAngle.Text := '';
+
+    UpdateSelectedPlatformLateralData;
   end;
 end;
 
@@ -1218,30 +1291,20 @@ begin
       platInst := FPlatformActivationList.Items[i];
 
       ShipSimbol := TBitmapSymbol.Create;
+
       with platInst do
       begin
-        FConverter.ConvertToScreen(FActivation.Init_Position_Longitude,
-          FActivation.Init_Position_Latitude, ix, iy);
-
-//        FBmpSym.Center.X := ix;
-//        FBmpSym.Center.Y := iy;
+        FConverter.ConvertToScreen(FActivation.Init_Position_Longitude, FActivation.Init_Position_Latitude, ix, iy);
 
         ShipSimbol.Center.X := ix;
         ShipSimbol.Center.Y := iy;
 
-        if Assigned(FHookedPlatform) and
-          (platInst.FData.Platform_Instance_Index = FHookedPlatform.FData.
-          Platform_Instance_Index) then
+        if Assigned(FHookedPlatform) and (platInst.FData.Platform_Instance_Index = FHookedPlatform.FData.Platform_Instance_Index) then
           color := RGB(255, 191, 128)
         else
           color := GetColor(FData.Force_Designation);
 
-//        FBmpSym.LoadBitmap(ExtractFilePath(ParamStr(0)) + 'data\Bitmap\' +
-//          GetSymbol(FData.Platform_Type, Vehicle.FData.Platform_Domain), color);
-//        FBmpSym.Draw(FCanvas);
-
-        ShipSimbol.LoadBitmap(ExtractFilePath(ParamStr(0)) + 'data\Bitmap\' +
-          GetSymbol(FData.Platform_Type, Vehicle.FData.Platform_Domain), color);
+        ShipSimbol.LoadBitmap(ExtractFilePath(ParamStr(0)) + 'data\Bitmap\' + GetSymbol(FData.Platform_Type, Vehicle.FData.Platform_Domain), color);
         ShipSimbol.Draw(FCanvas);
       end;
     end;
@@ -1323,10 +1386,19 @@ begin
     Ruler.Fill_LongLat;
     Ruler.Show;
   end;
-
-  { End_Ruler }
   {$ENDREGION}
 
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down then
+  begin
+    FIsMouseDown := True;
+
+    FZoomRectStart := Point(X, Y);
+    FZoomRectEnd := Point(X, Y);
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Klik Kanan '}
   if Button = mbRight then
   begin
     FMapClickEvent := mceHook;
@@ -1335,7 +1407,9 @@ begin
     Map1.CurrentTool := miArrowTool;
     Exit;
   end;
+  {$ENDREGION}
 
+  {$REGION ' Klik Kiri '}
   case FMapClickEvent of
     mceHook:
     begin
@@ -1352,7 +1426,7 @@ begin
       if not btnApply.Enabled then
         FOriginalPlatform := FSelectedPlatform;
 
-      btnApply.Enabled := True;
+//      btnApply.Enabled := True;
 
       with FSelectedPlatform.FActivation do
       begin
@@ -1374,7 +1448,7 @@ begin
       if not btnApply.Enabled then
         FOriginalPlatform := FSelectedPlatform;
 
-      btnApply.Enabled := True;
+//      btnApply.Enabled := True;
 
       platInst := FindNearestPlatform(X, Y);
 
@@ -1410,6 +1484,7 @@ begin
     end;
     mceScreenCapture:;
   end;
+  {$ENDREGION}
 
   UpdateSelectedPlatformData;
   Map1.Repaint;
@@ -1485,6 +1560,48 @@ begin
   end;
 end;
 
+procedure TfrmPlatformDeploytment.LoadAllPlatformInstance;
+var
+  i : Integer;
+  platInst : TPlatform_Instance;
+  aForce : string;
+begin
+  lvPlatform.Clear;
+
+  dmTTT.GetPlatformInstance(FSelectedResourceAlloc.FData.Resource_Alloc_Index,-1, -1, FPlatformInstanceOnScenarioList);
+
+  for i := 0 to FPlatformInstanceOnScenarioList.Count - 1 do
+  begin
+    platInst := FPlatformInstanceOnScenarioList.Items[i];
+
+    if platInst.FData.Platform_Type = 1 then
+    begin
+      dmTTT.GetVehicleDef(platInst.FData.Vehicle_Index, platInst.Vehicle);
+      dmTTT.GetMotion_Characteristics(platInst.Vehicle.FData.Motion_Characteristics, platInst.Motion);
+      dmTTT.GetPlatformActivation(FSelectedAssetDeployment.FData.Deployment_Index, platInst.FData.Platform_Instance_Index, platInst.FActivation);
+    end;
+
+    with lvPlatform.Items.Add do
+    begin
+      Data := platInst;
+      Caption := IntToStr(i + 1);
+      SubItems.Add(TPlatform_Instance(platInst).FData.Instance_Name);
+      SubItems.Add(TPlatform_Instance(platInst).FData.Track_ID);
+
+      case TPlatform_Instance(platInst).FData.Force_Designation of
+        1 : aForce := 'Red';
+        2 : aForce := 'Yellow';
+        3 : aForce := 'Blue';
+        4 : aForce := 'Green';
+        5 : aForce := 'White';
+        6 : aForce := 'No Force';
+      end;
+
+      SubItems.Add(aForce);
+    end;
+  end;
+end;
+
 procedure TfrmPlatformDeploytment.LoadENC(aGeoset: string);
 var
   z : OleVariant;
@@ -1551,6 +1668,21 @@ begin
   Map1.BackColor := clSkyBlue;
 end;
 
+procedure TfrmPlatformDeploytment.lvPlatformClick(Sender: TObject);
+begin
+  if lvPlatform.Selected = nil then
+  begin
+    Exit
+  end;
+
+  FHookedPlatform := TPlatform_Instance(lvPlatform.Selected.Data);
+  UpdateHookedPlatformData;
+
+  Map1.MousePointer := miDefaultCursor;
+  Map1.CurrentTool := miArrowTool;
+
+end;
+
 {$ENDREGION}
 
 {$REGION ' Filter Input '}
@@ -1564,7 +1696,7 @@ begin
     DateTimeToInt(dtpActivationTime.DateTime);
 
   UpdateSelectedPlatformData;
-  btnApply.Enabled := True;
+//  btnApply.Enabled := True;
 end;
 
 procedure TfrmPlatformDeploytment.edHorzKeyPress(Sender: TObject; var Key: Char);
@@ -1574,7 +1706,7 @@ begin
     if not btnApply.Enabled then
       FOriginalPlatform := FSelectedPlatform;
 
-    btnApply.Enabled := True;
+//    btnApply.Enabled := True;
 
     with FSelectedPlatform.FActivation do
     begin
@@ -1595,7 +1727,7 @@ begin
     if not btnApply.Enabled then
       FOriginalPlatform := FSelectedPlatform;
 
-    btnApply.Enabled := True;
+//    btnApply.Enabled := True;
 
     with FSelectedPlatform.FActivation do
     begin
@@ -1616,7 +1748,7 @@ begin
     if not btnApply.Enabled then
       FOriginalPlatform := FSelectedPlatform;
 
-    btnApply.Enabled := True;
+//    btnApply.Enabled := True;
 
     with FSelectedPlatform.FActivation do
     begin
@@ -1637,7 +1769,7 @@ begin
     if not btnApply.Enabled then
       FOriginalPlatform := FSelectedPlatform;
 
-    btnApply.Enabled := True;
+//    btnApply.Enabled := True;
 
     with FSelectedPlatform.FActivation do
     begin
@@ -1680,6 +1812,39 @@ begin
 //
 //  zoom := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
 //  Map1.ZoomTo(zoom, Map1.CenterX, Map1.CenterY);
+end;
+
+procedure TfrmPlatformDeploytment.DeployPlatformInstance;
+begin
+  FOriginalPlatform := nil;
+
+  with FSelectedPlatform do
+  begin
+    FActivation.Deployment_Index := FSelectedAssetDeployment.FData.Deployment_Index;
+    FActivation.Platform_Instance_Index := FSelectedPlatform.FData.Platform_Instance_Index;
+
+    if Vehicle.FData.Platform_Domain = Ord(vhdAir) then
+    begin
+      {disimpan di database dalam satuan meter}
+      FActivation.Init_Altitude := (StrToFloat(edAltitude.Text)) * C_Feet_To_Meter;
+    end
+    else
+    begin
+      {disimpan di database dalam satuan meter}
+      FActivation.Init_Altitude := StrToFloat(edAltitude.Text);
+    end;
+
+    FActivation.Init_Ground_Speed := cbGroundSpeed.ItemIndex;
+    FActivation.Init_Course := StrToFloat(edCourse.Text);
+
+    if FActivation.Platform_Event_Index = 0 then
+      dmTTT.InsertPlatformActivation(FActivation)
+    else
+      dmTTT.UpdatePlatformActivation(FActivation);
+  end;
+
+  UpdatePlatformActivationList;
+  Map1.Repaint;
 end;
 
 procedure TfrmPlatformDeploytment.DrawRuler;
@@ -1757,7 +1922,7 @@ begin
   if not btnApply.Enabled then
     FOriginalPlatform := FSelectedPlatform;
 
-  btnApply.Enabled := True;
+//  btnApply.Enabled := True;
 
   with FSelectedPlatform.FActivation do
   begin

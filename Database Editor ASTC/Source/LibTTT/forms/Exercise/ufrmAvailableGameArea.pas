@@ -120,7 +120,7 @@ var
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area ... !');
     Exit;
   end;
 
@@ -155,7 +155,7 @@ procedure TfrmAvailableGameArea.btnEditClick(Sender: TObject);
 begin
   if lstGameArea.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Area !');
+    ShowMessage('Silahkan pilih salah satu data Game Area ... !');
     Exit;
   end;
 
@@ -188,7 +188,7 @@ begin
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Game Area ?', mtConfirmation, mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -199,7 +199,7 @@ begin
       if dmTTT.GetGameAreaAtEnvironment(Game_Area_Index, tempList) then
       begin
         FreeItemsAndFreeList(tempList);
-        ShowMessage('Cannot delete, because is already in used by some Environment');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Environment');
         Exit;
       end;
 
@@ -207,7 +207,7 @@ begin
       if dmTTT.GetGameAreaAtOverlayDef(Game_Area_Index, tempList) then
       begin
         FreeItemsAndFreeList(tempList);
-        ShowMessage('Cannot delete, because is already in used by some Overlay');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Overlay');
         Exit;
       end;
 
@@ -217,7 +217,7 @@ begin
       DeleteGameAreaDirectory(MapDirPath);
 
       if dmTTT.DeleteGameAreaDef(Game_Area_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateGameAreaList;

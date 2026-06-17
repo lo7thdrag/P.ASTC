@@ -137,7 +137,7 @@ procedure TfrmAvailableGameDefaults.btnEditClick(Sender: TObject);
 begin
   if lstGameDefaults.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Defaults... !');
+    ShowMessage('Silahkan pilih salah satu data Game Defaults ... !');
     Exit;
   end;
 
@@ -163,11 +163,11 @@ var
 begin
   if lstGameDefaults.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Defaults... !');
+    ShowMessage('Silahkan pilih salah satu data Game Defaults ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation, mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -178,7 +178,7 @@ begin
     begin
       if dmTTT.GetGameDefaultAtResourceAllocation(Defaults_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already used by some Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Resource Allocation');
         tempList.Free;
         Exit;
       end;
@@ -197,7 +197,7 @@ begin
       dmTTT.DeleteIFFModeCode(Defaults_Index);
 
       if dmTTT.DeleteGameDefaultDef(Defaults_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateGameDefaultsList;
@@ -208,7 +208,7 @@ procedure TfrmAvailableGameDefaults.btnUsageClick(Sender: TObject);
 begin
   if lstGameDefaults.ItemIndex = -1 then
   begin
-    ShowMessage('Select Game Defaults... !');
+    ShowMessage('Silahkan pilih salah satu data Game Defaults ... !');
     Exit;
   end;
 

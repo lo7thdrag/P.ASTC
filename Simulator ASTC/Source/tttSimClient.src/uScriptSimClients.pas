@@ -62,7 +62,7 @@ begin
   else
   begin
     simMgrClient.LoadFromSnapshot := False;
-    simMgrClient.LoadScenarioId(vGameDataSetting);
+//    simMgrClient.LoadScenarioId(vGameDataSetting);
   end;
 
   //tambahan aldy environment

@@ -120,7 +120,7 @@ var
 begin
   if lstMissile.ItemIndex = -1 then
   begin
-    ShowMessage('Select Missile... !');
+    ShowMessage('Silahkan pilih salah satu data Missile ... !');
     Exit;
   end;
 
@@ -157,7 +157,7 @@ procedure TfrmAvailableMissile.btnEditClick(Sender: TObject);
 begin
   if lstMissile.ItemIndex = -1 then
   begin
-    ShowMessage('Select Missile... !');
+    ShowMessage('Silahkan pilih salah satu data Missile ... !');
     Exit;
   end;
 
@@ -185,11 +185,11 @@ var
 begin
   if lstMissile.ItemIndex = -1 then
   begin
-    ShowMessage('Select Missile... !');
+    ShowMessage('Silahkan pilih salah satu data Missile ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -201,7 +201,7 @@ begin
       {Pengecekan Relasi Dengan Resource Allocation}
       if dmTTT.GetPlatformInstanceAtResourceAllocation(2, Missile_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some resource allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data resource allocation');
         tempList.Free;
         Exit;
       end;
@@ -209,7 +209,7 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetFittedWeaponAtVehicleOnBoard(7, Missile_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         tempList.Free;
         Exit;
       end;
@@ -220,7 +220,7 @@ begin
       dmTTT.DeleteNoteStorage(2, Missile_Index);
 
       if dmTTT.DeleteMissileDef(Missile_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -232,7 +232,7 @@ procedure TfrmAvailableMissile.btnUsageClick(Sender: TObject);
 begin
   if lstMissile.ItemIndex = -1 then
   begin
-    ShowMessage('Select Missile... !');
+    ShowMessage('Silahkan pilih salah satu data Missile ... !');
     Exit;
   end;
 

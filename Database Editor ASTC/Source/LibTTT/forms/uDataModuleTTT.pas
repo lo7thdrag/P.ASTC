@@ -48,6 +48,7 @@ type
     function DeleteScenarioDef(const aScenarioID: Integer): Boolean;
 
     //==Platform Activation
+    function CountPlatformActivation(const aDeploymentID: Integer): Integer;
     function GetPlatformActivation(const aDeploymentID: Integer; var aList: TList): Integer; overload;
     function GetPlatformActivation(const aDeploymentID, aPlatformIndex: Integer; var aPIActivation : TRecPlatform_Activation): Integer; overload;
 
@@ -173,8 +174,9 @@ type
     function getAllPlatFormInstanceForceClassification(const v_id,id: integer;
       var aRec: TList;force:integer;classification:integer): Integer;
 
-    function getPlatFormInstance(const ra_id,force: integer;const instance:string;
-    var aRec: TList): Integer; overload;
+    function getPlatFormInstance(const ra_id,force: integer;const instance:string; var aRec: TList): Integer; overload;
+    function CountPlatFormInstance(const ra_id: Integer): Integer;
+
     function filterPlatFormInstance(const ra_id,force,clas,deployed: integer;
     var aRec: TList): Integer;
 
@@ -2509,6 +2511,27 @@ begin
 end;
 
 //==Platform Activation
+function TdmTTT.CountPlatformActivation(const aDeploymentID: Integer): Integer;
+begin
+  Result := -1;
+
+  if not ZConn.Connected then
+    Exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT *');
+    SQL.Add('FROM Platform_Activation a JOIN Platform_Instance b');
+    SQL.Add('ON a.Platform_Instance_Index = b.Platform_Instance_Index');
+    SQL.Add('WHERE Deployment_Index = ' + IntToStr(aDeploymentID));
+    SQL.Add('ORDER BY b.Instance_Name');
+    Open;
+
+    Result := RecordCount;
+  end;
+end;
 
 function TdmTTT.GetPlatformActivation(const aDeploymentID: Integer; var aList: TList): Integer;
 var
@@ -32037,6 +32060,30 @@ end;
 
 // ------------------------------------------------------------------------------
 
+function TdmTTT.CountPlatFormInstance(const ra_id : Integer): Integer;
+var
+  rec: TPlatform_Instance;
+  ssql: string;
+begin
+
+  result := -1;
+  if not ZConn.Connected then
+    exit;
+
+  with ZQ do
+  begin
+    Close;
+    SQL.Clear;
+    ssql := ssql + 'SELECT * FROM PlatForm_Instance WHERE Resource_Alloc_Index = ' + IntToStr(ra_id);
+
+    SQL.Add(ssql);
+    Open;
+
+    result := RecordCount;
+
+  end;
+end;
+
 function TdmTTT.getPlatFormInstance(const ra_id, force : Integer; const instance:string; var aRec: TList): Integer;
 var
   rec: TPlatform_Instance;
@@ -39438,6 +39485,8 @@ begin
     Result := RecordCount > 0;
   end;
 end;
+
+
 //=============================================================//
 
 function TdmTTT.CekRuntime_Platform_Library_by_ResLibMap(const RplIndex: Integer): Integer;

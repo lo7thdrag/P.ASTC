@@ -145457,7 +145457,7 @@ object fDBEditor: TfDBEditor
       TabOrder = 3
       object pnl1ExerciseBody: TPanel
         Left = 20
-        Top = 487
+        Top = 483
         Width = 321
         Height = 25
         Align = alTop
@@ -145467,6 +145467,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 0
+        ExplicitTop = 487
         object Image3: TImage
           Left = 32
           Top = 79
@@ -145658,7 +145659,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl1Exercise: TPanel
         Left = 20
-        Top = 447
+        Top = 443
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -145669,6 +145670,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 1
+        ExplicitTop = 447
         object imgExercise: TImage
           Left = 0
           Top = 0
@@ -146595,7 +146597,7 @@ object fDBEditor: TfDBEditor
       object pnl2Platforms: TPanel
         Tag = 1
         Left = 20
-        Top = 275
+        Top = 271
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -146606,6 +146608,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 2
+        ExplicitTop = 275
         object imgPlatforms: TImage
           Tag = 1
           Left = 0
@@ -147539,7 +147542,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl2PlatformsBody: TPanel
         Left = 20
-        Top = 315
+        Top = 311
         Width = 321
         Height = 25
         Align = alTop
@@ -147549,6 +147552,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 3
+        ExplicitTop = 315
         object Image1: TImage
           Left = 30
           Top = 97
@@ -147631,7 +147635,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl1ExerciseSparator: TPanel
         Left = 20
-        Top = 512
+        Top = 508
         Width = 321
         Height = 20
         Align = alTop
@@ -147641,10 +147645,11 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 4
+        ExplicitTop = 512
       end
       object pnl2PlatformsSparator: TPanel
         Left = 20
-        Top = 340
+        Top = 336
         Width = 321
         Height = 20
         Align = alTop
@@ -147654,12 +147659,13 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 5
+        ExplicitTop = 340
       end
       object pnl3SensorsBody: TPanel
         Left = 20
         Top = 60
         Width = 321
-        Height = 25
+        Height = 21
         Align = alTop
         BevelOuter = bvNone
         BorderWidth = 3
@@ -147959,7 +147965,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl3SensorsSparator: TPanel
         Left = 20
-        Top = 85
+        Top = 81
         Width = 321
         Height = 20
         Align = alTop
@@ -147969,11 +147975,12 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 8
+        ExplicitTop = 85
       end
       object pnl4Weapons: TPanel
         Tag = 2
         Left = 20
-        Top = 105
+        Top = 101
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -147984,6 +147991,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 9
+        ExplicitTop = 105
         object imgWeapons: TImage
           Tag = 3
           Left = 0
@@ -148915,7 +148923,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl4WeaponsBody: TPanel
         Left = 20
-        Top = 145
+        Top = 141
         Width = 321
         Height = 25
         Align = alTop
@@ -148925,6 +148933,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 10
+        ExplicitTop = 145
         object Image16: TImage
           Left = 32
           Top = 17
@@ -149153,7 +149162,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl4WeaponsSparator: TPanel
         Left = 20
-        Top = 170
+        Top = 166
         Width = 321
         Height = 20
         Align = alTop
@@ -149163,11 +149172,12 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 11
+        ExplicitTop = 170
       end
       object pnl5Countermeasur: TPanel
         Tag = 2
         Left = 20
-        Top = 190
+        Top = 186
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -149178,6 +149188,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 12
+        ExplicitTop = 190
         object imgCountermeasures: TImage
           Tag = 4
           Left = 0
@@ -150126,7 +150137,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl5CountermeasuresBody: TPanel
         Left = 20
-        Top = 230
+        Top = 226
         Width = 321
         Height = 25
         Align = alTop
@@ -150136,6 +150147,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 13
+        ExplicitTop = 230
         object Image21: TImage
           Left = 32
           Top = 17
@@ -150499,7 +150511,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl5CountermeasuresSparator: TPanel
         Left = 20
-        Top = 255
+        Top = 251
         Width = 321
         Height = 20
         Align = alTop
@@ -150509,11 +150521,12 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 14
+        ExplicitTop = 255
       end
       object pnl6Other: TPanel
         Tag = 2
         Left = 20
-        Top = 360
+        Top = 356
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -150524,6 +150537,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 15
+        ExplicitTop = 360
         object imgOther: TImage
           Tag = 5
           Left = 0
@@ -151434,7 +151448,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl6OtherBody: TPanel
         Left = 20
-        Top = 400
+        Top = 396
         Width = 321
         Height = 27
         Align = alTop
@@ -151444,6 +151458,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 16
+        ExplicitTop = 400
         object Image48: TImage
           Left = 32
           Top = 17
@@ -151764,7 +151779,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl6OtherSparator: TPanel
         Left = 20
-        Top = 427
+        Top = 423
         Width = 321
         Height = 20
         Align = alTop
@@ -151774,11 +151789,12 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 17
+        ExplicitTop = 427
       end
       object pnl8Shutdown: TPanel
         Tag = 2
         Left = 20
-        Top = 532
+        Top = 528
         Width = 321
         Height = 40
         Cursor = crHandPoint
@@ -151789,6 +151805,7 @@ object fDBEditor: TfDBEditor
         ParentBackground = False
         ParentDoubleBuffered = False
         TabOrder = 18
+        ExplicitTop = 532
         object imgShutdown: TImage
           Tag = 36
           Left = 0
@@ -152733,7 +152750,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl8ShutdownBody: TPanel
         Left = 20
-        Top = 572
+        Top = 568
         Width = 321
         Height = 25
         Align = alTop
@@ -152743,6 +152760,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 19
+        ExplicitTop = 572
         object Image66: TImage
           Left = 32
           Top = 17
@@ -152790,7 +152808,7 @@ object fDBEditor: TfDBEditor
       end
       object pnl8ShutdownSparator: TPanel
         Left = 20
-        Top = 597
+        Top = 593
         Width = 321
         Height = 8
         Align = alTop
@@ -152800,6 +152818,7 @@ object fDBEditor: TfDBEditor
         DoubleBuffered = True
         ParentDoubleBuffered = False
         TabOrder = 20
+        ExplicitTop = 597
       end
       object pnl3Sensors: TPanel
         Tag = 2

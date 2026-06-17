@@ -14,7 +14,6 @@ type
   E_OverlayMapCursor = (mcSelect, mcAdd, mcEdit);
 
   TOverlayEditorForm = class(TForm)
-    ImageList1: TImageList;
     ToolBar1: TToolBar;
     btnDecreaseScale: TToolButton;
     cbSetScale: TComboBox;
@@ -24,8 +23,8 @@ type
     btnCenterOnGame: TToolButton;
     Map1: TMap;
     pnlMainBackground: TPanel;
-    pnlEditor: TPanel;
-    pnlMap: TPanel;
+    pnl2Editor: TPanel;
+    pnl3Map: TPanel;
     pnlToolBar: TPanel;
     pnlCursorPosition: TPanel;
     Label36: TLabel;
@@ -40,10 +39,9 @@ type
     Label67: TLabel;
     lPosLong: TLabel;
     lGridLong: TLabel;
-    pnl3Button: TPanel;
-    Panel1: TPanel;
+    pnl4Bottom: TPanel;
     btnClose: TButton;
-    pnlSparatorHor1: TPanel;
+    pnl3SparatorHor1: TPanel;
     btnScreenCapture: TButton;
     pnlOverlayEditor: TPanel;
     pnlVertical2: TPanel;
@@ -350,8 +348,6 @@ type
     edtPolygonBearing: TEdit;
     lvPolyVertexD: TListView;
     grpNoneD: TGroupBox;
-    btnApply: TButton;
-    btnDelete: TButton;
     txtColorSelect: TLabel;
     btnOk: TButton;
     btnCopyArc: TImage;
@@ -387,16 +383,20 @@ type
     btnGrid: TRzBmpButton;
     btnPolygon: TRzBmpButton;
     imgBackground: TImage;
-    il1: TImageList;
+    ilToolbar: TImageList;
     pnl1Header: TPanel;
-    pnl3: TPanel;
     pnlColor: TPanel;
     pnlShape: TPanel;
     lblColor: TLabel;
     Label29: TLabel;
     pnlVertical1: TPanel;
     pnlVertical3: TPanel;
-    Panel2: TPanel;
+    pnl3SparatorHor2: TPanel;
+    pnl2SparatorHor1: TPanel;
+    pnlButton: TPanel;
+    btnApply: TButton;
+    btnDelete: TButton;
+    pnl2SparatorHor2: TPanel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

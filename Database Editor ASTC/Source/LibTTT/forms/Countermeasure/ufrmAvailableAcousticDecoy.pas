@@ -119,7 +119,7 @@ var
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 
@@ -149,7 +149,7 @@ procedure TfrmAvailableAcousticDecoy.btnEditClick(Sender: TObject);
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 
@@ -175,11 +175,11 @@ var
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -189,7 +189,7 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetCountermeasure_On_Board_By_Index(1, Decoy_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
@@ -198,7 +198,7 @@ begin
       dmTTT.DeleteNoteStorage(20, Decoy_Index);
 
       if dmTTT.DeleteAcousticDecoyDef(Decoy_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -210,7 +210,7 @@ procedure TfrmAvailableAcousticDecoy.btnUsageClick(Sender: TObject);
 begin
   if lstAcousticDecoy.ItemIndex = -1 then
   begin
-    ShowMessage('Select Acoustic Decoy... !');
+    ShowMessage('Silahkan pilih salah satu data  Acoustic Decoy ... !');
     Exit;
   end;
 

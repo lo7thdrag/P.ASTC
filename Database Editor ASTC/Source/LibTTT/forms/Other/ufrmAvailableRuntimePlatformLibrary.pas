@@ -139,7 +139,7 @@ procedure TfrmAvailableRuntimePlatformLibrary.btnEditClick(Sender: TObject);
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
-    ShowMessage('Select Runtime Platfor Library... !');
+    ShowMessage('Silahkan pilih salah satu data Runtime Platfor Library ... !');
     Exit;
   end;
 
@@ -166,11 +166,11 @@ var
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
-    ShowMessage('Select Runtime Platform Library... !');
+    ShowMessage('Silahkan pilih salah satu data Runtime Platfor Library ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -180,7 +180,7 @@ begin
     begin
       if dmTTT.GetRPLAtResourceAllocation(Platform_Library_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already used by some Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         tempList.Free;
         Exit;
       end;
@@ -189,7 +189,7 @@ begin
       dmTTT.DeletePlatformLibraryEntry(1, Platform_Library_Index);
 
       if dmTTT.DeleteRuntimePlatformLibraryDef(Platform_Library_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateRPLList;
@@ -200,7 +200,7 @@ procedure TfrmAvailableRuntimePlatformLibrary.btnUsageClick(Sender: TObject);
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
-    ShowMessage('Select Runtime Platfrom Library... !');
+    ShowMessage('Silahkan pilih salah satu data Runtime Platfor Library ... !');
     Exit;
   end;
 

@@ -112,7 +112,7 @@ var
 begin
   if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay... !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 
@@ -148,7 +148,7 @@ procedure TfrmAvailableGrapicalOverlay.btnEditClick(Sender: TObject);
 begin
   if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay... !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 
@@ -175,11 +175,11 @@ var
 begin
   if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Overlay ?', mtConfirmation, mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -189,7 +189,7 @@ begin
       tempList := TList.Create;
       if dmTTT.GetOverlayAtResourceAllocation(Overlay_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Resource Allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Resource Allocation');
         Exit;
         tempList.Destroy;
       end;
@@ -198,7 +198,7 @@ begin
       if dmTTT.DeleteOverlayDef(Overlay_Index) then
       begin
         DeleteFile(vAppDBSetting.OverlayPath + '\' + FSelectedOverlay.FData.Overlay_Filename + '.dat');
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
       end;
     end;
 
@@ -210,7 +210,7 @@ procedure TfrmAvailableGrapicalOverlay.btnUsageClick(Sender: TObject);
 begin
   if lstGrapicalOverlays.ItemIndex = -1 then
   begin
-    ShowMessage('Select Overlay... !');
+    ShowMessage('Silahkan pilih salah satu data Overlay ... !');
     Exit;
   end;
 

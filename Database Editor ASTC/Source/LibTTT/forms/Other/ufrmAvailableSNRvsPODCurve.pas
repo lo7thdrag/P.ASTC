@@ -115,7 +115,7 @@ var
 begin
   if lstSNRvsPODCurve.ItemIndex = -1 then
   begin
-    ShowMessage('Select SNR vs POD Curve... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... !');
     Exit;
   end;
 
@@ -142,7 +142,7 @@ procedure TfrmAvailableSNRvsPODCurve.btnEditClick(Sender: TObject);
 begin
   if lstSNRvsPODCurve.ItemIndex = -1 then
   begin
-    ShowMessage('Select SNR vs PoD Curve... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... !');
     Exit;
   end;
 
@@ -168,11 +168,11 @@ var
 begin
   if lstSNRvsPODCurve.ItemIndex = -1 then
   begin
-    ShowMessage('Select SNR vs POD Curve... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation, mbOKCancel, 0);
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation, mbOKCancel, 0);
 
   if warning = mrOK then
   begin
@@ -183,14 +183,14 @@ begin
     begin
       if dmTTT.GetRadarByPOD_vs_SNR(Curve_Definition_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already used by some Radar Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Radar Definition');
         tempList.Free;
         Exit;
       end;
 
       if dmTTT.GetSonarByPOD_vs_SNR(Curve_Definition_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already used by some Sonar Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Sonar Definition');
         tempList.Free;
         Exit;
       end;
@@ -199,7 +199,7 @@ begin
       dmTTT.DeletePODvsSNRCurvePoint(1, Curve_Definition_Index);
 
       if dmTTT.DeletePODvsSNRCurveDef(Curve_Definition_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateSNRvsPODCurveList;
@@ -210,7 +210,7 @@ procedure TfrmAvailableSNRvsPODCurve.btnUsageClick(Sender: TObject);
 begin
   if lstSNRvsPODCurve.ItemIndex = -1 then
   begin
-    ShowMessage('Select SNR vs POD Curve... !');
+    ShowMessage('Silahkan pilih salah satu data SNR vs POD Curve ... !');
     Exit;
   end;
 

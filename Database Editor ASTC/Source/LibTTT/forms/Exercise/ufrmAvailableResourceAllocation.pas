@@ -121,7 +121,7 @@ var
 begin
   if lstResourceAllocation.ItemIndex = -1 then
   begin
-    ShowMessage('Select Resource Allocation !');
+    ShowMessage('Silahkan pilih salah satu data Resource Allocation ... !');
     Exit;
   end;
 
@@ -151,7 +151,7 @@ procedure TfrmAvailableResourceAllocation.btnEditClick(Sender: TObject);
 begin
   if lstResourceAllocation.ItemIndex = -1 then
   begin
-    ShowMessage('Select Resource Allocation !');
+    ShowMessage('Silahkan pilih salah satu data Resource Allocation ... !');
     Exit;
   end;
 
@@ -180,11 +180,11 @@ var
 begin
   if lstResourceAllocation.ItemIndex = -1 then
   begin
-    ShowMessage('Select Resource Allocation !');
+    ShowMessage('Silahkan pilih salah satu data Resource Allocation ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Resource Aloocation ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -234,7 +234,7 @@ procedure TfrmAvailableResourceAllocation.btnUsageClick(Sender: TObject);
 begin
   if lstResourceAllocation.ItemIndex = -1 then
   begin
-    ShowMessage('Select Resource Allocation !');
+    ShowMessage('Silahkan pilih salah satu data Resource Allocation ... !');
     Exit;
   end;
 

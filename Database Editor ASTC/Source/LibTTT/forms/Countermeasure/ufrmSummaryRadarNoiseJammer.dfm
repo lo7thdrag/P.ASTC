@@ -45128,10 +45128,6 @@ object frmSummaryRadarNoiseJammer: TfrmSummaryRadarNoiseJammer
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 367
-          ExplicitHeight = 252
           object mmoNotes: TMemo
             Left = 0
             Top = 0

@@ -118,7 +118,7 @@ var
 begin
   if lbMAD.ItemIndex = -1 then
   begin
-    ShowMessage('Select MAD... !');
+    ShowMessage('Silahkan pilih salah satu data MAD ... !');
     Exit;
   end;
 
@@ -144,7 +144,7 @@ procedure TfrmAvailableMAD.btnEditClick(Sender: TObject);
 begin
   if lbMAD.ItemIndex = -1 then
   begin
-    ShowMessage('Select MAD... !');
+    ShowMessage('Silahkan pilih salah satu data MAD ... !');
     Exit;
   end;
 
@@ -170,11 +170,11 @@ var
 begin
   if lbMAD.ItemIndex = -1 then
   begin
-    ShowMessage('Select MAD... !');
+    ShowMessage('Silahkan pilih salah satu data MAD ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -184,14 +184,14 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetSensor_On_Board_By_Index(2, MAD_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(11, MAD_Index);
 
       if dmTTT.DeleteMADDef(MAD_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -203,7 +203,7 @@ procedure TfrmAvailableMAD.btnUsageClick(Sender: TObject);
 begin
   if lbMAD.ItemIndex = -1 then
   begin
-    ShowMessage('Select MAD... !');
+    ShowMessage('Silahkan pilih salah satu data MAD ... !');
     Exit;
   end;
 

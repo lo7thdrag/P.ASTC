@@ -173,22 +173,15 @@ begin
       end;
 
       dmTTT.InsertAssetDeployment(FSelectedAssetDeployment.FData);
-      ShowMessage('Data has been saved');
+      ShowMessage('Data berhasil disimpan');
     end;
   end
   else
   begin
     if dmTTT.UpdateScenarioDef(FSelectedScenario.FData) then
     begin
-      ShowMessage('Data has been updated');
+      ShowMessage('Data berhasil diperbarui');
     end;
-
-  end;
-
-  with FSelectedScenario do
-  begin
-
-
 
   end;
 
@@ -327,7 +320,7 @@ begin
   {Jika inputan class name kosong}
   if (edtName.Text = '')then
   begin
-    ShowMessage('Please insert class name');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -345,7 +338,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
@@ -356,12 +349,12 @@ begin
     {Jika inputan baru}
     if FSelectedScenario.FData.Scenario_Index = 0 then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;

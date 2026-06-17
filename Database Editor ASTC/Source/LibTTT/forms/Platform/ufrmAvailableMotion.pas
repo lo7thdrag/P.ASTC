@@ -118,7 +118,7 @@ var
 begin
   if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 
@@ -143,7 +143,7 @@ procedure TfrmAvailableMotion.btnEditClick(Sender: TObject);
 begin
   if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 
@@ -171,11 +171,11 @@ var
 begin
   if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this Motion ?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -186,7 +186,7 @@ begin
       {Pengecekan Relasi Dengan Tabel Vehicle Definition}
       if dmTTT.GetMotionCharacteristicAtVehicleDef(Motion_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Vehicle Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Vehicle Definition');
         tempList.Destroy;
         Exit;
       end;
@@ -194,7 +194,7 @@ begin
       {Catatan : Seharusnya ada Pengecekan Relasi Dengan Tabel Missile Definition}
       if dmTTT.GetMotionCharacteristicAtMissileDef(Motion_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Missile Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Missile Definition');
         tempList.Destroy;
         Exit;
       end;
@@ -202,14 +202,14 @@ begin
       {Catatan : Seharusnya ada Pengecekan Relasi Dengan Tabel Torpedo Definition}
       if dmTTT.GetMotionCharacteristicAtTorpedoDef(Motion_Index,tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by Torpedo Definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data Torpedo Definition');
         tempList.Destroy;
         Exit;
       end;
       tempList.Destroy;
 
       if dmTTT.DeleteMotionCharacteristicDef(Motion_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
   end;
@@ -221,7 +221,7 @@ procedure TfrmAvailableMotion.btnUsageClick(Sender: TObject);
 begin
   if lstMotions.ItemIndex = -1 then
   begin
-    ShowMessage('Select Motion... !');
+    ShowMessage('Silahkan pilih salah satu data Motion ... !');
     Exit;
   end;
 

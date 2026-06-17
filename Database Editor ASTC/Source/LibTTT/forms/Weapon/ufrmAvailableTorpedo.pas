@@ -117,7 +117,7 @@ var
 begin
   if lstTorpedo.ItemIndex = -1 then
   begin
-    ShowMessage('Select Torpedo... !');
+    ShowMessage('Silahkan pilih salah satu data Torpedo ... !');
     Exit;
   end;
 
@@ -143,7 +143,7 @@ procedure TfrmAvailableTorpedo.btnEditClick(Sender: TObject);
 begin
   if lstTorpedo.ItemIndex = -1 then
   begin
-    ShowMessage('Select Torpedo... !');
+    ShowMessage('Silahkan pilih salah satu data Torpedo ... !');
     Exit;
   end;
 
@@ -172,11 +172,11 @@ var
 begin
   if lstTorpedo.ItemIndex = -1 then
   begin
-    ShowMessage('Select Torpedo... !');
+    ShowMessage('Silahkan pilih salah satu data Torpedo ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -188,7 +188,7 @@ begin
       {Pengecekan Relasi Dengan Resource Allocation}
       if dmTTT.GetPlatformInstanceAtResourceAllocation(3, Torpedo_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some resource allocation');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data resource allocation');
         tempList.Free;
         Exit;
       end;
@@ -196,7 +196,7 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetFittedWeaponAtVehicleOnBoard(8, Torpedo_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         tempList.Free;
         Exit;
       end;
@@ -204,7 +204,7 @@ begin
       {Pengecekan Relasi Dengan Tabel Missile Definition}
       if dmTTT.GetTorpedoAtMissileDef(Torpedo_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some missile definition');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data missile definition');
         tempList.Free;
         Exit;
       end;
@@ -214,7 +214,7 @@ begin
       dmTTT.DeleteNoteStorage(4, Torpedo_Index);
 
       if dmTTT.DeleteTorpedoDef(Torpedo_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -226,7 +226,7 @@ procedure TfrmAvailableTorpedo.btnUsageClick(Sender: TObject);
 begin
   if lstTorpedo.ItemIndex = -1 then
   begin
-    ShowMessage('Select Torpedo... !');
+    ShowMessage('Silahkan pilih salah satu data Torpedo ... !');
     Exit;
   end;
 

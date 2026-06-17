@@ -120,7 +120,7 @@ var
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 
@@ -146,7 +146,7 @@ procedure TfrmAvailableAirBubble.btnEditClick(Sender: TObject);
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 
@@ -172,11 +172,11 @@ procedure TfrmAvailableAirBubble.btnDeleteClick(Sender: TObject);
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -186,14 +186,14 @@ begin
       {Pengecekan Relasi Dengan Tabel On Board}
       if dmTTT.GetCountermeasure_On_Board_By_Index(2, Air_Bubble_Index) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some Vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         Exit;
       end;
 
       dmTTT.DeleteNoteStorage(21, Air_Bubble_Index);
 
       if dmTTT.DeleteAirBubbleDef(Air_Bubble_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
 
     end;
 
@@ -205,7 +205,7 @@ procedure TfrmAvailableAirBubble.btnUsageClick(Sender: TObject);
 begin
   if lstAirBubble.ItemIndex = -1 then
   begin
-    ShowMessage('Select Air Bubble... !');
+    ShowMessage('Silahkan pilih salah satu data Air Bubble ... !');
     Exit;
   end;
 

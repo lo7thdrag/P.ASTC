@@ -195,9 +195,19 @@ begin
     FData.Game_Start_Time := FStartTime;
 
     if FData.Resource_Alloc_Index = 0 then
-      dmTTT.InsertResourceAllocationDef(FData)
+    begin
+      if dmTTT.InsertResourceAllocationDef(FData) then
+      begin
+        ShowMessage('Data berhasil disimpan');
+      end;
+    end
     else
-      dmTTT.UpdateResourceAllocationDef(FData);
+    begin
+      if dmTTT.UpdateResourceAllocationDef(FData) then
+      begin
+        ShowMessage('Data berhasil diperbarui');
+      end;
+    end;
   end;
 
   UpdateButtonState;
@@ -384,7 +394,7 @@ begin
 
   if edtName.Text = '' then
   begin
-    ShowMessage('Incomplete data input');
+    ShowMessage('Silahkan masukkan nama class');
     Exit;
   end;
 
@@ -399,14 +409,14 @@ begin
     end;
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
 
   if (dmTTT.GetResourceAllocationDefCount(edtName.Text) > 0) and (IdAction = 0) then
   begin
-    ShowMessage('Please use another name');
+    ShowMessage('Silahkan gunakan nama class lain');
     Exit;
   end;
 
@@ -414,26 +424,26 @@ begin
   begin
     if (dmTTT.GetResourceAllocationDefCount(edtName.Text) > 0) then
     begin
-      ShowMessage('Please use another name');
+      ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
   end;
 
   if FSelectedResourceAllocation.FData.Game_Enviro_Index = 0 then
   begin
-    ShowMessage('Select Environment for this Resource Allocation.');
+    ShowMessage('Environment belum dipilih.');
     Exit;
   end;
 
   if FSelectedResourceAllocation.FData.Defaults_Index = 0 then
   begin
-    ShowMessage('Select Defaults for this Resource Allocation.');
+    ShowMessage('Game Default belum dipilih.');
     Exit;
   end;
 
   if FSelectedResourceAllocation.FData.Role_List_Index = 0 then
   begin
-    ShowMessage('Select Student Role for this Resource Allocation.');
+    ShowMessage('Student Role belum dipilih.');
     Exit;
   end;
 

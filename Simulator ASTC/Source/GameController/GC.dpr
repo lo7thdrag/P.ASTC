@@ -40,7 +40,8 @@ uses
   uDataBuffer in '..\SimFramework\LibNets\NetComponent\uDataBuffer.pas',
   uDataTypes in '..\SimFramework\LibBaseUtils\CoordSystem\uDataTypes.pas',
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  ufrmRoleSetting in 'ufrmRoleSetting.pas' {frmRoleSetting};
 
 {$R *.res}
 
@@ -57,6 +58,7 @@ begin
   Application.CreateForm(TfrmStartReplayRecorded, frmStartReplayRecorded);
   Application.CreateForm(TfrmAudioTrackSetting, frmAudioTrackSetting);
   Application.CreateForm(TfrmConnectTerminate, frmConnectTerminate);
+  Application.CreateForm(TfrmRoleSetting, frmRoleSetting);
   uNetSessionClient.BeginClient;
 
   uNetSessionClient.theClient.ApplySetting;

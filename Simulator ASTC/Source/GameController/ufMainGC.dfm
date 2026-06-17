@@ -23,6 +23,7 @@ object frmMainGC: TfrmMainGC
   OnCanResize = FormCanResize
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
   object pnlBackground: TPanel
@@ -94308,6 +94309,24 @@ object frmMainGC: TfrmMainGC
         B497}
       Stretch = True
       OnClick = imgSettingClick
+    end
+    object lblRole: TLabel
+      Left = 49
+      Top = 262
+      Width = 1097
+      Height = 81
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Navigasi'
+      Color = 6305288
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -93
+      Font.Name = 'Deusex'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = True
     end
     object pnlButton: TPanel
       Left = 321

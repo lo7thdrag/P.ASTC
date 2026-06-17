@@ -123,7 +123,7 @@ var
 begin
   if lstBomb.ItemIndex = -1 then
   begin
-    ShowMessage('Select Bomb... !');
+    ShowMessage('Silahkan pilih salah satu data Bomb ... !');
     Exit;
   end;
 
@@ -179,11 +179,11 @@ var
 begin
   if lstBomb.ItemIndex = -1 then
   begin
-    ShowMessage('Select Bomb... !');
+    ShowMessage('Silahkan pilih salah satu data Bomb ... !');
     Exit;
   end;
 
-  warning := MessageDlg('Are you sure to delete this item?', mtConfirmation,
+  warning := MessageDlg('Apakah anda akan menghapus data ini ?', mtConfirmation,
     mbOKCancel, 0);
 
   if warning = mrOK then
@@ -194,7 +194,7 @@ begin
 
       if dmTTT.GetPointEffectAtVehicleOnBoard(11, Bomb_Index, tempList) then
       begin
-        ShowMessage('Cannot delete, because is already in used by some vehicles');
+        ShowMessage('Data tidak bisa dihapus, karena sedang terhubung dengan data vehicle');
         tempList.Free;
         Exit;
       end;
@@ -206,7 +206,7 @@ begin
       dmTTT.DeleteNoteStorage(14, Bomb_Index);
 
       if dmTTT.DeleteBOmbDef(Bomb_Index) then
-        ShowMessage('Data has been deleted');
+        ShowMessage('Data telah berhasil dihapus');
     end;
 
     UpdateBombList;
