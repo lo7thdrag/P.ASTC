@@ -392,8 +392,10 @@ end;
 
 destructor TIFF_Sensor_On_Board.Destroy;
 begin
-  FPattern_IFF.Free;
-  FScripted_IFF.Free;
+//  FPattern_IFF.Free;
+//  FScripted_IFF.Free;
+  FreeItemsAndFreeList(FPattern_IFF);
+  FreeItemsAndFreeList(FScripted_IFF);
   FVehicle.Free;
   inherited;
 end;

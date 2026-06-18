@@ -100,8 +100,8 @@ begin
     begin
       SelectedGameArea := TGame_Environment_Definition.Create;
       ShowModal;
-      SelectedGameArea.Free;
 
+      SelectedGameArea.Free;
       FUpdateList := AfterClose;
     end;
   finally

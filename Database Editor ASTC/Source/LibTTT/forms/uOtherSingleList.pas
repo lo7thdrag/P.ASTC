@@ -297,6 +297,8 @@ begin
 //        IdAction := 1;
         SelectedRPL := TRuntime_Platform_Library.Create;
         ShowModal;
+
+        SelectedRPL.Free;
       end;
     end;
     ofsPredefinedPattern:
@@ -306,6 +308,8 @@ begin
         IdAction := 1;
         SelectedPredefinedPattern := TPredefined_Pattern.Create;
         ShowModal;
+
+        SelectedPredefinedPattern.Free;
       end;
     end;
     ofsRadarActivationInterval:
@@ -315,6 +319,8 @@ begin
 //        IdAction := 1;
         SelectedRadarInterval := TRadar_Interval_List.Create;
         ShowModal;
+
+        SelectedRadarInterval.Free;
       end;
     end;
     ofsGraphicalOverlays:
@@ -333,6 +339,8 @@ begin
         IdAction := 1;
         SelectedStudentRoleList := TStudent_Role_List.Create;
         ShowModal;
+
+        SelectedStudentRoleList.Free;
       end;
     end;
     ofsGameDefaults:
@@ -342,6 +350,8 @@ begin
         IdAction := 1;
         SelectedGameDefault := TGame_Defaults.Create;
         ShowModal;
+
+        SelectedGameDefault.Free;
       end;
     end;
     ofsSNRvsPODCurve:
@@ -351,6 +361,8 @@ begin
         IdAction := 1;
         SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition.Create;
         ShowModal;
+
+        SelectedPODvsSNR.Free;
       end;
     end;
     ofsReportEditor: ;

@@ -52,8 +52,9 @@ begin
         SelectedGameArea := TGame_Environment_Definition.Create;
         SelectedGameArea.FGameArea.Detail_Map := 'VektorMap';
         ShowModal;
-        AfterClose1 := AfterClose;
+
         SelectedGameArea.Free;
+        AfterClose1 := AfterClose;
       end;
     finally
       frmSummaryGameAreaVektor.Free;
@@ -68,8 +69,9 @@ begin
         SelectedGameArea := TGame_Environment_Definition.Create;
         SelectedGameArea.FGameArea.Detail_Map := 'ENC';
         ShowModal;
-        AfterClose1 := AfterClose;
+
         SelectedGameArea.Free;
+        AfterClose1 := AfterClose;
       end;
     finally
       frmSummaryGameAreaENC.Free;

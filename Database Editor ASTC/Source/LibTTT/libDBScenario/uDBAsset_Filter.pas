@@ -57,6 +57,23 @@ end;
 
 destructor TVehicle_Filter.Destroy;
 begin
+  FVehicle.Free;
+  FEO.Free;
+  FRadar.Free;
+  FESM.Free;
+  FVisual.Free;
+  FIFF.Free;
+  FMAD.Free;
+  FFCR.Free;
+  FMissile.Free;
+  FTorpedo.Free;
+  FMine.Free;
+  FGun.Free;
+  FBomb.Free;
+  FHybrid.Free;
+  FSonar.Free;
+  FSonobuoy.Free;
+
   inherited;
 end;
 

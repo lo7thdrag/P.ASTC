@@ -716,6 +716,7 @@ object frmAvailableAcousticDecoy: TfrmAvailableAcousticDecoy
         TabOrder = 0
         OnClick = lbSingleClick
         OnDblClick = btnEditClick
+        ExplicitTop = 6
       end
     end
   end

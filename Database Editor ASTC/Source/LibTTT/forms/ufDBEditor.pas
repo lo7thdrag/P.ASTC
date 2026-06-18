@@ -10,7 +10,7 @@ uses
 
 type
   TfDBEditor = class(TForm)
-    img_Home: TImage;
+    s: TImage;
     pnlLeft: TPanel;
     pnl1ExerciseBody: TPanel;
     mnScenario: TLabel;

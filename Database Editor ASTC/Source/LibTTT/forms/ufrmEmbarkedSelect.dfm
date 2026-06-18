@@ -231,8 +231,6 @@ object frmEmbarkedSelect: TfrmEmbarkedSelect
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 621
-    ExplicitHeight = 378
     object Label1: TLabel
       Left = 12
       Top = 544
@@ -431,7 +429,7 @@ object frmEmbarkedSelect: TfrmEmbarkedSelect
       Width = 760
       Height = 5
       BevelOuter = bvNone
-      Color = clBlack
+      Color = clTeal
       ParentBackground = False
       TabOrder = 10
     end

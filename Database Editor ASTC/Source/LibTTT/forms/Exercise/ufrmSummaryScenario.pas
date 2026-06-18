@@ -80,7 +80,7 @@ implementation
 
 uses
   uDataModuleTTT, ufrmResorceAllocationPickList, ufrmPlatformDeploytment,
-  ufrmCubicleGroup, uLinkWindow, ShellAPI;
+  ufrmCubicleGroup, uLinkWindow, ShellAPI, uSimContainers;
 
 {$R *.dfm}
 
@@ -109,12 +109,13 @@ end;
 
 procedure TfrmSummaryScenario.FormDestroy(Sender: TObject);
 begin
-  if Assigned(FSelectedResourceAlloc) then
-    FreeAndNil(FSelectedResourceAlloc);
-
-  if Assigned(FSelectedEnviArea) then
-    FreeAndNil(FSelectedEnviArea);
-
+//  if Assigned(FSelectedResourceAlloc) then
+//    FreeAndNil(FSelectedResourceAlloc);
+//
+//  if Assigned(FSelectedEnviArea) then
+//    FreeAndNil(FSelectedEnviArea);
+  FSelectedResourceAlloc.Free;
+  FSelectedEnviArea.Free;
 end;
 
 procedure TfrmSummaryScenario.FormShow(Sender: TObject);

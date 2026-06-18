@@ -44906,6 +44906,10 @@ object frmSummaryScenario: TfrmSummaryScenario
         TabWidth = 100
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object StaticText1: TStaticText
             Left = 12
             Top = 15
@@ -44945,6 +44949,10 @@ object frmSummaryScenario: TfrmSummaryScenario
         object tsRelationships: TTabSheet
           Caption = 'Relationships'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object rgForce: TRadioGroup
             Left = 17
             Top = 24

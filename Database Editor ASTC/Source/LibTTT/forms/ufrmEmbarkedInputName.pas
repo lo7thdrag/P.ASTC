@@ -16,12 +16,11 @@ type
     lblName: TLabel;
     lblTrackID: TLabel;
     edtQuantity: TEdit;
-    pnl3Button: TPanel;
-    btnCancel: TButton;
-    btnOK: TButton;
     pnlSparatorHor2: TPanel;
-    Image2: TImage;
     edtClass: TEdit;
+    imgBackground: TImage;
+    btnOK: TButton;
+    btnCancel: TButton;
 
     procedure FormShow(Sender: TObject);
 

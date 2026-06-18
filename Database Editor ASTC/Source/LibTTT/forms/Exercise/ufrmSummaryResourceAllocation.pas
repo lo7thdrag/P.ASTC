@@ -147,9 +147,9 @@ end;
 
 procedure TfrmSummaryResourceAllocation.FormDestroy(Sender: TObject);
 begin
-  if Assigned(FSelectedEnvironment) then
-    FreeAndNil(FSelectedEnvironment);
-
+//  if Assigned(FSelectedEnvironment) then
+//    FreeAndNil(FSelectedEnvironment);
+  FSelectedEnvironment.Free;
 end;
 
 procedure TfrmSummaryResourceAllocation.FormShow(Sender: TObject);

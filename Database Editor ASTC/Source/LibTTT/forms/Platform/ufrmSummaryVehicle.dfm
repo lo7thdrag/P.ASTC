@@ -44913,7 +44913,7 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         Top = 10
         Width = 872
         Height = 438
-        ActivePage = tsNotes
+        ActivePage = tsAssets
         Align = alClient
         TabHeight = 30
         TabOrder = 0
@@ -46582,6 +46582,8 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPOH: TTabSheet
           Caption = 'POH Modifier'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 44
           object grbMissile: TGroupBox
             Left = 20
             Top = 10

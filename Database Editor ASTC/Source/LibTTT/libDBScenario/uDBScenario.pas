@@ -94,7 +94,8 @@ begin
   if Assigned(Resource_alloc) then
     FreeAndNil(Resource_alloc);
 
-  if Assigned(Platform_Insts) then begin
+  if Assigned(Platform_Insts) then
+  begin
 
 //    ClearAndFreeItems(Platform_Insts);
     FreeAndNil(Platform_Insts);

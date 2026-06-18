@@ -73,8 +73,8 @@ type
     Label7: TLabel;
     pnlMainGrafik: TPanel;
     pnlGrafik: TPanel;
-    il1: TImageList;
     pnlAlignToolBar: TPanel;
+    il1: TImageList;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
