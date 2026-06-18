@@ -102,7 +102,7 @@ procedure TfrmVisualOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllVisualOnBoardList);
   FreeItemsAndFreeList(FAllVisualDefList);
-  FSelectedVisual.Free;
+//  FSelectedVisual.Free;
 end;
 
 procedure TfrmVisualOnBoardPickList.FormShow(Sender: TObject);

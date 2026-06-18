@@ -121,13 +121,17 @@ begin
       Force := FSelectedForce;
 
       PlatformInstance := TPlatform_Instance.Create;
-
+      try
       ShowModal;
 
       if isUpdate then
         UpdateVehicleList;
 
       isNoCancel := True;
+
+      finally
+      PlatformInstance.Free;
+      end;
     end;
   finally
     frmResourceAllocationInputName.Free;

@@ -103,7 +103,7 @@ procedure TfrmIFFOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllIFFDefList);
   FreeItemsAndFreeList(FAllIFFOnBoardList);
-  FSelectedIFF.Free;
+//  FSelectedIFF.Free;
 end;
 
 procedure TfrmIFFOnBoardPickList.FormShow(Sender: TObject);
