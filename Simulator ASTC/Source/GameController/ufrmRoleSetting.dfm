@@ -3,8 +3,8 @@ object frmRoleSetting: TfrmRoleSetting
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  ClientHeight = 152
-  ClientWidth = 301
+  ClientHeight = 244
+  ClientWidth = 360
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,16 +19,18 @@ object frmRoleSetting: TfrmRoleSetting
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 301
-    Height = 152
+    Width = 360
+    Height = 244
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 380
+    ExplicitHeight = 248
     object imgBackground: TImage
       Left = 0
       Top = 0
-      Width = 301
-      Height = 152
+      Width = 360
+      Height = 244
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000001FB0000
@@ -4296,10 +4298,8 @@ object frmRoleSetting: TfrmRoleSetting
         6549B826A0F02F28956D776E219FC38BF7DA0403A67CCEE6205DED250611E327
         6B3CD72008FBFF07693C48CBEF7115170000000049454E44AE426082}
       Stretch = True
-      ExplicitLeft = 2
-      ExplicitTop = 2
-      ExplicitWidth = 633
-      ExplicitHeight = 297
+      ExplicitWidth = 322
+      ExplicitHeight = 205
     end
     object lblRole: TLabel
       Left = 15
@@ -4314,8 +4314,34 @@ object frmRoleSetting: TfrmRoleSetting
       Font.Style = []
       ParentFont = False
     end
+    object Label1: TLabel
+      Left = 45
+      Top = 115
+      Width = 95
+      Height = 18
+      Caption = 'Tactical Screen'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Berlin Sans FB'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 205
+      Top = 115
+      Width = 75
+      Height = 18
+      Caption = 'Tote Screen'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'Berlin Sans FB'
+      Font.Style = []
+      ParentFont = False
+    end
     object cbbRole: TComboBox
-      Left = 78
+      Left = 108
       Top = 62
       Width = 145
       Height = 27
@@ -4336,8 +4362,8 @@ object frmRoleSetting: TfrmRoleSetting
         'General')
     end
     object btnOK: TButton
-      Left = 125
-      Top = 110
+      Left = 184
+      Top = 202
       Width = 80
       Height = 30
       Align = alCustom
@@ -4352,10 +4378,12 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
+      ExplicitLeft = 204
+      ExplicitTop = 206
     end
     object btnCancel: TButton
-      Left = 208
-      Top = 110
+      Left = 267
+      Top = 202
       Width = 80
       Height = 30
       Align = alCustom
@@ -4370,6 +4398,24 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
+      ExplicitLeft = 287
+      ExplicitTop = 206
+    end
+    object cbTacticalSreen: TComboBox
+      Left = 45
+      Top = 136
+      Width = 110
+      Height = 21
+      TabOrder = 3
+      OnChange = cbTacticalSreenChange
+    end
+    object cbToteScreen: TComboBox
+      Left = 205
+      Top = 136
+      Width = 110
+      Height = 21
+      TabOrder = 4
+      OnChange = cbToteScreenChange
     end
   end
 end

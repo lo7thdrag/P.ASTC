@@ -5,7 +5,7 @@ object fSettingCoordinate: TfSettingCoordinate
   Caption = 'Options'
   ClientHeight = 216
   ClientWidth = 406
-  Color = clBtnFace
+  Color = 6111773
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -29,43 +29,72 @@ object fSettingCoordinate: TfSettingCoordinate
       Width = 377
       Height = 161
       ActivePage = ts2
+      DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Berlin Sans FB'
+      Font.Style = []
+      ParentDoubleBuffered = False
+      ParentFont = False
       TabOrder = 0
       object ts2: TTabSheet
         Caption = 'Coordinate System'
         ImageIndex = 1
+        ExplicitTop = 24
+        ExplicitHeight = 133
         object pnl1: TPanel
           Left = -4
           Top = 1
           Width = 373
           Height = 136
+          Color = clWindow
           TabOrder = 0
           object rbLongLat: TRadioButton
             Tag = 1
             Left = 16
-            Top = 10
-            Width = 113
+            Top = 11
+            Width = 137
             Height = 17
             Caption = 'Latitude / Longitude'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
             OnClick = rbLongLatClick
           end
           object rbCartesianGrid: TRadioButton
             Tag = 2
             Left = 16
-            Top = 35
+            Top = 36
             Width = 113
             Height = 17
             Caption = 'Cartesian Grid'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 1
             OnClick = rbLongLatClick
           end
           object rbGeoref: TRadioButton
             Tag = 3
             Left = 16
-            Top = 62
+            Top = 63
             Width = 289
             Height = 17
             Caption = 'World Geographyc Reference System (GEOREF)'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWhite
+            Font.Height = -13
+            Font.Name = 'Berlin Sans FB'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 2
             OnClick = rbLongLatClick
           end
@@ -75,18 +104,20 @@ object fSettingCoordinate: TfSettingCoordinate
         Caption = 'Track Simbols'
         ImageIndex = 2
         TabVisible = False
+        ExplicitTop = 24
+        ExplicitHeight = 133
         object lb1: TLabel
           Left = 16
           Top = 38
-          Width = 84
-          Height = 13
+          Width = 89
+          Height = 15
           Caption = 'Force affiliation : '
         end
         object lb2: TLabel
           Left = 16
           Top = 65
-          Width = 83
-          Height = 13
+          Width = 87
+          Height = 15
           Caption = 'Color scheme    : '
         end
         object btnWeapon: TSpeedButton
@@ -169,7 +200,7 @@ object fSettingCoordinate: TfSettingCoordinate
           Left = 106
           Top = 36
           Width = 121
-          Height = 21
+          Height = 23
           ReadOnly = True
           TabOrder = 1
         end
@@ -177,7 +208,7 @@ object fSettingCoordinate: TfSettingCoordinate
           Left = 106
           Top = 63
           Width = 121
-          Height = 21
+          Height = 23
           ReadOnly = True
           TabOrder = 2
         end
@@ -186,6 +217,8 @@ object fSettingCoordinate: TfSettingCoordinate
         Caption = 'Track Labels'
         ImageIndex = 3
         TabVisible = False
+        ExplicitTop = 24
+        ExplicitHeight = 133
         object rb4: TRadioButton
           Left = 16
           Top = 10
@@ -223,6 +256,8 @@ object fSettingCoordinate: TfSettingCoordinate
         Caption = 'Other'
         ImageIndex = 3
         TabVisible = False
+        ExplicitTop = 24
+        ExplicitHeight = 133
         object chk1: TCheckBox
           Left = 16
           Top = 10
