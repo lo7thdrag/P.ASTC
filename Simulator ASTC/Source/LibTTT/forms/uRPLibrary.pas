@@ -375,9 +375,9 @@ var
 begin
 //  lvObject.Items.Clear;
 
-  for i := 0 to simMgrClient.Scenario.RuntimePlatformLibrary.Count - 1 do
+  for i := 0 to simMgrClient.Scenario.ListRPLFromDB.Count - 1 do
   begin
-    recLBN := simMgrClient.Scenario.RuntimePlatformLibrary.Items[i];
+    recLBN := simMgrClient.Scenario.ListRPLFromDB.Items[i];
 
     tn := TTreeNode.Create(tvRuntimePlatform.Items);
     tn := tvRuntimePlatform.Items.Add(tn, recLBN.FData.Library_Name);

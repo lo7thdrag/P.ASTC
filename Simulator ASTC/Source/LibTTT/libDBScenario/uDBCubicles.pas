@@ -68,6 +68,7 @@ type
     function GetGroupByID(const gid: integer): TObject;
     function GetGroupByID2(const gid: integer): TObject;
     function GetGroupOf_PlatformIndex(const pid: integer): T3CubicleGroup;
+    function GetGroupByIdentifier(const valIdentifier: String): T3CubicleGroup;
     procedure ClearAllCubicleName;
   end;
 
@@ -274,6 +275,26 @@ begin
     Result := grp
   else
     Result := nil;
+end;
+
+function T3CubicleGroupList.GetGroupByIdentifier(const valIdentifier: String): T3CubicleGroup;
+var
+  i   : integer;
+  grp  : T3CubicleGroup;
+  found: boolean;
+begin
+  Result := nil;
+
+  for i := 0 to  FSList.Count-1 do
+  begin
+    grp := Items[i] as T3CubicleGroup;
+
+    if grp.FData.Group_Identifier = valIdentifier then
+    begin
+      Result := grp;
+      Exit;
+    end;
+  end;
 end;
 
 function T3CubicleGroupList.GetGroupOf_PlatformIndex(const pid: integer): T3CubicleGroup;

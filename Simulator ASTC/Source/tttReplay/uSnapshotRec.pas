@@ -293,8 +293,8 @@ var
   pi : TPlatform_Instance ;
 begin
   Result := nil ;
-  for i := 0 to VScenario.Platform_Insts.Count - 1 do begin
-      pi := VScenario.Platform_Insts[i];
+  for i := 0 to VScenario.ListPlatformInstanceFromDB.Count - 1 do begin
+      pi := VScenario.ListPlatformInstanceFromDB[i];
       if pi <> nil then begin
         if pi.FData.Platform_Instance_Index = pii then
            Result := pi ;
@@ -2101,15 +2101,15 @@ var
 begin
   with lRec.FRGameScenario do
   begin
-    Scenario_def              := scenario.Scenario_def.FData;
+    Scenario_def              := scenario.ScenarioDefinition.FData;
 
-    if scenario.Resource_alloc <> nil then begin
-      Resource_alloc.FData         := scenario.Resource_alloc.FData;
-      Resource_alloc.FOverlay      := scenario.Resource_alloc.FOverlay;
-      Resource_alloc.IsOverlayShow := scenario.Resource_alloc.IsOverlayShow;
-      Resource_alloc.IsOverlayEdit := scenario.Resource_alloc.IsOverlayEdit;
-      Resource_alloc.IsCubicle     := scenario.Resource_alloc.IsCubicle;
-      Resource_alloc.FCubicleNumbr := scenario.Resource_alloc.FCubicleNumbr;
+    if scenario.ResourceAllocation <> nil then begin
+      Resource_alloc.FData         := scenario.ResourceAllocation.FData;
+      Resource_alloc.FOverlay      := scenario.ResourceAllocation.FOverlay;
+      Resource_alloc.IsOverlayShow := scenario.ResourceAllocation.IsOverlayShow;
+      Resource_alloc.IsOverlayEdit := scenario.ResourceAllocation.IsOverlayEdit;
+      Resource_alloc.IsCubicle     := scenario.ResourceAllocation.IsCubicle;
+      Resource_alloc.FCubicleNumbr := scenario.ResourceAllocation.FCubicleNumbr;
       Resource_allocObjFlag        := isExist;
     end else
       Resource_allocObjFlag        := isNone;
@@ -2169,11 +2169,11 @@ begin
       Resource_Overlay_MappingObjFlag := isExist;
     end;
 
-    if scenario.OverlayTemplateFromDB <> nil then begin
+    if scenario.ListOverlayFromDB <> nil then begin
 //        Resource_Overlay_Mapping  := scenario.Resource_Overlay_Mapping.FData;
-          SetLength(Overlay_Mapping,scenario.OverlayTemplateFromDB.Count);
-          for I := 0 to scenario.OverlayTemplateFromDB.Count - 1 do begin
-            mResAllocation          := TResource_Allocation(scenario.OverlayTemplateFromDB[i]) ;
+          SetLength(Overlay_Mapping,scenario.ListOverlayFromDB.Count);
+          for I := 0 to scenario.ListOverlayFromDB.Count - 1 do begin
+            mResAllocation          := TResource_Allocation(scenario.ListOverlayFromDB[i]) ;
             if mResAllocation <> nil then begin
               Overlay_Mapping[i].FData:= mResAllocation.FData ;
               Overlay_Mapping[i].FOverlay:= mResAllocation.FOverlay ;
@@ -2197,9 +2197,9 @@ begin
       allOverlayNames[i]      := scenario.allOverlayNames[i];
     end;
 
-    SetLength(Platform_Insts,Scenario.Platform_Insts.Count);
-    for i := 0 to Scenario.Platform_Insts.Count-1 do begin
-       p := Scenario.Platform_Insts[i] ;
+    SetLength(Platform_Insts,Scenario.ListPlatformInstanceFromDB.Count);
+    for i := 0 to Scenario.ListPlatformInstanceFromDB.Count-1 do begin
+       p := Scenario.ListPlatformInstanceFromDB[i] ;
        if p <> nil then begin
          Platform_Insts[i].FData := p.FData ;;
          Platform_Insts[i].FActivation := p.FActivation ;
@@ -2459,17 +2459,17 @@ begin
   with lRec.FRGameScenario do
   begin
 
-    scenario.Scenario_def.FData           := Scenario_def;
+    scenario.ScenarioDefinition.FData           := Scenario_def;
 
     if Resource_allocObjFlag = isExist then begin
-       if scenario.Resource_alloc = nil then
-          scenario.Resource_alloc := TResource_Allocation.Create;
-      scenario.Resource_alloc.FData         := Resource_alloc.FData;
-      scenario.Resource_alloc.FOverlay      := Resource_alloc.FOverlay;
-      scenario.Resource_alloc.IsOverlayShow := Resource_alloc.IsOverlayShow;
-      scenario.Resource_alloc.IsOverlayEdit := Resource_alloc.IsOverlayEdit;
-      scenario.Resource_alloc.IsCubicle     := Resource_alloc.IsCubicle;
-      scenario.Resource_alloc.FCubicleNumbr := Resource_alloc.FCubicleNumbr;
+       if scenario.ResourceAllocation = nil then
+          scenario.ResourceAllocation := TResource_Allocation.Create;
+      scenario.ResourceAllocation.FData         := Resource_alloc.FData;
+      scenario.ResourceAllocation.FOverlay      := Resource_alloc.FOverlay;
+      scenario.ResourceAllocation.IsOverlayShow := Resource_alloc.IsOverlayShow;
+      scenario.ResourceAllocation.IsOverlayEdit := Resource_alloc.IsOverlayEdit;
+      scenario.ResourceAllocation.IsCubicle     := Resource_alloc.IsCubicle;
+      scenario.ResourceAllocation.FCubicleNumbr := Resource_alloc.FCubicleNumbr;
     end;
 
     // reff GetGeoAreaDefinition
@@ -2513,8 +2513,8 @@ begin
     end;
 
     if Overlay_MappingObjFlag = isExist then begin
-      if scenario.OverlayTemplateFromDB = nil then
-         scenario.OverlayTemplateFromDB := TList.Create;
+      if scenario.ListOverlayFromDB = nil then
+         scenario.ListOverlayFromDB := TList.Create;
       for I := low(Overlay_Mapping) to high(Overlay_Mapping) do begin
         mResAllocation          := TResource_Allocation.Create ;
         mResAllocation.FData         := Overlay_Mapping[i].FData          ;
@@ -2523,7 +2523,7 @@ begin
         mResAllocation.IsOverlayEdit := Overlay_Mapping[i].IsOverlayEdit  ;
         mResAllocation.IsCubicle     := Overlay_Mapping[i].IsCubicle      ;
         mResAllocation.FCubicleNumbr := Overlay_Mapping[i].FCubicleNumbr  ;
-        scenario.OverlayTemplateFromDB.Add(mResAllocation);
+        scenario.ListOverlayFromDB.Add(mResAllocation);
       end;
     end;
 
@@ -2546,7 +2546,7 @@ begin
          pi.FActivation := recPI.FActivation ;
          pi.CubicleGroupID  := recPI.CubicleGroupID;
          pi.IsGroupLeader   := recPI.IsGroupLeader;
-         scenario.Platform_Insts.Add(pi);
+         scenario.ListPlatformInstanceFromDB.Add(pi);
 
          if scenario.DefaultNonRealPlatform = nil then
          begin
@@ -2558,7 +2558,7 @@ begin
 
 
 //    dmTTT.getAllRuntimePlatform(scenario.ResourceAllocIndex,scenario.RuntimePlatformLibrary); // diubah prosesnya
-    dmTTT.GetRuntime_Platform_LibraryByResourceAlloc(scenario.ResourceAllocIndex,scenario.RuntimePlatformLibrary);
+    dmTTT.GetRuntime_Platform_LibraryByResourceAlloc(scenario.ResourceAllocIndex,scenario.ListRPLFromDB);
     scenario.GetAllPiRuntimePlatform;
 
     for I := low(Formation.FForm) to high(Formation.FForm) do

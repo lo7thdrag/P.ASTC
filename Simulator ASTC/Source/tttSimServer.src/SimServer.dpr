@@ -146,7 +146,8 @@ uses
   uMainDynamicShape in '..\DBEditor.src\uMainDynamicShape.pas',
   uMainOverlay in '..\DBEditor.src\uMainOverlay.pas',
   uMainStaticShape in '..\DBEditor.src\uMainStaticShape.pas',
-  uRecord in '..\DBEditor.src\uRecord.pas';
+  uRecord in '..\DBEditor.src\uRecord.pas',
+  uMapLayerDB in '..\tttSupportMap\uMapLayerDB.pas';
 
 {$R *.res}
 

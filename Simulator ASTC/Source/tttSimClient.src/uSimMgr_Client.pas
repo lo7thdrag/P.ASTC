@@ -3207,18 +3207,18 @@ begin
   end;
 
   {Prince : Load Overlay}
-  if (FScenario.OverlayTemplateFromDB.Count > 0) then
+  if (FScenario.ListOverlayFromDB.Count > 0) then
   begin
-    for i := 0 to FScenario.OverlayTemplateFromDB.Count - 1 do
+    for i := 0 to FScenario.ListOverlayFromDB.Count - 1 do
     begin
-      ovIdx := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Overlay_Index;
-      IdForce := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Force;
+      ovIdx := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Overlay_Index;
+      IdForce := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Force;
 
       OverlayTemplate := TMainOverlayTemplate.Create;
-      OverlayTemplate.Name := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Overlay_Filename;
+      OverlayTemplate.Name := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Overlay_Filename;
 
-      OverlayTemplate.Tipe := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Static_Overlay;
-      OverlayTemplate.Domain := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Domain;
+      OverlayTemplate.Tipe := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Static_Overlay;
+      OverlayTemplate.Domain := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Domain;
       OverlayTemplate.Cubicle := 0;
       OverlayTemplate.Force := IdForce;
 
@@ -3873,9 +3873,9 @@ begin
   begin
     //find plat
     SelectedMember := nil;
-    for i := 0 to VScenario.Platform_Insts.Count - 1 do
+    for i := 0 to VScenario.ListPlatformInstanceFromDB.Count - 1 do
     begin
-      SelectedMember := VScenario.Platform_Insts.Items[i];
+      SelectedMember := VScenario.ListPlatformInstanceFromDB.Items[i];
       if SelectedMember.FData.Platform_Instance_Index = rec^.PlatformID then
         Break;
     end;
@@ -8115,7 +8115,7 @@ begin
   FLastPlatformID := 100;
 
   FMainVTime.Reset(0);
-  FMainVTime.DateTimeOffset := FScenario.Resource_alloc.FData.Game_Start_Time;
+  FMainVTime.DateTimeOffset := FScenario.ResourceAllocation.FData.Game_Start_Time;
 
   FLastPlatformID := ((FLastPlatformID  div 100) + 1 ) * 100;
 
@@ -8187,17 +8187,17 @@ begin
   end;
 
   {Prince : Load Overlay}
-  if (FScenario.OverlayTemplateFromDB.Count > 0) then
+  if (FScenario.ListOverlayFromDB.Count > 0) then
   begin
-    for i := 0 to FScenario.OverlayTemplateFromDB.Count - 1 do
+    for i := 0 to FScenario.ListOverlayFromDB.Count - 1 do
     begin
-      ovIdx := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Overlay_Index;
+      ovIdx := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Overlay_Index;
 
       OverlayTemplate := TMainOverlayTemplate.Create;
-      OverlayTemplate.Name := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Overlay_Filename;
+      OverlayTemplate.Name := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Overlay_Filename;
 
-      OverlayTemplate.Tipe := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Static_Overlay;
-      OverlayTemplate.Domain := TResource_Allocation(FScenario.OverlayTemplateFromDB[I]).FOverlay.Domain;
+      OverlayTemplate.Tipe := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Static_Overlay;
+      OverlayTemplate.Domain := TResource_Allocation(FScenario.ListOverlayFromDB[I]).FOverlay.Domain;
       OverlayTemplate.Cubicle := 0;
 
       DrawOverlayTemplate.AddOverlayTemplate(OverlayTemplate);

@@ -3978,7 +3978,7 @@ var
   rec : TRec_AOPR_Data_Initialize;
   xpos, ypos : double;
 begin
-  if Assigned(FScenario.Platform_Insts) then
+  if Assigned(FScenario.ListPlatformInstanceFromDB) then
   begin
 //    ypos := 3891.53;
 //    xpos := 3274.32;
@@ -3991,9 +3991,9 @@ begin
 //    begin
 //      xpos := 3274.32;
 
-      for i := 0 to FScenario.Platform_Insts.Count - 1 do
+      for i := 0 to FScenario.ListPlatformInstanceFromDB.Count - 1 do
       begin
-         pi := FScenario.Platform_Insts.Items[i];
+         pi := FScenario.ListPlatformInstanceFromDB.Items[i];
   //      pi.FActivation.
 
 
@@ -4090,13 +4090,13 @@ begin
 
     recName := NewRecsFileName;
     FWriter := TDBObjectWriter.Create(FScenario.DataModule);
-    FWriter.InitiateWriter(recName,FScenario.Scenario_def.FData.Scenario_Index,FMainVTime.GetTime);
+    FWriter.InitiateWriter(recName,FScenario.ScenarioDefinition.FData.Scenario_Index,FMainVTime.GetTime);
     if Assigned(OnLogEventStr) then
           OnLogEventStr('TSimMgr_Server.LoadScenarioID', 'Start record');
     fName := GetFullNameRecsFileFromName(recName) ;
-    ScInfo.Scenario_Index := FScenario.Scenario_def.FData.Scenario_Index;
-    ScInfo.Scenario_Identifier  :=  FScenario.Scenario_def.FData.Scenario_Identifier;
-    ScInfo.Resource_Alloc_Index :=  FScenario.Scenario_def.FData.Resource_Alloc_Index;
+    ScInfo.Scenario_Index := FScenario.ScenarioDefinition.FData.Scenario_Index;
+    ScInfo.Scenario_Identifier  :=  FScenario.ScenarioDefinition.FData.Scenario_Identifier;
+    ScInfo.Resource_Alloc_Index :=  FScenario.ScenarioDefinition.FData.Resource_Alloc_Index;
 
   end;
 
@@ -4392,9 +4392,9 @@ procedure TSimMgr_Server.SnapshotToFile ( r : TRecCommandSnapshot ) ;
     k := 0;
     found := False;
     pi := nil ;
-    while not found and (k < FScenario.Platform_Insts.Count) do
+    while not found and (k < FScenario.ListPlatformInstanceFromDB.Count) do
     begin
-      pi := FScenario.Platform_Insts[k];
+      pi := FScenario.ListPlatformInstanceFromDB[k];
       found := m.FData.Platform_Instance_Index = pi.FData.Platform_Instance_Index;
       Inc(k);
     end;
@@ -4421,7 +4421,7 @@ var
 begin
   addName  := UpperCase(Trim(r.SnapshotName));
   if Length(addName)> 0 then
-    sName     := NewSnapshotWithParams(FScenario.Scenario_def.FData.Scenario_Index,addName)
+    sName     := NewSnapshotWithParams(FScenario.ScenarioDefinition.FData.Scenario_Index,addName)
   else begin
     sName     := NewSnapshotFileName ;
     addName   := sName;
@@ -4438,7 +4438,7 @@ begin
     Exit ;
   end;
 
-  Sce          := Scenario.Scenario_def.FData ;
+  Sce          := Scenario.ScenarioDefinition.FData ;
   lRec.ID      := Sce.Scenario_Index ;
   lRec.Name    := Sce.Scenario_Identifier;
   lRec.AddName := addName ;
@@ -4553,7 +4553,7 @@ begin
   finally
     lFile.Free;
     r.OrderID := CPID_CMD_SNAPSHOT_SUCCESS ;
-    r.SnapshotName := FScenario.Scenario_def.FData.Scenario_Identifier+'-'+addName ;
+    r.SnapshotName := FScenario.ScenarioDefinition.FData.Scenario_Identifier+'-'+addName ;
     ipTo  := LongIp_To_StrIp(r.pid.ipSender);
     VNetServer.SendTo(CPID_CMD_SNAPSHOT, @r, ipTo);
   end;

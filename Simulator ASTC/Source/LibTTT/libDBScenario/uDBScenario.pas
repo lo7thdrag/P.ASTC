@@ -35,10 +35,19 @@ type
     function  getMemberInteger(const index: integer): Integer;
     function  getMemberString(const index: integer): string;
     function  getMemberfloat(const index: integer): double;
+
   public
-    Scenario_def      : TScenario_Definition;
-    Resource_alloc    : TResource_Allocation;
-    Platform_Insts    : TList; //of TPlatform_Instance
+    ScenarioDefinition : TScenario_Definition;
+    ResourceAllocation : TResource_Allocation;
+    GameEnvironment   : TGame_Environment_Definition;
+    AssetDeployment   : TAsset_Deployment ;
+    GameDefaults : TGame_Defaults;
+
+    ListPlatformInstanceFromDB : TList; //of TPlatform_Instance
+    ListRPLFromDB : TList;
+    ListOverlayFromDB : TList;
+    ListStaticShape : TList;
+    ListDynamicShape : TList;
 
     Formation         : TList;
     Platform_Inst     : TList;
@@ -46,29 +55,19 @@ type
     Formation_List_rev : TFormationManager;
     Links             : TList;
     Platform_Ins      : TList;
-    RuntimePlatformLibrary : TList;
 
-    GameEnvironment   : TGame_Environment_Definition;
     GeoAreaDef        : TGeo_Area_Def;
     GeoPoint          : TList;
     GeoEvent          : TList;
 
-    {added by me}
     Resource_Overlay_Mapping : TResource_Overlay_Mapping;
     Overlay_Definition : TOverlay_Definition;
 
-    {Prince}
-    OverlayTemplateFromDB    : TList;
-    StaticShape : TList;
-    DynamicShape : TList;
-
     CubiclesGroupsList    : T3CubicleGroupList;
 
-    AssetDeployment   : TAsset_Deployment ;
     MapGeosetName     : string;
     pattern_mapping   : TList;
 
-    {}
     overlayName       : string;
     allOverlayNames   : Array[0..20] of string;
 
@@ -79,13 +78,12 @@ type
     Ref_Point : TReference_Point;
     rpList  : TList;
 
-    GameDefaults : TGame_Defaults;  //mm gd
   public
     constructor Create;
     destructor Destroy; override;
 
     procedure ClearScenario;
-    procedure LoadFromDB(const id: Integer; const unassignedGroupCub: TCubicleAssignSetting; const isController: Boolean);
+    procedure LoadFromDB(const ScenarioId: Integer; const unassignedGroupCub: TCubicleAssignSetting; const isController: Boolean);
     procedure LoadPlatformDefinition(pi : TPlatform_Instance);
     procedure SetEventOnExternalComm ;
 
@@ -124,8 +122,8 @@ uses
 
 constructor TT3DBScenario.Create;
 begin
-  Scenario_def      := TScenario_Definition.Create;
-  Resource_alloc    := TResource_Allocation.Create;
+  ScenarioDefinition      := TScenario_Definition.Create;
+  ResourceAllocation    := TResource_Allocation.Create;
   AssetDeployment   := TAsset_Deployment.Create;
   Formation         := TList.Create;
   Platform_Inst     := TList.Create;
@@ -135,13 +133,13 @@ begin
   Platform_Ins      := TList.Create;
   GeoPoint          := TList.Create;
   GeoEvent          := TList.Create;
-  RuntimePlatformLibrary := TList.Create;
+  ListRPLFromDB := TList.Create;
 
-  OverlayTemplateFromDB    := TList.Create;
-  StaticShape        := TList.Create;
-  DynamicShape      := TList.Create;
+  ListOverlayFromDB    := TList.Create;
+  ListStaticShape        := TList.Create;
+  ListDynamicShape      := TList.Create;
 
-  Platform_Insts    := TList.Create;
+  ListPlatformInstanceFromDB    := TList.Create;
   GameEnvironment   := TGame_Environment_Definition.Create;
   GeoAreaDef        := TGeo_Area_Def.Create;
 
@@ -169,11 +167,11 @@ begin
   FDictionaryPlatformInstanceRP.Clear;
   FDictionaryPlatformInstanceRP.Free;
 
-  if Assigned(Scenario_def) then
-    FreeAndNil(Scenario_def);
+  if Assigned(ScenarioDefinition) then
+    FreeAndNil(ScenarioDefinition);
 
-  if Assigned(Resource_alloc) then
-    FreeAndNil(Resource_alloc);
+  if Assigned(ResourceAllocation) then
+    FreeAndNil(ResourceAllocation);
 
   if Assigned(ExternalCom) then
     FreeAndNil(ExternalCom);
@@ -181,8 +179,8 @@ begin
   if Assigned(Excom) then
     FreeAndNil(ExCom);
 
-  if Assigned(Platform_Insts) then
-    FreeAndNil(Platform_Insts);
+  if Assigned(ListPlatformInstanceFromDB) then
+    FreeAndNil(ListPlatformInstanceFromDB);
 
   if Assigned(Platform_Ins) then
     FreeAndNil(Platform_Ins);
@@ -205,17 +203,17 @@ begin
   if Assigned(rpList) then
     FreeAndNil(rpList);
 
-  if Assigned(OverlayTemplateFromDB) then
-    FreeAndNil(OverlayTemplateFromDB);
+  if Assigned(ListOverlayFromDB) then
+    FreeAndNil(ListOverlayFromDB);
 
-  if Assigned(StaticShape) then
-    FreeAndNil(StaticShape);
+  if Assigned(ListStaticShape) then
+    FreeAndNil(ListStaticShape);
 
-  if Assigned(DynamicShape) then
-    FreeAndNil(DynamicShape);
+  if Assigned(ListDynamicShape) then
+    FreeAndNil(ListDynamicShape);
 
-  if Assigned(RuntimePlatformLibrary) then
-    FreeAndNil(RuntimePlatformLibrary);
+  if Assigned(ListRPLFromDB) then
+    FreeAndNil(ListRPLFromDB);
 
   if Assigned(GeoEvent) then
     FreeAndNil(GeoEvent);
@@ -249,10 +247,10 @@ function TT3DBScenario.getMemberInteger(const index: integer): Integer;
 begin
   Result := -1;
   case index of
-    1 : if Assigned(Scenario_def) then
-      Result := Scenario_def.FData.Scenario_Index;
-    2 : if Assigned(Scenario_def) then
-      Result := Scenario_def.FData.Resource_Alloc_Index;
+    1 : if Assigned(ScenarioDefinition) then
+      Result := ScenarioDefinition.FData.Scenario_Index;
+    2 : if Assigned(ScenarioDefinition) then
+      Result := ScenarioDefinition.FData.Resource_Alloc_Index;
   end;
 end;
 
@@ -270,14 +268,14 @@ function TT3DBScenario.getMemberString(const index: integer): string;
 begin
   case index of
      1: begin
-       result := Scenario_def.FData.Scenario_Identifier;
+       result := ScenarioDefinition.FData.Scenario_Identifier;
      end;
   end;
 end;
 
 procedure TT3DBScenario.ClearScenario;
 begin
-  ClearAndFreeItems(Platform_Insts);
+  ClearAndFreeItems(ListPlatformInstanceFromDB);
 end;
 
 procedure TT3DBScenario.LoadCommunicationFromDB(SceID: integer);
@@ -318,46 +316,67 @@ begin
     FOnGetExternalCom(Self);
 end;
 
-procedure TT3DBScenario.LoadFromDB(const id: Integer; const unassignedGroupCub: TCubicleAssignSetting; const isController: Boolean);
-var i, j, k, ra_id, ovIdx          : Integer;
-    dIndex     : Integer;
-    pi         : TPlatform_Instance;
-    newGrp, grp        : T3CubicleGroup;
-    grm        : T3CubicleGroupMember;
-    form       : TFormation;
-    link       : TLink;
-    found: Boolean;
-    s: string;
-    //p: PAnsiChar;
-    //aSize: Word;
+procedure TT3DBScenario.LoadFromDB(const ScenarioId: Integer; const unassignedGroupCub: TCubicleAssignSetting; const isController: Boolean);
+var
+  i, j, k, ovIdx : Integer;
+  ResourceAllocationId, AssetDeploymentId : Integer;
+  pi         : TPlatform_Instance;
+  newGrp, grp        : T3CubicleGroup;
+  grm        : T3CubicleGroupMember;
+  form       : TFormation;
+  link       : TLink;
+  found: Boolean;
+  s: string;
+  //p: PAnsiChar;
+  //aSize: Word;
+
 begin
   ClearScenario;
 
+  if not dmTTT.GetScenario(ScenarioId, ScenarioDefinition ) then
+    Exit;
+
+  if not dmTTT.GetResourceAlloc(ResourceAllocIndex, ResourceAllocation ) then
+    Exit;
+
+  ResourceAllocationId := ResourceAllocIndex;
+
+  if not dmTTT.GetAssetDeployment(ScenarioId, AssetDeployment) then
+    Exit;
+
+  AssetDeploymentId  := AssetDeployment.FData.Deployment_Index;
+
   frmProgress := TfrmProgress.Create(nil);
+  frmProgress.Caption := 'Loading Scenario ' + ScenarioDefinition.FData.Scenario_Identifier + '  from database';
 
-  if not dmTTT.GetScenario(id, scenario_def ) then
-    Exit;
+  {$REGION ' Load All Platform Instance Mapping '}
+  dmTTT.getAllPlatFormInstance(ResourceAllocIndex, AssetDeployment.FData.Deployment_Index, ListPlatformInstanceFromDB);
+  {$ENDREGION}
 
-  frmProgress.Caption := 'Loading Scenario ' +
-   scenario_def.FData.Scenario_Identifier + '  from database';
-
-  if not dmTTT.GetResourceAlloc(ResourceAllocIndex, Resource_alloc ) then
-    Exit;
-
-  ra_id := ResourceAllocIndex;
-
-  if not dmTTT.GetAssetDeployment(id, AssetDeployment) then
-    Exit;
-
-  // 2.1 platform instance
-  dmTTT.getAllPlatFormInstance(ResourceAllocIndex, AssetDeployment.FData.Deployment_Index, Platform_Insts);
-
-//  dmTTT.getAllRuntimePlatform(ResourceAllocIndex, RuntimePlatformLibrary); // diganti prosesnya
-  dmTTT.GetRuntime_Platform_LibraryByResourceAlloc(ResourceAllocIndex, RuntimePlatformLibrary);
+  {$REGION ' Load All RPL Mapping '}
+  dmTTT.GetRuntime_Platform_LibraryByResourceAlloc(ResourceAllocIndex, ListRPLFromDB);
   GetAllPiRuntimePlatform;
+  {$ENDREGION}
 
-  // Game Defaults
-  if (dmTTT.GetGame_Defaults(Resource_alloc.FData.Resource_Alloc_Index, GameDefaults)) then
+  {$REGION ' Load All Overlay Mapping '}
+  dmTTT.GetResource_Overlay_Mapping(ResourceAllocIndex, ListOverlayFromDB);
+
+  if (ListOverlayFromDB.Count > 0) then
+  begin
+    for I := 0 to ListOverlayFromDB.Count - 1 do
+    begin
+      ovIdx := TResource_Allocation(ListOverlayFromDB.Items[I]).FOverlay.Overlay_Index;
+
+      case TResource_Allocation(ListOverlayFromDB[I]).FOverlay.Static_Overlay of
+        osDynamic : dmTTT.GetAllOverlay_Shape(ovIdx, ListDynamicShape);
+        osStatic  : dmTTT.GetAllOverlay_Shape(ovIdx, ListStaticShape);
+      end;
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Load All Game Defaults '}
+  if (dmTTT.GetGame_Defaults(ResourceAllocation.FData.Resource_Alloc_Index, GameDefaults)) then
   begin
     dmTTT.GetGame_Cloud_On_ESM(GameDefaults.FData.Defaults_Index, GameDefaults);
     dmTTT.GetGame_Cloud_On_Radar(GameDefaults.FData.Defaults_Index, GameDefaults);
@@ -371,11 +390,15 @@ begin
     dmTTT.GetGame_Sea_On_Sonar(GameDefaults.FData.Defaults_Index, GameDefaults);
     dmTTT.GetGame_Ship_On_Sonar(GameDefaults.FData.Defaults_Index, GameDefaults);
   end;
+  {$ENDREGION}
 
-  frmProgress.MaxJob := Platform_Insts.Count;
+  frmProgress.MaxJob := ListPlatformInstanceFromDB.Count;
 
-  for I := 0 to Platform_Insts.Count - 1 do begin
-    pi := Platform_Insts[i];
+  {$REGION ' Load Platform Instance Data & Asset '}
+  for I := 0 to ListPlatformInstanceFromDB.Count - 1 do
+  begin
+    pi := ListPlatformInstanceFromDB[i];
+
     frmProgress.increase( pi.FData.Instance_Name );
     LoadPlatformDefinition(pi);
 
@@ -384,28 +407,27 @@ begin
     begin
       if pi.FData.Vehicle_Index > 0 then
       begin
-//        aSize := SizeOf(pi);
-//        GetMem(p, aSize);
-//        CopyMemory(p, @pi, aSize);
         DefaultNonRealPlatform := TPlatform_Instance.Create;
         DefaultNonRealPlatform.FData.Vehicle_Index := pi.FData.Vehicle_Index;
         LoadPlatformDefinition(DefaultNonRealPlatform)
       end;
     end;
 
+    {$REGION ' Merubah TPlatform_Instance ke TT3PlatformInstance melalui event ini '}
     if Assigned(FOnAssignedPlatform) then
       FOnAssignedPlatform(pi);
+    {$ENDREGION}
   end;
+  {$ENDREGION}
 
-  dIndex  := AssetDeployment.FData.Deployment_Index;
-
-  dmTTT.GetFormationDefinition(dIndex, Formation);
+  {$REGION ' Load All Formation Mapping '}
+  dmTTT.GetFormationDefinition(AssetDeploymentId, Formation);
   Formation_List.Clear;
   Platform_Inst.Clear;
 
   // formation refinement
   Formation_List_rev.Clear;
-  dmTTT.GetFormation(dIndex, Formation_List_rev);
+  dmTTT.GetFormation(AssetDeploymentId, Formation_List_rev);
 
   for I := 0 to Formation.Count - 1 do
   begin
@@ -413,8 +435,10 @@ begin
     dmTTT.GetFormationAssignment(form, Formation_List) ;
     //Formation_List.Add(Platform_Inst);   //test mm
   end;
+  {$ENDREGION}
 
-  dmTTT.GetLinkDefinition(dIndex, Links);
+  {$REGION ' Load All Data Link '}
+  dmTTT.GetLinkDefinition(AssetDeploymentId, Links);
   for I := 0 to Links.Count - 1 do
   begin
     link  := Links[i];
@@ -422,15 +446,14 @@ begin
       dmTTT.GetLinkParticipant(link, Platform_Ins);
     end;
   end;
+  {$ENDREGION}
 
-  // 2.2 from resource alloc
-  dmTTT.GetGame_Environment_Definition(Resource_alloc.FData.Game_Enviro_Index,
-    GameEnvironment);
+  {$REGION ' Load All Environment and Game Area'}
+  dmTTT.GetGame_Environment_Definition(ResourceAllocation.FData.Game_Enviro_Index, GameEnvironment);
 
   dmTTT.GetGame_Area_DefByID(GameEnvironment.FData.Game_Area_Index, GameEnvironment);
 
-  //tambahan dari aldy get sub area inList
-  dmTTT.GetSubArea_Enviro_Definition(Resource_alloc.FData.Game_Enviro_Index, GameEnvironment.FSubArea);
+  dmTTT.GetSubArea_Enviro_Definition(ResourceAllocation.FData.Game_Enviro_Index, GameEnvironment.FSubArea);
 
   s := UpperCase(Trim(GameEnvironment.FGameArea.Detail_Map));
   if s  = 'ENC' then
@@ -440,66 +463,17 @@ begin
     MapGeosetName := GameEnvironment.FGameArea.Game_Area_Identifier + '\' +
     GameEnvironment.FGameArea.Game_Area_Identifier + '.gst';
 
-  // get all predefined pattern from resource pattern mapping *bebe*
-//  dmTTT.GetAllResource_Pattern_Mapping(ResourceAllocIndex,pattern_mapping);
-
-  {added by me}
-{ comment by Andy.
-  GetScenario dan GetResourceAlloc SUDAH dipanggil di atas.
-  dmTTT.GetScenario(id, scenario_def );
-  dmTTT.GetResourceAlloc(scenario_def.FData.Resource_Alloc_Index, Resource_alloc);
-}
-  {Prince : Load overlay form db}
-  dmTTT.GetResource_Overlay_Mapping(ResourceAllocIndex, OverlayTemplateFromDB);
-  if (OverlayTemplateFromDB.Count > 0) then
-  begin
-    for I := 0 to OverlayTemplateFromDB.Count - 1 do
-    begin
-      ovIdx := TResource_Allocation(OverlayTemplateFromDB.Items[I]).FOverlay.Overlay_Index;
-
-//      case TResource_Allocation(OverlayTemplateFromDB[I]).FOverlay.Static_Overlay of
-//        osDynamic : dmTTT.GetAllOverlay_Shape(ovIdx, DynamicShape);
-//        osStatic  : dmTTT.GetAllOverlay_Shape(ovIdx, StaticShape);
-//      end;
-    end;
-  end;
-
-  {if (OverlayTemplateFromDB.Count > 0) then begin
-    for I := 0 to OverlayTemplateFromDB.Count - 1 do
-    begin
-      //dmTTT.GetOverlay(TResource_Allocation(Overlay_Mapping.Items[I]).FOverlay.Overlay_Index, Overlay_Def);
-      allOverlayNames[I] := TResource_Allocation(OverlayTemplateFromDB[I]).FOverlay.Overlay_Filename;
-    end;
-  end;}
-
   dmTTT.GetGeoAreaDefinition(GameEnvironment.FData.Game_Area_Index, GeoPoint);
 
   GameEnvironment.calculateMaxPowerScaleArea;
 
-  // 2.3
-  dmTTT.GetT3GroupList(id, CubiclesGroupsList.FSList);
+  {$ENDREGION}
 
-  //choco : add unassigned group
-//  for i := 0 to Length(unassignedGroupCub.GroupIDs) - 1 do
-//  begin
-//    if isController then
-//    begin
-//      if i < (CubiclesGroupsList.Count - 5) then
-//        Continue;
-//    end;
+  {$REGION ' Load All Cubicle Group '}
+  dmTTT.GetT3GroupList(ScenarioId, CubiclesGroupsList.FSList);
 
-//    newGrp := T3CubicleGroup.Create;
-//    newGrp.CubicleName := '';
-//    newGrp.FData.Group_Index := unassignedGroupCub.GroupIDs[i];
-//    newGrp.FData.Deployment_Index := T3CubicleGroup(CubiclesGroupsList.Items[CubiclesGroupsList.Count-1]).FData.Deployment_Index;
-//    newGrp.FData.Group_Identifier := 'Unassigned Group';
-//    newGrp.FData.Force_Designation := 4; //no force
-//    newGrp.FData.Tracks_Block := 0;
-//    newGrp.FData.Zulu_Zulu := 0;
-//    CubiclesGroupsList.FSList.AddObject(IntToStr(newGrp.FData.Group_Index), newGrp);
-//  end;
-
-  for I := 0 to CubiclesGroupsList.Count - 1 do begin
+  for I := 0 to CubiclesGroupsList.Count - 1 do
+  begin
     grp  := CubiclesGroupsList.Items[i] as T3CubicleGroup;
     if grp <> nil then
     begin
@@ -517,9 +491,9 @@ begin
         found := false;
         pi := nil;
 
-        while not found and (k < Platform_Insts.Count) do
+        while not found and (k < ListPlatformInstanceFromDB.Count) do
         begin
-          pi := Platform_Insts[k];
+          pi := ListPlatformInstanceFromDB[k];
           found := grm.FData.Platform_Instance_Index = pi.FData.Platform_Instance_Index;
           Inc(k);
         end;
@@ -538,14 +512,46 @@ begin
     end;
   end;
 
+  {Mencari Paltform yg tidak punya group}
+  for I := 0 to ListPlatformInstanceFromDB.Count - 1 do
+  begin
+    pi := ListPlatformInstanceFromDB[i];
+
+    if pi.CubicleGroupID > 1  then
+      continue;
+
+    grp := CubiclesGroupsList.GetGroupByIdentifier('Unassigned Group') as T3CubicleGroup;
+
+    if Assigned(grp) then
+    begin
+      grm := T3CubicleGroupMember.Create;
+
+      with grm.FData do
+      begin
+        Platform_Instance_Index  := pi.FData.Platform_Instance_Index;
+        Group_Index              := 1;
+        Command_Priority         := i;
+        Deployment_Index         := Deployment_Index;
+      end;
+
+      grp.FSList.AddObject(IntToStr(grm.FData.Platform_Instance_Index), grm);
+    end;
+  end;
+  {$ENDREGION}
+
+  {$REGION ' Load All ExCom '}
   for i := ExCom.Count - 1 downto 0 do
   begin
     ExCom.Delete(i);
   end;
   ExCom.Clear;
-  dmTTT.GetExternal_Communication_Channel(ExCom, IntToStr(ra_id),'' ,ExternalCom);
 
-  dmTTT.getAllReference_Point(ra_id, rpList);
+  dmTTT.GetExternal_Communication_Channel(ExCom, IntToStr(ResourceAllocationId),'' ,ExternalCom);
+  {$ENDREGION}
+
+  {$REGION ' Load All Reference Point '}
+  dmTTT.getAllReference_Point(ResourceAllocationId, rpList);
+  {$ENDREGION}
 
   frmProgress.Free;
 end;
@@ -563,9 +569,9 @@ begin
   f := False;
   Result := nil;
 
-  for i := 0 to RuntimePlatformLibrary.Count - 1 do
+  for i := 0 to ListRPLFromDB.Count - 1 do
   begin
-    recLBN := RuntimePlatformLibrary.Items[i];
+    recLBN := ListRPLFromDB.Items[i];
 
     for j := 0 to recLBN.FPlatform_Library_Entry.Count - 1 do
     begin
@@ -638,9 +644,9 @@ var
   bDef: TMine_Definition;
   Pi : TPlatform_Instance;
 begin
-  for i := 0 to RuntimePlatformLibrary.Count - 1 do
+  for i := 0 to ListRPLFromDB.Count - 1 do
   begin
-    ObjRPL := RuntimePlatformLibrary.Items[i];
+    ObjRPL := ListRPLFromDB.Items[i];
 
     if ObjRPL <> nil then
     begin
@@ -707,19 +713,21 @@ end;
 procedure TT3DBScenario.LoadPlatformDefinition(pi: TPlatform_Instance);
 var
   vIndex : integer;
-begin
-  //***add by bebe
-  dmTTT.GetPlatform_ActivationToPlatformInstance(pi.FData.Platform_Instance_Index,
-  pi.FActivation.Deployment_Index, pi);
 
-  //Vehicle Data
-  if pi.FData.Vehicle_Index > 0 then begin
+begin
+
+  dmTTT.GetPlatform_ActivationToPlatformInstance(pi.FData.Platform_Instance_Index, pi.FActivation.Deployment_Index, pi);
+
+  {$REGION ' Load Vehicle Definition and Asset '}
+  if pi.FData.Vehicle_Index > 0 then
+  begin
 
     dmTTT.GetVehicle_Definition(pi.FData.Vehicle_Index, Pi.Vehicle);
     dmTTT.GetHelicopter(pi.FData.Vehicle_Index, Pi.HeliLimitation);
     dmTTT.GetMotion_Characteristics(pi.Vehicle.FData.Motion_Characteristics, Pi.Motion);
 
-    with pi.Vehicle do begin
+    with pi.Vehicle do
+    begin
       vIndex := Pi.FData.Vehicle_Index;
       //sensor
       dmTTT.getAllEO_On_Board(vIndex,0,             pi.Vehicle.EOSensors);
@@ -754,37 +762,49 @@ begin
       dmTTT.getAllSonobuoy_On_Board(vIndex,0,     Pi.Vehicle.Sonobuoy );
     end;
   end;
+  {$ENDREGION}
 
-  //Satellite Data
+  {$REGION ' Load Satellite Definition and Asset '}
   if pi.FData.Satellite_Index > 0 then
     dmTTT.GetSatellite_Definition(pi.FData.Satellite_Index, Pi.Satellite);
+  {$ENDREGION}
 
-  //Mine Data
-  if pi.FData.Mine_Index > 0 then begin
+  {$REGION ' Load Mine Definition and Asset '}
+  if pi.FData.Mine_Index > 0 then
+  begin
     dmTTT.getMine_def(pi.Mine, pi.FData.Mine_Index);
     dmTTT.getMinePOD(pi.Mine.FPOD,pi.FData.Mine_Index);
   end;
-    
-  //Missile_Index
-  if pi.FData.Missile_Index > 0 then begin
+  {$ENDREGION}
+
+  {$REGION ' Load Missile Definition and Asset '}
+  if pi.FData.Missile_Index > 0 then
+  begin
     dmTTT.getMissile_Def(pi.Missile, pi.FData.Missile_Index);
     dmTTT.GetMotion_Characteristics(pi.Missile.FData.Motion_Index, Pi.Motion);
   end;
+  {$ENDREGION}
 
-  //Torpedo_Index
-  if pi.FData.Torpedo_Index > 0 then begin
+  {$REGION ' Load Torpedo Definition and Asset '}
+  if pi.FData.Torpedo_Index > 0 then
+  begin
     dmTTT.getTorpedo_Def(pi.Torpedo, pi.FData.Torpedo_Index);
     dmTTT.getTorpedoPOH(pi.Torpedo.FPOHs,pi.FData.Torpedo_Index);
     dmTTT.GetMotion_Characteristics(pi.Torpedo.FData.Motion_Index, Pi.Motion);
   end;
+  {$ENDREGION}
 
-  //Hybrid_Index
-  if pi.FData.Hybrid_Index > 0 then begin
+  {$REGION ' Load Hybrid Definition and Asset '}
+  if pi.FData.Hybrid_Index > 0 then
+  begin
   end;
+  {$ENDREGION}
 
-  //Sonobuoy_Index
+  {$REGION ' Load Sonobuoy Definition and Asset '}
   if pi.FData.Sonobuoy_Index > 0 then begin
   end;
+  {$ENDREGION}
+
 end;
 
 procedure TT3DBScenario.SetEventOnExternalComm;

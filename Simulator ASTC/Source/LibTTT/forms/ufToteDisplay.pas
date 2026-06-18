@@ -7544,11 +7544,11 @@ begin
         found := False;
         pi := nil;
 
-        if Assigned(VScenario.Platform_Insts) then
+        if Assigned(VScenario.ListPlatformInstanceFromDB) then
         begin
-          while not found and (k < VScenario.Platform_Insts.Count) do
+          while not found and (k < VScenario.ListPlatformInstanceFromDB.Count) do
           begin
-            pi := VScenario.Platform_Insts[k];
+            pi := VScenario.ListPlatformInstanceFromDB[k];
             found := grm.FData.Platform_Instance_Index = pi.FData.Platform_Instance_Index;
             Inc(k);
           end;
@@ -8736,9 +8736,9 @@ begin
     if LowerCase(aGroupName) = 'controller' then
     begin
       lvPlatformsGroup.Items.Clear;
-      for i := 0 to VScenario.Platform_Insts.Count - 1 do
+      for i := 0 to VScenario.ListPlatformInstanceFromDB.Count - 1 do
       begin
-        pi := VScenario.Platform_Insts[i];
+        pi := VScenario.ListPlatformInstanceFromDB[i];
 
         lvPlatformsGroup.Items.Add.Caption := Pi.FData.Instance_Name;
       end;
@@ -8762,9 +8762,9 @@ begin
               Continue;
             Pi := nil;
 
-            for k := 0 to VScenario.Platform_Insts.Count - 1 do
+            for k := 0 to VScenario.ListPlatformInstanceFromDB.Count - 1 do
             begin
-              pi := VScenario.Platform_Insts[k];
+              pi := VScenario.ListPlatformInstanceFromDB[k];
               if grm.FData.Platform_Instance_Index = Pi.FData.Platform_Instance_Index then
               begin
                 lvPlatformsGroup.Items.Add.Caption := Pi.FData.Instance_Name;

@@ -1280,7 +1280,7 @@ begin
   FScenario.LoadFromDB(vSet.ScenarioID, vCubicalAssignSetting, IsController); //choco
 
   FMainVTime.Reset(0);
-  FMainVTime.DateTimeOffset := FScenario.Resource_alloc.FData.Game_Start_Time;
+  FMainVTime.DateTimeOffset := FScenario.ResourceAllocation.FData.Game_Start_Time;
 
   FLastPlatformID := ((FLastPlatformID  div 100) + 1 ) * 100;
   
@@ -2007,14 +2007,14 @@ begin
     result := hostPlatform.AddQueue(rec.InitSpeed,rec.InitCourse,rec.TrackIdent,
               rec.LaunchName, hostPlatform.TempReadying);
 
-  for I := FScenario.Platform_Insts.Count - 1 downto 0 do
+  for I := FScenario.ListPlatformInstanceFromDB.Count - 1 downto 0 do
   begin
-    pi2 := FScenario.Platform_Insts.Items[i];
+    pi2 := FScenario.ListPlatformInstanceFromDB.Items[i];
 
     if pi2.Vehicle.FData.Vehicle_Index =  pi.Vehicle.FData.Vehicle_Index then
     begin
       pi.Free;
-      FScenario.Platform_Insts.Delete(i);
+      FScenario.ListPlatformInstanceFromDB.Delete(i);
       Break;
     end;
   end;
@@ -5324,7 +5324,7 @@ begin
   if pi.Vehicle.FData.Readying_Time = 0 then
     pi.Vehicle.FData.Readying_Time := 1;
 
-  FScenario.Platform_Insts.Add(pi);
+  FScenario.ListPlatformInstanceFromDB.Add(pi);
 
   result := pi;
 end;
@@ -8496,7 +8496,7 @@ begin
 
   pi.FData.Instance_Name := 'Unknown';
 
-  FScenario.Platform_Insts.Add(pi);
+  FScenario.ListPlatformInstanceFromDB.Add(pi);
 
   result := pi;
 end;

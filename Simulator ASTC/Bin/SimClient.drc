@@ -8,382 +8,387 @@
   resources were bound to the produced executable.
 */
 
-#define Vcl_Imaging_pnglang_EPNGCannotChangeTransparentText 64736
-#define Vcl_Imaging_pnglang_EPNGHeaderNotPresentText 64737
-#define Vcl_Imaging_pnglang_EInvalidNewSize 64738
-#define Vcl_Imaging_pnglang_EInvalidSpec 64739
-#define Vcl_Imaging_pnglang_EPNGInvalidBitDepthText 64740
-#define RzCommon_sRzCannotLoadCustomFraming 64741
-#define RzCommon_sRzCannotSaveCustomFraming 64742
-#define OverbyteIcsHttpContCod_ERR_GETCODING_OVERRIDE 64743
-#define Vcl_Imaging_pnglang_EPNGInvalidPaletteText 64752
-#define Vcl_Imaging_pnglang_EPNGInvalidFileHeaderText 64753
-#define Vcl_Imaging_pnglang_EPNGIHDRNotFirstText 64754
-#define Vcl_Imaging_pnglang_EPNGSizeExceedsText 64755
-#define Vcl_Imaging_pnglang_EPNGUnknownPalEntryText 64756
-#define Vcl_Imaging_pnglang_EPNGUnknownCriticalChunkText 64757
-#define Vcl_Imaging_pnglang_EPNGUnknownCompressionText 64758
-#define Vcl_Imaging_pnglang_EPNGUnknownInterlaceText 64759
-#define Vcl_Imaging_pnglang_EPNGUnknownColorTypeText 64760
-#define Vcl_Imaging_pnglang_EPNGCannotAssignChunkText 64761
-#define Vcl_Imaging_pnglang_EPNGUnexpectedEndText 64762
-#define Vcl_Imaging_pnglang_EPNGNoImageDataText 64763
-#define Vcl_Imaging_pnglang_EPNGCannotAddChunkText 64764
-#define Vcl_Imaging_pnglang_EPNGCannotAddInvalidImageText 64765
-#define Vcl_Imaging_pnglang_EPNGCouldNotLoadResourceText 64766
-#define Vcl_Imaging_pnglang_EPNGOutMemoryText 64767
-#define Xml_XMLConst_SNodeNotFound 64768
-#define Xml_XMLConst_SMissingNode 64769
-#define Xml_XMLConst_SNoAttributes 64770
-#define Xml_XMLConst_SInvalidNodeType 64771
-#define Xml_XMLConst_SMismatchedRegItems 64772
-#define Xml_XMLConst_SNotSingleTextNode 64773
-#define Xml_XMLConst_SNoDOMParseOptions 64774
-#define Xml_XMLConst_SMissingItemTag 64775
-#define Xml_XMLConst_SNodeReadOnly 64776
-#define Xml_XMLConst_SNoRefresh 64777
-#define Xml_XMLConst_SMissingFileName 64778
-#define Xml_XMLConst_SLine 64779
-#define Vcl_Imaging_pnglang_EPngInvalidCRCText 64780
-#define Vcl_Imaging_pnglang_EPNGInvalidIHDRText 64781
-#define Vcl_Imaging_pnglang_EPNGMissingMultipleIDATText 64782
-#define Vcl_Imaging_pnglang_EPNGZLIBErrorText 64783
-#define ZMessages_cSFailedToBindResults 64784
-#define ZMessages_cSPreviousResultStillOpen 64785
-#define ZMessages_cSRefreshRowOnlySupportedWithUpdateObject 64786
-#define ZMessages_cSMustBeInBrowseMode 64787
-#define ZMessages_cSUnKnownParamDataType 64788
-#define ZMessages_cSFieldReadOnly 64789
-#define ZMessages_cSInvalidUpdateCount 64790
-#define ZMessages_cSRowBufferWidthExceeded 64791
-#define Xml_XMLConst_SDuplicateRegistration 64792
-#define Xml_XMLConst_SNoMatchingDOMVendor 64793
-#define Xml_XMLConst_SNoDOMNodeEx 64794
-#define Xml_XMLConst_SDOMNotSupported 64795
-#define Xml_XMLConst_SNoDOMVendorSelected 64796
-#define Xml_XMLConst_SNodeExpected 64797
-#define Xml_XMLConst_SMSDOMNotInstalled 64798
-#define Xml_XMLConst_SNotActive 64799
-#define ZMessages_cSReplaceSQL 64800
-#define ZMessages_cSDialogOpenTitle 64801
-#define ZMessages_cSDialogSaveTitle 64802
-#define ZMessages_cSSQLEditor 64803
-#define ZMessages_cSDatabaseDialog 64804
-#define ZMessages_cSUpdateSQLNoResult 64805
-#define ZMessages_cSUpdateSQLRefreshStatementcount 64806
-#define ZMessages_cSNeedField 64807
-#define ZMessages_cSFailedtoInitPrepStmt 64808
-#define ZMessages_cSFailedtoPrepareStmt 64809
-#define ZMessages_cSFailedToBindAllValues 64810
-#define ZMessages_cSAttemptExecOnBadPrep 64811
-#define ZMessages_cSBindingFailure 64812
-#define ZMessages_cSPreparedStmtExecFailure 64813
-#define ZMessages_cSBoundVarStrIndexMissing 64814
-#define ZMessages_cSBindVarOutOfRange 64815
-#define ZMessages_cSPropertyColumns 64816
-#define ZMessages_cSPropertyProcedures 64817
-#define ZMessages_cSPropertySequences 64818
-#define ZMessages_cSPropertyExecute 64819
-#define ZMessages_cSFormTest 64820
-#define ZMessages_cSButtonClose 64821
-#define ZMessages_cSFormEditor 64822
-#define ZMessages_cSTabSheetSelect 64823
-#define ZMessages_cSMenuLoad 64824
-#define ZMessages_cSMenuSave 64825
-#define ZMessages_cSButtonGenerate 64826
-#define ZMessages_cSButtonCheck 64827
-#define ZMessages_cSButtonTest 64828
-#define ZMessages_cSButtonOk 64829
-#define ZMessages_cSButtonCancel 64830
-#define ZMessages_cSTableAlias 64831
-#define ZMessages_cSStoredProcIsNotAllowed 64832
-#define ZMessages_cSCannotPerformOperation 64833
-#define ZMessages_cSInvalidState 64834
-#define ZMessages_cSErrorConvertion 64835
-#define ZMessages_cSDataTypeDoesNotSupported 64836
-#define ZMessages_cSUnsupportedParameterType 64837
-#define ZMessages_cSUnsupportedDataType 64838
-#define ZMessages_cSErrorConvertionField 64839
-#define ZMessages_cSBadOCI 64840
-#define ZMessages_cSConnect2AsUser 64841
-#define ZMessages_cSUnknownError 64842
-#define ZMessages_cSFieldNotFound1 64843
-#define ZMessages_cSFieldNotFound2 64844
-#define ZMessages_cSLoginPromptFailure 64845
-#define ZMessages_cSPropertyQuery 64846
-#define ZMessages_cSPropertyTables 64847
-#define ZMessages_cSOperationIsNotAllowed4 64848
-#define ZMessages_cSNoMoreRecords 64849
-#define ZMessages_cSCanNotOpenResultSet 64850
-#define ZMessages_cSCanNotOpenDataSetWhenDestroying 64851
-#define ZMessages_cSCircularLink 64852
-#define ZMessages_cSBookmarkWasNotFound 64853
-#define ZMessages_cSIncorrectSearchFieldsNumber 64854
-#define ZMessages_cSInvalidOperationInTrans 64855
-#define ZMessages_cSIncorrectSymbol 64856
-#define ZMessages_cSIncorrectToken 64857
-#define ZMessages_cSIncorrectParamChar 64858
-#define ZMessages_cSSelectedTransactionIsolation 64859
-#define ZMessages_cSDriverNotSupported 64860
-#define ZMessages_cSPattern2Long 64861
-#define ZMessages_cSDriverNotCapableOutParameters 64862
-#define ZMessages_cSStatementIsNotAllowed 64863
-#define ZMessages_cSIsolationIsNotSupported 64864
-#define ZMessages_cSColumnWasNotFound 64865
-#define ZMessages_cSWrongTypeForBlobParameter 64866
-#define ZMessages_cSIncorrectConnectionURL 64867
-#define ZMessages_cSUnsupportedProtocol 64868
-#define ZMessages_cSUnsupportedByDriver 64869
-#define ZMessages_cSConnectionIsNotOpened 64870
-#define ZMessages_cSInvalidOpInAutoCommit 64871
-#define ZMessages_cSInvalidOpInNonAutoCommit 64872
-#define ZMessages_cSInvalidOpPrepare 64873
-#define ZMessages_cSConnectionIsNotAssigned 64874
-#define ZMessages_cSQueryIsEmpty 64875
-#define ZMessages_cSCanNotExecuteMoreQueries 64876
-#define ZMessages_cSOperationIsNotAllowed1 64877
-#define ZMessages_cSOperationIsNotAllowed2 64878
-#define ZMessages_cSOperationIsNotAllowed3 64879
-#define ZMessages_cSCanNotAccessBlobRecord 64880
-#define ZMessages_cSRowDataIsNotAvailable 64881
-#define ZMessages_cSResolverIsNotSpecified 64882
-#define ZMessages_cSResultsetIsAlreadyOpened 64883
-#define ZMessages_cSCanNotUpdateEmptyRow 64884
-#define ZMessages_cSCanNotUpdateDeletedRow 64885
-#define ZMessages_cSCanNotDeleteEmptyRow 64886
-#define ZMessages_cSCannotUseCommit 64887
-#define ZMessages_cSCannotUseRollBack 64888
-#define ZMessages_cSCanNotUpdateComplexQuery 64889
-#define ZMessages_cSCanNotUpdateThisQueryType 64890
-#define ZMessages_cSDriverWasNotFound 64891
-#define ZMessages_cSCanNotConnectToServer 64892
-#define ZMessages_cSTableIsNotSpecified 64893
-#define ZMessages_cSLiveResultSetsAreNotSupported 64894
-#define ZMessages_cSInvalidInputParameterCount 64895
-#define ZMessages_cSVariableAlreadyExists 64896
-#define ZMessages_cSTypesMismatch 64897
-#define ZMessages_cSUnsupportedVariantType 64898
-#define ZMessages_cSUnsupportedOperation 64899
-#define ZMessages_cSTokenizerIsNotDefined 64900
-#define ZMessages_cSLibraryNotFound 64901
-#define ZMessages_cSEncodeDateIsNotSupported 64902
-#define ZMessages_cSEncodeTimeIsNotSupported 64903
-#define ZMessages_cSEncodeTimestampIsNotSupported 64904
-#define ZMessages_cSDecodeDateIsNotSupported 64905
-#define ZMessages_cSDecodeTimeIsNotSupported 64906
-#define ZMessages_cSDecodeTimestampIsNotSupported 64907
-#define ZMessages_cSCanNotRetrieveResultSetData 64908
-#define ZMessages_cSRowBufferIsNotAssigned 64909
-#define ZMessages_cSColumnIsNotAccessable 64910
-#define ZMessages_cSConvertionIsNotPossible 64911
-#define ZMessages_cSListIndexError 64912
-#define ZMessages_cSClonningIsNotSupported 64913
-#define ZMessages_cSImmutableOpIsNotAllowed 64914
-#define ZMessages_cSStackIsEmpty 64915
-#define ZMessages_cSVariableWasNotFound 64916
-#define ZMessages_cSFunctionWasNotFound 64917
-#define ZMessages_cSInternalError 64918
-#define ZMessages_cSSyntaxErrorNear 64919
-#define ZMessages_cSSyntaxError 64920
-#define ZMessages_cSUnknownSymbol 64921
-#define ZMessages_cSUnexpectedExprEnd 64922
-#define ZMessages_cSRightBraceExpected 64923
-#define ZMessages_cSParametersError 64924
-#define ZMessages_cSParamValueExceeded 64925
-#define ZMessages_cSExpectedMoreParams 64926
-#define ZMessages_cSInvalidVarByteArray 64927
-#define Data_DBConsts_SProviderSQLNotSupported 64928
-#define Data_DBConsts_SProviderExecuteNotSupported 64929
-#define Data_DBConsts_SDataSetUnidirectional 64930
-#define Data_DBConsts_SUnassignedVar 64931
-#define Data_DBConsts_SRecordNotFound 64932
-#define Data_DBConsts_SBcdOverflow 64933
-#define Data_DBConsts_SInvalidBcdValue 64934
-#define Data_DBConsts_SCouldNotParseTimeStamp 64935
-#define Data_DBConsts_SInvalidSqlTimeStamp 64936
-#define ZMessages_cSLibraryNotCompatible 64937
-#define ZMessages_cSSQLError1 64938
-#define ZMessages_cSSQLError2 64939
-#define ZMessages_cSSQLError3 64940
-#define ZMessages_cSSQLError4 64941
-#define ZMessages_cSListCapacityError 64942
-#define ZMessages_cSListCountError 64943
-#define Data_DBConsts_SIndexNotFound 64944
-#define Data_DBConsts_SDBDuplicateName 64945
-#define Data_DBConsts_SCircularDataLink 64946
-#define Data_DBConsts_SLookupInfoError 64947
-#define Data_DBConsts_SDataSourceChange 64948
-#define Data_DBConsts_SDataSetOpen 64949
-#define Data_DBConsts_SNotEditing 64950
-#define Data_DBConsts_SDataSetClosed 64951
-#define Data_DBConsts_SDataSetEmpty 64952
-#define Data_DBConsts_SDataSetReadOnly 64953
-#define Data_DBConsts_SNestedDataSetClass 64954
-#define Data_DBConsts_STextFalse 64955
-#define Data_DBConsts_STextTrue 64956
-#define Data_DBConsts_SParameterNotFound 64957
-#define Data_DBConsts_SInvalidVersion 64958
-#define Data_DBConsts_SBadFieldType 64959
-#define Data_DBConsts_SFieldValueError 64960
-#define Data_DBConsts_SFieldRangeError 64961
-#define Data_DBConsts_SBcdFieldRangeError 64962
-#define Data_DBConsts_SInvalidIntegerValue 64963
-#define Data_DBConsts_SInvalidBoolValue 64964
-#define Data_DBConsts_SInvalidFloatValue 64965
-#define Data_DBConsts_SFieldTypeMismatch 64966
-#define Data_DBConsts_SFieldSizeMismatch 64967
-#define Data_DBConsts_SInvalidVarByteArray 64968
-#define Data_DBConsts_SFieldOutOfRange 64969
-#define Data_DBConsts_SFieldRequired 64970
-#define Data_DBConsts_SDataSetMissing 64971
-#define Data_DBConsts_SInvalidCalcType 64972
-#define Data_DBConsts_SFieldReadOnly 64973
-#define Data_DBConsts_SDuplicateIndexName 64974
-#define Data_DBConsts_SNoIndexForFields 64975
-#define OverbyteIcsCharsetUtils_sLatin9 64976
-#define OverbyteIcsCharsetUtils_sThaiWindows 64977
-#define OverbyteIcsCharsetUtils_sTurkishISO 64978
-#define OverbyteIcsCharsetUtils_sTurkishWindows 64979
-#define OverbyteIcsCharsetUtils_sUnicodeUTF7 64980
-#define OverbyteIcsCharsetUtils_sUnicodeUTF8 64981
-#define OverbyteIcsCharsetUtils_sVietnameseWindows 64982
-#define OverbyteIcsCharsetUtils_sWesternEuropeanISO 64983
-#define OverbyteIcsCharsetUtils_sWesternEuropeanWindows 64984
-#define Data_DBConsts_SInvalidFieldSize 64985
-#define Data_DBConsts_SInvalidFieldKind 64986
-#define Data_DBConsts_SUnknownFieldType 64987
-#define Data_DBConsts_SFieldNameMissing 64988
-#define Data_DBConsts_SDuplicateFieldName 64989
-#define Data_DBConsts_SFieldNotFound 64990
-#define Data_DBConsts_SFieldAccessError 64991
-#define OverbyteIcsCharsetUtils_sChineseSimplifiedGB18030 64992
-#define OverbyteIcsCharsetUtils_sChineseSimplifiedGB2312 64993
-#define OverbyteIcsCharsetUtils_sChineseSimplifiedHZ 64994
-#define OverbyteIcsCharsetUtils_sCyrillicISO 64995
-#define OverbyteIcsCharsetUtils_sCyrillicKOI8R 64996
-#define OverbyteIcsCharsetUtils_sCyrillicKOI8U 64997
-#define OverbyteIcsCharsetUtils_sCyrillicWindows 64998
-#define OverbyteIcsCharsetUtils_sEstonianISO 64999
-#define OverbyteIcsCharsetUtils_sGreekISO 65000
-#define OverbyteIcsCharsetUtils_sGreekWindows 65001
-#define OverbyteIcsCharsetUtils_sHebrewISOLogical 65002
-#define OverbyteIcsCharsetUtils_sHebrewISOVisual 65003
-#define OverbyteIcsCharsetUtils_sHebrewWindows 65004
-#define OverbyteIcsCharsetUtils_sJapaneseJIS 65005
-#define OverbyteIcsCharsetUtils_sKorean 65006
-#define OverbyteIcsCharsetUtils_sKoreanEUC 65007
-#define Vcl_ComStrs_sFailSetCalMaxSelRange 65008
-#define Vcl_ComStrs_sFailSetCalMinMaxRange 65009
-#define Vcl_ComStrs_sFailsetCalSelRange 65010
-#define Vcl_OleConst_SBadPropValue 65011
-#define Vcl_OleConst_SCannotActivate 65012
-#define Vcl_OleConst_SNoWindowHandle 65013
-#define Vcl_OleConst_SInvalidLicense 65014
-#define Vcl_OleConst_SNotLicensed 65015
-#define Vcl_OleConst_sNoRunningObject 65016
-#define OverbyteIcsCharsetUtils_sArabicISO 65017
-#define OverbyteIcsCharsetUtils_sArabicWindows 65018
-#define OverbyteIcsCharsetUtils_sBalticISO 65019
-#define OverbyteIcsCharsetUtils_sBalticWindows 65020
-#define OverbyteIcsCharsetUtils_sCentralEuropeanISO 65021
-#define OverbyteIcsCharsetUtils_sCentralEuropeanWindows 65022
-#define OverbyteIcsCharsetUtils_sChineseTraditionalBig5 65023
-#define Vcl_ComStrs_sTabFailRetrieve 65024
-#define Vcl_ComStrs_sTabFailGetObject 65025
-#define Vcl_ComStrs_sTabFailSet 65026
-#define Vcl_ComStrs_sTabFailSetObject 65027
-#define Vcl_ComStrs_sTabMustBeMultiLine 65028
-#define Vcl_ComStrs_sInvalidLevel 65029
-#define Vcl_ComStrs_sInvalidLevelEx 65030
-#define Vcl_ComStrs_sInvalidIndex 65031
-#define Vcl_ComStrs_sInsertError 65032
-#define Vcl_ComStrs_sInvalidOwner 65033
-#define Vcl_ComStrs_sPageIndexError 65034
-#define Vcl_ComStrs_sInvalidComCtl32 65035
-#define Vcl_ComStrs_sDateTimeMax 65036
-#define Vcl_ComStrs_sDateTimeMin 65037
-#define Vcl_ComStrs_sNeedAllowNone 65038
-#define Vcl_ComStrs_sFailSetCalDateTime 65039
-#define Vcl_Consts_SNameMenuText 65040
-#define Vcl_Consts_SNameNone 65041
-#define Vcl_Consts_SNameScrollBar 65042
-#define Vcl_Consts_SName3DDkShadow 65043
-#define Vcl_Consts_SName3DLight 65044
-#define Vcl_Consts_SNameWindow 65045
-#define Vcl_Consts_SNameWindowFrame 65046
-#define Vcl_Consts_SNameWindowText 65047
-#define Vcl_Consts_sBeginInvokeNoHandle 65048
-#define System_Win_ComConst_SOleError 65049
-#define System_Win_ComConst_SNoMethod 65050
-#define System_Win_ComConst_SVarNotObject 65051
-#define System_Win_ComConst_STooManyParams 65052
-#define System_Win_ComConst_SDCOMNotInstalled 65053
-#define Vcl_ComStrs_sTabFailClear 65054
-#define Vcl_ComStrs_sTabFailDelete 65055
-#define Vcl_Consts_SNameCaptionText 65056
-#define Vcl_Consts_SNameDefault 65057
-#define Vcl_Consts_SNameGradientActiveCaption 65058
-#define Vcl_Consts_SNameGradientInactiveCaption 65059
-#define Vcl_Consts_SNameGrayText 65060
-#define Vcl_Consts_SNameHighlight 65061
-#define Vcl_Consts_SNameHighlightText 65062
-#define Vcl_Consts_SNameHotLight 65063
-#define Vcl_Consts_SNameInactiveBorder 65064
-#define Vcl_Consts_SNameInactiveCaption 65065
-#define Vcl_Consts_SNameInactiveCaptionText 65066
-#define Vcl_Consts_SNameInfoBk 65067
-#define Vcl_Consts_SNameInfoText 65068
-#define Vcl_Consts_SNameMenu 65069
-#define Vcl_Consts_SNameMenuBar 65070
-#define Vcl_Consts_SNameMenuHighlight 65071
-#define Vcl_Consts_SNameBlue 65072
-#define Vcl_Consts_SNameFuchsia 65073
-#define Vcl_Consts_SNameAqua 65074
-#define Vcl_Consts_SNameWhite 65075
-#define Vcl_Consts_SNameMoneyGreen 65076
-#define Vcl_Consts_SNameSkyBlue 65077
-#define Vcl_Consts_SNameCream 65078
-#define Vcl_Consts_SNameMedGray 65079
-#define Vcl_Consts_SNameActiveBorder 65080
-#define Vcl_Consts_SNameActiveCaption 65081
-#define Vcl_Consts_SNameAppWorkSpace 65082
-#define Vcl_Consts_SNameBackground 65083
-#define Vcl_Consts_SNameBtnFace 65084
-#define Vcl_Consts_SNameBtnHighlight 65085
-#define Vcl_Consts_SNameBtnShadow 65086
-#define Vcl_Consts_SNameBtnText 65087
-#define Vcl_Consts_SStyleFeatureNotSupported 65088
-#define Vcl_Consts_SStyleNotRegistered 65089
-#define Vcl_Consts_SStyleUnregisterError 65090
-#define Vcl_Consts_SStyleNotRegisteredNoName 65091
-#define Vcl_Consts_SNameBlack 65092
-#define Vcl_Consts_SNameMaroon 65093
-#define Vcl_Consts_SNameGreen 65094
-#define Vcl_Consts_SNameOlive 65095
-#define Vcl_Consts_SNameNavy 65096
-#define Vcl_Consts_SNamePurple 65097
-#define Vcl_Consts_SNameTeal 65098
-#define Vcl_Consts_SNameGray 65099
-#define Vcl_Consts_SNameSilver 65100
-#define Vcl_Consts_SNameRed 65101
-#define Vcl_Consts_SNameLime 65102
-#define Vcl_Consts_SNameYellow 65103
+#define Vcl_Imaging_pnglang_EPNGCouldNotLoadResourceText 64736
+#define Vcl_Imaging_pnglang_EPNGOutMemoryText 64737
+#define Vcl_Imaging_pnglang_EPNGCannotChangeTransparentText 64738
+#define Vcl_Imaging_pnglang_EPNGHeaderNotPresentText 64739
+#define Vcl_Imaging_pnglang_EInvalidNewSize 64740
+#define Vcl_Imaging_pnglang_EInvalidSpec 64741
+#define Vcl_Imaging_pnglang_EPNGInvalidBitDepthText 64742
+#define RzCommon_sRzCannotLoadCustomFraming 64743
+#define RzCommon_sRzCannotSaveCustomFraming 64744
+#define Vcl_Imaging_JConsts_sChangeJPGSize 64745
+#define Vcl_Imaging_JConsts_sJPEGError 64746
+#define Vcl_Imaging_JConsts_sJPEGImageFile 64747
+#define OverbyteIcsHttpContCod_ERR_GETCODING_OVERRIDE 64748
+#define Vcl_Imaging_pnglang_EPNGMissingMultipleIDATText 64752
+#define Vcl_Imaging_pnglang_EPNGZLIBErrorText 64753
+#define Vcl_Imaging_pnglang_EPNGInvalidPaletteText 64754
+#define Vcl_Imaging_pnglang_EPNGInvalidFileHeaderText 64755
+#define Vcl_Imaging_pnglang_EPNGIHDRNotFirstText 64756
+#define Vcl_Imaging_pnglang_EPNGSizeExceedsText 64757
+#define Vcl_Imaging_pnglang_EPNGUnknownPalEntryText 64758
+#define Vcl_Imaging_pnglang_EPNGUnknownCriticalChunkText 64759
+#define Vcl_Imaging_pnglang_EPNGUnknownCompressionText 64760
+#define Vcl_Imaging_pnglang_EPNGUnknownInterlaceText 64761
+#define Vcl_Imaging_pnglang_EPNGUnknownColorTypeText 64762
+#define Vcl_Imaging_pnglang_EPNGCannotAssignChunkText 64763
+#define Vcl_Imaging_pnglang_EPNGUnexpectedEndText 64764
+#define Vcl_Imaging_pnglang_EPNGNoImageDataText 64765
+#define Vcl_Imaging_pnglang_EPNGCannotAddChunkText 64766
+#define Vcl_Imaging_pnglang_EPNGCannotAddInvalidImageText 64767
+#define Xml_XMLConst_SMSDOMNotInstalled 64768
+#define Xml_XMLConst_SNotActive 64769
+#define Xml_XMLConst_SNodeNotFound 64770
+#define Xml_XMLConst_SMissingNode 64771
+#define Xml_XMLConst_SNoAttributes 64772
+#define Xml_XMLConst_SInvalidNodeType 64773
+#define Xml_XMLConst_SMismatchedRegItems 64774
+#define Xml_XMLConst_SNotSingleTextNode 64775
+#define Xml_XMLConst_SNoDOMParseOptions 64776
+#define Xml_XMLConst_SMissingItemTag 64777
+#define Xml_XMLConst_SNodeReadOnly 64778
+#define Xml_XMLConst_SNoRefresh 64779
+#define Xml_XMLConst_SMissingFileName 64780
+#define Xml_XMLConst_SLine 64781
+#define Vcl_Imaging_pnglang_EPngInvalidCRCText 64782
+#define Vcl_Imaging_pnglang_EPNGInvalidIHDRText 64783
+#define ZMessages_cSBoundVarStrIndexMissing 64784
+#define ZMessages_cSBindVarOutOfRange 64785
+#define ZMessages_cSFailedToBindResults 64786
+#define ZMessages_cSPreviousResultStillOpen 64787
+#define ZMessages_cSRefreshRowOnlySupportedWithUpdateObject 64788
+#define ZMessages_cSMustBeInBrowseMode 64789
+#define ZMessages_cSUnKnownParamDataType 64790
+#define ZMessages_cSFieldReadOnly 64791
+#define ZMessages_cSInvalidUpdateCount 64792
+#define ZMessages_cSRowBufferWidthExceeded 64793
+#define Xml_XMLConst_SDuplicateRegistration 64794
+#define Xml_XMLConst_SNoMatchingDOMVendor 64795
+#define Xml_XMLConst_SNoDOMNodeEx 64796
+#define Xml_XMLConst_SDOMNotSupported 64797
+#define Xml_XMLConst_SNoDOMVendorSelected 64798
+#define Xml_XMLConst_SNodeExpected 64799
+#define ZMessages_cSButtonCancel 64800
+#define ZMessages_cSTableAlias 64801
+#define ZMessages_cSReplaceSQL 64802
+#define ZMessages_cSDialogOpenTitle 64803
+#define ZMessages_cSDialogSaveTitle 64804
+#define ZMessages_cSSQLEditor 64805
+#define ZMessages_cSDatabaseDialog 64806
+#define ZMessages_cSUpdateSQLNoResult 64807
+#define ZMessages_cSUpdateSQLRefreshStatementcount 64808
+#define ZMessages_cSNeedField 64809
+#define ZMessages_cSFailedtoInitPrepStmt 64810
+#define ZMessages_cSFailedtoPrepareStmt 64811
+#define ZMessages_cSFailedToBindAllValues 64812
+#define ZMessages_cSAttemptExecOnBadPrep 64813
+#define ZMessages_cSBindingFailure 64814
+#define ZMessages_cSPreparedStmtExecFailure 64815
+#define ZMessages_cSPropertyQuery 64816
+#define ZMessages_cSPropertyTables 64817
+#define ZMessages_cSPropertyColumns 64818
+#define ZMessages_cSPropertyProcedures 64819
+#define ZMessages_cSPropertySequences 64820
+#define ZMessages_cSPropertyExecute 64821
+#define ZMessages_cSFormTest 64822
+#define ZMessages_cSButtonClose 64823
+#define ZMessages_cSFormEditor 64824
+#define ZMessages_cSTabSheetSelect 64825
+#define ZMessages_cSMenuLoad 64826
+#define ZMessages_cSMenuSave 64827
+#define ZMessages_cSButtonGenerate 64828
+#define ZMessages_cSButtonCheck 64829
+#define ZMessages_cSButtonTest 64830
+#define ZMessages_cSButtonOk 64831
+#define ZMessages_cSDriverNotCapableOutParameters 64832
+#define ZMessages_cSStatementIsNotAllowed 64833
+#define ZMessages_cSStoredProcIsNotAllowed 64834
+#define ZMessages_cSCannotPerformOperation 64835
+#define ZMessages_cSInvalidState 64836
+#define ZMessages_cSErrorConvertion 64837
+#define ZMessages_cSDataTypeDoesNotSupported 64838
+#define ZMessages_cSUnsupportedParameterType 64839
+#define ZMessages_cSUnsupportedDataType 64840
+#define ZMessages_cSErrorConvertionField 64841
+#define ZMessages_cSBadOCI 64842
+#define ZMessages_cSConnect2AsUser 64843
+#define ZMessages_cSUnknownError 64844
+#define ZMessages_cSFieldNotFound1 64845
+#define ZMessages_cSFieldNotFound2 64846
+#define ZMessages_cSLoginPromptFailure 64847
+#define ZMessages_cSOperationIsNotAllowed2 64848
+#define ZMessages_cSOperationIsNotAllowed3 64849
+#define ZMessages_cSOperationIsNotAllowed4 64850
+#define ZMessages_cSNoMoreRecords 64851
+#define ZMessages_cSCanNotOpenResultSet 64852
+#define ZMessages_cSCanNotOpenDataSetWhenDestroying 64853
+#define ZMessages_cSCircularLink 64854
+#define ZMessages_cSBookmarkWasNotFound 64855
+#define ZMessages_cSIncorrectSearchFieldsNumber 64856
+#define ZMessages_cSInvalidOperationInTrans 64857
+#define ZMessages_cSIncorrectSymbol 64858
+#define ZMessages_cSIncorrectToken 64859
+#define ZMessages_cSIncorrectParamChar 64860
+#define ZMessages_cSSelectedTransactionIsolation 64861
+#define ZMessages_cSDriverNotSupported 64862
+#define ZMessages_cSPattern2Long 64863
+#define ZMessages_cSLiveResultSetsAreNotSupported 64864
+#define ZMessages_cSInvalidInputParameterCount 64865
+#define ZMessages_cSIsolationIsNotSupported 64866
+#define ZMessages_cSColumnWasNotFound 64867
+#define ZMessages_cSWrongTypeForBlobParameter 64868
+#define ZMessages_cSIncorrectConnectionURL 64869
+#define ZMessages_cSUnsupportedProtocol 64870
+#define ZMessages_cSUnsupportedByDriver 64871
+#define ZMessages_cSConnectionIsNotOpened 64872
+#define ZMessages_cSInvalidOpInAutoCommit 64873
+#define ZMessages_cSInvalidOpInNonAutoCommit 64874
+#define ZMessages_cSInvalidOpPrepare 64875
+#define ZMessages_cSConnectionIsNotAssigned 64876
+#define ZMessages_cSQueryIsEmpty 64877
+#define ZMessages_cSCanNotExecuteMoreQueries 64878
+#define ZMessages_cSOperationIsNotAllowed1 64879
+#define ZMessages_cSColumnIsNotAccessable 64880
+#define ZMessages_cSConvertionIsNotPossible 64881
+#define ZMessages_cSCanNotAccessBlobRecord 64882
+#define ZMessages_cSRowDataIsNotAvailable 64883
+#define ZMessages_cSResolverIsNotSpecified 64884
+#define ZMessages_cSResultsetIsAlreadyOpened 64885
+#define ZMessages_cSCanNotUpdateEmptyRow 64886
+#define ZMessages_cSCanNotUpdateDeletedRow 64887
+#define ZMessages_cSCanNotDeleteEmptyRow 64888
+#define ZMessages_cSCannotUseCommit 64889
+#define ZMessages_cSCannotUseRollBack 64890
+#define ZMessages_cSCanNotUpdateComplexQuery 64891
+#define ZMessages_cSCanNotUpdateThisQueryType 64892
+#define ZMessages_cSDriverWasNotFound 64893
+#define ZMessages_cSCanNotConnectToServer 64894
+#define ZMessages_cSTableIsNotSpecified 64895
+#define ZMessages_cSExpectedMoreParams 64896
+#define ZMessages_cSInvalidVarByteArray 64897
+#define ZMessages_cSVariableAlreadyExists 64898
+#define ZMessages_cSTypesMismatch 64899
+#define ZMessages_cSUnsupportedVariantType 64900
+#define ZMessages_cSUnsupportedOperation 64901
+#define ZMessages_cSTokenizerIsNotDefined 64902
+#define ZMessages_cSLibraryNotFound 64903
+#define ZMessages_cSEncodeDateIsNotSupported 64904
+#define ZMessages_cSEncodeTimeIsNotSupported 64905
+#define ZMessages_cSEncodeTimestampIsNotSupported 64906
+#define ZMessages_cSDecodeDateIsNotSupported 64907
+#define ZMessages_cSDecodeTimeIsNotSupported 64908
+#define ZMessages_cSDecodeTimestampIsNotSupported 64909
+#define ZMessages_cSCanNotRetrieveResultSetData 64910
+#define ZMessages_cSRowBufferIsNotAssigned 64911
+#define ZMessages_cSListCapacityError 64912
+#define ZMessages_cSListCountError 64913
+#define ZMessages_cSListIndexError 64914
+#define ZMessages_cSClonningIsNotSupported 64915
+#define ZMessages_cSImmutableOpIsNotAllowed 64916
+#define ZMessages_cSStackIsEmpty 64917
+#define ZMessages_cSVariableWasNotFound 64918
+#define ZMessages_cSFunctionWasNotFound 64919
+#define ZMessages_cSInternalError 64920
+#define ZMessages_cSSyntaxErrorNear 64921
+#define ZMessages_cSSyntaxError 64922
+#define ZMessages_cSUnknownSymbol 64923
+#define ZMessages_cSUnexpectedExprEnd 64924
+#define ZMessages_cSRightBraceExpected 64925
+#define ZMessages_cSParametersError 64926
+#define ZMessages_cSParamValueExceeded 64927
+#define Data_DBConsts_SInvalidVersion 64928
+#define Data_DBConsts_SBadFieldType 64929
+#define Data_DBConsts_SProviderSQLNotSupported 64930
+#define Data_DBConsts_SProviderExecuteNotSupported 64931
+#define Data_DBConsts_SDataSetUnidirectional 64932
+#define Data_DBConsts_SUnassignedVar 64933
+#define Data_DBConsts_SRecordNotFound 64934
+#define Data_DBConsts_SBcdOverflow 64935
+#define Data_DBConsts_SInvalidBcdValue 64936
+#define Data_DBConsts_SCouldNotParseTimeStamp 64937
+#define Data_DBConsts_SInvalidSqlTimeStamp 64938
+#define ZMessages_cSLibraryNotCompatible 64939
+#define ZMessages_cSSQLError1 64940
+#define ZMessages_cSSQLError2 64941
+#define ZMessages_cSSQLError3 64942
+#define ZMessages_cSSQLError4 64943
+#define Data_DBConsts_SDuplicateIndexName 64944
+#define Data_DBConsts_SNoIndexForFields 64945
+#define Data_DBConsts_SIndexNotFound 64946
+#define Data_DBConsts_SDBDuplicateName 64947
+#define Data_DBConsts_SCircularDataLink 64948
+#define Data_DBConsts_SLookupInfoError 64949
+#define Data_DBConsts_SDataSourceChange 64950
+#define Data_DBConsts_SDataSetOpen 64951
+#define Data_DBConsts_SNotEditing 64952
+#define Data_DBConsts_SDataSetClosed 64953
+#define Data_DBConsts_SDataSetEmpty 64954
+#define Data_DBConsts_SDataSetReadOnly 64955
+#define Data_DBConsts_SNestedDataSetClass 64956
+#define Data_DBConsts_STextFalse 64957
+#define Data_DBConsts_STextTrue 64958
+#define Data_DBConsts_SParameterNotFound 64959
+#define Data_DBConsts_SFieldNotFound 64960
+#define Data_DBConsts_SFieldAccessError 64961
+#define Data_DBConsts_SFieldValueError 64962
+#define Data_DBConsts_SFieldRangeError 64963
+#define Data_DBConsts_SBcdFieldRangeError 64964
+#define Data_DBConsts_SInvalidIntegerValue 64965
+#define Data_DBConsts_SInvalidBoolValue 64966
+#define Data_DBConsts_SInvalidFloatValue 64967
+#define Data_DBConsts_SFieldTypeMismatch 64968
+#define Data_DBConsts_SFieldSizeMismatch 64969
+#define Data_DBConsts_SInvalidVarByteArray 64970
+#define Data_DBConsts_SFieldOutOfRange 64971
+#define Data_DBConsts_SFieldRequired 64972
+#define Data_DBConsts_SDataSetMissing 64973
+#define Data_DBConsts_SInvalidCalcType 64974
+#define Data_DBConsts_SFieldReadOnly 64975
+#define OverbyteIcsCharsetUtils_sKorean 64976
+#define OverbyteIcsCharsetUtils_sKoreanEUC 64977
+#define OverbyteIcsCharsetUtils_sLatin9 64978
+#define OverbyteIcsCharsetUtils_sThaiWindows 64979
+#define OverbyteIcsCharsetUtils_sTurkishISO 64980
+#define OverbyteIcsCharsetUtils_sTurkishWindows 64981
+#define OverbyteIcsCharsetUtils_sUnicodeUTF7 64982
+#define OverbyteIcsCharsetUtils_sUnicodeUTF8 64983
+#define OverbyteIcsCharsetUtils_sVietnameseWindows 64984
+#define OverbyteIcsCharsetUtils_sWesternEuropeanISO 64985
+#define OverbyteIcsCharsetUtils_sWesternEuropeanWindows 64986
+#define Data_DBConsts_SInvalidFieldSize 64987
+#define Data_DBConsts_SInvalidFieldKind 64988
+#define Data_DBConsts_SUnknownFieldType 64989
+#define Data_DBConsts_SFieldNameMissing 64990
+#define Data_DBConsts_SDuplicateFieldName 64991
+#define OverbyteIcsCharsetUtils_sCentralEuropeanWindows 64992
+#define OverbyteIcsCharsetUtils_sChineseTraditionalBig5 64993
+#define OverbyteIcsCharsetUtils_sChineseSimplifiedGB18030 64994
+#define OverbyteIcsCharsetUtils_sChineseSimplifiedGB2312 64995
+#define OverbyteIcsCharsetUtils_sChineseSimplifiedHZ 64996
+#define OverbyteIcsCharsetUtils_sCyrillicISO 64997
+#define OverbyteIcsCharsetUtils_sCyrillicKOI8R 64998
+#define OverbyteIcsCharsetUtils_sCyrillicKOI8U 64999
+#define OverbyteIcsCharsetUtils_sCyrillicWindows 65000
+#define OverbyteIcsCharsetUtils_sEstonianISO 65001
+#define OverbyteIcsCharsetUtils_sGreekISO 65002
+#define OverbyteIcsCharsetUtils_sGreekWindows 65003
+#define OverbyteIcsCharsetUtils_sHebrewISOLogical 65004
+#define OverbyteIcsCharsetUtils_sHebrewISOVisual 65005
+#define OverbyteIcsCharsetUtils_sHebrewWindows 65006
+#define OverbyteIcsCharsetUtils_sJapaneseJIS 65007
+#define Vcl_ComStrs_sNeedAllowNone 65008
+#define Vcl_ComStrs_sFailSetCalDateTime 65009
+#define Vcl_ComStrs_sFailSetCalMaxSelRange 65010
+#define Vcl_ComStrs_sFailSetCalMinMaxRange 65011
+#define Vcl_ComStrs_sFailsetCalSelRange 65012
+#define Vcl_OleConst_SBadPropValue 65013
+#define Vcl_OleConst_SCannotActivate 65014
+#define Vcl_OleConst_SNoWindowHandle 65015
+#define Vcl_OleConst_SInvalidLicense 65016
+#define Vcl_OleConst_SNotLicensed 65017
+#define Vcl_OleConst_sNoRunningObject 65018
+#define OverbyteIcsCharsetUtils_sArabicISO 65019
+#define OverbyteIcsCharsetUtils_sArabicWindows 65020
+#define OverbyteIcsCharsetUtils_sBalticISO 65021
+#define OverbyteIcsCharsetUtils_sBalticWindows 65022
+#define OverbyteIcsCharsetUtils_sCentralEuropeanISO 65023
+#define Vcl_ComStrs_sTabFailClear 65024
+#define Vcl_ComStrs_sTabFailDelete 65025
+#define Vcl_ComStrs_sTabFailRetrieve 65026
+#define Vcl_ComStrs_sTabFailGetObject 65027
+#define Vcl_ComStrs_sTabFailSet 65028
+#define Vcl_ComStrs_sTabFailSetObject 65029
+#define Vcl_ComStrs_sTabMustBeMultiLine 65030
+#define Vcl_ComStrs_sInvalidLevel 65031
+#define Vcl_ComStrs_sInvalidLevelEx 65032
+#define Vcl_ComStrs_sInvalidIndex 65033
+#define Vcl_ComStrs_sInsertError 65034
+#define Vcl_ComStrs_sInvalidOwner 65035
+#define Vcl_ComStrs_sPageIndexError 65036
+#define Vcl_ComStrs_sInvalidComCtl32 65037
+#define Vcl_ComStrs_sDateTimeMax 65038
+#define Vcl_ComStrs_sDateTimeMin 65039
+#define Vcl_Consts_SNameMenuBar 65040
+#define Vcl_Consts_SNameMenuHighlight 65041
+#define Vcl_Consts_SNameMenuText 65042
+#define Vcl_Consts_SNameNone 65043
+#define Vcl_Consts_SNameScrollBar 65044
+#define Vcl_Consts_SName3DDkShadow 65045
+#define Vcl_Consts_SName3DLight 65046
+#define Vcl_Consts_SNameWindow 65047
+#define Vcl_Consts_SNameWindowFrame 65048
+#define Vcl_Consts_SNameWindowText 65049
+#define Vcl_Consts_sBeginInvokeNoHandle 65050
+#define System_Win_ComConst_SOleError 65051
+#define System_Win_ComConst_SNoMethod 65052
+#define System_Win_ComConst_SVarNotObject 65053
+#define System_Win_ComConst_STooManyParams 65054
+#define System_Win_ComConst_SDCOMNotInstalled 65055
+#define Vcl_Consts_SNameBtnShadow 65056
+#define Vcl_Consts_SNameBtnText 65057
+#define Vcl_Consts_SNameCaptionText 65058
+#define Vcl_Consts_SNameDefault 65059
+#define Vcl_Consts_SNameGradientActiveCaption 65060
+#define Vcl_Consts_SNameGradientInactiveCaption 65061
+#define Vcl_Consts_SNameGrayText 65062
+#define Vcl_Consts_SNameHighlight 65063
+#define Vcl_Consts_SNameHighlightText 65064
+#define Vcl_Consts_SNameHotLight 65065
+#define Vcl_Consts_SNameInactiveBorder 65066
+#define Vcl_Consts_SNameInactiveCaption 65067
+#define Vcl_Consts_SNameInactiveCaptionText 65068
+#define Vcl_Consts_SNameInfoBk 65069
+#define Vcl_Consts_SNameInfoText 65070
+#define Vcl_Consts_SNameMenu 65071
+#define Vcl_Consts_SNameLime 65072
+#define Vcl_Consts_SNameYellow 65073
+#define Vcl_Consts_SNameBlue 65074
+#define Vcl_Consts_SNameFuchsia 65075
+#define Vcl_Consts_SNameAqua 65076
+#define Vcl_Consts_SNameWhite 65077
+#define Vcl_Consts_SNameMoneyGreen 65078
+#define Vcl_Consts_SNameSkyBlue 65079
+#define Vcl_Consts_SNameCream 65080
+#define Vcl_Consts_SNameMedGray 65081
+#define Vcl_Consts_SNameActiveBorder 65082
+#define Vcl_Consts_SNameActiveCaption 65083
+#define Vcl_Consts_SNameAppWorkSpace 65084
+#define Vcl_Consts_SNameBackground 65085
+#define Vcl_Consts_SNameBtnFace 65086
+#define Vcl_Consts_SNameBtnHighlight 65087
+#define Vcl_Consts_SStyleInvalidParameter 65088
+#define Vcl_Consts_SStyleHookClassNotFound 65089
+#define Vcl_Consts_SStyleFeatureNotSupported 65090
+#define Vcl_Consts_SStyleNotRegistered 65091
+#define Vcl_Consts_SStyleUnregisterError 65092
+#define Vcl_Consts_SStyleNotRegisteredNoName 65093
+#define Vcl_Consts_SNameBlack 65094
+#define Vcl_Consts_SNameMaroon 65095
+#define Vcl_Consts_SNameGreen 65096
+#define Vcl_Consts_SNameOlive 65097
+#define Vcl_Consts_SNameNavy 65098
+#define Vcl_Consts_SNamePurple 65099
+#define Vcl_Consts_SNameTeal 65100
+#define Vcl_Consts_SNameGray 65101
+#define Vcl_Consts_SNameSilver 65102
+#define Vcl_Consts_SNameRed 65103
 #define Vcl_Consts_SInvalidTaskDlgButtonCaption 65104
 #define Vcl_Consts_SInvalidCategoryPanelParent 65105
 #define Vcl_Consts_SInvalidCategoryPanelGroupChild 65106
-#define Vcl_Consts_SStyleLoadError 65107
-#define Vcl_Consts_SStyleLoadErrors 65108
-#define Vcl_Consts_SStyleRegisterError 65109
-#define Vcl_Consts_SStyleClassRegisterError 65110
-#define Vcl_Consts_SStyleNotFound 65111
-#define Vcl_Consts_SStyleClassNotFound 65112
-#define Vcl_Consts_SStyleInvalidHandle 65113
-#define Vcl_Consts_SStyleFormatError 65114
-#define Vcl_Consts_SStyleFileDescription 65115
-#define Vcl_Consts_SStyleHookClassRegistered 65116
-#define Vcl_Consts_SStyleHookClassNotRegistered 65117
-#define Vcl_Consts_SStyleInvalidParameter 65118
-#define Vcl_Consts_SStyleHookClassNotFound 65119
+#define Vcl_Consts_SKeyboardLocaleInfo 65107
+#define Vcl_Consts_SKeyboardLangChange 65108
+#define Vcl_Consts_SStyleLoadError 65109
+#define Vcl_Consts_SStyleLoadErrors 65110
+#define Vcl_Consts_SStyleRegisterError 65111
+#define Vcl_Consts_SStyleClassRegisterError 65112
+#define Vcl_Consts_SStyleNotFound 65113
+#define Vcl_Consts_SStyleClassNotFound 65114
+#define Vcl_Consts_SStyleInvalidHandle 65115
+#define Vcl_Consts_SStyleFormatError 65116
+#define Vcl_Consts_SStyleFileDescription 65117
+#define Vcl_Consts_SStyleHookClassRegistered 65118
+#define Vcl_Consts_SStyleHookClassNotRegistered 65119
 #define Vcl_Consts_SUnableToSaveSettings 65120
 #define Vcl_Consts_SRestoreDefaultSchedule 65121
 #define Vcl_Consts_SNoGetItemEventHandler 65122
@@ -802,6 +807,8 @@
 #define System_SysConst_STooManyOpenFiles 65535
 STRINGTABLE
 BEGIN
+	Vcl_Imaging_pnglang_EPNGCouldNotLoadResourceText,	L"The png image could not be loaded from the resource ID."
+	Vcl_Imaging_pnglang_EPNGOutMemoryText,	L"Some operation could not be performed because the system is out of resources. Close some windows and try again."
 	Vcl_Imaging_pnglang_EPNGCannotChangeTransparentText,	L"Setting bit transparency color is not allowed for png images containing alpha value for each pixel (COLOR_RGBALPHA and COLOR_GRAYSCALEALPHA)"
 	Vcl_Imaging_pnglang_EPNGHeaderNotPresentText,	L"This operation is not valid because the current image contains no valid header."
 	Vcl_Imaging_pnglang_EInvalidNewSize,	L"The new size provided for image resizing is invalid."
@@ -809,7 +816,12 @@ BEGIN
 	Vcl_Imaging_pnglang_EPNGInvalidBitDepthText,	L"The \"Portable Network Graphics\" image could not be loaded because it uses an invalid image bit depth."
 	RzCommon_sRzCannotLoadCustomFraming,	L"Cannot load Custom Framing settings--No TRzRegIniFile component specified"
 	RzCommon_sRzCannotSaveCustomFraming,	L"Cannot save Custom Framing settings--No TRzRegIniFile component specified"
+	Vcl_Imaging_JConsts_sChangeJPGSize,	L"Cannot change the size of a JPEG image"
+	Vcl_Imaging_JConsts_sJPEGError,	L"JPEG error #%d"
+	Vcl_Imaging_JConsts_sJPEGImageFile,	L"JPEG Image File"
 	OverbyteIcsHttpContCod_ERR_GETCODING_OVERRIDE,	L"GetCoding must be overridden in %s"
+	Vcl_Imaging_pnglang_EPNGMissingMultipleIDATText,	L"This \"Portable Network Graphics\" image is invalid because it has missing image parts."
+	Vcl_Imaging_pnglang_EPNGZLIBErrorText,	L"Could not decompress the image because it contains invalid compressed data.\r\n Description: "
 	Vcl_Imaging_pnglang_EPNGInvalidPaletteText,	L"The \"Portable Network Graphics\" image contains an invalid palette."
 	Vcl_Imaging_pnglang_EPNGInvalidFileHeaderText,	L"The file being read is not a valid \"Portable Network Graphics\" image because it contains an invalid header. This file may be corrupted, try obtaining it again"
 	Vcl_Imaging_pnglang_EPNGIHDRNotFirstText,	L"This \"Portable Network Graphics\" image is not supported or it might be invalid.\r\n(IHDR chunk is not the first)"
@@ -824,8 +836,8 @@ BEGIN
 	Vcl_Imaging_pnglang_EPNGNoImageDataText,	L"This \"Portable Network Graphics\" image contains no data."
 	Vcl_Imaging_pnglang_EPNGCannotAddChunkText,	L"The program tried to add a existent critical chunk to the current image which is not allowed."
 	Vcl_Imaging_pnglang_EPNGCannotAddInvalidImageText,	L"It's not allowed to add a new chunk because the current image is invalid."
-	Vcl_Imaging_pnglang_EPNGCouldNotLoadResourceText,	L"The png image could not be loaded from the resource ID."
-	Vcl_Imaging_pnglang_EPNGOutMemoryText,	L"Some operation could not be performed because the system is out of resources. Close some windows and try again."
+	Xml_XMLConst_SMSDOMNotInstalled,	L"Microsoft MSXML is not installed"
+	Xml_XMLConst_SNotActive,	L"No active document"
 	Xml_XMLConst_SNodeNotFound,	L"Node \"%s\" not found"
 	Xml_XMLConst_SMissingNode,	L"IDOMNode required"
 	Xml_XMLConst_SNoAttributes,	L"Attributes are not supported on this node type"
@@ -840,8 +852,8 @@ BEGIN
 	Xml_XMLConst_SLine,	L"Line"
 	Vcl_Imaging_pnglang_EPngInvalidCRCText,	L"This \"Portable Network Graphics\" image is not valid because it contains invalid pieces of data (crc error)"
 	Vcl_Imaging_pnglang_EPNGInvalidIHDRText,	L"The \"Portable Network Graphics\" image could not be loaded because one of its main piece of data (ihdr) might be corrupted"
-	Vcl_Imaging_pnglang_EPNGMissingMultipleIDATText,	L"This \"Portable Network Graphics\" image is invalid because it has missing image parts."
-	Vcl_Imaging_pnglang_EPNGZLIBErrorText,	L"Could not decompress the image because it contains invalid compressed data.\r\n Description: "
+	ZMessages_cSBoundVarStrIndexMissing,	L"Bound variable text index \"%s\" does not exist"
+	ZMessages_cSBindVarOutOfRange,	L"Bound variable index out of range: %d"
 	ZMessages_cSFailedToBindResults,	L"Application failed to bind to the result set"
 	ZMessages_cSPreviousResultStillOpen,	L"Previous resultset of this statement is still open"
 	ZMessages_cSRefreshRowOnlySupportedWithUpdateObject,	L"The refreshrow method is only supported with an update object"
@@ -856,8 +868,8 @@ BEGIN
 	Xml_XMLConst_SDOMNotSupported,	L"Property or Method \"%s\" is not supported by DOM Vendor \"%s\""
 	Xml_XMLConst_SNoDOMVendorSelected,	L"No selected DOM Vendor"
 	Xml_XMLConst_SNodeExpected,	L"Node cannot be null"
-	Xml_XMLConst_SMSDOMNotInstalled,	L"Microsoft MSXML is not installed"
-	Xml_XMLConst_SNotActive,	L"No active document"
+	ZMessages_cSButtonCancel,	L"&Cancel"
+	ZMessages_cSTableAlias,	L"T&able alias"
 	ZMessages_cSReplaceSQL,	L"&Replace SQL"
 	ZMessages_cSDialogOpenTitle,	L"Open SQL File"
 	ZMessages_cSDialogSaveTitle,	L"Save SQL File"
@@ -872,8 +884,8 @@ BEGIN
 	ZMessages_cSAttemptExecOnBadPrep,	L"Attempt made to execute a statement before a successful preparation."
 	ZMessages_cSBindingFailure,	L"Failed to bind parameter set"
 	ZMessages_cSPreparedStmtExecFailure,	L"Prepared statement failed to execute"
-	ZMessages_cSBoundVarStrIndexMissing,	L"Bound variable text index \"%s\" does not exist"
-	ZMessages_cSBindVarOutOfRange,	L"Bound variable index out of range: %d"
+	ZMessages_cSPropertyQuery,	L"The Query may last a while on large databases!"
+	ZMessages_cSPropertyTables,	L"You should limit it by Catalog and/or Schema."
 	ZMessages_cSPropertyColumns,	L"You should limit it by Catalog, Schema and/or TableName."
 	ZMessages_cSPropertyProcedures,	L"You should limit it by Catalog and/or Schema."
 	ZMessages_cSPropertySequences,	L"You should limit it by Catalog and/or Schema."
@@ -888,8 +900,8 @@ BEGIN
 	ZMessages_cSButtonCheck,	L"C&heck"
 	ZMessages_cSButtonTest,	L"&Test"
 	ZMessages_cSButtonOk,	L"&OK"
-	ZMessages_cSButtonCancel,	L"&Cancel"
-	ZMessages_cSTableAlias,	L"T&able alias"
+	ZMessages_cSDriverNotCapableOutParameters,	L"Driver is not capable to handle parameters"
+	ZMessages_cSStatementIsNotAllowed,	L"Statement is not allowed"
 	ZMessages_cSStoredProcIsNotAllowed,	L"The stored proc is not allowed"
 	ZMessages_cSCannotPerformOperation,	L"Can not perform operation on closed Resultset"
 	ZMessages_cSInvalidState,	L"Invalid state"
@@ -904,8 +916,8 @@ BEGIN
 	ZMessages_cSFieldNotFound1,	L"Field \"%s\" was not found"
 	ZMessages_cSFieldNotFound2,	L"Field %d was not found"
 	ZMessages_cSLoginPromptFailure,	L"Can not find default login prompt dialog. Please add DBLogDlg to the uses section of your main file."
-	ZMessages_cSPropertyQuery,	L"The Query may last a while on large databases!"
-	ZMessages_cSPropertyTables,	L"You should limit it by Catalog and/or Schema."
+	ZMessages_cSOperationIsNotAllowed2,	L"Operation is not allowed in READ ONLY mode"
+	ZMessages_cSOperationIsNotAllowed3,	L"Operation is not allowed in %s mode"
 	ZMessages_cSOperationIsNotAllowed4,	L"Operation is not allowed for closed dataset"
 	ZMessages_cSNoMoreRecords,	L"No more records in the Resultset"
 	ZMessages_cSCanNotOpenResultSet,	L"Can not open a Resultset"
@@ -920,8 +932,8 @@ BEGIN
 	ZMessages_cSSelectedTransactionIsolation,	L"Selected transaction isolation level is not supported"
 	ZMessages_cSDriverNotSupported,	L"Driver not supported %s"
 	ZMessages_cSPattern2Long,	L"Pattern is too long"
-	ZMessages_cSDriverNotCapableOutParameters,	L"Driver is not capable to handle parameters"
-	ZMessages_cSStatementIsNotAllowed,	L"Statement is not allowed"
+	ZMessages_cSLiveResultSetsAreNotSupported,	L"Live query is not supported by this class"
+	ZMessages_cSInvalidInputParameterCount,	L"Input parameter count is less then expected"
 	ZMessages_cSIsolationIsNotSupported,	L"Transaction isolation level is not supported"
 	ZMessages_cSColumnWasNotFound,	L"Column with name \"%s\" was not found"
 	ZMessages_cSWrongTypeForBlobParameter,	L"Wrong type for Blob parameter"
@@ -936,8 +948,8 @@ BEGIN
 	ZMessages_cSQueryIsEmpty,	L"SQL Query is empty"
 	ZMessages_cSCanNotExecuteMoreQueries,	L"Cannot execute more then one query"
 	ZMessages_cSOperationIsNotAllowed1,	L"Operation is not allowed in FORWARD ONLY mode"
-	ZMessages_cSOperationIsNotAllowed2,	L"Operation is not allowed in READ ONLY mode"
-	ZMessages_cSOperationIsNotAllowed3,	L"Operation is not allowed in %s mode"
+	ZMessages_cSColumnIsNotAccessable,	L"Column with index %d is not accessable"
+	ZMessages_cSConvertionIsNotPossible,	L"Convertion is not possible for column %d from %s to %s"
 	ZMessages_cSCanNotAccessBlobRecord,	L"Cannot access blob record in column %d with type %s"
 	ZMessages_cSRowDataIsNotAvailable,	L"Row data is not available"
 	ZMessages_cSResolverIsNotSpecified,	L"Resolver is not specified for this ResultSet"
@@ -952,8 +964,8 @@ BEGIN
 	ZMessages_cSDriverWasNotFound,	L"Requested database driver was not found"
 	ZMessages_cSCanNotConnectToServer,	L"Cannot connect to SQL server"
 	ZMessages_cSTableIsNotSpecified,	L"Table is not specified"
-	ZMessages_cSLiveResultSetsAreNotSupported,	L"Live query is not supported by this class"
-	ZMessages_cSInvalidInputParameterCount,	L"Input parameter count is less then expected"
+	ZMessages_cSExpectedMoreParams,	L"More than two parameters are expected"
+	ZMessages_cSInvalidVarByteArray,	L"Invalid VarByte array"
 	ZMessages_cSVariableAlreadyExists,	L"Variable \"%s\" already exists"
 	ZMessages_cSTypesMismatch,	L"Types mismatch"
 	ZMessages_cSUnsupportedVariantType,	L"Unsupported variant type"
@@ -968,8 +980,8 @@ BEGIN
 	ZMessages_cSDecodeTimestampIsNotSupported,	L"This version does not support isc_decode_sql_timestamp"
 	ZMessages_cSCanNotRetrieveResultSetData,	L"Cannot retrieve Resultset data"
 	ZMessages_cSRowBufferIsNotAssigned,	L"Row buffer is not assigned"
-	ZMessages_cSColumnIsNotAccessable,	L"Column with index %d is not accessable"
-	ZMessages_cSConvertionIsNotPossible,	L"Convertion is not possible for column %d from %s to %s"
+	ZMessages_cSListCapacityError,	L"List capacity out of bounds (%d)"
+	ZMessages_cSListCountError,	L"List count out of bounds (%d)"
 	ZMessages_cSListIndexError,	L"List index out of bounds (%d)"
 	ZMessages_cSClonningIsNotSupported,	L"Clonning is not supported by this class"
 	ZMessages_cSImmutableOpIsNotAllowed,	L"The operation is not allowed on not changeable collections"
@@ -984,8 +996,8 @@ BEGIN
 	ZMessages_cSRightBraceExpected,	L") expected"
 	ZMessages_cSParametersError,	L"%d parameters were expected but %d were found"
 	ZMessages_cSParamValueExceeded,	L"value of param %d exceeded"
-	ZMessages_cSExpectedMoreParams,	L"More than two parameters are expected"
-	ZMessages_cSInvalidVarByteArray,	L"Invalid VarByte array"
+	Data_DBConsts_SInvalidVersion,	L"Unable to load bind parameters"
+	Data_DBConsts_SBadFieldType,	L"Field '%s' is of an unsupported type"
 	Data_DBConsts_SProviderSQLNotSupported,	L"SQL not supported"
 	Data_DBConsts_SProviderExecuteNotSupported,	L"Execute not supported"
 	Data_DBConsts_SDataSetUnidirectional,	L"Operation not allowed on a unidirectional dataset"
@@ -1000,8 +1012,8 @@ BEGIN
 	ZMessages_cSSQLError2,	L"SQL Error: %s Code: %d"
 	ZMessages_cSSQLError3,	L"SQL Error: %s Code: %d SQL: %s"
 	ZMessages_cSSQLError4,	L"SQL Error: %s Code: %d Message: %s"
-	ZMessages_cSListCapacityError,	L"List capacity out of bounds (%d)"
-	ZMessages_cSListCountError,	L"List count out of bounds (%d)"
+	Data_DBConsts_SDuplicateIndexName,	L"Duplicate index name '%s'"
+	Data_DBConsts_SNoIndexForFields,	L"No index for fields '%s'"
 	Data_DBConsts_SIndexNotFound,	L"Index '%s' not found"
 	Data_DBConsts_SDBDuplicateName,	L"Duplicate name '%s' in %s"
 	Data_DBConsts_SCircularDataLink,	L"Circular datalinks are not allowed"
@@ -1016,8 +1028,8 @@ BEGIN
 	Data_DBConsts_STextFalse,	L"False"
 	Data_DBConsts_STextTrue,	L"True"
 	Data_DBConsts_SParameterNotFound,	L"Parameter '%s' not found"
-	Data_DBConsts_SInvalidVersion,	L"Unable to load bind parameters"
-	Data_DBConsts_SBadFieldType,	L"Field '%s' is of an unsupported type"
+	Data_DBConsts_SFieldNotFound,	L"Field '%s' not found"
+	Data_DBConsts_SFieldAccessError,	L"Cannot access field '%s' as type %s"
 	Data_DBConsts_SFieldValueError,	L"Invalid value for field '%s'"
 	Data_DBConsts_SFieldRangeError,	L"%g is not a valid value for field '%s'. The allowed range is %g to %g"
 	Data_DBConsts_SBcdFieldRangeError,	L"%s is not a valid value for field '%s'. The allowed range is %s to %s"
@@ -1032,8 +1044,8 @@ BEGIN
 	Data_DBConsts_SDataSetMissing,	L"Field '%s' has no dataset"
 	Data_DBConsts_SInvalidCalcType,	L"Field '%s' cannot be a calculated or lookup field"
 	Data_DBConsts_SFieldReadOnly,	L"Field '%s' cannot be modified"
-	Data_DBConsts_SDuplicateIndexName,	L"Duplicate index name '%s'"
-	Data_DBConsts_SNoIndexForFields,	L"No index for fields '%s'"
+	OverbyteIcsCharsetUtils_sKorean,	L"Korean"
+	OverbyteIcsCharsetUtils_sKoreanEUC,	L"Korean (EUC)"
 	OverbyteIcsCharsetUtils_sLatin9,	L"Latin 9 (ISO)"
 	OverbyteIcsCharsetUtils_sThaiWindows,	L"Thai (Windows)"
 	OverbyteIcsCharsetUtils_sTurkishISO,	L"Turkish (ISO)"
@@ -1048,8 +1060,8 @@ BEGIN
 	Data_DBConsts_SUnknownFieldType,	L"Field '%s' is of an unknown type"
 	Data_DBConsts_SFieldNameMissing,	L"Field name missing"
 	Data_DBConsts_SDuplicateFieldName,	L"Duplicate field name '%s'"
-	Data_DBConsts_SFieldNotFound,	L"Field '%s' not found"
-	Data_DBConsts_SFieldAccessError,	L"Cannot access field '%s' as type %s"
+	OverbyteIcsCharsetUtils_sCentralEuropeanWindows,	L"Central European (Windows)"
+	OverbyteIcsCharsetUtils_sChineseTraditionalBig5,	L"Chinese Traditional (Big5)"
 	OverbyteIcsCharsetUtils_sChineseSimplifiedGB18030,	L"Chinese Simplified (GB18030)"
 	OverbyteIcsCharsetUtils_sChineseSimplifiedGB2312,	L"Chinese Simplified (GB2312)"
 	OverbyteIcsCharsetUtils_sChineseSimplifiedHZ,	L"Chinese Simplified (HZ)"
@@ -1064,8 +1076,8 @@ BEGIN
 	OverbyteIcsCharsetUtils_sHebrewISOVisual,	L"Hebrew (ISO-Visual)"
 	OverbyteIcsCharsetUtils_sHebrewWindows,	L"Hebrew (Windows)"
 	OverbyteIcsCharsetUtils_sJapaneseJIS,	L"Japanese (JIS)"
-	OverbyteIcsCharsetUtils_sKorean,	L"Korean"
-	OverbyteIcsCharsetUtils_sKoreanEUC,	L"Korean (EUC)"
+	Vcl_ComStrs_sNeedAllowNone,	L"You must be in ShowCheckbox mode to set to this date"
+	Vcl_ComStrs_sFailSetCalDateTime,	L"Failed to set calendar date or time"
 	Vcl_ComStrs_sFailSetCalMaxSelRange,	L"Failed to set maximum selection range"
 	Vcl_ComStrs_sFailSetCalMinMaxRange,	L"Failed to set calendar min/max range"
 	Vcl_ComStrs_sFailsetCalSelRange,	L"Failed to set calendar selected range"
@@ -1080,8 +1092,8 @@ BEGIN
 	OverbyteIcsCharsetUtils_sBalticISO,	L"Baltic (ISO)"
 	OverbyteIcsCharsetUtils_sBalticWindows,	L"Baltic (Windows)"
 	OverbyteIcsCharsetUtils_sCentralEuropeanISO,	L"Central European (ISO)"
-	OverbyteIcsCharsetUtils_sCentralEuropeanWindows,	L"Central European (Windows)"
-	OverbyteIcsCharsetUtils_sChineseTraditionalBig5,	L"Chinese Traditional (Big5)"
+	Vcl_ComStrs_sTabFailClear,	L"Failed to clear tab control"
+	Vcl_ComStrs_sTabFailDelete,	L"Failed to delete tab at index %d"
 	Vcl_ComStrs_sTabFailRetrieve,	L"Failed to retrieve tab at index %d"
 	Vcl_ComStrs_sTabFailGetObject,	L"Failed to get object at index %d"
 	Vcl_ComStrs_sTabFailSet,	L"Failed to set tab \"%s\" at index %d"
@@ -1096,8 +1108,8 @@ BEGIN
 	Vcl_ComStrs_sInvalidComCtl32,	L"This control requires version 4.70 or greater of COMCTL32.DLL"
 	Vcl_ComStrs_sDateTimeMax,	L"Date exceeds maximum of %s"
 	Vcl_ComStrs_sDateTimeMin,	L"Date is less than minimum of %s"
-	Vcl_ComStrs_sNeedAllowNone,	L"You must be in ShowCheckbox mode to set to this date"
-	Vcl_ComStrs_sFailSetCalDateTime,	L"Failed to set calendar date or time"
+	Vcl_Consts_SNameMenuBar,	L"Menu Bar"
+	Vcl_Consts_SNameMenuHighlight,	L"Menu Highlight"
 	Vcl_Consts_SNameMenuText,	L"Menu Text"
 	Vcl_Consts_SNameNone,	L"None"
 	Vcl_Consts_SNameScrollBar,	L"Scroll Bar"
@@ -1112,8 +1124,8 @@ BEGIN
 	System_Win_ComConst_SVarNotObject,	L"Variant does not reference an automation object"
 	System_Win_ComConst_STooManyParams,	L"Dispatch methods do not support more than 64 parameters"
 	System_Win_ComConst_SDCOMNotInstalled,	L"DCOM not installed"
-	Vcl_ComStrs_sTabFailClear,	L"Failed to clear tab control"
-	Vcl_ComStrs_sTabFailDelete,	L"Failed to delete tab at index %d"
+	Vcl_Consts_SNameBtnShadow,	L"Button Shadow"
+	Vcl_Consts_SNameBtnText,	L"Button Text"
 	Vcl_Consts_SNameCaptionText,	L"Caption Text"
 	Vcl_Consts_SNameDefault,	L"Default"
 	Vcl_Consts_SNameGradientActiveCaption,	L"Gradient Active Caption"
@@ -1128,8 +1140,8 @@ BEGIN
 	Vcl_Consts_SNameInfoBk,	L"Info Background"
 	Vcl_Consts_SNameInfoText,	L"Info Text"
 	Vcl_Consts_SNameMenu,	L"Menu Background"
-	Vcl_Consts_SNameMenuBar,	L"Menu Bar"
-	Vcl_Consts_SNameMenuHighlight,	L"Menu Highlight"
+	Vcl_Consts_SNameLime,	L"Lime"
+	Vcl_Consts_SNameYellow,	L"Yellow"
 	Vcl_Consts_SNameBlue,	L"Blue"
 	Vcl_Consts_SNameFuchsia,	L"Fuchsia"
 	Vcl_Consts_SNameAqua,	L"Aqua"
@@ -1144,8 +1156,8 @@ BEGIN
 	Vcl_Consts_SNameBackground,	L"Background"
 	Vcl_Consts_SNameBtnFace,	L"Button Face"
 	Vcl_Consts_SNameBtnHighlight,	L"Button Highlight"
-	Vcl_Consts_SNameBtnShadow,	L"Button Shadow"
-	Vcl_Consts_SNameBtnText,	L"Button Text"
+	Vcl_Consts_SStyleInvalidParameter,	L"%s parameter cannot be nil"
+	Vcl_Consts_SStyleHookClassNotFound,	L"A StyleHook class has not been registered for %s"
 	Vcl_Consts_SStyleFeatureNotSupported,	L"Feature not supported by this style"
 	Vcl_Consts_SStyleNotRegistered,	L"Style '%s' is not registered"
 	Vcl_Consts_SStyleUnregisterError,	L"Cannot unregister the system style"
@@ -1160,11 +1172,11 @@ BEGIN
 	Vcl_Consts_SNameGray,	L"Gray"
 	Vcl_Consts_SNameSilver,	L"Silver"
 	Vcl_Consts_SNameRed,	L"Red"
-	Vcl_Consts_SNameLime,	L"Lime"
-	Vcl_Consts_SNameYellow,	L"Yellow"
 	Vcl_Consts_SInvalidTaskDlgButtonCaption,	L"Caption cannot be empty"
 	Vcl_Consts_SInvalidCategoryPanelParent,	L"CategoryPanel must have a CategoryPanelGroup as its parent"
 	Vcl_Consts_SInvalidCategoryPanelGroupChild,	L"Only CategoryPanels can be inserted into a CategoryPanelGroup"
+	Vcl_Consts_SKeyboardLocaleInfo,	L"Error retrieving locale information"
+	Vcl_Consts_SKeyboardLangChange,	L"Failed to change input language"
 	Vcl_Consts_SStyleLoadError,	L"Unable to load style '%s'"
 	Vcl_Consts_SStyleLoadErrors,	L"Unable to load styles: %s"
 	Vcl_Consts_SStyleRegisterError,	L"Style '%s' already registered"
@@ -1176,8 +1188,6 @@ BEGIN
 	Vcl_Consts_SStyleFileDescription,	L"VCL Style File"
 	Vcl_Consts_SStyleHookClassRegistered,	L"Class '%s' is already registered for '%s'"
 	Vcl_Consts_SStyleHookClassNotRegistered,	L"Class '%s' is not registered for '%s'"
-	Vcl_Consts_SStyleInvalidParameter,	L"%s parameter cannot be nil"
-	Vcl_Consts_SStyleHookClassNotFound,	L"A StyleHook class has not been registered for %s"
 	Vcl_Consts_SUnableToSaveSettings,	L"Unable to save settings"
 	Vcl_Consts_SRestoreDefaultSchedule,	L"Would you like to reset to the default Priority Schedule?"
 	Vcl_Consts_SNoGetItemEventHandler,	L"No OnGetItem event handler assigned"
@@ -1597,67 +1607,75 @@ BEGIN
 END
 
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\Controls.res */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uDataModuleTTT.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufProgress.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uDataModuleTTT.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufProgress.dfm */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\Buttons.res */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\ExtDlgs.res */
-/* C:\Users\Caecilia Maiya\Delphi Installer\Komponen\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRCURSORS.D32 */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uLaunchPlatform.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmControlled.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmFireControl.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufmDetailPlan.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufmWeaponCtrl.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTrackTargetDetail.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSelectRecipient.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uNewMessage.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmMapWindow.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufToteDisplay.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\ufLog.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufSurfaceToSurfaceMissile.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmNGSGunSetup.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunAutoManual.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunCIWS.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmWeapon.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmCounterMeasure.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmEMCON.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSettingCoordinate.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmSensor.dfm */
-/* C:\Users\Caecilia Maiya\Delphi Installer\Komponen\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRWHEEL.D32 */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uWaypointEditor.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmPlatformGuidance.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFLanding.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmOwnShip.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyDepth.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyEndurance.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTransferSonobuoy.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoDepth.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoCourse.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureCentreControl.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTrackHistory.dfm */
-/* C:\Users\Caecilia Maiya\Delphi Installer\Komponen\Komponen\DbEditor TTT\Raize Components 6.2.3 FS D10.4 Sydney\Source\RzCommonBitmaps.res */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureFilter.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uRPLibrary.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditRealTimeTrack.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufChangeTrackNumber.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufMergeTracks.dfm */
+/* C:\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRCURSORS.D32 */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uLaunchPlatform.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmControlled.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmFireControl.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufmDetailPlan.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufmWeaponCtrl.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTrackTargetDetail.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSelectRecipient.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uNewMessage.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmMapWindow.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufToteDisplay.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\ufLog.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufSurfaceToSurfaceMissile.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmNGSGunSetup.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunAutoManual.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frmWeapon\ufrmGunCIWS.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmWeapon.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmCounterMeasure.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmEMCON.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uSettingCoordinate.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmSensor.dfm */
+/* C:\Komponen\DbEditor TTT\TMS Instrumentation Workshop v2.0.0.0 for Rio\VRWHEEL.D32 */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uWaypointEditor.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmPlatformGuidance.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFLanding.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\frames\ufmOwnShip.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyDepth.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeSonobuoyEndurance.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTransferSonobuoy.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoDepth.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uChangeTorpedoCourse.dfm */
+/* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\KeyboardLayouts.res */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\plotterUI\ufrmKeyboard.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\plotterUI\ufrmRightToolsPlotter.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uRuler.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\plotterUI\ufrmLeftToolsPlotter.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\plotterUI\ufrmTopPlotter.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureCentreControl.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uTrackHistory.dfm */
+/* C:\Komponen\DbEditor TTT\Raize Components 6.2.3 FS D10.4 Sydney\Source\RzCommonBitmaps.res */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uPictureFilter.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uRPLibrary.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditRealTimeTrack.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufChangeTrackNumber.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufMergeTracks.dfm */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\CategoryButtons.res */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditNonRealTimeTrack.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttRemote\uRemoteHost.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationMembersDetail.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationAddRemMembers.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorPanel.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorForm.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttReplay\uSnapshotDLG.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufEditNonRealTimeTrack.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttRemote\uRemoteHost.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationMembersDetail.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationAddRemMembers.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorPanel.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uFormationEditorForm.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttReplay\uSnapshotDLG.dfm */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\TeeFonts.res */
 /* c:\program files (x86)\embarcadero\studio\20.0\lib\Win32\release\TeeResou.res */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmLeft.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmBottom.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmRight2.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmRight.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmTop.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTacticalDisplay.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uOverlayTemplateEditor.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufDBSetting.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\ufChangeTrackNum.dfm */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.res */
-/* D:\Pekerjaan\New Folder\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.drf */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmLeft.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmBottom.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmRight2.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmRight.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\NavigasiUI\ufrmTop.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufTacticalDisplay.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\uOverlayTemplateEditor.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\LibTTT\forms\ufDBSetting.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\ufChangeTrackNum.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\plotterUI\ufrmLeftPlotter.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\formClient\plotterUI\ufrmRightPlotter.dfm */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.res */
+/* D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimClient.src\SimClient.drf */

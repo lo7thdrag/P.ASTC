@@ -36,6 +36,8 @@ object frmRPLibrary: TfrmRPLibrary
       Left = 0
       Top = 0
       Caption = 'pgSelectClass'
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlClassSelect: TPanel
         Left = 0
         Top = 0
@@ -136,6 +138,8 @@ object frmRPLibrary: TfrmRPLibrary
       Left = 0
       Top = 0
       Caption = 'pgSelectPos'
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object pnlSelectPos: TPanel
         Left = 0
         Top = 0

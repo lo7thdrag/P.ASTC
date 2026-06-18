@@ -103,6 +103,7 @@ type
     TacticalScreen : Integer;
     ToteScreen : Integer;
     DemoMode : Boolean;
+    LogData : Boolean;
     Role : Integer; {0:Poltter; 1:Navigasi; 2:Atas Air; 3:BawahAir; 4:General}
   end;
   //----------------------------------------------------------------------------
@@ -377,6 +378,7 @@ begin
     TacticalScreen            := INIFReadInteger(IniF, c_gdata, 'TacticalScreen',0);
     ToteScreen                := INIFReadInteger(IniF, c_gdata, 'ToteScreen',1);
     DemoMode                  := INIFReadBool(IniF, c_gdata, 'DemoMode', False);
+    LogData                   := INIFReadBool(IniF, c_gdata, 'LogData', LogData);
     Role                      := INIFReadInteger (IniF, c_gdata, 'Role',0);
 
   end;
@@ -401,6 +403,7 @@ begin
     WriteInteger(c_gdata, 'TacticalScreen', TacticalScreen);
     WriteInteger(c_gdata, 'ToteScreen', ToteScreen);
     WriteBool(c_gdata, 'DemoMode', DemoMode);
+    WriteBool(c_gdata, 'LogData', LogData);
     WriteInteger(c_gdata, 'Role',  Role);
   end;
   inif.Free;

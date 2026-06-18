@@ -56,8 +56,8 @@ type
     function DeleteResource_Allocation(const id: string): Integer;
 
     // --- 2.1 -- Resource Alloc --------------------------------------------------
-    function getAllPlatFormInstance(const id, deploy_id: Integer;
-      var aRec: TList): Integer;
+    function getAllPlatFormInstance(const id, deploy_id: Integer; var aList: TList): Integer;
+
     function getPlatformInstanceByIndex(const id:integer;var rec:TPlatform_Instance):boolean;
     function getAllPlatFormInstanceForceClassification(const v_id,id: integer;
       var aRec: TList;force:integer;classification:integer): Integer;
@@ -1112,8 +1112,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.GetResourceAlloc(const id: Integer;
-  var rec: TResource_Allocation): boolean;
+function TdmTTT.GetResourceAlloc(const id: Integer; var rec: TResource_Allocation): boolean;
 begin
   result := false;
 
@@ -2579,12 +2578,11 @@ end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.getAllPlatFormInstance(const id, deploy_id: Integer;
-  var aRec: TList): Integer;
+function TdmTTT.getAllPlatFormInstance(const id, deploy_id: Integer; var aList: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TPlatform_Instance;
-  I: Integer;
+
 begin
   result := -1;
 
@@ -2593,6 +2591,7 @@ begin
 
   with ZQ do
   begin
+
     Close;
     SQL.Clear;
     SQL.Add('SELECT * FROM ');
@@ -2604,14 +2603,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Bersihkan List Dulu '}
+    if Assigned(aList) then
+    begin
+      for i := 0 to aList.Count - 1 do
+      begin
+        rec := aList.Items[i];
+        rec.Free;
+      end;
+
+      aList.Clear;
+    end
+    else
+      aList := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -2700,14 +2710,14 @@ begin
           Damage := FieldByName('Damage').AsSingle;
         end;
 
-        aRec.Add(rec);
+        aList.Add(rec);
         ZQ.Next;
       end;
     end;
 
     for I := 0 to RecordCount - 1 do
     begin
-      if TPlatform_Instance(aRec[I]).FActivation.Pattern_Instance_Index <> 0 then
+      if TPlatform_Instance(aList[I]).FActivation.Pattern_Instance_Index <> 0 then
       begin
         Close;
         SQL.Clear;
@@ -2715,10 +2725,10 @@ begin
         SQL.Add('Predefined_Pattern a  JOIN Resource_Pattern_Mapping b ');
         SQL.Add('ON a.Pattern_Index = b.Pattern_Index ');
         SQL.Add('WHERE (Pattern_Instance_Index = ');
-        SQL.Add(IntToStr(TPlatform_Instance(aRec[I]).FActivation.Pattern_Instance_Index) + ')');
+        SQL.Add(IntToStr(TPlatform_Instance(aList[I]).FActivation.Pattern_Instance_Index) + ')');
         Open;
 
-        with TPlatform_Instance(aRec[I]).FPattern do
+        with TPlatform_Instance(aList[I]).FPattern do
         begin
           Pattern_Index        := FieldByName('Pattern_Index').AsInteger;
           Pattern_Identifier   := FieldByName('Pattern_Identifier').AsString;
@@ -22028,8 +22038,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.GetAssetDeployment(const id: Integer;
-  var asset: TAsset_Deployment): boolean;
+function TdmTTT.GetAssetDeployment(const id: Integer; var asset: TAsset_Deployment): boolean;
 begin
   result := false;
 
@@ -23846,8 +23855,7 @@ end;
 
 // ------------------------------------------------------------------------------
 
-function TdmTTT.GetRuntime_Platform_LibraryByResourceAlloc(const id: Integer;
-  var pList: TList{; var rec: TRuntime_Platform_Library}): boolean;
+function TdmTTT.GetRuntime_Platform_LibraryByResourceAlloc(const id: Integer; var pList: TList): boolean;
 var
   ssql: string;
   rec: TRuntime_Platform_Library;
@@ -23873,14 +23881,21 @@ begin
     Open;
 
     result := RecordCount > 0;
-    if not Assigned(pList) then
+
+    {$REGION ' Bersihkan List Dulu '}
+    if Assigned(pList) then
     begin
-      pList.Create;
+      for i := 0 to pList.Count - 1 do
+      begin
+        rec := pList.Items[i];
+        rec.Free;
+      end;
+
+      pList.Clear;
     end
     else
-    begin
-      pList.Clear;
-    end;
+      pList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -23892,8 +23907,7 @@ begin
 
         with rec.FData do
         begin
-          Platform_Library_Index := FieldByName('Platform_Library_Index')
-            .AsInteger;
+          Platform_Library_Index := FieldByName('Platform_Library_Index').AsInteger;
           Library_Name := FieldByName('Library_Name').AsString;
         end;
 
@@ -24158,10 +24172,9 @@ end;
 // -------------------------------------------------------------------
 
 /// /====================================================
-function TdmTTT.getAllPlatform_Library_Entry(const id: Integer;
-  var aRec: TList): Integer;
+function TdmTTT.getAllPlatform_Library_Entry(const id: Integer; var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TPlatform_Library_Entry;
 begin
   result := -1;
@@ -24183,10 +24196,20 @@ begin
     begin
       First;
 
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
+      {$REGION ' Bersihkan List Dulu '}
+      if Assigned(aRec) then
+      begin
+        for i := 0 to aRec.Count - 1 do
+        begin
+          rec := aRec.Items[i];
+          rec.Free;
+        end;
+
         aRec.Clear;
+      end
+      else
+        aRec := TList.Create;
+      {$ENDREGION}
 
       while not ZQ.Eof do
       begin

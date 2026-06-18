@@ -3,7 +3,7 @@ unit uDBAsset_Runtime_Platform_Library;
 interface
 
 uses
-  tttData, Classes;
+  tttData, uSimContainers, Classes;
 
 
 type
@@ -17,6 +17,8 @@ type
   private
 
   public
+    constructor Create;
+    destructor Destroy; override;
 
   end;
 
@@ -30,5 +32,18 @@ implementation
 
 
 
+
+{ TRuntime_Platform_Library }
+
+constructor TRuntime_Platform_Library.Create;
+begin
+  FPlatform_Library_Entry := TList.Create;
+end;
+
+destructor TRuntime_Platform_Library.Destroy;
+begin
+  ClearAndFreeItems(FPlatform_Library_Entry);
+  inherited;
+end;
 
 end.

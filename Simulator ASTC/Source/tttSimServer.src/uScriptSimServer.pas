@@ -16,7 +16,7 @@ uses
   uLibSettingTTT, ufMainGServer,
   uNetHandle_Server, uSimMgr_Server,
   uT3ServerEventManager,
-  uCoordConvertor, uGamePlayType, uSRRFunction;
+  uCoordConvertor, uGamePlayType, uSRRFunction, uMapLayerDB;
 
 
 procedure BeginGame_Server;
@@ -29,8 +29,12 @@ begin
 //  if FileExists(vMapSetting.MapDataGeoset)  then
 //    VMapData.LoadDataMap(vMapSetting.MapDataGeoset);
 
+  {Baru}
+  DepthLayerDB := TMapStubLayerDb.Create(vMapSetting.MapDataGeoset);
+
   simMgrServer := TSimMgr_Server.Create(VMapData.DMap);
 
+  DepthLayerDB.OnLogStr         := fMainGServer.LogStr;
   simMgrServer.OnLogStr         := fMainGServer.LogStr;
   simMgrServer.OnLogInitStr     := fMainGServer.LogInitStr;
   simMgrServer.OnLogEventStr    := fMainGServer.LogEventStr;
@@ -59,6 +63,7 @@ begin
   LoadFF_NetClientSetting(vSettingFile, vNetClientSetting);
   LoadFF_NetServerSetting(vSettingFile, vNetServerSetting);
 
+  //netserver
   VNetServer                  := TNetHandle_Server.Create;
   VNetServer.GamePort         := vNetSetting.GamePort;
   VNetServer.CommandPort      := vNetSetting.CommandPort;
@@ -89,12 +94,10 @@ begin
 
 end;
 
-
-
-
 procedure EndGame_Server;
 begin
 
+  simMgrServer.GameTerminate;
   simMgrServer.GamePause;
 
   VNetServer.StopNetworking;
@@ -102,6 +105,7 @@ begin
 
   simMgrServer.Free;
 
+  DepthLayerDB.Free;
   VMapData.Free;
 end;
 

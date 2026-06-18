@@ -4,8 +4,8 @@ object fMainGServer: TfMainGServer
   BorderStyle = bsSingle
   BorderWidth = 6
   Caption = 'TTT Game Server'
-  ClientHeight = 403
-  ClientWidth = 435
+  ClientHeight = 571
+  ClientWidth = 1250
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,15 +20,16 @@ object fMainGServer: TfMainGServer
   object Bevel1: TBevel
     Left = 0
     Top = 93
-    Width = 435
+    Width = 1250
     Height = 12
     Align = alTop
     Shape = bsSpacer
+    ExplicitWidth = 435
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 435
+    Width = 1250
     Height = 93
     Align = alTop
     BevelKind = bkFlat
@@ -144,8 +145,6 @@ object fMainGServer: TfMainGServer
       Width = 35
       Height = 22
       Caption = '+'
-      DoubleBuffered = True
-      ParentDoubleBuffered = False
       TabOrder = 0
       Visible = False
       OnClick = btn1Click
@@ -154,8 +153,8 @@ object fMainGServer: TfMainGServer
   object Panel2: TPanel
     Left = 0
     Top = 105
-    Width = 435
-    Height = 298
+    Width = 1250
+    Height = 466
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel1'
@@ -173,13 +172,14 @@ object fMainGServer: TfMainGServer
     object Splitter1: TSplitter
       Left = 0
       Top = 0
-      Height = 298
+      Height = 466
+      ExplicitHeight = 298
     end
     object PageControl1: TPageControl
       Left = 3
       Top = 0
-      Width = 432
-      Height = 298
+      Width = 1247
+      Height = 466
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -190,85 +190,111 @@ object fMainGServer: TfMainGServer
       TabOrder = 0
       object TabSheet1: TTabSheet
         Caption = 'EVENT LOG'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 424
+        ExplicitHeight = 270
         object Memo1: TMemo
           Left = 0
           Top = 0
-          Width = 424
-          Height = 270
+          Width = 1239
+          Height = 438
           Align = alClient
           BevelKind = bkFlat
           BorderStyle = bsNone
           ScrollBars = ssBoth
           TabOrder = 0
           WordWrap = False
+          ExplicitWidth = 424
+          ExplicitHeight = 270
         end
       end
       object TabSheet2: TTabSheet
         Caption = 'EVENTS LIST'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 424
+        ExplicitHeight = 270
         object mmEvents: TMemo
           Left = 0
           Top = 25
-          Width = 424
-          Height = 245
+          Width = 1239
+          Height = 413
           Align = alClient
           BevelKind = bkFlat
           BorderStyle = bsNone
           ScrollBars = ssBoth
           TabOrder = 0
           WordWrap = False
+          ExplicitWidth = 424
+          ExplicitHeight = 245
         end
         object Button2: TButton
           Left = 0
           Top = 0
-          Width = 424
+          Width = 1239
           Height = 25
           Align = alTop
           Caption = 'Get EVENTS Buffer'
           TabOrder = 1
           OnClick = Button2Click
+          ExplicitWidth = 424
         end
       end
       object TabSheet3: TTabSheet
         Caption = 'PLATFORMS'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 424
+        ExplicitHeight = 270
         object mmInit: TMemo
           Left = 0
           Top = 25
-          Width = 424
-          Height = 245
+          Width = 1239
+          Height = 413
           Align = alClient
           BevelKind = bkFlat
           BorderStyle = bsNone
           ScrollBars = ssBoth
           TabOrder = 0
           WordWrap = False
+          ExplicitWidth = 424
+          ExplicitHeight = 245
         end
         object Button1: TButton
           Left = 0
           Top = 0
-          Width = 424
+          Width = 1239
           Height = 25
           Align = alTop
           Caption = 'Get PLATFORMS'
           TabOrder = 1
           OnClick = Button1Click
+          ExplicitWidth = 424
         end
       end
       object TabSheet4: TTabSheet
         Caption = 'LOGS'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 424
+        ExplicitHeight = 270
         object mmEvent: TMemo
           Left = 0
           Top = 0
-          Width = 424
-          Height = 270
+          Width = 1239
+          Height = 438
           Align = alClient
           BevelKind = bkFlat
           BorderStyle = bsNone
           ScrollBars = ssBoth
           TabOrder = 0
           WordWrap = False
+          ExplicitWidth = 424
+          ExplicitHeight = 270
         end
       end
       object TabSheet5: TTabSheet
@@ -277,7 +303,7 @@ object fMainGServer: TfMainGServer
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 424
+          Width = 1239
           Height = 37
           Align = alTop
           Ctl3D = True
@@ -305,8 +331,8 @@ object fMainGServer: TfMainGServer
         object lvPlatform: TListView
           Left = 0
           Top = 37
-          Width = 424
-          Height = 233
+          Width = 1239
+          Height = 401
           Align = alClient
           Columns = <
             item
@@ -325,29 +351,54 @@ object fMainGServer: TfMainGServer
               Width = 90
             end
             item
-              Caption = 'Actual Speed'
+              Caption = 'Actual Speed (Knots)'
+              Width = 115
             end
             item
-              Caption = 'Ordered Speed'
+              Caption = 'Ordered Speed (knots)'
+              Width = 125
             end
             item
-              Caption = 'Actual Heading'
+              Caption = 'Actual Heading (Deg)'
+              Width = 115
             end
             item
-              Caption = 'Ordered Heading'
+              Caption = 'Ordered Heading (Deg)'
+              Width = 125
+            end
+            item
+              Caption = 'Draft (Meter)'
+              Width = 80
+            end
+            item
+              Caption = 'Map Depth (Meter)'
+              Width = 103
+            end
+            item
+              Caption = 'Status On Land'
+              Width = 90
+            end
+            item
+              Caption = 'Status On Land'
+              Width = 110
+            end
+            item
+              Caption = 'Collision'
             end>
           GridLines = True
           ReadOnly = True
           RowSelect = True
           TabOrder = 1
           ViewStyle = vsReport
-          ExplicitTop = 43
-          ExplicitHeight = 227
         end
       end
       object tsDatalink: TTabSheet
         Caption = 'DATALINK'
         ImageIndex = 5
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 424
+        ExplicitHeight = 270
         object lblNCS: TLabel
           Left = 3
           Top = 3
@@ -406,24 +457,31 @@ object fMainGServer: TfMainGServer
       object tsDataBuffer: TTabSheet
         Caption = 'DATA'
         ImageIndex = 6
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 424
+        ExplicitHeight = 270
         object mmo1: TMemo
           Left = 0
           Top = 25
-          Width = 424
-          Height = 245
+          Width = 1239
+          Height = 413
           Align = alClient
           ScrollBars = ssBoth
           TabOrder = 0
+          ExplicitWidth = 424
+          ExplicitHeight = 245
         end
         object btn2: TButton
           Left = 0
           Top = 0
-          Width = 424
+          Width = 1239
           Height = 25
           Align = alTop
           Caption = 'Get Data Buffer'
           TabOrder = 1
           OnClick = btn2Click
+          ExplicitWidth = 424
         end
       end
     end

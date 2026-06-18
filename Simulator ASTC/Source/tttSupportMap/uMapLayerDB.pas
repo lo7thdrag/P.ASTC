@@ -3,12 +3,12 @@ unit uMapLayerDB;
 interface
 
 uses
-  Classes, SysUtils, MapXLib_TLB, Forms;
+  Classes, SysUtils, MapXLib_TLB, Forms, tttData;
 
 type
   TMapStubLayerDb = class
   private
-    FOnLogStr         : TGetStrProc;
+    FOnLogStr         : TLogStrProc;//TGetStrProc;
 
     // mapx utils
     FLyrDepth     : CMapXLayer;
@@ -24,6 +24,7 @@ type
 
     FLyrLands : array [0..5] of CMapXLayer;
     FLyrOcean : CMapXLayer;
+    FLyrSpotSounding : array [0..4] of CMapXLayer;
 
     procedure LoadDefaultDataMap(const mData: string);
   protected
@@ -32,9 +33,11 @@ type
     destructor Destroy;override;
 
     function GetMapDepth(const x, y: double; var d1, d2: double): boolean;
+    function GetMapDepthBySpotSounding(const x, y: double; var d1: double): boolean;
     function GetMapLand(const x, y: double; var d1, d2: double): boolean;
 
-    property OnLogStr  : TGetStrProc read FOnLogStr write FOnLogStr;
+    property OnLogStr  : TLogStrProc read FOnLogStr write FOnLogStr;
+//    property OnLogStr  : TGetStrProc read FOnLogStr write FOnLogStr;
   end;
 
 var
@@ -44,7 +47,7 @@ var
 implementation
 
 uses
-  uMain, Windows, ComObj,
+  uLibSettingTTT, {uMain, }Windows, ComObj,
   StrUtils;
 
 
@@ -101,7 +104,7 @@ begin
     except
       on E:Exception do begin
         if Assigned(FOnLogStr) then
-          FOnLogStr(e.Message);
+          FOnLogStr('TMapStubLayerDb.GetMapLand', e.Message);
         isOcean := true;
       end;
     end;
@@ -150,7 +153,7 @@ begin
   except
     on E:Exception do begin
       if Assigned(FOnLogStr) then
-        FOnLogStr(e.Message);
+        FOnLogStr('TMapStubLayerDb.GetMapLand', e.Message);
       fs := nil;
     end;
   end;
@@ -169,10 +172,10 @@ begin
           //      mRowVals := FmDSet.RowValues[f.FeatureID];
           FmRowVals := FmDSet.RowValues[f.featureKey];
 
-          if (d1 >= FmRowVals.Item('DRVAL1___1').Value) then
+//          if (d1 >= FmRowVals.Item('DRVAL1___1').Value) then
             d1 := FmRowVals.Item('DRVAL1___1').Value;
 
-          if (d2 <= FmRowVals.Item('DRVAL2___2').Value) then   // tertinggi
+//          if (d2 <= FmRowVals.Item('DRVAL2___2').Value) then   // tertinggi
             d2 := FmRowVals.Item('DRVAL2___2').Value;
 
           FLastFeatKey  := f.FeatureKey;
@@ -186,12 +189,41 @@ begin
       except
         on E:Exception do begin
           if Assigned(FOnLogStr) then
-            FOnLogStr(e.Message);
+            FOnLogStr('TMapStubLayerDb.GetMapLand', e.Message);
         end;
       end;
     end;
 
     Result := True;
+  end;
+end;
+
+function TMapStubLayerDb.GetMapDepthBySpotSounding(const x, y: double;
+  var d1: double): boolean;
+var
+  fs: CMapXFeatures;
+  found : Boolean;
+  i : Integer;
+begin
+  FmPt.Set_(x, y);
+  d1    := 0;
+  found := False;
+
+  for i := 0 to Length(FLyrSpotSounding)-1 do begin
+    try
+      if FLyrSpotSounding[i] = nil then
+        Continue;
+
+      fs := FLyrSpotSounding[i].SearchAtPoint(FmPt);
+
+      if fs.Count > 0 then
+      begin
+
+        found := true;
+        Break;
+      end;
+    finally
+    end;
   end;
 end;
 

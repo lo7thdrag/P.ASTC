@@ -1,0 +1,24 @@
+<18 Jun 2026 10:14:59> [TT3Unit.SetInstanceIndex] InstanceName : Abdul Hallim Perdana Kusuma 355 ; InstanceIndex : 11180
+<18 Jun 2026 10:14:59> [TT3Unit.SetInstanceIndex] InstanceName : Karel Satsutubun 356 ; InstanceIndex : 11181
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.FNetServerOnClientConnect] 192.168.0.88: _ONLINE_ 
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netRecv_TCPRequest] 192.168.0.88: CPID_TCP_REQUEST                  :  Cubicle Assignment
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netSend_CubicleAssignInfo] Cubicle Count : 0
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netRecv_TCPRequest] 192.168.0.88: CPID_TCP_REQUEST                  :  Synch Game Ctrl Info
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netRecv_TCPRequest] 192.168.0.88: CPID_TCP_REQUEST                  :  Synch Missed Packet
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.FNetServerOnClientDisConnect] 192.168.0.88: _OFFLINE_ 
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.FNetServerOnClientConnect] 192.168.0.88: _ONLINE_ 
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netRecv_TCPRequest] 192.168.0.88: CPID_TCP_REQUEST                  :  Cubicle Assignment
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netSend_CubicleAssignInfo] Cubicle Count : 0
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netRecv_TCPRequest] 192.168.0.88: CPID_TCP_REQUEST                  :  Synch Game Ctrl Info
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.netRecv_TCPRequest] 192.168.0.88: CPID_TCP_REQUEST                  :  Synch Missed Packet
+-------------------------------------------------
+<17 Jun 2026 12:47:30> [TSimMgr_Server.FNetServerOnClientDisConnect] 192.168.0.88: _OFFLINE_ 

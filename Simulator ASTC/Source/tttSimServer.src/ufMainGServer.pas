@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, OleCtrls, MapXLib_TLB, ExtCtrls, ComCtrls, uT3Unit,
-  U_Helper, uLibSettingTTT;
+  U_Helper, uLibSettingTTT, uMapLayerDB;
 
 type
 
@@ -77,6 +77,7 @@ type
     FLastS : string;
     FWatchObj : TT3PlatformInstance;
     ActiveLogDataBuffer : Boolean;
+    FLog : Boolean;
     FLogFile: TLogFile;
     procedure AppMessage(var Msg: TMsg; var Handled: Boolean);
   public
@@ -109,7 +110,7 @@ implementation
 
 uses
   uSimMgr_server, uNetHandle_Server, uGameData_TTT,
-  uTCPDatatype, uT3DataLink, uBaseCoordSystem, uT3Vehicle;
+  uTCPDatatype, uT3DataLink, uBaseCoordSystem, uT3Vehicle, tttData;
 
 procedure TfMainGServer.AppMessage(var Msg: TMsg; var Handled: Boolean);
 begin
@@ -148,7 +149,11 @@ end;
 
 procedure TfMainGServer.btn3Click(Sender: TObject);
 begin
-  simMgrServer.CreateThread;
+//  simMgrServer.CreateThread;
+  if (sender as TSpeedButton).Down then
+    FLog := True
+  else
+    FLog := False
 end;
 
 procedure TfMainGServer.Button1Click(Sender: TObject);
@@ -166,6 +171,8 @@ var
   li : TListItem;
   I : Integer;
   pi : TT3PlatformInstance;
+  d1,d2 : Double;
+  r : TRec_MapData;
 begin
   lvPlatform.Items.Clear;
 
@@ -183,6 +190,68 @@ begin
       li.SubItems.Add(FormatFloat('0.00', TT3Vehicle(pi).OrderedSpeed));
       li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).Course));
       li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).OrderedHeading));
+      li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter));
+      r.IsOnLand := DepthLayerDB.GetMapLand(pi.getPositionX, pi.getPositionY, d1, d2);
+
+      if r.IsOnLand then
+      begin
+        r.PlatformID := pi.InstanceIndex;
+        r.dMin := d1;
+        r.dMax := d2;
+        r.OrderID := CORD_MAPS_DEPTH;
+        r.SessionID := simMgrServer.SessionID;
+      end
+      else
+      begin
+        try
+          r.dAvail := DepthLayerDB.GetMapDepth(pi.getPositionX, pi.getPositionY, d1, d2);
+        except
+          r.dAvail := True;
+        end;
+
+        if r.dAvail then
+        begin
+          r.dMin := d1;
+          r.dMax := d2;
+        end
+        else
+        begin
+          r.dMin := 0;
+          r.dMin := 0;
+        end;
+
+        r.PlatformID := pi.InstanceIndex;
+        r.OrderID := CORD_MAPS_DEPTH;
+        r.SessionID := simMgrServer.SessionID;
+      end;
+
+      //simMgrServer.netRecvMapCmd(@r, SizeOf(trec_mapdata));
+
+      li.SubItems.Add(FormatSpeed(d2));
+
+      if TT3Vehicle(pi).OnLand then
+        li.SubItems.Add('On Land')
+      else
+        li.SubItems.Add('On Sea');
+
+      if TT3Vehicle(pi).OnGrounded then
+        li.SubItems.Add('On Grounded')
+      else
+        li.SubItems.Add('On Sea');
+
+//      if TT3Vehicle(pi).isOnPort then
+//        li.SubItems.Add('On Port')
+//      else
+//        li.SubItems.Add('On Sea/On Land');
+//
+//      if TT3Vehicle(pi).isCollision then
+//      begin
+//        if Assigned(TT3Vehicle(pi).TrackCollision) then
+//          li.SubItems.Add('Collision with ' + TT3PlatformInstance(TT3Vehicle(pi).TrackCollision).InstanceName)
+//      end
+//      else
+//        li.SubItems.Add('False');
+
       li.Data := pi;
     end;
   end;
@@ -227,12 +296,20 @@ end;
 
 procedure TfMainGServer.FormCreate(Sender: TObject);
 begin
-   fMainGServer.OnDestroy := FormDestroy;
-   Application.OnMessage := AppMessage;
-   lblFrameReplay.Visible := False;
-   ActiveLogDataBuffer := False;
-   FLogFile := TLogFile.Create;
-   FLogFile.IsLog := True;
+  Application.OnMessage := AppMessage;
+  lblFrameReplay.Visible := False;
+  ActiveLogDataBuffer := False;
+  FLogFile := TLogFile.Create;
+  FLogFile.IsLog := True;
+
+  FLog := True;
+
+  btn3.Down := True;
+
+  fMainGServer.Caption := 'Game Server';
+  Timer2.Enabled := False;
+
+//  fMainGServer.OnDestroy := FormDestroy;
 end;
 
 procedure TfMainGServer.FormDestroy(Sender: TObject);
@@ -246,21 +323,30 @@ var
   str : string;
   dt : TDateTime;
 begin
-  dt := simMgrServer.GameTIME;
-  str := '<'+FormatDateTime('dd mmm yyyy hh:nn:ss',dt)+ '> ['+strHeader+'] '+strBody;
-
-  if Assigned(FLogFile) then
+  if FLog then
   begin
-    FLogFile.Log(strHeader, '-------------------------------------------------');
-    FLogFile.Log(strHeader, str);
+    dt := simMgrServer.GameTIME;
+    str := '<'+FormatDateTime('dd mmm yyyy hh:nn:ss',dt)+ '> ['+strHeader+'] '+strBody;
+
+    if Assigned(FLogFile) then
+    begin
+      FLogFile.Log(strHeader, '-------------------------------------------------');
+      FLogFile.Log(strHeader, str);
+    end;
+
+    if vGameDataSetting.LogData = True then
+    begin
+
+      if strBody <> FLastS then
+  //      Memo1.Lines.Insert(0, strBody)
+        Memo1.Lines.Insert(0, str)
+      else
+        Memo1.Lines[0] := Memo1.Lines[0] + '*';
+    end;
+
+    FLastS := strBody;
+//  FLastS := str;
   end;
-
-  if strBody <> FLastS then
-    Memo1.Lines.Insert(0, str)
-  else
-    Memo1.Lines[0] := Memo1.Lines[0] + '*';
-
-  FLastS := strBody;
 end;
 
 procedure TfMainGServer.Panel1MouseDown(Sender: TObject;
@@ -289,12 +375,19 @@ begin
   if Assigned(FLogFile) then
     FLogFile.Log(strHeader, str);
 
-  mmEvent.Lines.Insert(0, gt);
+  if vGameDataSetting.LogData = True then
+  begin
+    if mmEvent.Lines.Count > 100 then
+      mmEvent.Lines.Clear;
+
+    mmEvent.Lines.Insert(0, str);
+  end;
 end;
 
 procedure TfMainGServer.LogInitStr(const s: string);
 begin
-  mmInit.Lines.Insert(0, s);
+  if FLog then
+    mmInit.Lines.Insert(0, s);
 end;
 
 procedure TfMainGServer.LogRecv(const s: string);
@@ -358,6 +451,8 @@ var
   li : TListItem;
   v : TT3Vehicle;
   pi : TT3PlatformInstance;
+  d1,d2 : Double;
+  r : TRec_MapData;
 begin
   gt := FormatDateTime('hh : nn : ss', simMgrServer.GameTIME);
 
@@ -377,6 +472,65 @@ begin
           li.SubItems[4] := FormatFloat('0.00', v.OrderedSpeed);
           li.SubItems[5] := FormatSpeed(v.Course);
           li.SubItems[6] := FormatSpeed(v.OrderedHeading);
+          li.SubItems[7] := FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter);
+
+          //if v.PlatformDomain <> vhdSubsurface then
+            r.IsOnLand := DepthLayerDB.GetMapLand(pi.getPositionX, pi.getPositionY, d1, d2);
+
+          if r.IsOnLand then
+          begin
+            r.dMin := d1;
+            r.dMax := d2;
+          end
+          else
+          begin
+            try
+              r.dAvail := DepthLayerDB.GetMapDepth(pi.getPositionX, pi.getPositionY, d1, d2);
+            except
+              r.dAvail := True;
+            end;
+
+            if r.dAvail then
+            begin
+              r.dMin := d1;
+              r.dMax := d2;
+            end
+            else
+            begin
+              r.dMin := 0;
+              r.dMin := 0;
+            end;
+          end;
+
+          r.PlatformID := pi.InstanceIndex;
+          r.SessionID := simMgrServer.SessionID;
+          r.OrderID := CORD_MAPS_DEPTH;
+          //simMgrServer.netRecvMapCmd(@r, SizeOf(trec_mapdata));
+
+          li.SubItems[8] := FormatSpeed(d2);
+
+          if TT3Vehicle(pi).OnLand then
+            li.SubItems[9] := 'On Land'
+          else
+            li.SubItems[9] := 'On Sea';
+
+          if TT3Vehicle(pi).OnGrounded then
+            li.SubItems[10] := 'On Grounded'
+          else
+            li.SubItems[10] := 'On Sea';
+
+//          if TT3Vehicle(pi).isCollision then
+//          begin
+//            if Assigned(v.TrackCollision) then
+//              li.SubItems[11] := 'Collision with ' + TT3PlatformInstance(v.TrackCollision).InstanceName
+//          end
+//          else
+//            li.SubItems[11] := 'False';
+//
+//          if TT3Vehicle(pi).isOnPort then
+//            li.SubItems[12] := 'On Port'
+//          else
+//            li.SubItems[12] := 'On Sea/On Land';
         end
         else
         begin
@@ -389,6 +543,42 @@ begin
           li.SubItems.Add(FormatFloat('0.00', TT3Vehicle(pi).OrderedSpeed));
           li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).Course));
           li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).OrderedHeading));
+          li.SubItems.Add(FormatSpeed(TT3Vehicle(pi).VehicleDefinition.FData.Draft * C_Feet_To_Meter));
+          //DepthLayerDB.GetMapDepth(pi.getPositionX, pi.getPositionY, d1, d2);
+
+          r.PlatformID := pi.InstanceIndex;
+          r.dMin := d1;
+          r.dMax := d2;
+          r.OrderID := CORD_MAPS_DEPTH;
+          r.SessionID := simMgrServer.SessionID;
+
+          //simMgrServer.netRecvMapCmd(@r, SizeOf(trec_mapdata));
+
+          li.SubItems.Add(FormatSpeed(d2));
+
+          if TT3Vehicle(pi).OnLand then
+            li.SubItems.Add('On Land')
+          else
+            li.SubItems.Add('On Sea');
+
+          if TT3Vehicle(pi).OnGrounded then
+            li.SubItems.Add('On Grounded')
+          else
+            li.SubItems.Add('On Sea');
+
+//          if TT3Vehicle(pi).isOnPort then
+//            li.SubItems.Add('On Port')
+//          else
+//            li.SubItems.Add('On Sea/On Land');
+//
+//          if TT3Vehicle(pi).isCollision then
+//          begin
+//            if Assigned(TT3Vehicle(pi).TrackCollision) then
+//              li.SubItems.Add('Collision with ' + TT3PlatformInstance(TT3Vehicle(pi).TrackCollision).InstanceName)
+//          end
+//          else
+//            li.SubItems.Add('False');
+
           li.Data := pi;
         end;
       end;
@@ -464,7 +654,7 @@ end;
 procedure TfMainGServer.UpdateViewSetting;
 begin
   lblScenario.Caption :=
-  IntToStr(simMgrServer.Scenario.Scenario_def.FData.Scenario_Index )
+  IntToStr(simMgrServer.Scenario.ScenarioDefinition.FData.Scenario_Index )
   + ' : ' +simMgrServer.Scenario.ScenarioName;
 
   lblSession.Caption :=
