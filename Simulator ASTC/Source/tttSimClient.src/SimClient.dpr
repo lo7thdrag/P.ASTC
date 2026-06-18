@@ -219,8 +219,7 @@ begin
 
   //Application.MainFormOnTaskbar := True;
 
-//  TStyleManager.TrySetStyle('CustomStyleGlow');
-//  Application.Title := 'Tactical Team Trainer';
+  Application.Title := 'SimClient';
   Application.CreateForm(TdmTTT, dmTTT);
   Application.CreateForm(TfrmTacticalDisplay, frmTacticalDisplay);
   Application.CreateForm(TfrmToteDisplay, frmToteDisplay);

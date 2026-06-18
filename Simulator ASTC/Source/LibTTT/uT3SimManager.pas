@@ -18,7 +18,7 @@ uses
      uDBAsset_Sensor, uT3DataLink, uT3MissileDetail, uT3MissileEnvironment, newClassASTT,
      uCoordConvertor, uT3HybridOnVehicle, uT3HybridMissile,
      uDBAsset_MotionCharacteristics, uT3DefensiveJammer,
-     uT3DatalinkManager, uSteppers, Dialogs, uDBFormation;
+     uT3DatalinkManager, uSteppers, Dialogs, uDBFormation, uDBCubicles;
 
 type
 
@@ -33,6 +33,7 @@ type
     FEmbarkedPlatform : TT3PlatformInstance;
     FLastPlatformID   : Integer;
     FlastFormationID  : Integer;
+    FLastOverlayID  : Integer;
     FCounterSensor : Double;
     FCounterBombMine : Double;
 
@@ -48,7 +49,9 @@ type
     procedure FNetworkThread_OnPaused(const dt: double); virtual;
     procedure FNetworkThread_OnTerminate(sender: TObject);
     procedure CreateMapConverter(Map : TMap);
+
   private
+    FCubAssignList: T3CubicleGroupList;
     FOnLogEventStr: TLogStrProc;
     FConverter    : TCoordConverter;
     FOnLogTemporary: TGetStrProc;
@@ -247,6 +250,7 @@ type
     function  getNameReferencePoint(tipe, domain, identity: Integer): String;
 
     procedure SyncObject(recSynv : TRecSyncPos) ;
+
   public
     isFirstStart : Boolean;
 
@@ -314,6 +318,8 @@ type
     procedure OnVarianceESM(aESMtrack: TObject; aTrack : TObject); virtual;
     //System State
     procedure ChangeSystemState(const rec : TRecCmd_Change_SystemState); virtual;
+
+    property CubAssignList: T3CubicleGroupList read FCubAssignList write FCubAssignList;
 end;
 
 var
@@ -327,7 +333,7 @@ implementation
    uT3visual, uT3OtherSensor,uT3Common,
    uT3Torpedo, uT3Mine, uT3Bomb, Windows, forms,
    uGameSetting, uDBAssets_SubAreaEnviroDefinition, uDBAsset_Reference_Point,
-   StrUtils, uBaseCoordSystem, uDBCubicles, uT3RadarNoiseJammer,
+   StrUtils, uBaseCoordSystem, uT3RadarNoiseJammer,
    uDataTypes, uSnapshotData, uDBAsset_Runtime_Platform_Library;
 
 { TT3SimManager }
@@ -1050,6 +1056,15 @@ var
 begin
   //FPlatForms.Free;    // and free all the childs.
 
+  {Nanti dulu}
+//  for i := ListPlatformSelect.Count - 1 downto 0 do
+//  begin
+//    ListPlatformSelect.Delete(i);
+//  end;
+//
+//  ListPlatformSelect.Clear;
+//  ListPlatformSelect.Free;
+
   // safely remove
   for i := 0 to SimPlatforms.itemCount - 1 do begin
     obj := SimPlatforms.getObject(i);
@@ -1076,6 +1091,7 @@ begin
   end;
 
   FScenario.Free;
+  FCubAssignList.Free;
   //FGameDefault.Free;
   FRainfall.Free;
   FCloud_Effects.Free;
@@ -1273,6 +1289,7 @@ begin
 
   FLastPlatformID := 100;
   FlastFormationID:= 0;
+  FLastOverlayID:= 0;
 
   GameEnvironment  := FScenario.GameEnvironment;
   GameDefaults := FScenario.GameDefaults;
@@ -1291,11 +1308,11 @@ begin
   FCloud_Effects.LoadFromCloudEffects();
   FDefault_Var.LoadFromDatabase();
 
-  for i := 0 to Scenario.Formation.Count - 1 do
+  for i := 0 to Scenario.ListFormationfromDB.Count - 1 do
   begin
-    if FlastFormationID < TFormation(Scenario.Formation[i]).FFormation_Def.Formation_Index then
+    if FlastFormationID < TFormation(Scenario.ListFormationfromDB[i]).FFormation_Def.Formation_Index then
     begin
-      FlastFormationID  := TFormation(Scenario.Formation[i]).FFormation_Def.Formation_Index;
+      FlastFormationID  := TFormation(Scenario.ListFormationfromDB[i]).FFormation_Def.Formation_Index;
     end;
   end;
 

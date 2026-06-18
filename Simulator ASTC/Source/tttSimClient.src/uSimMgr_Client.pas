@@ -100,7 +100,7 @@ type
     procedure FOnUpdateMessageHandling(Sender : TObject);
     procedure OnTrackBlinking(sender: TObject; Value: Boolean);
   private
-    FCubAssignList: T3CubicleGroupList;
+//    FCubAssignList: T3CubicleGroupList;
     FOnReceivedSensorCommand: TNotifyEvent;
     FOnMapViewChange: TNotifyEvent;
     //FOnNotify_GameCtrl: TNotifyGameCtrl;
@@ -524,7 +524,7 @@ type
     property MovePlatformLine: TLineVisual read FMovePlatformLine;
     property LineVisual: TLineVisual read FLineVisual;
     property RangeRing: TRangeRingsVisual read FRangeRing;
-    property CubAssignList: T3CubicleGroupList read FCubAssignList;
+//    property CubAssignList: T3CubicleGroupList read FCubAssignList;
     property TargetPoint : TBitmapSymbolLDropPoint read FTargetSymbol;
     property FlashPointNGS : TBitmapSymbolLDropPoint read FFlashPointNGS;
 
@@ -3037,7 +3037,8 @@ var
 begin
   inherited;
 
-  FCubAssignList := FScenario.CubiclesGroupsList;
+  {$REGION ' Load Cubicle Assign '}
+  CubAssignList := FScenario.CubiclesGroupsList;
 
   f := False;
 
@@ -3047,8 +3048,8 @@ begin
     begin
       aObject := TT3PlatformInstance(SimPlatforms.getObject(i));
       aObject.UnitGroup := True;
-      if aObject.UnitActivation.Deployment_Index =
-        FScenario.AssetDeployment.FData.Deployment_Index then
+
+      if aObject.UnitActivation.Deployment_Index = FScenario.AssetDeployment.FData.Deployment_Index then
       begin
         aObject.Enable := True;
         aObject.Visible := True;
@@ -3058,6 +3059,7 @@ begin
         aObject.Enable := False;
         aObject.Visible := False;
       end;
+
       aObject.isInstructor := FIsInstructor;
       aObject.Environment := GameEnvironment;
 
@@ -3090,7 +3092,7 @@ begin
     end;
 
     MyForceDesignation := -1;
-    FMyCubGroup := FCubAssignList.GetGroupByID(3) as T3CubicleGroup; //choco : controller harus punya FMyCubGroup
+    FMyCubGroup := CubAssignList.GetGroupByID(3) as T3CubicleGroup; //choco : controller harus punya FMyCubGroup
   end
   else
   begin
@@ -3110,12 +3112,12 @@ begin
     if k > 0 then
     begin
       GrpID := vCubicalAssignSetting.GroupIDs[0];
-      FMyCubGroup := FCubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
+      FMyCubGroup := CubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
 
       for i := 0 to length(vCubicalAssignSetting.GroupIDs) - 1 do
       begin
         GrpID := vCubicalAssignSetting.GroupIDs[i];
-        grp := FCubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
+        grp := CubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
         f := false;
 
         if grp = nil then
@@ -6557,7 +6559,7 @@ begin
       begin
         if rq^.LongIP = 0 then
         begin
-          FCubAssignList.ClearAllCubicleName;
+          CubAssignList.ClearAllCubicleName;
         end;
 
       end;
@@ -6566,7 +6568,7 @@ begin
         GrpID := rq^.GroupID;
 
         cubname := FCubicleList.GetCubicleName(ip);
-        grp := FCubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
+        grp := CubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
         if grp <> nil then
           grp.CubicleName := cubname;
 
@@ -7949,7 +7951,7 @@ begin
     end;
   end;
 
-  FCubAssignList := FScenario.CubiclesGroupsList;
+  CubAssignList := FScenario.CubiclesGroupsList;
   f := false;
 
   if FIsInstructor then
@@ -7995,8 +7997,7 @@ begin
     end;
 
     MyForceDesignation := -1;
-    /// sam. ??? di aslinya  FCubAssignList.GetGroupByID(3) ...
-    FMyCubGroup := FCubAssignList.GetGroupByID(3) as T3CubicleGroup; //choco : controller harus punya FMyCubGroup
+    FMyCubGroup := CubAssignList.GetGroupByID(3) as T3CubicleGroup;
   end
   else
   begin
@@ -8014,12 +8015,12 @@ begin
     if length(vCubicalAssignSetting.GroupIDs) > 0 then
     begin
       GrpID := vCubicalAssignSetting.GroupIDs[0];
-      FMyCubGroup := FCubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
+      FMyCubGroup := CubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
 
       for i := 0 to length(vCubicalAssignSetting.GroupIDs) - 1 do
       begin
         GrpID := vCubicalAssignSetting.GroupIDs[i];
-        grp := FCubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
+        grp := CubAssignList.GetGroupByID(GrpID) as T3CubicleGroup;
         f := false;
 
         if grp = nil then

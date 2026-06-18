@@ -533,7 +533,8 @@ procedure TfrmRPLibrary.SetUpGroupAndForce;
 var i, f: integer;
     grp: T3CubicleGroup;
 begin
-  for i := 1 to 5 do begin
+  for i := 1 to 5 do
+  begin
     FForceList[i].Clear;
   end;
 

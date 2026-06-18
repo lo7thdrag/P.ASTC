@@ -80,6 +80,7 @@ type
     mX, mY: double;
     Colorbg : TColor;
     FullScreen: boolean;
+    ActiveDoubleBufferd : Boolean;
   end;
 
   //----------------------------------------------------------------------------

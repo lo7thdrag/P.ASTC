@@ -48,8 +48,8 @@ type
     ListOverlayFromDB : TList;
     ListStaticShape : TList;
     ListDynamicShape : TList;
+    ListFormationfromDB : TList;
 
-    Formation         : TList;
     Platform_Inst     : TList;
     Formation_List    : TList;
     Formation_List_rev : TFormationManager;
@@ -125,7 +125,7 @@ begin
   ScenarioDefinition      := TScenario_Definition.Create;
   ResourceAllocation    := TResource_Allocation.Create;
   AssetDeployment   := TAsset_Deployment.Create;
-  Formation         := TList.Create;
+  ListFormationfromDB         := TList.Create;
   Platform_Inst     := TList.Create;
   Formation_List    := TList.Create;
   Formation_List_rev    := TFormationManager.Create;
@@ -230,8 +230,8 @@ begin
   if Assigned(Formation_List_rev) then
     FreeAndNil(Formation_List_rev);
 
-  if Assigned(Formation) then
-    FreeAndNil(Formation);
+  if Assigned(ListFormationfromDB) then
+    FreeAndNil(ListFormationfromDB);
 
   if Assigned(GameEnvironment) then
     FreeAndNil(GameEnvironment);
@@ -421,7 +421,7 @@ begin
   {$ENDREGION}
 
   {$REGION ' Load All Formation Mapping '}
-  dmTTT.GetFormationDefinition(AssetDeploymentId, Formation);
+  dmTTT.GetFormationDefinition(AssetDeploymentId, ListFormationfromDB);
   Formation_List.Clear;
   Platform_Inst.Clear;
 
@@ -429,9 +429,9 @@ begin
   Formation_List_rev.Clear;
   dmTTT.GetFormation(AssetDeploymentId, Formation_List_rev);
 
-  for I := 0 to Formation.Count - 1 do
+  for I := 0 to ListFormationfromDB.Count - 1 do
   begin
-    form := Formation[i];
+    form := ListFormationfromDB[i];
     dmTTT.GetFormationAssignment(form, Formation_List) ;
     //Formation_List.Add(Platform_Inst);   //test mm
   end;

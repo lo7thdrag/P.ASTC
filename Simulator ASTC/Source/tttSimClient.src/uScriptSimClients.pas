@@ -25,6 +25,9 @@ begin
   if vMapSetting.FullScreen then
     frmTacticalDisplay.Be_A_FullMap(true);
 
+//  if vMapSetting.ActiveDoubleBufferd then
+//    frmTacticalDisplay.Set_DoubleBufferd(True);
+
   LoadFF_NetClientSetting(vSettingFile, vNetClientSetting);
   LoadFF_CubicalAssignSetting(vSettingFile, vCubicalAssignSetting);
   LoadFF_AppSetting(vSettingFile, vAppSetting);

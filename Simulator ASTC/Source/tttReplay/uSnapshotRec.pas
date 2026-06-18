@@ -2213,10 +2213,10 @@ begin
 
     //??? dmTTT.getAllRuntimePlatform(scenario.ResourceAllocIndex,scenario.RuntimePlatformLibrary);
 
-    SetLength(Formation.FForm,Scenario.Formation.Count);
-    for I := 0 to VScenario.Formation.Count-1 do
+    SetLength(Formation.FForm,Scenario.ListFormationfromDB.Count);
+    for I := 0 to VScenario.ListFormationfromDB.Count-1 do
     begin
-      fmDef := Scenario.Formation[i];
+      fmDef := Scenario.ListFormationfromDB[i];
       if fmDef <> nil then begin
          Formation.FForm[i].FFormation_Def := fmDef.FFormation_Def ;
          Formation.FForm[i].FForm_Assign   := fmDef.FForm_Assign ;
@@ -2567,7 +2567,7 @@ begin
       fmDef    := TFormation.Create;
       fmDef.FFormation_Def := recFmDef.FFormation_Def ;
       fmDef.FForm_Assign   := recFmDef.FForm_Assign ;
-      scenario.Formation.Add(fmDef);
+      scenario.ListFormationfromDB.Add(fmDef);
     end;
 
     scenario.Platform_Inst.Clear;
