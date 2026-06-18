@@ -471,6 +471,11 @@ type
     procedure FormDestroy(Sender: TObject);
 
   private
+    FIsMouseDown : Boolean;
+
+    FZoomRectStart : TPoint;
+    FZoomRectEnd : TPoint;
+
     Flatt : string;
     Flong : string;
 
@@ -648,7 +653,7 @@ begin
       btnMoveMap.Visible := True;
       btnCenterOnGame.Visible := True;
 
-      aGeoset := vAppDBSetting.MapSourcePathVECT + '\IndonesiaBackground\Indonesia.gst';
+      aGeoset := vAppDBSetting.MapSourcePathENC + '\Indonesia.gst';
       loadMap(aGeoset);
 
       StateOverlay := osStatic;
@@ -2432,6 +2437,7 @@ procedure TOverlayEditorForm.btnZoomClick(Sender: TObject);
 begin
   UpAllToolbarButton;
   btnZoom.Down := True;
+
   Map1.CurrentTool  := miZoomInTool;
   Map1.MousePointer := miZoomInCursor;
 end;
@@ -2440,6 +2446,7 @@ procedure TOverlayEditorForm.btnMoveMapClick(Sender: TObject);
 begin
   UpAllToolbarButton;
   btnMoveMap.Down := True;
+
   Map1.CurrentTool  := miPanTool;
   Map1.MousePointer  := miPanCursor;
 end;
@@ -3007,6 +3014,15 @@ begin
 
     DrawOverlay.drawAll(FCanvas, Map1);
     DrawFlagPoint.Draw(FCanvas);
+
+    if FIsMouseDown and btnZoom.Down then
+    begin
+      Pen.Color := clWhite;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+      Rectangle(FZoomRectStart.X, FZoomRectStart.Y, FZoomRectEnd.X, FZoomRectEnd.Y);
+    end;
   end;
 
 end;
@@ -3108,6 +3124,16 @@ begin
 //      pmOverlayEdit.Popup(pos.X, pos.Y);
   end;
 
+  {$Region ' Set Zoom '}
+  if btnZoom.Down then
+  begin
+    FIsMouseDown := True;
+
+    FZoomRectStart := Point(X, Y);
+    FZoomRectEnd := Point(X, Y);
+  end;
+  {$ENDREGION}
+
   if isCapturingScreen then
   begin
     with fscrCapture do
@@ -3124,7 +3150,13 @@ end;
 
 procedure TOverlayEditorForm.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
-  UpdateCursorPositionData(X, Y);
+//  UpdateCursorPositionData(X, Y);
+
+  if btnZoom.Down and FIsMouseDown then
+  begin
+    FZoomRectEnd := Point(X, Y);
+    Map1.Repaint;
+  end;
 end;
 
 procedure TOverlayEditorForm.Map1MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -3159,6 +3191,16 @@ begin
         MouseIsDown := false;
       end;
     end;
+
+    {$Region ' Set Zoom '}
+    if btnZoom.Down and FIsMouseDown then
+    begin
+      FIsMouseDown := False;
+      FZoomRectEnd:= Point(X, Y);
+      Map1.OnMapViewChanged := Map1MapViewChanged;
+      Map1.Repaint;
+    end;
+    {$ENDREGION}
   end;
 //  Map1.repaint;     // dimatikan dl, msh coba polygon nya
 end;

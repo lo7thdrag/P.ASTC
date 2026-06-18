@@ -44868,7 +44868,6 @@ object OverlayEditorForm: TOverlayEditorForm
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitHeight = 828
       object pnlOverlayEditor: TPanel
         Left = 0
         Top = 0
@@ -44878,7 +44877,6 @@ object OverlayEditorForm: TOverlayEditorForm
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 0
-        ExplicitHeight = 828
         object pnlColor: TPanel
           Left = 0
           Top = 0
@@ -44951,7 +44949,6 @@ object OverlayEditorForm: TOverlayEditorForm
           Color = 2499101
           ParentBackground = False
           TabOrder = 1
-          ExplicitHeight = 625
           object Label29: TLabel
             Left = 14
             Top = 24
@@ -53550,7 +53547,6 @@ object OverlayEditorForm: TOverlayEditorForm
           Color = 2499101
           ParentBackground = False
           TabOrder = 3
-          ExplicitTop = 783
           object btnApply: TButton
             Left = 128
             Top = 8
@@ -53593,7 +53589,6 @@ object OverlayEditorForm: TOverlayEditorForm
           BevelOuter = bvNone
           Color = 2499101
           TabOrder = 4
-          ExplicitTop = 773
         end
       end
     end
@@ -53612,7 +53607,6 @@ object OverlayEditorForm: TOverlayEditorForm
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      ExplicitHeight = 828
       object pnlToolBar: TPanel
         Left = 0
         Top = 0
@@ -53738,7 +53732,6 @@ object OverlayEditorForm: TOverlayEditorForm
         Color = 2499101
         ParentBackground = False
         TabOrder = 1
-        ExplicitTop = 783
         DesignSize = (
           1262
           45)
@@ -53932,7 +53925,7 @@ object OverlayEditorForm: TOverlayEditorForm
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000D8366F1101000000000000001C000000000000000000000000
+          01000118010000A8BCEA0F01000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -53941,7 +53934,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000D8366F1101000000000000001C00000000000000000000000000000000
+          010000A8BCEA0F01000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000
@@ -53971,7 +53964,6 @@ object OverlayEditorForm: TOverlayEditorForm
         BevelOuter = bvNone
         Color = 2499101
         TabOrder = 4
-        ExplicitTop = 773
       end
     end
     object pnl4Bottom: TPanel
@@ -54046,7 +54038,6 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 3
-      ExplicitHeight = 828
     end
     object pnl1Header: TPanel
       Left = 0
@@ -54067,7 +54058,6 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 5
-      ExplicitHeight = 828
     end
     object pnlVertical3: TPanel
       Left = 1590
@@ -54078,7 +54068,6 @@ object OverlayEditorForm: TOverlayEditorForm
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 6
-      ExplicitHeight = 828
     end
   end
   object ilToolbar: TImageList

@@ -45485,7 +45485,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 8
+            Top = 0
             Width = 95
             Height = 22
             Hint = 'Map Scales'
@@ -45756,9 +45756,8 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
         OnMouseDown = Map1MouseDown
         OnMapViewChanged = Map1MapViewChanged
         OnDrawUserLayer = Map1DrawUserLayer
-        ExplicitTop = 21
-        ExplicitWidth = 1293
-        ExplicitHeight = 696
+        ExplicitLeft = 6
+        ExplicitTop = 39
         ControlData = {
           8A1A060031810000A84B0000010000000F0000FF0D47656F44696374696F6E61
           727905456D70747900E8030000000000000000000002000E001E000000000000

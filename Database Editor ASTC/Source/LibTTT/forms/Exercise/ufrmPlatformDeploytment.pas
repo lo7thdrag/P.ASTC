@@ -234,7 +234,6 @@ type
     lAltitude: TLabel;
     edAltitudeDepth: TEdit;
     Label66: TLabel;
-    Map1: TMap;
     btn_Ruler: TToolButton;
     pnlDeployPlatformEditor: TPanel;
     pnlMainBackground: TPanel;
@@ -291,6 +290,7 @@ type
     pnl2: TPanel;
     btnCancel: TButton;
     btnLayerTool: TToolButton;
+    Map1: TMap;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -340,8 +340,17 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure lvPlatformClick(Sender: TObject);
+    procedure UpAllToolbarButton;
 
   private
+    isAdd : Boolean;
+    FIsMouseDown : Boolean;
+
+    FZoomRectStartX : Integer;// : TPoint;
+    FZoomRectStartY : Integer;// : TPoint;
+    FZoomRectEndX : Integer;
+    FZoomRectEndY : Integer;
+
     FSelectedAssetDeployment : TAsset_Deployment;
     FSelectedResourceAlloc : TResource_Allocation;
     FSelectedEnviArea : TGame_Environment_Definition;
@@ -661,6 +670,16 @@ begin
   finally
     ReleaseDC(GetDesktopWindow, DC);
   end;
+end;
+
+procedure TfrmPlatformDeploytment.UpAllToolbarButton;
+begin
+  btnHook.Down := False;
+  btnZoomTool.Down := False;
+  btnMoveTool.Down := False;
+  btnCenterHook.Down := False;
+
+  isAdd := False;
 end;
 
 procedure TfrmPlatformDeploytment.UpdateCursorPositionData(const X, Y: Integer);
@@ -1166,6 +1185,9 @@ end;
 
 procedure TfrmPlatformDeploytment.btnZoomToolClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
+  btnZoomTool.Down := True;
+
   Map1.CurrentTool := miZoomInTool;
   Map1.MousePointer := miZoomInCursor;
 end;
@@ -1271,6 +1293,7 @@ end;
 procedure TfrmPlatformDeploytment.Map1DrawUserLayer(ASender: TObject; const Layer: IDispatch; hOutputDC, hAttributeDC: Cardinal; const RectFull, RectInvalid: IDispatch);
 var
   i, ix, iy : integer;
+  sx,sy,ex,ey : Integer;
   platInst : TPlatform_Instance;
   color : TColor;
 
@@ -1308,6 +1331,17 @@ begin
         ShipSimbol.Draw(FCanvas);
       end;
     end;
+
+    if FIsMouseDown and btnZoomTool.Down then
+    begin
+      Pen.Color := clWhite;
+      Pen.Width := 1;
+      Pen.Style := psDash;
+      Brush.Style := bsClear;
+
+      Rectangle(FZoomRectStartX, FZoomRectStartY, FZoomRectEndX, FZoomRectEndY);
+    end;
+
 
     { Start_Ruler }
 
@@ -1391,10 +1425,12 @@ begin
   {$Region ' Set Zoom '}
   if btnZoomTool.Down then
   begin
-//    FIsMouseDown := True;
-//
-//    FZoomRectStart := Point(X, Y);
-//    FZoomRectEnd := Point(X, Y);
+    FIsMouseDown := True;
+
+    FZoomRectStartX := X;
+    FZoomRectStartY := Y;
+    FZoomRectEndX := X;
+    FZoomRectEndY := Y;
   end;
   {$ENDREGION}
 
@@ -1493,6 +1529,15 @@ end;
 procedure TfrmPlatformDeploytment.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
   UpdateCursorPositionData(X, Y);
+
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down then
+  begin
+    FZoomRectEndX := X;//Point(X, Y);
+    FZoomRectEndY := Y;
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
 end;
 
 procedure TfrmPlatformDeploytment.Map1MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -1547,7 +1592,20 @@ begin
  end;
  gPoint.X := X;
  gPoint.Y := Y;
- map1.Repaint;     }
+ map1.Repaint;
+      }
+  {$Region ' Set Zoom '}
+  if btnZoomTool.Down and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+    FZoomRectStartX := X;
+    FZoomRectStartY := Y;
+    FZoomRectEndX := X;
+    FZoomRectEndY := Y;
+    Map1.OnMapViewChanged := Map1MapViewChanged;
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
 
 end;
 

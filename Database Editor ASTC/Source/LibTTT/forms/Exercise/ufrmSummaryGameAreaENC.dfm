@@ -45091,7 +45091,7 @@ object frmSummaryGameAreaENC: TfrmSummaryGameAreaENC
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 8
+            Top = 0
             Width = 90
             Height = 22
             Hint = 'Map Scales'
