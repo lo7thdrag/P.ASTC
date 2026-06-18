@@ -1778,10 +1778,20 @@ end;
 
 procedure TfrmTacticalDisplay.Initialize;
 begin
-  width := Screen.Monitors[vGameDataSetting.TacticalScreen].width;
-  height := Screen.Monitors[vGameDataSetting.TacticalScreen].height;
-  left := Screen.Monitors[vGameDataSetting.TacticalScreen].left;
-  top := Screen.Monitors[vGameDataSetting.TacticalScreen].top;
+if Screen.MonitorCount > 1 then
+  begin
+    Width := Screen.Monitors[vGameDataSetting.TacticalScreen].Width;
+    Height := Screen.Monitors[vGameDataSetting.TacticalScreen].Height;
+    Left := Screen.Monitors[vGameDataSetting.TacticalScreen].Left;
+    Top := Screen.Monitors[vGameDataSetting.TacticalScreen].Top;
+  end
+  else
+  begin
+    Width := Screen.Monitors[0].Width;
+    Height := Screen.Monitors[0].Height;
+    Left := Screen.Monitors[0].Left;
+    Top := Screen.Monitors[0].Top;
+  end;
 end;
 
 procedure TfrmTacticalDisplay.FormDestroy(Sender: TObject);
@@ -1802,6 +1812,18 @@ end;
 
 procedure TfrmTacticalDisplay.FormShow(Sender: TObject);
 begin
+  if vGameDataSetting.TacticalScreen < Screen.MonitorCount then
+begin
+  SetBounds(
+    Screen.Monitors[vGameDataSetting.TacticalScreen].Left,
+    Screen.Monitors[vGameDataSetting.TacticalScreen].Top,
+    Screen.Monitors[vGameDataSetting.TacticalScreen].Width,
+    Screen.Monitors[vGameDataSetting.TacticalScreen].Height
+  );
+
+  WindowState := wsMaximized;
+end;
+
   // Be_A_FullMap(false);
   EnableComposited(pnlMap);
   if vGameDataSetting.GamePlayMode.GameType = byte(gpmReplay) then

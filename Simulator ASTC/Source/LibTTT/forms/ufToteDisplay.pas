@@ -3953,16 +3953,17 @@ procedure TfrmToteDisplay.FormCreate(sender: TObject);
 var
   i: Integer;
 begin
+
   // DoubleBuffered := True;
 
   /// hide page tabsheet9
   PageControl3.Pages[1].TabVisible := False;
   pcEnvironmentControl.Pages[2].TabVisible := False;
 
-  if Screen.MonitorCount > 1 then
-    i := 1
+   if vGameDataSetting.ToteScreen < Screen.MonitorCount then
+  i := vGameDataSetting.ToteScreen
   else
-    i := 0;
+  i := 0;
 
   DefaultMonitor := dmDesktop;
 
