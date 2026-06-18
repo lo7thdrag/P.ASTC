@@ -1,24 +1,14 @@
 menambah asset
 - onboard sonobuoy bermasalah
 
-RPL
-- Sonobuoy sebaiknya di hiden (sdh)
-- double klik mine pada double picklist tidak berfungsi (sdh)
-
-- tampilan available pada overlay belum fullscreen (sdh)
-- tampilan domain pada static overlay sebaiknya dihilangkan (sdh)
-- tombol overlay editor belum otomatis enable false (sdh)
-- tampilan overlay editor masih belum sama seperti game area editor (sdh)
-
-- tampilan available pada SNR vs POD belum fullscreen (sdh)
-
-- tombol save As Trainer Default pada game default sebaiknya di hiden
-
-- tampilan available pada Motion belum fullscreen (sdh)
-
-- exercise belum dicek semua
 - vehicle belum dicek semua
 
-- cursor belum Kembali normal saat select platvorm pada form deployment
-- cursor zoom harusnya menggambar kotak daerah yang di zoom pada form deployment
-- menambah tool layer map pada setiap tampilan form map
+- Menambah fitur properties layer map (form Overlay editor, form environment, form deploymentpaltform)(cicil)
+- Perbaikan proses load Sim Server
+- Perbaikan proses load Sim Client
+- Melanjutkan Desain interface Role Navigasi (Tactical dan Tote)
+- Melanjutkan Desain interface Role Plotter (Tactical)
+- Melanjutkan Desain interface Role Atas Air (Tactical dan Tote)
+- Melanjutkan Desain interface Role Bawah Air (Tactical dan Tote)
+- Melanjutkan Desain interface Role General (Tactical dan Tote)
+- datamodule di unit uDBScenario -> procedure LoadPlatformDefinition perlu dirapikan

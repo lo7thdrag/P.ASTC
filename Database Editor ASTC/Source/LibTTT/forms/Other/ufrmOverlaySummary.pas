@@ -305,8 +305,8 @@ end;
 
 procedure TfrmOverlaySummary.cbbTypeChange(Sender: TObject);
 begin
-  lbl3.Visible := cbbType.ItemIndex = 1;
-  cbbDomain.Visible := cbbType.ItemIndex = 1;
+//  lbl3.Visible := cbbType.ItemIndex = 1;
+//  cbbDomain.Visible := cbbType.ItemIndex = 1;
   cbbDomain.ItemIndex := 0;
 
 //  btnEditOverlay.Enabled := False;
@@ -327,8 +327,8 @@ begin
 
     cbbType.ItemIndex := Static_Overlay;
 
-    lbl3.Visible := Static_Overlay = 1;
-    cbbDomain.Visible := Static_Overlay = 1 ;
+//    lbl3.Visible := Static_Overlay = 1;
+//    cbbDomain.Visible := Static_Overlay = 1 ;
 
     cbbDomain.ItemIndex := Domain;
 
