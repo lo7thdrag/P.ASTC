@@ -25,18 +25,23 @@ begin
   if vMapSetting.FullScreen then
     frmTacticalDisplay.Be_A_FullMap(true);
 
-//  if vMapSetting.ActiveDoubleBufferd then
-//    frmTacticalDisplay.Set_DoubleBufferd(True);
+  if vMapSetting.ActiveDoubleBufferd then
+    frmTacticalDisplay.Set_DoubleBufferd(True);
 
   LoadFF_NetClientSetting(vSettingFile, vNetClientSetting);
   LoadFF_CubicalAssignSetting(vSettingFile, vCubicalAssignSetting);
   LoadFF_AppSetting(vSettingFile, vAppSetting);
 
+  vFilter := TFilter.Create;
   simMgrClient := TSimMgr_Client.Create(frmTacticalDisplay.fmMapWindow1.Map);
+
+  {Set Console Role berdasarkan IP}
   simMgrClient.ApplyCubicleSetting;
+
   simMgrClient.OnMapViewChange  := frmTacticalDisplay.MapViewChanged;
 
   VSimMap := TSimMap.Create(frmTacticalDisplay.fmMapWindow1.Map );
+
   VSimMap.OnDrawToCanvas  := simMgrClient.DrawAll;
   VSimMap.OnMapChange     := simMgrClient.OnMapChange;
   VSimMap.OnToolUsed      := frmTacticalDisplay.MapToolUsed;
@@ -65,10 +70,9 @@ begin
   else
   begin
     simMgrClient.LoadFromSnapshot := False;
-//    simMgrClient.LoadScenarioId(vGameDataSetting);
+    simMgrClient.LoadScenarioId(vGameDataSetting);
   end;
 
-  //tambahan aldy environment
   simMgrClient.SensorSetEnvi;
   simMgrClient.VehicleSetEnvi;
   simMgrClient.DeviceSetEnvi;
@@ -78,11 +82,12 @@ begin
   simMgrClient.OnUpdateCenter  := frmTacticalDisplay.UpdateCenter;
   simMgrClient.OnUpdateMessage := frmToteDisplay.UpdateMessageHandling;
 
-  vFilter := TFilter.Create;
   frmTacticalDisplay.Initialize;
   frmTacticalDisplay.SetRoleClient(simMgrClient.ClientRole);
+
   frmToteDisplay.Initialize;
   frmToteDisplay.setRoleClient(simMgrClient.ClientRole);
+
   with frmToteDisplay do
   begin
     if pnlStatusOp.Enabled then //diganti dari category panel ke TPanel
@@ -114,7 +119,6 @@ begin
 
   if Assigned(simMgrClient.ControlledPlatform) then
     simMgrClient.ControlledPlatform.Controlled := true;
-
 
 end;
 

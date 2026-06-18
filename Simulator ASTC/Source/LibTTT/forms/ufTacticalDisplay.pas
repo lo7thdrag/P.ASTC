@@ -859,7 +859,7 @@ type
     FHookOnPlatform: Boolean;
     isStatusMerge: Boolean;
 
-      Map1 : TMapXTouch;
+    Map1 : TMapXTouch;
 
     procedure Initialize;
 
@@ -900,6 +900,8 @@ type
     procedure Be_A_FullMap(const full: Boolean);
     procedure UpdatePlatformProperties(plat : TSimObject; dom, ident, typ: integer);
     procedure SetObjectAssignedByGun(value : TSimObject);
+
+    procedure Set_DoubleBufferd(const doubleBuffered: Boolean);
 
     procedure setFreePopup;
     procedure setHookPopup;
@@ -976,12 +978,6 @@ Begin
   Result:= Oktal;
 End;
 
-//procedure TfrmTacticalDisplay.InitOleVariant(var TheVar: OleVariant);
-//begin
-//  TVarData(TheVar).vType := varError;
-//  TVarData(TheVar).vError := DISP_E_PARAMNOTFOUND;
-//end;
-
 procedure EnableComposited(WinControl: TWinControl);
 var
   i: Integer;
@@ -994,6 +990,12 @@ begin
     if WinControl.Controls[i] is TWinControl then
       EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
+
+//procedure TfrmTacticalDisplay.InitOleVariant(var TheVar: OleVariant);
+//begin
+//  TVarData(TheVar).vType := varError;
+//  TVarData(TheVar).vError := DISP_E_PARAMNOTFOUND;
+//end;
 
 procedure TfrmTacticalDisplay.InitTabHookedInfo;
 begin
@@ -1683,6 +1685,27 @@ var
   i: Integer;
   z: double;
 begin
+  //Disable All Floating Point Exceptions
+  SetExceptionMask(exAllArithmeticExceptions);
+
+//  FBlendHidden := False;
+
+  pnlMap.Align := alClient;
+
+//  Map1 := TMapXTouch.Create(Self);
+//  Map1.Parent := pnlMap;
+//  Map1.Align := alClient;
+//  Map1.Visible := True;
+//  Map1.DoubleBuffered := False;
+
+  frmTacticalDisplay.DoubleBuffered := False;
+  pnlMap.DoubleBuffered := False;
+
+  EnableComposited(pnlMap);
+  EnableComposited(Panel1);
+  EnableComposited(pnlLeft);
+//  EnableComposited(pnlTacticalDisplayControlPanel);
+
   fmMapWindow1.InitOnFormCreate;
   fmOwnShip1.InitCreate(self);
   fmPlatformGuidance1.InitCreate(self);
@@ -4118,6 +4141,11 @@ begin
   end;
 end;
 
+procedure TfrmTacticalDisplay.Set_DoubleBufferd(const doubleBuffered: Boolean);
+begin
+  Map1.DoubleBuffered := doubleBuffered;
+end;
+
 procedure TfrmTacticalDisplay.SetFCTargetObjectobj(obj : TSimObject);
 var
   aObject : TObject;
@@ -4568,9 +4596,11 @@ procedure TfrmTacticalDisplay.tbtnStartGameClick(Sender: TObject);
 var
   r: TRecCmd_GameCtrl;
 begin ;
+
   r.GameCtrl := CORD_ID_start;
   r.GameSpeed := 1.0;
   r.SessionID := simMgrClient.SessionID;
+
   simMgrClient.netSend_CmdGameControl(r);
 
   // Tambahan Prince : memanggil fungsi killtask   //mk

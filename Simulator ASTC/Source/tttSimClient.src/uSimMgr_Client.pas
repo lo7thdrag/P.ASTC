@@ -3187,26 +3187,37 @@ begin
       // Application terminate!
     end;
   end;
+  {$ENDREGION}
 
-  //nando add for Communication
+  {$REGION ' Load Communication '}
   Scenario.LoadCommunicationFromDB(vSet.ScenarioID);
+  {$ENDREGION}
 
+  {$REGION ' Load Game Area '}
   S := UpperCase(Trim(GameEnvironment.FGameArea.Detail_Map));
-  if S = 'ENC' then
-    fGeo := vMapSetting.MapENCPath + FScenario.MapGeosetName
-  else
-    fGeo := vMapSetting.MapPath + FScenario.MapGeosetName;
+
+  fGeo := vMapSetting.MapPath + FScenario.MapGeosetName;
 
   if FileExists(fGeo) then
   begin
-    VSimMap.LoadMap(fGeo);
+    try
+      VSimMap.LoadMap(fGeo);
 
-    if Assigned(ControlledPlatform) then
-      VSimMap.FMap.ZoomTo(50, ControlledPlatform.getPositionX,
-        ControlledPlatform.getPositionY)
-    else
-      VSimMap.FMap.ZoomTo(50, VSimMap.FMap.CenterX, VSimMap.FMap.CenterY);
+      if Assigned(ControlledPlatform) then
+        VSimMap.FMap.ZoomTo(50, ControlledPlatform.getPositionX, ControlledPlatform.getPositionY)
+      else
+        VSimMap.FMap.ZoomTo(50, VSimMap.FMap.CenterX, VSimMap.FMap.CenterY);
+    except
+      on e : Exception do
+      begin
+        if Assigned(OnLogStr) then
+        begin
+          OnLogStr('LoadScenarioID', E.ClassName+' error raised, with message : '+E.Message);
+        end;
+      end;
+    end;
   end;
+  {$ENDREGION}
 
   {Prince : Load Overlay}
   if (FScenario.ListOverlayFromDB.Count > 0) then
