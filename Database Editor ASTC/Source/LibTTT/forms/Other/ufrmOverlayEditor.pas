@@ -471,6 +471,9 @@ type
     procedure FormDestroy(Sender: TObject);
 
   private
+    isAdd : Boolean;
+    FDrawRect : TRect;
+    FIsCapturingScreen : Boolean;
     FIsMouseDown : Boolean;
 
     FZoomRectStart : TPoint;
@@ -3150,7 +3153,20 @@ end;
 
 procedure TOverlayEditorForm.Map1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
 begin
-//  UpdateCursorPositionData(X, Y);
+  UpdateCursorPositionData(X, Y);
+
+  if isAdd and FIsMouseDown then
+  begin
+    FDrawRect.BottomRight := Point(X, Y);
+    Map1.Repaint;
+  end;
+
+  if FIsCapturingScreen and FIsMouseDown then
+  begin
+    fScrCapture.PActually := Point(X, Y);
+    FDrawRect.BottomRight := Point(X, Y);
+    Map1.Repaint;
+  end;
 
   if btnZoom.Down and FIsMouseDown then
   begin
@@ -3191,17 +3207,18 @@ begin
         MouseIsDown := false;
       end;
     end;
-
-    {$Region ' Set Zoom '}
-    if btnZoom.Down and FIsMouseDown then
-    begin
-      FIsMouseDown := False;
-      FZoomRectEnd:= Point(X, Y);
-      Map1.OnMapViewChanged := Map1MapViewChanged;
-      Map1.Repaint;
-    end;
-    {$ENDREGION}
   end;
+
+  {$Region ' Set Zoom '}
+  if btnZoom.Down and FIsMouseDown then
+  begin
+    FIsMouseDown := False;
+
+    FZoomRectEnd:= Point(X, Y);
+    Map1.OnMapViewChanged := Map1MapViewChanged;
+    Map1.Repaint;
+  end;
+  {$ENDREGION}
 //  Map1.repaint;     // dimatikan dl, msh coba polygon nya
 end;
 
