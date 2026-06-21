@@ -101,6 +101,7 @@ type
     pnl1Header: TPanel;
     pnl3: TPanel;
     pnl4: TPanel;
+    btnLayerTool: TToolButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -150,6 +151,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure GroupBox1Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnLayerToolClick(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -399,6 +401,13 @@ begin
   finally
     ReleaseDC(GetDesktopWindow, dc);
   end;
+end;
+
+procedure TfrmEnvironmentCharacteristic.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  VSimMap.FMap.Layers.LayersDlg(vHelpFile, vHelpID);
 end;
 
 procedure TfrmEnvironmentCharacteristic.edtPredictionRangeKeyPress(Sender: TObject;var Key: Char);

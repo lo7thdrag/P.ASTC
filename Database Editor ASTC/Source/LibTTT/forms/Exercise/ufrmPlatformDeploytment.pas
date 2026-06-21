@@ -7,7 +7,7 @@ uses
   Dialogs, ExtCtrls, StdCtrls, Buttons, ImgList, OleCtrls, MapXLib_TLB,
   ComCtrls, ToolWin, uDBAsset_Deploy, uDBAssetObject, uDBAsset_GameEnvironment,
   uCoordConvertor, uObjectVisuals, uTRuler, System.ImageList,
-  Vcl.Imaging.pngimage, uSimContainers, tttData, uBaseCoordSystem;
+  Vcl.Imaging.pngimage, uSimContainers, tttData, uBaseCoordSystem, uMapXHandler;
 
 type
   E_MapClickEvent = (mceHook, mceMove, mceApproximatePosition,
@@ -341,6 +341,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure lvPlatformClick(Sender: TObject);
     procedure UpAllToolbarButton;
+    procedure btnLayerToolClick(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -1172,6 +1173,14 @@ begin
   cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
   cbbScaleChange(cbbScale);
 end;
+
+procedure TfrmPlatformDeploytment.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  VSimMap.FMap.Layers.LayersDlg(vHelpFile, vHelpID);
+end;
+
 
 procedure TfrmPlatformDeploytment.btnCenterHookClick(Sender: TObject);
 var

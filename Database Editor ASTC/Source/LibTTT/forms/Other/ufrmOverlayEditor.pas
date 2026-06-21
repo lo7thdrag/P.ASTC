@@ -397,6 +397,7 @@ type
     btnApply: TButton;
     btnDelete: TButton;
     pnl2SparatorHor2: TPanel;
+    btnLayerTool: TToolButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -469,6 +470,7 @@ type
     procedure edtSectorEndAngleDKeyPress(Sender: TObject; var Key: Char);
     procedure btnApplyClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnLayerToolClick(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -1428,6 +1430,13 @@ begin
     resultTemp[b] := arrayStringTemp[b];
     cbSetScale.Items.add(resultTemp[b]);
   end;
+end;
+
+procedure TOverlayEditorForm.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  VSimMap.FMap.Layers.LayersDlg(vHelpFile, vHelpID);
 end;
 
 procedure TOverlayEditorForm.txtColorSelectClick(Sender: TObject);
