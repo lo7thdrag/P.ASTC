@@ -1178,7 +1178,7 @@ procedure TfrmPlatformDeploytment.btnLayerToolClick(Sender: TObject);
 var
   vHelpFile, vHelpID : OleVariant;
 begin
-  VSimMap.FMap.Layers.LayersDlg(vHelpFile, vHelpID);
+  Map1.Layers.LayersDlg(vHelpFile, vHelpID);
 end;
 
 
