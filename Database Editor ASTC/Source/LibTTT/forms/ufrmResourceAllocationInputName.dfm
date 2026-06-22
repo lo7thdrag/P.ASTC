@@ -3,8 +3,8 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
   Top = 0
   BorderIcons = []
   BorderStyle = bsToolWindow
-  ClientHeight = 157
-  ClientWidth = 330
+  ClientHeight = 158
+  ClientWidth = 324
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 330
-    Height = 157
+    Width = 324
+    Height = 158
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44845,30 +44845,27 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 330
-    Height = 157
+    Width = 324
+    Height = 158
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitLeft = 136
-    ExplicitTop = 104
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 330
+    ExplicitHeight = 157
     object pnl3Button: TPanel
       Left = 1
-      Top = 113
-      Width = 328
+      Top = 114
+      Width = 322
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = clBtnShadow
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 114
-      ExplicitWidth = 330
+      ExplicitTop = 113
+      ExplicitWidth = 328
       object btnCancel: TButton
         Left = 228
-        Top = 9
+        Top = 4
         Width = 80
         Height = 30
         Caption = 'Cancel'
@@ -44883,7 +44880,7 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
       end
       object btnOK: TButton
         Left = 143
-        Top = 9
+        Top = 4
         Width = 80
         Height = 30
         Caption = 'OK'
@@ -44900,26 +44897,25 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
     object pnl2ControlPage: TPanel
       Left = 1
       Top = 1
-      Width = 328
-      Height = 112
+      Width = 322
+      Height = 113
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 1
-      ExplicitTop = -116
-      ExplicitWidth = 183
-      ExplicitHeight = 157
+      ExplicitWidth = 328
+      ExplicitHeight = 112
       object pnlPlatformInstance: TPanel
         Left = 10
         Top = 10
-        Width = 308
-        Height = 92
+        Width = 302
+        Height = 93
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 310
-        ExplicitHeight = 137
+        ExplicitWidth = 308
+        ExplicitHeight = 92
         object lblName: TLabel
           Left = 3
           Top = 18

@@ -1208,7 +1208,9 @@ end;
 
 procedure TfrmPlatformDeploytment.btnMoveToolClick(Sender: TObject);
 begin
-  FMapClickEvent := mceMove;
+  UpAllToolbarButton;
+  btnMoveTool.Down := True;
+//  FMapClickEvent := mceMove;
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
 end;
