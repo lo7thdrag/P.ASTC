@@ -154,28 +154,24 @@ uses
 var
   Mutex : THandle;
 begin
-  MyMsg := RegisterWindowMessage('GameServer_Message');
-  Mutex := CreateMutex(nil, True, 'GameServer_Mutex');
+  MyMsg := RegisterWindowMessage('ASTCGameServer_Message');
+  Mutex := CreateMutex(nil, True, 'ASTCGameServer_Mutex');
   if (Mutex = 0) OR (GetLastError = ERROR_ALREADY_EXISTS) then
   begin
     SendMessage(HWND_BROADCAST, MyMsg, 0, 0);
 
     Application.MessageBox('Another Game Server has already running.',
-      'TTT Game Server', MB_OK + MB_ICONINFORMATION);
+      'Game Server', MB_OK + MB_ICONINFORMATION);
   end
   else
   begin
     Application.Initialize;
-
    //Application.MainFormOnTaskbar := True;
 
-
-//    Application.Title := 'TTT Game Server';
+    Application.Title := 'Game Server';
     Application.CreateForm(TdmTTT, dmTTT);
-  Application.CreateForm(TfMainGServer, fMainGServer);
-  Application.CreateForm(TdmTTT, dmTTT);
-  Application.CreateForm(TfMainGServer, fMainGServer);
-  fMainGServer.LogFile.FileName := ChangeFileExt(Application.ExeName, '.Log');
+    Application.CreateForm(TfMainGServer, fMainGServer);
+    fMainGServer.LogFile.FileName := ChangeFileExt(Application.ExeName, '.Log');
     fMainGServer.LogFile.Init;
     uScriptSimServer.BeginGame_Server;
 

@@ -115,19 +115,20 @@ begin
     Result := li;
 end;
 
-procedure TfrmMainSessionSvr.UpdateToConnectionList(const sIp: string;
-    const aConnect: Boolean);
+procedure TfrmMainSessionSvr.UpdateToConnectionList(const sIp: string; const aConnect: Boolean);
 const
   CSCon : array[Boolean] of string = ('DisConected', 'Connected');
 var li: TListItem;
+
 begin
   li := FindOnList(lvConnection, sIp, -1);
-  if li = nil then begin
+
+  if li = nil then
+  begin
     li := lvConnection.Items.Add;
     li.Caption := sIp;
     li.SubItems.Add(CSCon[aConnect]);
     li.SubItems.Add(TimeStr);
-
   end
   else begin
     li.SubItems[0] := CSCon[aConnect];
