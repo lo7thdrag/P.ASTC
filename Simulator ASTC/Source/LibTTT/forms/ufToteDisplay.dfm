@@ -40,24 +40,27 @@ object frmToteDisplay: TfrmToteDisplay
     Panels = <>
   end
   object pnlGroupBox: TPanel
-    Left = 345
+    Left = 813
     Top = 2
-    Width = 975
+    Width = 507
     Height = 3517
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitLeft = 345
+    ExplicitWidth = 975
     object gbAudioRecordTracks: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 11
+      ExplicitWidth = 975
       object Panel14: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -71,23 +74,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl14Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel14: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel14: TLabel
@@ -101,11 +107,12 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl14Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel41: TPanel
@@ -340,10 +347,6 @@ object frmToteDisplay: TfrmToteDisplay
             TabOrder = 0
             object TabSheet6: TTabSheet
               Caption = 'External'
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel67: TPanel
                 Left = 0
                 Top = 0
@@ -401,10 +404,6 @@ object frmToteDisplay: TfrmToteDisplay
             object TabSheet7: TTabSheet
               Caption = 'Internal'
               ImageIndex = 1
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 0
-              ExplicitHeight = 0
               object Panel68: TPanel
                 Left = 0
                 Top = 0
@@ -438,14 +437,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbCommunicationsChannelDefinition: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 7
+      ExplicitWidth = 975
       object Panel9: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -459,23 +459,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl9Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel9: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel9: TLabel
@@ -489,26 +492,28 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl9Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel24: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object sgCommChannelDef: TStringGrid
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 3426
           Align = alClient
           ColCount = 7
@@ -520,6 +525,7 @@ object frmToteDisplay: TfrmToteDisplay
           OnDrawCell = sgCommChannelDefDrawCell
           OnKeyPress = sgCommChannelDefKeyPress
           OnSelectCell = sgCommChannelDefSelectCell
+          ExplicitWidth = 965
           ColWidths = (
             116
             98
@@ -551,14 +557,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbCommunicationsInterference: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 9
+      ExplicitWidth = 975
       object Panel11: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -572,23 +579,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl11Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel11: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel11: TLabel
@@ -602,49 +612,50 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl11Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel32: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object PageControl1: TPageControl
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 3426
           ActivePage = TabSheet4
           Align = alClient
           TabOrder = 0
+          ExplicitWidth = 965
           object TabSheet4: TTabSheet
             Caption = 'Injection'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
+            ExplicitWidth = 957
             object Panel53: TPanel
               Left = 0
               Top = 0
-              Width = 957
+              Width = 489
               Height = 3398
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
+              ExplicitWidth = 957
               object sgComInInjection: TStringGrid
                 Left = 10
                 Top = 10
-                Width = 937
+                Width = 469
                 Height = 3378
                 Align = alClient
                 ColCount = 4
@@ -653,6 +664,7 @@ object frmToteDisplay: TfrmToteDisplay
                 RowCount = 99
                 TabOrder = 0
                 OnSelectCell = sgComInInjectionSelectCell
+                ExplicitWidth = 937
                 ColWidths = (
                   120
                   202
@@ -680,10 +692,7 @@ object frmToteDisplay: TfrmToteDisplay
           object TabSheet5: TTabSheet
             Caption = 'Volume'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
+            ExplicitWidth = 957
             object Label133: TLabel
               Left = 12
               Top = 17
@@ -804,14 +813,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbCubicleGroups: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 12
+      ExplicitWidth = 975
       object Panel15: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -825,23 +835,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl15Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel15: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel15: TLabel
@@ -855,11 +868,12 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl15Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel38: TPanel
@@ -924,10 +938,6 @@ object frmToteDisplay: TfrmToteDisplay
           TabOrder = 0
           object TabSheet8: TTabSheet
             Caption = 'Platform'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Panel63: TPanel
               Left = 0
               Top = 0
@@ -957,10 +967,6 @@ object frmToteDisplay: TfrmToteDisplay
           object TabSheet9: TTabSheet
             Caption = 'Responsibility'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label157: TLabel
               Left = 9
               Top = 13
@@ -1011,14 +1017,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbDatalinkControl: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 10
+      ExplicitWidth = 975
       object Panel12: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -1032,23 +1039,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl12Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel12: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel12: TLabel
@@ -1062,11 +1072,12 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl12Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel29: TPanel
@@ -1284,26 +1295,28 @@ object frmToteDisplay: TfrmToteDisplay
       object Panel31: TPanel
         Left = 525
         Top = 82
-        Width = 449
+        Width = 13
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 3
+        ExplicitWidth = 449
         object Panel96: TPanel
           Left = 4
           Top = 3390
-          Width = 441
+          Width = 5
           Height = 40
           Align = alBottom
           BevelOuter = bvNone
           BorderWidth = 30
           TabOrder = 0
+          ExplicitWidth = 441
           DesignSize = (
-            441
+            5
             40)
           object btnStopDataLink: TSpeedButton
-            Left = 384
+            Left = -52
             Top = 6
             Width = 25
             Height = 24
@@ -1361,7 +1374,7 @@ object frmToteDisplay: TfrmToteDisplay
             ExplicitLeft = 386
           end
           object btnPlayDataLink: TSpeedButton
-            Left = 416
+            Left = -20
             Top = 6
             Width = 25
             Height = 24
@@ -1409,11 +1422,12 @@ object frmToteDisplay: TfrmToteDisplay
         object Panel97: TPanel
           Left = 4
           Top = 4
-          Width = 441
+          Width = 5
           Height = 137
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 441
           object Label143: TLabel
             Left = 11
             Top = 114
@@ -1425,7 +1439,7 @@ object frmToteDisplay: TfrmToteDisplay
         object lvParticipatingUnits: TListView
           Left = 4
           Top = 141
-          Width = 441
+          Width = 5
           Height = 3249
           Align = alClient
           Anchors = [akLeft, akTop, akBottom]
@@ -1441,6 +1455,8 @@ object frmToteDisplay: TfrmToteDisplay
               Caption = 'Name'
               MaxWidth = 200
               MinWidth = 200
+              WidthType = (
+                -200)
             end
             item
               Caption = 'Status'
@@ -1453,6 +1469,7 @@ object frmToteDisplay: TfrmToteDisplay
           StateImages = ILDataLink
           TabOrder = 2
           ViewStyle = vsReport
+          ExplicitWidth = 441
         end
       end
       object Panel30: TPanel
@@ -1487,14 +1504,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbDataLinkStatus: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 18
+      ExplicitWidth = 975
       object pnlDS2: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -1508,23 +1526,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnlDS2Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanelDS2: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblimgPanelDS2: TLabel
@@ -1538,36 +1559,39 @@ object frmToteDisplay: TfrmToteDisplay
         object pnlDS2Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object pnlDS8: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object pnlDS9: TPanel
           Left = 4
           Top = 3390
-          Width = 965
+          Width = 497
           Height = 40
           Align = alBottom
           BevelOuter = bvNone
           BorderWidth = 30
           TabOrder = 0
+          ExplicitWidth = 965
         end
         object lvDS2: TListView
           Left = 4
           Top = 104
-          Width = 965
+          Width = 497
           Height = 3286
           Align = alClient
           Anchors = [akLeft, akTop, akBottom]
@@ -1595,15 +1619,17 @@ object frmToteDisplay: TfrmToteDisplay
           StateImages = ILDataLink
           TabOrder = 2
           ViewStyle = vsReport
+          ExplicitWidth = 965
         end
         object pnlDS10: TPanel
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 100
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 965
           object lblDS5: TLabel
             Left = 5
             Top = 79
@@ -1645,14 +1671,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbEmitterStatus: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 17
+      ExplicitWidth = 975
       object Panel98: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -1666,23 +1693,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl98Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel98: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel98: TLabel
@@ -1696,26 +1726,28 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl98Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel99: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object sgEmitters: TStringGrid
           Left = 4
           Top = 130
-          Width = 965
+          Width = 497
           Height = 3300
           Align = alClient
           ColCount = 7
@@ -1723,6 +1755,7 @@ object frmToteDisplay: TfrmToteDisplay
           FixedCols = 0
           RowCount = 100
           TabOrder = 0
+          ExplicitWidth = 965
           ColWidths = (
             116
             98
@@ -1735,10 +1768,11 @@ object frmToteDisplay: TfrmToteDisplay
         object Panel100: TPanel
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 126
           Align = alTop
           TabOrder = 1
+          ExplicitWidth = 965
           object Label9: TLabel
             Left = 10
             Top = 14
@@ -1791,11 +1825,12 @@ object frmToteDisplay: TfrmToteDisplay
           object Label16: TLabel
             Left = 1
             Top = 112
-            Width = 46
+            Width = 495
             Height = 13
             Align = alBottom
             Anchors = [akRight, akBottom]
             Caption = 'Emitters :'
+            ExplicitWidth = 46
           end
         end
       end
@@ -1803,14 +1838,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbEnvironmentControl: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 13
+      ExplicitWidth = 975
       object Panel16: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -1824,23 +1860,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl16Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel16: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel16: TLabel
@@ -1854,38 +1893,42 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl16Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel23: TPanel
         Left = 343
         Top = 82
-        Width = 631
+        Width = 163
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 2
+        ExplicitWidth = 631
         object Panel55: TPanel
           Left = 4
           Top = 4
-          Width = 623
+          Width = 155
           Height = 770
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitWidth = 623
           object Panel56: TPanel
             Left = 0
             Top = 730
-            Width = 623
+            Width = 155
             Height = 40
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 0
+            ExplicitWidth = 623
             object Button40: TButton
               Left = 360
               Top = 10
@@ -1907,11 +1950,12 @@ object frmToteDisplay: TfrmToteDisplay
           object Panel92: TPanel
             Left = 0
             Top = 0
-            Width = 623
+            Width = 155
             Height = 730
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 1
+            ExplicitWidth = 623
             object pcEnvironmentControl: TPageControl
               Left = 0
               Top = 0
@@ -1922,10 +1966,6 @@ object frmToteDisplay: TfrmToteDisplay
               TabOrder = 0
               object tsAboveWater: TTabSheet
                 Caption = 'Above Water'
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 0
-                ExplicitHeight = 0
                 object GroupBox6: TGroupBox
                   Left = 10
                   Top = 130
@@ -2337,10 +2377,6 @@ object frmToteDisplay: TfrmToteDisplay
               object tsSurface: TTabSheet
                 Caption = 'Surface and Subsurface'
                 ImageIndex = 1
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 0
-                ExplicitHeight = 0
                 object Label194: TLabel
                   Left = 308
                   Top = 12
@@ -2808,10 +2844,6 @@ object frmToteDisplay: TfrmToteDisplay
               object tsBoundary: TTabSheet
                 Caption = 'Boundaries'
                 ImageIndex = 2
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 0
-                ExplicitHeight = 0
                 object GroupBox9: TGroupBox
                   Left = 10
                   Top = 3
@@ -2872,14 +2904,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbEnvironmentStatus: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 1
+      ExplicitWidth = 975
       object Panel3: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -2893,23 +2926,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl3Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel3: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel3: TLabel
@@ -2923,22 +2959,24 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl3Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel21: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object Label81: TLabel
           Left = 11
           Top = 14
@@ -3396,14 +3434,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbMergedTracksStatus: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 16
+      ExplicitWidth = 975
       object Panel46: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -3417,23 +3456,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl46Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel46: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel46: TLabel
@@ -3447,11 +3489,12 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl46Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel47: TPanel
@@ -3638,14 +3681,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbMessageHandlingSystem: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 6
+      ExplicitWidth = 975
       object Panel8: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -3659,23 +3703,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl8Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel8: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel8: TLabel
@@ -3689,48 +3736,49 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl8Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel25: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object pcReceived: TPageControl
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 3072
           ActivePage = TabSheet1
           Align = alClient
           TabOrder = 0
+          ExplicitWidth = 963
           object TabSheet1: TTabSheet
             Caption = 'Received'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
+            ExplicitWidth = 955
             object Panel74: TPanel
               Left = 0
               Top = 0
-              Width = 955
+              Width = 487
               Height = 3044
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
+              ExplicitWidth = 955
               object lvReceive: TListView
                 Left = 10
                 Top = 10
-                Width = 935
+                Width = 467
                 Height = 3024
                 Align = alClient
                 Columns = <
@@ -3754,29 +3802,28 @@ object frmToteDisplay: TfrmToteDisplay
                 TabOrder = 0
                 ViewStyle = vsReport
                 OnClick = lvReceiveClick
+                ExplicitWidth = 935
               end
             end
           end
           object TabSheet2: TTabSheet
             Caption = 'Sent'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
+            ExplicitWidth = 955
             object Panel78: TPanel
               Left = 0
               Top = 0
-              Width = 955
+              Width = 487
               Height = 3044
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
+              ExplicitWidth = 955
               object lvSent: TListView
                 Left = 10
                 Top = 10
-                Width = 935
+                Width = 467
                 Height = 3024
                 Align = alClient
                 Columns = <
@@ -3800,29 +3847,28 @@ object frmToteDisplay: TfrmToteDisplay
                 TabOrder = 0
                 ViewStyle = vsReport
                 OnClick = lvSentClick
+                ExplicitWidth = 935
               end
             end
           end
           object TabSheet3: TTabSheet
             Caption = 'Draft'
             ImageIndex = 2
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
+            ExplicitWidth = 955
             object Panel82: TPanel
               Left = 0
               Top = 0
-              Width = 955
+              Width = 487
               Height = 3044
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
+              ExplicitWidth = 955
               object lvDraft: TListView
                 Left = 10
                 Top = 10
-                Width = 935
+                Width = 467
                 Height = 3024
                 Align = alClient
                 Columns = <
@@ -3846,6 +3892,7 @@ object frmToteDisplay: TfrmToteDisplay
                 TabOrder = 0
                 ViewStyle = vsReport
                 OnClick = lvDraftClick
+                ExplicitWidth = 935
               end
             end
           end
@@ -3853,17 +3900,19 @@ object frmToteDisplay: TfrmToteDisplay
         object Panel20: TPanel
           Left = 5
           Top = 3077
-          Width = 963
+          Width = 495
           Height = 352
           Align = alBottom
           TabOrder = 1
+          ExplicitWidth = 963
           object Panel49: TPanel
             Left = 1
             Top = 296
-            Width = 961
+            Width = 493
             Height = 55
             Align = alBottom
             TabOrder = 0
+            ExplicitWidth = 961
             object btnNew: TButton
               Left = 6
               Top = 14
@@ -3931,19 +3980,21 @@ object frmToteDisplay: TfrmToteDisplay
           object Panel75: TPanel
             Left = 1
             Top = 1
-            Width = 961
+            Width = 493
             Height = 295
             Align = alClient
             TabOrder = 1
+            ExplicitWidth = 961
             object mmoMessage: TMemo
               Left = 1
               Top = 1
-              Width = 959
+              Width = 491
               Height = 293
               Align = alClient
               Lines.Strings = (
                 '')
               TabOrder = 0
+              ExplicitWidth = 959
             end
           end
         end
@@ -3952,14 +4003,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbPlatformRemovalSummary: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 3
+      ExplicitWidth = 975
       object Panel6: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -3973,23 +4025,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl6Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel6: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel6: TLabel
@@ -4003,35 +4058,38 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl6Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel28: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 1110
         Align = alTop
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object Panel90: TPanel
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 649
           Align = alTop
           BevelOuter = bvNone
           BorderWidth = 10
           TabOrder = 0
+          ExplicitWidth = 965
           object lvPlatformRemovalSum: TListView
             Left = 10
             Top = 10
-            Width = 945
+            Width = 477
             Height = 629
             Align = alClient
             Columns = <
@@ -4051,6 +4109,7 @@ object frmToteDisplay: TfrmToteDisplay
             StateImages = ImageList1
             TabOrder = 0
             ViewStyle = vsReport
+            ExplicitWidth = 945
           end
         end
       end
@@ -4058,14 +4117,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbSensorOverride: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 14
+      ExplicitWidth = 975
       object Panel17: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4079,23 +4139,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl17Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel17: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel17: TLabel
@@ -4109,11 +4172,12 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl17Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel33: TPanel
@@ -4162,37 +4226,41 @@ object frmToteDisplay: TfrmToteDisplay
       object Panel18: TPanel
         Left = 614
         Top = 82
-        Width = 360
+        Width = 163
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 2
+        ExplicitWidth = 360
         object Panel19: TPanel
           Left = 4
           Top = 4
-          Width = 352
+          Width = 155
           Height = 3426
           Align = alClient
           TabOrder = 0
+          ExplicitWidth = 352
           DesignSize = (
-            352
+            155
             3426)
           object Bevel12: TBevel
             Left = 108
             Top = 30
-            Width = 240
+            Width = 43
             Height = 7
             Anchors = [akLeft, akTop, akRight]
             Shape = bsBottomLine
+            ExplicitWidth = 240
           end
           object Bevel13: TBevel
             Left = 83
             Top = 167
-            Width = 265
+            Width = 68
             Height = 7
             Anchors = [akLeft, akTop, akRight]
             Shape = bsBottomLine
+            ExplicitWidth = 265
           end
           object Label224: TLabel
             Left = 18
@@ -4314,14 +4382,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbSettings: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 15
+      ExplicitWidth = 975
       object Panel44: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
@@ -4329,14 +4398,16 @@ object frmToteDisplay: TfrmToteDisplay
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
+        ExplicitWidth = 973
         object Panel45: TPanel
           Left = 4
           Top = 3271
-          Width = 965
+          Width = 497
           Height = 159
           Align = alBottom
           BorderStyle = bsSingle
           TabOrder = 0
+          ExplicitWidth = 965
           object btnSetXML: TButton
             Left = 786
             Top = 15
@@ -4513,7 +4584,7 @@ object frmToteDisplay: TfrmToteDisplay
         object tvSettings: TTreeView
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 3267
           Align = alClient
           AutoExpand = True
@@ -4720,12 +4791,13 @@ object frmToteDisplay: TfrmToteDisplay
             00FFFFFFFFFFFFFFFF0000000000000000000000000123500072006F00630065
             0073007300200077006500610070006F006E00200062006C0069006E00640020
             007A006F006E006500730020005B0045006E00610062006C0065005D00}
+          ExplicitWidth = 965
         end
       end
       object Panel43: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4739,23 +4811,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl43Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel43: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel43: TLabel
@@ -4769,25 +4844,27 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl43Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
     end
     object gbWeaponEngagementsSUmmary: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 2
+      ExplicitWidth = 975
       object Panel5: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4800,20 +4877,22 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl5Title: TPanel
           Left = 1
           Top = 41
-          Width = 971
+          Width = 503
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 971
           object imgPanel5: TImage
             Left = 0
             Top = 0
-            Width = 971
+            Width = 503
             Height = 40
             Align = alClient
             Stretch = True
@@ -4831,26 +4910,28 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl5top: TPanel
           Left = 1
           Top = 1
-          Width = 971
+          Width = 503
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 971
         end
       end
       object Panel1: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object lvWeaponEngagement: TListView
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 3426
           Align = alClient
           Columns = <
@@ -4876,20 +4957,22 @@ object frmToteDisplay: TfrmToteDisplay
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
+          ExplicitWidth = 965
         end
       end
     end
     object gbCommunicationsChannelMapping: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 8
+      ExplicitWidth = 975
       object Panel10: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4903,23 +4986,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl10Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel10: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel10: TLabel
@@ -4933,11 +5019,12 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl10Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel35: TPanel
@@ -5310,14 +5397,15 @@ object frmToteDisplay: TfrmToteDisplay
     object gbSurfaceToAir: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 4
+      ExplicitWidth = 975
       object Panel4: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -5331,23 +5419,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl4Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel4: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel4: TLabel
@@ -5361,47 +5452,51 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl4Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel27: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object Panel89: TPanel
           Left = 4
           Top = 2954
-          Width = 965
+          Width = 497
           Height = 476
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitWidth = 965
           DesignSize = (
-            965
+            497
             476)
           object btAbort: TButton
-            Left = 830
+            Left = 362
             Top = 0
             Width = 140
             Height = 50
             Anchors = [akTop, akRight]
             Caption = 'Abort'
             TabOrder = 0
+            ExplicitLeft = 830
           end
         end
         object sgSurfacetoAir: TStringGrid
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 2950
           Align = alClient
           ColCount = 8
@@ -5411,20 +5506,22 @@ object frmToteDisplay: TfrmToteDisplay
           RowCount = 20
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
           TabOrder = 1
+          ExplicitWidth = 965
         end
       end
     end
     object gbSurfaceToSurface: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       TabOrder = 5
+      ExplicitWidth = 975
       object Panel7: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -5438,23 +5535,26 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 973
         object pnl7Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
+          ExplicitWidth = 963
           object imgPanel7: TImage
             Left = 0
             Top = 0
-            Width = 963
+            Width = 495
             Height = 40
             Align = alClient
             Stretch = True
+            ExplicitWidth = 963
             ExplicitHeight = 35
           end
           object lblImgPanel7: TLabel
@@ -5468,36 +5568,39 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl7Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitWidth = 963
         end
       end
       object Panel26: TPanel
         Left = 1
         Top = 82
-        Width = 973
+        Width = 505
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
+        ExplicitWidth = 973
         object Panel87: TPanel
           Left = 4
           Top = 2954
-          Width = 965
+          Width = 497
           Height = 476
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitWidth = 965
           DesignSize = (
-            965
+            497
             476)
           object btnAbortSurfaceToSurface: TButton
             AlignWithMargins = True
-            Left = 830
+            Left = 362
             Top = 1
             Width = 140
             Height = 50
@@ -5507,6 +5610,7 @@ object frmToteDisplay: TfrmToteDisplay
             Enabled = False
             TabOrder = 0
             OnClick = btnAbortSurfaceToSurfaceClick
+            ExplicitLeft = 830
           end
           object btnLaunch: TButton
             Left = 684
@@ -5522,7 +5626,7 @@ object frmToteDisplay: TfrmToteDisplay
         object sgSurfacetoSurface: TStringGrid
           Left = 4
           Top = 4
-          Width = 965
+          Width = 497
           Height = 2950
           Align = alClient
           ColCount = 8
@@ -5533,40 +5637,44 @@ object frmToteDisplay: TfrmToteDisplay
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
           TabOrder = 1
           OnSelectCell = sgSurfacetoSurfaceSelectCell
+          ExplicitWidth = 965
         end
       end
     end
     object gbPlatformStatus: TPanel
       Left = 0
       Top = 0
-      Width = 975
+      Width = 507
       Height = 3517
       Align = alClient
       ParentBackground = False
       TabOrder = 0
+      ExplicitWidth = 975
       object pnlPlatformLeft: TPanel
         Left = 1
         Top = 82
-        Width = 670
+        Width = 202
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 0
+        ExplicitWidth = 670
         object pnlPlatforms: TPanel
           Left = 4
           Top = 4
-          Width = 662
+          Width = 194
           Height = 1137
           Align = alClient
           BevelOuter = bvNone
           BorderWidth = 4
           DockSite = True
           TabOrder = 0
+          ExplicitWidth = 662
           object Label75: TLabel
             Left = 4
             Top = 4
-            Width = 654
+            Width = 186
             Height = 20
             Align = alTop
             AutoSize = False
@@ -5593,7 +5701,7 @@ object frmToteDisplay: TfrmToteDisplay
           object lvPlatforms: TListView
             Left = 4
             Top = 24
-            Width = 603
+            Width = 135
             Height = 1029
             Align = alClient
             BevelInner = bvNone
@@ -5628,24 +5736,17 @@ object frmToteDisplay: TfrmToteDisplay
             ViewStyle = vsReport
             OnMouseDown = lvPlatformsMouseDown
             OnSelectItem = lvPlatformsSelectItem
+            ExplicitWidth = 603
           end
           object Panel13: TPanel
             Left = 4
             Top = 1053
-            Width = 654
+            Width = 186
             Height = 80
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 1
-            object imgPanel13: TImage
-              Left = 0
-              Top = 0
-              Width = 654
-              Height = 80
-              Align = alClient
-              Stretch = True
-              ExplicitWidth = 30
-            end
+            ExplicitWidth = 654
             object imgbtSelectHookedPaltform: TImage
               Left = 79
               Top = 12
@@ -7340,6 +7441,15 @@ object frmToteDisplay: TfrmToteDisplay
               OnMouseEnter = imgbtHookSelectedPlatformMouseEnter
               OnMouseLeave = imgbtHookSelectedPlatformMouseLeave
             end
+            object imgPanel13: TImage
+              Left = 0
+              Top = 0
+              Width = 186
+              Height = 80
+              Align = alClient
+              Stretch = True
+              ExplicitWidth = 30
+            end
             object btSelectHookedPlatform: TButton
               Left = 356
               Top = 28
@@ -7362,37 +7472,31 @@ object frmToteDisplay: TfrmToteDisplay
             end
           end
           object pnlPlatformR: TPanel
-            Left = 607
+            Left = 139
             Top = 24
             Width = 51
             Height = 1029
             Align = alRight
             BevelOuter = bvNone
             TabOrder = 2
-            object imgPlatformR: TImage
-              Left = 0
-              Top = 0
-              Width = 51
-              Height = 1029
-              Align = alClient
-              Stretch = True
-            end
+            ExplicitLeft = 607
           end
         end
         object pnlPlatEmbarked: TPanel
           Left = 4
           Top = 1141
-          Width = 662
+          Width = 194
           Height = 2289
           Align = alBottom
           Anchors = [akLeft, akTop, akRight, akBottom]
           BevelOuter = bvNone
           BorderWidth = 4
           TabOrder = 1
+          ExplicitWidth = 662
           object Label79: TLabel
             Left = 4
             Top = 4
-            Width = 654
+            Width = 186
             Height = 19
             Align = alClient
             AutoSize = False
@@ -7418,7 +7522,7 @@ object frmToteDisplay: TfrmToteDisplay
           object tvEmbarkedPlatforms: TTreeView
             Left = 4
             Top = 17
-            Width = 654
+            Width = 186
             Height = 2241
             Align = alBottom
             Anchors = [akLeft, akTop, akRight, akBottom]
@@ -7431,45 +7535,36 @@ object frmToteDisplay: TfrmToteDisplay
             TabOrder = 0
             OnEdited = tvEmbarkedPlatformsEdited
             OnMouseDown = tvEmbarkedPlatformsMouseDown
+            ExplicitWidth = 654
           end
           object edtEmbarkQuantity: TEdit
             Left = 4
             Top = -4
-            Width = 654
+            Width = 186
             Height = 21
             Align = alBottom
             Color = clSilver
             TabOrder = 1
             Visible = False
             OnKeyPress = edtEmbarkQuantityKeyPress
+            ExplicitWidth = 654
           end
           object pnlEmbarkedBottom: TPanel
             Left = 4
             Top = 2258
-            Width = 654
+            Width = 186
             Height = 27
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 2
-            object imgEmbarkedB: TImage
-              Left = 0
-              Top = 0
-              Width = 654
-              Height = 27
-              Align = alClient
-              Stretch = True
-              ExplicitLeft = 13
-              ExplicitTop = 16
-              ExplicitWidth = 30
-              ExplicitHeight = 8
-            end
+            ExplicitWidth = 654
           end
         end
       end
       object Panel2: TPanel
         Left = 1
         Top = 1
-        Width = 973
+        Width = 505
         Height = 81
         Align = alTop
         BorderWidth = 4
@@ -7482,19 +7577,21 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 1
+        ExplicitWidth = 973
         object pnl2Top: TPanel
           Left = 5
           Top = 5
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitWidth = 963
         end
         object pnl2Title: TPanel
           Left = 5
           Top = 45
-          Width = 963
+          Width = 495
           Height = 40
           Align = alTop
           BevelOuter = bvNone
@@ -7502,15 +7599,7 @@ object frmToteDisplay: TfrmToteDisplay
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 1
-          object imgPanel2: TImage
-            Left = 0
-            Top = 0
-            Width = 963
-            Height = 40
-            Align = alClient
-            Stretch = True
-            ExplicitHeight = 35
-          end
+          ExplicitWidth = 963
           object lblImgPanel2: TLabel
             Left = 371
             Top = 4
@@ -7518,10 +7607,20 @@ object frmToteDisplay: TfrmToteDisplay
             Height = 27
             Caption = 'PLATFORM STATUS'
           end
+          object imgPanel2: TImage
+            Left = 0
+            Top = 0
+            Width = 495
+            Height = 40
+            Align = alClient
+            Stretch = True
+            ExplicitWidth = 963
+            ExplicitHeight = 35
+          end
         end
       end
       object pnlPlatformRight: TPanel
-        Left = 671
+        Left = 203
         Top = 82
         Width = 303
         Height = 3434
@@ -7530,6 +7629,7 @@ object frmToteDisplay: TfrmToteDisplay
         BorderWidth = 4
         ParentBackground = False
         TabOrder = 2
+        ExplicitLeft = 671
         object pnlPlatCounterMeasure: TPanel
           Left = 4
           Top = 2855
@@ -7669,18 +7769,6 @@ object frmToteDisplay: TfrmToteDisplay
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 2
-            object imgimgPlatSystemStateBottom: TImage
-              Left = 0
-              Top = 0
-              Width = 287
-              Height = 27
-              Align = alClient
-              Stretch = True
-              ExplicitLeft = 13
-              ExplicitTop = 16
-              ExplicitWidth = 30
-              ExplicitHeight = 8
-            end
           end
         end
         object pnlPlatSensor: TPanel
@@ -7805,18 +7893,6 @@ object frmToteDisplay: TfrmToteDisplay
             BevelOuter = bvNone
             TabOrder = 2
             Visible = False
-            object imgPlatWeaponBottom: TImage
-              Left = 0
-              Top = 0
-              Width = 287
-              Height = 27
-              Align = alClient
-              Stretch = True
-              ExplicitLeft = 13
-              ExplicitTop = 16
-              ExplicitWidth = 30
-              ExplicitHeight = 8
-            end
           end
         end
       end
@@ -7825,15 +7901,15 @@ object frmToteDisplay: TfrmToteDisplay
   object pnlLeft: TPanel
     Left = 0
     Top = 2
-    Width = 345
+    Width = 813
     Height = 3517
     Align = alLeft
     TabOrder = 3
     object CategoryPanelGroup1: TCategoryPanelGroup
       Left = 313
-      Top = 82
+      Top = 1
       Width = 345
-      Height = 3346
+      Height = 3427
       VertScrollBar.Tracking = True
       VertScrollBar.Visible = False
       BevelInner = bvNone
@@ -7847,9 +7923,11 @@ object frmToteDisplay: TfrmToteDisplay
       HeaderFont.Style = []
       TabOrder = 0
       Visible = False
+      ExplicitTop = 82
+      ExplicitHeight = 3346
       object CategoryPanelManagementOp: TCategoryPanel
-        Top = 745
-        Height = 93
+        Top = 749
+        Height = 220
         Caption = 'Management'
         Color = clGray
         TabOrder = 0
@@ -8207,11 +8285,12 @@ object frmToteDisplay: TfrmToteDisplay
         end
       end
       object CategoryPanelCommCub: TCategoryPanel
-        Top = 613
+        Top = 617
         Height = 132
         Caption = 'Communication'
         Color = clGray
         TabOrder = 1
+        ExplicitTop = 613
         object Label14: TLabel
           Left = 35
           Top = 45
@@ -8452,7 +8531,7 @@ object frmToteDisplay: TfrmToteDisplay
       end
       object CategoryPanelCommOp: TCategoryPanel
         Top = 488
-        Height = 125
+        Height = 129
         Caption = 'Communication'
         Color = clGray
         TabOrder = 2
@@ -9822,98 +9901,35 @@ object frmToteDisplay: TfrmToteDisplay
         end
       end
     end
-    object pnlLTop: TPanel
-      Left = 1
-      Top = 1
-      Width = 343
-      Height = 81
-      Align = alTop
-      BevelOuter = bvNone
-      TabOrder = 1
-      object imgLTop: TImage
-        Left = 0
-        Top = 41
-        Width = 343
-        Height = 40
-        Align = alClient
-        Stretch = True
-        ExplicitLeft = 104
-        ExplicitTop = 24
-        ExplicitWidth = 105
-        ExplicitHeight = 105
-      end
-      object pnlLTopHead: TPanel
-        Left = 0
-        Top = 0
-        Width = 343
-        Height = 41
-        Align = alTop
-        TabOrder = 0
-        object imgTitleLogo: TImage
-          Left = 89
-          Top = 0
-          Width = 165
-          Height = 41
-        end
-      end
-    end
-    object pnlLRight: TPanel
-      Left = 311
-      Top = 82
-      Width = 33
-      Height = 3346
-      Align = alRight
-      BevelOuter = bvNone
-      Caption = 'pnlLTop'
-      TabOrder = 2
-      object imgLRight: TImage
-        Left = 0
-        Top = 0
-        Width = 33
-        Height = 3346
-        Align = alClient
-        Stretch = True
-        ExplicitWidth = 35
-        ExplicitHeight = 3386
-      end
-    end
     object pnlLBottom: TPanel
       Left = 1
       Top = 3428
-      Width = 343
+      Width = 811
       Height = 88
       Align = alBottom
       BevelOuter = bvNone
       Caption = 'pnlLTop'
-      TabOrder = 3
-      object imgLBottom: TImage
-        Left = 0
-        Top = 0
-        Width = 343
-        Height = 88
-        Align = alClient
-        Stretch = True
-        ExplicitLeft = 104
-        ExplicitTop = 24
-        ExplicitWidth = 105
-        ExplicitHeight = 105
-      end
+      TabOrder = 1
+      ExplicitWidth = 343
     end
     object pnlLFill: TPanel
       Left = 658
-      Top = 82
-      Width = 343
-      Height = 3346
+      Top = 1
+      Width = 154
+      Height = 3427
       Align = alClient
       BevelOuter = bvNone
       Caption = 'pnlLTop'
-      TabOrder = 4
+      TabOrder = 2
       Visible = False
+      ExplicitTop = 82
+      ExplicitWidth = 343
+      ExplicitHeight = 3346
       object imgLFill: TImage
         Left = 0
         Top = 0
-        Width = 343
-        Height = 3346
+        Width = 154
+        Height = 3427
         Align = alClient
         Stretch = True
         ExplicitLeft = 104
@@ -9924,15 +9940,17 @@ object frmToteDisplay: TfrmToteDisplay
     end
     object pnlGroup: TPanel
       Left = 1
-      Top = 82
+      Top = 1
       Width = 312
-      Height = 3346
+      Height = 3427
       Align = alLeft
       BevelOuter = bvNone
       Color = 855309
       ParentBackground = False
-      TabOrder = 5
+      TabOrder = 3
       StyleElements = [seFont, seBorder]
+      ExplicitTop = 82
+      ExplicitHeight = 3346
       object pnlStatusOp: TPanel
         Left = 0
         Top = 0
