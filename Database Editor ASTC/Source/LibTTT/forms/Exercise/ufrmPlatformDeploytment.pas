@@ -7,7 +7,7 @@ uses
   Dialogs, ExtCtrls, StdCtrls, Buttons, ImgList, OleCtrls, MapXLib_TLB,
   ComCtrls, ToolWin, uDBAsset_Deploy, uDBAssetObject, uDBAsset_GameEnvironment,
   uCoordConvertor, uObjectVisuals, uTRuler, System.ImageList,
-  Vcl.Imaging.pngimage, uSimContainers, tttData, uBaseCoordSystem;
+  Vcl.Imaging.pngimage, uSimContainers, tttData, uBaseCoordSystem, uMapXHandler;
 
 type
   E_MapClickEvent = (mceHook, mceMove, mceApproximatePosition,
@@ -341,6 +341,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure lvPlatformClick(Sender: TObject);
     procedure UpAllToolbarButton;
+    procedure btnLayerToolClick(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -678,6 +679,8 @@ begin
   btnZoomTool.Down := False;
   btnMoveTool.Down := False;
   btnCenterHook.Down := False;
+  btn_Ruler.Down := False;
+  btnLayerTool.Down := False;
 
   isAdd := False;
 end;
@@ -1163,21 +1166,46 @@ end;
 
 procedure TfrmPlatformDeploytment.btnDecreaseScaleClick(Sender: TObject);
 begin
-  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+  UpAllToolbarButton;
+  if cbbScale.ItemIndex = 17 then
+    Exit;
+
+  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
   cbbScaleChange(cbbScale);
+//  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+//  cbbScaleChange(cbbScale);
 end;
 
 procedure TfrmPlatformDeploytment.btnIncreaseScaleClick(Sender: TObject);
 begin
-  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+  UpAllToolbarButton;
+  if cbbScale.ItemIndex = 0 then
+    Exit;
+
+  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
   cbbScaleChange(cbbScale);
+//  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+//  cbbScaleChange(cbbScale);
 end;
+
+procedure TfrmPlatformDeploytment.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  UpAllToolbarButton;
+  btnLayerTool.Down := True;
+  Map1.Layers.LayersDlg(vHelpFile, vHelpID);
+end;
+
 
 procedure TfrmPlatformDeploytment.btnCenterHookClick(Sender: TObject);
 var
   zoom : Double;
 begin
-  zoom := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
+  UpAllToolbarButton;
+  btnCenterHook.Down := True;
+  zoom := StrToFloat(cbbScale.Text);
+//  zoom := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
 
   with FSelectedEnviArea.FGameArea do
     Map1.ZoomTo(zoom, Game_Centre_Long, Game_Centre_Lat);
@@ -1194,12 +1222,16 @@ end;
 
 procedure TfrmPlatformDeploytment.btn_RulerClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
+  btn_Ruler.Down := True;
   Ruler.Show;
 end;
 
 procedure TfrmPlatformDeploytment.btnMoveToolClick(Sender: TObject);
 begin
-  FMapClickEvent := mceMove;
+  UpAllToolbarButton;
+  btnMoveTool.Down := True;
+//  FMapClickEvent := mceMove;
   Map1.CurrentTool := miPanTool;
   Map1.MousePointer := miPanCursor;
 end;
@@ -1277,10 +1309,12 @@ end;
 
 procedure TfrmPlatformDeploytment.btnHookClick(Sender: TObject);
 begin
-  FMapClickEvent := mceHook;
-
-  Map1.MousePointer := miDefaultCursor;
-  Map1.CurrentTool := miArrowTool;
+  UpAllToolbarButton;
+  btnHook.Down := True;
+//  FMapClickEvent := mceHook;
+//
+//  Map1.MousePointer := miDefaultCursor;
+//  Map1.CurrentTool := miArrowTool;
 
   Map1.CurrentTool := miArrowTool;
   Map1.MousePointer := miArrowCursor;

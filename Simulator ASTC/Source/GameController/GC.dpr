@@ -50,7 +50,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
 //  TStyleManager.TrySetStyle('CustomStyleGlow');
-//  Application.Title := 'TTT Game Controller';
+  Application.Title := 'Game Controller';
   Application.CreateForm(TDMGC, DMGC);
   Application.CreateForm(TfrmMainGC, frmMainGC);
   Application.CreateForm(TfrmStartSession, frmStartSession);

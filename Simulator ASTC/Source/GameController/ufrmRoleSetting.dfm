@@ -3,8 +3,8 @@ object frmRoleSetting: TfrmRoleSetting
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  ClientHeight = 244
-  ClientWidth = 360
+  ClientHeight = 267
+  ClientWidth = 389
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,18 +19,18 @@ object frmRoleSetting: TfrmRoleSetting
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 360
-    Height = 244
+    Width = 389
+    Height = 267
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 380
-    ExplicitHeight = 248
+    ExplicitWidth = 360
+    ExplicitHeight = 244
     object imgBackground: TImage
       Left = 0
       Top = 0
-      Width = 360
-      Height = 244
+      Width = 389
+      Height = 267
       Align = alClient
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000001FB0000
@@ -4302,46 +4302,46 @@ object frmRoleSetting: TfrmRoleSetting
       ExplicitHeight = 205
     end
     object lblRole: TLabel
-      Left = 15
-      Top = 16
+      Left = 18
+      Top = 15
       Width = 91
       Height = 21
       Caption = 'Role Mode :'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWhite
       Font.Height = -21
       Font.Name = 'Deusex'
       Font.Style = []
       ParentFont = False
     end
     object Label1: TLabel
-      Left = 45
-      Top = 115
-      Width = 95
-      Height = 18
+      Left = 59
+      Top = 129
+      Width = 111
+      Height = 20
       Caption = 'Tactical Screen'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -16
-      Font.Name = 'Berlin Sans FB'
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Deusex'
       Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 205
-      Top = 115
-      Width = 75
-      Height = 18
+      Left = 233
+      Top = 129
+      Width = 82
+      Height = 20
       Caption = 'Tote Screen'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -16
-      Font.Name = 'Berlin Sans FB'
+      Font.Color = clWhite
+      Font.Height = -20
+      Font.Name = 'Deusex'
       Font.Style = []
       ParentFont = False
     end
     object cbbRole: TComboBox
-      Left = 108
+      Left = 115
       Top = 62
       Width = 145
       Height = 27
@@ -4362,8 +4362,8 @@ object frmRoleSetting: TfrmRoleSetting
         'General')
     end
     object btnOK: TButton
-      Left = 184
-      Top = 202
+      Left = 213
+      Top = 225
       Width = 80
       Height = 30
       Align = alCustom
@@ -4378,12 +4378,12 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 1
       OnClick = btnOKClick
-      ExplicitLeft = 204
-      ExplicitTop = 206
+      ExplicitLeft = 184
+      ExplicitTop = 202
     end
     object btnCancel: TButton
-      Left = 267
-      Top = 202
+      Left = 296
+      Top = 225
       Width = 80
       Height = 30
       Align = alCustom
@@ -4398,20 +4398,20 @@ object frmRoleSetting: TfrmRoleSetting
       ParentFont = False
       TabOrder = 2
       OnClick = btnCancelClick
-      ExplicitLeft = 287
-      ExplicitTop = 206
+      ExplicitLeft = 267
+      ExplicitTop = 202
     end
     object cbTacticalSreen: TComboBox
-      Left = 45
-      Top = 136
+      Left = 59
+      Top = 153
       Width = 110
       Height = 21
       TabOrder = 3
       OnChange = cbTacticalSreenChange
     end
     object cbToteScreen: TComboBox
-      Left = 205
-      Top = 136
+      Left = 219
+      Top = 153
       Width = 110
       Height = 21
       TabOrder = 4

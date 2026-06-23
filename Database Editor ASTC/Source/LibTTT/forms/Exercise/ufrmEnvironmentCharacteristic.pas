@@ -13,9 +13,9 @@ type
   TfrmEnvironmentCharacteristic = class(TForm)
     ToolBar1: TToolBar;
     btnSelectPoint: TToolButton;
-    btnDecreaseScale: TToolButton;
-    cbbScale: TComboBox;
     btnIncreaseScale: TToolButton;
+    cbbScale: TComboBox;
+    btnDecreaseScale: TToolButton;
     btnZoomTool: TToolButton;
     btnMoveTool: TToolButton;
     btnCenterHook: TToolButton;
@@ -101,6 +101,7 @@ type
     pnl1Header: TPanel;
     pnl3: TPanel;
     pnl4: TPanel;
+    btnLayerTool: TToolButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -108,9 +109,9 @@ type
     procedure btnSelectPointClick(Sender: TObject);
     procedure btnAddPointClick(Sender: TObject);
     procedure btnDeletePointClick(Sender: TObject);
-    procedure btnDecreaseScaleClick(Sender: TObject);
-    procedure cbbScaleChange(Sender: TObject);
     procedure btnIncreaseScaleClick(Sender: TObject);
+    procedure cbbScaleChange(Sender: TObject);
+    procedure btnDecreaseScaleClick(Sender: TObject);
     procedure btnZoomToolClick(Sender: TObject);
     procedure btnMoveToolClick(Sender: TObject);
     procedure btnCenterHookClick(Sender: TObject);
@@ -150,6 +151,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure GroupBox1Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnLayerToolClick(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -401,6 +403,15 @@ begin
   end;
 end;
 
+procedure TfrmEnvironmentCharacteristic.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  UpAllToolbarButton;
+  btnLayerTool.Down := True;
+  Map1.Layers.LayersDlg(vHelpFile, vHelpID);
+end;
+
 procedure TfrmEnvironmentCharacteristic.edtPredictionRangeKeyPress(Sender: TObject;var Key: Char);
 var
   tmpFloat : Double;
@@ -544,6 +555,9 @@ begin
   btnZoomTool.Down := False;
   btnMoveTool.Down := False;
   btnCenterHook.Down := False;
+  btnLayerTool.Down := False;
+  btnIncreaseScale.Down := False;
+  btnDecreaseScale.Down := False;
 
   isAdd := False;
 end;
@@ -657,8 +671,9 @@ end;
 
 {$REGION ' ToolBar Handle '}
 
-procedure TfrmEnvironmentCharacteristic.btnDecreaseScaleClick(Sender: TObject);
+procedure TfrmEnvironmentCharacteristic.btnIncreaseScaleClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
   if cbbScale.ItemIndex = 0 then
     Exit;
 
@@ -690,8 +705,9 @@ begin
 
 end;
 
-procedure TfrmEnvironmentCharacteristic.btnIncreaseScaleClick(Sender: TObject);
+procedure TfrmEnvironmentCharacteristic.btnDecreaseScaleClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
   if cbbScale.ItemIndex = 17 then
     Exit;
 
@@ -748,8 +764,8 @@ procedure TfrmEnvironmentCharacteristic.btnCenterHookClick(Sender: TObject);
 var
   zoom : Double;
 begin
-//  UpAllToolbarButton;
-//  btnCenterHook.Down := True;
+  UpAllToolbarButton;
+  btnCenterHook.Down := True;
 
 //  Map1.CurrentTool := miArrowTool;
 //  Map1.MousePointer := miCrossCursor;

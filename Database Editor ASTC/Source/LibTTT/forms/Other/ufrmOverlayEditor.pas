@@ -15,9 +15,9 @@ type
 
   TOverlayEditorForm = class(TForm)
     ToolBar1: TToolBar;
-    btnDecreaseScale: TToolButton;
-    cbSetScale: TComboBox;
     btnIncreaseScale: TToolButton;
+    cbSetScale: TComboBox;
+    btnDecreaseScale: TToolButton;
     btnZoom: TToolButton;
     btnMoveMap: TToolButton;
     btnCenterOnGame: TToolButton;
@@ -397,6 +397,7 @@ type
     btnApply: TButton;
     btnDelete: TButton;
     pnl2SparatorHor2: TPanel;
+    btnLayerTool: TToolButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -417,8 +418,8 @@ type
     procedure OnKeyPress(Sender: TObject; var Key: Char);
 
     procedure cbSetScaleChange(Sender: TObject);
-    procedure btnDecreaseScaleClick(Sender: TObject);
     procedure btnIncreaseScaleClick(Sender: TObject);
+    procedure btnDecreaseScaleClick(Sender: TObject);
     procedure btnZoomClick(Sender: TObject);
     procedure btnMoveMapClick(Sender: TObject);
     procedure btnCenterOnGameClick(Sender: TObject);
@@ -469,6 +470,7 @@ type
     procedure edtSectorEndAngleDKeyPress(Sender: TObject; var Key: Char);
     procedure btnApplyClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnLayerToolClick(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -1430,6 +1432,13 @@ begin
   end;
 end;
 
+procedure TOverlayEditorForm.btnLayerToolClick(Sender: TObject);
+var
+  vHelpFile, vHelpID : OleVariant;
+begin
+  Map1.Layers.LayersDlg(vHelpFile, vHelpID);
+end;
+
 procedure TOverlayEditorForm.txtColorSelectClick(Sender: TObject);
 begin
   pnlColor.Visible := True;
@@ -2367,7 +2376,7 @@ end;
 
 {$REGION ' ToolBar Handle '}
 
-procedure TOverlayEditorForm.btnDecreaseScaleClick(Sender: TObject);
+procedure TOverlayEditorForm.btnIncreaseScaleClick(Sender: TObject);
 begin
   if cbSetScale.ItemIndex > 0 then
   begin
@@ -2417,7 +2426,7 @@ begin
 //  RefreshZoomButton;
 end;
 
-procedure TOverlayEditorForm.btnIncreaseScaleClick(Sender: TObject);
+procedure TOverlayEditorForm.btnDecreaseScaleClick(Sender: TObject);
 begin
   if (cbSetScale.ItemIndex <= 500) then
   begin

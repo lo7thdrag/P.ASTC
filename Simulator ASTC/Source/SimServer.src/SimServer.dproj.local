@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899-12-30 00:00:00.000.pas,D:\Projects\TTT\T3Ver.02\tttSimServer.src\Unit1.pas=D:\Projects\TTT\T3Ver.02\tttReplay\uRecorder.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,D:\astt.2\astt.project\T3.source\tttSimServer.src\Unit1.pas=D:\astt.2\astt.project\T3.source\tttSimServer.src\LibServer\uT3ServerEventManager.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\Assets\uGlobal.pas=E:\astt.2\astt.project\Project\TTT\LibTTT\uGlobalTTT.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\uScriptServer.pas=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\uScriptSimServer.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\GServer.src\ufMainGServer.pas=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\ufMainGServer.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\SimFramework\LibSims\SimSystem\uSimObjects.pas=E:\astt.2\astt.project\SimFramework\LibSims\SimSystem\uBaseSimObjects.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.dfm,E:\astt.2\astt.project\Project\TTT\GServer.src\ufMainGServer.dfm=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\ufMainGServer.dfm</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit1.pas=E:\astt.2\astt.project\Project\TTT\AssetsTTT\uAssetShip.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\u.pas=E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenarioObject.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit2.pas=E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\u.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit2.pas=E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenario.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\Assets\uPlatfroms.pas=E:\astt.2\astt.project\Project\TTT\Assets\uPlatforms.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenario.pas=E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenarioT3.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\AssetsTTT\uPlatformShip.pas=E:\astt.2\astt.project\Project\TTT\AssetsTTT\uPlatformShips.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\AssetsTTT\uAssetShip.pas=E:\astt.2\astt.project\Project\TTT\AssetsTTT\uPlatformShip.pas</Transaction>
-    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit2.pas=E:\astt.2\astt.project\Project\TTT\Assets\uPlatfroms.pas</Transaction>
-    <Transaction>2026-06-12 11:11:38.540,D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimServer.src\SimServer.dproj=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimServer.src\tttSimServer.dproj</Transaction>
-    <Transaction>2026-06-12 11:22:08.456,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uFormula.pas</Transaction>
-    <Transaction>2026-06-12 11:22:08.492,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uMainDynamicShape.pas</Transaction>
-    <Transaction>2026-06-12 11:22:08.528,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uMainOverlay.pas</Transaction>
-    <Transaction>2026-06-12 11:22:08.592,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uMainStaticShape.pas</Transaction>
-    <Transaction>2026-06-12 11:22:08.628,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uRecord.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,D:\astt.2\astt.project\T3.source\tttSimServer.src\LibServer\uT3ServerEventManager.pas=D:\astt.2\astt.project\T3.source\tttSimServer.src\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\LibTTT\uGlobalTTT.pas=E:\astt.2\astt.project\Project\TTT\Assets\uGlobal.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenarioT3.pas=E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenario.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\ufMainGServer.pas=E:\astt.2\astt.project\Project\TTT\GServer.src\ufMainGServer.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\uScriptSimServer.pas=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\uScriptServer.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenarioObject.pas=E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\u.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\Assets\uPlatforms.pas=E:\astt.2\astt.project\Project\TTT\Assets\uPlatfroms.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\u.pas=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.dfm,E:\astt.2\astt.project\Project\TTT\tttSimServer.src\ufMainGServer.dfm=E:\astt.2\astt.project\Project\TTT\GServer.src\ufMainGServer.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\LibTTT\libScenario\uScenario.pas=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,D:\Projects\TTT\T3Ver.02\tttReplay\uRecorder.pas=D:\Projects\TTT\T3Ver.02\tttSimServer.src\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\Assets\uPlatfroms.pas=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\AssetsTTT\uPlatformShips.pas=E:\astt.2\astt.project\Project\TTT\AssetsTTT\uPlatformShip.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\AssetsTTT\uPlatformShip.pas=E:\astt.2\astt.project\Project\TTT\AssetsTTT\uAssetShip.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\SimFramework\LibSims\SimSystem\uBaseSimObjects.pas=E:\astt.2\astt.project\SimFramework\LibSims\SimSystem\uSimObjects.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.pas,E:\astt.2\astt.project\Project\TTT\AssetsTTT\uAssetShip.pas=E:\astt.2\astt.project\Project\TTT\tttSimServer.src\Unit1.pas</Transaction>
+    <Transaction>2026-06-12 11:11:38.000.540,D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimServer.src\tttSimServer.dproj=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\tttSimServer.src\SimServer.dproj</Transaction>
+    <Transaction>2026-06-12 11:22:08.000.492,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uMainDynamicShape.pas</Transaction>
+    <Transaction>2026-06-12 11:22:08.000.592,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uMainStaticShape.pas</Transaction>
+    <Transaction>2026-06-12 11:22:08.000.628,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uRecord.pas</Transaction>
+    <Transaction>2026-06-12 11:22:08.000.456,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uFormula.pas</Transaction>
+    <Transaction>2026-06-12 11:22:08.000.528,=D:\Trash\Recycle\P.ASTC\Simulator ASTC\Source\DBEditor.src\uMainOverlay.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="android-support-v4.dex.jar"/>
@@ -215,6 +215,8 @@
     <File Path="..\tttReplay\uSnapshotRec.pas"/>
     <File Path="..\tttReplay\uSnapshotUtils.pas"/>
     <File Path="..\tttReplay\uSRRFunction.pas"/>
+    <File Path="..\tttSupportMap"/>
+    <File Path="..\tttSupportMap\uMapLayerDB.pas"/>
     <File Path="LibServer"/>
     <File Path="LibServer\uT3ServerEventManager.pas"/>
     <File Path="uNetHandle_Server.pas"/>

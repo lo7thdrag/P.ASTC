@@ -12,6 +12,7 @@ type
     lblRTCaption: TLabel;
     Timer1: TTimer;
     Bevel1: TBevel;
+    lblGameDate: TLabel;
     procedure Timer1Timer(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -25,6 +26,7 @@ type
      first  : boolean;
 //     procedure SetGameTime(const gt: tDateTime);
      procedure SetServerTime(const gt: tDateTime);
+     procedure SetGameDate(const gt: TDateTime);
   end;
 
 var
@@ -59,10 +61,13 @@ end;
 procedure TufRealTime.FormResize(Sender: TObject);
 begin
   lblRTCaption.Left := ((Width - lblRTCaption.Width) div 2);
-  lblRTCaption.Top := Round(Height * 0.2);
+  lblRTCaption.Top := Round(Height * 0.1);
 
   lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
-  lblServerTIME.Top := Round(Height * 0.55);
+  lblServerTIME.Top := Round(Height * 0.45);
+
+//  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
+//  lblGameDate.Top  := lblServerTIME.Top + lblServerTIME.Height + 45;
 end;
 
 procedure TufRealTime.FormShow(Sender: TObject);
@@ -81,6 +86,14 @@ begin
     Left := Screen.Monitors[0].Left;
     Top := Screen.Monitors[0].Top;
   end;
+
+  SetGameDate(Now);
+end;
+
+procedure TufRealTime.SetGameDate(const gt: TDateTime);
+begin
+    lblGameDate.Caption :=
+    FormatDateTime('dd mmmm yyyy', gt);
 end;
 
 procedure TufRealTime.SetServerTime(const gt: tDateTime);
@@ -91,6 +104,7 @@ end;
 procedure TufRealTime.Timer1Timer(Sender: TObject);
 begin
 SetServerTime(Now);
+SetGameDate(Now);
 end;
 
 end.

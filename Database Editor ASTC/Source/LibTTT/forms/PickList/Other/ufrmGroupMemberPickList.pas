@@ -118,9 +118,27 @@ end;
 {$REGION ' Button Handle '}
 
 procedure TfrmGroupMemberPickList.btnAddClick(Sender: TObject);
+  var
+  OldItem: TCubicle_Group_Assignment;
 begin
   if lbAllMember.ItemIndex = -1 then
     Exit;
+
+
+  if lbMemberSel.Items.Count > 0 then
+  begin
+    OldItem := TCubicle_Group_Assignment(lbMemberSel.Items.Objects[0]);
+
+    case FCaller of
+      gmfcMember:
+        dmTTT.DeleteCubicleGroupAssignment(3,OldItem.FCubicle.Platform_Instance_Index);
+
+      gmfcComm:
+        dmTTT.DeleteCubicleGroupChannelAssignment(
+          OldItem.FChannel.Group_Index,
+          OldItem.FChannel.Comms_Channel_Index);
+    end;
+  end;
 
   case FCaller of
     gmfcMember:
@@ -129,7 +147,7 @@ begin
       begin
         FCubicle.Platform_Instance_Index := FPlatform.Platform_Instance_Index;
         FCubicle.Group_Index := FSelectedCubicleGroup.FData.Group_Index;
-        FCubicle.Command_Priority := FSelectedItemsList.Count;
+        FCubicle.Command_Priority := 0{FSelectedItemsList.Count};
         FCubicle.Deployment_Index := FSelectedCubicleGroup.FData.
           Deployment_Index;
 
@@ -143,7 +161,7 @@ begin
       with FSelectedItem do
       begin
         FChannel.Group_Index := FSelectedCubicleGroup.FData.Group_Index;
-        FChannel.Channel_Slot := FSelectedItemsList.Count;
+        FChannel.Channel_Slot := 0{FSelectedItemsList.Count};
         FChannel.Comms_Channel_Index := FExComm.Comms_Channel_Index;
 
         dmTTT.InsertCubicleGroupChannelAssignment(FChannel);

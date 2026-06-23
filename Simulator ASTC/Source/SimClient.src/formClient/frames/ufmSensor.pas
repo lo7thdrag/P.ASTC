@@ -1906,7 +1906,7 @@ begin
 
   idx := frmToteDisplay.lvPlatforms.ItemIndex;
   frmToteDisplay.lvPlatforms.Refresh;
-  frmToteDisplay.btnPlatformStatusClick(frmToteDisplay.btnPlatformStatus);
+//  frmToteDisplay.btnPlatformStatusClick(frmToteDisplay.btnPlatformStatus);
   frmToteDisplay.lvPlatformsSelectItem(frmToteDisplay.lvPlatforms, frmToteDisplay.lvPlatforms.Items[frmToteDisplay.lvPlatforms.Items.Count-1], false);
   frmToteDisplay.lvPlatforms.ItemIndex := idx;
   frmToteDisplay.lvPlatformsSelectItem(frmToteDisplay.lvPlatforms, frmToteDisplay.lvPlatforms.Selected, false);
@@ -2017,7 +2017,7 @@ begin
       end;
     end;
 
-    frmToteDisplay.btnPlatformStatusClick(frmToteDisplay.btnPlatformStatus);
+//    frmToteDisplay.btnPlatformStatusClick(frmToteDisplay.btnPlatformStatus);
     frmToteDisplay.lvPlatformsSelectItem(frmToteDisplay.lvPlatforms, frmToteDisplay.lvPlatforms.Selected, false);
   end;
 end;

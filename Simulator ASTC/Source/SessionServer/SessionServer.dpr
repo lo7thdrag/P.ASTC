@@ -53,9 +53,8 @@ begin
 
     uNetSessionServer.BeginServer;
 
-    Application.Title := 'ASTC Session Server';
+    Application.Title := 'Session Server';
 	  Application.CreateForm(TfrmMainSessionSvr, frmMainSessionSvr);
-    Application.CreateForm(TfrmMainSessionSvr, frmMainSessionSvr);
     theServer.OnStateChange       := frmMainSessionSvr.ServerChangeState;
     theServer.OnClientConnect     := frmMainSessionSvr.ServerClientConnect;
     theServer.OnClientDisConnect  := frmMainSessionSvr.ServerClientDisConnect;
