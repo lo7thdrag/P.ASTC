@@ -407,6 +407,8 @@ procedure TfrmEnvironmentCharacteristic.btnLayerToolClick(Sender: TObject);
 var
   vHelpFile, vHelpID : OleVariant;
 begin
+  UpAllToolbarButton;
+  btnLayerTool.Down := True;
   Map1.Layers.LayersDlg(vHelpFile, vHelpID);
 end;
 
@@ -757,8 +759,8 @@ procedure TfrmEnvironmentCharacteristic.btnCenterHookClick(Sender: TObject);
 var
   zoom : Double;
 begin
-//  UpAllToolbarButton;
-//  btnCenterHook.Down := True;
+  UpAllToolbarButton;
+  btnCenterHook.Down := True;
 
 //  Map1.CurrentTool := miArrowTool;
 //  Map1.MousePointer := miCrossCursor;

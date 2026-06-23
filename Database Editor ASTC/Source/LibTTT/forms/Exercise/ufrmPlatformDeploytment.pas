@@ -1178,6 +1178,8 @@ procedure TfrmPlatformDeploytment.btnLayerToolClick(Sender: TObject);
 var
   vHelpFile, vHelpID : OleVariant;
 begin
+  UpAllToolbarButton;
+  btnLayerTool.Down := True;
   Map1.Layers.LayersDlg(vHelpFile, vHelpID);
 end;
 
@@ -1186,7 +1188,10 @@ procedure TfrmPlatformDeploytment.btnCenterHookClick(Sender: TObject);
 var
   zoom : Double;
 begin
-  zoom := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
+  UpAllToolbarButton;
+  btnCenterHook.Down := True;
+  zoom := StrToFloat(cbbScale.Text);
+//  zoom := StrToFloat(cbbScale.Items[cbbScale.ItemIndex]);
 
   with FSelectedEnviArea.FGameArea do
     Map1.ZoomTo(zoom, Game_Centre_Long, Game_Centre_Lat);
@@ -1203,6 +1208,8 @@ end;
 
 procedure TfrmPlatformDeploytment.btn_RulerClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
+  btn_Ruler.Down := True;
   Ruler.Show;
 end;
 
@@ -1288,10 +1295,12 @@ end;
 
 procedure TfrmPlatformDeploytment.btnHookClick(Sender: TObject);
 begin
-  FMapClickEvent := mceHook;
-
-  Map1.MousePointer := miDefaultCursor;
-  Map1.CurrentTool := miArrowTool;
+  UpAllToolbarButton;
+  btnHook.Down := True;
+//  FMapClickEvent := mceHook;
+//
+//  Map1.MousePointer := miDefaultCursor;
+//  Map1.CurrentTool := miArrowTool;
 
   Map1.CurrentTool := miArrowTool;
   Map1.MousePointer := miArrowCursor;

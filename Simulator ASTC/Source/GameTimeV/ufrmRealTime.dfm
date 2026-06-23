@@ -4,8 +4,8 @@ object ufRealTime: TufRealTime
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'ufRealTime'
-  ClientHeight = 650
-  ClientWidth = 1297
+  ClientHeight = 626
+  ClientWidth = 1273
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -25,8 +25,8 @@ object ufRealTime: TufRealTime
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 1297
-    Height = 650
+    Width = 1273
+    Height = 626
     Align = alClient
     ExplicitLeft = 520
     ExplicitTop = 200
@@ -55,6 +55,20 @@ object ufRealTime: TufRealTime
     Font.Charset = ANSI_CHARSET
     Font.Color = 16777152
     Font.Height = -200
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblGameDate: TLabel
+    Left = 500
+    Top = 536
+    Width = 566
+    Height = 107
+    Alignment = taCenter
+    Caption = '23 June 2026'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clAqua
+    Font.Height = -107
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False

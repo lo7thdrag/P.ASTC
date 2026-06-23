@@ -14,6 +14,7 @@ type
     lblRTCaption: TLabel;
     lblGameTime: TLabel;
     Bevel1: TBevel;
+    lblGameDate: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -42,6 +43,7 @@ type
     FTimeReq    : LongWord;
 
     procedure SetGameTime(const gt: tDateTime);
+    procedure SetGameDate(const gt: TDateTime);
     procedure SetServerTime(const gt: tDateTime);
 
 
@@ -166,7 +168,10 @@ begin
   lblGTCaption.Top := Round(Height * 0.2);
 
   lblGameTime.Left := ((Width - lblGameTime.Width) div 2);
-  lblGameTime.Top  := Round(Height * 0.55);
+  lblGameTime.Top  := Round(Height * 0.50);
+
+  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
+  lblGameDate.Top  := lblGameTime.Top + lblGameTime.Height + 30;
 
 
 //  Bevel2.Height := Height div 2;
@@ -263,6 +268,14 @@ begin
   FVTime.IncreaseMillisecond(GameSPEED * dt * 1000.0);
 end;
 
+procedure TfrmMainGT.SetGameDate(const gt: TDateTime);
+begin
+   lblGameDate.Caption :=
+    FormatDateTime('dd mmmm yyyy', gt);
+
+    SetGameDate(gt);
+end;
+
 procedure TfrmMainGT.SetGameTime(const gt: tDateTime);
 begin
   lblGameTime.Caption := FormatDateTime(' hh : nn : ss ', gt);
@@ -276,6 +289,11 @@ end;
 
 procedure TfrmMainGT.Timer1Timer(Sender: TObject);
 begin
+  if not first then
+  begin
+    SetGameTime(FVTime.GetTime);
+    SetGameDate(FVTime.GetTime);
+  end;
 //  SetGameTime(Now);
 //  if not first then
 //    SetGameTime(FVTime.GetTime);
