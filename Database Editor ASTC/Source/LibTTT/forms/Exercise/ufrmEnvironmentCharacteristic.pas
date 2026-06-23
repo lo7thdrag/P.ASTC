@@ -13,9 +13,9 @@ type
   TfrmEnvironmentCharacteristic = class(TForm)
     ToolBar1: TToolBar;
     btnSelectPoint: TToolButton;
-    btnDecreaseScale: TToolButton;
-    cbbScale: TComboBox;
     btnIncreaseScale: TToolButton;
+    cbbScale: TComboBox;
+    btnDecreaseScale: TToolButton;
     btnZoomTool: TToolButton;
     btnMoveTool: TToolButton;
     btnCenterHook: TToolButton;
@@ -109,9 +109,9 @@ type
     procedure btnSelectPointClick(Sender: TObject);
     procedure btnAddPointClick(Sender: TObject);
     procedure btnDeletePointClick(Sender: TObject);
-    procedure btnDecreaseScaleClick(Sender: TObject);
-    procedure cbbScaleChange(Sender: TObject);
     procedure btnIncreaseScaleClick(Sender: TObject);
+    procedure cbbScaleChange(Sender: TObject);
+    procedure btnDecreaseScaleClick(Sender: TObject);
     procedure btnZoomToolClick(Sender: TObject);
     procedure btnMoveToolClick(Sender: TObject);
     procedure btnCenterHookClick(Sender: TObject);
@@ -555,6 +555,9 @@ begin
   btnZoomTool.Down := False;
   btnMoveTool.Down := False;
   btnCenterHook.Down := False;
+  btnLayerTool.Down := False;
+  btnIncreaseScale.Down := False;
+  btnDecreaseScale.Down := False;
 
   isAdd := False;
 end;
@@ -668,8 +671,9 @@ end;
 
 {$REGION ' ToolBar Handle '}
 
-procedure TfrmEnvironmentCharacteristic.btnDecreaseScaleClick(Sender: TObject);
+procedure TfrmEnvironmentCharacteristic.btnIncreaseScaleClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
   if cbbScale.ItemIndex = 0 then
     Exit;
 
@@ -701,8 +705,9 @@ begin
 
 end;
 
-procedure TfrmEnvironmentCharacteristic.btnIncreaseScaleClick(Sender: TObject);
+procedure TfrmEnvironmentCharacteristic.btnDecreaseScaleClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
   if cbbScale.ItemIndex = 17 then
     Exit;
 

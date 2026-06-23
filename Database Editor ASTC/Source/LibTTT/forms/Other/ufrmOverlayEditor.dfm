@@ -53634,15 +53634,15 @@ object OverlayEditorForm: TOverlayEditorForm
           ParentColor = False
           ParentDoubleBuffered = False
           TabOrder = 0
-          object btnDecreaseScale: TToolButton
+          object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
-            Hint = 'Decrease Scale'
-            Caption = 'btnDecreaseScale'
+            Hint = 'Increase Scale'
+            Caption = 'btnIncreaseScale'
             ImageIndex = 1
             ParentShowHint = False
             ShowHint = True
-            OnClick = btnDecreaseScaleClick
+            OnClick = btnIncreaseScaleClick
           end
           object cbSetScale: TComboBox
             Left = 39
@@ -53669,15 +53669,15 @@ object OverlayEditorForm: TOverlayEditorForm
               '2048'
               '2500')
           end
-          object btnIncreaseScale: TToolButton
+          object btnDecreaseScale: TToolButton
             Left = 134
             Top = 0
-            Hint = 'Increase Scale'
-            Caption = 'btnIncreaseScale'
+            Hint = 'Decrease Scale'
+            Caption = 'btnDecreaseScale'
             ImageIndex = 2
             ParentShowHint = False
             ShowHint = True
-            OnClick = btnIncreaseScaleClick
+            OnClick = btnDecreaseScaleClick
           end
           object btnZoom: TToolButton
             Left = 173
@@ -53935,7 +53935,7 @@ object OverlayEditorForm: TOverlayEditorForm
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          0100011801000058F3282B01000000000000001C000000000000000000000000
+          0100011801000038BEFA0E01000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -53944,7 +53944,7 @@ object OverlayEditorForm: TOverlayEditorForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          01000058F3282B01000000000000001C00000000000000000000000000000000
+          01000038BEFA0E01000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000

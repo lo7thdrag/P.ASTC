@@ -45476,16 +45476,16 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           object btnIncreaseScale: TToolButton
             Left = 0
             Top = 0
-            Hint = 'Increase Scale'
+            Hint = 'Increase Scale '
             Caption = 'btnIncreaseScale'
-            ImageIndex = 2
+            ImageIndex = 1
             ParentShowHint = False
             ShowHint = True
             OnClick = btnIncreaseScaleClick
           end
           object cbbScale: TComboBox
             Left = 39
-            Top = 0
+            Top = 8
             Width = 95
             Height = 22
             Hint = 'Map Scales'
@@ -45517,7 +45517,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
             Top = 0
             Hint = 'Decrease Scale'
             Caption = 'btnDecreaseScale'
-            ImageIndex = 1
+            ImageIndex = 2
             ParentShowHint = False
             ShowHint = True
             OnClick = btnDecreaseScaleClick
@@ -45781,7 +45781,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
           918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
           6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-          01000118010000B856050F01000000000000001C000000000000000000000000
+          0100011801000038BEFA0E01000000000000001C000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000002
           0000000000000000000000000000000000000000000000000000000000000000
@@ -45790,7 +45790,7 @@ object frmEnvironmentCharacteristic: TfrmEnvironmentCharacteristic
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           8076C000000000008056C0000000000080764000000000008056400100000018
-          010000B856050F01000000000000001C00000000000000000000000000000000
+          01000038BEFA0E01000000000000001C00000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000200000000
           0000000000000000000000000000000000000000000000000000000000000000

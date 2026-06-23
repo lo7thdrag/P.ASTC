@@ -679,6 +679,8 @@ begin
   btnZoomTool.Down := False;
   btnMoveTool.Down := False;
   btnCenterHook.Down := False;
+  btn_Ruler.Down := False;
+  btnLayerTool.Down := False;
 
   isAdd := False;
 end;
@@ -1164,14 +1166,26 @@ end;
 
 procedure TfrmPlatformDeploytment.btnDecreaseScaleClick(Sender: TObject);
 begin
-  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+  UpAllToolbarButton;
+  if cbbScale.ItemIndex = 17 then
+    Exit;
+
+  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
   cbbScaleChange(cbbScale);
+//  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
+//  cbbScaleChange(cbbScale);
 end;
 
 procedure TfrmPlatformDeploytment.btnIncreaseScaleClick(Sender: TObject);
 begin
-  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+  UpAllToolbarButton;
+  if cbbScale.ItemIndex = 0 then
+    Exit;
+
+  cbbScale.ItemIndex := cbbScale.ItemIndex - 1;
   cbbScaleChange(cbbScale);
+//  cbbScale.ItemIndex := cbbScale.ItemIndex + 1;
+//  cbbScaleChange(cbbScale);
 end;
 
 procedure TfrmPlatformDeploytment.btnLayerToolClick(Sender: TObject);
