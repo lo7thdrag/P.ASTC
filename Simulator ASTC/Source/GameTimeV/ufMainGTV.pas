@@ -15,6 +15,7 @@ type
     lblGameTime: TLabel;
     Bevel1: TBevel;
     lblGameDate: TLabel;
+    Label1: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -165,13 +166,13 @@ begin
 //  lblServerTIME.Top := Round(Height * 0.25);
 
   lblGTCaption.Left := ((Width - lblGTCaption.Width) div 2);
-  lblGTCaption.Top := Round(Height * 0.2);
+  lblGTCaption.Top := Round(Height * 0.1);
 
   lblGameTime.Left := ((Width - lblGameTime.Width) div 2);
-  lblGameTime.Top  := Round(Height * 0.50);
+  lblGameTime.Top  := Round(Height * 0.45);
 
-  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
-  lblGameDate.Top  := lblGameTime.Top + lblGameTime.Height + 30;
+//  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
+//  lblGameDate.Top  := lblGameTime.Top + lblGameTime.Height + 45;
 
 
 //  Bevel2.Height := Height div 2;

@@ -20,6 +20,9 @@ object ufRealTime: TufRealTime
   OnKeyDown = FormKeyDown
   OnResize = FormResize
   OnShow = FormShow
+  DesignSize = (
+    1273
+    626)
   PixelsPerInch = 96
   TextHeight = 13
   object Bevel1: TBevel
@@ -28,47 +31,46 @@ object ufRealTime: TufRealTime
     Width = 1273
     Height = 626
     Align = alClient
-    ExplicitLeft = 520
-    ExplicitTop = 200
-    ExplicitWidth = 50
-    ExplicitHeight = 50
+    ExplicitWidth = 1249
   end
   object lblRTCaption: TLabel
-    Left = -309
-    Top = 129
-    Width = 677
-    Height = 199
-    Caption = 'Real Time'
+    Left = 195
+    Top = 65
+    Width = 652
+    Height = 132
+    Caption = 'Waktu Sebenarnya'
     Font.Charset = ANSI_CHARSET
     Font.Color = 16777152
-    Font.Height = -200
+    Font.Height = -133
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
+    Transparent = True
   end
   object lblServerTIME: TLabel
-    Left = -1
-    Top = 302
-    Width = 1252
-    Height = 199
+    Left = 111
+    Top = 307
+    Width = 1050
+    Height = 166
     Caption = ' 00 : 00 : 00 '
     Font.Charset = ANSI_CHARSET
     Font.Color = 16777152
-    Font.Height = -200
+    Font.Height = -167
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
   end
   object lblGameDate: TLabel
-    Left = 500
-    Top = 536
-    Width = 566
-    Height = 107
+    Left = 811
+    Top = 528
+    Width = 413
+    Height = 79
     Alignment = taCenter
-    Caption = '23 June 2026'
+    Anchors = [akRight, akBottom]
+    Caption = '23 Juni 2026'
     Font.Charset = ANSI_CHARSET
     Font.Color = clAqua
-    Font.Height = -107
+    Font.Height = -80
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False

@@ -4,8 +4,8 @@ object frmMainGT: TfrmMainGT
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'Tactical Team Trainer Game Time'
-  ClientHeight = 650
-  ClientWidth = 1297
+  ClientHeight = 626
+  ClientWidth = 1273
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,13 +22,16 @@ object frmMainGT: TfrmMainGT
   OnCreate = FormCreate
   OnResize = FormResize
   OnShow = FormShow
+  DesignSize = (
+    1273
+    626)
   PixelsPerInch = 96
   TextHeight = 13
   object Bevel1: TBevel
     Left = 0
     Top = 0
-    Width = 1297
-    Height = 650
+    Width = 1273
+    Height = 626
     Align = alClient
     ExplicitWidth = 1366
     ExplicitHeight = 369
@@ -49,21 +52,21 @@ object frmMainGT: TfrmMainGT
   end
   object lblGTCaption: TLabel
     Left = -297
-    Top = 150
-    Width = 1117
-    Height = 199
-    Caption = 'Assumption Time'
+    Top = 65
+    Width = 652
+    Height = 132
+    Caption = 'Waktu Asumsi'
     Font.Charset = ANSI_CHARSET
     Font.Color = 8454016
-    Font.Height = -200
+    Font.Height = -133
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
     Transparent = True
   end
   object lblRTCaption: TLabel
-    Left = 64
-    Top = 56
+    Left = 632
+    Top = 68
     Width = 467
     Height = 129
     Caption = 'Real Time'
@@ -78,26 +81,42 @@ object frmMainGT: TfrmMainGT
   object lblGameTime: TLabel
     Left = -1
     Top = 307
-    Width = 1252
-    Height = 199
+    Width = 1050
+    Height = 166
     Caption = ' 00 : 00 : 00 '
     Font.Charset = ANSI_CHARSET
     Font.Color = 8454016
-    Font.Height = -200
+    Font.Height = -167
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
   end
   object lblGameDate: TLabel
-    Left = 500
-    Top = 536
-    Width = 566
-    Height = 107
+    Left = 811
+    Top = 528
+    Width = 413
+    Height = 79
     Alignment = taCenter
-    Caption = '23 June 2026'
+    Anchors = [akRight, akBottom]
+    Caption = '23 Juni 2026'
     Font.Charset = ANSI_CHARSET
-    Font.Color = clAqua
-    Font.Height = -107
+    Font.Color = clLime
+    Font.Height = -80
+    Font.Name = 'Deusex'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 40
+    Top = 528
+    Width = 453
+    Height = 79
+    Alignment = taCenter
+    Anchors = [akLeft, akBottom]
+    Caption = 'Percepatan : 1x'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clLime
+    Font.Height = -80
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False

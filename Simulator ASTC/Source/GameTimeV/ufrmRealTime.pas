@@ -61,13 +61,13 @@ end;
 procedure TufRealTime.FormResize(Sender: TObject);
 begin
   lblRTCaption.Left := ((Width - lblRTCaption.Width) div 2);
-  lblRTCaption.Top := Round(Height * 0.2);
+  lblRTCaption.Top := Round(Height * 0.1);
 
   lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
-  lblServerTIME.Top := Round(Height * 0.50);
+  lblServerTIME.Top := Round(Height * 0.45);
 
-  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
-  lblGameDate.Top  := lblServerTIME.Top + lblServerTIME.Height + 30;
+//  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
+//  lblGameDate.Top  := lblServerTIME.Top + lblServerTIME.Height + 45;
 end;
 
 procedure TufRealTime.FormShow(Sender: TObject);
