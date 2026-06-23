@@ -4956,15 +4956,25 @@ begin
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     result := RecordCount;
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -5293,22 +5303,32 @@ begin
         ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ')';
     end
     else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.ESM_Index =' + IntToStr
-        (index);
+      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.ESM_Index =' + IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -5322,10 +5342,8 @@ begin
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           ESM_Index := FieldByName('ESM_Index').AsInteger;
           Rel_Antenna_Height := FieldByName('Rel_Antenna_Height').AsSingle;
-          Max_Operational_Depth := FieldByName('Max_Operational_Depth')
-            .AsSingle;
-          Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height')
-            .AsSingle;
+          Max_Operational_Depth := FieldByName('Max_Operational_Depth').AsSingle;
+          Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height').AsSingle;
         end;
 
         with rec.FESM_Def do
@@ -5333,33 +5351,21 @@ begin
           ESM_Index := FieldByName('ESM_Index').AsInteger;
           Class_Identifier := FieldByName('Class_Identifier').AsString;
           Low_Detect_Frequency1 := FieldByName('Low_Detect_Frequency1').AsFloat;
-          High_Detect_Frequency1 := FieldByName('High_Detect_Frequency1')
-            .AsFloat;
+          High_Detect_Frequency1 := FieldByName('High_Detect_Frequency1').AsFloat;
           Low_Detect_Frequency2 := FieldByName('Low_Detect_Frequency2').AsFloat;
-          High_Detect_Frequency2 := FieldByName('High_Detect_Frequency2')
-            .AsFloat;
+          High_Detect_Frequency2 := FieldByName('High_Detect_Frequency2').AsFloat;
           ESM_Classification := FieldByName('ESM_Classification').AsInteger;
-          Emitter_Detect_Range_Factor := FieldByName
-            ('Emitter_Detect_Range_Factor').AsSingle;
-          Comm_Intercept_Capable := FieldByName('Comm_Intercept_Capable')
-            .AsInteger;
-          Frequency_Identify_Range := FieldByName('Frequency_Identify_Range')
-            .AsFloat;
+          Emitter_Detect_Range_Factor := FieldByName('Emitter_Detect_Range_Factor').AsSingle;
+          Comm_Intercept_Capable := FieldByName('Comm_Intercept_Capable').AsInteger;
+          Frequency_Identify_Range := FieldByName('Frequency_Identify_Range').AsFloat;
           PRF_Identify_Range := FieldByName('PRF_Identify_Range').AsSingle;
-          Pulsewidth_Identify_Range := FieldByName('Pulsewidth_Identify_Range')
-            .AsSingle;
-          Scan_Period_Identify_Range := FieldByName
-            ('Scan_Period_Identify_Range').AsSingle;
-          Sector_Blank_Detection_Factor := FieldByName
-            ('Sector_Blank_Detection_Factor').AsSingle;
-          Identification_Period := FieldByName('Identification_Period')
-            .AsSingle;
-          Classification_Period := FieldByName('Classification_Period')
-            .AsSingle;
-          Minimum_Bearing_Error_Variance := FieldByName
-            ('Minimum_Bearing_Error_Variance').AsSingle;
-          Initial_Bearing_Error_Variance := FieldByName
-            ('Initial_Bearing_Error_Variance').AsSingle;
+          Pulsewidth_Identify_Range := FieldByName('Pulsewidth_Identify_Range').AsSingle;
+          Scan_Period_Identify_Range := FieldByName('Scan_Period_Identify_Range').AsSingle;
+          Sector_Blank_Detection_Factor := FieldByName('Sector_Blank_Detection_Factor').AsSingle;
+          Identification_Period := FieldByName('Identification_Period').AsSingle;
+          Classification_Period := FieldByName('Classification_Period').AsSingle;
+          Minimum_Bearing_Error_Variance := FieldByName('Minimum_Bearing_Error_Variance').AsSingle;
+          Initial_Bearing_Error_Variance := FieldByName('Initial_Bearing_Error_Variance').AsSingle;
         end;
 
         with rec.FNote do
@@ -5387,8 +5393,7 @@ begin
         SQL.Add('SELECT *');
         SQL.Add('FROM ESM_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('On a.ESM_Instance_Index = b.ESM_Instance_Index ');
-        SQL.Add('WHERE (a.ESM_Instance_Index = ' + IntToStr
-            (rec.FData.ESM_Instance_Index) + ')');
+        SQL.Add('WHERE (a.ESM_Instance_Index = ' + IntToStr(rec.FData.ESM_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -5433,10 +5438,8 @@ begin
       SQL.Add('Instance_Type  =' + IntToStr(Instance_Type) + ',');
       SQL.Add('ESM_Index =' + IntToStr(ESM_Index) + ',');
       SQL.Add('Rel_Antenna_Height =' + FloatToStr(Rel_Antenna_Height) + ',');
-      SQL.Add('Max_Operational_Depth =' + FloatToStr(Max_Operational_Depth)
-          + ',');
-      SQL.Add('Submerged_Antenna_Height =' + FloatToStr
-          (Submerged_Antenna_Height));
+      SQL.Add('Max_Operational_Depth =' + FloatToStr(Max_Operational_Depth)+ ',');
+      SQL.Add('Submerged_Antenna_Height =' + FloatToStr(Submerged_Antenna_Height));
     end;
 
     SQL.Add(' WHERE (Vehicle_Index = ' + id + ')');
@@ -5563,33 +5566,21 @@ begin
           ESM_Index := FieldByName('ESM_Index').AsInteger;
           Class_Identifier := FieldByName('Class_Identifier').AsString;
           Low_Detect_Frequency1 := FieldByName('Low_Detect_Frequency1').AsFloat;
-          High_Detect_Frequency1 := FieldByName('High_Detect_Frequency1')
-            .AsFloat;
+          High_Detect_Frequency1 := FieldByName('High_Detect_Frequency1').AsFloat;
           Low_Detect_Frequency2 := FieldByName('Low_Detect_Frequency2').AsFloat;
-          High_Detect_Frequency2 := FieldByName('High_Detect_Frequency2')
-            .AsFloat;
+          High_Detect_Frequency2 := FieldByName('High_Detect_Frequency2').AsFloat;
           ESM_Classification := FieldByName('ESM_Classification').AsInteger;
-          Emitter_Detect_Range_Factor := FieldByName
-            ('Emitter_Detect_Range_Factor').AsSingle;
-          Comm_Intercept_Capable := FieldByName('Comm_Intercept_Capable')
-            .AsInteger;
-          Frequency_Identify_Range := FieldByName('Frequency_Identify_Range')
-            .AsFloat;
+          Emitter_Detect_Range_Factor := FieldByName('Emitter_Detect_Range_Factor').AsSingle;
+          Comm_Intercept_Capable := FieldByName('Comm_Intercept_Capable').AsInteger;
+          Frequency_Identify_Range := FieldByName('Frequency_Identify_Range').AsFloat;
           PRF_Identify_Range := FieldByName('PRF_Identify_Range').AsSingle;
-          Pulsewidth_Identify_Range := FieldByName('Pulsewidth_Identify_Range')
-            .AsSingle;
-          Scan_Period_Identify_Range := FieldByName
-            ('Scan_Period_Identify_Range').AsSingle;
-          Sector_Blank_Detection_Factor := FieldByName
-            ('Sector_Blank_Detection_Factor').AsSingle;
-          Identification_Period := FieldByName('Identification_Period')
-            .AsSingle;
-          Classification_Period := FieldByName('Classification_Period')
-            .AsSingle;
-          Minimum_Bearing_Error_Variance := FieldByName
-            ('Minimum_Bearing_Error_Variance').AsSingle;
-          Initial_Bearing_Error_Variance := FieldByName
-            ('Initial_Bearing_Error_Variance').AsSingle;
+          Pulsewidth_Identify_Range := FieldByName('Pulsewidth_Identify_Range').AsSingle;
+          Scan_Period_Identify_Range := FieldByName('Scan_Period_Identify_Range').AsSingle;
+          Sector_Blank_Detection_Factor := FieldByName('Sector_Blank_Detection_Factor').AsSingle;
+          Identification_Period := FieldByName('Identification_Period').AsSingle;
+          Classification_Period := FieldByName('Classification_Period').AsSingle;
+          Minimum_Bearing_Error_Variance := FieldByName('Minimum_Bearing_Error_Variance').AsSingle;
+          Initial_Bearing_Error_Variance := FieldByName('Initial_Bearing_Error_Variance').AsSingle;
         end;
 
         with rec.FNote do
@@ -5620,36 +5611,22 @@ begin
       SQL.Add('UPDATE ESM_Definition ');
       SQL.Add('SET ');
       SQL.Add('Class_Identifier =''' + Class_Identifier + ''',');
-      SQL.Add('Low_Detect_Frequency1  =' + FloatToStr(Low_Detect_Frequency1)
-          + ',');
-      SQL.Add('High_Detect_Frequency1 =' + FloatToStr(High_Detect_Frequency1)
-          + ',');
-      SQL.Add('Low_Detect_Frequency2 =' + FloatToStr(Low_Detect_Frequency2)
-          + ',');
-      SQL.Add('High_Detect_Frequency2 =' + FloatToStr(High_Detect_Frequency2)
-          + ',');
+      SQL.Add('Low_Detect_Frequency1  =' + FloatToStr(Low_Detect_Frequency1)+ ',');
+      SQL.Add('High_Detect_Frequency1 =' + FloatToStr(High_Detect_Frequency1)+ ',');
+      SQL.Add('Low_Detect_Frequency2 =' + FloatToStr(Low_Detect_Frequency2)+ ',');
+      SQL.Add('High_Detect_Frequency2 =' + FloatToStr(High_Detect_Frequency2)+ ',');
       SQL.Add('ESM_Classification =' + IntToStr(ESM_Classification) + ',');
-      SQL.Add('Emitter_Detect_Range_Factor  =' + FloatToStr
-          (Emitter_Detect_Range_Factor) + ',');
-      SQL.Add('Comm_Intercept_Capable =' + FloatToStr(Comm_Intercept_Capable)
-          + ',');
-      SQL.Add('Frequency_Identify_Range =' + FloatToStr
-          (Frequency_Identify_Range) + ',');
+      SQL.Add('Emitter_Detect_Range_Factor  =' + FloatToStr(Emitter_Detect_Range_Factor) + ',');
+      SQL.Add('Comm_Intercept_Capable =' + FloatToStr(Comm_Intercept_Capable)+ ',');
+      SQL.Add('Frequency_Identify_Range =' + FloatToStr(Frequency_Identify_Range) + ',');
       SQL.Add('PRF_Identify_Range =' + FloatToStr(PRF_Identify_Range) + ',');
-      SQL.Add('Pulsewidth_Identify_Range =' + FloatToStr
-          (Pulsewidth_Identify_Range) + ',');
-      SQL.Add('Scan_Period_Identify_Range =' + FloatToStr
-          (Scan_Period_Identify_Range) + ',');
-      SQL.Add('Sector_Blank_Detection_Factor  =' + FloatToStr
-          (Sector_Blank_Detection_Factor) + ',');
-      SQL.Add('Identification_Period =' + FloatToStr(Identification_Period)
-          + ',');
-      SQL.Add('Classification_Period =' + FloatToStr(Classification_Period)
-          + ',');
-      SQL.Add('Minimum_Bearing_Error_Variance =' + FloatToStr
-          (Minimum_Bearing_Error_Variance) + ',');
-      SQL.Add('Initial_Bearing_Error_Variance =' + FloatToStr
-          (Initial_Bearing_Error_Variance));
+      SQL.Add('Pulsewidth_Identify_Range =' + FloatToStr(Pulsewidth_Identify_Range) + ',');
+      SQL.Add('Scan_Period_Identify_Range =' + FloatToStr(Scan_Period_Identify_Range) + ',');
+      SQL.Add('Sector_Blank_Detection_Factor  =' + FloatToStr(Sector_Blank_Detection_Factor) + ',');
+      SQL.Add('Identification_Period =' + FloatToStr(Identification_Period)+ ',');
+      SQL.Add('Classification_Period =' + FloatToStr(Classification_Period)+ ',');
+      SQL.Add('Minimum_Bearing_Error_Variance =' + FloatToStr(Minimum_Bearing_Error_Variance) + ',');
+      SQL.Add('Initial_Bearing_Error_Variance =' + FloatToStr(Initial_Bearing_Error_Variance));
     end;
 
     SQL.Add(' WHERE (ESM_Index = ' + id + ')');
@@ -5756,22 +5733,31 @@ begin
       ssql := ssql + '(a.IFF_Instance_Index =' + IntToStr(index) +')';
     end
     else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.IFF_Instance_Index =' +
-      IntToStr(index);
+      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.IFF_Instance_Index =' +IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -5785,10 +5771,8 @@ begin
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           IFF_Capability := FieldByName('IFF_Capability').AsInteger;
           Rel_Antenna_Height := FieldByName('Rel_Antenna_Height').AsSingle;
-          Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height')
-            .AsSingle;
-          Max_Operational_Depth := FieldByName('Max_Operational_Depth')
-            .AsSingle;
+          Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height').AsSingle;
+          Max_Operational_Depth := FieldByName('Max_Operational_Depth').AsSingle;
         end;
 
         with rec.FVehicle.FData do
@@ -5820,17 +5804,13 @@ begin
 
           with iffScript.Event.FData do
           begin
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
+            Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
             IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
-            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control')
-              .AsInteger;
-            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control')
-              .AsInteger;
+            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control').AsInteger;
+            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control').AsInteger;
           end;
 
-          GetScripted_Behav(iffScript.Event.FData.Scripted_Event_Index,
-            iffScript.Behav);
+          GetScripted_Behav(iffScript.Event.FData.Scripted_Event_Index,iffScript.Behav);
 
           rec.FScripted_IFF.Add(iffScript);
           ZQ.Next;
@@ -5857,17 +5837,13 @@ begin
 
           with iffPattern.Event.FData do
           begin
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
             IFF_Instance_Index := FieldByName('IFF_Instance_Index').AsInteger;
-            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control')
-              .AsInteger;
-            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control')
-              .AsInteger;
+            IFF_Interrogator_Control := FieldByName('IFF_Interrogator_Control').AsInteger;
+            IFF_Transponder_Control := FieldByName('IFF_Transponder_Control').AsInteger;
           end;
 
-          GetScripted_Pattern(iffPattern.Event.FData.Scripted_Pattern_Index,
-            iffPattern.pattern);
+          GetScripted_Pattern(iffPattern.Event.FData.Scripted_Pattern_Index,iffPattern.pattern);
 
           rec.FPattern_IFF.Add(iffPattern);
           ZQ.Next;
@@ -5895,10 +5871,8 @@ begin
       SQL.Add('Instance_Type  =' + IntToStr(Instance_Type) + ',');
       SQL.Add('IFF_Capability =' + IntToStr(IFF_Capability) + ',');
       SQL.Add('Rel_Antenna_Height =' + FloatToStr(Rel_Antenna_Height) + ',');
-      SQL.Add('Max_Operational_Depth =' + FloatToStr(Max_Operational_Depth)
-          + ',');
-      SQL.Add('Submerged_Antenna_Height =' + FloatToStr
-          (Submerged_Antenna_Height));
+      SQL.Add('Max_Operational_Depth =' + FloatToStr(Max_Operational_Depth)+ ',');
+      SQL.Add('Submerged_Antenna_Height =' + FloatToStr(Submerged_Antenna_Height));
     end;
 
     SQL.Add(' WHERE (IFF_Instance_Index = ' + id + ')');
@@ -5987,6 +5961,7 @@ end;
 function TdmTTT.getAllMAD_Sensor_On_Board(const id, index: Integer;
   var aRec: TList): Integer;
 var
+  i : Integer;
   rec: TMAD_Sensor_On_Board;
   ssql: string;
 begin
@@ -6002,8 +5977,7 @@ begin
     ssql := 'SELECT * ';
     ssql := ssql + 'FROM  MAD_Sensor_On_Board a JOIN MAD_Definition b ';
     ssql := ssql + 'ON a.MAD_Index = b.MAD_Index LEFT JOIN Note_Storage c ';
-    ssql := ssql +
-      'ON c.MAD_Index = b.MAD_Index LEFT JOIN Vehicle_Definition d ';
+    ssql := ssql +'ON c.MAD_Index = b.MAD_Index LEFT JOIN Vehicle_Definition d ';
     ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
 
     if index = 1 then
@@ -6025,14 +5999,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -6052,8 +6037,7 @@ begin
         begin
           MAD_Index := FieldByName('MAD_Index').AsInteger;
           Class_Identifier := FieldByName('Class_Identifier').AsString;
-          Baseline_Detect_Range := FieldByName('Baseline_Detect_Range')
-            .AsSingle;
+          Baseline_Detect_Range := FieldByName('Baseline_Detect_Range').AsSingle;
           Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
         end;
 
@@ -6114,8 +6098,7 @@ begin
       Close;
       SQL.Clear;
       SQL.Add('INSERT INTO MAD_Sensor_On_Board ');
-      SQL.Add(
-        '(Instance_Identifier,Instance_Type,Vehicle_Index,MAD_Index,Antenna_Height)');
+      SQL.Add('(Instance_Identifier,Instance_Type,Vehicle_Index,MAD_Index,Antenna_Height)');
       SQL.Add(' VALUES (');
       SQL.Add('''' + Instance_Identifier + ''',');
       SQL.Add(IntToStr(Instance_Type) + ',');
@@ -6186,8 +6169,7 @@ begin
         begin
           MAD_Index := FieldByName('MAD_Index').AsInteger;
           Class_Identifier := FieldByName('Class_Identifier').AsString;
-          Baseline_Detect_Range := FieldByName('Baseline_Detect_Range')
-            .AsSingle;
+          Baseline_Detect_Range := FieldByName('Baseline_Detect_Range').AsSingle;
           Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
         end;
 
@@ -6212,8 +6194,7 @@ begin
       SQL.Add('UPDATE MAD_Definition ');
       SQL.Add('SET ');
       SQL.Add('Class_Identifier =''' + Class_Identifier + ''',');
-      SQL.Add('Baseline_Detect_Range  =' + FloatToStr(Baseline_Detect_Range)
-          + ',');
+      SQL.Add('Baseline_Detect_Range  =' + FloatToStr(Baseline_Detect_Range)+ ',');
       SQL.Add('Known_Cross_Section =' + FloatToStr(Known_Cross_Section));
     end;
 
@@ -6303,22 +6284,32 @@ begin
     end
     else
       ssql := ssql +
-        'WHERE a.Vehicle_Index > 0 AND a.Visual_Instance_Index =' + IntToStr
-        (index);
+        'WHERE a.Vehicle_Index > 0 AND a.Visual_Instance_Index =' + IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -6326,8 +6317,7 @@ begin
 
         with rec.FData do
         begin
-          Visual_Instance_Index := FieldByName('Visual_Instance_Index')
-            .AsInteger;
+          Visual_Instance_Index := FieldByName('Visual_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
@@ -6352,8 +6342,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Visual_Sensor_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('ON a.Visual_Instance_Index = b.Visual_Instance_Index ');
-        SQL.Add('WHERE (a.Visual_Instance_Index = ' + IntToStr
-            (rec.FData.Visual_Instance_Index) + ')');
+        SQL.Add('WHERE (a.Visual_Instance_Index = ' + IntToStr(rec.FData.Visual_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -6367,8 +6356,7 @@ begin
             Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
             Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
             BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-            Visual_Instance_Index := FieldByName('Visual_Instance_Index')
-              .AsInteger;
+            Visual_Instance_Index := FieldByName('Visual_Instance_Index').AsInteger;
             Start_Angle := FieldByName('Start_Angle').AsSingle;
             End_Angle := FieldByName('End_Angle').AsSingle;
           end;
@@ -6423,8 +6411,7 @@ begin
       ExecSQL;
       SQL.Clear;
       SQL.Add('INSERT INTO Visual_Sensor_On_Board ');
-      SQL.Add(
-        '(Instance_Identifier,Instance_Type,Vehicle_Index,Observer_Height)');
+      SQL.Add('(Instance_Identifier,Instance_Type,Vehicle_Index,Observer_Height)');
       SQL.Add(' VALUES (');
       SQL.Add('''' + Instance_Identifier + ''',');
       SQL.Add(IntToStr(Instance_Type) + ',');
@@ -6477,14 +6464,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -6510,8 +6508,7 @@ begin
           Radar_Power := FieldByName('Radar_Power').AsSingle;
           Pulse_Rep_Freq := FieldByName('Pulse_Rep_Freq').AsSingle;
           Pulse_Width := FieldByName('Pulse_Width').AsSingle;
-          Max_Unambig_Detection_Range := FieldByName
-            ('Max_Unambig_Detection_Range').AsSingle;
+          Max_Unambig_Detection_Range := FieldByName('Max_Unambig_Detection_Range').AsSingle;
         end;
 
         with rec.FNote do
@@ -6534,8 +6531,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM FCR_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('ON a.FCR_Instance_Index = b.FCR_Instance_Index ');
-        SQL.Add('WHERE (a.FCR_Instance_Index = ' + IntToStr
-            (rec.FData.FCR_Instance_Index) + ')');
+        SQL.Add('WHERE (a.FCR_Instance_Index = ' + IntToStr(rec.FData.FCR_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -6589,12 +6585,9 @@ begin
     ssql := 'SELECT * ';
     ssql := ssql + 'FROM Radar_Definition a INNER JOIN Radar_On_Board b ';
     ssql := ssql + 'ON a.Radar_Index = b.Radar_Index INNER JOIN Radar_Type c ';
-    ssql := ssql +
-      'ON a.Radar_Type = c.Radar_Type_Index INNER JOIN ECCM_Type d ';
-    ssql := ssql +
-      'ON a.ECCM_Type = d.ECCM_Type_Index LEFT JOIN Note_Storage e ';
-    ssql := ssql +
-      'ON e.Radar_Index = b.Radar_Index LEFT JOIN Vehicle_Definition f ';
+    ssql := ssql +'ON a.Radar_Type = c.Radar_Type_Index INNER JOIN ECCM_Type d ';
+    ssql := ssql +'ON a.ECCM_Type = d.ECCM_Type_Index LEFT JOIN Note_Storage e ';
+    ssql := ssql +'ON e.Radar_Index = b.Radar_Index LEFT JOIN Vehicle_Definition f ';
     ssql := ssql + 'ON b.Vehicle_Index = f.Vehicle_Index ';
 
     if index = 1 then
@@ -6608,8 +6601,7 @@ begin
       end;
     end
     else
-      ssql := ssql + 'WHERE b.Vehicle_Index > 0 AND b.Radar_Index =' + IntToStr
-        (index);
+      ssql := ssql + 'WHERE b.Vehicle_Index > 0 AND b.Radar_Index =' + IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add('ORDER BY b.Instance_Identifier');
@@ -6622,10 +6614,20 @@ begin
     First;
   end;
 
-  if not Assigned(aRec) then
-    aRec := TList.Create
-  else
-    aRec.Clear;
+  {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        radar := aRec.Items[i];
+        radar.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
 
   with ZQ do
   begin
@@ -6641,8 +6643,7 @@ begin
         Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
         Radar_Index := FieldByName('Radar_Index').AsInteger;
         Rel_Antenna_Height := FieldByName('Rel_Antenna_Height').AsSingle;
-        Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height')
-          .AsSingle;
+        Submerged_Antenna_Height := FieldByName('Submerged_Antenna_Height').AsSingle;
         Max_Operational_Depth := FieldByName('Max_Operational_Depth').AsSingle;
       end;
 
@@ -6659,46 +6660,32 @@ begin
         Radar_Power := FieldByName('Radar_Power').AsSingle;
         Detection_Range := FieldByName('Detection_Range').AsSingle;
         Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
-        Max_Unambig_Detect_Range := FieldByName('Max_Unambig_Detect_Range')
-          .AsSingle;
+        Max_Unambig_Detect_Range := FieldByName('Max_Unambig_Detect_Range').AsSingle;
         IFF_Capability := FieldByName('IFF_Capability').AsBoolean;
-        Altitude_Data_Capability := FieldByName('Altitude_Data_Capability')
-          .AsBoolean;
-        Ground_Speed_Data_Capability := FieldByName
-          ('Ground_Speed_Data_Capability').AsBoolean;
-        Heading_Data_Capability := FieldByName('Heading_Data_Capability')
-          .AsBoolean;
-        Plat_Type_Recog_Capability := FieldByName('Plat_Type_Recog_Capability')
-          .AsBoolean;
-        Plat_Class_Recog_Capability := FieldByName
-          ('Plat_Class_Recog_Capability')
-          .AsBoolean;
+        Altitude_Data_Capability := FieldByName('Altitude_Data_Capability').AsBoolean;
+        Ground_Speed_Data_Capability := FieldByName('Ground_Speed_Data_Capability').AsBoolean;
+        Heading_Data_Capability := FieldByName('Heading_Data_Capability').AsBoolean;
+        Plat_Type_Recog_Capability := FieldByName('Plat_Type_Recog_Capability').AsBoolean;
+        Plat_Class_Recog_Capability := FieldByName('Plat_Class_Recog_Capability').AsBoolean;
         Clutter_Rejection := FieldByName('Clutter_Rejection').AsSingle;
         Anti_Jamming_Capable := FieldByName('Anti_Jamming_Capable').AsBoolean;
-        Curve_Definition_Index := FieldByName('Curve_Definition_Index')
-          .AsInteger;
+        Curve_Definition_Index := FieldByName('Curve_Definition_Index').AsInteger;
         Second_Vert_Coverage := FieldByName('Second_Vert_Coverage').AsBoolean;
         Jamming_A_Resistant := FieldByName('Jamming_A_Resistant').AsBoolean;
         Jamming_B_Resistant := FieldByName('Jamming_B_Resistant').AsBoolean;
         Jamming_C_Resistant := FieldByName('Jamming_C_Resistant').AsBoolean;
-        Anti_Jamming_A_Resistant := FieldByName('Anti_Jamming_A_Resistant')
-          .AsBoolean;
-        Anti_Jamming_B_Resistant := FieldByName('Anti_Jamming_B_Resistant')
-          .AsBoolean;
-        Anti_Jamming_C_Resistant := FieldByName('Anti_Jamming_C_Resistant')
-          .AsBoolean;
-        Anti_Jamming_Range_Reduction := FieldByName
-          ('Anti_Jamming_Range_Reduction').AsSingle;
+        Anti_Jamming_A_Resistant := FieldByName('Anti_Jamming_A_Resistant').AsBoolean;
+        Anti_Jamming_B_Resistant := FieldByName('Anti_Jamming_B_Resistant').AsBoolean;
+        Anti_Jamming_C_Resistant := FieldByName('Anti_Jamming_C_Resistant').AsBoolean;
+        Anti_Jamming_Range_Reduction := FieldByName('Anti_Jamming_Range_Reduction').AsSingle;
         Beam_Width := FieldByName('Beam_Width').AsSingle;
         Sector_Scan_Capable := FieldByName('Sector_Scan_Capable').AsBoolean;
-        Off_Axis_Jammer_Reduction := FieldByName('Off_Axis_Jammer_Reduction')
-          .AsSingle;
+        Off_Axis_Jammer_Reduction := FieldByName('Off_Axis_Jammer_Reduction').AsSingle;
         Num_FCR_Channels := FieldByName('Num_FCR_Channels').AsInteger;
         Radar_Spot_Number := FieldByName('Radar_Spot_Number').AsInteger;
         Radar_Horizon_Factor := FieldByName('Radar_Horizon_Factor').AsSingle;
         Main_Lobe_Gain := FieldByName('Main_Lobe_Gain').AsSingle;
-        Counter_Detection_Factor := FieldByName('Counter_Detection_Factor')
-          .AsSingle;
+        Counter_Detection_Factor := FieldByName('Counter_Detection_Factor').AsSingle;
         ECCM_Type := FieldByName('ECCM_Type').AsInteger;
         MTI_Capable := FieldByName('MTI_Capable').AsBoolean;
         MTI_MinTargetSpeed := FieldByName('MTI_MinTargetSpeed').AsSingle;
@@ -6758,10 +6745,8 @@ begin
           Radar_Index := FieldByName('Radar_Index').AsInteger;
           Coverage_Diagram := FieldByName('Coverage_Diagram').AsInteger;
           Vert_Coverage_Range := FieldByName('Vert_Coverage_Range').AsSingle;
-          Vert_Cover_Min_Elevation := FieldByName('Vert_Cover_Min_Elevation')
-            .AsSingle;
-          Vert_Cover_Max_Elevation := FieldByName('Vert_Cover_Max_Elevation')
-            .AsSingle;
+          Vert_Cover_Min_Elevation := FieldByName('Vert_Cover_Min_Elevation').AsSingle;
+          Vert_Cover_Max_Elevation := FieldByName('Vert_Cover_Max_Elevation').AsSingle;
         end;
 
         radar.FRadar_Vertical.Add(pVerticalCoverage);
@@ -6824,14 +6809,12 @@ begin
 
         with radarPattern.Event.FData do
         begin
-          Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-            .AsInteger;
+          Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
           Radar_Index := FieldByName('Radar_Index').AsInteger;
           Radar_Control := FieldByName('Radar_Control').AsInteger;
         end;
 
-        GetScripted_Pattern(radarPattern.Event.FData.Scripted_Pattern_Index,
-          radarPattern.pattern);
+        GetScripted_Pattern(radarPattern.Event.FData.Scripted_Pattern_Index,radarPattern.pattern);
 
         radar.FScripted_Pattern.Add(radarPattern);
         ZQ.Next;
@@ -6847,8 +6830,7 @@ begin
       SQL.Add('SELECT * ');
       SQL.Add('FROM Radar_On_Board a JOIN Blind_Zone_Definition b ');
       SQL.Add('ON a.Radar_Instance_Index = b.Radar_Instance_Index ');
-      SQL.Add('WHERE (a.Radar_Instance_Index = ' + IntToStr
-          (radar.FData.Radar_Instance_Index) + ')');
+      SQL.Add('WHERE (a.Radar_Instance_Index = ' + IntToStr(radar.FData.Radar_Instance_Index) + ')');
       Open;
 
       ZQ.First;
@@ -7456,12 +7438,9 @@ begin
     SQL.Clear;
     ssql := 'SELECT * ';
     ssql := ssql + 'FROM Sonar_On_Board a JOIN Sonar_Definition b ';
-    ssql := ssql +
-      'ON a.Sonar_Index = b.Sonar_Index INNER JOIN Sonar_Category c ';
-    ssql := ssql +
-      'ON b.Sonar_Category_Index = c.Sonar_Category_Index LEFT JOIN Note_Storage d ';
-    ssql := ssql +
-      'ON d.Sonar_Index = b.Sonar_Index LEFT JOIN Vehicle_Definition e ';
+    ssql := ssql +'ON a.Sonar_Index = b.Sonar_Index INNER JOIN Sonar_Category c ';
+    ssql := ssql +'ON b.Sonar_Category_Index = c.Sonar_Category_Index LEFT JOIN Note_Storage d ';
+    ssql := ssql +'ON d.Sonar_Index = b.Sonar_Index LEFT JOIN Vehicle_Definition e ';
     ssql := ssql + 'ON a.Vehicle_Index = e.Vehicle_Index ';
 
     if index = 1 then
@@ -7477,22 +7456,32 @@ begin
         ssql := ssql + ' ORDER BY a.Sonar_Index ASC';
     end
     else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Sonar_Index =' + IntToStr
-        (index);
+      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Sonar_Index =' + IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -7530,53 +7519,39 @@ begin
           Max_Detect_Range := FieldByName('Max_Detect_Range').AsSingle;
           Known_Signal_Source := FieldByName('Known_Signal_Source').AsSingle;
           Known_Cross_Section := FieldByName('Known_Cross_Section').AsSingle;
-          Sonar_Directivity_Index := FieldByName('Sonar_Directivity_Index')
-            .AsSingle;
-          Active_Operating_Power := FieldByName('Active_Operating_Power')
-            .AsSingle;
+          Sonar_Directivity_Index := FieldByName('Sonar_Directivity_Index').AsSingle;
+          Active_Operating_Power := FieldByName('Active_Operating_Power').AsSingle;
           Active_Freq_of_Op := FieldByName('Active_Freq_of_Op').AsSingle;
           Passive_Freq_of_Op := FieldByName('Passive_Freq_of_Op').AsSingle;
           Max_Operating_Depth := FieldByName('Max_Operating_Depth').AsSingle;
-          Sonar_Depth_Rate_of_Change := FieldByName
-            ('Sonar_Depth_Rate_of_Change').AsSingle;
+          Sonar_Depth_Rate_of_Change := FieldByName('Sonar_Depth_Rate_of_Change').AsSingle;
           Depth_per_Speed := FieldByName('Depth_per_Speed').AsSingle;
           Kinking_Processing := FieldByName('Kinking_Processing').AsBoolean;
           Turn_Rate_2_Kink := FieldByName('Turn_Rate_2_Kink').AsSingle;
           Time_2_Settle_Kinked := FieldByName('Time_2_Settle_Kinked').AsInteger;
           Bearing_Processing := FieldByName('Bearing_Processing').AsBoolean;
-          Time_2_Resolve_Bearing := FieldByName('Time_2_Resolve_Bearing')
-            .AsInteger;
+          Time_2_Resolve_Bearing := FieldByName('Time_2_Resolve_Bearing').AsInteger;
           Passive_Processing := FieldByName('Passive_Processing').AsBoolean;
-          Target_Identification := FieldByName('Target_Identification')
-            .AsBoolean;
+          Target_Identification := FieldByName('Target_Identification').AsBoolean;
           Time_2_Identify := FieldByName('Time_2_Identify').AsInteger;
-          Curve_Detection_Index := FieldByName('Curve_Detection_Index')
-            .AsInteger;
+          Curve_Detection_Index := FieldByName('Curve_Detection_Index').AsInteger;
           Track_Analysis := FieldByName('Track_Analysis').AsInteger;
           Time_2_Provide_Track := FieldByName('Time_2_Provide_Track').AsInteger;
-          Ownship_Increase_due_to_Active := FieldByName
-            ('Ownship_Increase_due_to_Active').AsSingle;
+          Ownship_Increase_due_to_Active := FieldByName('Ownship_Increase_due_to_Active').AsSingle;
           Tow_Speed := FieldByName('Tow_Speed').AsSingle;
           Minimum_Depth := FieldByName('Minimum_Depth').AsSingle;
           Maximum_Tow_Speed := FieldByName('Maximum_Tow_Speed').AsSingle;
           Maximum_Sonar_Speed := FieldByName('Maximum_Sonar_Speed').AsSingle;
-          Depth_Finding_Capable := FieldByName('Depth_Finding_Capable')
-            .AsBoolean;
+          Depth_Finding_Capable := FieldByName('Depth_Finding_Capable').AsBoolean;
           Tracking_Capable := FieldByName('Tracking_Capable').AsBoolean;
-          Surface_Detection_Capable := FieldByName('Surface_Detection_Capable')
-            .AsBoolean;
-          SubSurface_Detection_Capable := FieldByName
-            ('SubSurface_Detection_Capable').AsBoolean;
-          Torpedo_Detection_Capable := FieldByName('Torpedo_Detection_Capable')
-            .AsBoolean;
-          Mine_Detection_Capable := FieldByName('Mine_Detection_Capable')
-            .AsBoolean;
+          Surface_Detection_Capable := FieldByName('Surface_Detection_Capable').AsBoolean;
+          SubSurface_Detection_Capable := FieldByName('SubSurface_Detection_Capable').AsBoolean;
+          Torpedo_Detection_Capable := FieldByName('Torpedo_Detection_Capable').AsBoolean;
+          Mine_Detection_Capable := FieldByName('Mine_Detection_Capable').AsBoolean;
           Cable_Length := FieldByName('Cable_Length').AsSingle;
-          Maximum_Reported_Bearing_Error := FieldByName
-            ('Maximum_Reported_Bearing_Error').AsSingle;
+          Maximum_Reported_Bearing_Error := FieldByName('Maximum_Reported_Bearing_Error').AsSingle;
           Average_Beam_Width := FieldByName('Average_Beam_Width').AsSingle;
-          Counter_Detection_Factor := FieldByName('Counter_Detection_Factor')
-            .AsSingle;
+          Counter_Detection_Factor := FieldByName('Counter_Detection_Factor').AsSingle;
         end;
 
         with rec.FCategory do
@@ -7624,14 +7599,12 @@ begin
 
           with sonarScript.Event.FData do
           begin
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
+            Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
             Sonar_Index := FieldByName('Sonar_Index').AsInteger;
             Sonar_Control := FieldByName('Sonar_Control').AsInteger;
           end;
 
-          GetScripted_Behav(sonarScript.Event.FData.Scripted_Event_Index,
-            sonarScript.Behav);
+          GetScripted_Behav(sonarScript.Event.FData.Scripted_Event_Index,sonarScript.Behav);
 
           rec.FScripted_sonar.Add(sonarScript);
           ZQ.Next;
@@ -7647,8 +7620,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Sonar_On_Board a JOIN Pattern_Sonar_Event b ');
         SQL.Add('ON a.Sonar_Index = b.Sonar_Index ');
-        SQL.Add('WHERE (a.Sonar_Index = ' + IntToStr(rec.FData.Sonar_Index)
-            + ')');
+        SQL.Add('WHERE (a.Sonar_Index = ' + IntToStr(rec.FData.Sonar_Index)+ ')');
         Open;
 
         ZQ.First;
@@ -7659,14 +7631,12 @@ begin
 
           with sonarPattern.Event.FData do
           begin
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
             Sonar_Index := FieldByName('Sonar_Index').AsInteger;
             Sonar_Control := FieldByName('Sonar_Control').AsInteger;
           end;
 
-          GetScripted_Pattern(sonarPattern.Event.FData.Scripted_Pattern_Index,
-            sonarPattern.pattern);
+          GetScripted_Pattern(sonarPattern.Event.FData.Scripted_Pattern_Index,sonarPattern.pattern);
 
           rec.FPattern_Sonar.Add(sonarPattern);
           ZQ.Next;
@@ -7682,8 +7652,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Sonar_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('ON a.Sonar_Instance_Index = b.Sonar_Instance_Index ');
-        SQL.Add('WHERE (a.Sonar_Instance_Index = ' + IntToStr
-            (rec.FData.Sonar_Instance_Index) + ')');
+        SQL.Add('WHERE (a.Sonar_Instance_Index = ' + IntToStr(rec.FData.Sonar_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -7697,8 +7666,7 @@ begin
             Blind_Zone_Index := FieldByName('Blind_Zone_Index').AsInteger;
             Blind_Zone_Type := FieldByName('Blind_Zone_Type').AsInteger;
             BlindZone_Number := FieldByName('BlindZone_Number').AsInteger;
-            Sonar_Instance_Index := FieldByName('Sonar_Instance_Index')
-              .AsInteger;
+            Sonar_Instance_Index := FieldByName('Sonar_Instance_Index').AsInteger;
             Start_Angle := FieldByName('Start_Angle').AsSingle;
             End_Angle := FieldByName('End_Angle').AsSingle;
           end;
@@ -8550,10 +8518,8 @@ begin
     Close;
     SQL.Clear;
     ssql := 'SELECT * ';
-    ssql := ssql +
-      'FROM  Fitted_Weapon_On_Board a INNER JOIN Missile_Definition b ';
-    ssql := ssql +
-      'ON a.Missile_Index = b.Missile_Index  LEFT JOIN Vehicle_Definition e ';
+    ssql := ssql +'FROM  Fitted_Weapon_On_Board a INNER JOIN Missile_Definition b ';
+    ssql := ssql +'ON a.Missile_Index = b.Missile_Index  LEFT JOIN Vehicle_Definition e ';
     ssql := ssql + 'ON a.Vehicle_Index = e.Vehicle_Index ';
 
     if index = 1 then
@@ -8565,22 +8531,32 @@ begin
         ssql := ssql + ' WHERE (a.Vehicle_index = ' + IntToStr(id) + ')';
     end
     else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Missile_Index =' +
-        IntToStr(index);
+      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Missile_Index =' +IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add(' ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -8594,8 +8570,7 @@ begin
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Mount_Type := FieldByName('Mount_Type').AsInteger;
           Launch_Angle := FieldByName('Launch_Angle').AsSingle;
-          Launch_Angle_Required := FieldByName('Launch_Angle_Required')
-            .AsInteger;
+          Launch_Angle_Required := FieldByName('Launch_Angle_Required').AsInteger;
           Quantity := FieldByName('Quantity').AsInteger;
           Firing_Delay := FieldByName('Firing_Delay').AsSingle;
           Missile_Index := FieldByName('Missile_Index').AsInteger;
@@ -8615,12 +8590,9 @@ begin
           Min_Range := FieldByName('Min_Range').AsSingle;
           Motion_Index := FieldByName('Motion_Index').AsInteger;
           Seeker_TurnOn_Range := FieldByName('Seeker_TurnOn_Range').AsSingle;
-          Second_Seeker_Pattern_Capable := FieldByName
-            ('Second_Seeker_Pattern_Capable').AsInteger;
+          Second_Seeker_Pattern_Capable := FieldByName('Second_Seeker_Pattern_Capable').AsInteger;
           Seeker_Bias_Capable := FieldByName('Seeker_Bias_Capable').AsInteger;
-          Fixed_Seeker_Turn_On_Range := FieldByName
-            ('Fixed_Seeker_Turn_On_Range')
-            .AsInteger;
+          Fixed_Seeker_Turn_On_Range := FieldByName('Fixed_Seeker_Turn_On_Range').AsInteger;
           Lethality := FieldByName('Lethality').AsInteger;
           Prob_of_Hit := FieldByName('Prob_of_Hit').AsSingle;
           Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
@@ -8642,8 +8614,7 @@ begin
           Anti_SubSur_Capable := FieldByName('Anti_SubSur_Capable').AsInteger;
           Anti_Land_Capable := FieldByName('Anti_Land_Capable').AsInteger;
           Anti_Amphibious_Capable := FieldByName('Anti_Amphibious_Capable').AsInteger;
-          Primary_Target_Domain := FieldByName('Primary_Target_Domain')
-            .AsInteger;
+          Primary_Target_Domain := FieldByName('Primary_Target_Domain').AsInteger;
           SARH_POH_Modifier := FieldByName('SARH_POH_Modifier').AsSingle;
           CG_POH_Modifier := FieldByName('CG_POH_Modifier').AsSingle;
           TARH_POH_Modifier := FieldByName('TARH_POH_Modifier').AsSingle;
@@ -8654,12 +8625,9 @@ begin
           Pulse_Rep_Freq := FieldByName('Pulse_Rep_Freq').AsSingle;
           Pulse_Width := FieldByName('Pulse_Width').AsSingle;
           Xmit_Power := FieldByName('Xmit_Power').AsSingle;
-          TARH_Jamming_A_Probability := FieldByName
-            ('TARH_Jamming_A_Probability').AsSingle;
-          TARH_Jamming_B_Probability := FieldByName
-            ('TARH_Jamming_B_Probability').AsSingle;
-          TARH_Jamming_C_Probability := FieldByName
-            ('TARH_Jamming_C_Probability').AsSingle;
+          TARH_Jamming_A_Probability := FieldByName('TARH_Jamming_A_Probability').AsSingle;
+          TARH_Jamming_B_Probability := FieldByName('TARH_Jamming_B_Probability').AsSingle;
+          TARH_Jamming_C_Probability := FieldByName('TARH_Jamming_C_Probability').AsSingle;
           Wpt_Capable := FieldByName('Wpt_Capable').AsInteger;
           Max_Num_Wpts := FieldByName('Max_Num_Wpts').AsInteger;
           Min_Final_Leg_Length := FieldByName('Min_Final_Leg_Length').AsSingle;
@@ -8670,56 +8638,32 @@ begin
           Fly_Out_Required := FieldByName('Fly_Out_Required').AsInteger;
           Fly_Out_Range := FieldByName('Fly_Out_Range').AsSingle;
           Fly_Out_Altitude := FieldByName('Fly_Out_Altitude').AsSingle;
-          Booster_Separation_Required := FieldByName
-            ('Booster_Separation_Required').AsInteger;
-          Booster_Separation_Range := FieldByName('Booster_Separation_Range')
-            .AsSingle;
-          Booster_Separation_Box_Width := FieldByName
-            ('Booster_Separation_Box_Width').AsSingle;
-          Booster_Separation_Box_Length := FieldByName
-            ('Booster_Separation_Box_Length').AsSingle;
+          Booster_Separation_Required := FieldByName('Booster_Separation_Required').AsInteger;
+          Booster_Separation_Range := FieldByName('Booster_Separation_Range').AsSingle;
+          Booster_Separation_Box_Width := FieldByName('Booster_Separation_Box_Width').AsSingle;
+          Booster_Separation_Box_Length := FieldByName('Booster_Separation_Box_Length').AsSingle;
           Term_Guide_Azimuth := FieldByName('Term_Guide_Azimuth').AsSingle;
           Term_Guide_Elevation := FieldByName('Term_Guide_Elevation').AsSingle;
           Term_Guide_Range := FieldByName('Term_Guide_Range').AsSingle;
-          Terminal_Guidance_Capability := FieldByName
-            ('Terminal_Guidance_Capability').AsInteger;
-          Terminal_Altitude_Required := FieldByName
-            ('Terminal_Altitude_Required')
-            .AsInteger;
-          Terminal_Acquisition_Altitude := FieldByName
-            ('Terminal_Acquisition_Altitude').AsSingle;
-          Terminal_Sinuation_Start_Range := FieldByName
-            ('Terminal_Sinuation_Start_Range').AsSingle;
-          Terminal_Sinuation_Period := FieldByName('Terminal_Sinuation_Period')
-            .AsSingle;
-          Terminal_Sinuation_Amplitude := FieldByName
-            ('Terminal_Sinuation_Amplitude').AsSingle;
-          Terminal_Pop_Up_Range := FieldByName('Terminal_Pop_Up_Range')
-            .AsSingle;
-          Terminal_Pop_Up_Altitude := FieldByName('Terminal_Pop_Up_Altitude')
-            .AsSingle;
-          Mid_Course_Update_Mode := FieldByName('Mid_Course_Update_Mode')
-            .AsInteger;
-          Home_On_Jam_Type_A_Capable := FieldByName
-            ('Home_On_Jam_Type_A_Capable')
-            .AsInteger;
-          Home_On_Jam_Type_B_Capable := FieldByName
-            ('Home_On_Jam_Type_B_Capable')
-            .AsInteger;
-          Home_On_Jam_Type_C_Capable := FieldByName
-            ('Home_On_Jam_Type_C_Capable')
-            .AsInteger;
+          Terminal_Guidance_Capability := FieldByName('Terminal_Guidance_Capability').AsInteger;
+          Terminal_Altitude_Required := FieldByName('Terminal_Altitude_Required').AsInteger;
+          Terminal_Acquisition_Altitude := FieldByName('Terminal_Acquisition_Altitude').AsSingle;
+          Terminal_Sinuation_Start_Range := FieldByName('Terminal_Sinuation_Start_Range').AsSingle;
+          Terminal_Sinuation_Period := FieldByName('Terminal_Sinuation_Period').AsSingle;
+          Terminal_Sinuation_Amplitude := FieldByName('Terminal_Sinuation_Amplitude').AsSingle;
+          Terminal_Pop_Up_Range := FieldByName('Terminal_Pop_Up_Range').AsSingle;
+          Terminal_Pop_Up_Altitude := FieldByName('Terminal_Pop_Up_Altitude').AsSingle;
+          Mid_Course_Update_Mode := FieldByName('Mid_Course_Update_Mode').AsInteger;
+          Home_On_Jam_Type_A_Capable := FieldByName('Home_On_Jam_Type_A_Capable').AsInteger;
+          Home_On_Jam_Type_B_Capable := FieldByName('Home_On_Jam_Type_B_Capable').AsInteger;
+          Home_On_Jam_Type_C_Capable := FieldByName('Home_On_Jam_Type_C_Capable').AsInteger;
           Launch_Method := FieldByName('Launch_Method').AsInteger;
           Data_Entry_Method := FieldByName('Data_Entry_Method').AsInteger;
           Launch_Speed := FieldByName('Launch_Speed').AsInteger;
-          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta')
-            .AsInteger;
-          Term_Guide_Azimuth_Narrow := FieldByName('Term_Guide_Azimuth_Narrow')
-            .AsSingle;
-          Term_Guide_Elevation_Narrow := FieldByName
-            ('Term_Guide_Elevation_Narrow').AsSingle;
-          Term_Guide_Range_Narrow := FieldByName('Term_Guide_Range_Narrow')
-            .AsSingle;
+          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta').AsInteger;
+          Term_Guide_Azimuth_Narrow := FieldByName('Term_Guide_Azimuth_Narrow').AsSingle;
+          Term_Guide_Elevation_Narrow := FieldByName('Term_Guide_Elevation_Narrow').AsSingle;
+          Term_Guide_Range_Narrow := FieldByName('Term_Guide_Range_Narrow').AsSingle;
           Spot_Number := FieldByName('Spot_Number').AsInteger;
           ECCM_Type := FieldByName('ECCM_Type').AsInteger;
           ECM_Detonation := FieldByName('ECM_Detonation').AsInteger;
@@ -8727,8 +8671,7 @@ begin
           Detectability_Type := FieldByName('Detectability_Type').AsInteger;
           IRCM_Detonation := FieldByName('IRCM_Detonation').AsInteger;
           IRCM_Detection := FieldByName('IRCM_Detection').AsInteger;
-          Sea_State_Modelling_Capable := FieldByName
-            ('Sea_State_Modelling_Capable').AsInteger;
+          Sea_State_Modelling_Capable := FieldByName('Sea_State_Modelling_Capable').AsInteger;
         end;
 
         with rec.FVehicle.FData do
@@ -8779,8 +8722,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Scripted_Weapon_Event b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Weapons_Mount ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -8792,8 +8734,7 @@ begin
           with weaponScript.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
+            Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -8804,8 +8745,7 @@ begin
             Weapons_Mount := FieldByName('Weapons_Mount').AsInteger;
           end;
 
-          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,
-            weaponScript.Behav);
+          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,weaponScript.Behav);
 
           rec.FScript_Missile.Add(weaponScript);
           ZQ.Next;
@@ -8821,8 +8761,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Pattern_Weapon_Event b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Weapons_Mount ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -8834,8 +8773,7 @@ begin
           with weaponPattern.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -8845,8 +8783,7 @@ begin
             Weapons_Mount := FieldByName('Weapons_Mount').AsInteger;
           end;
 
-          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,
-            weaponPattern.pattern);
+          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,weaponPattern.pattern);
 
           rec.FPattern_Missile.Add(weaponPattern);
           ZQ.Next;
@@ -8861,8 +8798,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Fitted_Weap_Index ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -9813,8 +9749,7 @@ begin
     SQL.Clear;
     ssql := 'SELECT * ';
     ssql := ssql + 'FROM  Fitted_Weapon_On_Board a JOIN Torpedo_Definition b ';
-    ssql := ssql +
-      'ON a.Torpedo_Index = b.Torpedo_Index LEFT JOIN Vehicle_Definition d ';
+    ssql := ssql +'ON a.Torpedo_Index = b.Torpedo_Index LEFT JOIN Vehicle_Definition d ';
     ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
 
     if index = 1 then
@@ -9828,22 +9763,32 @@ begin
       ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ')';
     end
     else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Torpedo_Index =' +
-        IntToStr(index);
+      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Torpedo_Index =' + IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add(' ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -9857,8 +9802,7 @@ begin
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Mount_Type := FieldByName('Mount_Type').AsInteger;
           Launch_Angle := FieldByName('Launch_Angle').AsSingle;
-          Launch_Angle_Required := FieldByName('Launch_Angle_Required')
-            .AsInteger;
+          Launch_Angle_Required := FieldByName('Launch_Angle_Required').AsInteger;
           Quantity := FieldByName('Quantity').AsInteger;
           Firing_Delay := FieldByName('Firing_Delay').AsSingle;
           Missile_Index := FieldByName('Missile_Index').AsInteger;
@@ -9886,25 +9830,18 @@ begin
           Height := FieldByName('Height').AsSingle;
           Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
           Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
-          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens')
-            .AsSingle;
-          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens')
-            .AsSingle;
-          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens')
-            .AsSingle;
-          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens')
-            .AsSingle;
-          Cavitation_Switch_Point := FieldByName('Cavitation_Switch_Point')
-            .AsSingle;
+          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens').AsSingle;
+          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens').AsSingle;
+          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens').AsSingle;
+          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens').AsSingle;
+          Cavitation_Switch_Point := FieldByName('Cavitation_Switch_Point').AsSingle;
           Term_Guide_Azimuth := FieldByName('Term_Guide_Azimuth').AsSingle;
           Term_Guide_Elevation := FieldByName('Term_Guide_Elevation').AsSingle;
           Term_Guide_Range := FieldByName('Term_Guide_Range').AsSingle;
-          Pursuit_Guidance_Type := FieldByName('Pursuit_Guidance_Type')
-            .AsInteger;
+          Pursuit_Guidance_Type := FieldByName('Pursuit_Guidance_Type').AsInteger;
           Air_Drop_Capable := FieldByName('Air_Drop_Capable').AsInteger;
           Use_Terminal_Circle := FieldByName('Use_Terminal_Circle').AsInteger;
-          Terminal_Circle_Radius := FieldByName('Terminal_Circle_Radius')
-            .AsSingle;
+          Terminal_Circle_Radius := FieldByName('Terminal_Circle_Radius').AsSingle;
           Fixed_Circle_Radius := FieldByName('Fixed_Circle_Radius').AsInteger;
           Lateral_Deceleration := FieldByName('Lateral_Deceleration').AsSingle;
           Airborne_Descent_Rate := FieldByName('Airborne_Descent_Rate').AsFloat;
@@ -9912,50 +9849,32 @@ begin
           Guidance_Type := FieldByName('Guidance_Type').AsInteger;
           Anti_Sur_Capable := FieldByName('Anti_Sur_Capable').AsInteger;
           Anti_SubSur_Capable := FieldByName('Anti_SubSur_Capable').AsInteger;
-          Primary_Target_Domain := FieldByName('Primary_Target_Domain')
-            .AsInteger;
-          Active_Acoustic_POH_Mod := FieldByName('Active_Acoustic_POH_Mod')
-            .AsSingle;
-          Passive_Acoustic_POH_Mod := FieldByName('Passive_Acoustic_POH_Mod')
-            .AsSingle;
-          Active_Passive_POH_Mod := FieldByName('Active_Passive_POH_Mod')
-            .AsSingle;
-          WireGuide_POH_Modifier := FieldByName('WireGuide_POH_Modifier')
-            .AsSingle;
-          WakeHome_POH_Modifier := FieldByName('WakeHome_POH_Modifier')
-            .AsSingle;
+          Primary_Target_Domain := FieldByName('Primary_Target_Domain').AsInteger;
+          Active_Acoustic_POH_Mod := FieldByName('Active_Acoustic_POH_Mod').AsSingle;
+          Passive_Acoustic_POH_Mod := FieldByName('Passive_Acoustic_POH_Mod').AsSingle;
+          Active_Passive_POH_Mod := FieldByName('Active_Passive_POH_Mod').AsSingle;
+          WireGuide_POH_Modifier := FieldByName('WireGuide_POH_Modifier').AsSingle;
+          WakeHome_POH_Modifier := FieldByName('WakeHome_POH_Modifier').AsSingle;
           Active_Seeker_Power := FieldByName('Active_Seeker_Power').AsSingle;
           Active_Seeker_Freq := FieldByName('Active_Seeker_Freq').AsSingle;
           Engagement_Range := FieldByName('Engagement_Range').AsSingle;
-          First_Relative_Gyro_Angle := FieldByName('First_Relative_Gyro_Angle')
-            .AsInteger;
-          Second_Relative_Gyro_Angle := FieldByName
-            ('Second_Relative_Gyro_Angle')
-            .AsInteger;
-          Max_Torpedo_Gyro_Angle := FieldByName('Max_Torpedo_Gyro_Angle')
-            .AsSingle;
-          Max_Torpedo_Search_Depth := FieldByName('Max_Torpedo_Search_Depth')
-            .AsSingle;
-          Acoustic_Torp_Ceiling_Depth := FieldByName
-            ('Acoustic_Torp_Ceiling_Depth').AsSingle;
+          First_Relative_Gyro_Angle := FieldByName('First_Relative_Gyro_Angle').AsInteger;
+          Second_Relative_Gyro_Angle := FieldByName('Second_Relative_Gyro_Angle').AsInteger;
+          Max_Torpedo_Gyro_Angle := FieldByName('Max_Torpedo_Gyro_Angle').AsSingle;
+          Max_Torpedo_Search_Depth := FieldByName('Max_Torpedo_Search_Depth').AsSingle;
+          Acoustic_Torp_Ceiling_Depth := FieldByName('Acoustic_Torp_Ceiling_Depth').AsSingle;
           Fixed_Ceiling_Depth := FieldByName('Fixed_Ceiling_Depth').AsInteger;
-          Fixed_Seeker_TurnOn_Range := FieldByName('Fixed_Seeker_TurnOn_Range')
-            .AsInteger;
+          Fixed_Seeker_TurnOn_Range := FieldByName('Fixed_Seeker_TurnOn_Range').AsInteger;
           Sinuation_Runout := FieldByName('Sinuation_Runout').AsInteger;
-          Runout_Sinuation_Period := FieldByName('Runout_Sinuation_Period')
-            .AsSingle;
-          Runout_Sinuation_Amplitude := FieldByName
-            ('Runout_Sinuation_Amplitude').AsSingle;
+          Runout_Sinuation_Period := FieldByName('Runout_Sinuation_Period').AsSingle;
+          Runout_Sinuation_Amplitude := FieldByName('Runout_Sinuation_Amplitude').AsSingle;
           Min_Runout_Range := FieldByName('Min_Runout_Range').AsSingle;
           Launch_Method := FieldByName('Launch_Method').AsInteger;
           Data_Entry_Method := FieldByName('Data_Entry_Method').AsInteger;
           Launch_Speed := FieldByName('Launch_Speed').AsInteger;
-          Opt_Launch_Range_Nuc_Sub := FieldByName('Opt_Launch_Range_Nuc_Sub')
-            .AsSingle;
-          Opt_Launch_Range_Conv_Sub := FieldByName('Opt_Launch_Range_Conv_Sub')
-            .AsSingle;
-          Opt_Launch_Range_Other := FieldByName('Opt_Launch_Range_Other')
-            .AsSingle;
+          Opt_Launch_Range_Nuc_Sub := FieldByName('Opt_Launch_Range_Nuc_Sub').AsSingle;
+          Opt_Launch_Range_Conv_Sub := FieldByName('Opt_Launch_Range_Conv_Sub').AsSingle;
+          Opt_Launch_Range_Other := FieldByName('Opt_Launch_Range_Other').AsSingle;
           Detectability_Type := FieldByName('Detectability_Type').AsInteger;
         end;
 
@@ -9983,8 +9902,7 @@ begin
         SQL.Clear;
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weap_Launcher_On_Board a ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -10014,8 +9932,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Scripted_Weapon_Event b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Weapons_Mount ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
 
         Open;
 
@@ -10028,8 +9945,7 @@ begin
           with weaponScript.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
+            Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -10040,8 +9956,7 @@ begin
             Weapons_Mount := FieldByName('Weapons_Mount').AsInteger;
           end;
 
-          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,
-            weaponScript.Behav);
+          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,weaponScript.Behav);
 
           rec.FScript_Torpedo.Add(weaponScript);
           ZQ.Next;
@@ -10057,8 +9972,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Pattern_Weapon_Event b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Weapons_Mount ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -10070,8 +9984,7 @@ begin
           with weaponPattern.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -10082,8 +9995,7 @@ begin
 
           end;
 
-          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,
-            weaponPattern.pattern);
+          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,weaponPattern.pattern);
 
           rec.FPattern_Torpedo.Add(weaponPattern);
           ZQ.Next;
@@ -10099,8 +10011,7 @@ begin
         SQL.Add('SELECT a.Torpedo_Index, a.Aspect_Angle, a.POH_Modifier ');
         SQL.Add('FROM Torpedo_POH_Modifier a JOIN Torpedo_Definition b ');
         SQL.Add('ON a.Torpedo_Index = b.Torpedo_Index ');
-        SQL.Add('WHERE (a.Torpedo_Index = ' + IntToStr
-            (rec.FDef.Torpedo_Index) + ')');
+        SQL.Add('WHERE (a.Torpedo_Index = ' + IntToStr(rec.FDef.Torpedo_Index) + ')');
         Open;
 
         ZQ.First;
@@ -10130,8 +10041,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Fitted_Weap_Index ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -10691,8 +10601,7 @@ begin
     ssql := 'SELECT distinct * ';{ a.Instance_Identifier,b.Mine_Index ';}
     ssql := ssql + 'FROM  Fitted_Weapon_On_Board a JOIN Mine_Definition b ';
     ssql := ssql + 'ON a.Mine_Index = b.Mine_Index LEFT JOIN Note_Storage c ';
-    ssql := ssql +
-      'ON b.Mine_Index = c.Mine_Index LEFT JOIN Vehicle_Definition d ';
+    ssql := ssql +'ON b.Mine_Index = c.Mine_Index LEFT JOIN Vehicle_Definition d ';
     ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
 
     if index = 1 then
@@ -10704,8 +10613,7 @@ begin
         ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(id) + ') ';
     end
     else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Mine_Index =' + IntToStr
-        (index) + ' ';
+      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Mine_Index =' + IntToStr(index) + ' ';
 
     SQL.Add(ssql);
     SQL.Add('ORDER BY a.Instance_Identifier');
@@ -10713,14 +10621,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -10790,8 +10709,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Scripted_Weapon_Event b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Weapons_Mount ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -10803,8 +10721,7 @@ begin
           with weaponScript.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
+            Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -10815,8 +10732,7 @@ begin
             Weapons_Mount := FieldByName('Weapons_Mount').AsInteger;
           end;
 
-          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,
-            weaponScript.Behav);
+          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,weaponScript.Behav);
 
           rec.FScript_Mine.Add(weaponScript);
           ZQ.Next;
@@ -10832,8 +10748,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Pattern_Weapon_Event b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Weapons_Mount ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -10845,8 +10760,7 @@ begin
           with weaponPattern.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -10856,8 +10770,7 @@ begin
             Weapons_Mount := FieldByName('Weapons_Mount').AsInteger;
           end;
 
-          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,
-            weaponPattern.pattern);
+          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,weaponPattern.pattern);
 
           rec.FPattern_Mine.Add(weaponPattern);
           ZQ.Next;
@@ -10873,8 +10786,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('ON a.Fitted_Weap_Index = b.Fitted_Weap_Index ');
-        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (rec.FData.Fitted_Weap_Index) + ')');
+        SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(rec.FData.Fitted_Weap_Index) + ')');
         Open;
 
         ZQ.First;
@@ -10905,8 +10817,7 @@ begin
         SQL.Clear;
         SQL.Add('SELECT * ');
         SQL.Add('FROM Mine_POD_vs_Range g ');
-        SQL.Add('WHERE (g.Mine_Index = ' + IntToStr
-            (rec.FMine_Def.Mine_Index) + ')');
+        SQL.Add('WHERE (g.Mine_Index = ' + IntToStr(rec.FMine_Def.Mine_Index) + ')');
         Open;
 
         ZQ.First;
@@ -11340,6 +11251,7 @@ end;
 function TdmTTT.GetAllHybrid_On_Board(const id: Integer;
   var aRec: TList): Integer;
 var
+  i : Integer;
   hybrid: THybrid_On_Board;
   missile_Blind: TBlind_Zone;
 begin
@@ -11372,14 +11284,26 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        hybrid := aRec.Items[i];
+        hybrid.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -11393,8 +11317,7 @@ begin
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Mount_Type := FieldByName('Mount_Type').AsInteger;
           Launch_Angle := FieldByName('Launch_Angle').AsSingle;
-          Launch_Angle_Required := FieldByName('Launch_Angle_Required')
-            .AsInteger;
+          Launch_Angle_Required := FieldByName('Launch_Angle_Required').AsInteger;
           Quantity := FieldByName('Quantity').AsInteger;
           Firing_Delay := FieldByName('Firing_Delay').AsSingle;
           Missile_Index := FieldByName('Missile_Index').AsInteger;
@@ -11437,25 +11360,18 @@ begin
             Height := ZQ2.FieldByName('Height').AsSingle;
             Front_Acoustic_Cross := ZQ2.FieldByName('Front_Acoustic_Cross').AsSingle;
             Side_Acoustic_Cross := ZQ2.FieldByName('Side_Acoustic_Cross').AsSingle;
-            LSpeed_Acoustic_Intens := ZQ2.FieldByName('LSpeed_Acoustic_Intens')
-              .AsSingle;
-            Below_Cav_Acoustic_Intens := ZQ2.FieldByName('Below_Cav_Acoustic_Intens')
-              .AsSingle;
-            Above_Cav_Acoustic_Intens := ZQ2.FieldByName('Above_Cav_Acoustic_Intens')
-              .AsSingle;
-            HSpeed_Acoustic_Intens := ZQ2.FieldByName('HSpeed_Acoustic_Intens')
-              .AsSingle;
-            Cavitation_Switch_Point := ZQ2.FieldByName('Cavitation_Switch_Point')
-              .AsSingle;
+            LSpeed_Acoustic_Intens := ZQ2.FieldByName('LSpeed_Acoustic_Intens').AsSingle;
+            Below_Cav_Acoustic_Intens := ZQ2.FieldByName('Below_Cav_Acoustic_Intens').AsSingle;
+            Above_Cav_Acoustic_Intens := ZQ2.FieldByName('Above_Cav_Acoustic_Intens').AsSingle;
+            HSpeed_Acoustic_Intens := ZQ2.FieldByName('HSpeed_Acoustic_Intens').AsSingle;
+            Cavitation_Switch_Point := ZQ2.FieldByName('Cavitation_Switch_Point').AsSingle;
             Term_Guide_Azimuth := ZQ2.FieldByName('Term_Guide_Azimuth').AsSingle;
             Term_Guide_Elevation := ZQ2.FieldByName('Term_Guide_Elevation').AsSingle;
             Term_Guide_Range := ZQ2.FieldByName('Term_Guide_Range').AsSingle;
-            Pursuit_Guidance_Type := ZQ2.FieldByName('Pursuit_Guidance_Type')
-              .AsInteger;
+            Pursuit_Guidance_Type := ZQ2.FieldByName('Pursuit_Guidance_Type').AsInteger;
             Air_Drop_Capable := ZQ2.FieldByName('Air_Drop_Capable').AsInteger;
             Use_Terminal_Circle := ZQ2.FieldByName('Use_Terminal_Circle').AsInteger;
-            Terminal_Circle_Radius := ZQ2.FieldByName('Terminal_Circle_Radius')
-              .AsSingle;
+            Terminal_Circle_Radius := ZQ2.FieldByName('Terminal_Circle_Radius').AsSingle;
             Fixed_Circle_Radius := ZQ2.FieldByName('Fixed_Circle_Radius').AsInteger;
             Lateral_Deceleration := ZQ2.FieldByName('Lateral_Deceleration').AsSingle;
             Airborne_Descent_Rate := ZQ2.FieldByName('Airborne_Descent_Rate').AsFloat;
@@ -11463,50 +11379,32 @@ begin
             Guidance_Type := ZQ2.FieldByName('Guidance_Type').AsInteger;
             Anti_Sur_Capable := ZQ2.FieldByName('Anti_Sur_Capable').AsInteger;
             Anti_SubSur_Capable := ZQ2.FieldByName('Anti_SubSur_Capable').AsInteger;
-            Primary_Target_Domain := ZQ2.FieldByName('Primary_Target_Domain')
-              .AsInteger;
-            Active_Acoustic_POH_Mod := ZQ2.FieldByName('Active_Acoustic_POH_Mod')
-              .AsSingle;
-            Passive_Acoustic_POH_Mod := ZQ2.FieldByName('Passive_Acoustic_POH_Mod')
-              .AsSingle;
-            Active_Passive_POH_Mod := ZQ2.FieldByName('Active_Passive_POH_Mod')
-              .AsSingle;
-            WireGuide_POH_Modifier := ZQ2.FieldByName('WireGuide_POH_Modifier')
-              .AsSingle;
-            WakeHome_POH_Modifier := ZQ2.FieldByName('WakeHome_POH_Modifier')
-              .AsSingle;
+            Primary_Target_Domain := ZQ2.FieldByName('Primary_Target_Domain').AsInteger;
+            Active_Acoustic_POH_Mod := ZQ2.FieldByName('Active_Acoustic_POH_Mod').AsSingle;
+            Passive_Acoustic_POH_Mod := ZQ2.FieldByName('Passive_Acoustic_POH_Mod').AsSingle;
+            Active_Passive_POH_Mod := ZQ2.FieldByName('Active_Passive_POH_Mod').AsSingle;
+            WireGuide_POH_Modifier := ZQ2.FieldByName('WireGuide_POH_Modifier').AsSingle;
+            WakeHome_POH_Modifier := ZQ2.FieldByName('WakeHome_POH_Modifier').AsSingle;
             Active_Seeker_Power := ZQ2.FieldByName('Active_Seeker_Power').AsSingle;
             Active_Seeker_Freq := ZQ2.FieldByName('Active_Seeker_Freq').AsSingle;
             Engagement_Range := ZQ2.FieldByName('Engagement_Range').AsSingle;
-            First_Relative_Gyro_Angle := ZQ2.FieldByName('First_Relative_Gyro_Angle')
-              .AsInteger;
-            Second_Relative_Gyro_Angle := ZQ2.FieldByName
-              ('Second_Relative_Gyro_Angle')
-              .AsInteger;
-            Max_Torpedo_Gyro_Angle := ZQ2.FieldByName('Max_Torpedo_Gyro_Angle')
-              .AsSingle;
-            Max_Torpedo_Search_Depth := ZQ2.FieldByName('Max_Torpedo_Search_Depth')
-              .AsSingle;
-            Acoustic_Torp_Ceiling_Depth := ZQ2.FieldByName
-              ('Acoustic_Torp_Ceiling_Depth').AsSingle;
+            First_Relative_Gyro_Angle := ZQ2.FieldByName('First_Relative_Gyro_Angle').AsInteger;
+            Second_Relative_Gyro_Angle := ZQ2.FieldByName('Second_Relative_Gyro_Angle').AsInteger;
+            Max_Torpedo_Gyro_Angle := ZQ2.FieldByName('Max_Torpedo_Gyro_Angle').AsSingle;
+            Max_Torpedo_Search_Depth := ZQ2.FieldByName('Max_Torpedo_Search_Depth').AsSingle;
+            Acoustic_Torp_Ceiling_Depth := ZQ2.FieldByName('Acoustic_Torp_Ceiling_Depth').AsSingle;
             Fixed_Ceiling_Depth := ZQ2.FieldByName('Fixed_Ceiling_Depth').AsInteger;
-            Fixed_Seeker_TurnOn_Range := ZQ2.FieldByName('Fixed_Seeker_TurnOn_Range')
-              .AsInteger;
+            Fixed_Seeker_TurnOn_Range := ZQ2.FieldByName('Fixed_Seeker_TurnOn_Range').AsInteger;
             Sinuation_Runout := ZQ2.FieldByName('Sinuation_Runout').AsInteger;
-            Runout_Sinuation_Period := ZQ2.FieldByName('Runout_Sinuation_Period')
-              .AsSingle;
-            Runout_Sinuation_Amplitude := ZQ2.FieldByName
-              ('Runout_Sinuation_Amplitude').AsSingle;
+            Runout_Sinuation_Period := ZQ2.FieldByName('Runout_Sinuation_Period').AsSingle;
+            Runout_Sinuation_Amplitude := ZQ2.FieldByName('Runout_Sinuation_Amplitude').AsSingle;
             Min_Runout_Range := ZQ2.FieldByName('Min_Runout_Range').AsSingle;
             Launch_Method := ZQ2.FieldByName('Launch_Method').AsInteger;
             Data_Entry_Method := ZQ2.FieldByName('Data_Entry_Method').AsInteger;
             Launch_Speed := ZQ2.FieldByName('Launch_Speed').AsInteger;
-            Opt_Launch_Range_Nuc_Sub := ZQ2.FieldByName('Opt_Launch_Range_Nuc_Sub')
-              .AsSingle;
-            Opt_Launch_Range_Conv_Sub := ZQ2.FieldByName('Opt_Launch_Range_Conv_Sub')
-              .AsSingle;
-            Opt_Launch_Range_Other := ZQ2.FieldByName('Opt_Launch_Range_Other')
-              .AsSingle;
+            Opt_Launch_Range_Nuc_Sub := ZQ2.FieldByName('Opt_Launch_Range_Nuc_Sub').AsSingle;
+            Opt_Launch_Range_Conv_Sub := ZQ2.FieldByName('Opt_Launch_Range_Conv_Sub').AsSingle;
+            Opt_Launch_Range_Other := ZQ2.FieldByName('Opt_Launch_Range_Other').AsSingle;
             Detectability_Type := ZQ2.FieldByName('Detectability_Type').AsInteger;
           end;
           ZQ2.Next;
@@ -11515,8 +11413,7 @@ begin
         ZQ2.Close;
         ZQ2.SQL.Clear;
         ZQ2.SQL.Add('SELECT * FROM Missile_Definition a');
-        ZQ2.SQL.Add('WHERE (a.Missile_Index = ' + IntToStr
-            (hybrid.FHybridData.Missile_Index) + ')');
+        ZQ2.SQL.Add('WHERE (a.Missile_Index = ' + IntToStr(hybrid.FHybridData.Missile_Index) + ')');
         ZQ2.Open;
         ZQ2.First;
 
@@ -11532,12 +11429,9 @@ begin
             Min_Range := ZQ2.FieldByName('Min_Range').AsSingle;
             Motion_Index := ZQ2.FieldByName('Motion_Index').AsInteger;
             Seeker_TurnOn_Range := ZQ2.FieldByName('Seeker_TurnOn_Range').AsSingle;
-            Second_Seeker_Pattern_Capable := ZQ2.FieldByName
-              ('Second_Seeker_Pattern_Capable').AsInteger;
+            Second_Seeker_Pattern_Capable := ZQ2.FieldByName('Second_Seeker_Pattern_Capable').AsInteger;
             Seeker_Bias_Capable := ZQ2.FieldByName('Seeker_Bias_Capable').AsInteger;
-            Fixed_Seeker_Turn_On_Range := ZQ2.FieldByName
-              ('Fixed_Seeker_Turn_On_Range')
-              .AsInteger;
+            Fixed_Seeker_Turn_On_Range := ZQ2.FieldByName('Fixed_Seeker_Turn_On_Range').AsInteger;
             Lethality := ZQ2.FieldByName('Lethality').AsInteger;
             Prob_of_Hit := ZQ2.FieldByName('Prob_of_Hit').AsSingle;
             Damage_Capacity := ZQ2.FieldByName('Damage_Capacity').AsInteger;
@@ -11558,8 +11452,7 @@ begin
             Anti_Sur_Capable := ZQ2.FieldByName('Anti_Sur_Capable').AsInteger;
             Anti_SubSur_Capable := ZQ2.FieldByName('Anti_SubSur_Capable').AsInteger;
             Anti_Land_Capable := ZQ2.FieldByName('Anti_Land_Capable').AsInteger;
-            Primary_Target_Domain := ZQ2.FieldByName('Primary_Target_Domain')
-              .AsInteger;
+            Primary_Target_Domain := ZQ2.FieldByName('Primary_Target_Domain').AsInteger;
             SARH_POH_Modifier := ZQ2.FieldByName('SARH_POH_Modifier').AsSingle;
             CG_POH_Modifier := ZQ2.FieldByName('CG_POH_Modifier').AsSingle;
             TARH_POH_Modifier := ZQ2.FieldByName('TARH_POH_Modifier').AsSingle;
@@ -11570,12 +11463,9 @@ begin
             Pulse_Rep_Freq := ZQ2.FieldByName('Pulse_Rep_Freq').AsSingle;
             Pulse_Width := ZQ2.FieldByName('Pulse_Width').AsSingle;
             Xmit_Power := ZQ2.FieldByName('Xmit_Power').AsSingle;
-            TARH_Jamming_A_Probability := ZQ2.FieldByName
-              ('TARH_Jamming_A_Probability').AsSingle;
-            TARH_Jamming_B_Probability := ZQ2.FieldByName
-              ('TARH_Jamming_B_Probability').AsSingle;
-            TARH_Jamming_C_Probability := ZQ2.FieldByName
-              ('TARH_Jamming_C_Probability').AsSingle;
+            TARH_Jamming_A_Probability := ZQ2.FieldByName('TARH_Jamming_A_Probability').AsSingle;
+            TARH_Jamming_B_Probability := ZQ2.FieldByName('TARH_Jamming_B_Probability').AsSingle;
+            TARH_Jamming_C_Probability := ZQ2.FieldByName('TARH_Jamming_C_Probability').AsSingle;
             Wpt_Capable := ZQ2.FieldByName('Wpt_Capable').AsInteger;
             Max_Num_Wpts := ZQ2.FieldByName('Max_Num_Wpts').AsInteger;
             Min_Final_Leg_Length := ZQ2.FieldByName('Min_Final_Leg_Length').AsSingle;
@@ -11586,56 +11476,32 @@ begin
             Fly_Out_Required := ZQ2.FieldByName('Fly_Out_Required').AsInteger;
             Fly_Out_Range := ZQ2.FieldByName('Fly_Out_Range').AsSingle;
             Fly_Out_Altitude := ZQ2.FieldByName('Fly_Out_Altitude').AsSingle;
-            Booster_Separation_Required := ZQ2.FieldByName
-              ('Booster_Separation_Required').AsInteger;
-            Booster_Separation_Range := ZQ2.FieldByName('Booster_Separation_Range')
-              .AsSingle;
-            Booster_Separation_Box_Width := ZQ2.FieldByName
-              ('Booster_Separation_Box_Width').AsSingle;
-            Booster_Separation_Box_Length := ZQ2.FieldByName
-              ('Booster_Separation_Box_Length').AsSingle;
+            Booster_Separation_Required := ZQ2.FieldByName('Booster_Separation_Required').AsInteger;
+            Booster_Separation_Range := ZQ2.FieldByName('Booster_Separation_Range').AsSingle;
+            Booster_Separation_Box_Width := ZQ2.FieldByName('Booster_Separation_Box_Width').AsSingle;
+            Booster_Separation_Box_Length := ZQ2.FieldByName('Booster_Separation_Box_Length').AsSingle;
             Term_Guide_Azimuth := ZQ2.FieldByName('Term_Guide_Azimuth').AsSingle;
             Term_Guide_Elevation := ZQ2.FieldByName('Term_Guide_Elevation').AsSingle;
             Term_Guide_Range := ZQ2.FieldByName('Term_Guide_Range').AsSingle;
-            Terminal_Guidance_Capability := ZQ2.FieldByName
-              ('Terminal_Guidance_Capability').AsInteger;
-            Terminal_Altitude_Required := ZQ2.FieldByName
-              ('Terminal_Altitude_Required')
-              .AsInteger;
-            Terminal_Acquisition_Altitude := ZQ2.FieldByName
-              ('Terminal_Acquisition_Altitude').AsSingle;
-            Terminal_Sinuation_Start_Range := ZQ2.FieldByName
-              ('Terminal_Sinuation_Start_Range').AsSingle;
-            Terminal_Sinuation_Period := ZQ2.FieldByName('Terminal_Sinuation_Period')
-              .AsSingle;
-            Terminal_Sinuation_Amplitude := ZQ2.FieldByName
-              ('Terminal_Sinuation_Amplitude').AsSingle;
-            Terminal_Pop_Up_Range := ZQ2.FieldByName('Terminal_Pop_Up_Range')
-              .AsSingle;
-            Terminal_Pop_Up_Altitude := ZQ2.FieldByName('Terminal_Pop_Up_Altitude')
-              .AsSingle;
-            Mid_Course_Update_Mode := ZQ2.FieldByName('Mid_Course_Update_Mode')
-              .AsInteger;
-            Home_On_Jam_Type_A_Capable := ZQ2.FieldByName
-              ('Home_On_Jam_Type_A_Capable')
-              .AsInteger;
-            Home_On_Jam_Type_B_Capable := ZQ2.FieldByName
-              ('Home_On_Jam_Type_B_Capable')
-              .AsInteger;
-            Home_On_Jam_Type_C_Capable := ZQ2.FieldByName
-              ('Home_On_Jam_Type_C_Capable')
-              .AsInteger;
+            Terminal_Guidance_Capability := ZQ2.FieldByName('Terminal_Guidance_Capability').AsInteger;
+            Terminal_Altitude_Required := ZQ2.FieldByName('Terminal_Altitude_Required').AsInteger;
+            Terminal_Acquisition_Altitude := ZQ2.FieldByName('Terminal_Acquisition_Altitude').AsSingle;
+            Terminal_Sinuation_Start_Range := ZQ2.FieldByName('Terminal_Sinuation_Start_Range').AsSingle;
+            Terminal_Sinuation_Period := ZQ2.FieldByName('Terminal_Sinuation_Period').AsSingle;
+            Terminal_Sinuation_Amplitude := ZQ2.FieldByName('Terminal_Sinuation_Amplitude').AsSingle;
+            Terminal_Pop_Up_Range := ZQ2.FieldByName('Terminal_Pop_Up_Range').AsSingle;
+            Terminal_Pop_Up_Altitude := ZQ2.FieldByName('Terminal_Pop_Up_Altitude').AsSingle;
+            Mid_Course_Update_Mode := ZQ2.FieldByName('Mid_Course_Update_Mode').AsInteger;
+            Home_On_Jam_Type_A_Capable := ZQ2.FieldByName('Home_On_Jam_Type_A_Capable').AsInteger;
+            Home_On_Jam_Type_B_Capable := ZQ2.FieldByName('Home_On_Jam_Type_B_Capable').AsInteger;
+            Home_On_Jam_Type_C_Capable := ZQ2.FieldByName('Home_On_Jam_Type_C_Capable').AsInteger;
             Launch_Method := ZQ2.FieldByName('Launch_Method').AsInteger;
             Data_Entry_Method := ZQ2.FieldByName('Data_Entry_Method').AsInteger;
             Launch_Speed := ZQ2.FieldByName('Launch_Speed').AsInteger;
-            Max_Target_Altitude_Delta := ZQ2.FieldByName('Max_Target_Altitude_Delta')
-              .AsInteger;
-            Term_Guide_Azimuth_Narrow := ZQ2.FieldByName('Term_Guide_Azimuth_Narrow')
-              .AsSingle;
-            Term_Guide_Elevation_Narrow := ZQ2.FieldByName
-              ('Term_Guide_Elevation_Narrow').AsSingle;
-            Term_Guide_Range_Narrow := ZQ2.FieldByName('Term_Guide_Range_Narrow')
-              .AsSingle;
+            Max_Target_Altitude_Delta := ZQ2.FieldByName('Max_Target_Altitude_Delta').AsInteger;
+            Term_Guide_Azimuth_Narrow := ZQ2.FieldByName('Term_Guide_Azimuth_Narrow').AsSingle;
+            Term_Guide_Elevation_Narrow := ZQ2.FieldByName('Term_Guide_Elevation_Narrow').AsSingle;
+            Term_Guide_Range_Narrow := ZQ2.FieldByName('Term_Guide_Range_Narrow').AsSingle;
             Spot_Number := ZQ2.FieldByName('Spot_Number').AsInteger;
             ECCM_Type := ZQ2.FieldByName('ECCM_Type').AsInteger;
             ECM_Detonation := ZQ2.FieldByName('ECM_Detonation').AsInteger;
@@ -11643,8 +11509,7 @@ begin
             Detectability_Type := ZQ2.FieldByName('Detectability_Type').AsInteger;
             IRCM_Detonation := ZQ2.FieldByName('IRCM_Detonation').AsInteger;
             IRCM_Detection := ZQ2.FieldByName('IRCM_Detection').AsInteger;
-            Sea_State_Modelling_Capable := ZQ2.FieldByName
-              ('Sea_State_Modelling_Capable').AsInteger;
+            Sea_State_Modelling_Capable := ZQ2.FieldByName('Sea_State_Modelling_Capable').AsInteger;
           end;
           ZQ2.Next;
         end;
@@ -11655,8 +11520,7 @@ begin
         ZQ2.SQL.Add('SELECT * ');
         ZQ2.SQL.Add('FROM Fitted_Weapon_On_Board a JOIN Blind_Zone_Definition b ');
         ZQ2.SQL.Add('ON a.Fitted_Weap_Index = b.Fitted_Weap_Index ');
-        ZQ2.SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr
-            (hybrid.FData.Fitted_Weap_Index) + ')');
+        ZQ2.SQL.Add('WHERE (a.Fitted_Weap_Index = ' + IntToStr(hybrid.FData.Fitted_Weap_Index) + ')');
         ZQ2.Open;
         ZQ2.First;
 
@@ -12100,7 +11964,7 @@ end;
 function TdmTTT.getAllAcoustic_Decoy_On_Board(const id: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TAcoustic_Decoy_On_Board;
 begin
   result := -1;
@@ -12122,14 +11986,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -12137,8 +12012,7 @@ begin
 
         with rec.FData do
         begin
-          Acoustic_Instance_Index := FieldByName('Acoustic_Instance_Index')
-            .AsInteger;
+          Acoustic_Instance_Index := FieldByName('Acoustic_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Quantity := FieldByName('Quantity').AsInteger;
@@ -12150,8 +12024,7 @@ begin
         begin
           Decoy_Index := FieldByName('Decoy_Index').AsInteger;
           Decoy_Identifier := FieldByName('Decoy_Identifier').AsString;
-          Acoustic_Intensity_Increase := FieldByName
-            ('Acoustic_Intensity_Increase').AsSingle;
+          Acoustic_Intensity_Increase := FieldByName('Acoustic_Intensity_Increase').AsSingle;
         end;
 
         with rec.FNote do
@@ -12422,7 +12295,7 @@ end;
 function TdmTTT.getAllAir_Bubble_Mount(const id: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TAir_Bubble_Mount;
 begin
   result := -1;
@@ -12436,22 +12309,32 @@ begin
     SQL.Clear;
     SQL.Add('SELECT * ');
     SQL.Add('FROM  Air_Bubble_Mount a JOIN Air_Bubble_Definition b ');
-    SQL.Add(
-      'ON a.Air_Bubble_Index = b.Air_Bubble_Index LEFT JOIN Note_Storage c');
+    SQL.Add('ON a.Air_Bubble_Index = b.Air_Bubble_Index LEFT JOIN Note_Storage c');
     SQL.Add('ON c.Air_Bubble_Index = b.Air_Bubble_Index ');
     SQL.Add('WHERE (a.Vehicle_index = ' + IntToStr(id) + ') ');
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -12459,8 +12342,7 @@ begin
 
         with rec.FData do
         begin
-          Air_Bubble_Instance_Index := FieldByName('Air_Bubble_Instance_Index')
-            .AsInteger;
+          Air_Bubble_Instance_Index := FieldByName('Air_Bubble_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Bubble_Qty_On_Board := FieldByName('Bubble_Qty_On_Board').AsInteger;
@@ -12471,8 +12353,7 @@ begin
         with rec.FAirBubble_Def do
         begin
           Air_Bubble_Index := FieldByName('Air_Bubble_Index').AsInteger;
-          Air_Bubble_Identifier := FieldByName('Air_Bubble_Identifier')
-            .AsString;
+          Air_Bubble_Identifier := FieldByName('Air_Bubble_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
@@ -12851,14 +12732,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        chaff := aRec.Items[i];
+        chaff.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -12887,12 +12779,9 @@ begin
           Min_Dissipation_Time := FieldByName('Min_Dissipation_Time').AsInteger;
           Descent_Rate := FieldByName('Descent_Rate').AsSingle;
           Max_Radius := FieldByName('Max_Radius').AsSingle;
-          Max_Radar_Attenuation := FieldByName('Max_Radar_Attenuation')
-            .AsSingle;
-          Radar_Affect_Lower_Freq := FieldByName('Radar_Affect_Lower_Freq')
-            .AsSingle;
-          Radar_Affect_Upper_Freq := FieldByName('Radar_Affect_Upper_Freq')
-            .AsSingle;
+          Max_Radar_Attenuation := FieldByName('Max_Radar_Attenuation').AsSingle;
+          Radar_Affect_Lower_Freq := FieldByName('Radar_Affect_Lower_Freq').AsSingle;
+          Radar_Affect_Upper_Freq := FieldByName('Radar_Affect_Upper_Freq').AsSingle;
         end;
 
         with chaff.FNote do
@@ -12915,8 +12804,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Chaff_On_Board a JOIN Scripted_Chaff_Event b ');
         SQL.Add('ON a.Chaff_Instance_Index = b.Chaff_Instance_Index ');
-        SQL.Add('WHERE (a.Chaff_Instance_Index=' + IntToStr
-            (chaff.FData.Chaff_Instance_Index) + ')');
+        SQL.Add('WHERE (a.Chaff_Instance_Index=' + IntToStr(chaff.FData.Chaff_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -12927,17 +12815,13 @@ begin
 
           with chaffScript.Event.FData do
           begin
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
-            Chaff_Instance_Index := FieldByName('Chaff_Instance_Index')
-              .AsInteger;
+            Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
+            Chaff_Instance_Index := FieldByName('Chaff_Instance_Index').AsInteger;
             Chaff_Bloom_Spacing := FieldByName('Chaff_Bloom_Spacing').AsSingle;
-            Num_Blooms_2_Release := FieldByName('Num_Blooms_2_Release')
-              .AsInteger;
+            Num_Blooms_2_Release := FieldByName('Num_Blooms_2_Release').AsInteger;
           end;
 
-          GetScripted_Behav(chaffScript.Event.FData.Scripted_Event_Index,
-            chaffScript.Behav);
+          GetScripted_Behav(chaffScript.Event.FData.Scripted_Event_Index,chaffScript.Behav);
 
           chaff.FScripted_Chaffs.Add(chaffScript);
           ZQ.Next;
@@ -12953,8 +12837,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Chaff_On_Board a JOIN Pattern_Chaff_Event b ');
         SQL.Add('ON a.Chaff_Instance_Index = b.Chaff_Instance_Index ');
-        SQL.Add('WHERE (a.Chaff_Instance_Index=' + IntToStr
-            (chaff.FData.Chaff_Instance_Index) + ')');
+        SQL.Add('WHERE (a.Chaff_Instance_Index=' + IntToStr(chaff.FData.Chaff_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -12965,17 +12848,13 @@ begin
 
           with chaffPattern.Event.FData do
           begin
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
-            Chaff_Instance_Index := FieldByName('Chaff_Instance_Index')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
+            Chaff_Instance_Index := FieldByName('Chaff_Instance_Index').AsInteger;
             Chaff_Bloom_Spacing := FieldByName('Chaff_Bloom_Spacing').AsSingle;
-            Num_Blooms_2_Release := FieldByName('Num_Blooms_2_Release')
-              .AsInteger;
+            Num_Blooms_2_Release := FieldByName('Num_Blooms_2_Release').AsInteger;
           end;
 
-          GetScripted_Pattern(chaffPattern.Event.FData.Scripted_Pattern_Index,
-            chaffPattern.pattern);
+          GetScripted_Pattern(chaffPattern.Event.FData.Scripted_Pattern_Index,chaffPattern.pattern);
 
           chaff.FScripted_Pattern.Add(chaffPattern);
         end;
@@ -13034,12 +12913,9 @@ begin
           Min_Dissipation_Time := FieldByName('Min_Dissipation_Time').AsInteger;
           Descent_Rate := FieldByName('Descent_Rate').AsSingle;
           Max_Radius := FieldByName('Max_Radius').AsSingle;
-          Max_Radar_Attenuation := FieldByName('Max_Radar_Attenuation')
-            .AsSingle;
-          Radar_Affect_Lower_Freq := FieldByName('Radar_Affect_Lower_Freq')
-            .AsSingle;
-          Radar_Affect_Upper_Freq := FieldByName('Radar_Affect_Upper_Freq')
-            .AsSingle;
+          Max_Radar_Attenuation := FieldByName('Max_Radar_Attenuation').AsSingle;
+          Radar_Affect_Lower_Freq := FieldByName('Radar_Affect_Lower_Freq').AsSingle;
+          Radar_Affect_Upper_Freq := FieldByName('Radar_Affect_Upper_Freq').AsSingle;
         end;
 
         aRec.Add(rec);
@@ -13116,8 +12992,7 @@ begin
       Close;
       SQL.Clear;
       SQL.Add('INSERT INTO Chaff_On_Board ');
-      SQL.Add(
-        '(Instance_Identifier,Instance_Type,Chaff_Qty_On_Board,Vehicle_Index,Chaff_Index)');
+      SQL.Add('(Instance_Identifier,Instance_Type,Chaff_Qty_On_Board,Vehicle_Index,Chaff_Index)');
       SQL.Add(' VALUES (');
       SQL.Add('''' + Instance_Identifier + ''',');
       SQL.Add(IntToStr(Instance_Type) + ',');
@@ -13170,12 +13045,9 @@ begin
       SQL.Add('Min_Dissipation_Time = ' + IntToStr(Min_Dissipation_Time) + ',');
       SQL.Add('Descent_Rate = ' + FloatToStr(Descent_Rate) + ',');
       SQL.Add('Max_Radius = ' + FloatToStr(Max_Radius) + ',');
-      SQL.Add('Max_Radar_Attenuation = ' + FloatToStr(Max_Radar_Attenuation)
-          + ',');
-      SQL.Add('Radar_Affect_Lower_Freq = ' + FloatToStr
-          (Radar_Affect_Lower_Freq) + ',');
-      SQL.Add('Radar_Affect_Upper_Freq = ' + FloatToStr(Radar_Affect_Upper_Freq)
-        );
+      SQL.Add('Max_Radar_Attenuation = ' + FloatToStr(Max_Radar_Attenuation)+ ',');
+      SQL.Add('Radar_Affect_Lower_Freq = ' + FloatToStr(Radar_Affect_Lower_Freq) + ',');
+      SQL.Add('Radar_Affect_Upper_Freq = ' + FloatToStr(Radar_Affect_Upper_Freq));
     end;
 
     SQL.Add('WHERE (Chaff_Index = ' + id + ')');
@@ -13196,12 +13068,9 @@ begin
       Close;
       SQL.Clear;
       SQL.Add('INSERT INTO Chaff_Definition ');
-      SQL.Add(
-        '(Chaff_Identifier,Platform_Domain,Platform_Category,Platform_Type,');
-      SQL.Add(
-        'Max_Radar_Cross,Bloom_Time,Max_Dissipation_Time,Min_Dissipation_Time,Descent_Rate,');
-      SQL.Add(
-        'Max_Radius,Max_Radar_Attenuation,Radar_Affect_Lower_Freq,Radar_Affect_Upper_Freq)');
+      SQL.Add('(Chaff_Identifier,Platform_Domain,Platform_Category,Platform_Type,');
+      SQL.Add('Max_Radar_Cross,Bloom_Time,Max_Dissipation_Time,Min_Dissipation_Time,Descent_Rate,');
+      SQL.Add('Max_Radius,Max_Radar_Attenuation,Radar_Affect_Lower_Freq,Radar_Affect_Upper_Freq)');
       SQL.Add(' VALUES (');
       SQL.Add('''' + Chaff_Identifier + ''',');
       SQL.Add(IntToStr(Platform_Domain) + ',');
@@ -13251,7 +13120,7 @@ end;
 function TdmTTT.getAllChaff_Launcher_On_Board(const id: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TChaff_Launcher_On_Board;
 begin
   result := -1;
@@ -13270,14 +13139,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -13407,14 +13287,12 @@ begin
     begin
       Close;
       SQL.Clear;
-      SQL.Add(
-        'SET IDENTITY_INSERT Runtime_DB.[dbo].[Chaff_Launcher_On_Board] ON;');
+      SQL.Add('SET IDENTITY_INSERT Runtime_DB.[dbo].[Chaff_Launcher_On_Board] ON;');
       ExecSQL;
 
       SQL.Clear;
       SQL.Add('INSERT INTO Chaff_Launcher_On_Board ');
-      SQL.Add(
-        '(Vehicle_Index,Launcher_Number,Launcher_Angle,Launcher_Kind,Def_Bloom_Range,Def_Bloom_Altitude,Max_Range,Min_Range,Max_Elevation,Min_Elevation,Average_Launch_Spd)');
+      SQL.Add('(Vehicle_Index,Launcher_Number,Launcher_Angle,Launcher_Kind,Def_Bloom_Range,Def_Bloom_Altitude,Max_Range,Min_Range,Max_Elevation,Min_Elevation,Average_Launch_Spd)');
       SQL.Add(' VALUES (');
       SQL.Add(IntToStr(Vehicle_Index) + ',');
       SQL.Add(IntToStr(Launcher_Number) + ',');
@@ -13442,8 +13320,7 @@ begin
     begin
       Close;
       SQL.Clear;
-      SQL.Add
-        ('SET IDENTITY_INSERT Runtime_DB.[dbo].[Cloud_Effects_On_ESM] ON;');
+      SQL.Add('SET IDENTITY_INSERT Runtime_DB.[dbo].[Cloud_Effects_On_ESM] ON;');
       ExecSQL;
 
       SQL.Clear;
@@ -13477,8 +13354,7 @@ begin
     begin
       Close;
       SQL.Clear;
-      SQL.Add(
-        'SET IDENTITY_INSERT Runtime_DB.[dbo].[Cloud_Effects_On_Radar] ON;');
+      SQL.Add('SET IDENTITY_INSERT Runtime_DB.[dbo].[Cloud_Effects_On_Radar] ON;');
       ExecSQL;
 
       SQL.Clear;
@@ -13504,7 +13380,7 @@ end;
 function TdmTTT.getAllDefensive_Jammer_On_Board(const id: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TDefensive_Jammer_On_Board;
 begin
   result := -1;
@@ -13517,10 +13393,8 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT * ');
-    SQL.Add(
-      'FROM  Defensive_Jammer_On_Board a JOIN Defensive_Jammer_Definition b ');
-    SQL.Add(
-      'ON a.Defensive_Jammer_Index = b.Defensive_Jammer_Index LEFT JOIN Note_Storage c');
+    SQL.Add('FROM  Defensive_Jammer_On_Board a JOIN Defensive_Jammer_Definition b ');
+    SQL.Add('ON a.Defensive_Jammer_Index = b.Defensive_Jammer_Index LEFT JOIN Note_Storage c');
     SQL.Add(' ON c.Defensive_Jammer_Index = b.Defensive_Jammer_Index');
     SQL.Add(' WHERE (a.vehicle_Index = ' + IntToStr(id) + ')');
     SQL.Add('ORDER BY a.Instance_Identifier');
@@ -13528,14 +13402,24 @@ begin
 
     result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -13543,21 +13427,17 @@ begin
 
         with rec.FData do
         begin
-          Defensive_Jammer_Instance_Index := FieldByName
-            ('Defensive_Jammer_Instance_Id').AsInteger;
+          Defensive_Jammer_Instance_Index := FieldByName('Defensive_Jammer_Instance_Id').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
-          Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index')
-            .AsInteger;
+          Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index').AsInteger;
         end;
 
         with rec.FDefensiveJammer_Def do
         begin
-          Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index')
-            .AsInteger;
-          Defensive_Jammer_Identifier := FieldByName
-            ('Defensive_Jammer_Identifier').AsString;
+          Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index').AsInteger;
+          Defensive_Jammer_Identifier := FieldByName('Defensive_Jammer_Identifier').AsString;
           Jammer_TARH_Capable := FieldByName('Jammer_TARH_Capable').AsInteger;
           Jammer_SARH_Capable := FieldByName('Jammer_SARH_Capable').AsInteger;
           Type_A_Seducing_Prob := FieldByName('Type_A_Seducing_Prob').AsSingle;
@@ -13671,10 +13551,8 @@ begin
 
         with rec.FDefensiveJammer_Def do
         begin
-          Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index')
-            .AsInteger;
-          Defensive_Jammer_Identifier := FieldByName
-            ('Defensive_Jammer_Identifier').AsString;
+          Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index').AsInteger;
+          Defensive_Jammer_Identifier := FieldByName('Defensive_Jammer_Identifier').AsString;
           Jammer_TARH_Capable := FieldByName('Jammer_TARH_Capable').AsInteger;
           Jammer_SARH_Capable := FieldByName('Jammer_SARH_Capable').AsInteger;
           Type_A_Seducing_Prob := FieldByName('Type_A_Seducing_Prob').AsSingle;
@@ -13705,16 +13583,12 @@ begin
       SQL.Clear;
       SQL.Add('UPDATE Defensive_Jammer_Definition  ');
       SQL.Add('SET ');
-      SQL.Add('Defensive_Jammer_Identifier ='' ' +
-          Defensive_Jammer_Identifier + ''',');
+      SQL.Add('Defensive_Jammer_Identifier ='' ' +Defensive_Jammer_Identifier + ''',');
       SQL.Add('Jammer_TARH_Capable = ' + IntToStr(Jammer_TARH_Capable) + ',');
       SQL.Add('Jammer_SARH_Capable = ' + IntToStr(Jammer_SARH_Capable) + ',');
-      SQL.Add('Type_A_Seducing_Prob = ' + FloatToStr(Type_A_Seducing_Prob)
-          + ',');
-      SQL.Add('Type_B_Seducing_Prob = ' + FloatToStr(Type_B_Seducing_Prob)
-          + ',');
-      SQL.Add('Type_C_Seducing_Prob = ' + FloatToStr(Type_C_Seducing_Prob)
-          + ',');
+      SQL.Add('Type_A_Seducing_Prob = ' + FloatToStr(Type_A_Seducing_Prob)+ ',');
+      SQL.Add('Type_B_Seducing_Prob = ' + FloatToStr(Type_B_Seducing_Prob)+ ',');
+      SQL.Add('Type_C_Seducing_Prob = ' + FloatToStr(Type_C_Seducing_Prob)+ ',');
       SQL.Add('ECM_Type = ' + IntToStr(ECM_Type));
     end;
 
@@ -13737,11 +13611,8 @@ begin
       Close;
       SQL.Clear;
       SQL.Add('INSERT INTO Defensive_Jammer_Definition ');
-      SQL.Add(
-        '(Defensive_Jammer_Identifier,Jammer_TARH_Capable,Jammer_SARH_Capable,'
-        );
-      SQL.Add(
-        'Type_A_Seducing_Prob,Type_B_Seducing_Prob,Type_C_Seducing_Prob,ECM_Type)');
+      SQL.Add('(Defensive_Jammer_Identifier,Jammer_TARH_Capable,Jammer_SARH_Capable,');
+      SQL.Add('Type_A_Seducing_Prob,Type_B_Seducing_Prob,Type_C_Seducing_Prob,ECM_Type)');
       SQL.Add(' VALUES (');
       SQL.Add('''' + Defensive_Jammer_Identifier + ''',');
       SQL.Add(IntToStr(Jammer_TARH_Capable) + ',');
@@ -13755,13 +13626,11 @@ begin
       SQL.Clear;
       SQL.Add
         ('SELECT Defensive_Jammer_Index FROM Defensive_Jammer_Definition ');
-      SQL.Add('WHERE Defensive_Jammer_Identifier=' + quotedStr
-          (Defensive_Jammer_Identifier));
+      SQL.Add('WHERE Defensive_Jammer_Identifier=' + quotedStr(Defensive_Jammer_Identifier));
       Open;
       with rec.FDefensiveJammer_Def do
       begin
-        Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index')
-          .AsInteger;
+        Defensive_Jammer_Index := FieldByName('Defensive_Jammer_Index').AsInteger;
       end;
     end;
   end;
@@ -13890,7 +13759,7 @@ end;
 function TdmTTT.getAllFloating_Decoy_On_Board(const id: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TFloating_Decoy_On_Board;
 begin
   result := -1;
@@ -13903,24 +13772,33 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT * ');
-    SQL.Add
-      ('FROM  Floating_Decoy_On_Board  a JOIN Floating_Decoy_Definition b ');
-    SQL.Add(
-      '   ON a.Floating_Decoy_Index = b.Floating_Decoy_Index LEFT JOIN Note_Storage c');
+    SQL.Add('FROM  Floating_Decoy_On_Board  a JOIN Floating_Decoy_Definition b ');
+    SQL.Add('   ON a.Floating_Decoy_Index = b.Floating_Decoy_Index LEFT JOIN Note_Storage c');
     SQL.Add('   ON c.Floating_Decoy_Index = b.Floating_Decoy_Index');
     SQL.Add('WHERE (a.Vehicle_index = ' + IntToStr(id) + ')');
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -13928,8 +13806,7 @@ begin
 
         with rec.FData do
         begin
-          Floating_Decoy_Instance_Index := FieldByName
-            ('Floating_Decoy_Instance_Index').AsInteger;
+          Floating_Decoy_Instance_Index := FieldByName('Floating_Decoy_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Quantity := FieldByName('Quantity').AsInteger;
@@ -13940,8 +13817,7 @@ begin
         with rec.FFloatingDecoy_Def do
         begin
           Floating_Decoy_Index := FieldByName('Floating_Decoy_Index').AsInteger;
-          Floating_Decoy_Identifier := FieldByName('Floating_Decoy_Identifier')
-            .AsString;
+          Floating_Decoy_Identifier := FieldByName('Floating_Decoy_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
@@ -14229,36 +14105,43 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT * ');
-    SQL.Add
-      ('FROM  Infrared_Decoy_On_Board a JOIN Infrared_Decoy_Definition  b ');
-    SQL.Add(
-      '   ON a.Infrared_Decoy_Index = b.Infrared_Decoy_Index LEFT JOIN Note_Storage c');
-    SQL.Add('   ON c.Infrared_Decoy_Index = b.Infrared_Decoy_Index ');
+    SQL.Add('FROM  Infrared_Decoy_On_Board a JOIN Infrared_Decoy_Definition  b ');
+    SQL.Add('ON a.Infrared_Decoy_Index = b.Infrared_Decoy_Index LEFT JOIN Note_Storage c');
+    SQL.Add('ON c.Infrared_Decoy_Index = b.Infrared_Decoy_Index ');
     SQL.Add('WHERE (a.Vehicle_index = ' + IntToStr(id) + ')');
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
         rec := TInfrared_Decoy_On_Board.Create;
         with rec.FData do
         begin
-          Infrared_Decoy_Instance_Index := FieldByName
-            ('Infrared_Decoy_Instance_Index').AsInteger;
+          Infrared_Decoy_Instance_Index := FieldByName('Infrared_Decoy_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
-          Infrared_Decoy_Qty_On_Board := FieldByName
-            ('Infrared_Decoy_Qty_On_Board').AsInteger;
+          Infrared_Decoy_Qty_On_Board := FieldByName('Infrared_Decoy_Qty_On_Board').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
           Infrared_Decoy_Index := FieldByName('Infrared_Decoy_Index').AsInteger;
         end;
@@ -14266,8 +14149,7 @@ begin
         with rec.FInfraRedDecoy_Def do
         begin
           Infrared_Decoy_Index := FieldByName('Infrared_Decoy_Index').AsInteger;
-          Infrared_Decoy_Identifier := FieldByName('Infrared_Decoy_Identifier')
-            .AsString;
+          Infrared_Decoy_Identifier := FieldByName('Infrared_Decoy_Identifier').AsString;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
@@ -14296,13 +14178,9 @@ begin
         Close;
         SQL.Clear;
         SQL.Add('SELECT * ');
-        SQL.Add(
-          'FROM Infrared_Decoy_On_Board a JOIN Scripted_Infrared_Decoy_Event b '
-          );
-        SQL.Add(
-          'ON a.Infrared_Decoy_Instance_Index = b.Infrared_Decoy_Instance_Index ');
-        SQL.Add('WHERE (a.Infrared_Decoy_Instance_Index = ' + IntToStr
-            (rec.FData.Infrared_Decoy_Instance_Index) + ')');
+        SQL.Add('FROM Infrared_Decoy_On_Board a JOIN Scripted_Infrared_Decoy_Event b ');
+        SQL.Add('ON a.Infrared_Decoy_Instance_Index = b.Infrared_Decoy_Instance_Index ');
+        SQL.Add('WHERE (a.Infrared_Decoy_Instance_Index = ' + IntToStr(rec.FData.Infrared_Decoy_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -14314,15 +14192,12 @@ begin
           with infraScript.Event.FData do
           begin
             Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
-            Infrared_Decoy_Instance_Index := FieldByName
-              ('Infrared_Decoy_Instance_Index').AsInteger;
-            Infrared_Decoy_Bloom_Spacing := FieldByName
-              ('Infrared_Decoy_Bloom_Spacing').AsSingle;
+            Infrared_Decoy_Instance_Index := FieldByName('Infrared_Decoy_Instance_Index').AsInteger;
+            Infrared_Decoy_Bloom_Spacing := FieldByName('Infrared_Decoy_Bloom_Spacing').AsSingle;
             Num_Blooms_2_Release := FieldByName('Num_Blooms_2_Release').AsInteger;
           end;
 
-          GetScripted_Behav(infraScript.Event.FData.Scripted_Event_Index,
-            infraScript.Behav);
+          GetScripted_Behav(infraScript.Event.FData.Scripted_Event_Index,infraScript.Behav);
 
           rec.FScripted_Infra.Add(infraScript);
 
@@ -14336,13 +14211,9 @@ begin
         Close;
         SQL.Clear;
         SQL.Add('SELECT * ');
-        SQL.Add(
-          'FROM Infrared_Decoy_On_Board a JOIN Pattern_Infrared_Decoy_Event b '
-          );
-        SQL.Add(
-          'ON a.Infrared_Decoy_Instance_Index = b.Infrared_Decoy_Instance_Index ');
-        SQL.Add('WHERE (a.Infrared_Decoy_Instance_Index = ' + IntToStr
-            (rec.FData.Infrared_Decoy_Instance_Index) + ')');
+        SQL.Add('FROM Infrared_Decoy_On_Board a JOIN Pattern_Infrared_Decoy_Event b ' );
+        SQL.Add('ON a.Infrared_Decoy_Instance_Index = b.Infrared_Decoy_Instance_Index ');
+        SQL.Add('WHERE (a.Infrared_Decoy_Instance_Index = ' + IntToStr(rec.FData.Infrared_Decoy_Instance_Index) + ')');
         Open;
 
         ZQ.First;
@@ -14352,18 +14223,13 @@ begin
 
           with infraPattern.Event.FData do
           begin
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
-            Infrared_Decoy_Instance_Index := FieldByName
-              ('Infrared_Decoy_Instance_Index').AsInteger;
-            Infrared_Decoy_Bloom_Spacing := FieldByName
-              ('Infrared_Decoy_Bloom_Spacing').AsSingle;
-            Num_Blooms_2_Release := FieldByName('Num_Blooms_2_Release')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
+            Infrared_Decoy_Instance_Index := FieldByName('Infrared_Decoy_Instance_Index').AsInteger;
+            Infrared_Decoy_Bloom_Spacing := FieldByName('Infrared_Decoy_Bloom_Spacing').AsSingle;
+            Num_Blooms_2_Release := FieldByName('Num_Blooms_2_Release').AsInteger;
           end;
 
-          GetScripted_Pattern(infraPattern.Event.FData.Scripted_Pattern_Index,
-            infraPattern.pattern);
+          GetScripted_Pattern(infraPattern.Event.FData.Scripted_Pattern_Index,infraPattern.pattern);
 
           rec.FPattern_Infra.Add(infraPattern);
           ZQ.Next;
@@ -14404,7 +14270,7 @@ end;
 function TdmTTT.getAllJammer_On_Board(const id: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TJammer_On_Board;
 begin
   result := -1;
@@ -14425,14 +14291,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -14440,8 +14317,7 @@ begin
 
         with rec.FData do
         begin
-          Jammer_Instance_Index := FieldByName('Jammer_Instance_Index')
-            .AsInteger;
+          Jammer_Instance_Index := FieldByName('Jammer_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
@@ -14459,10 +14335,8 @@ begin
           Jammer_Power_Density := FieldByName('Jammer_Power_Density').AsFloat;
           Max_Effective_Range := FieldByName('Max_Effective_Range').AsSingle;
           Max_Sector_Width := FieldByName('Max_Sector_Width').AsSingle;
-          Upper_Vert_Coverage_Angle := FieldByName('Upper_Vert_Coverage_Angle')
-            .AsSingle;
-          Lower_Vert_Coverage_Angle := FieldByName('Lower_Vert_Coverage_Angle')
-            .AsSingle;
+          Upper_Vert_Coverage_Angle := FieldByName('Upper_Vert_Coverage_Angle').AsSingle;
+          Lower_Vert_Coverage_Angle := FieldByName('Lower_Vert_Coverage_Angle').AsSingle;
         end;
 
         with rec.FNote do
@@ -14759,14 +14633,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -14797,8 +14682,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Point_Effect_On_Board a JOIN Scripted_Weapon_Event b ');
         SQL.Add('ON a.Point_Effect_Index = b.Point_Effect ');
-        SQL.Add('WHERE a.Point_Effect_Index = (' + IntToStr
-            (rec.FData.Point_Effect_Index) + ')');
+        SQL.Add('WHERE a.Point_Effect_Index = (' + IntToStr(rec.FData.Point_Effect_Index) + ')');
         Open;
 
         while not ZQ.Eof do
@@ -14808,8 +14692,7 @@ begin
           with weaponScript.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Event_Index := FieldByName('Scripted_Event_Index')
-              .AsInteger;
+            Scripted_Event_Index := FieldByName('Scripted_Event_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -14820,8 +14703,7 @@ begin
             Weapons_Mount := FieldByName('Weapons_Mount').AsInteger;
           end;
 
-          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,
-            weaponScript.Behav);
+          GetScripted_Behav(weaponScript.Event.FData.Scripted_Event_Index,weaponScript.Behav);
 
           rec.FScripted_Point.Add(weaponScript);
           ZQ.Next;
@@ -14837,8 +14719,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Point_Effect_On_Board a JOIN Pattern_Weapon_Event b ');
         SQL.Add('ON a.Point_Effect_Index = b.Point_Effect ');
-        SQL.Add('WHERE a.Point_Effect_Index = (' + IntToStr
-            (rec.FData.Point_Effect_Index) + ')');
+        SQL.Add('WHERE a.Point_Effect_Index = (' + IntToStr(rec.FData.Point_Effect_Index) + ')');
         Open;
 
         while not ZQ.Eof do
@@ -14848,8 +14729,7 @@ begin
           with weaponPattern.Event.FData do
           begin
             List_Index := FieldByName('List_Index').AsInteger;
-            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index')
-              .AsInteger;
+            Scripted_Pattern_Index := FieldByName('Scripted_Pattern_Index').AsInteger;
             Salvo_Size := FieldByName('Salvo_Size').AsInteger;
             Number_Layed := FieldByName('Number_Layed').AsInteger;
             Distance_Between := FieldByName('Distance_Between').AsSingle;
@@ -14859,8 +14739,7 @@ begin
             Weapons_Mount := FieldByName('Weapons_Mount').AsInteger;
           end;
 
-          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,
-            weaponPattern.pattern);
+          GetScripted_Pattern(weaponPattern.Event.FData.Scripted_Pattern_Index,weaponPattern.pattern);
 
           rec.FPattern_Point.Add(weaponPattern);
           ZQ.Next;
@@ -14875,8 +14754,7 @@ begin
         SQL.Add('SELECT * ');
         SQL.Add('FROM Point_Effect_On_Board a JOIN Blind_Zone_Definition b ');
         SQL.Add('ON a.Point_Effect_Index = b.Point_Effect_Index ');
-        SQL.Add('WHERE (a.Point_Effect_Index = ' + IntToStr
-            (rec.FData.Point_Effect_Index) + ')');
+        SQL.Add('WHERE (a.Point_Effect_Index = ' + IntToStr(rec.FData.Point_Effect_Index) + ')');
         Open;
 
         ZQ.First;
@@ -14961,7 +14839,7 @@ end;
 function TdmTTT.getAllTowed_Jammer_Decoy_On_Board(const id: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TTowed_Jammer_Decoy_On_Board;
 begin
   result := -1;
@@ -14974,24 +14852,33 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT * ');
-    SQL.Add(
-      'FROM  Towed_Jammer_Decoy_On_Board a JOIN Towed_Jammer_Decoy_Definition  b ');
-    SQL.Add(
-      'ON a.Towed_Decoy_Index = b.Towed_Decoy_Index LEFT JOIN Note_Storage c ');
+    SQL.Add('FROM  Towed_Jammer_Decoy_On_Board a JOIN Towed_Jammer_Decoy_Definition  b ');
+    SQL.Add('ON a.Towed_Decoy_Index = b.Towed_Decoy_Index LEFT JOIN Note_Storage c ');
     SQL.Add('ON b.Towed_Decoy_Index = c.Towed_Decoy_Index ');
     SQL.Add('WHERE (a.Vehicle_index = ' + IntToStr(id) + ')');
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -14999,9 +14886,7 @@ begin
 
         with rec.FData do
         begin
-          Towed_Decoy_Instance_Index := FieldByName
-            ('Towed_Decoy_Instance_Index')
-            .AsInteger;
+          Towed_Decoy_Instance_Index := FieldByName('Towed_Decoy_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Quantity := FieldByName('Quantity').AsInteger;
@@ -15012,8 +14897,7 @@ begin
         with rec.FDef do
         begin
           Towed_Decoy_Index := FieldByName('Towed_Decoy_Index').AsInteger;
-          Towed_Decoy_Identifier := FieldByName('Towed_Decoy_Identifier')
-            .AsString;
+          Towed_Decoy_Identifier := FieldByName('Towed_Decoy_Identifier').AsString;
           Decoy_TARH_Capable := FieldByName('Decoy_TARH_Capable').AsInteger;
           Decoy_SARH_Capable := FieldByName('Decoy_SARH_Capable').AsInteger;
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
@@ -15031,8 +14915,7 @@ begin
           Type_A_Seducing_Prob := FieldByName('Type_A_Seducing_Prob').AsSingle;
           Type_B_Seducing_Prob := FieldByName('Type_B_Seducing_Prob').AsSingle;
           Type_C_Seducing_Prob := FieldByName('Type_C_Seducing_Prob').AsSingle;
-          Activation_Control_Delay := FieldByName('Activation_Control_Delay')
-            .AsSingle;
+          Activation_Control_Delay := FieldByName('Activation_Control_Delay').AsSingle;
           Tow_Length := FieldByName('Tow_Length').AsSingle;
           ECM_Type := FieldByName('ECM_Type').AsInteger;
         end;
@@ -16766,7 +16649,7 @@ end;
 function TdmTTT.GetHosted_Platform(const v_id, host_id: Integer;
   var aRec: TList): boolean;
 var
-  //i: Integer;
+  i: Integer;
   rec: THosted_Platform;
   ssql: string;
 begin
@@ -16787,28 +16670,37 @@ begin
       ssql := ssql + 'ON a.Hosted_Vehicle_Index = b.Vehicle_Index ';
       ssql := ssql + 'WHERE (a.Vehicle_index = ' + IntToStr(v_id) + ') ';
       if host_id <> 0 then
-        ssql := ssql + 'AND (a.Hosted_Vehicle_Index = ' + IntToStr(host_id)
-          + ')';
+      ssql := ssql + 'AND (a.Hosted_Vehicle_Index = ' + IntToStr(host_id)+ ')';
     end
     else if host_id <> 0 then
     begin
       ssql := ssql + 'ON a.Vehicle_Index = b.Vehicle_Index ';
-      ssql := ssql + 'WHERE (a.Hosted_Vehicle_Index = ' + IntToStr(host_id)
-      + ')';
+      ssql := ssql + 'WHERE (a.Hosted_Vehicle_Index = ' + IntToStr(host_id)+ ')';
     end;
 
     SQL.Add(ssql);
     Open;
 
     result := RecordCount > 0;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -16829,8 +16721,7 @@ begin
           Platform_Domain := FieldByName('Platform_Domain').AsInteger;
           Platform_Category := FieldByName('Platform_Category').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
-          Motion_Characteristics := FieldByName('Motion_Characteristics')
-            .AsInteger;
+          Motion_Characteristics := FieldByName('Motion_Characteristics').AsInteger;
           Length := FieldByName('Length').AsSingle;
           Width := FieldByName('Width').AsSingle;
           Height := FieldByName('Height').AsSingle;
@@ -16840,58 +16731,37 @@ begin
           Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
           Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
           Magnetic_Cross := FieldByName('Magnetic_Cross').AsSingle;
-          Front_Visual_EO_Cross := FieldByName('Front_Visual_EO_Cross')
-            .AsSingle;
+          Front_Visual_EO_Cross := FieldByName('Front_Visual_EO_Cross').AsSingle;
           Side_Visual_EO_Cross := FieldByName('Side_Visual_EO_Cross').AsSingle;
           Front_Infrared_Cross := FieldByName('Front_Infrared_Cross').AsSingle;
           Side_Infrared_Cross := FieldByName('Side_Infrared_Cross').AsSingle;
-          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens')
-            .AsSingle;
-          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens')
-            .AsSingle;
-          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens')
-            .AsSingle;
-          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens')
-            .AsSingle;
-          Cavitation_Speed_Switch := FieldByName('Cavitation_Speed_Switch')
-            .AsSingle;
-          Time_of_Weapon_Impact := FieldByName('Time_of_Weapon_Impact')
-            .AsInteger;
-          Chaff_Seduction_Capable := FieldByName('Chaff_Seduction_Capable')
-            .AsBoolean;
+          LSpeed_Acoustic_Intens := FieldByName('LSpeed_Acoustic_Intens').AsSingle;
+          Below_Cav_Acoustic_Intens := FieldByName('Below_Cav_Acoustic_Intens').AsSingle;
+          Above_Cav_Acoustic_Intens := FieldByName('Above_Cav_Acoustic_Intens').AsSingle;
+          HSpeed_Acoustic_Intens := FieldByName('HSpeed_Acoustic_Intens').AsSingle;
+          Cavitation_Speed_Switch := FieldByName('Cavitation_Speed_Switch').AsSingle;
+          Time_of_Weapon_Impact := FieldByName('Time_of_Weapon_Impact').AsInteger;
+          Chaff_Seduction_Capable := FieldByName('Chaff_Seduction_Capable').AsBoolean;
           Seduction_Mode_Prob := FieldByName('Seduction_Mode_Prob').AsSingle;
-          Min_Delay_Between_Chaff_Rounds := FieldByName
-            ('Min_Delay_Between_Chaff_Rounds').AsInteger;
+          Min_Delay_Between_Chaff_Rounds := FieldByName('Min_Delay_Between_Chaff_Rounds').AsInteger;
           Max_Chaff_Salvo_Size := FieldByName('Max_Chaff_Salvo_Size').AsInteger;
           SARH_POH_Modifier := FieldByName('SARH_POH_Modifier').AsSingle;
           CG_POH_Modifier := FieldByName('CG_POH_Modifier').AsSingle;
           TARH_POH_Modifier := FieldByName('TARH_POH_Modifier').AsSingle;
           IR_POH_Modifier := FieldByName('IR_POH_Modifier').AsSingle;
           AR_POH_Modifier := FieldByName('AR_POH_Modifier').AsSingle;
-          Active_Acoustic_Tor_POH_Mod := FieldByName
-            ('Active_Acoustic_Tor_POH_Mod').AsSingle;
-          Passive_Acoustic_Tor_POH_Mod := FieldByName
-            ('Passive_Acoustic_Tor_POH_Mod').AsSingle;
-          Active_Passive_Tor_POH_Mod := FieldByName
-            ('Active_Passive_Tor_POH_Mod').AsSingle;
-          Wake_Home_POH_Modifier := FieldByName('Wake_Home_POH_Modifier')
-            .AsSingle;
-          Wire_Guide_POH_Modifier := FieldByName('Wire_Guide_POH_Modifier')
-            .AsSingle;
-          Mag_Mine_POH_Modifier := FieldByName('Mag_Mine_POH_Modifier')
-            .AsSingle;
-          Press_Mine_POH_Modifier := FieldByName('Press_Mine_POH_Modifier')
-            .AsSingle;
-          Impact_Mine_POH_Modifier := FieldByName('Impact_Mine_POH_Modifier')
-            .AsSingle;
-          Acoustic_Mine_POH_Modifier := FieldByName
-            ('Acoustic_Mine_POH_Modifier').AsSingle;
-          Sub_Comm_Antenna_Height := FieldByName('Sub_Comm_Antenna_Height')
-            .AsSingle;
-          Rel_Comm_Antenna_Height := FieldByName('Rel_Comm_Antenna_Height')
-            .AsSingle;
-          Max_Comm_Operating_Depth := FieldByName('Max_Comm_Operating_Depth')
-            .AsSingle;
+          Active_Acoustic_Tor_POH_Mod := FieldByName('Active_Acoustic_Tor_POH_Mod').AsSingle;
+          Passive_Acoustic_Tor_POH_Mod := FieldByName('Passive_Acoustic_Tor_POH_Mod').AsSingle;
+          Active_Passive_Tor_POH_Mod := FieldByName('Active_Passive_Tor_POH_Mod').AsSingle;
+          Wake_Home_POH_Modifier := FieldByName('Wake_Home_POH_Modifier').AsSingle;
+          Wire_Guide_POH_Modifier := FieldByName('Wire_Guide_POH_Modifier').AsSingle;
+          Mag_Mine_POH_Modifier := FieldByName('Mag_Mine_POH_Modifier').AsSingle;
+          Press_Mine_POH_Modifier := FieldByName('Press_Mine_POH_Modifier').AsSingle;
+          Impact_Mine_POH_Modifier := FieldByName('Impact_Mine_POH_Modifier').AsSingle;
+          Acoustic_Mine_POH_Modifier := FieldByName('Acoustic_Mine_POH_Modifier').AsSingle;
+          Sub_Comm_Antenna_Height := FieldByName('Sub_Comm_Antenna_Height').AsSingle;
+          Rel_Comm_Antenna_Height := FieldByName('Rel_Comm_Antenna_Height').AsSingle;
+          Max_Comm_Operating_Depth := FieldByName('Max_Comm_Operating_Depth').AsSingle;
           HF_Link_Capable := FieldByName('HF_Link_Capable').AsBoolean;
           UHF_Link_Capable := FieldByName('UHF_Link_Capable').AsBoolean;
           HF_Voice_Capable := FieldByName('HF_Voice_Capable').AsBoolean;
@@ -16903,58 +16773,36 @@ begin
           UHF_MHS_Capable := FieldByName('UHF_MHS_Capable').AsBoolean;
           SATCOM_MHS_Capable := FieldByName('SATCOM_MHS_Capable').AsBoolean;
           Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
-          Plat_Basing_Capability := FieldByName('Plat_Basing_Capability')
-            .AsBoolean;
+          Plat_Basing_Capability := FieldByName('Plat_Basing_Capability').AsBoolean;
           Chaff_Capability := FieldByName('Chaff_Capability').AsBoolean;
           Readying_Time := FieldByName('Readying_Time').AsInteger;
           Sonobuoy_Capable := FieldByName('Sonobuoy_Capable').AsBoolean;
           Nav_Light_Capable := FieldByName('Nav_Light_Capable').AsBoolean;
           Periscope_Depth := FieldByName('Periscope_Depth').AsSingle;
-          Periscope_Height_Above_Water := FieldByName
-            ('Periscope_Height_Above_Water').AsSingle;
-          Periscope_Front_Radar_Xsection := FieldByName
-            ('Periscope_Front_Radar_Xsection').AsSingle;
-          Periscope_Side_Radar_Xsection := FieldByName
-            ('Periscope_Side_Radar_Xsection').AsSingle;
-          Periscope_Front_Vis_Xsection := FieldByName
-            ('Periscope_Front_Vis_Xsection').AsSingle;
-          Periscope_Side_Vis_Xsection := FieldByName
-            ('Periscope_Side_Vis_Xsection').AsSingle;
-          Periscope_Front_IR_Xsection := FieldByName
-            ('Periscope_Front_IR_Xsection').AsSingle;
-          Periscope_Side_IR_Xsection := FieldByName
-            ('Periscope_Side_IR_Xsection').AsSingle;
+          Periscope_Height_Above_Water := FieldByName('Periscope_Height_Above_Water').AsSingle;
+          Periscope_Front_Radar_Xsection := FieldByName('Periscope_Front_Radar_Xsection').AsSingle;
+          Periscope_Side_Radar_Xsection := FieldByName('Periscope_Side_Radar_Xsection').AsSingle;
+          Periscope_Front_Vis_Xsection := FieldByName('Periscope_Front_Vis_Xsection').AsSingle;
+          Periscope_Side_Vis_Xsection := FieldByName('Periscope_Side_Vis_Xsection').AsSingle;
+          Periscope_Front_IR_Xsection := FieldByName('Periscope_Front_IR_Xsection').AsSingle;
+          Periscope_Side_IR_Xsection := FieldByName('Periscope_Side_IR_Xsection').AsSingle;
           Engagement_Range := FieldByName('Engagement_Range').AsSingle;
-          Auto_Air_Defense_Capable := FieldByName('Auto_Air_Defense_Capable')
-            .AsBoolean;
+          Auto_Air_Defense_Capable := FieldByName('Auto_Air_Defense_Capable').AsBoolean;
           Alert_State_Time := FieldByName('Alert_State_Time').AsSingle;
           Detectability_Type := FieldByName('Detectability_Type').AsInteger;
-          Max_Sonobuoys_To_Monitor := FieldByName('Max_Sonobuoys_To_Monitor')
-            .AsInteger;
-          Sonobuoy_Deploy_Max_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Max_Altitude').AsInteger;
-          Sonobuoy_Deploy_Min_Altitude := FieldByName
-            ('Sonobuoy_Deploy_Min_Altitude').AsInteger;
-          Sonobuoy_Deploy_Max_Speed := FieldByName('Sonobuoy_Deploy_Max_Speed')
-            .AsInteger;
-          Air_Drop_Torpedo_Max_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Max_Altitude').AsInteger;
-          Air_Drop_Torpedo_Min_Altitude := FieldByName
-            ('Air_Drop_Torpedo_Min_Altitude').AsInteger;
-          Air_Drop_Torpedo_Max_Speed := FieldByName
-            ('Air_Drop_Torpedo_Max_Speed')
-            .AsInteger;
+          Max_Sonobuoys_To_Monitor := FieldByName('Max_Sonobuoys_To_Monitor').AsInteger;
+          Sonobuoy_Deploy_Max_Altitude := FieldByName('Sonobuoy_Deploy_Max_Altitude').AsInteger;
+          Sonobuoy_Deploy_Min_Altitude := FieldByName('Sonobuoy_Deploy_Min_Altitude').AsInteger;
+          Sonobuoy_Deploy_Max_Speed := FieldByName('Sonobuoy_Deploy_Max_Speed').AsInteger;
+          Air_Drop_Torpedo_Max_Altitude := FieldByName('Air_Drop_Torpedo_Max_Altitude').AsInteger;
+          Air_Drop_Torpedo_Min_Altitude := FieldByName('Air_Drop_Torpedo_Min_Altitude').AsInteger;
+          Air_Drop_Torpedo_Max_Speed := FieldByName('Air_Drop_Torpedo_Max_Speed').AsInteger;
           TMA_Rate_Factor := FieldByName('TMA_Rate_Factor').AsSingle;
-          HMS_Noise_Reduction_Factor := FieldByName
-            ('HMS_Noise_Reduction_Factor').AsSingle;
-          TAS_Noise_Reduction_Factor := FieldByName
-            ('TAS_Noise_Reduction_Factor').AsSingle;
-          Infrared_Decoy_Capable := FieldByName('Infrared_Decoy_Capable')
-            .AsBoolean;
-          HF_Mid_Course_Update_Capable := FieldByName
-            ('HF_Mid_Course_Update_Capable').AsBoolean;
-          UHF_Mid_Course_Update_Capable := FieldByName
-            ('UHF_Mid_Course_Update_Capable').AsBoolean;
+          HMS_Noise_Reduction_Factor := FieldByName('HMS_Noise_Reduction_Factor').AsSingle;
+          TAS_Noise_Reduction_Factor := FieldByName('TAS_Noise_Reduction_Factor').AsSingle;
+          Infrared_Decoy_Capable := FieldByName('Infrared_Decoy_Capable').AsBoolean;
+          HF_Mid_Course_Update_Capable := FieldByName('HF_Mid_Course_Update_Capable').AsBoolean;
+          UHF_Mid_Course_Update_Capable := FieldByName('UHF_Mid_Course_Update_Capable').AsBoolean;
           // SATCOM_Mid_Course_Update_Capable    := FieldByName('SATCOM_Mid_Course_Update_Capable').AsBoolean;
         end;
 
@@ -17034,7 +16882,7 @@ end;
 function TdmTTT.getAllSonobuoy_On_Board(const id, index: Integer;
   var aRec: TList): Integer;
 var
-  //i: Integer;
+  i: Integer;
   rec: TSonobuoy_On_Board;
   ssql: string;
 begin
@@ -17049,10 +16897,8 @@ begin
     SQL.Clear;
     ssql := 'SELECT * ';
     ssql := ssql + 'FROM  Sonobuoy_On_Board a JOIN Sonobuoy_Definition b ';
-    ssql := ssql +
-      'ON a.Sonobuoy_Index = b.Sonobuoy_Index LEFT JOIN Note_Storage c ';
-    ssql := ssql +
-      'ON b.Sonobuoy_Index = c.Sonobuoy_Index LEFT JOIN Vehicle_Definition d ';
+    ssql := ssql + 'ON a.Sonobuoy_Index = b.Sonobuoy_Index LEFT JOIN Note_Storage c ';
+    ssql := ssql + 'ON b.Sonobuoy_Index = c.Sonobuoy_Index LEFT JOIN Vehicle_Definition d ';
     ssql := ssql + 'ON a.Vehicle_Index = d.Vehicle_Index ';
     ssql := ssql + 'LEFT JOIN Sonar_Definition e ON b.Sonar_Index = e.Sonar_Index ';
 
@@ -17067,22 +16913,32 @@ begin
       end;
     end
     else
-      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Sonobuoy_Index =' +
-        IntToStr(index);
+      ssql := ssql + 'WHERE a.Vehicle_Index > 0 AND a.Sonobuoy_Index =' + IntToStr(index);
 
     SQL.Add(ssql);
     SQL.Add('ORDER BY a.Instance_Identifier');
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not ZQ.IsEmpty then
     begin
       ZQ.First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -17090,8 +16946,7 @@ begin
 
         with rec.FData do
         begin
-          Sonobuoy_Instance_Index := FieldByName('Sonobuoy_Instance_Index')
-            .AsInteger;
+          Sonobuoy_Instance_Index := FieldByName('Sonobuoy_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Instance_Type := FieldByName('Instance_Type').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
@@ -17116,8 +16971,7 @@ begin
           Front_Acoustic_Cross := FieldByName('Front_Acoustic_Cross').AsSingle;
           Side_Acoustic_Cross := FieldByName('Side_Acoustic_Cross').AsSingle;
           Damage_Capacity := FieldByName('Damage_Capacity').AsInteger;
-          CPA_Detection_Capable := FieldByName('CPA_Detection_Capable')
-            .AsInteger;
+          CPA_Detection_Capable := FieldByName('CPA_Detection_Capable').AsInteger;
           CPA_Range_Limit := FieldByName('CPA_Range_Limit').AsSingle;
           Sonar_Index := FieldByName('Sonar_Index').AsInteger;
         end;
@@ -17552,14 +17406,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -17608,8 +17473,7 @@ begin
       SQL.Clear;
       SQL.Add('SELECT * ');
       SQL.Add('FROM Bomb_POH_vs_Range g ');
-      SQL.Add('WHERE (g.Bomb_Index = ' + IntToStr
-          (rec.FData.Bomb_Index) + ')');
+      SQL.Add('WHERE (g.Bomb_Index = ' + IntToStr(rec.FData.Bomb_Index) + ')');
       Open;
 
       ZQ.First;
@@ -17634,8 +17498,7 @@ begin
       SQL.Clear;
       SQL.Add('SELECT * ');
       SQL.Add('FROM Blind_Zone_Definition g ');
-      SQL.Add('WHERE (g.Point_Effect_Index = ' + IntToStr
-          (rec.FPoint.FData.Point_Effect_Index) + ')');
+      SQL.Add('WHERE (g.Point_Effect_Index = ' + IntToStr(rec.FPoint.FData.Point_Effect_Index) + ')');
       Open;
 
       ZQ.First;
@@ -17830,14 +17693,25 @@ begin
     Open;
 
     result := RecordCount;
+
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+    {$ENDREGION}
+
     if not IsEmpty then
     begin
       First;
-
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -17854,41 +17728,28 @@ begin
           Max_Range := FieldByName('Max_Range').AsSingle;
           Air_Min_Range := FieldByName('Air_Min_Range').AsSingle;
           Air_Max_Range := FieldByName('Air_Max_Range').AsSingle;
-          Fire_Cntl_Director_Req := FieldByName('Fire_Cntl_Director_Req')
-            .AsInteger;
+          Fire_Cntl_Director_Req := FieldByName('Fire_Cntl_Director_Req').AsInteger;
           Chaff_Capable_Gun := FieldByName('Chaff_Capable_Gun').AsInteger;
           Anti_Sur_Capable := FieldByName('Anti_Sur_Capable').AsInteger;
           Anti_Land_Capable := FieldByName('Anti_Land_Capable').AsInteger;
           Anti_Air_Capable := FieldByName('Anti_Air_Capable').AsInteger;
           Anti_Amphibious_Capable := FieldByName('Anti_Amphibious_Capable').AsInteger;
           Automode_Capable := FieldByName('Automode_Capable').AsInteger;
-          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta')
-            .AsInteger;
-          Gun_Average_Shell_Velocity := FieldByName
-            ('Gun_Average_Shell_Velocity').AsSingle;
-          Man_Gun_Max_Elevation := FieldByName('Man_Gun_Max_Elevation')
-            .AsSingle;
-          Man_Gun_Min_Elevation := FieldByName('Man_Gun_Min_Elevation')
-            .AsSingle;
-          Man_Gun_Rotation_Rate := FieldByName('Man_Gun_Rotation_Rate')
-            .AsSingle;
-          Man_Gun_Elevation_Rate := FieldByName('Man_Gun_Elevation_Rate')
-            .AsSingle;
-          Man_Gun_Num_Rounds_Per_Load := FieldByName
-            ('Man_Gun_Num_Rounds_Per_Load').AsInteger;
-          Man_Gun_Time_to_Reload := FieldByName('Man_Gun_Time_to_Reload')
-            .AsSingle;
-          Man_Gun_Muzzle_Velocity := FieldByName('Man_Gun_Muzzle_Velocity')
-            .AsSingle;
+          Max_Target_Altitude_Delta := FieldByName('Max_Target_Altitude_Delta').AsInteger;
+          Gun_Average_Shell_Velocity := FieldByName('Gun_Average_Shell_Velocity').AsSingle;
+          Man_Gun_Max_Elevation := FieldByName('Man_Gun_Max_Elevation').AsSingle;
+          Man_Gun_Min_Elevation := FieldByName('Man_Gun_Min_Elevation').AsSingle;
+          Man_Gun_Rotation_Rate := FieldByName('Man_Gun_Rotation_Rate').AsSingle;
+          Man_Gun_Elevation_Rate := FieldByName('Man_Gun_Elevation_Rate') .AsSingle;
+          Man_Gun_Num_Rounds_Per_Load := FieldByName('Man_Gun_Num_Rounds_Per_Load').AsInteger;
+          Man_Gun_Time_to_Reload := FieldByName('Man_Gun_Time_to_Reload').AsSingle;
+          Man_Gun_Muzzle_Velocity := FieldByName('Man_Gun_Muzzle_Velocity').AsSingle;
           NGS_Capable := FieldByName('NGS_Capable').AsInteger;
-          NGS_MinDeflectionError := FieldByName('NGS_MinDeflectionError')
-            .AsSingle;
-          NGS_MaxDeflectionError := FieldByName('NGS_MaxDeflectionError')
-            .AsSingle;
+          NGS_MinDeflectionError := FieldByName('NGS_MinDeflectionError').AsSingle;
+          NGS_MaxDeflectionError := FieldByName('NGS_MaxDeflectionError').AsSingle;
           NGS_MinRangeError := FieldByName('NGS_MinRangeError').AsSingle;
           NGS_MaxRangeError := FieldByName('NGS_MaxRangeError').AsSingle;
-          NGS_MaxDispersionError := FieldByName('NGS_MaxDispersionError')
-            .AsSingle;
+          NGS_MaxDispersionError := FieldByName('NGS_MaxDispersionError').AsSingle;
           NGS_MaxDamageRadius := FieldByName('NGS_MaxDamageRadius').AsSingle;
           NGS_EffectiveRadius := FieldByName('NGS_EffectiveRadius').AsSingle;
           NGS_DamageRating := FieldByName('NGS_DamageRating').AsInteger;
@@ -17915,8 +17776,7 @@ begin
       SQL.Clear;
       SQL.Add('SELECT * ');
       SQL.Add('FROM Gun_POH_vs_Range g ');
-      SQL.Add('WHERE (g.Gun_Index = ' + IntToStr
-          (rec.FData.Gun_Index) + ')');
+      SQL.Add('WHERE (g.Gun_Index = ' + IntToStr(rec.FData.Gun_Index) + ')');
       Open;
 
       ZQ.First;
@@ -17941,8 +17801,7 @@ begin
       SQL.Clear;
       SQL.Add('SELECT * ');
       SQL.Add('FROM Blind_Zone_Definition g ');
-      SQL.Add('WHERE (g.Point_Effect_Index = ' + IntToStr
-          (rec.FPoint.FData.Point_Effect_Index) + ')');
+      SQL.Add('WHERE (g.Point_Effect_Index = ' + IntToStr(rec.FPoint.FData.Point_Effect_Index) + ')');
       Open;
 
       ZQ.First;
