@@ -32,6 +32,7 @@ type
 
   private
     FSelectedGameAreaId : Integer;
+    FSelectedGameAreaName : String; {u/ kebutuhan overlay editor}
 
     FGameAreaList : TList;
     FSelectedGameArea : TGame_Environment_Definition;
@@ -40,6 +41,7 @@ type
 
   public
     property SelectedGameAreaId : Integer read FSelectedGameAreaId write FSelectedGameAreaId;
+    property SelectedGameAreaName : String read FSelectedGameAreaName write FSelectedGameAreaName;
   end;
 
 var
@@ -93,8 +95,15 @@ begin
   if lbAvailableGameArea.ItemIndex = -1 then
     Exit;
 
-  FSelectedGameAreaId := FSelectedGameArea.FGameArea.Game_Area_Index;
+  if Assigned(FSelectedGameArea) then
+  begin
+    FSelectedGameAreaId := FSelectedGameArea.FGameArea.Game_Area_Index;
+    FSelectedGameAreaName := FSelectedGameArea.FGameArea.Game_Area_Identifier;
+  end;
+
   Close;
+//  FSelectedGameAreaId := FSelectedGameArea.FGameArea.Game_Area_Index;
+//  Close;
 
 end;
 

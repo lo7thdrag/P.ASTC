@@ -398,6 +398,7 @@ type
     btnDelete: TButton;
     pnl2SparatorHor2: TPanel;
     btnLayerTool: TToolButton;
+    btnGameArea: TToolButton;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -471,6 +472,7 @@ type
     procedure btnApplyClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnLayerToolClick(Sender: TObject);
+    procedure btnGameAreaClick(Sender: TObject);
 
   private
     isAdd : Boolean;
@@ -571,7 +573,7 @@ implementation
 
 uses
   uBaseCoordSystem, math, ufrmOverlaySummary, ComObj, uScrCapture, ufCaptureRes,
-  uDBEditSetting, uDataModuleTTT, uRecord;
+  uDBEditSetting, uDataModuleTTT, uRecord, ufrmGameAreaPickList;
 
 {$R *.dfm}
 procedure EnableComposited(WinControl:TWinControl);
@@ -1517,6 +1519,24 @@ end;
 procedure TOverlayEditorForm.btnDeletePolyDClick(Sender: TObject);
 begin
   lvPolyVertexD.Clear;
+end;
+
+procedure TOverlayEditorForm.btnGameAreaClick(Sender: TObject);
+begin
+  frmGameAreaPickList := TfrmGameAreaPickList.Create(Self);
+  btnGameArea.ImageIndex := 10;
+  try
+    with frmGameAreaPickList do
+    begin
+      ShowModal;
+//      LoadMap('D:\Map\GST_GAME\AOTC\'+ SelectedGameAreaName +'\' + SelectedGameAreaName +'.gst');
+      LoadMap(vAppDBSetting.MapGSTGame + '\' + SelectedGameAreaName +'\' + SelectedGameAreaName +'.gst');
+
+    end;
+
+  finally
+    frmGameAreaPickList.Free;
+  end;
 end;
 
 procedure TOverlayEditorForm.btnHandleShape(Sender: TObject);

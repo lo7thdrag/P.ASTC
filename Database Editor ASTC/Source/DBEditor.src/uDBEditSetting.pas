@@ -15,6 +15,7 @@ type
     Pattern : string;   //D:\TTT\mapsource\map\background.gst
     predefPattern : string;   //M:\map\pattern
     BMPPath : string;
+    MapGSTGame            : string;
   end;
 
   function LoadFF_AppDBSetting(const aName: string;
@@ -56,6 +57,8 @@ begin
     Pattern               := INIFReadString(iniF, c_appsetting, 'Pattern', 'D:\TTT\mapsource\map\background.gst' );
     predefPattern         := INIFReadString(iniF, c_appsetting, 'predefPattern', 'M:\map\pattern' );
     BMPPath               := INIFReadString(iniF, c_appsetting, 'BMPPath', str + '\data\Bitmap\' );
+
+    MapGSTGame            := INIFReadString(IniF, c_appsetting, 'MapGSTGame', 'D:\Map ASTC\GameArea');
   end;
 
   IniF.Free;
