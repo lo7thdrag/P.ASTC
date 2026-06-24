@@ -12,6 +12,7 @@ object frmLeft: TfrmLeft
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlContent: TPanel
@@ -24,7 +25,6 @@ object frmLeft: TfrmLeft
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 825
     object pnlEnvironment: TPanel
       Left = 5
       Top = 0
@@ -44970,7 +44970,7 @@ object frmLeft: TfrmLeft
           Left = 10
           Top = 116
           Width = 78
-          Height = 17
+          Height = 16
           Caption = 'Wind Relative'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -44983,7 +44983,7 @@ object frmLeft: TfrmLeft
           Left = 25
           Top = 142
           Width = 36
-          Height = 17
+          Height = 16
           Caption = 'Speed'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -44996,7 +44996,7 @@ object frmLeft: TfrmLeft
           Left = 25
           Top = 162
           Width = 50
-          Height = 17
+          Height = 16
           Caption = 'Direction'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45009,7 +45009,7 @@ object frmLeft: TfrmLeft
           Left = 86
           Top = 142
           Width = 5
-          Height = 17
+          Height = 16
           Caption = ':'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45022,7 +45022,7 @@ object frmLeft: TfrmLeft
           Left = 86
           Top = 162
           Width = 5
-          Height = 17
+          Height = 16
           Caption = ':'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45035,7 +45035,7 @@ object frmLeft: TfrmLeft
           Left = 96
           Top = 142
           Width = 25
-          Height = 17
+          Height = 16
           Caption = '-----'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45048,7 +45048,7 @@ object frmLeft: TfrmLeft
           Left = 96
           Top = 162
           Width = 25
-          Height = 17
+          Height = 16
           Caption = '-----'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45197,7 +45197,7 @@ object frmLeft: TfrmLeft
           Left = 141
           Top = 142
           Width = 22
-          Height = 17
+          Height = 16
           Caption = 'm/s'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45210,7 +45210,7 @@ object frmLeft: TfrmLeft
           Left = 141
           Top = 162
           Width = 46
-          Height = 17
+          Height = 16
           Caption = 'degrees'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -45617,7 +45617,7 @@ object frmLeft: TfrmLeft
           Font.Style = []
           ParentFont = False
         end
-        object Label32: TLabel
+        object lblSoundVelocityProfile: TLabel
           Left = 173
           Top = 139
           Width = 25
@@ -45630,7 +45630,7 @@ object frmLeft: TfrmLeft
           Font.Style = []
           ParentFont = False
         end
-        object Label33: TLabel
+        object lblSoundVelocityLayer: TLabel
           Left = 173
           Top = 159
           Width = 25
@@ -45682,7 +45682,7 @@ object frmLeft: TfrmLeft
           Font.Style = []
           ParentFont = False
         end
-        object Label37: TLabel
+        object lblSeaState: TLabel
           Left = 173
           Top = 230
           Width = 25
@@ -45695,7 +45695,7 @@ object frmLeft: TfrmLeft
           Font.Style = []
           ParentFont = False
         end
-        object Label38: TLabel
+        object lblSurfaceTemp: TLabel
           Left = 173
           Top = 250
           Width = 25
