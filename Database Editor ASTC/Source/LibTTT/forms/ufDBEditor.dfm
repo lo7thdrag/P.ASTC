@@ -51631,16 +51631,17 @@ object fDBEditor: TfDBEditor
     object pnlHome: TPanel
       Left = 375
       Top = 107
-      Width = 606
+      Width = 873
       Height = 748
       Align = alClient
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
+      ExplicitWidth = 606
       object s: TImage
         Left = 0
         Top = 0
-        Width = 606
+        Width = 873
         Height = 748
         Align = alClient
         AutoSize = True
@@ -153774,9 +153775,9 @@ object fDBEditor: TfDBEditor
       TabOrder = 6
     end
     object pnlVariasi: TPanel
-      Left = 981
+      Left = 1248
       Top = 107
-      Width = 300
+      Width = 33
       Height = 748
       Align = alRight
       BevelOuter = bvNone
@@ -153784,7 +153785,7 @@ object fDBEditor: TfDBEditor
       TabOrder = 7
       Visible = False
       object pnlSparatorRight: TPanel
-        Left = 295
+        Left = 28
         Top = 0
         Width = 5
         Height = 748
@@ -153793,6 +153794,7 @@ object fDBEditor: TfDBEditor
         Color = clBlack
         ParentBackground = False
         TabOrder = 0
+        ExplicitLeft = 295
       end
       object pnlSparatorCenterRight: TPanel
         Left = 0

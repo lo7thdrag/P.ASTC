@@ -465,6 +465,7 @@ begin
   Satellite := TSatellite_Definition.Create;
   Sonobuoy := TSonobuoy_On_Board.Create;
   Hybrid := THybrid_Definition.Create;
+  Motion := TMotion_Characteristics.Create;
 
   FMissileViews := TDrawContainers.Create;
   FTorpedoViews := TDrawContainers.Create;
@@ -512,14 +513,20 @@ begin
   FTorpedoViews.Free;
   FDetectedObject.Free;
 
-  if Assigned(Vehicle) then
-    FreeAndNil(Vehicle);
-  if Assigned(Satellite) then
-    FreeAndNil(Satellite);
-  if Assigned(Sonobuoy) then
-    FreeAndNil(Sonobuoy);
-  if Assigned(Hybrid) then
-    FreeAndNil(Hybrid);
+  Vehicle.Free;
+  Satellite.Free;
+  Sonobuoy.Free;
+  Hybrid.Free;
+  Motion.Free;
+
+//  if Assigned(Vehicle) then
+//    FreeAndNil(Vehicle);
+//  if Assigned(Satellite) then
+//    FreeAndNil(Satellite);
+//  if Assigned(Sonobuoy) then
+//    FreeAndNil(Sonobuoy);
+//  if Assigned(Hybrid) then
+//    FreeAndNil(Hybrid);
 
   inherited;
 end;

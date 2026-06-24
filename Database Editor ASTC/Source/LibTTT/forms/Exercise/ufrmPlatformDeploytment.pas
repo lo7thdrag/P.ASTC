@@ -1364,6 +1364,8 @@ begin
         ShipSimbol.LoadBitmap(ExtractFilePath(ParamStr(0)) + 'data\Bitmap\' + GetSymbol(FData.Platform_Type, Vehicle.FData.Platform_Domain), color);
         ShipSimbol.Draw(FCanvas);
       end;
+
+      ShipSimbol.Free;
     end;
 
     if FIsMouseDown and btnZoomTool.Down then

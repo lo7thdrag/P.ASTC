@@ -3951,6 +3951,7 @@ begin
 
     Result := RecordCount;
 
+    {$REGION ' Membersihkan List '}
     if Assigned(aList) then
     begin
       for i := 0 to aList.Count - 1 do
@@ -3963,6 +3964,7 @@ begin
     end
     else
       aList := TList.Create;
+    {$ENDREGION}
 
     if not IsEmpty then
     begin
@@ -3974,8 +3976,7 @@ begin
 
         with rec.FData do
         begin
-          Platform_Instance_Index := FieldByName('Platform_Instance_Index')
-            .AsInteger;
+          Platform_Instance_Index := FieldByName('Platform_Instance_Index').AsInteger;
           Resource_Alloc_Index := FieldByName('Resource_Alloc_Index').AsInteger;
           Platform_Type := FieldByName('Platform_Type').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;
@@ -6983,7 +6984,7 @@ end;
 function TdmTTT.GetVehicleDef(const aVehicleID: Integer; var aResult: TVehicle_Definition): Boolean;
 begin
   Result := False;
-  aResult := nil;
+//  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -7002,7 +7003,9 @@ begin
     if not IsEmpty then
     begin
       First;
-      aResult := TVehicle_Definition.Create;
+
+      if not Assigned(aResult) then
+        aResult := TVehicle_Definition.Create;
 
       with aResult.FData do
       begin
@@ -9108,7 +9111,7 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM Sonar_Definitionb');
+    SQL.Add('FROM Sonar_Definition');
     SQL.Add('WHERE Sonar_Identifier = ' + QuotedStr(aClassName));
     Open;
 
@@ -31125,6 +31128,7 @@ end;
 
 function TdmTTT.getPlatFormInstance(const ra_id, force : Integer; const instance:string; var aRec: TList): Integer;
 var
+  i : Integer;
   rec: TPlatform_Instance;
   ssql: string;
 begin
@@ -31152,16 +31156,31 @@ begin
     SQL.Add(ssql);
     Open;
 
+    {$REGION ' Membersihkan List '}
+    if Assigned(aRec) then
+    begin
+      for i := 0 to aRec.Count - 1 do
+      begin
+        rec := aRec.Items[i];
+        rec.Free;
+      end;
+
+      aRec.Clear;
+    end
+    else
+      aRec := TList.Create;
+      {$ENDREGION}
+
     result := RecordCount;
     if not IsEmpty then
     begin
 
       First;
 
-      if not Assigned(aRec) then
-        aRec := TList.Create
-      else
-        aRec.Clear;
+//      if not Assigned(aRec) then
+//        aRec := TList.Create
+//      else
+//        aRec.Clear;
 
       while not ZQ.Eof do
       begin
@@ -51907,11 +51926,10 @@ begin
   end;
 end;
 
-function TdmTTT.GetMotion_Characteristics(const id: Integer;
-  var rec: TMotion_Characteristics): Boolean;
+function TdmTTT.GetMotion_Characteristics(const id: Integer; var rec: TMotion_Characteristics): Boolean;
 begin
   Result := false;
-  rec := nil;
+//  rec := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -51930,7 +51948,9 @@ begin
     if not IsEmpty then
     begin
       First;
-      rec := TMotion_Characteristics.Create;
+
+      if not Assigned(rec) then
+        rec := TMotion_Characteristics.Create;
 
       with rec.FData do
       begin

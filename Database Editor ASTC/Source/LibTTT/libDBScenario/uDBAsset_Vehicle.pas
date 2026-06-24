@@ -19,24 +19,13 @@ type
  // published
 
   public
-    FData                 : TRecVehicle_Definition;
-    FPlatform_Ident       : TRecPlatform_Instance_Identifier;
-{    Acoustic_Decoy_On_Board : TAcoustic_Decoy_On_Board;
-    Chaff_Launcher_On_Board         : TChaff_Launcher_On_Board;
-    Chaff_On_Board                  : TChaff_On_Board;
-    Defensive_Jammer_On_Board       : TDefensive_Jammer_On_Board;
-    Floating_Decoy_On_Board         : TFloating_Decoy_On_Board;
-    Infrared_Decoy_On_Board         : TInfrared_Decoy_On_Board;
-    Jammer_On_Board                 : TJammer_On_Board;
-    Point_Effect_On_Board           : TPoint_Effect_On_Board;
+    FData           : TRecVehicle_Definition;
+    FPlatform_Ident : TRecPlatform_Instance_Identifier;
+    FNote           : TNote_Storage;
+    Waypoints       : TWaypoint;
 
-    Sonobuoy_On_Board               : TSonobuoy_On_Board;
-    Towed_Jammer_Decoy_On_Board     : TTowed_Jammer_Decoy_On_Board;
+    {$REGION ' Sensor '}
 
-}
-
-    Waypoints     : TWaypoint;
-// sensors
     Radars         : TList;      //     : TRadar_On_Board;
     Sonars         : TList;      //      : TSonar_On_Board;
     EOSensors      : TList;      //      : TEO_On_Board;
@@ -45,41 +34,47 @@ type
     MADSensors     : TList;      //      : TMAD_Sensor_On_Board;
     Visualsensors  : TList;      //      : Visual_Sensor_On_Board;
     FCRSensors     : TList;      //      : TFCR_On_Board;
+    Sonobuoy       : TList;
 
+    {$ENDREGION}
 
+    {$REGION ' Weapon '}
 
-//    Fitted_Weapon_On_Board          : TFitted_Weapon_On_Board;
-// weapons
-    Missiles : TList;
-    Torpedos : TList;
-    Mines    : TList;
-    Hybrids  : TList;
+    Missiles      : TList;
+    Torpedos      : TList;
+    Guns          : TList;
+    Mines         : TList;
+    Bombs         : TList;
+    Hybrids       : TList;
+    Point_Effects : TList;
+
+    {$ENDREGION}
+
+    {$REGION ' Countermeasure '}
 
     Acoustic_Decoys         : TList;
     Air_Bubble_Mount        : TList;
-    Bombs                   : TList;
     Chaffs                  : TList;
     Chaff_Launchers         : TList;
     Defensive_Jammers       : TList;
     Floating_Decoys         : TList;
-    Guns                    : TList;
     Infrared_Decoys         : TList;
     Jammers                 : TList;
-    Point_Effects           : TList;
     Towed_Jammer_Decoys     : TList;
+
+    {$ENDREGION}
+
+    {$REGION ' Embark Platform '}
 
     Hosted_Platform         : TList;
 
-    // TSonobuoy_On_Board;
-    Sonobuoy                : TList;
+    {$ENDREGION}
 
+    {$REGION ' Predefined '}
 
-    FNote                   : TNote_Storage ;
-
-    //Pattern
     Predefined              : TList;
 
-
+    {$ENDREGION}
 
     constructor Create;
     destructor Destroy; override;
@@ -91,9 +86,9 @@ type
 
     function FindWeaponGunByID(const id: integer): TObject;
 
-
     property GuidanceType   : TVehicleGuidanceType read FGuidanceType write SetGuidanceType;
     property ActiveWaypoint : TObject read FActiveWaypoint write SetActiveWaypoint;
+
   end;
 
 
@@ -107,7 +102,9 @@ uses
 
 constructor TVehicle_Definition.Create;
 begin
-//sensors
+
+  {$REGION ' Sensor '}
+
   Radars         := TList.Create;
   Sonars         := TList.Create;
   EOSensors      := TList.Create;
@@ -116,42 +113,56 @@ begin
   MADSensors     := TList.Create;
   Visualsensors  := TList.Create;
   FCRSensors     := TList.Create;
+  Sonobuoy       := TList.Create;
 
-//weapons
-  Missiles := TList.Create;
-  Torpedos := TList.Create;
-  Mines    := TList.Create;
-  Hybrids  := TList.Create;
+  {$ENDREGION}
 
-//countermeasure
+  {$REGION ' Weapon '}
+
+  Missiles      := TList.Create;
+  Torpedos      := TList.Create;
+  Guns          := TList.Create;
+  Mines         := TList.Create;
+  Bombs         := TList.Create;
+  Hybrids       := TList.Create;
+  Point_Effects := TList.Create;
+
+  {$ENDREGION}
+
+  {$REGION ' Countermeasure '}
+
   Acoustic_Decoys         := TList.Create;
   Air_Bubble_Mount        := TList.Create;
-  Bombs                   := TList.Create;
   Chaffs                  := TList.Create;
   Chaff_Launchers         := TList.Create;
   Defensive_Jammers       := TList.Create;
   Floating_Decoys         := TList.Create;
-  Guns                    := TList.Create;
   Infrared_Decoys         := TList.Create;
   Jammers                 := TList.Create;
-  Point_Effects           := TList.Create;
   Towed_Jammer_Decoys     := TList.Create;
 
-//embarked platform
+  {$ENDREGION}
+
+  {$REGION ' Embark Platform '}
+
   Hosted_Platform         := TList.Create;
 
-// sonobuoy
-  Sonobuoy                := TList.Create;
+  {$ENDREGION}
 
-//Pattern
+  {$REGION ' Predefined '}
+
   Predefined              := TList.Create;
 
-  Waypoints               := TWaypoint.Create;
-  GuidanceType            := vgtStraightLine;
+  {$ENDREGION}
+
+  Waypoints     := TWaypoint.Create;
+  GuidanceType  := vgtStraightLine;
 end;
 
 destructor TVehicle_Definition.Destroy;
 begin
+
+  {$REGION ' Sensor '}
   FreeItemsAndFreeList(Radars);
   FreeItemsAndFreeList(Sonars);
   FreeItemsAndFreeList(EOSensors);
@@ -161,7 +172,9 @@ begin
   FreeItemsAndFreeList(Visualsensors);
   FreeItemsAndFreeList(FCRSensors);
   FreeItemsAndFreeList(Sonobuoy);
+  {$ENDREGION}
 
+  {$REGION ' Weapon '}
   FreeItemsAndFreeList(Missiles);
   FreeItemsAndFreeList(Torpedos);
   FreeItemsAndFreeList(Mines);
@@ -169,7 +182,9 @@ begin
   FreeItemsAndFreeList(Bombs);
   FreeItemsAndFreeList(Guns);
   FreeItemsAndFreeList(Point_Effects);
+  {$ENDREGION}
 
+  {$REGION ' Countermeasure '}
   FreeItemsAndFreeList(Acoustic_Decoys);
   FreeItemsAndFreeList(Air_Bubble_Mount);
   FreeItemsAndFreeList(Chaffs);
@@ -179,9 +194,15 @@ begin
   FreeItemsAndFreeList(Infrared_Decoys);
   FreeItemsAndFreeList(Jammers);
   FreeItemsAndFreeList(Towed_Jammer_Decoys);
+  {$ENDREGION}
 
+  {$REGION ' Embark Platform '}
   FreeItemsAndFreeList(Hosted_Platform);
+  {$ENDREGION}
+
+  {$REGION ' Predefined '}
   FreeItemsAndFreeList(Predefined);
+  {$ENDREGION}
 
   Waypoints.Free;
 
