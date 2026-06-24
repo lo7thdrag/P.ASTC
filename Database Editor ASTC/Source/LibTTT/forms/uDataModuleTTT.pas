@@ -12354,7 +12354,7 @@ begin
     begin
       SQL.Add('SET Instance_Identifier = ' + QuotedStr(Instance_Identifier));
       SQL.Add(', Instance_Type = ' + IntToStr(Instance_Type));
-      SQL.Add(', Instance_Type = ' + IntToStr(Vehicle_Index));
+      SQL.Add(', Vehicle_Index = ' + IntToStr(Vehicle_Index));
       SQL.Add(', Observer_Height = ' + FloatToStr(Observer_Height));
       SQL.Add('WHERE Visual_Instance_Index = ' +  IntToStr(Visual_Instance_Index));
     end;

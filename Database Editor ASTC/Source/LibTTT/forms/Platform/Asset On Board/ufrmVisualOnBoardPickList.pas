@@ -209,14 +209,16 @@ begin
   lbAllVisualDef.Items.Clear;
   lbAllVisualOnBoard.Items.Clear;
 
-//  dmTTT.GetFilterESMDef(FAllVisualDefList, edtSearch.Text);
   dmTTT.GetVisualOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllVisualOnBoardList);
 
-  visual := TVisual_Sensor_On_Board.Create;
-  visual.FData.Instance_Identifier := 'Visual';
-  lbAllVisualOnBoard.Items.AddObject(visual.FData.Instance_Identifier, visual);
-  visual := nil;
-  visual.Free;
+  if FAllVisualOnBoardList.Count = 0 then
+  begin
+    visual := TVisual_Sensor_On_Board.Create;
+    visual.FData.Instance_Identifier := 'Visual';
+    lbAllVisualDef.Items.AddObject(visual.FData.Instance_Identifier, visual);
+    visual := nil;
+    visual.Free;
+  end;
 
   for i := 0 to FAllVisualOnBoardList.Count - 1 do
   begin

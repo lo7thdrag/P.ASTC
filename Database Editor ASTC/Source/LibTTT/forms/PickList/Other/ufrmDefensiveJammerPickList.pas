@@ -109,8 +109,7 @@ begin
 
   with FSelectedDefensiveJammer do
   begin
-    FData.Instance_Identifier := FDefensiveJammer_Def.
-      Defensive_Jammer_Identifier;
+    FData.Instance_Identifier := FDefensiveJammer_Def.Defensive_Jammer_Identifier;
     FData.Instance_Type := 0;
     FData.Vehicle_Index := FSelectedVehicle.FData.Vehicle_Index;
     FData.Defensive_Jammer_Index := FDefensiveJammer_Def.Defensive_Jammer_Index;
@@ -184,27 +183,38 @@ end;
 
 procedure TfrmDefensiveJammerPickList.UpdateDefensiveJammerList;
 var
-  i : Integer;
-  definsivejammer : TDefensive_Jammer_On_Board;
+  i, j : Integer;
+  definsivejammer, definsivejammerOnboard  : TDefensive_Jammer_On_Board;
+  found : Boolean;
 begin
   lbAllDefensiveJammerDef.Items.Clear;
   lbAllDefensveJammerOnBoard.Items.Clear;
 
-//  dmTTT.GetAllSelfDefensiveJammerDef(FAllDefensiveJammerDefList);
   dmTTT.GetFilterSelfDefensiveJammerDef(FAllDefensiveJammerDefList, edtSearch.Text);
   dmTTT.GetSelfDefensiveJammerOnBoard(FSelectedVehicle.FData.Vehicle_Index,FAllDefensiveJammerOnBoardList);
 
   for i := 0 to FAllDefensiveJammerDefList.Count - 1 do
   begin
     definsivejammer := FAllDefensiveJammerDefList.Items[i];
-    lbAllDefensiveJammerDef.Items.AddObject(definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer);
+
+    found := False;
+    for j := 0 to FAllDefensiveJammerOnBoardList.Count - 1 do
+    begin
+      definsivejammerOnboard := FAllDefensiveJammerOnBoardList.Items[j];
+
+      if definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Index = definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if found then
+      lbAllDefensveJammerOnBoard.Items.AddObject(definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer)
+    else
+      lbAllDefensiveJammerDef.Items.AddObject(definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer);
   end;
 
-  for i := 0 to FAllDefensiveJammerOnBoardList.Count - 1 do
-  begin
-    definsivejammer := FAllDefensiveJammerOnBoardList.Items[i];
-    lbAllDefensveJammerOnBoard.Items.AddObject(definsivejammer.FData.Instance_Identifier, definsivejammer);
-  end;
 end;
 
 {$ENDREGION}
