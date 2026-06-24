@@ -946,7 +946,7 @@ uses
   uT3Sonobuoy, uSnapshotDLG, ufmDetailPlan, uT3HybridOnVehicle, uT3Visual, uWaypointEditor,
   uT3Mine,
 
-  ufrmTop, ufrmRight, ufrmLeft, ufrmBottom;
+  ufrmTop, ufrmLeft, ufrmBottom, ufrmRight;
 {$R *.dfm}
 
 const
@@ -2717,6 +2717,8 @@ begin
   simMgrClient.Converter.ConvertToMap(x, y, mx, my);
   lbLongitude.Caption := formatDMS_long(mx);
   lbLatitude.Caption := formatDMS_latt(my);
+  frmTop.lblLong.Caption:=  formatDMS_long(mx);
+  frmTop.lblLat.Caption:=  formatDMS_latt(my);
 
   if FAnchorFilterEnabled and FLeftMouseDown then
   begin
@@ -4035,18 +4037,29 @@ end;
 
 procedure TfrmTacticalDisplay.SetUpNavigasiUI;
 begin
-  pnlTop.Visible := False;
-  pnlBottom.Visible := False;
-  pnlLeft.Visible := False;
+  pnlTop.Visible    := False;
+//  pnlBottom.Visible := False;
+  pnlLeft.Visible   := False;
+  Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
-  frmLeft.Show;
-  frmLeft.align := alLeft;
-  frmRight.Show;
-  frmRight.align := alRight;
-  frmBottom.Show;
+  frmTop.Parent     := Self;
   frmTop.Show;
-  frmTop.align := alTop;
-  frmBottom.align := alBottom;
+  frmTop.align      := alTop;
+
+  frmRight.Parent   := Self;
+  frmRight.Show;
+  frmRight.align    := alRight;
+
+  frmLeft.Parent    := Self;
+  frmLeft.Show;
+  frmLeft.align     := alLeft;
+
+  {Bottom Sementara seperti ini dulu}
+//  frmBottom.Parent  := Self;
+//  frmBottom.Show;
+//  frmBottom.Left  := 328;
+//  frmBottom.Top   := 990;
+//  frmBottom.align   := alBottom;
 end;
 
 procedure TfrmTacticalDisplay.SetUpPlotterUI;

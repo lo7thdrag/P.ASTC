@@ -1,12 +1,12 @@
 object frmTacticalDisplay: TfrmTacticalDisplay
   Left = 44
   Top = -238
-  BorderStyle = bsToolWindow
+  BorderStyle = bsNone
   Caption = 
     'Tactical Display - Ahmad Yani - Cubicle 3, Station 6 [Command Pl' +
     'atform: Arctic Passage 3] '
-  ClientHeight = 1026
-  ClientWidth = 1280
+  ClientHeight = 1055
+  ClientWidth = 1286
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -32,20 +32,18 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     Left = 0
     Top = 97
     Width = 341
-    Height = 856
+    Height = 885
     Align = alLeft
     BevelKind = bkFlat
     BevelOuter = bvNone
     DoubleBuffered = True
     ParentDoubleBuffered = False
     TabOrder = 1
-    ExplicitTop = 49
-    ExplicitHeight = 904
     object TacticalDisplayControlPanel: TPageControl
       Left = 0
       Top = 305
       Width = 337
-      Height = 547
+      Height = 576
       Hint = 'tes'
       ActivePage = tsWeapon
       Align = alClient
@@ -55,23 +53,21 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       OnChange = TacticalDisplayControlPanelChange
       OnMouseLeave = TacticalDisplayControlPanelMouseLeave
       OnMouseMove = TacticalDisplayControlPanelMouseMove
-      ExplicitHeight = 595
       object tsOwnShip: TTabSheet
-        ExplicitHeight = 555
         inline fmOwnShip1: TfmOwnShip
           Left = 0
           Top = 0
           Width = 329
-          Height = 507
+          Height = 536
           Align = alClient
           TabOrder = 0
           ExplicitWidth = 329
-          ExplicitHeight = 555
+          ExplicitHeight = 536
           inherited ScrollBox4: TScrollBox
             Width = 329
-            Height = 507
+            Height = 536
             ExplicitWidth = 329
-            ExplicitHeight = 555
+            ExplicitHeight = 536
             inherited Label34: TLabel
               Width = 20
               Caption = 'feet'
@@ -124,16 +120,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       end
       object tsPlatformGuidance: TTabSheet
         ImageIndex = 1
-        ExplicitHeight = 555
         inline fmPlatformGuidance1: TfmPlatformGuidance
           Left = 0
           Top = 0
           Width = 329
-          Height = 507
+          Height = 536
           Align = alClient
           TabOrder = 0
           ExplicitWidth = 329
-          ExplicitHeight = 555
+          ExplicitHeight = 536
           inherited PanelGuidanceControlChoices: TPanel
             Width = 329
             ExplicitWidth = 329
@@ -143,14 +138,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           end
           inherited PanelPlatformGuidance: TPanel
             Width = 329
-            Height = 466
+            Height = 495
             ExplicitWidth = 329
-            ExplicitHeight = 514
+            ExplicitHeight = 495
             inherited grpStation: TGroupBox [0]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited sbOnTrackAnchorMode: TSpeedButton
                 OnClick = fmPlatformGuidance1sbOnTrackAnchorModeClick
               end
@@ -194,9 +189,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited gbWaypoint: TGroupBox [1]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited btnWaypoint: TButton
                 Top = 187
                 OnClick = fmPlatformGuidance1btnWaypointClick
@@ -205,33 +200,33 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited grbEngagement: TGroupBox [2]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited sbEngageTrackToEngage: TSpeedButton
                 OnClick = fmPlatformGuidance1sbEngageTrackToEngageClick
               end
             end
             inherited grbEvasion: TGroupBox [3]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited sbTrackToEvade: TSpeedButton
                 OnClick = fmPlatformGuidance1sbTrackToEvadeClick
               end
             end
             inherited grbFormation: TGroupBox [4]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
             end
             inherited grbHelm: TGroupBox [5]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited Label129: TLabel
                 Width = 39
                 Caption = 'degrees'
@@ -270,35 +265,35 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited grbOutrun: TGroupBox [6]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited sbTrackToOutrun: TSpeedButton
                 OnClick = fmPlatformGuidance1sbTrackToOutrunClick
               end
             end
             inherited grbReturnToBase: TGroupBox [7]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
             end
             inherited grbSinuation: TGroupBox [8]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
             end
             inherited grbStraightLine: TGroupBox [9]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited ScrollBox5: TScrollBox
                 Width = 325
-                Height = 449
+                Height = 478
                 ExplicitWidth = 325
-                ExplicitHeight = 497
+                ExplicitHeight = 478
                 inherited whHeading: TVrWheel
                   OnChange = fmPlatformGuidance1whHeadingChange
                 end
@@ -343,26 +338,26 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             end
             inherited grbZigZag: TGroupBox [10]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
             end
             inherited grbShadow: TGroupBox
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
             end
             inherited grpCircle: TGroupBox [12]
               Width = 329
-              Height = 466
+              Height = 495
               ExplicitWidth = 329
-              ExplicitHeight = 514
+              ExplicitHeight = 495
               inherited ScrollBox1: TScrollBox
                 Width = 325
-                Height = 449
+                Height = 478
                 ExplicitWidth = 325
-                ExplicitHeight = 497
+                ExplicitHeight = 478
                 inherited btnCircleMode: TSpeedButton
                   Left = 218
                   Top = 18
@@ -410,16 +405,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       end
       object tsSensor: TTabSheet
         ImageIndex = 2
-        ExplicitHeight = 555
         inline fmSensor1: TfmSensor
           Left = 0
           Top = 0
           Width = 329
-          Height = 507
+          Height = 536
           Align = alClient
           TabOrder = 0
           ExplicitWidth = 329
-          ExplicitHeight = 555
+          ExplicitHeight = 536
           inherited PanelSpace: TPanel
             Top = 111
             Width = 329
@@ -445,20 +439,20 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited PanelALL: TPanel
             Top = 111
             Width = 329
-            Height = 396
+            Height = 425
             ExplicitTop = 111
             ExplicitWidth = 329
-            ExplicitHeight = 444
+            ExplicitHeight = 425
             inherited PanelSensorControl: TPanel
               Width = 329
-              Height = 396
+              Height = 425
               ExplicitWidth = 329
-              ExplicitHeight = 444
+              ExplicitHeight = 425
               inherited grbVisualDetectorSensor: TGroupBox [0]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited Label258: TLabel
                   Left = 160
                   ExplicitLeft = 160
@@ -510,14 +504,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbSonarControl: TGroupBox [1]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited ScrollBox2: TScrollBox
                   Width = 319
-                  Height = 373
+                  Height = 402
                   ExplicitWidth = 319
-                  ExplicitHeight = 421
+                  ExplicitHeight = 402
                   inherited Bevel43: TBevel
                     Left = 51
                     Top = 207
@@ -801,14 +795,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbIFFTransponderControl: TGroupBox [2]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited ScrollBox6: TScrollBox
                   Width = 319
-                  Height = 373
+                  Height = 402
                   ExplicitWidth = 319
-                  ExplicitHeight = 421
+                  ExplicitHeight = 402
                   inherited Bevel8: TBevel
                     Top = 9
                     ExplicitTop = 9
@@ -890,14 +884,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbESMSensorControl: TGroupBox [3]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited ScrollBox4: TScrollBox
                   Width = 319
-                  Height = 373
+                  Height = 402
                   ExplicitWidth = 319
-                  ExplicitHeight = 421
+                  ExplicitHeight = 402
                   inherited Label7: TLabel
                     Left = 48
                     Top = 19
@@ -962,14 +956,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbElectroOpticalSensor: TGroupBox [4]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited ScrollBox3: TScrollBox
                   Width = 319
-                  Height = 373
+                  Height = 402
                   ExplicitWidth = 319
-                  ExplicitHeight = 421
+                  ExplicitHeight = 402
                   inherited Label2: TLabel
                     Left = 54
                     Top = 20
@@ -1050,9 +1044,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbAnomalyDetectorSensor: TGroupBox [5]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited Label230: TLabel
                   Left = 48
                   ExplicitLeft = 48
@@ -1078,14 +1072,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbSonobuoyControl: TGroupBox [6]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited ScrollBox7: TScrollBox
                   Width = 319
-                  Height = 373
+                  Height = 402
                   ExplicitWidth = 319
-                  ExplicitHeight = 421
+                  ExplicitHeight = 402
                   inherited Bevel12: TBevel
                     Top = 155
                     ExplicitTop = 155
@@ -1151,14 +1145,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbSearchRadarControl: TGroupBox [7]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited ScrollBox1: TScrollBox
                   Width = 319
-                  Height = 373
+                  Height = 402
                   ExplicitWidth = 319
-                  ExplicitHeight = 421
+                  ExplicitHeight = 402
                   inherited Bevel28: TBevel
                     Left = 45
                     Width = 251
@@ -1500,14 +1494,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbIFFInterrogatorControl: TGroupBox [8]
                 Width = 323
-                Height = 390
+                Height = 419
                 ExplicitWidth = 323
-                ExplicitHeight = 438
+                ExplicitHeight = 419
                 inherited ScrollBox5: TScrollBox
                   Width = 319
-                  Height = 373
+                  Height = 402
                   ExplicitWidth = 319
-                  ExplicitHeight = 421
+                  ExplicitHeight = 402
                   inherited Bevel5: TBevel
                     Top = 6
                     ExplicitTop = 6
@@ -1669,7 +1663,6 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       end
       object tsWeapon: TTabSheet
         ImageIndex = 3
-        ExplicitHeight = 555
         object VrAnalogClock1: TVrAnalogClock
           Left = 136
           Top = 176
@@ -1682,11 +1675,11 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           Left = 0
           Top = 0
           Width = 329
-          Height = 507
+          Height = 536
           Align = alClient
           TabOrder = 0
           ExplicitWidth = 329
-          ExplicitHeight = 555
+          ExplicitHeight = 536
           inherited PanelWeaponChoices: TPanel
             Width = 329
             ExplicitWidth = 329
@@ -1696,19 +1689,19 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           end
           inherited PanelALL: TPanel
             Width = 329
-            Height = 485
+            Height = 514
             ExplicitWidth = 329
-            ExplicitHeight = 533
+            ExplicitHeight = 514
             inherited PanelTacticalWeapons: TPanel
               Width = 329
-              Height = 485
+              Height = 514
               ExplicitWidth = 329
-              ExplicitHeight = 533
+              ExplicitHeight = 514
               inherited grbTacticalAcousticTorpedos: TGroupBox [0]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited Label439: TLabel
                   Left = 5
                   Top = 8
@@ -1881,14 +1874,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbWireGuidedTorpedo: TGroupBox [1]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox10: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited Bevel19: TBevel
                     Left = 48
                     Top = 57
@@ -2078,17 +2071,17 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbGunEngagementChaffMode: TGroupBox [2]
                 Width = 329
-                Height = 485
+                Height = 514
                 DoubleBuffered = True
                 ParentColor = False
                 ParentDoubleBuffered = False
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox9: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited Label365: TLabel
                     Left = 23
                     Top = 112
@@ -2247,14 +2240,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbSurfaceToAirMissile: TGroupBox [3]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox1: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited lblSurfaceToAirStatus: TLabel
                     Left = 21
                     Top = 14
@@ -2539,9 +2532,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbMines: TGroupBox [4]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited Label272: TLabel
                   Left = 8
                   Top = 9
@@ -2622,14 +2615,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbActivePasiveTorpedo: TGroupBox [5]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox3: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited btnShowBlindZoneAPG: TSpeedButton [0]
                     Left = 159
                     Top = 259
@@ -2894,14 +2887,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbAirDroppedVECTAC: TGroupBox [6]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox13: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited Bevel75: TBevel
                     Left = 85
                     Top = 167
@@ -3177,14 +3170,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbStraightRunningTorpedos: TGroupBox [7]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox4: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited btnStraightRunningTorpedosDisplayBlindHide: TSpeedButton
                     Left = 159
                     Top = 228
@@ -3387,14 +3380,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbAirDroppedTorpedo: TGroupBox [8]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox8: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited btnAirDropeedBilndZonesHide: TSpeedButton
                     Left = 160
                     Top = 384
@@ -3738,15 +3731,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbHybridMissile: TGroupBox [9]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited scrlbx1: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   VertScrollBar.Position = 0
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited btnAddHybridMissileTargetAimpoint: TSpeedButton
                     OnClick = fmWeapon1btnAddHybridMissileTargetAimpointClick
                   end
@@ -3760,14 +3753,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbAcousticTorpedo: TGroupBox [10]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox2: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited lblAcousticTorpedoStatus: TLabel
                     Top = 28
                     ExplicitTop = 28
@@ -4211,14 +4204,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbWakeHomingTorpedos: TGroupBox [11]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox5: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited Bevel17: TBevel
                     Left = 43
                     Top = 16
@@ -4445,23 +4438,23 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbGunEngagementCIWS: TGroupBox [12]
                 Width = 329
-                Height = 485
+                Height = 514
                 DoubleBuffered = True
                 ParentColor = False
                 ParentDoubleBuffered = False
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
               end
               inherited grbSurfaceToSurfaceMissile: TGroupBox [13]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox6: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited Label67: TLabel
                     Top = -1
                     ExplicitTop = -1
@@ -4850,9 +4843,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbBombDepthCharge: TGroupBox [14]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited bvl17: TBevel
                   Left = 49
                   Top = 98
@@ -5008,23 +5001,23 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbGunEngagementAutomaticManualMode: TGroupBox
                 Width = 329
-                Height = 485
+                Height = 514
                 DoubleBuffered = True
                 ParentColor = False
                 ParentDoubleBuffered = False
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
               end
               inherited grbTacticalMissiles: TGroupBox [16]
                 Width = 329
-                Height = 485
+                Height = 514
                 ExplicitWidth = 329
-                ExplicitHeight = 533
+                ExplicitHeight = 514
                 inherited ScrollBox7: TScrollBox
                   Width = 325
-                  Height = 468
+                  Height = 497
                   ExplicitWidth = 325
-                  ExplicitHeight = 516
+                  ExplicitHeight = 497
                   inherited Bevel107: TBevel
                     Top = 5
                     ExplicitTop = 5
@@ -5342,36 +5335,35 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       end
       object tsCounterMeasure: TTabSheet
         ImageIndex = 4
-        ExplicitHeight = 555
         inline fmCounterMeasure1: TfmCounterMeasure
           Left = 0
           Top = 0
           Width = 329
-          Height = 507
+          Height = 536
           Align = alClient
           TabOrder = 0
           ExplicitWidth = 329
-          ExplicitHeight = 555
+          ExplicitHeight = 536
           inherited PanelALL: TPanel
             Width = 329
-            Height = 393
+            Height = 422
             ExplicitWidth = 329
-            ExplicitHeight = 441
+            ExplicitHeight = 422
             inherited PanelCounterMeasure: TPanel
               Width = 329
-              Height = 393
+              Height = 422
               ExplicitWidth = 329
-              ExplicitHeight = 441
+              ExplicitHeight = 422
               inherited grbTowedJammerDecoy: TGroupBox [0]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited ScrollBox4: TScrollBox
                   Width = 325
-                  Height = 376
+                  Height = 405
                   ExplicitWidth = 325
-                  ExplicitHeight = 424
+                  ExplicitHeight = 405
                   inherited Bevel109: TBevel
                     Top = 189
                     ExplicitTop = 189
@@ -5508,14 +5500,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbSurfaceChaffDeployment: TGroupBox [1]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited ScrollBox2: TScrollBox
                   Width = 325
-                  Height = 376
+                  Height = 405
                   ExplicitWidth = 325
-                  ExplicitHeight = 424
+                  ExplicitHeight = 405
                   inherited Bevel3: TBevel
                     Top = 4
                     ExplicitTop = 4
@@ -5561,9 +5553,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grpAirBubble: TGroupBox [2]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited btnType: TSpeedButton
                   Left = 278
                   Width = 29
@@ -5582,14 +5574,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbAcousticDecoy: TGroupBox [3]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited ScrollBox1: TScrollBox
                   Width = 325
-                  Height = 376
+                  Height = 405
                   ExplicitWidth = 325
-                  ExplicitHeight = 424
+                  ExplicitHeight = 405
                   inherited Label4: TLabel
                     Left = 50
                     ExplicitLeft = 50
@@ -5654,14 +5646,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbOnBoardSelfDefenseJammer: TGroupBox [4]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited ScrollBox5: TScrollBox
                   Width = 325
-                  Height = 376
+                  Height = 405
                   ExplicitWidth = 325
-                  ExplicitHeight = 424
+                  ExplicitHeight = 405
                   inherited Label543: TLabel
                     Left = 161
                     ExplicitLeft = 161
@@ -5710,9 +5702,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbAirborneChaff: TGroupBox [5]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited btnAirboneChaffType: TSpeedButton
                   Left = 279
                   Width = 28
@@ -5731,9 +5723,9 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbFloatingDecoy: TGroupBox [6]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited btnFloatingDecoyDeploy: TButton
                   Left = 216
                   Width = 89
@@ -5746,14 +5738,14 @@ object frmTacticalDisplay: TfrmTacticalDisplay
               end
               inherited grbRadarNoiseJammer: TGroupBox [7]
                 Width = 329
-                Height = 393
+                Height = 422
                 ExplicitWidth = 329
-                ExplicitHeight = 441
+                ExplicitHeight = 422
                 inherited ScrollBox3: TScrollBox
                   Width = 325
-                  Height = 376
+                  Height = 405
                   ExplicitWidth = 325
-                  ExplicitHeight = 424
+                  ExplicitHeight = 405
                   inherited btnComboRadarJammingControlMode: TSpeedButton
                     Left = 276
                     Top = 78
@@ -5867,16 +5859,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       end
       object tsFireControl: TTabSheet
         ImageIndex = 5
-        ExplicitHeight = 555
         inline fmFireControl1: TfmFireControl
           Left = 0
           Top = 0
           Width = 329
-          Height = 507
+          Height = 536
           Align = alClient
           TabOrder = 0
           ExplicitWidth = 329
-          ExplicitHeight = 555
+          ExplicitHeight = 536
           inherited PanelFCChoices: TPanel
             Width = 329
             Height = 82
@@ -5898,25 +5889,25 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           inherited PanelALL: TPanel
             Top = 94
             Width = 329
-            Height = 413
+            Height = 442
             ExplicitTop = 94
             ExplicitWidth = 329
-            ExplicitHeight = 461
+            ExplicitHeight = 442
             inherited PanelFC: TPanel
               Width = 329
-              Height = 413
+              Height = 442
               ExplicitWidth = 329
-              ExplicitHeight = 461
+              ExplicitHeight = 442
               inherited ScrollBox3: TScrollBox
                 Width = 329
-                Height = 413
+                Height = 442
                 ExplicitWidth = 329
-                ExplicitHeight = 461
+                ExplicitHeight = 442
                 inherited grbFireControl: TGroupBox
                   Width = 329
-                  Height = 413
+                  Height = 442
                   ExplicitWidth = 329
-                  ExplicitHeight = 461
+                  ExplicitHeight = 442
                   inherited Bevel27: TBevel
                     Top = 10
                     Width = 265
@@ -6115,12 +6106,11 @@ object frmTacticalDisplay: TfrmTacticalDisplay
       end
       object tsEMCON: TTabSheet
         ImageIndex = 6
-        ExplicitHeight = 555
         inline fmEMCON1: TfmEMCON
           Left = 0
           Top = 0
           Width = 329
-          Height = 507
+          Height = 536
           Align = alClient
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -6130,7 +6120,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           ParentFont = False
           TabOrder = 0
           ExplicitWidth = 329
-          ExplicitHeight = 555
+          ExplicitHeight = 536
           inherited PanelEmconChoices: TPanel
             Width = 329
             ExplicitWidth = 329
@@ -6143,19 +6133,19 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           end
           inherited PaneALL: TPanel
             Width = 329
-            Height = 410
+            Height = 439
             ExplicitWidth = 329
-            ExplicitHeight = 458
+            ExplicitHeight = 439
             inherited PanelEmcon: TPanel
               Width = 329
-              Height = 410
+              Height = 439
               ExplicitWidth = 329
-              ExplicitHeight = 458
+              ExplicitHeight = 439
               inherited ScrollBox2: TScrollBox
                 Width = 327
-                Height = 408
+                Height = 437
                 ExplicitWidth = 327
-                ExplicitHeight = 456
+                ExplicitHeight = 437
                 inherited Bevel18: TBevel
                   Top = 226
                   ExplicitTop = 226
@@ -7280,7 +7270,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   object pnlTop: TPanel
     Left = 0
     Top = 0
-    Width = 1280
+    Width = 1286
     Height = 97
     Align = alTop
     BevelKind = bkFlat
@@ -7289,7 +7279,7 @@ object frmTacticalDisplay: TfrmTacticalDisplay
     object ToolBar1: TToolBar
       Left = 0
       Top = 0
-      Width = 1276
+      Width = 1282
       Height = 68
       AutoSize = True
       ButtonHeight = 30
@@ -7774,40 +7764,38 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   object pnlMap: TPanel
     Left = 341
     Top = 97
-    Width = 939
-    Height = 856
+    Width = 945
+    Height = 885
     Align = alClient
     BevelKind = bkFlat
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitTop = 49
-    ExplicitHeight = 904
     inline fmMapWindow1: TfmMapWindow
       Left = 0
       Top = 0
-      Width = 935
-      Height = 852
+      Width = 941
+      Height = 881
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 935
-      ExplicitHeight = 900
+      ExplicitWidth = 941
+      ExplicitHeight = 881
       inherited pnlTop: TPanel
-        Width = 935
+        Width = 941
         Height = 20
         Visible = False
-        ExplicitWidth = 935
+        ExplicitWidth = 941
         ExplicitHeight = 20
       end
       inherited pnlMap: TPanel
         Top = 20
-        Width = 935
-        Height = 832
+        Width = 941
+        Height = 861
         ExplicitTop = 20
-        ExplicitWidth = 935
-        ExplicitHeight = 880
+        ExplicitWidth = 941
+        ExplicitHeight = 861
         inherited Map: TMap
-          Width = 933
-          Height = 830
+          Width = 939
+          Height = 859
           OnExit = Map2Exit
           OnDblClick = Map2DblClick
           OnClick = Map2Click
@@ -7816,19 +7804,19 @@ object frmTacticalDisplay: TfrmTacticalDisplay
           ExplicitWidth = 1006
           ExplicitHeight = 1444
           ControlData = {
-            8A1A06006E600000C8550000010000000F0000FF0D47656F44696374696F6E61
+            8A1A06000C610000C8580000010000000F0000FF0D47656F44696374696F6E61
             727905456D70747900E8030000000000000000000002000E001E000000000000
             0000000000000000000000000000000000000000000600010000000000500001
             010000640000000001F4010000050000800C000000000000000000000000FFFF
             FF000100000000000000000000000000000000000000000000000352E30B918F
-            CE119DE300AA004BB85101000000900164540B0005417269616C000352E30B91
+            CE119DE300AA004BB85101000000900194C90B0005417269616C000352E30B91
             8FCE119DE300AA004BB8510100000090015C790C0005417269616C0000000000
             00000000000000000000000000000000000000000000000000000000000000FF
             FFFF000000000000000001370000000000FFFFFF000000000000000352E30B91
             8FCE119DE300AA004BB851010000009001DC7C010005417269616C000352E30B
             918FCE119DE300AA004BB851010200009001A42C02000B4D61702053796D626F
             6C730000000000000001000100FFFFFF000200FFFFFF00000000000001000000
-            01000118010000E0A0F40F01000000000000001C000000000000000000000000
+            0100011801000020BD540E01000000000000001C000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000002
             0000000000000000000000000000000000000000000000000000000000000000
@@ -7837,15 +7825,15 @@ object frmTacticalDisplay: TfrmTacticalDisplay
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             8076C000000000008056C0000000000080764000000000008056400100000018
-            010000E0A0F40F010000006E1001001C00000000000000000000000000000000
+            01000020BD540E01000000940B01001C00000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000200000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
-            00000000000000000000000000000000000000000000006E10010000000000AC
-            CA97007E0DD413F5090100000000000000000000CB9700000000000000000000
+            0000000000000000000000000000000000000000000000940B010000000000CC
+            CA9700BED4A71175040200000000000000000020CB9700000000000000000000
             000088B3400000000000408F400001000001}
         end
       end
@@ -7853,8 +7841,8 @@ object frmTacticalDisplay: TfrmTacticalDisplay
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 953
-    Width = 1280
+    Top = 982
+    Width = 1286
     Height = 73
     Align = alBottom
     BevelKind = bkFlat

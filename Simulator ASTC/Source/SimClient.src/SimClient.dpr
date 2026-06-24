@@ -231,8 +231,8 @@ begin
   Application.CreateForm(TfmOverlayEditor, fmOverlayEditor);
   Application.CreateForm(TfrmRight, frmRight);
   Application.CreateForm(TfrmTop, frmTop);
-  Application.CreateForm(TfrmLeft, frmLeft);
   Application.CreateForm(TfrmBottom, frmBottom);
+  Application.CreateForm(TfrmLeft, frmLeft);
   Application.CreateForm(TfrmRight2, frmRight2);
   Application.CreateForm(TfrmLeftPlotter, frmLeftPlotter);
   Application.CreateForm(TfrmLeftToolsPlotter, frmLeftToolsPlotter);
