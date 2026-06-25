@@ -1,4 +1,4 @@
-unit ufrmAccousticDecoy;
+unit ufrmAccousticDecoyMount;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   uDBAsset_Countermeasure, Vcl.Imaging.pngimage;
 
 type
-  TfrmAccousticDecoy = class(TForm)
+  TfrmAccousticDecoyMount = class(TForm)
     pgc1: TPageControl;
     tsGeneral: TTabSheet;
     txtQuantity: TStaticText;
@@ -55,7 +55,7 @@ type
   end;
 
 var
-  frmAccousticDecoy: TfrmAccousticDecoy;
+  frmAccousticDecoyMount: TfrmAccousticDecoyMount;
 
 implementation
 
@@ -66,12 +66,12 @@ uses
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAccousticDecoy.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmAccousticDecoyMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
 end;
 
-procedure TfrmAccousticDecoy.FormShow(Sender: TObject);
+procedure TfrmAccousticDecoyMount.FormShow(Sender: TObject);
 begin
   UpdateAcouticDecoyData;
 
@@ -87,7 +87,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmAccousticDecoy.btnOKClick(Sender: TObject);
+procedure TfrmAccousticDecoyMount.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -96,7 +96,7 @@ begin
     Close;
 end;
 
-procedure TfrmAccousticDecoy.btnApplyClick(Sender: TObject);
+procedure TfrmAccousticDecoyMount.btnApplyClick(Sender: TObject);
 begin
   with FSelectedAcousticDecoy do
   begin
@@ -119,13 +119,13 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmAccousticDecoy.btnCancelClick(Sender: TObject);
+procedure TfrmAccousticDecoyMount.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-function TfrmAccousticDecoy.CekInput: Boolean;
+function TfrmAccousticDecoyMount.CekInput: Boolean;
 begin
   Result := False;
 
@@ -148,7 +148,7 @@ begin
   Result := True;
 end;
 
-procedure TfrmAccousticDecoy.UpdateAcouticDecoyData;
+procedure TfrmAccousticDecoyMount.UpdateAcouticDecoyData;
 begin
   with FSelectedAcousticDecoy do
   begin
@@ -167,7 +167,7 @@ end;
 
 {$REGION ' Filter Input '}
 
-function TfrmAccousticDecoy.GetNumberOfKoma(s: string): Boolean;
+function TfrmAccousticDecoyMount.GetNumberOfKoma(s: string): Boolean;
 var
   a, i : Integer;
 begin
@@ -184,7 +184,7 @@ begin
     Result := True;
 end;
 
-procedure TfrmAccousticDecoy.edtNumeralKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmAccousticDecoyMount.edtNumeralKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -218,12 +218,12 @@ begin
   end;
 end;
 
-procedure TfrmAccousticDecoy.CheckBoxDataClick(Sender: TObject);
+procedure TfrmAccousticDecoyMount.CheckBoxDataClick(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmAccousticDecoy.ComboBoxDataChange(Sender: TObject);
+procedure TfrmAccousticDecoyMount.ComboBoxDataChange(Sender: TObject);
 begin
   if TComboBox(Sender).ItemIndex = -1 then
     TComboBox(Sender).ItemIndex := 0;
@@ -231,12 +231,12 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmAccousticDecoy.edtChange(Sender: TObject);
+procedure TfrmAccousticDecoyMount.edtChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmAccousticDecoy.ValidationFormatInput;
+procedure TfrmAccousticDecoyMount.ValidationFormatInput;
 var
   i: Integer;
   value : Double;

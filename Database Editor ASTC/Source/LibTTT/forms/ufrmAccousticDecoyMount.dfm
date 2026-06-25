@@ -1,4 +1,4 @@
-object frmAccousticDecoy: TfrmAccousticDecoy
+object frmAccousticDecoyMount: TfrmAccousticDecoyMount
   Left = 0
   Top = 0
   BorderIcons = []

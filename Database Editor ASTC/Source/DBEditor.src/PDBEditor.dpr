@@ -131,7 +131,7 @@ uses
   uTorpedoLauncher in '..\LibTTT\forms\uTorpedoLauncher.pas' {TorpedoLauncherForm},
   ufrmRadarJammerMount in '..\LibTTT\forms\ufrmRadarJammerMount.pas' {frmRadarJammerMount},
   ufrmAirBubblesMounts in '..\LibTTT\forms\ufrmAirBubblesMounts.pas' {frmAirBubblesMounts},
-  ufrmAccousticDecoy in '..\LibTTT\forms\ufrmAccousticDecoy.pas' {frmAccousticDecoy},
+  ufrmAccousticDecoyMount in '..\LibTTT\forms\ufrmAccousticDecoyMount.pas' {frmAccousticDecoyMount},
   ufrmSonobuoyMount in '..\LibTTT\forms\ufrmSonobuoyMount.pas' {frmSonobuoyMount},
   ufrmTowedJammerMount in '..\LibTTT\forms\ufrmTowedJammerMount.pas' {frmTowedJammerMount},
   ufrmFloatingMount in '..\LibTTT\forms\ufrmFloatingMount.pas' {frmFloatingMount},
@@ -323,7 +323,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfDBEditor, fDBEditor);
   Application.CreateForm(TdmTTT, dmTTT);
-//  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
+  //  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
 
   uSimDBEditor.StartInitialize;
 

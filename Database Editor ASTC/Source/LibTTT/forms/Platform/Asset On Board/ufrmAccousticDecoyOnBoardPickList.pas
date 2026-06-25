@@ -61,7 +61,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryAcousticDecoy, ufrmAccousticDecoy;
+  uDataModuleTTT, ufrmSummaryAcousticDecoy, ufrmAccousticDecoyMount;
 
 {$R *.dfm}
 
@@ -114,16 +114,16 @@ begin
   if lbAllAcousticDecoyDef.ItemIndex = -1 then
     Exit;
 
-  frmAccousticDecoy := TfrmAccousticDecoy.Create(Self);
+  frmAccousticDecoyMount := frmAccousticDecoyMount.Create(Self);
   try
-    with frmAccousticDecoy do
+    with frmAccousticDecoyMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedAcousticDecoy := FSelectedAcousticDecoy;
       ShowModal;
     end;
   finally
-    frmAccousticDecoy.Free;
+    frmAccousticDecoyMount.Free;
   end;
 
   UpdateAcousticDecoyList;
@@ -134,16 +134,16 @@ begin
   if lbAllAcousticDecoyOnBoard.ItemIndex = -1 then
     Exit;
 
-  frmAccousticDecoy := TfrmAccousticDecoy.Create(Self);
+  frmAccousticDecoyMount := TfrmAccousticDecoyMount.Create(Self);
   try
-    with frmAccousticDecoy do
+    with frmAccousticDecoyMount do
     begin
       SelectedVehicle := FSelectedVehicle;
       SelectedAcousticDecoy := FSelectedAcousticDecoy;
       ShowModal;
     end;
   finally
-    frmAccousticDecoy.Free;
+    frmAccousticDecoyMount.Free;
   end;
 
   UpdateAcousticDecoyList;
