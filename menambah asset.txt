@@ -1,7 +1,3 @@
-menambah asset
-- onboard sonobuoy bermasalah
-
-- vehicle belum dicek semua
 
 - Melanjutkan Desain interface Role Navigasi (Tactical dan Tote)
 - Melanjutkan Desain interface Role Plotter (Tactical)
@@ -9,10 +5,8 @@ menambah asset
 - Melanjutkan Desain interface Role Bawah Air (Tactical dan Tote)
 - Melanjutkan Desain interface Role General (Tactical dan Tote)
 
-- onboard torpedo, klik 2x tidak langsung Add
-- acoustic decoy mount, tombol OK, Cancel, Apply besarnya belum standart
+- vehicle belum dicek semua
 - onboar chaff, masih menggunakan radar, chaff yg dipilih tidak berpindah ke sebelah kanan
-- onboard Infrareddecoy, setelah ditambahkan list Infrareddecoy masih ada di sebelah kiri
-- defensivejammer onboard belum bisa dihapus
+- onboard sonobuoy bermasalah
 
 - Game Time belum terhubung ke scenario

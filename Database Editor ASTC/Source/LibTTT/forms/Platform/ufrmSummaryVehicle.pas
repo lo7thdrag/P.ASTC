@@ -386,7 +386,7 @@ uses
 
   ufrmAccousticDecoyOnBoardPickList, ufrmAirBubbleOnBoardPickList, uChaffAssets,
   ufrmInfraredDecoyOnBoardPickList, ufrmFloatingDecoyOnBoardPickList,
-  ufrmDefensiveJammerPickList, ufrmTowedJammerDecoyOnBoardPickList, ufrmRadarJammerOnBoardPickList,
+  ufrmDefensiveJammerOnBoardPickList, ufrmTowedJammerDecoyOnBoardPickList, ufrmRadarJammerOnBoardPickList,
 
 
   ufrmEmbarkedSelect, uHelicopterLimitations;
@@ -1140,15 +1140,15 @@ end;
 
 procedure TfrmSummaryVehicle.btnDefensiveJummerClick(Sender: TObject);
 begin
-  frmDefensiveJammerPickList := TfrmDefensiveJammerPickList.Create(Self);
+  frmDefensiveJammerOnBoardPickList := TfrmDefensiveJammerOnBoardPickList.Create(Self);
   try
-    with frmDefensiveJammerPickList do
+    with frmDefensiveJammerOnBoardPickList do
     begin
       SelectedVehicle := FSelectedVehicle;
       ShowModal;
     end;
   finally
-    frmDefensiveJammerPickList.Free;
+    frmDefensiveJammerOnBoardPickList.Free;
   end;
 
   btnCancel.Enabled := not AfterClose;

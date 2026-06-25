@@ -15,6 +15,7 @@ object frmHelicopterLimitations: TfrmHelicopterLimitations
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -44850,8 +44851,6 @@ object frmHelicopterLimitations: TfrmHelicopterLimitations
     Height = 440
     Align = alClient
     TabOrder = 0
-    ExplicitTop = 8
-    ExplicitHeight = 43
     object Panel1: TPanel
       Left = 1
       Top = 1
@@ -44860,10 +44859,6 @@ object frmHelicopterLimitations: TfrmHelicopterLimitations
       Align = alClient
       Color = 2499101
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 420
-      ExplicitHeight = 392
       object pgc1: TPageControl
         Left = 8
         Top = 8
@@ -45099,8 +45094,6 @@ object frmHelicopterLimitations: TfrmHelicopterLimitations
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 1
-      ExplicitLeft = 2
-      ExplicitTop = 402
       object btnApply: TButton
         Left = 252
         Top = 7

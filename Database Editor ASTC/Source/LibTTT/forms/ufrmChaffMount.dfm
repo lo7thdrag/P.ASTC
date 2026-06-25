@@ -27,8 +27,6 @@ object frmChaffMountForm: TfrmChaffMountForm
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 406
-    ExplicitHeight = 325
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 70
@@ -40,7 +38,6 @@ object frmChaffMountForm: TfrmChaffMountForm
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 65
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -53,9 +50,6 @@ object frmChaffMountForm: TfrmChaffMountForm
         TabWidth = 75
         object General: TTabSheet
           Caption = 'General'
-          ExplicitTop = 31
-          ExplicitWidth = 368
-          ExplicitHeight = 142
           object lblClass: TLabel
             Left = 12
             Top = 18
@@ -102,9 +96,6 @@ object frmChaffMountForm: TfrmChaffMountForm
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 70
-      ExplicitWidth = 396
     end
     object pnl1Title: TPanel
       Left = 0
@@ -116,9 +107,6 @@ object frmChaffMountForm: TfrmChaffMountForm
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 5
-      ExplicitTop = 5
-      ExplicitWidth = 396
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -138,7 +126,10 @@ object frmChaffMountForm: TfrmChaffMountForm
         Width = 414
         Height = 22
         Style = csDropDownList
+        ItemIndex = 0
         TabOrder = 0
+        Text = 'Barrier'
+        OnChange = cbbNameChange
         Items.Strings = (
           'Barrier'
           'Confusion'
@@ -159,9 +150,6 @@ object frmChaffMountForm: TfrmChaffMountForm
       Color = 2499101
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 5
-      ExplicitTop = 277
-      ExplicitWidth = 396
       object btnApply: TButton
         Left = 261
         Top = 2
@@ -218,9 +206,6 @@ object frmChaffMountForm: TfrmChaffMountForm
       Color = 2499101
       ParentBackground = False
       TabOrder = 4
-      ExplicitLeft = 5
-      ExplicitTop = 272
-      ExplicitWidth = 396
     end
   end
 end

@@ -3,7 +3,7 @@ object frmAccousticDecoyMount: TfrmAccousticDecoyMount
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = '   Accoustic Decoy'
+  Caption = '   Accoustic Decoy Mount'
   ClientHeight = 262
   ClientWidth = 395
   Color = clBtnShadow
@@ -123,29 +123,47 @@ object frmAccousticDecoyMount: TfrmAccousticDecoyMount
       ParentBackground = False
       TabOrder = 2
       object btnApply: TButton
-        Left = 219
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 210
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
         OnClick = btnApplyClick
       end
       object btnOK: TButton
-        Left = 138
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 125
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'OK'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 1
         OnClick = btnOKClick
       end
       object btnCancel: TButton
-        Left = 300
-        Top = 5
-        Width = 75
-        Height = 25
+        Left = 295
+        Top = 2
+        Width = 80
+        Height = 30
         Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
         OnClick = btnCancelClick
       end

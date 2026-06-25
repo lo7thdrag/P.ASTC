@@ -44920,6 +44920,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         TabWidth = 100
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object lblNames: TLabel
             Left = 17
             Top = 20
@@ -45724,6 +45728,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPhysical: TTabSheet
           Caption = 'Physical'
           ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object lblMotionCharacteristic: TLabel
             Left = 18
             Top = 20
@@ -46336,6 +46344,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsCharacteristic: TTabSheet
           Caption = 'Characteristic'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object grbAirDropLimitation: TGroupBox
             Left = 20
             Top = 20
@@ -46582,6 +46594,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPOH: TTabSheet
           Caption = 'POH Modifier'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object grbMissile: TGroupBox
             Left = 20
             Top = 10
@@ -47041,6 +47057,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsAssets: TTabSheet
           Caption = 'Assets'
           ImageIndex = 4
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object grbSensor: TGroupBox
             Left = 20
             Top = 20
@@ -47360,6 +47380,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPeriscope: TTabSheet
           Caption = 'Periscope'
           ImageIndex = 5
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object lblPeriscopeRadarMastCrossSection: TLabel
             Left = 20
             Top = 112
@@ -47618,6 +47642,10 @@ object frmSummaryVehicle: TfrmSummaryVehicle
           BorderWidth = 10
           Caption = 'Notes'
           ImageIndex = 6
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object mmoNotes: TMemo
             Left = 0
             Top = 0

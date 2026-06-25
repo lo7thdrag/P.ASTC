@@ -1,7 +1,7 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{429368A6-18A3-4788-8168-218A9F92DC26}</ProjectGuid>
-        <MainSource>PDBEditor.dpr</MainSource>
+        <MainSource>DatabaseEditor.dpr</MainSource>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <ProjectVersion>18.8</ProjectVersion>
@@ -77,7 +77,7 @@
         <DCC_UsePackage>vcl;rtl;vclx;vclimg;vclactnband;dbrtl;vcldb;vcldbx;bdertl;vcltouch;xmlrtl;dsnap;dsnapcon;TeeUI;TeeDB;Tee;vclib;ibxpress;adortl;IndyCore;IndySystem;IndyProtocols;inet;intrawebdb_100_140;Intraweb_100_140;VclSmp;vclie;websnap;webdsnap;inetdb;inetdbbde;inetdbxpress;soaprtl;vclribbon;dbexpress;DbxCommonDriver;DataSnapIndy10ServerTransport;DataSnapProviderClient;DbxClientDriver;DataSnapServer;DBXInterBaseDriver;DBXMySQLDriver;dbxcds;DBXFirebirdDriver;DBXSybaseASEDriver;DBXSybaseASADriver;DBXOracleDriver;DBXMSSQLDriver;DBXInformixDriver;DBXDb2Driver;MapX;OverbyteIcsD2010Run;SignalLabGenericBasicPkgD13;SignalLabBasicPkgD13;OpenWirePkgD13;SignalLabAdditionalPkgD13;UserLabBasicPkgD13;InstrumentLabPkgD13;RaizeComponentsVcl;RaizeComponentsVclDb;lmdrtl10rt_100;lmdeldb10rt_100;lmdelpro10rt_100;lmdelcore10rt_100;lmdsyntax10rt_100;lmdide10rt_100;lmdchartdb10rt_100;lmdchart10rt_100;lmdprint10rt_100;lmdrtlx10rt_100;lmdfx10rt_100;lmdstorage10rt_100;lmdscript10rt_100;lmdscriptimp10rt_100;lmddesign10rt_100;lmdbar10rt_100;lmdsearchdb10rt_100;lmdsearch10rt_100;lmdweb10rt_100;lmdtxt10rt_100;lmdtools10rt_100;lmdtxtdb10rt_100;lmdcore10rt_100;lmdsys10rt_100;lmdshell10rt_100;lmdrtfdb10rt_100;lmdrtf10rt_100;lmddocking10rt_100;lmdgrid10rt_100;lmdtoolsdb10rt_100;lmdinspector10rt_100;lmdplugin10rt_100;lmdthemes10rt_100;tmsd2010;tmsexd2010;tmswizd2010;tmsxlsd2010;pkgRadarNav;vcwd2010;ZComponent;ZDbc;ZPlain;ZCore;ZParseSql;jProjvShape;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_ImageBase>00400000</DCC_ImageBase>
         <DCC_Platform>x86</DCC_Platform>
-        <SanitizedProjectName>PDBEditor</SanitizedProjectName>
+        <SanitizedProjectName>DatabaseEditor</SanitizedProjectName>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1057</VerInfo_Locale>
@@ -132,6 +132,7 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>..\..\Bin\</DCC_ExeOutput>
         <DCC_DcuOutput>..\..\Comp\</DCC_DcuOutput>
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -377,8 +378,8 @@
         <DCCReference Include="..\LibTTT\forms\ufrmAirBubblesMounts.pas">
             <Form>frmAirBubblesMounts</Form>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\ufrmAccousticDecoy.pas">
-            <Form>frmAccousticDecoy</Form>
+        <DCCReference Include="..\LibTTT\forms\ufrmAccousticDecoyMount.pas">
+            <Form>frmAccousticDecoyMount</Form>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\ufrmSonobuoyMount.pas">
             <Form>frmSonobuoyMount</Form>
@@ -926,10 +927,6 @@
             <Form>frmVehicleResourceAllocationPickList</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\PickList\Other\ufrmDefensiveJammerPickList.pas">
-            <Form>frmDefensiveJammerPickList</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\LibTTT\forms\PickList\Other\ufrmEnvironmentPickList.pas">
             <Form>frmEnvironmentPickList</Form>
             <FormType>dfm</FormType>
@@ -1002,6 +999,10 @@
             <Form>OverlayEditorForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\Platform\Asset On Board\ufrmDefensiveJammerOnBoardPickList.pas">
+            <Form>frmDefensiveJammerOnBoardPickList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -1021,7 +1022,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">PDBEditor.dpr</Source>
+                    <Source Name="MainSource">DatabaseEditor.dpr</Source>
                 </Source>
                 <Parameters>
                     <Parameters Name="UseLauncher">False</Parameters>
@@ -1073,9 +1074,9 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="3">
-                <DeployFile LocalName="..\..\T3.bin\PDBEditor.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\Bin\DatabaseEditor.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>PDBEditor.exe</RemoteName>
+                        <RemoteName>DatabaseEditor.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

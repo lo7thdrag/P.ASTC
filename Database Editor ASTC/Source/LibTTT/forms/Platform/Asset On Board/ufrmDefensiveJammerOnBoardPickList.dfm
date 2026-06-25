@@ -1,4 +1,4 @@
-object frmDefensiveJammerPickList: TfrmDefensiveJammerPickList
+object frmDefensiveJammerOnBoardPickList: TfrmDefensiveJammerOnBoardPickList
   Left = 0
   Top = 0
   BorderIcons = []
@@ -44937,7 +44937,6 @@ object frmDefensiveJammerPickList: TfrmDefensiveJammerPickList
         ItemHeight = 14
         TabOrder = 4
         OnClick = lbAllDefensveJammerOnBoardClick
-        OnDblClick = btnRemoveClick
       end
       object btnClose: TButton
         Left = 663

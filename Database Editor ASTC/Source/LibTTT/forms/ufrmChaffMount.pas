@@ -39,6 +39,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
+    procedure cbbNameChange(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -70,7 +71,7 @@ uses
 
 procedure TfrmChaffMountForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmChaffMountForm.FormShow(Sender: TObject);
@@ -98,8 +99,23 @@ begin
     Close;
 end;
 
+procedure TfrmChaffMountForm.cbbNameChange(Sender: TObject);
+begin
+  edtClass.Text := FSelectedChaff.FChaff_Def.Chaff_Identifier + ' ' + cbbName.Text;
+
+  btnApply.Enabled := True;
+end;
+
 procedure TfrmChaffMountForm.btnApplyClick(Sender: TObject);
 begin
+  if not CekInput then
+  begin
+    isOK := False;
+    Exit;
+  end;
+
+  ValidationFormatInput;
+
   with FSelectedChaff do
   begin
     LastName := edtClass.Text;
@@ -132,17 +148,17 @@ begin
   Result := False;
 
   {Jika Mount Name sudah ada}
-  if dmTTT.GetChaffOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, edtClass.Text) then
+  if dmTTT.GetChaffOnBoardCount(FSelectedVehicle.FData.Vehicle_Index, cbbName.Text) then
   begin
     {Jika inputan baru}
     if FSelectedChaff.FData.Chaff_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate Chaff!' + Char(13) + 'Choose different Chaff to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtClass.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -154,13 +170,14 @@ procedure TfrmChaffMountForm.UpdateChaffData;
 begin
   with FSelectedChaff do
   begin
-    if FData.Chaff_Instance_Index = 0 then
-      cbbName.ItemIndex := -1
-    else
-      cbbName.ItemIndex := FData.Instance_Type;
+    cbbName.ItemIndex := FData.Instance_Type;
 
-      LastName := edtClass.Text;
-    edtClass.Text := FChaff_Def.Chaff_Identifier;
+    if FData.Chaff_Instance_Index = 0 then
+      edtClass.Text := FChaff_Def.Chaff_Identifier + ' ' + cbbName.Text
+    else
+      edtClass.Text := FChaff_Def.Chaff_Identifier;
+
+    LastName := edtClass.Text;
     edtQuantity.Text := IntToStr(FData.Chaff_Qty_On_Board);
   end;
 end;

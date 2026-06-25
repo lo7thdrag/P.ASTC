@@ -44995,7 +44995,7 @@ object frmChaffOnBoardOnBoardPickList: TfrmChaffOnBoardOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of Radars On Board'
+          Caption = 'List of Chaff On Board'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite
@@ -45024,7 +45024,7 @@ object frmChaffOnBoardOnBoardPickList: TfrmChaffOnBoardOnBoardPickList
           Height = 35
           Align = alClient
           BevelOuter = bvNone
-          Caption = 'List of Available Radars'
+          Caption = 'List of Available Chaff'
           Color = 2499101
           Font.Charset = ANSI_CHARSET
           Font.Color = clWhite

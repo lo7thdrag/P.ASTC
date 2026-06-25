@@ -156,6 +156,7 @@ object frmSonobuoyMount: TfrmSonobuoyMount
           TabOrder = 6
         end
         object edtSonarMount: TEdit
+          Tag = 4
           Left = 12
           Top = 223
           Width = 366

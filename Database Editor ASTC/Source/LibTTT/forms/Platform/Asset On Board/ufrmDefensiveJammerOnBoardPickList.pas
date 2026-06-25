@@ -1,4 +1,4 @@
-unit ufrmDefensiveJammerPickList;
+unit ufrmDefensiveJammerOnBoardPickList;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Vcl.Imaging.pngimage;
 
 type
-  TfrmDefensiveJammerPickList = class(TForm)
+  TfrmDefensiveJammerOnBoardPickList = class(TForm)
     pnlMain: TPanel;
     btnAdd: TButton;
     btnEditMount: TButton;
@@ -54,7 +54,7 @@ type
   end;
 
 var
-  frmDefensiveJammerPickList: TfrmDefensiveJammerPickList;
+  frmDefensiveJammerOnBoardPickList: TfrmDefensiveJammerOnBoardPickList;
 
 implementation
 
@@ -78,7 +78,7 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmDefensiveJammerPickList.FormCreate(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllDefensiveJammerDefList     := TList.Create;
   FAllDefensiveJammerOnBoardList := TList.Create;
@@ -86,14 +86,14 @@ begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmDefensiveJammerPickList.FormDestroy(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllDefensiveJammerDefList);
   FreeItemsAndFreeList(FAllDefensiveJammerOnBoardList);
 
 end;
 
-procedure TfrmDefensiveJammerPickList.FormShow(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.FormShow(Sender: TObject);
 begin
   UpdateDefensiveJammerList;
 end;
@@ -102,7 +102,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmDefensiveJammerPickList.btnAddClick(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.btnAddClick(Sender: TObject);
 begin
   if lbAllDefensiveJammerDef.ItemIndex = -1 then
     Exit;
@@ -123,7 +123,7 @@ begin
   UpdateDefensiveJammerList;
 end;
 
-procedure TfrmDefensiveJammerPickList.btnRemoveClick(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.btnRemoveClick(Sender: TObject);
 begin
   if lbAllDefensveJammerOnBoard.ItemIndex = -1 then
     Exit;
@@ -134,7 +134,7 @@ begin
   UpdateDefensiveJammerList;
 end;
 
-function TfrmDefensiveJammerPickList.CekInput: Boolean;
+function TfrmDefensiveJammerOnBoardPickList.CekInput: Boolean;
 begin
   Result := False;
 
@@ -152,7 +152,7 @@ begin
   Result := True;
 end;
 
-procedure TfrmDefensiveJammerPickList.edtSearchKeyPress(Sender: TObject;
+procedure TfrmDefensiveJammerOnBoardPickList.edtSearchKeyPress(Sender: TObject;
   var Key: Char);
 begin
   if Key = #13 then
@@ -162,26 +162,26 @@ begin
 
 end;
 
-procedure TfrmDefensiveJammerPickList.btnCloseClick(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.btnCloseClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmDefensiveJammerPickList.lbAllDefensiveJammerDefClick(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.lbAllDefensiveJammerDefClick(Sender: TObject);
 begin
   if lbAllDefensiveJammerDef.ItemIndex = -1 then
     Exit;
   FSelectedDefensiveJammer := TDefensive_Jammer_On_Board(lbAllDefensiveJammerDef.Items.Objects[lbAllDefensiveJammerDef.ItemIndex]);
 end;
 
-procedure TfrmDefensiveJammerPickList.lbAllDefensveJammerOnBoardClick(Sender: TObject);
+procedure TfrmDefensiveJammerOnBoardPickList.lbAllDefensveJammerOnBoardClick(Sender: TObject);
 begin
   if lbAllDefensveJammerOnBoard.ItemIndex = -1 then
     Exit;
   FSelectedDefensiveJammer := TDefensive_Jammer_On_Board(lbAllDefensveJammerOnBoard.Items.Objects[lbAllDefensveJammerOnBoard.ItemIndex]);
 end;
 
-procedure TfrmDefensiveJammerPickList.UpdateDefensiveJammerList;
+procedure TfrmDefensiveJammerOnBoardPickList.UpdateDefensiveJammerList;
 var
   i, j : Integer;
   definsivejammer, definsivejammerOnboard  : TDefensive_Jammer_On_Board;
@@ -210,7 +210,7 @@ begin
     end;
 
     if found then
-      lbAllDefensveJammerOnBoard.Items.AddObject(definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer)
+      lbAllDefensveJammerOnBoard.Items.AddObject(definsivejammerOnboard.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammerOnboard)
     else
       lbAllDefensiveJammerDef.Items.AddObject(definsivejammer.FDefensiveJammer_Def.Defensive_Jammer_Identifier, definsivejammer);
   end;

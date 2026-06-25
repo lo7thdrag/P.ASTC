@@ -58,6 +58,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnApplyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
 
   private
     FSelectedVehicle : TVehicle_Definition;
@@ -70,7 +71,7 @@ type
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
     { Public declarations }
     v_index : Integer;
-    Helicopter_Land_Launch_Limits : THelicopter_Land_Launch_Limits;
+//    Helicopter_Land_Launch_Limits : THelicopter_Land_Launch_Limits;
 
     property SelectedVehicle : TVehicle_Definition read FSelectedVehicle write FSelectedVehicle;
   end;
@@ -101,7 +102,14 @@ end;
 
 procedure TfrmHelicopterLimitations.FormCreate(Sender: TObject);
 begin
+  FHeliLimitationData := THelicopter_Land_Launch_Limits.Create;
+
   EnableComposited(pnlMainBackground);
+end;
+
+procedure TfrmHelicopterLimitations.FormDestroy(Sender: TObject);
+begin
+  FHeliLimitationData.Free;
 end;
 
 procedure TfrmHelicopterLimitations.FormShow(Sender: TObject);
@@ -169,7 +177,6 @@ begin
   begin
     if not dmTTT.GetHelicopterLimitation(Vehicle_Index, FHeliLimitationData) then
     begin
-      FHeliLimitationData := THelicopter_Land_Launch_Limits.Create;
       FHeliLimitationData.FData.Vehicle_Index := Vehicle_Index;
     end;
 

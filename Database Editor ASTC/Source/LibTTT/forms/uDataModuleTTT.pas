@@ -6651,7 +6651,7 @@ end;
 function TdmTTT.GetHelicopterLimitation(const aVehicleID: Integer;var aResult: THelicopter_Land_Launch_Limits): Boolean;
 begin
   Result := False;
-  aResult := nil;
+//  aResult := nil;
 
   if not ZConn.Connected then
     Exit;
@@ -6669,7 +6669,8 @@ begin
 
     if not IsEmpty then
     begin
-      aResult := THelicopter_Land_Launch_Limits.Create;
+      if not Assigned(aResult) then
+        aResult := THelicopter_Land_Launch_Limits.Create;
 
       with aResult.FData do
       begin
@@ -20388,15 +20389,15 @@ begin
 
       Result := True;
 
-      SQL.Clear;
-      SQL.Add('SELECT *');
-      SQL.Add('FROM Chaff_On_Board');
-      SQL.Add('WHERE Vehicle_Index = ' + IntToStr(Vehicle_Index));
-      SQL.Add('AND Chaff_Index = ' + IntToStr(Chaff_Index));
-      SQL.Add('AND Instance_Type = ' + IntToStr(Instance_Type));
-      Open;
-
-      Chaff_Instance_Index := FieldByName('Chaff_Instance_Index').AsInteger;
+//      SQL.Clear;
+//      SQL.Add('SELECT *');
+//      SQL.Add('FROM Chaff_On_Board');
+//      SQL.Add('WHERE Vehicle_Index = ' + IntToStr(Vehicle_Index));
+//      SQL.Add('AND Chaff_Index = ' + IntToStr(Chaff_Index));
+//      SQL.Add('AND Instance_Type = ' + IntToStr(Instance_Type));
+//      Open;
+//
+//      Chaff_Instance_Index := FieldByName('Chaff_Instance_Index').AsInteger;
     end;
   end;
 end;

@@ -190,8 +190,10 @@ end;
 
 procedure TfrmChaffOnBoardOnBoardPickList.UpdateChaffList;
 var
-  i : Integer;
-  chaff : TChaff_On_Board;
+  i, j : Integer;
+  chaff, chaffOnBoard : TChaff_On_Board;
+  found : Boolean;
+
 begin
   lbAllChaffDef.Items.Clear;
   lbAllChaffOnBoard.Items.Clear;
@@ -202,14 +204,25 @@ begin
   for i := 0 to FAllChaffDefList.Count - 1 do
   begin
     chaff := FAllChaffDefList.Items[i];
-    lbAllChaffDef.Items.AddObject(chaff.FChaff_Def.Chaff_Identifier, chaff);
+
+    found := False;
+    for j := 0 to FAllChaffOnBoardList.Count - 1 do
+    begin
+      chaffOnBoard := FAllChaffOnBoardList.Items[j];
+
+      if chaffOnBoard.FChaff_Def.Chaff_Index = chaff.FChaff_Def.Chaff_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if found then
+      lbAllChaffOnBoard.Items.AddObject(chaffOnBoard.FChaff_Def.Chaff_Identifier, chaffOnBoard)
+    else
+      lbAllChaffDef.Items.AddObject(chaff.FChaff_Def.Chaff_Identifier, chaff);
   end;
 
-  for i := 0 to FAllChaffOnBoardList.Count - 1 do
-  begin
-    chaff := FAllChaffOnBoardList.Items[i];
-    lbAllChaffOnBoard.Items.AddObject(chaff.FData.Instance_Identifier, chaff);
-  end;
 end;
 
 {$ENDREGION}

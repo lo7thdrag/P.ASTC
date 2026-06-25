@@ -1,4 +1,4 @@
-program PDBEditor;
+program DatabaseEditor;
 
 uses
   Forms,
@@ -295,7 +295,6 @@ uses
   ufrmSonobuoyResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmSonobuoyResourceAllocationPickList.pas' {frmSonobuoyResourceAllocationPickList},
   ufrmTorpedoResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmTorpedoResourceAllocationPickList.pas' {frmTorpedoResourceAllocationPickList},
   ufrmVehicleResourceAllocationPickList in '..\LibTTT\forms\PickList\Resource Allocation\ufrmVehicleResourceAllocationPickList.pas' {frmVehicleResourceAllocationPickList},
-  ufrmDefensiveJammerPickList in '..\LibTTT\forms\PickList\Other\ufrmDefensiveJammerPickList.pas' {frmDefensiveJammerPickList},
   ufrmEnvironmentPickList in '..\LibTTT\forms\PickList\Other\ufrmEnvironmentPickList.pas' {frmEnvironmentPickList},
   ufrmGameAreaPickList in '..\LibTTT\forms\PickList\Other\ufrmGameAreaPickList.pas' {frmGameAreaPickList},
   ufrmGameDefaultsPickList in '..\LibTTT\forms\PickList\Other\ufrmGameDefaultsPickList.pas' {frmGameDefaultsPickList},
@@ -313,7 +312,8 @@ uses
   ufrmChooseMap in '..\LibTTT\forms\Exercise\ufrmChooseMap.pas' {frmChooseMap},
   ufrmVektorMapGameCenterEditor in '..\LibTTT\forms\Exercise\ufrmVektorMapGameCenterEditor.pas' {frmVektorMapGameCenterEditor},
   ufrmEnvironmentCharacteristic in '..\LibTTT\forms\Exercise\ufrmEnvironmentCharacteristic.pas' {frmEnvironmentCharacteristic},
-  ufrmOverlayEditor in '..\LibTTT\forms\Other\ufrmOverlayEditor.pas' {OverlayEditorForm};
+  ufrmOverlayEditor in '..\LibTTT\forms\Other\ufrmOverlayEditor.pas' {OverlayEditorForm},
+  ufrmDefensiveJammerOnBoardPickList in '..\LibTTT\forms\Platform\Asset On Board\ufrmDefensiveJammerOnBoardPickList.pas' {frmDefensiveJammerOnBoardPickList};
 
 {$R *.res}
 
@@ -323,6 +323,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfDBEditor, fDBEditor);
   Application.CreateForm(TdmTTT, dmTTT);
+  Application.CreateForm(TfrmDefensiveJammerOnBoardPickList, frmDefensiveJammerOnBoardPickList);
   //  Application.CreateForm(TOverlayEditorForm, OverlayEditorForm);
 
   uSimDBEditor.StartInitialize;
