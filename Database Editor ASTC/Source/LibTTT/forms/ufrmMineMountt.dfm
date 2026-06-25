@@ -87,6 +87,8 @@ object frmMineMount: TfrmMineMount
       ExplicitHeight = 273
       object General: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 398
         ExplicitHeight = 233
         object lblClassName: TStaticText

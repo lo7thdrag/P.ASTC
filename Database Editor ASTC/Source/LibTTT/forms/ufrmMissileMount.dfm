@@ -86,6 +86,10 @@ object frmMissileMount: TfrmMissileMount
       TabWidth = 75
       object General: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lblClassName: TStaticText
           Left = 12
           Top = 18

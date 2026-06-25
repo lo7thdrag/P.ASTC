@@ -89,6 +89,8 @@ object frmTorpedoMounts: TfrmTorpedoMounts
       ExplicitHeight = 329
       object General: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 399
         ExplicitHeight = 289
         object lblClassName: TStaticText

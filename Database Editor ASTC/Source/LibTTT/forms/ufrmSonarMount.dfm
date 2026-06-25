@@ -89,6 +89,8 @@ object frmSonarMount: TfrmSonarMount
       ExplicitHeight = 314
       object General: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 403
         ExplicitHeight = 274
         object lblClassName: TStaticText

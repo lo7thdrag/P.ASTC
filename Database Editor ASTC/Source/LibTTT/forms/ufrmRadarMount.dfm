@@ -31,7 +31,6 @@ object frmRadarMount: TfrmRadarMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 424
     object txtClass: TLabel
       Left = 10
       Top = 10
@@ -73,8 +72,6 @@ object frmRadarMount: TfrmRadarMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 424
-    ExplicitHeight = 338
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -85,12 +82,8 @@ object frmRadarMount: TfrmRadarMount
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitWidth = 404
-      ExplicitHeight = 318
       object General: TTabSheet
         Caption = 'General'
-        ExplicitWidth = 396
-        ExplicitHeight = 278
         object lblClassName: TStaticText
           Left = 12
           Top = 18
@@ -245,8 +238,6 @@ object frmRadarMount: TfrmRadarMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 403
-    ExplicitWidth = 424
     object btnApply: TButton
       Left = 261
       Top = 2

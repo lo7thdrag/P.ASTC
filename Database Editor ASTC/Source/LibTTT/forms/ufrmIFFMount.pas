@@ -148,12 +148,12 @@ begin
     {Jika inputan baru}
     if FSelectedIFF.FData.IFF_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate IFF!' + Char(13) + 'Choose only one IFF.');
+      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;

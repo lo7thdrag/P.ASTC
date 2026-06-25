@@ -217,12 +217,12 @@ begin
     {Jika inputan baru}
     if FSelectedMissile.FData.Fitted_Weap_Index = 0 then
     begin
-      ShowMessage('Duplicate missile mount!' + Char(13) + 'Choose different name to continue.');
+      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -282,7 +282,7 @@ procedure TfrmMissileMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedMissile.FData.Fitted_Weap_Index = 0 then
   begin
-    ShowMessage('This data is not stored yet');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 

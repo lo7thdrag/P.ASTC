@@ -102,12 +102,12 @@ begin
     {Jika inputan baru}
     if FSelectedMAD.FData.MAD_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate MAD!' + Char(13) + 'Choose different MAD.');
+      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;

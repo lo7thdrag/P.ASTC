@@ -87,6 +87,8 @@ object frmIFFMount: TfrmIFFMount
       ExplicitHeight = 264
       object General: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 404
         ExplicitHeight = 224
         object lblCapability: TStaticText

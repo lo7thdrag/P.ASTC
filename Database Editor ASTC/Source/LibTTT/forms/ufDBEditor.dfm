@@ -51637,7 +51637,6 @@ object fDBEditor: TfDBEditor
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      ExplicitWidth = 606
       object s: TImage
         Left = 0
         Top = 0
@@ -145432,8 +145431,8 @@ object fDBEditor: TfDBEditor
           6C574B87D36F1B7D75FF0082A8635D2A94EAB4E0FA6F6BDA7FB66923F47D9FAA
           3F647A7C23D3F547A7EB8F4F87E8FFD9}
         Stretch = True
-        ExplicitWidth = 3840
-        ExplicitHeight = 2160
+        ExplicitLeft = -1
+        ExplicitTop = 1
       end
     end
     object pnlLeft: TPanel
@@ -153794,7 +153793,6 @@ object fDBEditor: TfDBEditor
         Color = clBlack
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 295
       end
       object pnlSparatorCenterRight: TPanel
         Left = 0

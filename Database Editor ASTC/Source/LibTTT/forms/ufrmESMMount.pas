@@ -188,12 +188,12 @@ begin
     {Jika inputan baru}
     if FSelectedESM.FData.ESM_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate ESM mount!' + Char(13) + 'Choose different mount to continue.');
+      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
       Exit;
     end
     else if LastName <> edtName.Text then
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -253,7 +253,7 @@ procedure TfrmESMMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedESM.FData.ESM_Instance_Index = 0 then
   begin
-    ShowMessage('This data is not stored yet');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 

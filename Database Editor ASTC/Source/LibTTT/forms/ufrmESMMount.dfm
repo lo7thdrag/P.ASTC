@@ -89,6 +89,8 @@ object frmESMMount: TfrmESMMount
       ExplicitHeight = 320
       object General: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 405
         ExplicitHeight = 280
         object lblClassName: TStaticText

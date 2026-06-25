@@ -87,6 +87,8 @@ object frmMADMount: TfrmMADMount
       ExplicitHeight = 223
       object General: TTabSheet
         Caption = 'General'
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 414
         ExplicitHeight = 183
         object lblAntenna: TStaticText
