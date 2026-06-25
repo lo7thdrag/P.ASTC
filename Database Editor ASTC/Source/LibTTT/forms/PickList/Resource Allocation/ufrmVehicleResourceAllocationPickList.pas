@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
   Vcl.ExtCtrls,
-  uDBAssetObject, uDBAsset_Vehicle;
+  uDBAssetObject, uDBAsset_Vehicle, uDBAsset_Deploy;
 type
   TfrmVehicleResourceAllocationPickList = class(TForm)
     pnlMain: TPanel;
@@ -48,12 +48,14 @@ type
     FSelectedVehicle : TVehicle_Definition;
     FSelectedPlatformInstance : TPlatform_Instance;
     FResourceAllocation : TResource_Allocation;
+    FAssetDeployment : TAsset_Deployment;
 
     procedure UpdateVehicleList;
 
   public
     isNoCancel : Boolean;
     property ResourceAllocation : TResource_Allocation read FResourceAllocation write FResourceAllocation;
+    property AssetDeployment : TAsset_Deployment read FAssetDeployment write FAssetDeployment;
     property SelectedForce : Integer read FSelectedForce write FSelectedForce;
   end;
 
@@ -177,7 +179,7 @@ begin
  {Delete relasi Cubicle Group}
  dmTTT.DeleteCubicleGroupAssignment(3, FSelectedPlatformInstance.FData.Platform_Instance_Index);
 
- if dmTTT.DeletePlatformActivation(2, FSelectedPlatformInstance.FData.Platform_Instance_Index)then
+ if dmTTT.DeletePlatformActivation(3, FSelectedPlatformInstance.FData.Platform_Instance_Index)then
     isNoCancel := True;
 
  if dmTTT.DeletePlatformInstance(2, FSelectedPlatformInstance.FData.Platform_Instance_Index)then
@@ -195,7 +197,7 @@ procedure TfrmVehicleResourceAllocationPickList.edtSearchKeyPress(Sender: TObjec
 begin
   if Key = #13 then
   begin
-    UpdateVehicleList
+//    UpdateVehicleList
 //    lbAllVehicleDef.Items.Clear;
 //    lbAllVehicleOnRA.Items.Clear;
 //
@@ -263,6 +265,8 @@ begin
   for j := 0 to FAllVehicleOnRAList.Count - 1 do
   begin
     platInst := FAllVehicleOnRAList.Items[j];
+
+//    dmTTT.GetPlatformActivation(AssetDeployment.FData.Deployment_Index, platInst.FData.Platform_Instance_Index, platInst.FActivation);
 
     lbAllVEhicleOnRA.Items.AddObject(platInst.FData.Instance_Name, platInst)
   end;

@@ -2961,6 +2961,7 @@ begin
     case aDeleteType of
       1: SQL.Add('WHERE Deployment_Index = ' + IntToStr(aIndex));
       2: SQL.Add('WHERE Platform_Event_Index = ' + IntToStr(aIndex));
+      3: SQL.Add('WHERE Platform_Instance_Index = ' + IntToStr(aIndex));
     end;
 
     ExecSQL;
@@ -2972,6 +2973,7 @@ begin
     case aDeleteType of
       1: SQL.Add('WHERE Deployment_Index = ' + IntToStr(aIndex));
       2: SQL.Add('WHERE Platform_Event_Index = ' + IntToStr(aIndex));
+      3: SQL.Add('WHERE Platform_Instance_Index = ' + IntToStr(aIndex));
     end;
 
     Open;

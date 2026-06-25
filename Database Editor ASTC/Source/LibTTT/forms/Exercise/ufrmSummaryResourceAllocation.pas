@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ComCtrls, ExtCtrls, uDBAssetObject,
-  uDBAsset_GameEnvironment, Vcl.Imaging.pngimage;
+  uDBAsset_GameEnvironment, uDBAsset_Deploy, Vcl.Imaging.pngimage;
 
 type
   TfrmSummaryResourceAllocation = class(TForm)
@@ -86,6 +86,8 @@ type
     FSelectedEnvironment : TGame_Environment_Definition;
     FSelectedPlatformForce : Integer;
     FSelectedResourceForce : Integer;
+
+    FSelectedAssetDeployment : TAsset_Deployment;
 
     procedure UpdateResourceAllocationData;
     procedure UpdateEnvironmentData;
@@ -281,6 +283,7 @@ begin
     with frmVehicleResourceAllocationPickList do
     begin
       ResourceAllocation := FSelectedResourceAllocation;
+      AssetDeployment := FSelectedAssetDeployment;
       SelectedForce := FSelectedPlatformForce;
       ShowModal;
 

@@ -68,6 +68,7 @@ type
     isOK  : Boolean; {Penanda jika gagal cek input, btn OK tidak langsung close}
     AfterClose : Boolean; {Penanda ketika yg dipilih btn cancel, list tdk perlu di update }
     LastName : string;
+    LastResourceAllocID : Integer;
 
     property SelectedScenario : TScenario_Definition read FSelectedScenario write FSelectedScenario;
     property SelectedAssetDeployment : TAsset_Deployment read FSelectedAssetDeployment write FSelectedAssetDeployment;
@@ -104,6 +105,8 @@ begin
   FSelectedResourceAlloc := TResource_Allocation.Create;
   FSelectedEnviArea := TGame_Environment_Definition.Create;
 
+  LastResourceAllocID := 0;
+
   EnableComposited(pnlMainBackground);
 end;
 
@@ -125,7 +128,10 @@ begin
   rgForce.ItemIndex := 0;
 
   with FSelectedScenario.FData do
+  begin
+    LastResourceAllocID := Resource_Alloc_Index;
     btnApply.Enabled := Scenario_Index = 0;
+  end;
 
   isOK := True;
   AfterClose := True;
@@ -181,9 +187,10 @@ begin
   begin
     if dmTTT.UpdateScenarioDef(FSelectedScenario.FData) then
     begin
+      dmTTT.GetAssetDeployment(FSelectedScenario.FData.Scenario_Index, FSelectedAssetDeployment);
+
       ShowMessage('Data berhasil diperbarui');
     end;
-
   end;
 
   UpdateScenarioData;
@@ -206,6 +213,9 @@ begin
 end;
 
 procedure TfrmSummaryScenario.btnPickClick(Sender: TObject);
+var
+  warningTemp : Integer;
+
 begin
   frmResorceAllocationPickList := TfrmResorceAllocationPickList.Create(Self);
   try
@@ -218,9 +228,32 @@ begin
   finally
     frmResorceAllocationPickList.Free;
   end;
-  
+
+  if (LastResourceAllocID <> 0) and (LastResourceAllocID <> FSelectedScenario.FData.Resource_Alloc_Index) then
+  begin
+    warningTemp := MessageDlg('Anda telah mengubah Resource Allocation ' + Char(13) + 'Dengan menekan tombol OK Deployment Platform dan Platform Relationshpis akan dibersihkan', mtConfirmation, mbOKCancel, 0);
+
+    if warningTemp = mrOK then
+    begin
+      btnDeployPlatforms.Enabled := False;
+
+      dmTTT.DeletePlatformActivation(1, FSelectedAssetDeployment.FData.Deployment_Index);
+
+      dmTTT.DeleteCubicleGroupAssignment(1, FSelectedAssetDeployment.FData.Deployment_Index);
+      dmTTT.DeleteCubicleGroupChannelAssignment(1, FSelectedAssetDeployment.FData.Deployment_Index);
+      dmTTT.DeleteCubicleGroup(1, FSelectedAssetDeployment.FData.Deployment_Index);
+
+      LastResourceAllocID := FSelectedScenario.FData.Resource_Alloc_Index;
+    end
+    else
+    begin
+      FSelectedScenario.FData.Resource_Alloc_Index := LastResourceAllocID;
+    end;
+  end;
+
   UpdateResourceallocationData;
   btnApply.Enabled := True;
+  btnCancel.Enabled := False;
 end;
 
 procedure TfrmSummaryScenario.btnDeployPlatformsClick(Sender: TObject);
