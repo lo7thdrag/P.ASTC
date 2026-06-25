@@ -47,7 +47,7 @@ type
     FAllVisualOnBoardList : TList;
 
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedVisual : TVisual_Sensor_On_Board;
+    FSelectedVisual, FDummyVisual : TVisual_Sensor_On_Board;
 
     procedure UpdateVisualList;
 
@@ -91,10 +91,9 @@ begin
   FAllVisualOnBoardList := TList.Create;
   FAllVisualDefList := TList.Create;
 
-  FSelectedVisual := TVisual_Sensor_On_Board.Create;
-  FSelectedVisual.FData.Instance_Identifier := 'Visual';
+  FDummyVisual := TVisual_Sensor_On_Board.Create;
+  FDummyVisual.FData.Instance_Identifier := 'Visual';
 
-  FAllVisualDefList.Add(FSelectedVisual);
   EnableComposited(pnlMainBackground);
 end;
 
@@ -102,7 +101,8 @@ procedure TfrmVisualOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllVisualOnBoardList);
   FreeItemsAndFreeList(FAllVisualDefList);
-//  FSelectedVisual.Free;
+
+  FDummyVisual.Free;
 end;
 
 procedure TfrmVisualOnBoardPickList.FormShow(Sender: TObject);
@@ -213,11 +213,7 @@ begin
 
   if FAllVisualOnBoardList.Count = 0 then
   begin
-    visual := TVisual_Sensor_On_Board.Create;
-    visual.FData.Instance_Identifier := 'Visual';
-    lbAllVisualDef.Items.AddObject(visual.FData.Instance_Identifier, visual);
-    visual := nil;
-    visual.Free;
+    lbAllVisualDef.Items.AddObject(FDummyVisual.FData.Instance_Identifier, FDummyVisual);
   end;
 
   for i := 0 to FAllVisualOnBoardList.Count - 1 do

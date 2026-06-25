@@ -46582,8 +46582,6 @@ object frmSummaryVehicle: TfrmSummaryVehicle
         object tsPOH: TTabSheet
           Caption = 'POH Modifier'
           ImageIndex = 3
-          ExplicitLeft = 0
-          ExplicitTop = 44
           object grbMissile: TGroupBox
             Left = 20
             Top = 10

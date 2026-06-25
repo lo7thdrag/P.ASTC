@@ -940,6 +940,7 @@ begin
       SelectedVehicle := FSelectedVehicle;
       ShowModal;
     end;
+    AfterClose := frmIFFOnBoardPickList.AfterClose;
   finally
     frmIFFOnBoardPickList.Free;
   end;

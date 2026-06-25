@@ -14,7 +14,6 @@ object frmIFFMount: TfrmIFFMount
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
@@ -29,7 +28,6 @@ object frmIFFMount: TfrmIFFMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 432
     object txtClass: TLabel
       Left = 10
       Top = 7
@@ -71,8 +69,6 @@ object frmIFFMount: TfrmIFFMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 432
-    ExplicitHeight = 284
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -83,14 +79,8 @@ object frmIFFMount: TfrmIFFMount
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitWidth = 412
-      ExplicitHeight = 264
       object General: TTabSheet
         Caption = 'General'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 404
-        ExplicitHeight = 224
         object lblCapability: TStaticText
           Left = 12
           Top = 28
@@ -197,8 +187,6 @@ object frmIFFMount: TfrmIFFMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 349
-    ExplicitWidth = 432
     object btnApply: TButton
       Left = 261
       Top = 2

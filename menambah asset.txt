@@ -3,20 +3,16 @@ menambah asset
 
 - vehicle belum dicek semua
 
-- Menambah fitur properties layer map (form Overlay editor, form environment, form deploymentpaltform)(cicil)
-- Perbaikan proses load Sim Server
-- Perbaikan proses load Sim Client
 - Melanjutkan Desain interface Role Navigasi (Tactical dan Tote)
 - Melanjutkan Desain interface Role Plotter (Tactical)
 - Melanjutkan Desain interface Role Atas Air (Tactical dan Tote)
 - Melanjutkan Desain interface Role Bawah Air (Tactical dan Tote)
 - Melanjutkan Desain interface Role General (Tactical dan Tote)
-- datamodule di unit uDBScenario -> procedure LoadPlatformDefinition perlu dirapikan
 
-- onboard IFF, setelah ditambahkan list IFF masih ada di sebelah kiri
-- onboard EO, setelah OK form tidak langsung close
 - onboard torpedo, klik 2x tidak langsung Add
 - acoustic decoy mount, tombol OK, Cancel, Apply besarnya belum standart
 - onboar chaff, masih menggunakan radar, chaff yg dipilih tidak berpindah ke sebelah kanan
 - onboard Infrareddecoy, setelah ditambahkan list Infrareddecoy masih ada di sebelah kiri
 - defensivejammer onboard belum bisa dihapus
+
+- Game Time belum terhubung ke scenario

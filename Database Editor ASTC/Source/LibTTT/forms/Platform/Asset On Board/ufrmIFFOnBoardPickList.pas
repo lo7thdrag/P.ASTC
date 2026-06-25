@@ -25,8 +25,6 @@ type
     pnl5: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -46,7 +44,7 @@ type
     FAllIFFOnBoardList : TList;
 
     FSelectedVehicle : TVehicle_Definition;
-    FSelectedIFF : TIFF_Sensor_On_Board;
+    FSelectedIFF, FDummyIFF : TIFF_Sensor_On_Board;
 
     procedure UpdateIFFList;
 
@@ -80,22 +78,14 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmIFFOnBoardPickList.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-//  FreeItemsAndFreeList(FAllIFFDefList);
-//  FreeItemsAndFreeList(FAllIFFOnBoardList);
-//  Action := cafree;
-end;
-
 procedure TfrmIFFOnBoardPickList.FormCreate(Sender: TObject);
 begin
   FAllIFFDefList := TList.Create;
   FAllIFFOnBoardList := TList.Create;
 
-  FSelectedIFF := TIFF_Sensor_On_Board.Create;
-  FSelectedIFF.FData.Instance_Identifier := 'IFF';
+  FDummyIFF := TIFF_Sensor_On_Board.Create;
+  FDummyIFF.FData.Instance_Identifier := 'IFF';
 
-  FAllIFFDefList.Add(FSelectedIFF);
   EnableComposited(pnlMainBackground);
 end;
 
@@ -103,7 +93,8 @@ procedure TfrmIFFOnBoardPickList.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FAllIFFDefList);
   FreeItemsAndFreeList(FAllIFFOnBoardList);
-//  FSelectedIFF.Free;
+
+  FDummyIFF.Free;
 end;
 
 procedure TfrmIFFOnBoardPickList.FormShow(Sender: TObject);
@@ -149,6 +140,7 @@ begin
       SelectedIFF := FSelectedIFF;
       ShowModal;
     end;
+    AfterClose := frmIFFMount.AfterClose;
   finally
     frmIFFMount.Free;
   end;
@@ -167,6 +159,8 @@ begin
   end;
 
   UpdateIFFList;
+
+  AfterClose := True;
 end;
 
 procedure TfrmIFFOnBoardPickList.edtSearchKeyPress(Sender: TObject;
@@ -207,14 +201,12 @@ begin
   lbAllIFFDef.Items.Clear;
   lbAllIFFOnBoard.Items.Clear;
 
-//  dmTTT.GetFilterIFFDef(FAllIFFDefList, edtSearch.Text);
   dmTTT.GetIFFOnBoard(FSelectedVehicle.FData.Vehicle_Index, FAllIFFOnBoardList);
 
-  iff := TIFF_Sensor_On_Board.Create;
-  iff.FData.Instance_Identifier := 'IFF';
-  lbAllIFFDef.Items.AddObject(iff.FData.Instance_Identifier, iff);
-  iff := nil;
-  iff.Free;
+  if FAllIFFOnBoardList.Count = 0 then
+  begin
+    lbAllIFFDef.Items.AddObject(FDummyIFF.FData.Instance_Identifier, FDummyIFF);
+  end;
 
   for i := 0 to FAllIFFOnBoardList.Count - 1 do
   begin

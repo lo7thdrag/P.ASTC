@@ -37,7 +37,6 @@ type
     procedure btnRemoveClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
-    procedure Image2Click(Sender: TObject);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
 
   private
@@ -96,11 +95,6 @@ end;
 procedure TfrmRadarOnBoardPickList.FormShow(Sender: TObject);
 begin
   UpdateRadarList;
-end;
-
-procedure TfrmRadarOnBoardPickList.Image2Click(Sender: TObject);
-begin
-
 end;
 
 {$ENDREGION}

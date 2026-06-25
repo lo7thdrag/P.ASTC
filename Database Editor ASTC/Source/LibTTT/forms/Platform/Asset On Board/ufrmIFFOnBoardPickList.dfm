@@ -14,7 +14,6 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
@@ -44933,6 +44932,7 @@ object frmIFFOnBoardPickList: TfrmIFFOnBoardPickList
         ParentFont = False
         TabOrder = 3
         OnClick = lbAllIFFDefClick
+        OnDblClick = btnAddClick
       end
       object lbAllIFFOnBoard: TListBox
         Left = 430

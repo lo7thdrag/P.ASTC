@@ -75,7 +75,7 @@ uses
 
 procedure TfrmIFFMount.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := cafree;
+//  Action := cafree;
 end;
 
 procedure TfrmIFFMount.FormShow(Sender: TObject);
@@ -84,6 +84,10 @@ begin
 
   with FSelectedIFF.FData do
     btnApply.Enabled := IFF_Instance_Index = 0;
+
+  isOK := True;
+  AfterClose := True;
+  btnCancel.Enabled := True;
 end;
 
 {$ENDREGION}
@@ -166,6 +170,7 @@ begin
   with FSelectedIFF.FData do
   begin
     edtName.Text := Instance_Identifier;
+    LastName := edtName.Text;
     cbbCapability.ItemIndex := Instance_Type;
     edtAntenna.Text := FormatFloat('0.0', Rel_Antenna_Height);
     edtSubmerged.Text := FormatFloat('0', Submerged_Antenna_Height);
