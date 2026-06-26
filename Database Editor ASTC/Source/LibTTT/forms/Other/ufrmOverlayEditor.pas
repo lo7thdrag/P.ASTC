@@ -636,6 +636,7 @@ begin
       btnZoom.Visible := False;
       btnMoveMap.Visible := False;
       btnCenterOnGame.Visible := False;
+      btnLayerTool.Visible := False;
 
 //      ToolBar1.Visible := False;
 
