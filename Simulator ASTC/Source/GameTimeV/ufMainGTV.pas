@@ -127,22 +127,13 @@ begin
   FVTime.DateTimeOffset := 0;
 
   FUDPNode := TNetUDPNode.Create;
-  FUDPNode.RegisterProcedure(CPID_GAMETIME,
-    netRecv_GameTime, SizeOf(TRecUDP_GameTime));
+  FUDPNode.RegisterProcedure(CPID_GAMETIME, netRecv_GameTime, SizeOf(TRecUDP_GameTime));
+  FUDPNode.RegisterProcedure(CPID_CMD_GAME_CTRL, netRecv_CmdGameControl, SizeOf(TRecCmd_GameCtrl));
 
-  FUDPNode.RegisterProcedure(CPID_CMD_GAME_CTRL,
-    netRecv_CmdGameControl, SizeOf(TRecCmd_GameCtrl));
-
-{  FUDPNode.RegisterProcedure(CPID_UDP_GAMECTRL_INFO,
-    netRecv_GameControlInfo,
-    SizeOf(TRecUDP_GameCtrl_Info));
-}
-  FUDPNode.RegisterProcedure(CPID_TCP_REQUEST,
-    nil,
-    SizeOf(TRecTCP_Request));
+{  FUDPNode.RegisterProcedure(CPID_UDP_GAMECTRL_INFO, netRecv_GameControlInfo, SizeOf(TRecUDP_GameCtrl_Info)); }
+  FUDPNode.RegisterProcedure(CPID_TCP_REQUEST, nil, SizeOf(TRecTCP_Request));
 
   FUDPNode.Port  := vNetSetting.GamePort;
-//  FUDPNode.Listen(IntToStr(vNetSetting.GamePort));
   FUDPNode.Listen(IntToStr(vNetSetting.GamePort));
 
   FTT := TMSTimer.Create;
@@ -271,16 +262,13 @@ end;
 
 procedure TfrmMainGT.SetGameDate(const gt: TDateTime);
 begin
-   lblGameDate.Caption :=
-    FormatDateTime('dd mmmm yyyy', gt);
-
-    SetGameDate(gt);
+   lblGameDate.Caption := FormatDateTime('dd mmmm yyyy', gt);
+   SetGameDate(gt);
 end;
 
 procedure TfrmMainGT.SetGameTime(const gt: tDateTime);
 begin
   lblGameTime.Caption := FormatDateTime(' hh : nn : ss ', gt);
-
 end;
 
 procedure TfrmMainGT.SetServerTime(const gt: tDateTime);
