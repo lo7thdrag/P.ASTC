@@ -15,7 +15,7 @@ type
     lblGameTime: TLabel;
     Bevel1: TBevel;
     lblGameDate: TLabel;
-    Label1: TLabel;
+    lblGameSpeed: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -28,7 +28,7 @@ type
 
     procedure netRecv_GameTime(apRec: PAnsiChar; aSize: Word);
     procedure netRecv_CmdGameControl(apRec: PAnsiChar; aSize: Word);
-//    procedure netRecv_GameControlInfo(apRec: PAnsiChar; aSize: Word);
+    procedure netRecv_GameControlInfo(apRec: PAnsiChar; aSize: Word);
 
     procedure RunningThread(const dt: double);
 
@@ -46,7 +46,7 @@ type
     procedure SetGameTime(const gt: tDateTime);
     procedure SetGameDate(const gt: TDateTime);
     procedure SetServerTime(const gt: tDateTime);
-
+    procedure SetGameSpeed(const i: Integer);
 
   end;
 
@@ -126,15 +126,18 @@ begin
   FVTime := TVirtualTime.Create;
   FVTime.DateTimeOffset := 0;
 
+  {$REGION ' StartNetworking '}
   FUDPNode := TNetUDPNode.Create;
+  FUDPNode.Port  := vNetSetting.GamePort;
+
   FUDPNode.RegisterProcedure(CPID_GAMETIME, netRecv_GameTime, SizeOf(TRecUDP_GameTime));
   FUDPNode.RegisterProcedure(CPID_CMD_GAME_CTRL, netRecv_CmdGameControl, SizeOf(TRecCmd_GameCtrl));
-
-{  FUDPNode.RegisterProcedure(CPID_UDP_GAMECTRL_INFO, netRecv_GameControlInfo, SizeOf(TRecUDP_GameCtrl_Info)); }
+  FUDPNode.RegisterProcedure(CPID_UDP_GAMECTRL_INFO, netRecv_GameControlInfo, SizeOf(TRecUDP_GameCtrl_Info));
   FUDPNode.RegisterProcedure(CPID_TCP_REQUEST, nil, SizeOf(TRecTCP_Request));
 
-  FUDPNode.Port  := vNetSetting.GamePort;
   FUDPNode.Listen(IntToStr(vNetSetting.GamePort));
+
+  {$ENDREGION}
 
   FTT := TMSTimer.Create;
 //  FTT.OnRunning := RunningThread;
@@ -190,48 +193,62 @@ begin
 end;
 
 procedure TfrmMainGT.netRecv_GameTime(apRec: PAnsiChar; aSize: Word);
-var vdt: TDateTime;
-   aRec: ^TRecUDP_GameTime;
-   vMSDelta: Integer;
-   st : TSystemTime;
+var
+  vdt: TDateTime;
+  aRec: ^TRecUDP_GameTime;
+  vMSDelta: Integer;
+  st : TSystemTime;
 
 begin
   aRec := @apRec^;
 
-  FVTime.DateTimeOffset := aRec^.GameStart;
+
   FVTime.SetMilliSecond(aRec^.GameMS);
 
-  if first then begin
+  if first then
+  begin
     DateTimeToSystemTime(aRec^.ServerTime, st);
     SetLocalTime(st);
+
+    FVTime.DateTimeOffset := aRec.GameStart;
+
     first := false;
   end;
 end;
 
 procedure TfrmMainGT.netRecv_CmdGameControl(apRec: PAnsiChar; aSize: Word);
-var r: ^TRecCmd_GameCtrl;
+var
+  r: ^TRecCmd_GameCtrl;
+
 begin
   r := @apRec^;
+
   case r^.GameCtrl of
-    CORD_ID_start       : begin
-      GameSPEED           := 1.0;
+    CORD_ID_start :
+    begin
+      GameSPEED := 1.0;
 
       //GameStart;
       FTT.OnRunning := RunningThread;
     end;
-    CORD_ID_pause       : begin
+    CORD_ID_pause :
+    begin
 
       FTT.OnRunning := nil;
+
 //      GamePause;
-      GameSPEED           := 0.0;
+      GameSPEED := 0.0;
     end;
-    CORD_ID_game_speed  : begin;
+    CORD_ID_game_speed :
+    begin;
       GameSPEED :=  r^.GameSpeed;
+      SetGameSpeed(Round(GameSPEED))
+
     end;
   end;
 end;
 
-{procedure TfrmMainGT.netRecv_GameControlInfo(apRec: PAnsiChar; aSize: Word);
+procedure TfrmMainGT.netRecv_GameControlInfo(apRec: PAnsiChar; aSize: Word);
 type
   TGamePlayState = (gsStop, gsPlaying, gsTerminated );
 
@@ -253,7 +270,7 @@ begin
   if abs(rec^.GameSpeed - GameSPEED) > 0.01  then
     GameSPEED := rec^.GameSpeed;
 end;
-}
+
 
 procedure TfrmMainGT.RunningThread(const dt: double);
 begin
@@ -263,7 +280,12 @@ end;
 procedure TfrmMainGT.SetGameDate(const gt: TDateTime);
 begin
    lblGameDate.Caption := FormatDateTime('dd mmmm yyyy', gt);
-   SetGameDate(gt);
+//   SetGameDate(gt);
+end;
+
+procedure TfrmMainGT.SetGameSpeed(const i: Integer);
+begin
+  lblGameSpeed.Caption := 'Percepatan : ' + IntToStr(i)+ 'x'
 end;
 
 procedure TfrmMainGT.SetGameTime(const gt: tDateTime);

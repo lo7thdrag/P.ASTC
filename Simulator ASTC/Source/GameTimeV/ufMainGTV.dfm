@@ -37,9 +37,9 @@ object frmMainGT: TfrmMainGT
     ExplicitHeight = 369
   end
   object lblServerTIME: TLabel
-    Left = 360
-    Top = 176
-    Width = 872
+    Left = 8
+    Top = 104
+    Width = 217
     Height = 155
     Caption = ' 00 : 00 : 00 '
     Font.Charset = DEFAULT_CHARSET
@@ -51,7 +51,7 @@ object frmMainGT: TfrmMainGT
     Visible = False
   end
   object lblGTCaption: TLabel
-    Left = -297
+    Left = 298
     Top = 65
     Width = 652
     Height = 132
@@ -65,9 +65,9 @@ object frmMainGT: TfrmMainGT
     Transparent = True
   end
   object lblRTCaption: TLabel
-    Left = 632
-    Top = 68
-    Width = 467
+    Left = 8
+    Top = -12
+    Width = 217
     Height = 129
     Caption = 'Real Time'
     Font.Charset = DEFAULT_CHARSET
@@ -108,7 +108,7 @@ object frmMainGT: TfrmMainGT
     ExplicitLeft = 811
     ExplicitTop = 528
   end
-  object Label1: TLabel
+  object lblGameSpeed: TLabel
     Left = 40
     Top = 504
     Width = 453
@@ -125,7 +125,7 @@ object frmMainGT: TfrmMainGT
     ExplicitTop = 528
   end
   object Timer1: TTimer
-    Interval = 500
+    Interval = 1
     OnTimer = Timer1Timer
     Left = 464
     Top = 96
