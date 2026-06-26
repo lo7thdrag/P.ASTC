@@ -695,6 +695,7 @@ begin
   btnCenterOnGame.Down := False;
   btnZoom.Down := False;
   btnMoveMap.Down := False;
+  btnGameArea.Down := False;
 
   Map1.CurrentTool  := miArrowTool;
   Map1.MousePointer := miDefaultCursor;
@@ -1524,8 +1525,9 @@ end;
 
 procedure TOverlayEditorForm.btnGameAreaClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
   frmGameAreaPickList := TfrmGameAreaPickList.Create(Self);
-  btnGameArea.ImageIndex := 10;
+//  btnGameArea.ImageIndex := 10;
   try
     with frmGameAreaPickList do
     begin
