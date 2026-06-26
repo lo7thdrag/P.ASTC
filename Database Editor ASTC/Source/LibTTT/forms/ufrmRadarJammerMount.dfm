@@ -27,8 +27,6 @@ object frmRadarJammerMount: TfrmRadarJammerMount
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 389
-    ExplicitHeight = 302
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 65
@@ -40,10 +38,6 @@ object frmRadarJammerMount: TfrmRadarJammerMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 5
-      ExplicitTop = 70
-      ExplicitWidth = 379
-      ExplicitHeight = 184
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -54,12 +48,8 @@ object frmRadarJammerMount: TfrmRadarJammerMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 359
-        ExplicitHeight = 164
         object General: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 351
-          ExplicitHeight = 124
           object txtAntenna: TStaticText
             Left = 94
             Top = 146
@@ -97,9 +87,6 @@ object frmRadarJammerMount: TfrmRadarJammerMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 5
-      ExplicitWidth = 379
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -140,9 +127,6 @@ object frmRadarJammerMount: TfrmRadarJammerMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 5
-      ExplicitTop = 254
-      ExplicitWidth = 379
       object btnApply: TButton
         Left = 261
         Top = 2

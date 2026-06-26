@@ -138,12 +138,12 @@ begin
     {Jika inputan baru}
     if FSelectedAirBubble.FData.Air_Bubble_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate Air Bubble!' + Char(13) + 'Choose Air Bubble Decoy to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;

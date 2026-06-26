@@ -29,7 +29,6 @@ object frmMADMount: TfrmMADMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 442
     object txtClass: TLabel
       Left = 10
       Top = 10
@@ -71,8 +70,6 @@ object frmMADMount: TfrmMADMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 442
-    ExplicitHeight = 243
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -83,14 +80,8 @@ object frmMADMount: TfrmMADMount
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitWidth = 422
-      ExplicitHeight = 223
       object General: TTabSheet
         Caption = 'General'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 414
-        ExplicitHeight = 183
         object lblAntenna: TStaticText
           Left = 94
           Top = 146
@@ -129,8 +120,6 @@ object frmMADMount: TfrmMADMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 308
-    ExplicitWidth = 442
     object btnApply: TButton
       Left = 261
       Top = 2

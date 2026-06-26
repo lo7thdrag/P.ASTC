@@ -29,8 +29,6 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 407
-    ExplicitHeight = 438
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 65
@@ -42,10 +40,6 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 5
-      ExplicitTop = 70
-      ExplicitWidth = 397
-      ExplicitHeight = 320
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -56,12 +50,8 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 377
-        ExplicitHeight = 300
         object General: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 369
-          ExplicitHeight = 260
           object lblClassName: TStaticText
             Left = 12
             Top = 18
@@ -164,9 +154,6 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 5
-      ExplicitWidth = 397
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -200,9 +187,6 @@ object frmElectroOpticalMount: TfrmElectroOpticalMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 5
-      ExplicitTop = 390
-      ExplicitWidth = 397
       object imgExercise: TImage
         Left = 0
         Top = 0

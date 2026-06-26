@@ -29,7 +29,6 @@ object frmMineMount: TfrmMineMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 426
     object txtClass: TLabel
       Left = 10
       Top = 10
@@ -71,8 +70,6 @@ object frmMineMount: TfrmMineMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 426
-    ExplicitHeight = 293
     object PageControl1: TPageControl
       Left = 10
       Top = 10
@@ -83,14 +80,8 @@ object frmMineMount: TfrmMineMount
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitWidth = 406
-      ExplicitHeight = 273
       object General: TTabSheet
         Caption = 'General'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 398
-        ExplicitHeight = 233
         object lblClassName: TStaticText
           Left = 12
           Top = 18
@@ -202,8 +193,6 @@ object frmMineMount: TfrmMineMount
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 358
-    ExplicitWidth = 426
     object btnApply: TButton
       Left = 261
       Top = 2

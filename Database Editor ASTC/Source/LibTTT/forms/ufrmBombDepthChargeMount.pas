@@ -155,12 +155,12 @@ begin
     {Jika inputan baru}
     if FSelectedBomb.FPoint.FData.Point_Effect_Index = 0 then
     begin
-      ShowMessage('Duplicate bomb mount!' + Char(13) + 'Choose different name to continue.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;

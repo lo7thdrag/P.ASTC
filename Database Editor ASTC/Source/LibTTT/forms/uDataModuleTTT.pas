@@ -9621,7 +9621,7 @@ begin
     Close;
     SQL.Clear;
     SQL.Add('SELECT *');
-    SQL.Add('FROM ESM_Definitiona');
+    SQL.Add('FROM ESM_Definition');
     SQL.Add('WHERE Class_Identifier = ' + QuotedStr(aClassName));
     Open;
 

@@ -29,8 +29,6 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 433
-    ExplicitHeight = 328
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 65
@@ -42,10 +40,6 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 5
-      ExplicitTop = 70
-      ExplicitWidth = 423
-      ExplicitHeight = 210
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -56,12 +50,8 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 403
-        ExplicitHeight = 190
         object General: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 395
-          ExplicitHeight = 150
           object lblBlindZones: TStaticText
             Left = 15
             Top = 19
@@ -117,9 +107,6 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 5
-      ExplicitWidth = 423
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -160,9 +147,6 @@ object frmVisualDetectorMount: TfrmVisualDetectorMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 5
-      ExplicitTop = 280
-      ExplicitWidth = 423
       object btnApply: TButton
         Left = 261
         Top = 2

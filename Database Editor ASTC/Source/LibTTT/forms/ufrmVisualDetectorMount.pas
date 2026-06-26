@@ -229,12 +229,12 @@ begin
     {Jika inputan baru}
     if FSelectedVisual.FData.Visual_Instance_Index = 0 then
     begin
-      ShowMessage('Duplicate Visual Detector !' + Char(13) + 'Choose only one Visual Detector.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -246,7 +246,7 @@ procedure TfrmVisualDetectorMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedVisual.FData.Visual_Instance_Index = 0 then
   begin
-    ShowMessage('This data is not stored yet');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 

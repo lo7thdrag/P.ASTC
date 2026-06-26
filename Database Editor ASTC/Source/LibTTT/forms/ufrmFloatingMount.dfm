@@ -27,8 +27,6 @@ object frmFloatingMount: TfrmFloatingMount
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 402
-    ExplicitHeight = 268
     object pnl2ControlPage: TPanel
       Left = 0
       Top = 65
@@ -40,10 +38,6 @@ object frmFloatingMount: TfrmFloatingMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 5
-      ExplicitTop = 70
-      ExplicitWidth = 392
-      ExplicitHeight = 150
       object PageControl1: TPageControl
         Left = 10
         Top = 10
@@ -54,12 +48,8 @@ object frmFloatingMount: TfrmFloatingMount
         TabHeight = 30
         TabOrder = 0
         TabWidth = 75
-        ExplicitWidth = 372
-        ExplicitHeight = 130
         object General: TTabSheet
           Caption = 'General'
-          ExplicitWidth = 364
-          ExplicitHeight = 90
           object txtQuantity: TStaticText
             Left = 124
             Top = 141
@@ -91,9 +81,6 @@ object frmFloatingMount: TfrmFloatingMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 5
-      ExplicitTop = 5
-      ExplicitWidth = 392
       object txtClass: TLabel
         Left = 10
         Top = 10
@@ -134,9 +121,6 @@ object frmFloatingMount: TfrmFloatingMount
       Color = 2499101
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 5
-      ExplicitTop = 220
-      ExplicitWidth = 392
       object btnApply: TButton
         Left = 260
         Top = 2

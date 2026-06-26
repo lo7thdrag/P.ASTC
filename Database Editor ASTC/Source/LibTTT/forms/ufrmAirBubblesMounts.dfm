@@ -56,6 +56,7 @@ object frmAirBubblesMounts: TfrmAirBubblesMounts
         TabWidth = 75
         object tsGeneral: TTabSheet
           Caption = 'General'
+          ExplicitLeft = 0
           ExplicitTop = 31
           ExplicitWidth = 354
           ExplicitHeight = 119

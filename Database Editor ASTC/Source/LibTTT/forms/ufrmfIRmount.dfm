@@ -29,7 +29,6 @@ object frmfIRmount: TfrmfIRmount
     Color = 2499101
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 398
     object txtClass: TLabel
       Left = 10
       Top = 10
@@ -71,8 +70,6 @@ object frmfIRmount: TfrmfIRmount
     Color = 2499101
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 398
-    ExplicitHeight = 161
     object pgc1: TPageControl
       Left = 10
       Top = 10
@@ -83,12 +80,8 @@ object frmfIRmount: TfrmfIRmount
       TabHeight = 30
       TabOrder = 0
       TabWidth = 75
-      ExplicitWidth = 378
-      ExplicitHeight = 141
       object tsGeneral: TTabSheet
         Caption = 'General'
-        ExplicitWidth = 370
-        ExplicitHeight = 101
         object txtQuantity: TStaticText
           Left = 128
           Top = 146
@@ -118,8 +111,6 @@ object frmfIRmount: TfrmfIRmount
     Color = 2499101
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 226
-    ExplicitWidth = 398
     object btnApply: TButton
       Left = 261
       Top = 2

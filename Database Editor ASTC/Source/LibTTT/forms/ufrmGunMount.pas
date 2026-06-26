@@ -184,13 +184,12 @@ begin
     {Jika inputan baru}
     if FSelectedGun.FPoint.FData.Point_Effect_Index = 0 then
     begin
-      ShowMessage('Duplicate radar mount!' + Char(13) +
-      'Choose different name to continue.');
+      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}
     begin
-      ShowMessage('Please use another class name');
+      ShowMessage('Mount Name sudah pernah digunakan, silahkan gunakan Mount Name lain');
       Exit;
     end;
   end;
@@ -249,7 +248,7 @@ procedure TfrmGunMount.pnlBlindZoneClick(Sender: TObject);
 begin
   if FSelectedGun.FPoint.FData.Point_Effect_Index = 0 then
   begin
-    ShowMessage('This data is not stored yet');
+    ShowMessage('Simpan data terlebih dahulu sebelum mengubah nilai blind zone');
     Exit;
   end;
 

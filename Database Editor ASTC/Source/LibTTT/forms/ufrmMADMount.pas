@@ -102,7 +102,7 @@ begin
     {Jika inputan baru}
     if FSelectedMAD.FData.MAD_Instance_Index = 0 then
     begin
-      ShowMessage('Mount Extension sudah digunakan, silahkan gunakan Mount Extension lain.');
+      ShowMessage('Mount Name sudah digunakan, silahkan gunakan Mount Name lain.');
       Exit;
     end
     else if LastName <> edtName.Text then {dicopy}

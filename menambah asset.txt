@@ -10,3 +10,21 @@
 - onboard sonobuoy bermasalah
 
 - Game Time belum terhubung ke scenario
+
+-Vertical Coverage Curve bagian cursor position kedip2
+-Vertical Coverage Curve saat di apply error
+-Vertical Coverage Curve 2 bagian cursor position kedip2
+-Vertical Coverage Curve 2 saat di apply error
+
+-acoustic decoy probability saat di apply tidak muncul
+- chaff hh mm ss saat di apply tidak muncul
+-infrared decoy hh mm ss saat di apply tidak muncul
+-vehicle bagian readying time tidak muncul Batasan waktunya perlu pengecekan
+
+-game defaults saat di apply error perlu pengecekan inputan waktu
+
+-scenario bagian deploy platforms saat di klik error tetapi tetap muncul
+-environment bagian edit characteristics saat di klik error tetapi tetap muncul
+
+
+
