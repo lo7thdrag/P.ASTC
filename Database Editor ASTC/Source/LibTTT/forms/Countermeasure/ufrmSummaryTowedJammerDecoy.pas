@@ -403,6 +403,7 @@ end;
 function TfrmSummaryTowedJammerDecoy.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
 begin
   Result := False;
 
@@ -446,6 +447,13 @@ begin
       ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
+  end;
+
+  TimeToSecond(medtActivationControlDelay.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Activation Control Delay Terlalu Lama');
+    Exit;
   end;
 
   Result := True;

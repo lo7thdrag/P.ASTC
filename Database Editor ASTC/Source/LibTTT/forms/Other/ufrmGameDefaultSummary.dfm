@@ -44898,7 +44898,7 @@ object frmGameDefaultSummary: TfrmGameDefaultSummary
         Top = 10
         Width = 847
         Height = 522
-        ActivePage = tsAboveWater
+        ActivePage = tsCommunication
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText

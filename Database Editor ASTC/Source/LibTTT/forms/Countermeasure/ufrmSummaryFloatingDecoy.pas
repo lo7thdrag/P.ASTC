@@ -294,6 +294,7 @@ end;
 function TfrmSummaryFloatingDecoy.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+
 begin
   Result := False;
 

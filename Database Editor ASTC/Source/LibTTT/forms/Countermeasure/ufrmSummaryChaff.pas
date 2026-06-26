@@ -259,6 +259,7 @@ end;
 function TfrmSummaryChaff.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
 begin
   Result := False;
 
@@ -302,6 +303,27 @@ begin
       ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
+  end;
+
+  TimeToSecond(edtBloomTime.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Bloom Time Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(edtDissipationTimeinStillAir.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Dissipation Time in Still Air Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(edtDissipationTimein100kt.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Dissipation Time in 100 kt wind Terlalu Lama');
+    Exit;
   end;
 
   Result := True;

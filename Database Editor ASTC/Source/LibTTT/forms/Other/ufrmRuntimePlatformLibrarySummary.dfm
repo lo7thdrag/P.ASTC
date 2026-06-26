@@ -44921,39 +44921,42 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
             Caption = ' Platforms   '
             TabOrder = 0
             object btnVehicle: TButton
-              Left = 14
-              Top = 44
+              Left = 75
+              Top = 51
               Width = 116
-              Height = 25
+              Height = 47
               Caption = 'Vehicle ..'
               TabOrder = 0
               OnClick = btnVehicleClick
             end
             object btnTorpedo: TButton
               Left = 14
-              Top = 79
+              Top = 121
               Width = 116
               Height = 25
               Caption = 'Torpedo ..'
               TabOrder = 1
+              Visible = False
               OnClick = btnTorpedoClick
             end
             object btnMine: TButton
-              Left = 136
-              Top = 79
+              Left = 14
+              Top = 121
               Width = 116
               Height = 25
               Caption = 'Mine ..'
               TabOrder = 2
+              Visible = False
               OnClick = btnMineClick
             end
             object btnMissile: TButton
-              Left = 136
-              Top = 44
+              Left = 14
+              Top = 121
               Width = 116
               Height = 25
               Caption = 'Missile ..'
               TabOrder = 3
+              Visible = False
               OnClick = btnMissileClick
             end
             object btnSonobuoy: TButton

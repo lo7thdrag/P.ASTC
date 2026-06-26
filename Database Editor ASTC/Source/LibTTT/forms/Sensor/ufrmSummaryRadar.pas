@@ -284,6 +284,9 @@ begin
   AfterClose := True;
   btnApply.Enabled := False;
   btnCancel.Enabled := False;
+
+  btnEditVertical2.Enabled := FSelectedRadar.FDef.Second_Vert_Coverage and (FSelectedRadar.FDef.Radar_Index <> 0);
+  btnVerticalCoverageCurve1.Enabled := FSelectedRadar.FDef.Radar_Index <> 0;
 end;
 
 procedure TfrmSummaryRadar.btnCancelClick(Sender: TObject);
@@ -346,7 +349,7 @@ end;
 procedure TfrmSummaryRadar.chkValidVertical2Click(Sender: TObject);
 begin
   btnApply.Enabled := True;
-  btnEditVertical2.Enabled := chkValidVertical2.Checked;
+  btnEditVertical2.Enabled := chkValidVertical2.Checked and (FSelectedRadar.FDef.Radar_Index <> 0);
 end;
 
 procedure TfrmSummaryRadar.btnEditVertical2Click(Sender: TObject);
@@ -418,7 +421,9 @@ begin
     edtClutterRejection.Text := FormatFloat('0.0', FDef.Clutter_Rejection);
     edtBeamWidth.Text := FormatFloat('0', FDef.Beam_Width);
     chkValidVertical2.Checked := FDef.Second_Vert_Coverage;
-    btnEditVertical2.Enabled := FDef.Second_Vert_Coverage;
+
+    btnEditVertical2.Enabled := FDef.Second_Vert_Coverage and (FSelectedRadar.FDef.Radar_Index <> 0);
+    btnVerticalCoverageCurve1.Enabled := FSelectedRadar.FDef.Radar_Index <> 0;
 
     UpdateSNRvsPODData;
 

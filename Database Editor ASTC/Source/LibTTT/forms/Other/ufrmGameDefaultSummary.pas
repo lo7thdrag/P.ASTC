@@ -939,6 +939,8 @@ end;
 function TfrmGameDefaultSummary.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
+
 begin
   Result := False;
 
@@ -980,6 +982,34 @@ begin
       ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
+  end;
+
+  TimeToSecond(medtMissileReacquisition.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Reacquisition Time Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtMissileSeaStatePeriodCheck.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Sea State Period Check Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtSonobuoyInitialRadiusDelay.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Initial Radius Delay Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtMineTimeIntervalPODChecks.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Interval of POD Checks Terlalu Lama');
+    Exit;
   end;
 
   Result := True;

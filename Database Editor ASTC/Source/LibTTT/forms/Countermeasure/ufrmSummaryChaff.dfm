@@ -45055,6 +45055,7 @@ object frmSummaryChaff: TfrmSummaryChaff
             Height = 22
             Style = csDropDownList
             Color = clMenuBar
+            Enabled = False
             ItemIndex = 0
             TabOrder = 7
             Text = 'dB m'#178

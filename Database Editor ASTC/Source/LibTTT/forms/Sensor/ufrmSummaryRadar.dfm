@@ -45423,6 +45423,7 @@ object frmSummaryRadar: TfrmSummaryRadar
               Width = 329
               Height = 25
               Caption = 'Edit...'
+              Enabled = False
               TabOrder = 0
               OnClick = btnVerticalCoverageCurve1Click
             end
@@ -45449,6 +45450,7 @@ object frmSummaryRadar: TfrmSummaryRadar
               Width = 261
               Height = 25
               Caption = 'Edit...'
+              Enabled = False
               TabOrder = 1
               OnClick = btnEditVertical2Click
             end

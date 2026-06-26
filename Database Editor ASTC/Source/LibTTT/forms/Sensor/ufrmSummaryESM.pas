@@ -297,6 +297,8 @@ end;
 function TfrmSummaryESM.CekInput : Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
+
 begin
   Result := False;
 
@@ -340,6 +342,20 @@ begin
       ShowMessage('Silahkan gunakan nama class lain');
       Exit;
     end;
+  end;
+
+  TimeToSecond(medtClassificationPeriod.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Classification Period Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtIdentificationPeriod.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Identification Period Terlalu Lama');
+    Exit;
   end;
 
   Result := True;

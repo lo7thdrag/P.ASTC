@@ -148,12 +148,26 @@ uses
 
 { TRadarCoverage }
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
+
 {$REGION ' Form Handle '}
 
 procedure TfrmRadarCoverage.FormCreate(Sender: TObject);
 begin
   FVerticalCoverageList := TList.Create;
 
+  EnableComposited(pnlMainBackground);
 end;
 
 procedure TfrmRadarCoverage.FormDestroy(Sender: TObject);
@@ -197,7 +211,7 @@ end;
 
 {$ENDREGION}
 
-  {$REGION ' Button Handle '}
+{$REGION ' Button Handle '}
 
 procedure TfrmRadarCoverage.btnOKClick(Sender: TObject);
 begin
@@ -252,10 +266,8 @@ begin
   begin
     data := FVerticalCoverageList.Items[i];
 
-    //if TRadar_Vertical(data).FRadar_Coverage.Coverage_Index = TRadar_Vertical(FSelectedPoint).FRadar_Coverage.Coverage_Index then
-    if i = FSelectedPointIdDelete then
+    if TRadar_Vertical(data).FRadar_Coverage.Coverage_Index = TRadar_Vertical(FSelectedPoint).FRadar_Coverage.Coverage_Index then
     begin
-//      FDeletedVerticalCoverageList.Add(TRadar_Vertical(data));
       FVerticalCoverageList.Delete(i);
       FSelectedPoint := nil;
       break;
@@ -323,7 +335,7 @@ begin
 
         if (X >= posX - 3) and (X <= posX + 4) and (Y >= posY - 3) and (Y <= posY + 4) then
         begin
-          FSelectedPointIdDelete := i;
+//          FSelectedPointIdDelete := i;
           FSelectedPoint := data;
           FSelectedElevation := esMin;
           Break;
@@ -332,7 +344,7 @@ begin
         ConvertValueToPosition(Vert_Coverage_Range, Vert_Cover_Max_Elevation, posX, posY);
         if (X >= posX - 3) and (X <= posX + 4) and (Y >= posY - 3) and (Y <= posY + 4) then
         begin
-          FSelectedPointIdDelete := i;
+//          FSelectedPointIdDelete := i;
           FSelectedPoint := data;
           FSelectedElevation := esMax;
           Break;

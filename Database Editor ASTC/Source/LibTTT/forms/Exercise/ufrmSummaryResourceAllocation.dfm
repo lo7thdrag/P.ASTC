@@ -44923,7 +44923,7 @@ object frmSummaryResourceAllocation: TfrmSummaryResourceAllocation
         Top = 10
         Width = 439
         Height = 281
-        ActivePage = tsPlatforms
+        ActivePage = tsResources
         Align = alClient
         TabHeight = 30
         TabOrder = 0

@@ -1589,6 +1589,7 @@ end;
 function TfrmSummaryVehicle.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
+  second : Integer;
 begin
   Result := False;
 
@@ -1638,6 +1639,20 @@ begin
   if FSelectedVehicle.FData.Motion_Characteristics = 0 then
   begin
     ShowMessage('Motion Characteristics Belum Ditemukan');
+    Exit;
+  end;
+
+  TimeToSecond(edtRefuelTime.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Refuel/ Re-arm Time Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(edtLaunchAlertTime.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Launch Alert Time Terlalu Lama');
     Exit;
   end;
 
