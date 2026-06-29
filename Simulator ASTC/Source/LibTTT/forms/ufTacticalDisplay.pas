@@ -947,7 +947,7 @@ uses
   uT3Sonobuoy, uSnapshotDLG, ufmDetailPlan, uT3HybridOnVehicle, uT3Visual, uWaypointEditor,
   uT3Mine,
 
-  ufrmTop, ufrmLeft, ufrmBottom, ufrmRight;
+  ufrmTopNav, ufrmLeftNav, ufrmBottomNav, ufrmRightNav;
 {$R *.dfm}
 
 const
@@ -2718,8 +2718,6 @@ begin
   simMgrClient.Converter.ConvertToMap(x, y, mx, my);
   lbLongitude.Caption := formatDMS_long(mx);
   lbLatitude.Caption := formatDMS_latt(my);
-  frmTop.lblLong.Caption:=  formatDMS_long(mx);
-  frmTop.lblLat.Caption:=  formatDMS_latt(my);
 
   if FAnchorFilterEnabled and FLeftMouseDown then
   begin
@@ -4040,12 +4038,12 @@ procedure TfrmTacticalDisplay.SetUpNavigasiUI;
 begin
   pnlTop.Visible    := False;
   pnlBottom.Visible := False;
-  pnlLeft.Visible   := False;
+//  pnlLeft.Visible   := False;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
-  frmTop.Parent     := Self;
-  frmTop.Show;
-  frmTop.align      := alTop;
+  frmTopNav.Parent     := Self;
+  frmTopNav.Show;
+  frmTopNav.align      := alTop;
 
   frmRight.Parent   := Self;
   frmRight.Show;
@@ -5486,9 +5484,13 @@ begin
                                RadarDefinition.FDef.Radar_Emitter;
         lbBearingHook.Caption := FormatFloat('000.0', det.MergedESM.Bearing);
 
+
         StaticText6.Caption := 'Origin';
         lbPositionHook1.Caption := formatDMS_long(det.MergedESM.DetectBy.PosX);
         lbPositionHook2.Caption := formatDMS_latt(det.MergedESM.DetectBy.PosY);
+        {Navigasi}
+        frmTopNav.lblLong1.Caption := formatDMS_long(det.MergedESM.DetectBy.PosX);
+        frmTopNav.lblLat1.Caption := formatDMS_latt(det.MergedESM.DetectBy.PosY);
 
         Exit;
       end;
@@ -5522,6 +5524,8 @@ begin
       StaticText6.Caption := 'Origin';
       lbPositionHook1.Caption := formatDMS_long(TT3ESMTrack(sender).DetectBy.PosX);
       lbPositionHook2.Caption := formatDMS_latt(TT3ESMTrack(sender).DetectBy.PosY);
+      frmTopNav.lblLong1.Caption := formatDMS_long(TT3ESMTrack(sender).DetectBy.PosX);
+      frmTopNav.lblLat1.Caption := formatDMS_latt(TT3ESMTrack(sender).DetectBy.PosY);
 
       Exit;
     end;
@@ -5718,6 +5722,8 @@ begin
       begin
         lbPositionHook1.Caption := formatDMS_long(v.getPositionX);
         lbPositionHook2.Caption := formatDMS_latt(v.getPositionY);
+        frmTopNav.lblLong1.Caption := formatDMS_long(v.getPositionX);
+        frmTopNav.lblLat1.Caption := formatDMS_latt(v.getPositionY);
       end;
     end;
     2:
@@ -5727,28 +5733,34 @@ begin
 
       if (pX >= 0) and (pY >=0) then
       begin
-        lbPositionHook1.Caption := 'White ' + FormatFloat('0.00', Abs(pX));  //kuadran 1
+        lbPositionHook1.Caption := 'White ' + FormatFloat('0.00', Abs(pX));
+        frmTopNav.lblLong1.Caption := 'White ' + FormatFloat('0.00', Abs(pX)); //kuadran 1
       end;
       if (pX <= 0) and (pY >=0) then
       begin
-        lbPositionHook1.Caption := 'Red ' + FormatFloat('0.00', Abs(pX));   //kuadran 2
+        lbPositionHook1.Caption := 'Red ' + FormatFloat('0.00', Abs(pX));
+        frmTopNav.lblLong1.Caption := 'Red ' + FormatFloat('0.00', Abs(pX));  //kuadran 2
       end;
       if (pX < 0) and (pY < 0) then
       begin
-        lbPositionHook1.Caption := 'Green ' + FormatFloat('0.00', Abs(pX)); //kuadran 3
+        lbPositionHook1.Caption := 'Green ' + FormatFloat('0.00', Abs(pX));
+        frmTopNav.lblLong1.Caption := 'Green ' + FormatFloat('0.00', Abs(pX)); //kuadran 3
       end;
       if (pX >= 0) and (pY <= 0) then
       begin
         lbPositionHook1.Caption := 'Blue ' + FormatFloat('0.00', Abs(pX));  //kuadran 4
+        frmTopNav.lblLong1.Caption := 'Blue ' + FormatFloat('0.00', Abs(pX));
       end;
 
       lbPositionHook2.Caption := FormatFloat('0.00', Abs(pY));
+      frmTopNav.lblLat1.Caption := FormatFloat('0.00', Abs(pY));
     end;
     3:
     begin
       if Assigned(v) then
       begin
         lbPositionHook1.Caption := ConvDegree_To_Georef(v.getPositionX, v.getPositionY);
+        frmTopNav.lblLong1.Caption := ConvDegree_To_Georef(v.getPositionX, v.getPositionY);
       end;
     end;
   end;

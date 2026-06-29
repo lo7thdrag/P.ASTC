@@ -22,14 +22,14 @@ var
 implementation
 
 uses
-  ufrmLeft, ufrmBottom, ufrmTop, ufrmRight, ufTacticalDisplay;
+  ufrmLeftNav, ufrmBottomNav, ufrmTopNav, ufrmRightNav, ufTacticalDisplay;
 
 {$R *.dfm}
 
 procedure TfrmRight2.btnScreenClick(Sender: TObject);
 begin
-  frmTop.Show;
-  frmTop.align := alTop;
+  frmTopNav.Show;
+  frmTopNav.align := alTop;
   frmLeft.Show;
   frmLeft.align := alLeft;
   frmRight.Show;

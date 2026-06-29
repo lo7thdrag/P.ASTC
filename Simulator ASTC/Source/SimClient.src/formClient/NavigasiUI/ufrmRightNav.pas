@@ -1,4 +1,4 @@
-unit ufrmRight;
+unit ufrmRightNav;
 
 interface
 
@@ -169,6 +169,8 @@ type
     Panel9: TPanel;
     lblRange: TLabel;
     Label28: TLabel;
+    Image2: TImage;
+    Image3: TImage;
     procedure btnFullScreenClick(Sender: TObject);
   private
     { Private declarations }

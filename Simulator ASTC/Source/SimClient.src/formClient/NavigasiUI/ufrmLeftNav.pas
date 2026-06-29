@@ -1,4 +1,4 @@
-unit ufrmLeft;
+unit ufrmLeftNav;
 
 interface
 
@@ -92,10 +92,10 @@ type
     Label25: TLabel;
     lblSoundVelocityAverageBottom: TLabel;
     Label43: TLabel;
-    imgBackground: TImage;
     Panel2: TPanel;
     pnlStatusRed: TPanel;
     pnlStatusYellow: TPanel;
+    imgMainBackgorund: TImage;
   private
     { Private declarations }
   public

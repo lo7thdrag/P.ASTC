@@ -1,4 +1,4 @@
-unit ufrmBottom;
+unit ufrmBottomNav;
 
 interface
 
@@ -16,6 +16,7 @@ type
     btnFilterRings: TRzBmpButton;
     btnRuler: TRzBmpButton;
     btnZoomIn: TRzBmpButton;
+    btnLayer: TRzBmpButton;
     procedure btnCenterHookClick(Sender: TObject);
     procedure btnCenterGameClick(Sender: TObject);
     procedure btnFilterRingsClick(Sender: TObject);
@@ -30,7 +31,7 @@ var                                                                             
 implementation
 
 uses
-  ufTacticalDisplay, ufrmLeft, ufrmTop, ufrmRight2,
+  ufTacticalDisplay, ufrmLeftNav, ufrmTopNav, ufrmRightNav,
   uSimMgr_Client, uMapXHandler, Math;
 
 {$R *.dfm}
