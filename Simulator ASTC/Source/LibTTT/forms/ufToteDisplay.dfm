@@ -7,7 +7,7 @@ object frmToteDisplay: TfrmToteDisplay
   Caption = 'Tote Display'
   ClientHeight = 3519
   ClientWidth = 1320
-  Color = clBtnFace
+  Color = 2499101
   DragMode = dmAutomatic
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -30,6 +30,8 @@ object frmToteDisplay: TfrmToteDisplay
     Height = 2
     Align = alTop
     BevelOuter = bvNone
+    Color = 2499101
+    ParentBackground = False
     TabOrder = 0
   end
   object StatusBar1: TStatusBar
@@ -40,27 +42,26 @@ object frmToteDisplay: TfrmToteDisplay
     Panels = <>
   end
   object pnlGroupBox: TPanel
-    Left = 813
+    Left = 315
     Top = 2
-    Width = 507
+    Width = 1005
     Height = 3517
     Align = alClient
     BevelOuter = bvNone
+    Color = 2499101
+    ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 345
-    ExplicitWidth = 975
     object gbAudioRecordTracks: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 11
-      ExplicitWidth = 975
       object Panel14: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -74,22 +75,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl14Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel14: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -98,7 +97,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel14: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 286
             Height = 27
             Caption = 'AUDIO RECORD TRACKS'
@@ -107,12 +106,11 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl14Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel41: TPanel
@@ -437,15 +435,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbCommunicationsChannelDefinition: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 7
-      ExplicitWidth = 975
       object Panel9: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -459,22 +456,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl9Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel9: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -483,7 +478,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel9: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 474
             Height = 27
             Caption = 'COMMUNICATIONS CHANNEL DEFINITION'
@@ -492,28 +487,26 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl9Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel24: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
-        ExplicitWidth = 973
         object sgCommChannelDef: TStringGrid
           Left = 4
           Top = 4
-          Width = 497
+          Width = 995
           Height = 3426
           Align = alClient
           ColCount = 7
@@ -525,7 +518,6 @@ object frmToteDisplay: TfrmToteDisplay
           OnDrawCell = sgCommChannelDefDrawCell
           OnKeyPress = sgCommChannelDefKeyPress
           OnSelectCell = sgCommChannelDefSelectCell
-          ExplicitWidth = 965
           ColWidths = (
             116
             98
@@ -554,18 +546,17 @@ object frmToteDisplay: TfrmToteDisplay
         end
       end
     end
-    object gbCommunicationsInterference: TPanel
+    object gbCommunicationsChannelMapping: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
-      TabOrder = 9
-      ExplicitWidth = 975
-      object Panel11: TPanel
+      TabOrder = 8
+      object Panel10: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -579,22 +570,473 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
-        object pnl11Title: TPanel
+        object pnl10Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
+          object imgPanel10: TImage
+            Left = 0
+            Top = 0
+            Width = 993
+            Height = 40
+            Align = alClient
+            Stretch = True
+            ExplicitWidth = 963
+            ExplicitHeight = 35
+          end
+          object lblImgPanel10: TLabel
+            Left = 371
+            Top = 0
+            Width = 449
+            Height = 27
+            Caption = 'COMMUNICATIONS CHANNEL MAPPING'
+          end
+        end
+        object pnl10Top: TPanel
+          Left = 5
+          Top = 5
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 1
+        end
+      end
+      object Panel35: TPanel
+        Left = 1
+        Top = 82
+        Width = 472
+        Height = 3434
+        Align = alLeft
+        BevelOuter = bvNone
+        BorderWidth = 4
+        TabOrder = 1
+        object Panel57: TPanel
+          Left = 4
+          Top = 60
+          Width = 464
+          Height = 3370
+          Align = alClient
+          BevelOuter = bvNone
+          BorderWidth = 10
+          Caption = 'Panel57'
+          TabOrder = 0
+          object sgAvailableChannel: TStringGrid
+            AlignWithMargins = True
+            Left = 13
+            Top = 13
+            Width = 438
+            Height = 3344
+            Align = alClient
+            ColCount = 3
+            DrawingStyle = gdsGradient
+            FixedCols = 0
+            TabOrder = 0
+            ColWidths = (
+              108
+              72
+              129)
+          end
+          object LbIn: TListBox
+            Left = 10
+            Top = 10
+            Width = 444
+            Height = 3350
+            Align = alClient
+            ItemHeight = 13
+            MultiSelect = True
+            TabOrder = 2
+          end
+          object LbRoomIn: TListBox
+            Left = 10
+            Top = 10
+            Width = 444
+            Height = 3350
+            Align = alClient
+            ItemHeight = 13
+            MultiSelect = True
+            TabOrder = 3
+          end
+          object lvIn: TListView
+            Left = 10
+            Top = 10
+            Width = 444
+            Height = 3350
+            Align = alClient
+            Columns = <
+              item
+                Caption = 'Channel'
+                MaxWidth = 205
+                Width = 70
+              end
+              item
+                Caption = 'Channel Name'
+                MaxWidth = 205
+                Width = 157
+              end
+              item
+                Caption = 'Channel Code'
+                Width = 80
+              end>
+            MultiSelect = True
+            RowSelect = True
+            SortType = stBoth
+            TabOrder = 1
+            ViewStyle = vsReport
+            OnCompare = lvInCompare
+          end
+        end
+        object Panel58: TPanel
+          Left = 4
+          Top = 4
+          Width = 464
+          Height = 33
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 1
+          object Label129: TLabel
+            Left = 6
+            Top = 11
+            Width = 33
+            Height = 13
+            Caption = 'Group:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object SpeedButton13: TSpeedButton
+            Left = 230
+            Top = 8
+            Width = 25
+            Height = 22
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B0000000000000000000026221D26221D
+              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D201C1626221C27
+              231D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D25211C29252025211D16110B28241F26221E26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D25211C16110B7676744E4C4906
+              010029262026221E26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D0C07017A7977C8CACC35312E07020029262026221E26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D100B05666462C0C2C3B3
+              B3B435322E07020029252026221E26221D26221D26221D26221D26221D26221D
+              26221D26221D100B056B6A67ADADADAAAAABB3B4B534312E0904002A26212622
+              1D26221D26221D26221D26221D26221D26221D26221D100B056B6A67B1B2B296
+              9696A7A7A7BABBBC4C4A4614100A26221D26221D26221D26221D26221D26221D
+              26221D26221D100B056A6A68B0B2B2969696A7A8A8B8B9BA4B484515100B2622
+              1D26221D26221D26221D26221D26221D26221D26221D100C056B6A68ACADAEAB
+              ABABB2B2B3322F2B0904002A262126221D26221D26221D26221D26221D26221D
+              26221D26221D100C06676664C1C2C3B1B1B3332F2C0702002A262126221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D0C07027C7B7AC7C9CA32
+              2F2B0702002A262126221D26221D26221D26221D26221D26221D26221D26221D
+              26221D25211C16110C7877754C49460602002A262126221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D25211C29252025211C16110C29
+              252026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
+              26221D26221D26221D201C1626221D26221D26221D26221D26221D26221D2622
+              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
+              221D26221D26221D26221D26221D26221D26221D26221D26221D}
+            OnClick = SpeedButton13Click
+          end
+          object edtGroupName: TEdit
+            Left = 45
+            Top = 9
+            Width = 179
+            Height = 21
+            ReadOnly = True
+            TabOrder = 0
+          end
+        end
+        object Panel59: TPanel
+          Left = 4
+          Top = 37
+          Width = 464
+          Height = 23
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 2
+          object Label130: TLabel
+            Left = 6
+            Top = 6
+            Width = 95
+            Height = 13
+            Caption = 'Available platforms:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+        end
+        object Panel34: TPanel
+          Left = 4
+          Top = 60
+          Width = 464
+          Height = 3370
+          Align = alClient
+          BevelOuter = bvNone
+          BorderWidth = 10
+          Caption = 'Panel34'
+          TabOrder = 3
+          object lvPlatformsGroup: TListView
+            Left = 10
+            Top = 10
+            Width = 444
+            Height = 3350
+            Align = alClient
+            Columns = <
+              item
+                Caption = 'Platform Name'
+                MaxWidth = 315
+                Width = 314
+              end>
+            MultiSelect = True
+            RowSelect = True
+            SortType = stBoth
+            TabOrder = 0
+            ViewStyle = vsReport
+          end
+        end
+      end
+      object Panel36: TPanel
+        Left = 473
+        Top = 82
+        Width = 90
+        Height = 3434
+        Align = alLeft
+        BevelOuter = bvNone
+        BorderWidth = 4
+        TabOrder = 2
+        Visible = False
+        object Button25: TButton
+          Left = 6
+          Top = 124
+          Width = 75
+          Height = 25
+          Caption = 'Add >'
+          TabOrder = 0
+          OnClick = Button25Click
+        end
+        object Button26: TButton
+          Left = 6
+          Top = 156
+          Width = 75
+          Height = 25
+          Caption = '< Remove'
+          TabOrder = 1
+          OnClick = Button26Click
+        end
+      end
+      object Panel37: TPanel
+        Left = 563
+        Top = 82
+        Width = 406
+        Height = 3434
+        Align = alLeft
+        BevelOuter = bvNone
+        BorderWidth = 4
+        TabOrder = 3
+        object Panel60: TPanel
+          Left = 4
+          Top = 4
+          Width = 398
+          Height = 58
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 0
+          object Label131: TLabel
+            Left = 6
+            Top = 38
+            Width = 133
+            Height = 13
+            Caption = 'Available Mapped channels:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+        end
+        object Panel62: TPanel
+          Left = 4
+          Top = 85
+          Width = 398
+          Height = 3345
+          Align = alClient
+          BevelOuter = bvNone
+          BorderWidth = 10
+          TabOrder = 1
+          object sgMappedChannel: TStringGrid
+            Left = 10
+            Top = 10
+            Width = 378
+            Height = 3325
+            Align = alClient
+            ColCount = 4
+            DrawingStyle = gdsGradient
+            FixedCols = 0
+            TabOrder = 0
+            ColWidths = (
+              69
+              94
+              64
+              64)
+          end
+          object LbOut: TListBox
+            Left = 10
+            Top = 10
+            Width = 378
+            Height = 3325
+            Align = alClient
+            ItemHeight = 13
+            MultiSelect = True
+            TabOrder = 2
+          end
+          object LbRoomOut: TListBox
+            Left = 10
+            Top = 10
+            Width = 378
+            Height = 3325
+            Align = alClient
+            ItemHeight = 13
+            MultiSelect = True
+            TabOrder = 3
+          end
+          object lvOut: TListView
+            Left = 10
+            Top = 10
+            Width = 378
+            Height = 3325
+            Align = alClient
+            Columns = <
+              item
+                Caption = 'Channel'
+                Width = 70
+              end
+              item
+                Caption = 'Channel Name'
+                Width = 200
+              end
+              item
+                Caption = 'Channel Code'
+                Width = 80
+              end>
+            MultiSelect = True
+            RowSelect = True
+            SortType = stBoth
+            TabOrder = 1
+            ViewStyle = vsReport
+            OnCompare = lvOutCompare
+          end
+        end
+        object Panel61: TPanel
+          Left = 4
+          Top = 62
+          Width = 398
+          Height = 23
+          Align = alTop
+          BevelOuter = bvNone
+          BorderWidth = 10
+          TabOrder = 2
+          Visible = False
+          object Label132: TLabel
+            Left = 14
+            Top = 6
+            Width = 50
+            Height = 13
+            Caption = 'Copy from'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object SpeedButton14: TSpeedButton
+            Left = 70
+            Top = 1
+            Width = 23
+            Height = 22
+            OnClick = SpeedButton14Click
+          end
+          object SpeedButton29: TSpeedButton
+            Left = 99
+            Top = 1
+            Width = 23
+            Height = 22
+          end
+          object SpeedButton17: TSpeedButton
+            Left = 420
+            Top = 1
+            Width = 23
+            Height = 22
+          end
+          object BitBtn1: TBitBtn
+            Left = 557
+            Top = 25
+            Width = 25
+            Height = 25
+            TabOrder = 0
+          end
+          object BitBtn2: TBitBtn
+            Left = 526
+            Top = 25
+            Width = 25
+            Height = 25
+            TabOrder = 1
+          end
+        end
+      end
+    end
+    object gbCommunicationsInterference: TPanel
+      Left = 0
+      Top = 0
+      Width = 1005
+      Height = 3517
+      Align = alClient
+      TabOrder = 9
+      object Panel11: TPanel
+        Left = 1
+        Top = 1
+        Width = 1003
+        Height = 81
+        Align = alTop
+        Alignment = taLeftJustify
+        BorderWidth = 4
+        Color = clBtnShadow
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+        object pnl11Title: TPanel
+          Left = 5
+          Top = 45
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          Color = clBtnShadow
+          ParentBackground = False
+          TabOrder = 0
           object imgPanel11: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -603,7 +1045,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel11: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 407
             Height = 27
             Caption = 'COMMUNICATIONS INTERFERENCE'
@@ -612,50 +1054,45 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl11Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel32: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
-        ExplicitWidth = 973
         object PageControl1: TPageControl
           Left = 4
           Top = 4
-          Width = 497
+          Width = 995
           Height = 3426
           ActivePage = TabSheet4
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 965
           object TabSheet4: TTabSheet
             Caption = 'Injection'
-            ExplicitWidth = 957
             object Panel53: TPanel
               Left = 0
               Top = 0
-              Width = 489
+              Width = 987
               Height = 3398
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
-              ExplicitWidth = 957
               object sgComInInjection: TStringGrid
                 Left = 10
                 Top = 10
-                Width = 469
+                Width = 967
                 Height = 3378
                 Align = alClient
                 ColCount = 4
@@ -664,7 +1101,6 @@ object frmToteDisplay: TfrmToteDisplay
                 RowCount = 99
                 TabOrder = 0
                 OnSelectCell = sgComInInjectionSelectCell
-                ExplicitWidth = 937
                 ColWidths = (
                   120
                   202
@@ -692,7 +1128,6 @@ object frmToteDisplay: TfrmToteDisplay
           object TabSheet5: TTabSheet
             Caption = 'Volume'
             ImageIndex = 1
-            ExplicitWidth = 957
             object Label133: TLabel
               Left = 12
               Top = 17
@@ -813,15 +1248,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbCubicleGroups: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 12
-      ExplicitWidth = 975
       object Panel15: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -835,22 +1269,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl15Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel15: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -859,7 +1291,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel15: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 213
             Height = 27
             Caption = 'CUBICLE GROUPS'
@@ -868,12 +1300,11 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl15Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel38: TPanel
@@ -1017,15 +1448,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbDatalinkControl: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 10
-      ExplicitWidth = 975
       object Panel12: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -1039,22 +1469,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl12Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel12: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -1063,7 +1491,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel12: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 232
             Height = 27
             Caption = 'DATALINK CONTROL'
@@ -1072,12 +1500,11 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl12Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel29: TPanel
@@ -1104,6 +1531,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 62
             Height = 13
             Caption = 'Eligible units:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
         end
         object Panel93: TPanel
@@ -1121,6 +1554,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 38
             Height = 13
             Caption = 'Datalink'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label144: TLabel
             Left = 11
@@ -1128,6 +1567,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 31
             Height = 13
             Caption = 'Force:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label148: TLabel
             Left = 11
@@ -1135,6 +1580,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 28
             Height = 13
             Caption = 'Band:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object edtDatalink: TEdit
             Left = 66
@@ -1295,28 +1746,26 @@ object frmToteDisplay: TfrmToteDisplay
       object Panel31: TPanel
         Left = 525
         Top = 82
-        Width = 13
+        Width = 479
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 3
-        ExplicitWidth = 449
         object Panel96: TPanel
           Left = 4
           Top = 3390
-          Width = 5
+          Width = 471
           Height = 40
           Align = alBottom
           BevelOuter = bvNone
           BorderWidth = 30
           TabOrder = 0
-          ExplicitWidth = 441
           DesignSize = (
-            5
+            471
             40)
           object btnStopDataLink: TSpeedButton
-            Left = -52
+            Left = 414
             Top = 6
             Width = 25
             Height = 24
@@ -1374,7 +1823,7 @@ object frmToteDisplay: TfrmToteDisplay
             ExplicitLeft = 386
           end
           object btnPlayDataLink: TSpeedButton
-            Left = -20
+            Left = 446
             Top = 6
             Width = 25
             Height = 24
@@ -1422,24 +1871,29 @@ object frmToteDisplay: TfrmToteDisplay
         object Panel97: TPanel
           Left = 4
           Top = 4
-          Width = 5
+          Width = 471
           Height = 137
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 441
           object Label143: TLabel
             Left = 11
             Top = 114
             Width = 89
             Height = 13
             Caption = 'Participating units:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
         end
         object lvParticipatingUnits: TListView
           Left = 4
           Top = 141
-          Width = 5
+          Width = 471
           Height = 3249
           Align = alClient
           Anchors = [akLeft, akTop, akBottom]
@@ -1455,8 +1909,6 @@ object frmToteDisplay: TfrmToteDisplay
               Caption = 'Name'
               MaxWidth = 200
               MinWidth = 200
-              WidthType = (
-                -200)
             end
             item
               Caption = 'Status'
@@ -1469,7 +1921,6 @@ object frmToteDisplay: TfrmToteDisplay
           StateImages = ILDataLink
           TabOrder = 2
           ViewStyle = vsReport
-          ExplicitWidth = 441
         end
       end
       object Panel30: TPanel
@@ -1504,15 +1955,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbDataLinkStatus: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 18
-      ExplicitWidth = 975
       object pnlDS2: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -1526,22 +1976,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnlDS2Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanelDS2: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -1550,7 +1998,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblimgPanelDS2: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 204
             Height = 27
             Caption = 'DATALINK STATUS'
@@ -1559,39 +2007,36 @@ object frmToteDisplay: TfrmToteDisplay
         object pnlDS2Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object pnlDS8: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
-        ExplicitWidth = 973
         object pnlDS9: TPanel
           Left = 4
           Top = 3390
-          Width = 497
+          Width = 995
           Height = 40
           Align = alBottom
           BevelOuter = bvNone
           BorderWidth = 30
           TabOrder = 0
-          ExplicitWidth = 965
         end
         object lvDS2: TListView
           Left = 4
           Top = 104
-          Width = 497
+          Width = 995
           Height = 3286
           Align = alClient
           Anchors = [akLeft, akTop, akBottom]
@@ -1619,23 +2064,27 @@ object frmToteDisplay: TfrmToteDisplay
           StateImages = ILDataLink
           TabOrder = 2
           ViewStyle = vsReport
-          ExplicitWidth = 965
         end
         object pnlDS10: TPanel
           Left = 4
           Top = 4
-          Width = 497
+          Width = 995
           Height = 100
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 965
           object lblDS5: TLabel
             Left = 5
             Top = 79
             Width = 89
             Height = 13
             Caption = 'Participating units:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lblDSStatus: TLabel
             Left = 12
@@ -1643,6 +2092,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 35
             Height = 13
             Caption = 'Status:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbDSBand: TLabel
             Left = 12
@@ -1650,6 +2105,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 28
             Height = 13
             Caption = 'Band:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbDSStatusValue: TLabel
             Left = 66
@@ -1657,6 +2118,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 12
             Height = 13
             Caption = '---'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object lbDSBandValue: TLabel
             Left = 66
@@ -1664,173 +2131,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 12
             Height = 13
             Caption = '---'
-          end
-        end
-      end
-    end
-    object gbEmitterStatus: TPanel
-      Left = 0
-      Top = 0
-      Width = 507
-      Height = 3517
-      Align = alClient
-      TabOrder = 17
-      ExplicitWidth = 975
-      object Panel98: TPanel
-        Left = 1
-        Top = 1
-        Width = 505
-        Height = 81
-        Align = alTop
-        Alignment = taLeftJustify
-        BorderWidth = 4
-        Color = clBtnShadow
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -24
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 0
-        ExplicitWidth = 973
-        object pnl98Title: TPanel
-          Left = 5
-          Top = 45
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          Color = clBtnShadow
-          ParentBackground = False
-          TabOrder = 0
-          ExplicitWidth = 963
-          object imgPanel98: TImage
-            Left = 0
-            Top = 0
-            Width = 495
-            Height = 40
-            Align = alClient
-            Stretch = True
-            ExplicitWidth = 963
-            ExplicitHeight = 35
-          end
-          object lblImgPanel98: TLabel
-            Left = 371
-            Top = 4
-            Width = 197
-            Height = 27
-            Caption = 'EMITTER STATUS'
-          end
-        end
-        object pnl98Top: TPanel
-          Left = 5
-          Top = 5
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          TabOrder = 1
-          ExplicitWidth = 963
-        end
-      end
-      object Panel99: TPanel
-        Left = 1
-        Top = 82
-        Width = 505
-        Height = 3434
-        Align = alClient
-        BevelOuter = bvNone
-        BorderWidth = 4
-        TabOrder = 1
-        ExplicitWidth = 973
-        object sgEmitters: TStringGrid
-          Left = 4
-          Top = 130
-          Width = 497
-          Height = 3300
-          Align = alClient
-          ColCount = 7
-          DrawingStyle = gdsGradient
-          FixedCols = 0
-          RowCount = 100
-          TabOrder = 0
-          ExplicitWidth = 965
-          ColWidths = (
-            116
-            98
-            103
-            116
-            112
-            135
-            360)
-        end
-        object Panel100: TPanel
-          Left = 4
-          Top = 4
-          Width = 497
-          Height = 126
-          Align = alTop
-          TabOrder = 1
-          ExplicitWidth = 965
-          object Label9: TLabel
-            Left = 10
-            Top = 14
-            Width = 33
-            Height = 13
-            Caption = 'Track :'
-          end
-          object Label10: TLabel
-            Left = 11
-            Top = 37
-            Width = 34
-            Height = 13
-            Caption = 'Name :'
-          end
-          object Label11: TLabel
-            Left = 11
-            Top = 60
-            Width = 43
-            Height = 13
-            Caption = 'Bearing :'
-          end
-          object lbTrack: TLabel
-            Left = 66
-            Top = 15
-            Width = 33
-            Height = 13
-            Caption = 'Track :'
-          end
-          object lbName: TLabel
-            Left = 66
-            Top = 37
-            Width = 33
-            Height = 13
-            Caption = 'Track :'
-          end
-          object lbBearing: TLabel
-            Left = 66
-            Top = 60
-            Width = 33
-            Height = 13
-            Caption = 'Track :'
-          end
-          object Label15: TLabel
-            Left = 126
-            Top = 60
-            Width = 48
-            Height = 13
-            Caption = 'degrees T'
-          end
-          object Label16: TLabel
-            Left = 1
-            Top = 112
-            Width = 495
-            Height = 13
-            Align = alBottom
-            Anchors = [akRight, akBottom]
-            Caption = 'Emitters :'
-            ExplicitWidth = 46
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
         end
       end
@@ -1838,15 +2144,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbEnvironmentControl: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 13
-      ExplicitWidth = 975
       object Panel16: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -1860,22 +2165,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl16Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel16: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -1884,7 +2187,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel16: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 296
             Height = 27
             Caption = 'ENVIRONMENT CONTROL'
@@ -1893,42 +2196,38 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl16Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel23: TPanel
         Left = 343
         Top = 82
-        Width = 163
+        Width = 661
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 2
-        ExplicitWidth = 631
         object Panel55: TPanel
           Left = 4
           Top = 4
-          Width = 155
+          Width = 653
           Height = 770
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 623
           object Panel56: TPanel
             Left = 0
             Top = 730
-            Width = 155
+            Width = 653
             Height = 40
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 0
-            ExplicitWidth = 623
             object Button40: TButton
               Left = 360
               Top = 10
@@ -1950,12 +2249,11 @@ object frmToteDisplay: TfrmToteDisplay
           object Panel92: TPanel
             Left = 0
             Top = 0
-            Width = 155
+            Width = 653
             Height = 730
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 1
-            ExplicitWidth = 623
             object pcEnvironmentControl: TPageControl
               Left = 0
               Top = 0
@@ -2901,18 +3199,17 @@ object frmToteDisplay: TfrmToteDisplay
         end
       end
     end
-    object gbEnvironmentStatus: TPanel
+    object gbEmitterStatus: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
-      TabOrder = 1
-      ExplicitWidth = 975
-      object Panel3: TPanel
+      TabOrder = 17
+      object Panel98: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -2926,22 +3223,222 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
-        object pnl3Title: TPanel
+        object pnl98Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
+          object imgPanel98: TImage
+            Left = 0
+            Top = 0
+            Width = 993
+            Height = 40
+            Align = alClient
+            Stretch = True
+            ExplicitWidth = 963
+            ExplicitHeight = 35
+          end
+          object lblImgPanel98: TLabel
+            Left = 371
+            Top = 0
+            Width = 197
+            Height = 27
+            Caption = 'EMITTER STATUS'
+          end
+        end
+        object pnl98Top: TPanel
+          Left = 5
+          Top = 5
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 1
+        end
+      end
+      object Panel99: TPanel
+        Left = 1
+        Top = 82
+        Width = 1003
+        Height = 3434
+        Align = alClient
+        BevelOuter = bvNone
+        BorderWidth = 4
+        TabOrder = 1
+        object sgEmitters: TStringGrid
+          Left = 4
+          Top = 130
+          Width = 995
+          Height = 3300
+          Align = alClient
+          ColCount = 7
+          DrawingStyle = gdsGradient
+          FixedCols = 0
+          RowCount = 100
+          TabOrder = 0
+          ColWidths = (
+            116
+            98
+            103
+            116
+            112
+            135
+            360)
+        end
+        object Panel100: TPanel
+          Left = 4
+          Top = 4
+          Width = 995
+          Height = 126
+          Align = alTop
+          TabOrder = 1
+          object Label9: TLabel
+            Left = 10
+            Top = 14
+            Width = 33
+            Height = 13
+            Caption = 'Track :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label10: TLabel
+            Left = 11
+            Top = 37
+            Width = 34
+            Height = 13
+            Caption = 'Name :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label11: TLabel
+            Left = 11
+            Top = 60
+            Width = 43
+            Height = 13
+            Caption = 'Bearing :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbTrack: TLabel
+            Left = 66
+            Top = 15
+            Width = 33
+            Height = 13
+            Caption = 'Track :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbName: TLabel
+            Left = 66
+            Top = 37
+            Width = 33
+            Height = 13
+            Caption = 'Track :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object lbBearing: TLabel
+            Left = 66
+            Top = 60
+            Width = 33
+            Height = 13
+            Caption = 'Track :'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label15: TLabel
+            Left = 126
+            Top = 60
+            Width = 48
+            Height = 13
+            Caption = 'degrees T'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label16: TLabel
+            Left = 1
+            Top = 112
+            Width = 993
+            Height = 13
+            Align = alBottom
+            Anchors = [akRight, akBottom]
+            Caption = 'Emitters :'
+            ExplicitWidth = 46
+          end
+        end
+      end
+    end
+    object gbEnvironmentStatus: TPanel
+      Left = 0
+      Top = 0
+      Width = 1005
+      Height = 3517
+      Align = alClient
+      TabOrder = 1
+      object Panel3: TPanel
+        Left = 1
+        Top = 1
+        Width = 1003
+        Height = 81
+        Align = alTop
+        Alignment = taLeftJustify
+        BorderWidth = 4
+        Color = clBtnShadow
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+        object pnl3Title: TPanel
+          Left = 5
+          Top = 45
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          Color = clBtnShadow
+          ParentBackground = False
+          TabOrder = 0
           object imgPanel3: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -2950,7 +3447,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel3: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 268
             Height = 27
             Caption = 'ENVIRONMENT STATUS'
@@ -2959,30 +3456,34 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl3Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel21: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
-        ExplicitWidth = 973
         object Label81: TLabel
           Left = 11
           Top = 14
           Width = 64
           Height = 13
           Caption = 'Above Water'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel1: TBevel
           Left = 11
@@ -2996,6 +3497,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 47
           Height = 13
           Caption = 'Wind true'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel2: TBevel
           Left = 77
@@ -3009,6 +3516,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 34
           Height = 13
           Caption = 'Speed:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label84: TLabel
           Left = 43
@@ -3016,6 +3529,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 46
           Height = 13
           Caption = 'Direction:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel3: TBevel
           Left = 440
@@ -3029,6 +3548,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 63
           Height = 13
           Caption = 'Wind relative'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblSpeedWIndTrue: TLabel
           Left = 104
@@ -3036,6 +3561,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblDirectionWindTrue: TLabel
           Left = 104
@@ -3043,6 +3574,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblWindRelativeDirection: TLabel
           Left = 451
@@ -3050,6 +3587,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label87: TLabel
           Left = 390
@@ -3057,6 +3600,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 46
           Height = 13
           Caption = 'Direction:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblWindRelativeSpeed: TLabel
           Left = 451
@@ -3064,6 +3613,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label89: TLabel
           Left = 390
@@ -3071,6 +3626,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 34
           Height = 13
           Caption = 'Speed:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label90: TLabel
           Left = 510
@@ -3078,6 +3639,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 39
           Height = 13
           Caption = 'degrees'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label91: TLabel
           Left = 510
@@ -3085,6 +3652,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 17
           Height = 13
           Caption = 'm/s'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label92: TLabel
           Left = 390
@@ -3092,6 +3665,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 84
           Height = 13
           Caption = 'Infrared visibility:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblVisibilityFactorsElectroOptical: TLabel
           Left = 515
@@ -3099,6 +3678,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label94: TLabel
           Left = 390
@@ -3106,6 +3691,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 112
           Height = 13
           Caption = 'Electro-optical visibility:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblAttenuationFactorsCloud: TLabel
           Left = 147
@@ -3113,6 +3704,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label96: TLabel
           Left = 43
@@ -3120,6 +3717,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 90
           Height = 13
           Caption = 'Cloud base height:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label97: TLabel
           Left = 189
@@ -3127,6 +3730,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = 'feet'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblVisibilityactorsTime: TLabel
           Left = 517
@@ -3134,6 +3743,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label99: TLabel
           Left = 390
@@ -3141,6 +3756,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 60
           Height = 13
           Caption = 'Time of day:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblAttenuationFactorsRain: TLabel
           Left = 147
@@ -3148,6 +3769,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label101: TLabel
           Left = 43
@@ -3155,6 +3782,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 48
           Height = 13
           Caption = 'Rain rate:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel4: TBevel
           Left = 440
@@ -3168,6 +3801,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 76
           Height = 13
           Caption = 'Visiibility factors'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel5: TBevel
           Left = 126
@@ -3181,6 +3820,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 94
           Height = 13
           Caption = 'Attenuation factors'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblVisibilityFactorsnfrared: TLabel
           Left = 515
@@ -3188,6 +3833,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label105: TLabel
           Left = 183
@@ -3195,6 +3846,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 24
           Height = 13
           Caption = 'mBar'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblOtherBarometric: TLabel
           Left = 141
@@ -3202,6 +3859,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label107: TLabel
           Left = 37
@@ -3209,6 +3872,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 100
           Height = 13
           Caption = 'Barometric pressure:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblOtherAirTemp: TLabel
           Left = 141
@@ -3216,6 +3885,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label109: TLabel
           Left = 37
@@ -3223,6 +3898,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 80
           Height = 13
           Caption = 'Air temperature:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel6: TBevel
           Left = 61
@@ -3236,6 +3917,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 7
           Height = 13
           Caption = 'C'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label86: TLabel
           Left = 18
@@ -3243,6 +3930,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 115
           Height = 13
           Caption = 'Surface and Subsurface'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel7: TBevel
           Left = 18
@@ -3256,6 +3949,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblSoundVelocityLayer: TLabel
           Left = 515
@@ -3263,6 +3962,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblSoundVelocityProfile: TLabel
           Left = 515
@@ -3270,6 +3975,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label98: TLabel
           Left = 390
@@ -3277,6 +3988,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 113
           Height = 13
           Caption = 'Average bottom depth:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label100: TLabel
           Left = 390
@@ -3284,6 +4001,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 62
           Height = 13
           Caption = 'Layer depth:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label104: TLabel
           Left = 390
@@ -3291,6 +4014,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 34
           Height = 13
           Caption = 'Profile:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label106: TLabel
           Left = 189
@@ -3298,6 +4027,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 26
           Height = 13
           Caption = 'knots'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblOceanCurrentDirection: TLabel
           Left = 147
@@ -3305,6 +4040,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label112: TLabel
           Left = 43
@@ -3312,6 +4053,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 46
           Height = 13
           Caption = 'Direction:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblOceanCurrentSpeed: TLabel
           Left = 147
@@ -3319,6 +4066,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label114: TLabel
           Left = 43
@@ -3326,6 +4079,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 34
           Height = 13
           Caption = 'Speed:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel8: TBevel
           Left = 440
@@ -3339,6 +4098,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 70
           Height = 13
           Caption = 'Sound velocity'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel9: TBevel
           Left = 126
@@ -3352,6 +4117,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 69
           Height = 13
           Caption = 'Ocean current'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label117: TLabel
           Left = 189
@@ -3359,6 +4130,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 48
           Height = 13
           Caption = 'degrees T'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label118: TLabel
           Left = 558
@@ -3366,6 +4143,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 33
           Height = 13
           Caption = 'metres'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label119: TLabel
           Left = 558
@@ -3373,6 +4156,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 33
           Height = 13
           Caption = 'metres'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblSurfaceTemp: TLabel
           Left = 149
@@ -3380,6 +4169,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label95: TLabel
           Left = 43
@@ -3387,6 +4182,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 104
           Height = 13
           Caption = 'Surface temperature:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label108: TLabel
           Left = 189
@@ -3394,6 +4195,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 7
           Height = 13
           Caption = 'C'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object lblSeaState: TLabel
           Left = 149
@@ -3401,6 +4208,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 20
           Height = 13
           Caption = '-----'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label120: TLabel
           Left = 43
@@ -3408,6 +4221,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 50
           Height = 13
           Caption = 'Sea state:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Bevel10: TBevel
           Left = 61
@@ -3421,6 +4240,12 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 28
           Height = 13
           Caption = 'Other'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
         object Label121: TLabel
           Left = 26
@@ -3428,21 +4253,26 @@ object frmToteDisplay: TfrmToteDisplay
           Width = 28
           Height = 13
           Caption = 'Other'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
         end
       end
     end
     object gbMergedTracksStatus: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 16
-      ExplicitWidth = 975
       object Panel46: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -3456,22 +4286,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl46Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel46: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -3480,7 +4308,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel46: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 285
             Height = 27
             Caption = 'MERGED TRACK STATUS'
@@ -3489,12 +4317,11 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl46Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel47: TPanel
@@ -3681,15 +4508,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbMessageHandlingSystem: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 6
-      ExplicitWidth = 975
       object Panel8: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -3703,22 +4529,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl8Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel8: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -3727,7 +4551,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel8: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 349
             Height = 27
             Caption = 'MESSAGE HANDLING SYSTEM'
@@ -3736,49 +4560,44 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl8Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel25: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 3434
         Align = alClient
         BorderWidth = 4
         TabOrder = 1
-        ExplicitWidth = 973
         object pcReceived: TPageControl
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 3072
           ActivePage = TabSheet1
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 963
           object TabSheet1: TTabSheet
             Caption = 'Received'
-            ExplicitWidth = 955
             object Panel74: TPanel
               Left = 0
               Top = 0
-              Width = 487
+              Width = 985
               Height = 3044
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
-              ExplicitWidth = 955
               object lvReceive: TListView
                 Left = 10
                 Top = 10
-                Width = 467
+                Width = 965
                 Height = 3024
                 Align = alClient
                 Columns = <
@@ -3802,28 +4621,25 @@ object frmToteDisplay: TfrmToteDisplay
                 TabOrder = 0
                 ViewStyle = vsReport
                 OnClick = lvReceiveClick
-                ExplicitWidth = 935
               end
             end
           end
           object TabSheet2: TTabSheet
             Caption = 'Sent'
             ImageIndex = 1
-            ExplicitWidth = 955
             object Panel78: TPanel
               Left = 0
               Top = 0
-              Width = 487
+              Width = 985
               Height = 3044
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
-              ExplicitWidth = 955
               object lvSent: TListView
                 Left = 10
                 Top = 10
-                Width = 467
+                Width = 965
                 Height = 3024
                 Align = alClient
                 Columns = <
@@ -3847,28 +4663,25 @@ object frmToteDisplay: TfrmToteDisplay
                 TabOrder = 0
                 ViewStyle = vsReport
                 OnClick = lvSentClick
-                ExplicitWidth = 935
               end
             end
           end
           object TabSheet3: TTabSheet
             Caption = 'Draft'
             ImageIndex = 2
-            ExplicitWidth = 955
             object Panel82: TPanel
               Left = 0
               Top = 0
-              Width = 487
+              Width = 985
               Height = 3044
               Align = alClient
               BevelOuter = bvNone
               BorderWidth = 10
               TabOrder = 0
-              ExplicitWidth = 955
               object lvDraft: TListView
                 Left = 10
                 Top = 10
-                Width = 467
+                Width = 965
                 Height = 3024
                 Align = alClient
                 Columns = <
@@ -3892,7 +4705,6 @@ object frmToteDisplay: TfrmToteDisplay
                 TabOrder = 0
                 ViewStyle = vsReport
                 OnClick = lvDraftClick
-                ExplicitWidth = 935
               end
             end
           end
@@ -3900,19 +4712,17 @@ object frmToteDisplay: TfrmToteDisplay
         object Panel20: TPanel
           Left = 5
           Top = 3077
-          Width = 495
+          Width = 993
           Height = 352
           Align = alBottom
           TabOrder = 1
-          ExplicitWidth = 963
           object Panel49: TPanel
             Left = 1
             Top = 296
-            Width = 493
+            Width = 991
             Height = 55
             Align = alBottom
             TabOrder = 0
-            ExplicitWidth = 961
             object btnNew: TButton
               Left = 6
               Top = 14
@@ -3980,21 +4790,19 @@ object frmToteDisplay: TfrmToteDisplay
           object Panel75: TPanel
             Left = 1
             Top = 1
-            Width = 493
+            Width = 991
             Height = 295
             Align = alClient
             TabOrder = 1
-            ExplicitWidth = 961
             object mmoMessage: TMemo
               Left = 1
               Top = 1
-              Width = 491
+              Width = 989
               Height = 293
               Align = alClient
               Lines.Strings = (
                 '')
               TabOrder = 0
-              ExplicitWidth = 959
             end
           end
         end
@@ -4003,15 +4811,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbPlatformRemovalSummary: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 3
-      ExplicitWidth = 975
       object Panel6: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4025,22 +4832,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl6Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel6: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -4049,7 +4854,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel6: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 370
             Height = 27
             Caption = 'PLATFORM REMOVAL SUMMARY'
@@ -4058,38 +4863,35 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl6Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel28: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 1110
         Align = alTop
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
-        ExplicitWidth = 973
         object Panel90: TPanel
           Left = 4
           Top = 4
-          Width = 497
+          Width = 995
           Height = 649
           Align = alTop
           BevelOuter = bvNone
           BorderWidth = 10
           TabOrder = 0
-          ExplicitWidth = 965
           object lvPlatformRemovalSum: TListView
             Left = 10
             Top = 10
-            Width = 477
+            Width = 975
             Height = 629
             Align = alClient
             Columns = <
@@ -4109,7 +4911,6 @@ object frmToteDisplay: TfrmToteDisplay
             StateImages = ImageList1
             TabOrder = 0
             ViewStyle = vsReport
-            ExplicitWidth = 945
           end
         end
       end
@@ -4117,15 +4918,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbSensorOverride: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 14
-      ExplicitWidth = 975
       object Panel17: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4139,22 +4939,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl17Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel17: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -4163,7 +4961,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel17: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 427
             Height = 27
             Caption = 'SENSOR OVERRIDE / ERROR TERMS'
@@ -4172,12 +4970,11 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl17Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
         end
       end
       object Panel33: TPanel
@@ -4226,28 +5023,26 @@ object frmToteDisplay: TfrmToteDisplay
       object Panel18: TPanel
         Left = 614
         Top = 82
-        Width = 163
+        Width = 390
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 2
-        ExplicitWidth = 360
         object Panel19: TPanel
           Left = 4
           Top = 4
-          Width = 155
+          Width = 382
           Height = 3426
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 352
           DesignSize = (
-            155
+            382
             3426)
           object Bevel12: TBevel
             Left = 108
             Top = 30
-            Width = 43
+            Width = 270
             Height = 7
             Anchors = [akLeft, akTop, akRight]
             Shape = bsBottomLine
@@ -4256,7 +5051,7 @@ object frmToteDisplay: TfrmToteDisplay
           object Bevel13: TBevel
             Left = 83
             Top = 167
-            Width = 68
+            Width = 295
             Height = 7
             Anchors = [akLeft, akTop, akRight]
             Shape = bsBottomLine
@@ -4268,6 +5063,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 84
             Height = 13
             Caption = 'Selected Platform'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label225: TLabel
             Left = 18
@@ -4275,6 +5076,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 83
             Height = 13
             Caption = 'Detection status:'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object Label226: TLabel
             Left = 18
@@ -4282,6 +5089,12 @@ object frmToteDisplay: TfrmToteDisplay
             Width = 59
             Height = 13
             Caption = 'All platforms'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
           end
           object SpeedButton28: TSpeedButton
             Left = 318
@@ -4318,6 +5131,32 @@ object frmToteDisplay: TfrmToteDisplay
             PopupMenu = pmDetectionStatus
             OnClick = SpeedButton28Click
           end
+          object Label2: TLabel
+            Left = 35
+            Top = 127
+            Width = 131
+            Height = 13
+            Caption = 'Inhibit sonar bearing errors'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label5: TLabel
+            Left = 35
+            Top = 101
+            Width = 124
+            Height = 13
+            Caption = 'Inhibit ESM bearing errors'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
           object btnInhibitAllESM: TButton
             Left = 56
             Top = 203
@@ -4353,19 +5192,29 @@ object frmToteDisplay: TfrmToteDisplay
           object cbInhibitESMbearing: TCheckBox
             Left = 18
             Top = 99
-            Width = 253
+            Width = 15
             Height = 17
-            Caption = 'Inhibit ESM bearing errors'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 4
           end
           object cbInhibitSonarBearing: TCheckBox
             Left = 18
             Top = 125
-            Width = 202
+            Width = 15
             Height = 17
-            Caption = 'Inhibit sonar bearing errors'
             Color = clBtnFace
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
             ParentColor = False
+            ParentFont = False
             TabOrder = 5
           end
           object edtDetectionStatus: TEdit
@@ -4382,15 +5231,14 @@ object frmToteDisplay: TfrmToteDisplay
     object gbSettings: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 15
-      ExplicitWidth = 975
       object Panel44: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
@@ -4398,16 +5246,14 @@ object frmToteDisplay: TfrmToteDisplay
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
-        ExplicitWidth = 973
         object Panel45: TPanel
           Left = 4
           Top = 3271
-          Width = 497
+          Width = 995
           Height = 159
           Align = alBottom
           BorderStyle = bsSingle
           TabOrder = 0
-          ExplicitWidth = 965
           object btnSetXML: TButton
             Left = 786
             Top = 15
@@ -4584,7 +5430,7 @@ object frmToteDisplay: TfrmToteDisplay
         object tvSettings: TTreeView
           Left = 4
           Top = 4
-          Width = 497
+          Width = 995
           Height = 3267
           Align = alClient
           AutoExpand = True
@@ -4791,13 +5637,12 @@ object frmToteDisplay: TfrmToteDisplay
             00FFFFFFFFFFFFFFFF0000000000000000000000000123500072006F00630065
             0073007300200077006500610070006F006E00200062006C0069006E00640020
             007A006F006E006500730020005B0045006E00610062006C0065005D00}
-          ExplicitWidth = 965
         end
       end
       object Panel43: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4811,22 +5656,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl43Title: TPanel
           Left = 5
           Top = 45
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
           object imgPanel43: TImage
             Left = 0
             Top = 0
-            Width = 495
+            Width = 993
             Height = 40
             Align = alClient
             Stretch = True
@@ -4835,7 +5678,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel43: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 118
             Height = 27
             Caption = 'SETTINGS'
@@ -4844,27 +5687,256 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl43Top: TPanel
           Left = 5
           Top = 5
-          Width = 495
+          Width = 993
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 963
+        end
+      end
+    end
+    object gbSurfaceToAir: TPanel
+      Left = 0
+      Top = 0
+      Width = 1005
+      Height = 3517
+      Align = alClient
+      TabOrder = 4
+      object Panel4: TPanel
+        Left = 1
+        Top = 1
+        Width = 1003
+        Height = 81
+        Align = alTop
+        Alignment = taLeftJustify
+        BorderWidth = 4
+        Color = clBtnShadow
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+        object pnl4Title: TPanel
+          Left = 5
+          Top = 45
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          Color = clBtnShadow
+          ParentBackground = False
+          TabOrder = 0
+          object imgPanel4: TImage
+            Left = 0
+            Top = 0
+            Width = 993
+            Height = 40
+            Align = alClient
+            Stretch = True
+            ExplicitWidth = 963
+            ExplicitHeight = 35
+          end
+          object lblImgPanel4: TLabel
+            Left = 371
+            Top = 0
+            Width = 489
+            Height = 27
+            Caption = 'SURFACE-TO-AIR MISSILE ENGAGEMENTS'
+          end
+        end
+        object pnl4Top: TPanel
+          Left = 5
+          Top = 5
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 1
+        end
+      end
+      object Panel27: TPanel
+        Left = 1
+        Top = 82
+        Width = 1003
+        Height = 3434
+        Align = alClient
+        BevelOuter = bvNone
+        BorderWidth = 4
+        TabOrder = 1
+        object Panel89: TPanel
+          Left = 4
+          Top = 2954
+          Width = 995
+          Height = 476
+          Align = alBottom
+          BevelOuter = bvNone
+          TabOrder = 0
+          DesignSize = (
+            995
+            476)
+          object btAbort: TButton
+            Left = 860
+            Top = 0
+            Width = 140
+            Height = 50
+            Anchors = [akTop, akRight]
+            Caption = 'Abort'
+            TabOrder = 0
+          end
+        end
+        object sgSurfacetoAir: TStringGrid
+          Left = 4
+          Top = 4
+          Width = 995
+          Height = 2950
+          Align = alClient
+          ColCount = 8
+          DefaultColWidth = 150
+          DrawingStyle = gdsGradient
+          FixedCols = 0
+          RowCount = 20
+          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+          TabOrder = 1
+        end
+      end
+    end
+    object gbSurfaceToSurface: TPanel
+      Left = 0
+      Top = 0
+      Width = 1005
+      Height = 3517
+      Align = alClient
+      TabOrder = 5
+      object Panel7: TPanel
+        Left = 1
+        Top = 1
+        Width = 1003
+        Height = 81
+        Align = alTop
+        Alignment = taLeftJustify
+        BorderWidth = 4
+        Color = clBtnShadow
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 0
+        object pnl7Title: TPanel
+          Left = 5
+          Top = 45
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          Color = clBtnShadow
+          ParentBackground = False
+          TabOrder = 0
+          object imgPanel7: TImage
+            Left = 0
+            Top = 0
+            Width = 993
+            Height = 40
+            Align = alClient
+            Stretch = True
+            ExplicitWidth = 963
+            ExplicitHeight = 35
+          end
+          object lblImgPanel7: TLabel
+            Left = 371
+            Top = 0
+            Width = 563
+            Height = 27
+            Caption = 'SURFACE-TO-SURFACE MISSILE ENGAGEMENTS'
+          end
+        end
+        object pnl7Top: TPanel
+          Left = 5
+          Top = 5
+          Width = 993
+          Height = 40
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 1
+        end
+      end
+      object Panel26: TPanel
+        Left = 1
+        Top = 82
+        Width = 1003
+        Height = 3434
+        Align = alClient
+        BevelOuter = bvNone
+        BorderWidth = 4
+        TabOrder = 1
+        object Panel87: TPanel
+          Left = 4
+          Top = 2954
+          Width = 995
+          Height = 476
+          Align = alBottom
+          BevelOuter = bvNone
+          TabOrder = 0
+          DesignSize = (
+            995
+            476)
+          object btnAbortSurfaceToSurface: TButton
+            AlignWithMargins = True
+            Left = 860
+            Top = 1
+            Width = 140
+            Height = 50
+            Margins.Right = 10
+            Anchors = [akTop, akRight]
+            Caption = 'Abort'
+            Enabled = False
+            TabOrder = 0
+            OnClick = btnAbortSurfaceToSurfaceClick
+          end
+          object btnLaunch: TButton
+            Left = 684
+            Top = 2
+            Width = 137
+            Height = 49
+            Caption = 'Launch'
+            Enabled = False
+            TabOrder = 1
+            OnClick = btnLaunchClick
+          end
+        end
+        object sgSurfacetoSurface: TStringGrid
+          Left = 4
+          Top = 4
+          Width = 995
+          Height = 2950
+          Align = alClient
+          ColCount = 8
+          DefaultColWidth = 150
+          DrawingStyle = gdsGradient
+          FixedCols = 0
+          RowCount = 20
+          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
+          TabOrder = 1
+          OnSelectCell = sgSurfacetoSurfaceSelectCell
         end
       end
     end
     object gbWeaponEngagementsSUmmary: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
       TabOrder = 2
-      ExplicitWidth = 975
       object Panel5: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
         Alignment = taLeftJustify
@@ -4877,22 +5949,20 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 973
         object pnl5Title: TPanel
           Left = 1
           Top = 41
-          Width = 503
+          Width = 1001
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 971
           object imgPanel5: TImage
             Left = 0
             Top = 0
-            Width = 503
+            Width = 1001
             Height = 40
             Align = alClient
             Stretch = True
@@ -4901,7 +5971,7 @@ object frmToteDisplay: TfrmToteDisplay
           end
           object lblImgPanel5: TLabel
             Left = 371
-            Top = 4
+            Top = 0
             Width = 430
             Height = 27
             Caption = ' WEAPON ENGAGEMENTS SUMMARY'
@@ -4910,28 +5980,26 @@ object frmToteDisplay: TfrmToteDisplay
         object pnl5top: TPanel
           Left = 1
           Top = 1
-          Width = 503
+          Width = 1001
           Height = 40
           Align = alTop
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitWidth = 971
         end
       end
       object Panel1: TPanel
         Left = 1
         Top = 82
-        Width = 505
+        Width = 1003
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 1
-        ExplicitWidth = 973
         object lvWeaponEngagement: TListView
           Left = 4
           Top = 4
-          Width = 497
+          Width = 995
           Height = 3426
           Align = alClient
           Columns = <
@@ -4957,731 +6025,50 @@ object frmToteDisplay: TfrmToteDisplay
           RowSelect = True
           TabOrder = 0
           ViewStyle = vsReport
-          ExplicitWidth = 965
-        end
-      end
-    end
-    object gbCommunicationsChannelMapping: TPanel
-      Left = 0
-      Top = 0
-      Width = 507
-      Height = 3517
-      Align = alClient
-      TabOrder = 8
-      ExplicitWidth = 975
-      object Panel10: TPanel
-        Left = 1
-        Top = 1
-        Width = 505
-        Height = 81
-        Align = alTop
-        Alignment = taLeftJustify
-        BorderWidth = 4
-        Color = clBtnShadow
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -24
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 0
-        ExplicitWidth = 973
-        object pnl10Title: TPanel
-          Left = 5
-          Top = 45
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          Color = clBtnShadow
-          ParentBackground = False
-          TabOrder = 0
-          ExplicitWidth = 963
-          object imgPanel10: TImage
-            Left = 0
-            Top = 0
-            Width = 495
-            Height = 40
-            Align = alClient
-            Stretch = True
-            ExplicitWidth = 963
-            ExplicitHeight = 35
-          end
-          object lblImgPanel10: TLabel
-            Left = 371
-            Top = 4
-            Width = 449
-            Height = 27
-            Caption = 'COMMUNICATIONS CHANNEL MAPPING'
-          end
-        end
-        object pnl10Top: TPanel
-          Left = 5
-          Top = 5
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          TabOrder = 1
-          ExplicitWidth = 963
-        end
-      end
-      object Panel35: TPanel
-        Left = 1
-        Top = 82
-        Width = 472
-        Height = 3434
-        Align = alLeft
-        BevelOuter = bvNone
-        BorderWidth = 4
-        TabOrder = 1
-        object Panel57: TPanel
-          Left = 4
-          Top = 60
-          Width = 464
-          Height = 3370
-          Align = alClient
-          BevelOuter = bvNone
-          BorderWidth = 10
-          Caption = 'Panel57'
-          TabOrder = 0
-          object sgAvailableChannel: TStringGrid
-            AlignWithMargins = True
-            Left = 13
-            Top = 13
-            Width = 438
-            Height = 3344
-            Align = alClient
-            ColCount = 3
-            DrawingStyle = gdsGradient
-            FixedCols = 0
-            TabOrder = 0
-            ColWidths = (
-              108
-              72
-              129)
-          end
-          object LbIn: TListBox
-            Left = 10
-            Top = 10
-            Width = 444
-            Height = 3350
-            Align = alClient
-            ItemHeight = 13
-            MultiSelect = True
-            TabOrder = 2
-          end
-          object LbRoomIn: TListBox
-            Left = 10
-            Top = 10
-            Width = 444
-            Height = 3350
-            Align = alClient
-            ItemHeight = 13
-            MultiSelect = True
-            TabOrder = 3
-          end
-          object lvIn: TListView
-            Left = 10
-            Top = 10
-            Width = 444
-            Height = 3350
-            Align = alClient
-            Columns = <
-              item
-                Caption = 'Channel'
-                MaxWidth = 205
-                Width = 70
-              end
-              item
-                Caption = 'Channel Name'
-                MaxWidth = 205
-                Width = 157
-              end
-              item
-                Caption = 'Channel Code'
-                Width = 80
-              end>
-            MultiSelect = True
-            RowSelect = True
-            SortType = stBoth
-            TabOrder = 1
-            ViewStyle = vsReport
-            OnCompare = lvInCompare
-          end
-        end
-        object Panel58: TPanel
-          Left = 4
-          Top = 4
-          Width = 464
-          Height = 33
-          Align = alTop
-          BevelOuter = bvNone
-          TabOrder = 1
-          object Label129: TLabel
-            Left = 6
-            Top = 11
-            Width = 33
-            Height = 13
-            Caption = 'Group:'
-          end
-          object SpeedButton13: TSpeedButton
-            Left = 230
-            Top = 8
-            Width = 25
-            Height = 22
-            Glyph.Data = {
-              36030000424D3603000000000000360000002800000010000000100000000100
-              18000000000000030000120B0000120B0000000000000000000026221D26221D
-              26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D201C1626221C27
-              231D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              26221D25211C29252025211D16110B28241F26221E26221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D25211C16110B7676744E4C4906
-              010029262026221E26221D26221D26221D26221D26221D26221D26221D26221D
-              26221D26221D0C07017A7977C8CACC35312E07020029262026221E26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D100B05666462C0C2C3B3
-              B3B435322E07020029252026221E26221D26221D26221D26221D26221D26221D
-              26221D26221D100B056B6A67ADADADAAAAABB3B4B534312E0904002A26212622
-              1D26221D26221D26221D26221D26221D26221D26221D100B056B6A67B1B2B296
-              9696A7A7A7BABBBC4C4A4614100A26221D26221D26221D26221D26221D26221D
-              26221D26221D100B056A6A68B0B2B2969696A7A8A8B8B9BA4B484515100B2622
-              1D26221D26221D26221D26221D26221D26221D26221D100C056B6A68ACADAEAB
-              ABABB2B2B3322F2B0904002A262126221D26221D26221D26221D26221D26221D
-              26221D26221D100C06676664C1C2C3B1B1B3332F2C0702002A262126221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D0C07027C7B7AC7C9CA32
-              2F2B0702002A262126221D26221D26221D26221D26221D26221D26221D26221D
-              26221D25211C16110C7877754C49460602002A262126221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D25211C29252025211C16110C29
-              252026221D26221D26221D26221D26221D26221D26221D26221D26221D26221D
-              26221D26221D26221D201C1626221D26221D26221D26221D26221D26221D2622
-              1D26221D26221D26221D26221D26221D26221D26221D26221D26221D26221D26
-              221D26221D26221D26221D26221D26221D26221D26221D26221D}
-            OnClick = SpeedButton13Click
-          end
-          object edtGroupName: TEdit
-            Left = 45
-            Top = 9
-            Width = 179
-            Height = 21
-            ReadOnly = True
-            TabOrder = 0
-          end
-        end
-        object Panel59: TPanel
-          Left = 4
-          Top = 37
-          Width = 464
-          Height = 23
-          Align = alTop
-          BevelOuter = bvNone
-          TabOrder = 2
-          object Label130: TLabel
-            Left = 6
-            Top = 6
-            Width = 95
-            Height = 13
-            Caption = 'Available platforms:'
-          end
-        end
-        object Panel34: TPanel
-          Left = 4
-          Top = 60
-          Width = 464
-          Height = 3370
-          Align = alClient
-          BevelOuter = bvNone
-          BorderWidth = 10
-          Caption = 'Panel34'
-          TabOrder = 3
-          object lvPlatformsGroup: TListView
-            Left = 10
-            Top = 10
-            Width = 444
-            Height = 3350
-            Align = alClient
-            Columns = <
-              item
-                Caption = 'Platform Name'
-                MaxWidth = 315
-                Width = 314
-              end>
-            MultiSelect = True
-            RowSelect = True
-            SortType = stBoth
-            TabOrder = 0
-            ViewStyle = vsReport
-          end
-        end
-      end
-      object Panel36: TPanel
-        Left = 473
-        Top = 82
-        Width = 90
-        Height = 3434
-        Align = alLeft
-        BevelOuter = bvNone
-        BorderWidth = 4
-        TabOrder = 2
-        Visible = False
-        object Button25: TButton
-          Left = 6
-          Top = 124
-          Width = 75
-          Height = 25
-          Caption = 'Add >'
-          TabOrder = 0
-          OnClick = Button25Click
-        end
-        object Button26: TButton
-          Left = 6
-          Top = 156
-          Width = 75
-          Height = 25
-          Caption = '< Remove'
-          TabOrder = 1
-          OnClick = Button26Click
-        end
-      end
-      object Panel37: TPanel
-        Left = 563
-        Top = 82
-        Width = 406
-        Height = 3434
-        Align = alLeft
-        BevelOuter = bvNone
-        BorderWidth = 4
-        TabOrder = 3
-        object Panel60: TPanel
-          Left = 4
-          Top = 4
-          Width = 398
-          Height = 58
-          Align = alTop
-          BevelOuter = bvNone
-          TabOrder = 0
-          object Label131: TLabel
-            Left = 6
-            Top = 38
-            Width = 133
-            Height = 13
-            Caption = 'Available Mapped channels:'
-          end
-        end
-        object Panel62: TPanel
-          Left = 4
-          Top = 85
-          Width = 398
-          Height = 3345
-          Align = alClient
-          BevelOuter = bvNone
-          BorderWidth = 10
-          TabOrder = 1
-          object sgMappedChannel: TStringGrid
-            Left = 10
-            Top = 10
-            Width = 378
-            Height = 3325
-            Align = alClient
-            ColCount = 4
-            DrawingStyle = gdsGradient
-            FixedCols = 0
-            TabOrder = 0
-            ColWidths = (
-              69
-              94
-              64
-              64)
-          end
-          object LbOut: TListBox
-            Left = 10
-            Top = 10
-            Width = 378
-            Height = 3325
-            Align = alClient
-            ItemHeight = 13
-            MultiSelect = True
-            TabOrder = 2
-          end
-          object LbRoomOut: TListBox
-            Left = 10
-            Top = 10
-            Width = 378
-            Height = 3325
-            Align = alClient
-            ItemHeight = 13
-            MultiSelect = True
-            TabOrder = 3
-          end
-          object lvOut: TListView
-            Left = 10
-            Top = 10
-            Width = 378
-            Height = 3325
-            Align = alClient
-            Columns = <
-              item
-                Caption = 'Channel'
-                Width = 70
-              end
-              item
-                Caption = 'Channel Name'
-                Width = 200
-              end
-              item
-                Caption = 'Channel Code'
-                Width = 80
-              end>
-            MultiSelect = True
-            RowSelect = True
-            SortType = stBoth
-            TabOrder = 1
-            ViewStyle = vsReport
-            OnCompare = lvOutCompare
-          end
-        end
-        object Panel61: TPanel
-          Left = 4
-          Top = 62
-          Width = 398
-          Height = 23
-          Align = alTop
-          BevelOuter = bvNone
-          BorderWidth = 10
-          TabOrder = 2
-          Visible = False
-          object Label132: TLabel
-            Left = 14
-            Top = 6
-            Width = 50
-            Height = 13
-            Caption = 'Copy from'
-          end
-          object SpeedButton14: TSpeedButton
-            Left = 70
-            Top = 1
-            Width = 23
-            Height = 22
-            OnClick = SpeedButton14Click
-          end
-          object SpeedButton29: TSpeedButton
-            Left = 99
-            Top = 1
-            Width = 23
-            Height = 22
-          end
-          object SpeedButton17: TSpeedButton
-            Left = 420
-            Top = 1
-            Width = 23
-            Height = 22
-          end
-          object BitBtn1: TBitBtn
-            Left = 557
-            Top = 25
-            Width = 25
-            Height = 25
-            TabOrder = 0
-          end
-          object BitBtn2: TBitBtn
-            Left = 526
-            Top = 25
-            Width = 25
-            Height = 25
-            TabOrder = 1
-          end
-        end
-      end
-    end
-    object gbSurfaceToAir: TPanel
-      Left = 0
-      Top = 0
-      Width = 507
-      Height = 3517
-      Align = alClient
-      TabOrder = 4
-      ExplicitWidth = 975
-      object Panel4: TPanel
-        Left = 1
-        Top = 1
-        Width = 505
-        Height = 81
-        Align = alTop
-        Alignment = taLeftJustify
-        BorderWidth = 4
-        Color = clBtnShadow
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -24
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 0
-        ExplicitWidth = 973
-        object pnl4Title: TPanel
-          Left = 5
-          Top = 45
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          Color = clBtnShadow
-          ParentBackground = False
-          TabOrder = 0
-          ExplicitWidth = 963
-          object imgPanel4: TImage
-            Left = 0
-            Top = 0
-            Width = 495
-            Height = 40
-            Align = alClient
-            Stretch = True
-            ExplicitWidth = 963
-            ExplicitHeight = 35
-          end
-          object lblImgPanel4: TLabel
-            Left = 371
-            Top = 4
-            Width = 489
-            Height = 27
-            Caption = 'SURFACE-TO-AIR MISSILE ENGAGEMENTS'
-          end
-        end
-        object pnl4Top: TPanel
-          Left = 5
-          Top = 5
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          TabOrder = 1
-          ExplicitWidth = 963
-        end
-      end
-      object Panel27: TPanel
-        Left = 1
-        Top = 82
-        Width = 505
-        Height = 3434
-        Align = alClient
-        BevelOuter = bvNone
-        BorderWidth = 4
-        TabOrder = 1
-        ExplicitWidth = 973
-        object Panel89: TPanel
-          Left = 4
-          Top = 2954
-          Width = 497
-          Height = 476
-          Align = alBottom
-          BevelOuter = bvNone
-          TabOrder = 0
-          ExplicitWidth = 965
-          DesignSize = (
-            497
-            476)
-          object btAbort: TButton
-            Left = 362
-            Top = 0
-            Width = 140
-            Height = 50
-            Anchors = [akTop, akRight]
-            Caption = 'Abort'
-            TabOrder = 0
-            ExplicitLeft = 830
-          end
-        end
-        object sgSurfacetoAir: TStringGrid
-          Left = 4
-          Top = 4
-          Width = 497
-          Height = 2950
-          Align = alClient
-          ColCount = 8
-          DefaultColWidth = 150
-          DrawingStyle = gdsGradient
-          FixedCols = 0
-          RowCount = 20
-          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
-          TabOrder = 1
-          ExplicitWidth = 965
-        end
-      end
-    end
-    object gbSurfaceToSurface: TPanel
-      Left = 0
-      Top = 0
-      Width = 507
-      Height = 3517
-      Align = alClient
-      TabOrder = 5
-      ExplicitWidth = 975
-      object Panel7: TPanel
-        Left = 1
-        Top = 1
-        Width = 505
-        Height = 81
-        Align = alTop
-        Alignment = taLeftJustify
-        BorderWidth = 4
-        Color = clBtnShadow
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWhite
-        Font.Height = -24
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 0
-        ExplicitWidth = 973
-        object pnl7Title: TPanel
-          Left = 5
-          Top = 45
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          Color = clBtnShadow
-          ParentBackground = False
-          TabOrder = 0
-          ExplicitWidth = 963
-          object imgPanel7: TImage
-            Left = 0
-            Top = 0
-            Width = 495
-            Height = 40
-            Align = alClient
-            Stretch = True
-            ExplicitWidth = 963
-            ExplicitHeight = 35
-          end
-          object lblImgPanel7: TLabel
-            Left = 371
-            Top = 4
-            Width = 563
-            Height = 27
-            Caption = 'SURFACE-TO-SURFACE MISSILE ENGAGEMENTS'
-          end
-        end
-        object pnl7Top: TPanel
-          Left = 5
-          Top = 5
-          Width = 495
-          Height = 40
-          Align = alTop
-          BevelOuter = bvNone
-          TabOrder = 1
-          ExplicitWidth = 963
-        end
-      end
-      object Panel26: TPanel
-        Left = 1
-        Top = 82
-        Width = 505
-        Height = 3434
-        Align = alClient
-        BevelOuter = bvNone
-        BorderWidth = 4
-        TabOrder = 1
-        ExplicitWidth = 973
-        object Panel87: TPanel
-          Left = 4
-          Top = 2954
-          Width = 497
-          Height = 476
-          Align = alBottom
-          BevelOuter = bvNone
-          TabOrder = 0
-          ExplicitWidth = 965
-          DesignSize = (
-            497
-            476)
-          object btnAbortSurfaceToSurface: TButton
-            AlignWithMargins = True
-            Left = 362
-            Top = 1
-            Width = 140
-            Height = 50
-            Margins.Right = 10
-            Anchors = [akTop, akRight]
-            Caption = 'Abort'
-            Enabled = False
-            TabOrder = 0
-            OnClick = btnAbortSurfaceToSurfaceClick
-            ExplicitLeft = 830
-          end
-          object btnLaunch: TButton
-            Left = 684
-            Top = 2
-            Width = 137
-            Height = 49
-            Caption = 'Launch'
-            Enabled = False
-            TabOrder = 1
-            OnClick = btnLaunchClick
-          end
-        end
-        object sgSurfacetoSurface: TStringGrid
-          Left = 4
-          Top = 4
-          Width = 497
-          Height = 2950
-          Align = alClient
-          ColCount = 8
-          DefaultColWidth = 150
-          DrawingStyle = gdsGradient
-          FixedCols = 0
-          RowCount = 20
-          Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect]
-          TabOrder = 1
-          OnSelectCell = sgSurfacetoSurfaceSelectCell
-          ExplicitWidth = 965
         end
       end
     end
     object gbPlatformStatus: TPanel
       Left = 0
       Top = 0
-      Width = 507
+      Width = 1005
       Height = 3517
       Align = alClient
+      Color = 2499101
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 975
       object pnlPlatformLeft: TPanel
         Left = 1
         Top = 82
-        Width = 202
+        Width = 700
         Height = 3434
         Align = alClient
         BevelOuter = bvNone
         BorderWidth = 4
         TabOrder = 0
-        ExplicitWidth = 670
         object pnlPlatforms: TPanel
           Left = 4
           Top = 4
-          Width = 194
+          Width = 692
           Height = 1137
           Align = alClient
           BevelOuter = bvNone
           BorderWidth = 4
+          Color = 2499101
           DockSite = True
+          ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 662
           object Label75: TLabel
             Left = 4
             Top = 4
-            Width = 186
+            Width = 684
             Height = 20
             Align = alTop
             AutoSize = False
-            Caption = '            Platforms :'
+            Caption = 'Platforms :'
             Color = clBtnFace
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 42495
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -5701,7 +6088,7 @@ object frmToteDisplay: TfrmToteDisplay
           object lvPlatforms: TListView
             Left = 4
             Top = 24
-            Width = 135
+            Width = 658
             Height = 1029
             Align = alClient
             BevelInner = bvNone
@@ -5736,17 +6123,16 @@ object frmToteDisplay: TfrmToteDisplay
             ViewStyle = vsReport
             OnMouseDown = lvPlatformsMouseDown
             OnSelectItem = lvPlatformsSelectItem
-            ExplicitWidth = 603
+            ExplicitWidth = 634
           end
           object Panel13: TPanel
             Left = 4
             Top = 1053
-            Width = 186
+            Width = 684
             Height = 80
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 1
-            ExplicitWidth = 654
             object imgbtSelectHookedPaltform: TImage
               Left = 79
               Top = 12
@@ -7444,7 +7830,7 @@ object frmToteDisplay: TfrmToteDisplay
             object imgPanel13: TImage
               Left = 0
               Top = 0
-              Width = 186
+              Width = 684
               Height = 80
               Align = alClient
               Stretch = True
@@ -7472,37 +7858,40 @@ object frmToteDisplay: TfrmToteDisplay
             end
           end
           object pnlPlatformR: TPanel
-            Left = 139
+            Left = 662
             Top = 24
-            Width = 51
+            Width = 26
             Height = 1029
             Align = alRight
             BevelOuter = bvNone
+            Color = 2499101
+            ParentBackground = False
             TabOrder = 2
-            ExplicitLeft = 607
+            ExplicitLeft = 661
           end
         end
         object pnlPlatEmbarked: TPanel
           Left = 4
           Top = 1141
-          Width = 194
+          Width = 692
           Height = 2289
           Align = alBottom
           Anchors = [akLeft, akTop, akRight, akBottom]
           BevelOuter = bvNone
           BorderWidth = 4
+          Color = 2499101
+          ParentBackground = False
           TabOrder = 1
-          ExplicitWidth = 662
           object Label79: TLabel
             Left = 4
             Top = 4
-            Width = 186
+            Width = 684
             Height = 19
             Align = alClient
             AutoSize = False
-            Caption = '            Embarked platforms:'
+            Caption = 'Embarked platforms:'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 42495
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -7522,7 +7911,7 @@ object frmToteDisplay: TfrmToteDisplay
           object tvEmbarkedPlatforms: TTreeView
             Left = 4
             Top = 17
-            Width = 186
+            Width = 684
             Height = 2241
             Align = alBottom
             Anchors = [akLeft, akTop, akRight, akBottom]
@@ -7535,40 +7924,36 @@ object frmToteDisplay: TfrmToteDisplay
             TabOrder = 0
             OnEdited = tvEmbarkedPlatformsEdited
             OnMouseDown = tvEmbarkedPlatformsMouseDown
-            ExplicitWidth = 654
           end
           object edtEmbarkQuantity: TEdit
             Left = 4
             Top = -4
-            Width = 186
+            Width = 684
             Height = 21
             Align = alBottom
             Color = clSilver
             TabOrder = 1
             Visible = False
             OnKeyPress = edtEmbarkQuantityKeyPress
-            ExplicitWidth = 654
           end
           object pnlEmbarkedBottom: TPanel
             Left = 4
             Top = 2258
-            Width = 186
+            Width = 684
             Height = 27
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 2
-            ExplicitWidth = 654
           end
         end
       end
       object Panel2: TPanel
         Left = 1
         Top = 1
-        Width = 505
+        Width = 1003
         Height = 81
         Align = alTop
-        BorderWidth = 4
-        Color = clBtnShadow
+        Color = 2499101
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
         Font.Height = -24
@@ -7577,59 +7962,57 @@ object frmToteDisplay: TfrmToteDisplay
         ParentBackground = False
         ParentFont = False
         TabOrder = 1
-        ExplicitWidth = 973
         object pnl2Top: TPanel
-          Left = 5
-          Top = 5
-          Width = 495
+          Left = 1
+          Top = 1
+          Width = 1001
           Height = 40
           Align = alTop
           BevelOuter = bvNone
+          Color = clBtnShadow
+          ParentBackground = False
           TabOrder = 0
-          ExplicitWidth = 963
         end
         object pnl2Title: TPanel
-          Left = 5
-          Top = 45
-          Width = 495
+          Left = 1
+          Top = 41
+          Width = 1001
           Height = 40
           Align = alTop
           BevelOuter = bvNone
-          Caption = ' Platform Status'
           Color = clBtnShadow
           ParentBackground = False
           TabOrder = 1
-          ExplicitWidth = 963
+          object imgPanel2: TImage
+            Left = 0
+            Top = 0
+            Width = 1001
+            Height = 40
+            Align = alClient
+            Stretch = True
+            ExplicitLeft = 2
+            ExplicitTop = 2
+          end
           object lblImgPanel2: TLabel
-            Left = 371
-            Top = 4
+            Left = 391
+            Top = 0
             Width = 221
             Height = 27
             Caption = 'PLATFORM STATUS'
           end
-          object imgPanel2: TImage
-            Left = 0
-            Top = 0
-            Width = 495
-            Height = 40
-            Align = alClient
-            Stretch = True
-            ExplicitWidth = 963
-            ExplicitHeight = 35
-          end
         end
       end
       object pnlPlatformRight: TPanel
-        Left = 203
+        Left = 701
         Top = 82
         Width = 303
         Height = 3434
         Align = alRight
         BevelOuter = bvNone
         BorderWidth = 4
+        Color = 2499101
         ParentBackground = False
         TabOrder = 2
-        ExplicitLeft = 671
         object pnlPlatCounterMeasure: TPanel
           Left = 4
           Top = 2855
@@ -7646,9 +8029,9 @@ object frmToteDisplay: TfrmToteDisplay
             Height = 20
             Align = alTop
             AutoSize = False
-            Caption = '            Countermeasures:'
+            Caption = 'Countermeasures:'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 42495
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -7693,9 +8076,9 @@ object frmToteDisplay: TfrmToteDisplay
             Height = 20
             Align = alTop
             AutoSize = False
-            Caption = '            System State:'
+            Caption = 'System State:'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 42495
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -7706,7 +8089,7 @@ object frmToteDisplay: TfrmToteDisplay
             ExplicitWidth = 291
           end
           object Image5: TImage
-            Left = 5
+            Left = 2
             Top = 8
             Width = 30
             Height = 8
@@ -7787,9 +8170,9 @@ object frmToteDisplay: TfrmToteDisplay
             Height = 20
             Align = alTop
             AutoSize = False
-            Caption = '            Sensors:'
+            Caption = 'Sensors:'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 42495
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -7841,9 +8224,9 @@ object frmToteDisplay: TfrmToteDisplay
             Height = 22
             Align = alTop
             AutoSize = False
-            Caption = '            Weapons:'
+            Caption = 'Weapons:'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = 42495
+            Font.Color = clWhite
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -7901,49 +8284,42 @@ object frmToteDisplay: TfrmToteDisplay
   object pnlLeft: TPanel
     Left = 0
     Top = 2
-    Width = 813
+    Width = 315
     Height = 3517
     Align = alLeft
+    Color = 2499101
+    ParentBackground = False
     TabOrder = 3
-    object pnlLBottom: TPanel
+    object TPanel
       Left = 1
       Top = 3428
-      Width = 811
+      Width = 648
       Height = 88
-      Align = alBottom
       BevelOuter = bvNone
-      Caption = 'pnlLTop'
       TabOrder = 0
-      ExplicitWidth = 343
+      Visible = False
     end
     object pnlLFill: TPanel
       Left = 313
       Top = 1
-      Width = 499
-      Height = 3427
+      Width = 1
+      Height = 3515
       Align = alClient
       BevelOuter = bvNone
-      Caption = 'pnlLTop'
       TabOrder = 1
       Visible = False
-      ExplicitLeft = 658
-      ExplicitTop = 82
-      ExplicitWidth = 343
-      ExplicitHeight = 3346
     end
     object pnlGroup: TPanel
       Left = 1
       Top = 1
       Width = 312
-      Height = 3427
+      Height = 3515
       Align = alLeft
       BevelOuter = bvNone
       Color = 855309
       ParentBackground = False
       TabOrder = 2
       StyleElements = [seFont, seBorder]
-      ExplicitTop = 82
-      ExplicitHeight = 3346
       object pnlStatusOp: TPanel
         Left = 0
         Top = 0
@@ -10704,8 +11080,8 @@ object frmToteDisplay: TfrmToteDisplay
     AutoLineReduction = maManual
     MenuAnimation = [maTopToBottom]
     OnChange = pmSensorChange
-    Left = 1048
-    Top = 8
+    Left = 440
+    Top = 256
     object damage1: TMenuItem
       Caption = 'Damage'
       OnClick = damage1Click
@@ -10717,8 +11093,8 @@ object frmToteDisplay: TfrmToteDisplay
   end
   object pmWeapon: TPopupMenu
     OnChange = pmWeaponChange
-    Left = 920
-    Top = 8
+    Left = 336
+    Top = 256
     object dam1: TMenuItem
       Caption = 'Damage'
       OnClick = dam1Click
@@ -10734,8 +11110,8 @@ object frmToteDisplay: TfrmToteDisplay
   end
   object pmCountermeasure: TPopupMenu
     OnChange = pmCountermeasureChange
-    Left = 984
-    Top = 8
+    Left = 388
+    Top = 256
     object Damage2: TMenuItem
       Caption = 'Damage'
       OnClick = Damage2Click
@@ -10751,14 +11127,14 @@ object frmToteDisplay: TfrmToteDisplay
   end
   object pmState: TPopupMenu
     OnChange = pmStateChange
-    Left = 1216
-    Top = 8
+    Left = 804
+    Top = 256
   end
   object pmEmbarked: TPopupMenu
     AutoLineReduction = maManual
     OnChange = pmEmbarkedChange
-    Left = 1160
-    Top = 8
+    Left = 544
+    Top = 256
     object Setquantity1: TMenuItem
       Caption = 'Set quantity'
       OnClick = Setquantity1Click
@@ -10771,8 +11147,8 @@ object frmToteDisplay: TfrmToteDisplay
   end
   object ImageList1: TImageList
     ShareImages = True
-    Left = 576
-    Top = 8
+    Left = 328
+    Top = 192
     Bitmap = {
       494C010108000A00040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
@@ -11178,8 +11554,8 @@ object frmToteDisplay: TfrmToteDisplay
       000000000000}
   end
   object ilSensor: TImageList
-    Left = 632
-    Top = 8
+    Left = 394
+    Top = 192
     Bitmap = {
       494C010106000800040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
@@ -11453,8 +11829,8 @@ object frmToteDisplay: TfrmToteDisplay
       000000000000}
   end
   object ilWeapon: TImageList
-    Left = 688
-    Top = 8
+    Left = 459
+    Top = 192
     Bitmap = {
       494C010105000700040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
@@ -11728,8 +12104,8 @@ object frmToteDisplay: TfrmToteDisplay
       000000000000}
   end
   object ImageList2: TImageList
-    Left = 848
-    Top = 8
+    Left = 590
+    Top = 192
     Bitmap = {
       494C010107000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
@@ -12003,8 +12379,8 @@ object frmToteDisplay: TfrmToteDisplay
       000000000000}
   end
   object ilCountermeasure: TImageList
-    Left = 768
-    Top = 8
+    Left = 525
+    Top = 192
     Bitmap = {
       494C010106000800040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
@@ -12278,8 +12654,8 @@ object frmToteDisplay: TfrmToteDisplay
       000000000000}
   end
   object pmDetectionStatus: TPopupMenu
-    Left = 1104
-    Top = 8
+    Left = 492
+    Top = 256
     object Normal1: TMenuItem
       Caption = 'Normal'
       OnClick = DetectabilityClick
@@ -12305,12 +12681,12 @@ object frmToteDisplay: TfrmToteDisplay
     Top = 328
   end
   object pmCubicleGroup: TPopupMenu
-    Left = 1088
-    Top = 56
+    Left = 856
+    Top = 256
   end
   object pmDLForce: TPopupMenu
-    Left = 736
-    Top = 56
+    Left = 596
+    Top = 256
     object ForceRed1: TMenuItem
       Tag = 1
       Caption = 'Force Red'
@@ -12343,8 +12719,8 @@ object frmToteDisplay: TfrmToteDisplay
     end
   end
   object pmDLBand: TPopupMenu
-    Left = 776
-    Top = 56
+    Left = 648
+    Top = 256
     object HF1: TMenuItem
       Tag = 1
       Caption = 'HF'
@@ -12357,8 +12733,8 @@ object frmToteDisplay: TfrmToteDisplay
     end
   end
   object pmPlatformLV: TPopupMenu
-    Left = 848
-    Top = 56
+    Left = 700
+    Top = 256
     object Repair3: TMenuItem
       Caption = 'Repair'
       OnClick = Repair3Click
@@ -12371,18 +12747,18 @@ object frmToteDisplay: TfrmToteDisplay
   object TimerEngage: TTimer
     Enabled = False
     OnTimer = TimerEngageTimer
-    Left = 856
-    Top = 624
+    Left = 336
+    Top = 328
   end
   object TimerLaunch: TTimer
     Enabled = False
     OnTimer = TimerLaunchTimer
-    Left = 920
-    Top = 624
+    Left = 400
+    Top = 328
   end
   object ILDataLink: TImageList
-    Left = 624
-    Top = 96
+    Left = 656
+    Top = 192
     Bitmap = {
       494C010104000600040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
@@ -12656,8 +13032,8 @@ object frmToteDisplay: TfrmToteDisplay
       000000000000}
   end
   object pmDataLink: TPopupMenu
-    Left = 664
-    Top = 96
+    Left = 752
+    Top = 256
     object DataLink11: TMenuItem
       Tag = 1
       Caption = 'Datalink 1'
