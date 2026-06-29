@@ -17,12 +17,14 @@ type
     Label1: TLabel;
     Label2: TLabel;
     lblDurasiPermainan: TLabel;
+    pnlMainBackground: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FTT : TMSTimer;
     FLastRecvMS : LongWord;
@@ -72,6 +74,19 @@ uses
   uLibSettingTTT, uGameData_TTT, ufrmRealTime;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {
 var err: LongWord;
@@ -152,10 +167,17 @@ begin
   FTT.Enabled   := true;
   FLastRecvMS   := 0;
 
-  DoubleBuffered := true;
+  EnableComposited(pnlMainBackground)
+//  DoubleBuffered := true;
 
 end;
 
+procedure TfrmMainGT.FormDestroy(Sender: TObject);
+begin
+  FVTime.Free;
+  FDurasiPermainan.Free;
+  FTT.Free;
+end;
 
 procedure TfrmMainGT.FormResize(Sender: TObject);
 begin
@@ -238,7 +260,10 @@ begin
       FTT.OnRunning := RunningThread;
 
       if first then
+      begin
         ufRealTime.lblJamStart.Caption := FormatDateTime(' hh : nn : ss ', now);
+        SetGameSpeed(Round(GameSPEED))
+      end;
     end;
     CORD_ID_pause :
     begin

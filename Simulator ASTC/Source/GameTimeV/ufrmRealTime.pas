@@ -8,7 +8,6 @@ uses
 
 type
   TufRealTime = class(TForm)
-    lblRealTIME: TLabel;
     lblRTCaption: TLabel;
     Timer1: TTimer;
     lblRealDate: TLabel;
@@ -17,12 +16,15 @@ type
     lblJamStart: TLabel;
     Label3: TLabel;
     lblDurasiSebenarnya: TLabel;
+    pnlMainBackground: TPanel;
+    lblRealTime: TLabel;
     procedure Timer1Timer(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure bntMinimizeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
 
@@ -46,6 +48,18 @@ uses
   uLibSettingTTT;
 {$R *.dfm}
 
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 procedure TufRealTime.bntMinimizeClick(Sender: TObject);
 begin
@@ -58,6 +72,13 @@ begin
 
   FDurasiSebenarnya := TVirtualTime.Create;
   FDurasiSebenarnya.DateTimeOffset := 0;
+
+  EnableComposited(pnlMainBackground)
+end;
+
+procedure TufRealTime.FormDestroy(Sender: TObject);
+begin
+  FDurasiSebenarnya.Free;
 end;
 
 procedure TufRealTime.FormKeyDown(Sender: TObject; var Key: Word;
