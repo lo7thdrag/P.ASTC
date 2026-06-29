@@ -507,6 +507,7 @@ type
     mniTorpedoCourse: TMenuItem;
     mniTorpedoDepth: TMenuItem;
     btnDepthInfo: TToolButton;
+    ImageList3: TImageList;
     procedure FormCreate(Sender: TObject);
     procedure lvTrackTableSelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);

@@ -657,7 +657,6 @@ type
     cbbBand: TComboBox;
     RepairAll1: TMenuItem;
     pnlLeft: TPanel;
-    pnlLBottom: TPanel;
     pnlLFill: TPanel;
     pnlGroup: TPanel;
     pnlStatusOp: TPanel;
@@ -824,8 +823,10 @@ type
     pnlpnlPlatSystemStateBottom: TPanel;
     Panel34: TPanel;
     lvPlatformsGroup: TListView;
-    imgPanel2: TImage;
     imgPanel13: TImage;
+    Label2: TLabel;
+    Label5: TLabel;
+    imgPanel2: TImage;
     // pnlRightUp: TPanel;
     // pnlRightBottom: TPanel;
     procedure btnPlatformStatusClick(sender: TObject);
