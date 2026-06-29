@@ -11,8 +11,12 @@ type
     lblServerTIME: TLabel;
     lblRTCaption: TLabel;
     Timer1: TTimer;
-    Bevel1: TBevel;
     lblGameDate: TLabel;
+    Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     procedure Timer1Timer(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -60,11 +64,11 @@ end;
 
 procedure TufRealTime.FormResize(Sender: TObject);
 begin
-  lblRTCaption.Left := ((Width - lblRTCaption.Width) div 2);
-  lblRTCaption.Top := Round(Height * 0.1);
-
-  lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
-  lblServerTIME.Top := Round(Height * 0.45);
+//  lblRTCaption.Left := ((Width - lblRTCaption.Width) div 2);
+//  lblRTCaption.Top := Round(Height * 0.1);
+//
+//  lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
+//  lblServerTIME.Top := Round(Height * 0.45);
 
 //  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
 //  lblGameDate.Top  := lblServerTIME.Top + lblServerTIME.Height + 45;

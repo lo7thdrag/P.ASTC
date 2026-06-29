@@ -8,14 +8,15 @@ uses
 
 type
   TfrmMainGT = class(TForm)
-    lblServerTIME: TLabel;
     lblGTCaption: TLabel;
     Timer1: TTimer;
-    lblRTCaption: TLabel;
     lblGameTime: TLabel;
-    Bevel1: TBevel;
     lblGameDate: TLabel;
     lblGameSpeed: TLabel;
+    Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -159,11 +160,11 @@ begin
 //  lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
 //  lblServerTIME.Top := Round(Height * 0.25);
 
-  lblGTCaption.Left := ((Width - lblGTCaption.Width) div 2);
-  lblGTCaption.Top := Round(Height * 0.1);
-
-  lblGameTime.Left := ((Width - lblGameTime.Width) div 2);
-  lblGameTime.Top  := Round(Height * 0.45);
+//  lblGTCaption.Left := ((Width - lblGTCaption.Width) div 2);
+//  lblGTCaption.Top := Round(Height * 0.1);
+//
+//  lblGameTime.Left := ((Width - lblGameTime.Width) div 2);
+//  lblGameTime.Top  := Round(Height * 0.45);
 
 //  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
 //  lblGameDate.Top  := lblGameTime.Top + lblGameTime.Height + 45;
@@ -295,7 +296,7 @@ end;
 
 procedure TfrmMainGT.SetServerTime(const gt: tDateTime);
 begin
-  lblServerTIME.Caption := FormatDateTime(' hh : nn : ss ', gt)
+//  lblServerTIME.Caption := FormatDateTime(' hh : nn : ss ', gt)
 end;
 
 procedure TfrmMainGT.Timer1Timer(Sender: TObject);
