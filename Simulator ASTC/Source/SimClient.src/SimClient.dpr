@@ -193,10 +193,6 @@ uses
   uOverlayOther in '..\DBEditor.src\uOverlayOther.pas',
   uOverlayRecord in '..\DBEditor.src\uOverlayRecord.pas',
   uRecord in '..\DBEditor.src\uRecord.pas',
-  ufrmRight in 'formClient\NavigasiUI\ufrmRight.pas' {frmRight},
-  ufrmTop in 'formClient\NavigasiUI\ufrmTop.pas' {frmTop},
-  ufrmLeft in 'formClient\NavigasiUI\ufrmLeft.pas' {frmLeft},
-  ufrmBottom in 'formClient\NavigasiUI\ufrmBottom.pas' {frmBottom},
   ufrmRight2 in 'formClient\NavigasiUI\ufrmRight2.pas' {frmRight2},
   ufrmLeftPlotter in 'formClient\plotterUI\ufrmLeftPlotter.pas' {frmLeftPlotter},
   ufrmLeftToolsPlotter in 'formClient\plotterUI\ufrmLeftToolsPlotter.pas' {frmLeftToolsPlotter},
@@ -205,7 +201,13 @@ uses
   ufrmTopPlotter in 'formClient\plotterUI\ufrmTopPlotter.pas' {frmTopPlotter},
   uTMapTouch2 in '..\LibTTT\uTMapTouch2.pas',
   uRuler in '..\LibTTT\forms\uRuler.pas' {frmRuler},
-  ufrmKeyboard in 'formClient\plotterUI\ufrmKeyboard.pas' {frmKeyboard};
+  ufrmKeyboard in 'formClient\plotterUI\ufrmKeyboard.pas' {frmKeyboard},
+  ufrmBottomNav in 'formClient\NavigasiUI\ufrmBottomNav.pas' {frmBottom},
+  ufrmGeneralTools in 'formClient\NavigasiUI\ufrmGeneralTools.pas' {frmGeneralTools},
+  ufrmHelp in 'formClient\NavigasiUI\ufrmHelp.pas' {frmHelp},
+  ufrmTopNav in 'formClient\NavigasiUI\ufrmTopNav.pas' {frmTopNav},
+  ufrmLeftNav in 'formClient\NavigasiUI\ufrmLeftNav.pas' {frmLeft},
+  ufrmRightNav in 'formClient\NavigasiUI\ufrmRightNav.pas' {frmRight};
 
 {$R *.res}
 
@@ -229,10 +231,6 @@ begin
   Application.CreateForm(TfrmEditNonRealTimeTrack, frmEditNonRealTimeTrack);
   Application.CreateForm(TfrmFormationAddRemMembers, frmFormationAddRemMembers);
   Application.CreateForm(TfmOverlayEditor, fmOverlayEditor);
-  Application.CreateForm(TfrmRight, frmRight);
-  Application.CreateForm(TfrmTop, frmTop);
-  Application.CreateForm(TfrmBottom, frmBottom);
-  Application.CreateForm(TfrmLeft, frmLeft);
   Application.CreateForm(TfrmRight2, frmRight2);
   Application.CreateForm(TfrmLeftPlotter, frmLeftPlotter);
   Application.CreateForm(TfrmLeftToolsPlotter, frmLeftToolsPlotter);
@@ -241,6 +239,15 @@ begin
   Application.CreateForm(TfrmTopPlotter, frmTopPlotter);
   Application.CreateForm(TfrmRuler, frmRuler);
   Application.CreateForm(TfrmKeyboard, frmKeyboard);
+  Application.CreateForm(TfrmBottom, frmBottom);
+  Application.CreateForm(TfrmGeneralTools, frmGeneralTools);
+  Application.CreateForm(TfrmHelp, frmHelp);
+  Application.CreateForm(TfrmBottom, frmBottom);
+  Application.CreateForm(TfrmGeneralTools, frmGeneralTools);
+  Application.CreateForm(TfrmHelp, frmHelp);
+  Application.CreateForm(TfrmTopNav, frmTopNav);
+  Application.CreateForm(TfrmLeft, frmLeft);
+  Application.CreateForm(TfrmRight, frmRight);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 

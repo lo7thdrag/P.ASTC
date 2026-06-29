@@ -420,22 +420,6 @@
         <DCCReference Include="..\DBEditor.src\uOverlayOther.pas"/>
         <DCCReference Include="..\DBEditor.src\uOverlayRecord.pas"/>
         <DCCReference Include="..\DBEditor.src\uRecord.pas"/>
-        <DCCReference Include="formClient\NavigasiUI\ufrmRight.pas">
-            <Form>frmRight</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="formClient\NavigasiUI\ufrmTop.pas">
-            <Form>frmTop</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="formClient\NavigasiUI\ufrmLeft.pas">
-            <Form>frmLeft</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="formClient\NavigasiUI\ufrmBottom.pas">
-            <Form>frmBottom</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="formClient\NavigasiUI\ufrmRight2.pas">
             <Form>frmRight2</Form>
             <FormType>dfm</FormType>
@@ -467,6 +451,30 @@
         </DCCReference>
         <DCCReference Include="formClient\plotterUI\ufrmKeyboard.pas">
             <Form>frmKeyboard</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\NavigasiUI\ufrmBottomNav.pas">
+            <Form>frmBottom</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\NavigasiUI\ufrmGeneralTools.pas">
+            <Form>frmGeneralTools</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\NavigasiUI\ufrmHelp.pas">
+            <Form>frmHelp</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\NavigasiUI\ufrmTopNav.pas">
+            <Form>frmTopNav</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\NavigasiUI\ufrmLeftNav.pas">
+            <Form>frmLeft</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formClient\NavigasiUI\ufrmRightNav.pas">
+            <Form>frmRight</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <None Include="ModelSupport_tttSimClient\default.txaPackage"/>
@@ -618,13 +626,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uGameData_TTT\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uT3Sensor\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uT3UnitContainer\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uGameData_TTT\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -636,7 +644,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uT3Sensor\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uT3UnitContainer\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>

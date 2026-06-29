@@ -4038,7 +4038,7 @@ procedure TfrmTacticalDisplay.SetUpNavigasiUI;
 begin
   pnlTop.Visible    := False;
   pnlBottom.Visible := False;
-//  pnlLeft.Visible   := False;
+  pnlLeft.Visible   := False;
   Self.Menu := nil;   {Menyembunyikan Main Menu kalau mau mengembalikan tinggal "Self.Menu := MainMenu1;"}
 
   frmTopNav.Parent     := Self;
