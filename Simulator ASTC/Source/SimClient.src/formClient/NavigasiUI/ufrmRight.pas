@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, RzBmpBtn,
-  Vcl.ComCtrls, Vcl.Imaging.pngimage, RotationMeter, VrControls, VrWheel;
+  Vcl.ComCtrls, Vcl.Imaging.pngimage, VrControls, VrWheel;
 
 type
   TfrmRight = class(TForm)

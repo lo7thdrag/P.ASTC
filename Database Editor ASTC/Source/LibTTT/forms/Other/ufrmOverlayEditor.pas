@@ -695,6 +695,7 @@ begin
   btnCenterOnGame.Down := False;
   btnZoom.Down := False;
   btnMoveMap.Down := False;
+  btnGameArea.Down := False;
 
   Map1.CurrentTool  := miArrowTool;
   Map1.MousePointer := miDefaultCursor;
@@ -1524,8 +1525,9 @@ end;
 
 procedure TOverlayEditorForm.btnGameAreaClick(Sender: TObject);
 begin
+  UpAllToolbarButton;
   frmGameAreaPickList := TfrmGameAreaPickList.Create(Self);
-  btnGameArea.ImageIndex := 10;
+//  btnGameArea.ImageIndex := 10;
   try
     with frmGameAreaPickList do
     begin
@@ -1623,9 +1625,13 @@ end;
 
 procedure TOverlayEditorForm.btnHandleShapeEditor(Sender: TObject);
 begin
-  case TButton(Sender).Tag of
+case TButton(Sender).Tag of
     0: {Apply}
     begin
+    if CekInput then
+      begin
+        Exit;
+      end;
       Apply;
       btnSelect.Click;
     end;
@@ -1641,6 +1647,11 @@ begin
     end;
     4: {Ok}
     begin
+      if CekInput then
+      begin
+        Exit;
+      end;
+
       DeleteFile(vAppDBSetting.OverlayPath + '\' + OverlayDef.FData.Overlay_Identifier + '.dat');
       RecordToFileStream(vAppDBSetting.OverlayPath + '\' + OverlayDef.FData.Overlay_Identifier + '.dat');
       AfterClose := True;
@@ -2541,8 +2552,8 @@ var
   TextStatic : TTextStatic;
   TextDynamic : TTextDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   Size := 10;
 
@@ -2600,8 +2611,8 @@ var
   LineStatic : TLineStatic;
   LineDynamic : TLineDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
@@ -2647,8 +2658,8 @@ var
   RectangleStatic : TRectangleStatic;
   RectangleDynamic : TRectangleDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
@@ -2694,8 +2705,8 @@ var
   CircleStatic : TCircleStatic;
   CircleDynamic : TCircleDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
@@ -2739,8 +2750,8 @@ var
   EllipseStatic : TEllipseStatic;
   EllipseDynamic : TEllipseDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
@@ -2786,8 +2797,8 @@ var
   ArcStatic : TArcStatic;
   ArcDynamic : TArcDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
@@ -2835,8 +2846,8 @@ var
   SectorStatic : TSectorStatic;
   SectorDynamic : TSectorDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
@@ -2886,8 +2897,8 @@ var
   GridStatic : TGridStatic;
   GridDynamic : TGridDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
@@ -2943,8 +2954,8 @@ var
   PolygonStatic : TPolygonStatic;
   PolygonDynamic : TPolygonDynamic;
 begin
-  if CekInput then
-    Exit;
+//  if CekInput then
+//    Exit;
 
   case OverlayDef.FData.Static_Overlay of
     osDynamic :
