@@ -3,7 +3,6 @@ object ufRealTime: TufRealTime
   Top = 0
   BorderStyle = bsNone
   BorderWidth = 12
-  Caption = 'ufRealTime'
   ClientHeight = 744
   ClientWidth = 1342
   Color = clBlack
