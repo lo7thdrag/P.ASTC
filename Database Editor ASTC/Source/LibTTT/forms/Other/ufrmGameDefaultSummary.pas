@@ -1012,6 +1012,118 @@ begin
     Exit;
   end;
 
+  TimeToSecond(medtTimeStaleTrackLostContactAir.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Stale Track Lost Contact Air Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeStaleTrackLostContactSurface.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Stale Track Lost Contact Surface Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeStaleTrackLostContactSubsurface.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Stale Track Lost Contact Subsurface Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeStaleTrackLostContactESM.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Stale Track Lost Contact ESM Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeStaleTrackLostContactSonar.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Stale Track Lost Contact Sonar Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeRemoveStaleTrackAir.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Remove Stale Track Air Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeRemoveStaleTrackSubsurface.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Remove Stale Track Subsurface Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeRemoveStaleTrackESM.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Remove Stale Track ESM Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtTimeRemoveStaleTrackSonar.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Time Remove Stale Track Sonar Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtReversionTimeEngagement.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Reversion Time Engagement Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtReversionTimeOutrun.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Reversion Time Outrun Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtReversionTimeShadow.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('Reversion Time Shadow Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtMHSDelayTimeFlash.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('MHS Delay Time Flash Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtMHSDelayTimeImmediate.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('MHS Delay Time Immediate Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtMHSDelayTimePriority.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('MHS Delay Time Priority Terlalu Lama');
+    Exit;
+  end;
+
+  TimeToSecond(medtMHSDelayTimeRoutine.Text, second);
+  if second > 32400 then
+  begin
+    ShowMessage('MHS Delay Time Routine Terlalu Lama');
+    Exit;
+  end;
+
   Result := True;
 end;
 
