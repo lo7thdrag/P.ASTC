@@ -16,7 +16,7 @@ type
     Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
+    lblDurasiPermainan: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -38,6 +38,8 @@ type
     { Public declarations }
     FUDPNode    : TNetUDPNode;
     FVTime      : TVirtualTime;
+    FDurasiPermainan : TVirtualTime;
+
     first  : boolean;
 
     GameSPEED: Double;
@@ -47,10 +49,10 @@ type
     procedure SetGameTime(const gt: tDateTime);
     procedure SetGameDate(const gt: TDateTime);
     procedure SetServerTime(const gt: tDateTime);
+    procedure SetDurasiPermainan(const gt: tDateTime);
     procedure SetGameSpeed(const i: Integer);
 
   end;
-
 
   function  InitiateSystemShutdown(
    lpMachineName,  lpMessage:  PANSIChar;
@@ -126,6 +128,9 @@ begin
 
   FVTime := TVirtualTime.Create;
   FVTime.DateTimeOffset := 0;
+
+  FDurasiPermainan := TVirtualTime.Create;
+  FDurasiPermainan.DateTimeOffset := 0;
 
   {$REGION ' StartNetworking '}
   FUDPNode := TNetUDPNode.Create;
@@ -231,6 +236,9 @@ begin
 
       //GameStart;
       FTT.OnRunning := RunningThread;
+
+      if first then
+        ufRealTime.lblJamStart.Caption := FormatDateTime(' hh : nn : ss ', now);
     end;
     CORD_ID_pause :
     begin
@@ -272,21 +280,26 @@ begin
     GameSPEED := rec^.GameSpeed;
 end;
 
-
 procedure TfrmMainGT.RunningThread(const dt: double);
 begin
   FVTime.IncreaseMillisecond(GameSPEED * dt * 1000.0);
+  FDurasiPermainan.IncreaseMillisecond(GameSPEED * dt * 1000.0);
+  ufRealTime.FDurasiSebenarnya.IncreaseMillisecond(dt * 1000.0);
+end;
+
+procedure TfrmMainGT.SetDurasiPermainan(const gt: tDateTime);
+begin
+  lblDurasiPermainan.Caption := FormatDateTime(' hh : nn : ss ', gt);
 end;
 
 procedure TfrmMainGT.SetGameDate(const gt: TDateTime);
 begin
    lblGameDate.Caption := FormatDateTime('dd mmmm yyyy', gt);
-//   SetGameDate(gt);
 end;
 
 procedure TfrmMainGT.SetGameSpeed(const i: Integer);
 begin
-  lblGameSpeed.Caption := 'Percepatan : ' + IntToStr(i)+ 'x'
+  lblGameSpeed.Caption := IntToStr(i)+ 'x'
 end;
 
 procedure TfrmMainGT.SetGameTime(const gt: tDateTime);
@@ -305,10 +318,8 @@ begin
   begin
     SetGameTime(FVTime.GetTime);
     SetGameDate(FVTime.GetTime);
+    SetDurasiPermainan(FDurasiPermainan.GetTime)
   end;
-//  SetGameTime(Now);
-//  if not first then
-//    SetGameTime(FVTime.GetTime);
 end;
 
 end.

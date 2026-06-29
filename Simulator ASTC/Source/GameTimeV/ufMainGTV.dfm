@@ -4,8 +4,8 @@ object frmMainGT: TfrmMainGT
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'Tactical Team Trainer Game Time'
-  ClientHeight = 744
-  ClientWidth = 1342
+  ClientHeight = 720
+  ClientWidth = 1318
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,9 +22,6 @@ object frmMainGT: TfrmMainGT
   OnCreate = FormCreate
   OnResize = FormResize
   OnShow = FormShow
-  DesignSize = (
-    1342
-    744)
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -98470,7 +98467,7 @@ object frmMainGT: TfrmMainGT
     Width = 300
     Height = 45
     Alignment = taCenter
-    Anchors = [akRight, akBottom]
+    AutoSize = False
     Caption = '31 Desember 2026'
     Font.Charset = ANSI_CHARSET
     Font.Color = clAqua
@@ -98480,13 +98477,13 @@ object frmMainGT: TfrmMainGT
     ParentFont = False
   end
   object lblGameSpeed: TLabel
-    Left = 289
+    Left = 275
     Top = 621
-    Width = 36
+    Width = 72
     Height = 47
     Alignment = taCenter
-    Anchors = [akLeft, akBottom]
-    Caption = '1x'
+    AutoSize = False
+    Caption = '0'
     Font.Charset = ANSI_CHARSET
     Font.Color = 16777152
     Font.Height = -47
@@ -98500,7 +98497,6 @@ object frmMainGT: TfrmMainGT
     Width = 104
     Height = 47
     Alignment = taCenter
-    Anchors = [akLeft, akBottom]
     Caption = 'Durasi'
     Font.Charset = ANSI_CHARSET
     Font.Color = clAqua
@@ -98512,11 +98508,10 @@ object frmMainGT: TfrmMainGT
   object Label2: TLabel
     Left = 225
     Top = 557
-    Width = 190
+    Width = 171
     Height = 47
     Alignment = taCenter
-    Anchors = [akLeft, akBottom]
-    Caption = 'Percepatan '
+    Caption = 'Percepatan'
     Font.Charset = ANSI_CHARSET
     Font.Color = clAqua
     Font.Height = -47
@@ -98524,7 +98519,7 @@ object frmMainGT: TfrmMainGT
     Font.Style = []
     ParentFont = False
   end
-  object Label3: TLabel
+  object lblDurasiPermainan: TLabel
     Left = 835
     Top = 621
     Width = 330

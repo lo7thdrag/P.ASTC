@@ -4,19 +4,19 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, uVirtualTime;
 
 type
   TufRealTime = class(TForm)
-    lblServerTIME: TLabel;
+    lblRealTIME: TLabel;
     lblRTCaption: TLabel;
     Timer1: TTimer;
-    lblGameDate: TLabel;
+    lblRealDate: TLabel;
     Image1: TImage;
     Label1: TLabel;
-    Label2: TLabel;
+    lblJamStart: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
+    lblDurasiSebenarnya: TLabel;
     procedure Timer1Timer(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -25,9 +25,13 @@ type
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+
   public
     { Public declarations }
-     first  : boolean;
+    FDurasiSebenarnya : TVirtualTime;
+    first  : boolean;
+
+    procedure SetDurasiSebenarnya(const gt: tDateTime);
 //     procedure SetGameTime(const gt: tDateTime);
      procedure SetServerTime(const gt: tDateTime);
      procedure SetGameDate(const gt: TDateTime);
@@ -51,6 +55,9 @@ end;
 procedure TufRealTime.FormCreate(Sender: TObject);
 begin
   LoadFF_GameSetting(vSettingFile, vGameDataSetting);
+
+  FDurasiSebenarnya := TVirtualTime.Create;
+  FDurasiSebenarnya.DateTimeOffset := 0;
 end;
 
 procedure TufRealTime.FormKeyDown(Sender: TObject; var Key: Word;
@@ -94,21 +101,26 @@ begin
   SetGameDate(Now);
 end;
 
+procedure TufRealTime.SetDurasiSebenarnya(const gt: tDateTime);
+begin
+  lblDurasiSebenarnya.Caption := FormatDateTime(' hh : nn : ss ', gt)
+end;
+
 procedure TufRealTime.SetGameDate(const gt: TDateTime);
 begin
-    lblGameDate.Caption :=
-    FormatDateTime('dd mmmm yyyy', gt);
+    lblRealDate.Caption := FormatDateTime('dd mmmm yyyy', gt);
 end;
 
 procedure TufRealTime.SetServerTime(const gt: tDateTime);
 begin
-  lblServerTIME.Caption := FormatDateTime(' hh : nn : ss ', gt)
+  lblRealTIME.Caption := FormatDateTime(' hh : nn : ss ', gt)
 end;
 
 procedure TufRealTime.Timer1Timer(Sender: TObject);
 begin
-SetServerTime(Now);
-SetGameDate(Now);
+  SetServerTime(Now);
+  SetGameDate(Now);
+  SetDurasiSebenarnya(FDurasiSebenarnya.GetTime)
 end;
 
 end.

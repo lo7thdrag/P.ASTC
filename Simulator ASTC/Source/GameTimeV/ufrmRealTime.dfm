@@ -4,8 +4,8 @@ object ufRealTime: TufRealTime
   BorderStyle = bsNone
   BorderWidth = 12
   Caption = 'ufRealTime'
-  ClientHeight = 744
-  ClientWidth = 1342
+  ClientHeight = 696
+  ClientWidth = 1294
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,14 +20,11 @@ object ufRealTime: TufRealTime
   OnKeyDown = FormKeyDown
   OnResize = FormResize
   OnShow = FormShow
-  DesignSize = (
-    1342
-    744)
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = -14
-    Top = -18
+    Left = -13
+    Top = -12
     Width = 1404
     Height = 774
     Picture.Data = {
@@ -98439,7 +98436,7 @@ object ufRealTime: TufRealTime
     Left = 287
     Top = 136
     Width = 767
-    Height = 99
+    Height = 120
     Caption = 'Waktu Sebenarnya'
     Font.Charset = ANSI_CHARSET
     Font.Color = 16777152
@@ -98449,10 +98446,10 @@ object ufRealTime: TufRealTime
     ParentFont = False
     Transparent = True
   end
-  object lblServerTIME: TLabel
+  object lblRealTIME: TLabel
     Left = 149
     Top = 324
-    Width = 1044
+    Width = 1050
     Height = 166
     Caption = ' 00 : 00 : 00 '
     Font.Charset = ANSI_CHARSET
@@ -98462,28 +98459,27 @@ object ufRealTime: TufRealTime
     Font.Style = []
     ParentFont = False
   end
-  object lblGameDate: TLabel
+  object lblRealDate: TLabel
     Left = 988
-    Top = 48
-    Width = 274
-    Height = 53
+    Top = 57
+    Width = 300
+    Height = 45
     Alignment = taCenter
-    Anchors = [akRight, akBottom]
+    AutoSize = False
     Caption = '23 Juni 2026'
     Font.Charset = ANSI_CHARSET
     Font.Color = clAqua
-    Font.Height = -53
+    Font.Height = -45
     Font.Name = 'Deusex'
     Font.Style = []
     ParentFont = False
   end
   object Label1: TLabel
     Left = 231
-    Top = 553
+    Top = 557
     Width = 171
     Height = 47
     Alignment = taCenter
-    Anchors = [akRight, akBottom]
     Caption = 'Jam Start'
     Font.Charset = ANSI_CHARSET
     Font.Color = clAqua
@@ -98492,9 +98488,9 @@ object ufRealTime: TufRealTime
     Font.Style = []
     ParentFont = False
   end
-  object Label2: TLabel
+  object lblJamStart: TLabel
     Left = 141
-    Top = 612
+    Top = 621
     Width = 330
     Height = 53
     Caption = ' 00 : 00 : 00 '
@@ -98507,11 +98503,10 @@ object ufRealTime: TufRealTime
   end
   object Label3: TLabel
     Left = 965
-    Top = 557
+    Top = 560
     Width = 90
     Height = 40
     Alignment = taCenter
-    Anchors = [akRight, akBottom]
     Caption = 'Durasi'
     Font.Charset = ANSI_CHARSET
     Font.Color = clAqua
@@ -98520,9 +98515,9 @@ object ufRealTime: TufRealTime
     Font.Style = []
     ParentFont = False
   end
-  object Label4: TLabel
+  object lblDurasiSebenarnya: TLabel
     Left = 845
-    Top = 612
+    Top = 621
     Width = 330
     Height = 53
     Caption = ' 00 : 00 : 00 '
