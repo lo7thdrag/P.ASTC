@@ -8,20 +8,23 @@ uses
 
 type
   TfrmMainGT = class(TForm)
-    lblServerTIME: TLabel;
     lblGTCaption: TLabel;
     Timer1: TTimer;
-    lblRTCaption: TLabel;
     lblGameTime: TLabel;
-    Bevel1: TBevel;
     lblGameDate: TLabel;
     lblGameSpeed: TLabel;
+    Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    lblDurasiPermainan: TLabel;
+    pnlMainBackground: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FTT : TMSTimer;
     FLastRecvMS : LongWord;
@@ -37,6 +40,8 @@ type
     { Public declarations }
     FUDPNode    : TNetUDPNode;
     FVTime      : TVirtualTime;
+    FDurasiPermainan : TVirtualTime;
+
     first  : boolean;
 
     GameSPEED: Double;
@@ -46,10 +51,10 @@ type
     procedure SetGameTime(const gt: tDateTime);
     procedure SetGameDate(const gt: TDateTime);
     procedure SetServerTime(const gt: tDateTime);
+    procedure SetDurasiPermainan(const gt: tDateTime);
     procedure SetGameSpeed(const i: Integer);
 
   end;
-
 
   function  InitiateSystemShutdown(
    lpMachineName,  lpMessage:  PANSIChar;
@@ -69,6 +74,19 @@ uses
   uLibSettingTTT, uGameData_TTT, ufrmRealTime;
 
 {$R *.dfm}
+
+procedure EnableComposited(WinControl:TWinControl);
+var
+  i:Integer;
+  NewExStyle:DWORD;
+begin
+  NewExStyle := GetWindowLong(WinControl.Handle, GWL_EXSTYLE) or WS_EX_COMPOSITED;
+  SetWindowLong(WinControl.Handle, GWL_EXSTYLE, NewExStyle);
+
+  for I := 0 to WinControl.ControlCount - 1 do
+    if WinControl.Controls[i] is TWinControl then
+      EnableComposited(TWinControl(WinControl.Controls[i]));
+end;
 
 {
 var err: LongWord;
@@ -126,6 +144,9 @@ begin
   FVTime := TVirtualTime.Create;
   FVTime.DateTimeOffset := 0;
 
+  FDurasiPermainan := TVirtualTime.Create;
+  FDurasiPermainan.DateTimeOffset := 0;
+
   {$REGION ' StartNetworking '}
   FUDPNode := TNetUDPNode.Create;
   FUDPNode.Port  := vNetSetting.GamePort;
@@ -146,10 +167,17 @@ begin
   FTT.Enabled   := true;
   FLastRecvMS   := 0;
 
-  DoubleBuffered := true;
+  EnableComposited(pnlMainBackground)
+//  DoubleBuffered := true;
 
 end;
 
+procedure TfrmMainGT.FormDestroy(Sender: TObject);
+begin
+  FVTime.Free;
+  FDurasiPermainan.Free;
+  FTT.Free;
+end;
 
 procedure TfrmMainGT.FormResize(Sender: TObject);
 begin
@@ -159,11 +187,11 @@ begin
 //  lblServerTIME.Left := ((Width - lblServerTIME.Width) div 2);
 //  lblServerTIME.Top := Round(Height * 0.25);
 
-  lblGTCaption.Left := ((Width - lblGTCaption.Width) div 2);
-  lblGTCaption.Top := Round(Height * 0.1);
-
-  lblGameTime.Left := ((Width - lblGameTime.Width) div 2);
-  lblGameTime.Top  := Round(Height * 0.45);
+//  lblGTCaption.Left := ((Width - lblGTCaption.Width) div 2);
+//  lblGTCaption.Top := Round(Height * 0.1);
+//
+//  lblGameTime.Left := ((Width - lblGameTime.Width) div 2);
+//  lblGameTime.Top  := Round(Height * 0.45);
 
 //  lblGameDate.Left := ((Width - lblGameDate.Width) div 2);
 //  lblGameDate.Top  := lblGameTime.Top + lblGameTime.Height + 45;
@@ -230,6 +258,12 @@ begin
 
       //GameStart;
       FTT.OnRunning := RunningThread;
+
+      if first then
+      begin
+        ufRealTime.lblJamStart.Caption := FormatDateTime(' hh : nn : ss ', now);
+        SetGameSpeed(Round(GameSPEED))
+      end;
     end;
     CORD_ID_pause :
     begin
@@ -271,21 +305,26 @@ begin
     GameSPEED := rec^.GameSpeed;
 end;
 
-
 procedure TfrmMainGT.RunningThread(const dt: double);
 begin
   FVTime.IncreaseMillisecond(GameSPEED * dt * 1000.0);
+  FDurasiPermainan.IncreaseMillisecond(GameSPEED * dt * 1000.0);
+  ufRealTime.FDurasiSebenarnya.IncreaseMillisecond(dt * 1000.0);
+end;
+
+procedure TfrmMainGT.SetDurasiPermainan(const gt: tDateTime);
+begin
+  lblDurasiPermainan.Caption := FormatDateTime(' hh : nn : ss ', gt);
 end;
 
 procedure TfrmMainGT.SetGameDate(const gt: TDateTime);
 begin
    lblGameDate.Caption := FormatDateTime('dd mmmm yyyy', gt);
-//   SetGameDate(gt);
 end;
 
 procedure TfrmMainGT.SetGameSpeed(const i: Integer);
 begin
-  lblGameSpeed.Caption := 'Percepatan : ' + IntToStr(i)+ 'x'
+  lblGameSpeed.Caption := IntToStr(i)+ 'x'
 end;
 
 procedure TfrmMainGT.SetGameTime(const gt: tDateTime);
@@ -295,7 +334,7 @@ end;
 
 procedure TfrmMainGT.SetServerTime(const gt: tDateTime);
 begin
-  lblServerTIME.Caption := FormatDateTime(' hh : nn : ss ', gt)
+//  lblServerTIME.Caption := FormatDateTime(' hh : nn : ss ', gt)
 end;
 
 procedure TfrmMainGT.Timer1Timer(Sender: TObject);
@@ -304,10 +343,8 @@ begin
   begin
     SetGameTime(FVTime.GetTime);
     SetGameDate(FVTime.GetTime);
+    SetDurasiPermainan(FDurasiPermainan.GetTime)
   end;
-//  SetGameTime(Now);
-//  if not first then
-//    SetGameTime(FVTime.GetTime);
 end;
 
 end.
