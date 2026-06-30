@@ -815,6 +815,9 @@ begin
   DrawOverlayTemporary  := TDrawOverlay.Create;
   DrawOverlayTemporary.Converter := Converter;
 
+  DrawRuler := TDrawRuler.Create;
+  DrawRuler.Converter := Converter;
+
   TrackNumberWeapon := 4000;
   MyForceDesignation := -1;
   MyCenterHookedPlatfom := nil;
@@ -856,6 +859,8 @@ begin
   FCubicleList.Free;
   FTargetSymbol.Free;
   FFlashPointNGS.Free;
+
+  FreeAndNil(DrawRuler);
 
   /// / remote condition
   if FRemoteServerCMD <> nil then

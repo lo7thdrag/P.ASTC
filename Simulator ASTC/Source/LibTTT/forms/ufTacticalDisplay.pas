@@ -1693,11 +1693,11 @@ begin
 
   pnlMap.Align := alClient;
 
-//  Map1 := TMapXTouch.Create(Self);
-//  Map1.Parent := pnlMap;
-//  Map1.Align := alClient;
-//  Map1.Visible := True;
-//  Map1.DoubleBuffered := False;
+  Map1 := TMapXTouch.Create(Self);
+  Map1.Parent := pnlMap;
+  Map1.Align := alClient;
+  Map1.Visible := True;
+  Map1.DoubleBuffered := False;
 
   frmTacticalDisplay.DoubleBuffered := False;
   pnlMap.DoubleBuffered := False;

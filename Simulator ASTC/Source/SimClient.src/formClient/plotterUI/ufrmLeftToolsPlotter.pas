@@ -206,24 +206,31 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnPanClick(Sender: TObject);
 begin
-  if btnPan.Down then
-  begin
-    frmRuler.Close;
-    frmTacticalDisplay.Map1.CurrentTool := miPanTool;
-    frmTacticalDisplay.Map1.MousePointer := miPanCursor;
-    frmTacticalDisplay.Map1.IsPan := False;   {parameter untuk map agar tidak bisa digeser}
-    frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
 
-    btnRuler.Down := False;
+  if Assigned(frmRuler) then
+  frmRuler.Hide;   // atau Close jika Action := caHide
 
-  end
-  else
-  begin
-    frmTacticalDisplay.Map1.CurrentTool := mtSelectObject;
-    frmTacticalDisplay.Map1.MousePointer := miDefaultCursor;
-    frmTacticalDisplay.Map1.IsPan := True;   {parameter untuk map agar bisa digeser}
-    frmTacticalDisplay.StatusBar1.Panels[0].Text := 'Select';
-  end;
+frmTacticalDisplay.Map1.CurrentTool := miPanTool;
+frmTacticalDisplay.Map1.MousePointer := miPanCursor;
+frmTacticalDisplay.Map1.IsPan := False;
+//  if btnPan.Down then
+//  begin
+//    frmRuler.Close;
+//    frmTacticalDisplay.Map1.CurrentTool := miPanTool;
+//    frmTacticalDisplay.Map1.MousePointer := miPanCursor;
+//    frmTacticalDisplay.Map1.IsPan := False;   {parameter untuk map agar tidak bisa digeser}
+//    frmTacticalDisplay.StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
+//
+//    btnRuler.Down := False;
+//
+//  end
+//  else
+//  begin
+//    frmTacticalDisplay.Map1.CurrentTool := mtSelectObject;
+//    frmTacticalDisplay.Map1.MousePointer := miDefaultCursor;
+//    frmTacticalDisplay.Map1.IsPan := True;   {parameter untuk map agar bisa digeser}
+//    frmTacticalDisplay.StatusBar1.Panels[0].Text := 'Select';
+//  end;
 
 end;
 
@@ -253,7 +260,7 @@ begin
     if btnRuler.Down then
     begin
 //      Map1.CurrentTool := mtRuler;
-      Map1.CurrentTool := mtSelectObject;
+      Map1.CurrentTool := miSelectTool;
       StatusBar1.Panels[0].Text := TRzBmpButton(Sender).Hint;
 
       frmRuler.Show;
