@@ -477,6 +477,10 @@
             <Form>frmRight</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\LibTTT\forms\uBrowseMap.pas">
+            <Form>frmBrowseMap</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_tttSimClient\default.txaPackage"/>
         <None Include="ModelSupport_tttSimClient\uFormationEditorForm\default.txvpck"/>
         <None Include="ModelSupport_tttSimClient\ufTacticalDisplay\default.txvpck"/>
@@ -626,13 +630,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uT3Sensor\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uT3UnitContainer\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uGameData_TTT\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uT3Sensor\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
@@ -644,7 +648,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="ModelSupport_tttSimClient\uT3UnitContainer\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="ModelSupport_tttSimClient\uGameData_TTT\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>

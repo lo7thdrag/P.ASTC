@@ -6,7 +6,7 @@ object fmOverlayEditor: TfmOverlayEditor
   Caption = 'Overlay Template Editor'
   ClientHeight = 584
   ClientWidth = 667
-  Color = clBtnFace
+  Color = 6111773
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -26,7 +26,7 @@ object fmOverlayEditor: TfmOverlayEditor
     Top = 8
     Width = 298
     Height = 480
-    Color = clBtnFace
+    Color = 6111773
     ParentBackground = False
     ParentColor = False
     TabOrder = 1
@@ -103,7 +103,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Height = 14
       Caption = '---'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -647,7 +647,7 @@ object fmOverlayEditor: TfmOverlayEditor
       AutoSize = False
       Caption = 'Dynamic'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -672,7 +672,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Height = 14
       Caption = '::.'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -685,7 +685,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Height = 14
       Caption = '.::'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clWhite
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
@@ -697,14 +697,21 @@ object fmOverlayEditor: TfmOverlayEditor
       Width = 164
       Height = 38
       BevelOuter = bvNone
+      Color = 6111773
       ParentBackground = False
       TabOrder = 0
       object lblColour: TLabel
         Left = 3
         Top = 14
-        Width = 38
+        Width = 42
         Height = 13
         Caption = 'Colour :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object clrbxColor: TColorBox
         Left = 50
@@ -1989,6 +1996,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Width = 228
       Height = 278
       BevelOuter = bvNone
+      Color = 6111773
       ParentBackground = False
       TabOrder = 1
       object grpArc: TGroupBox
@@ -3597,17 +3605,26 @@ object fmOverlayEditor: TfmOverlayEditor
         Top = 7
         Width = 214
         Height = 264
+        Color = 6111773
+        ParentBackground = False
+        ParentColor = False
         TabOrder = 5
         object Label13: TLabel
           Left = 14
           Top = 21
-          Width = 31
+          Width = 35
           Height = 13
           Caption = 'Point :'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
         end
         object SpeedButton10: TSpeedButton
           Tag = 10
-          Left = 156
+          Left = 158
           Top = 39
           Width = 43
           Height = 43
@@ -3641,21 +3658,59 @@ object fmOverlayEditor: TfmOverlayEditor
           OnClick = btnDeletePolyClick
         end
         object Label76: TLabel
-          Left = 28
+          Left = 27
           Top = 43
-          Width = 28
+          Width = 18
           Height = 13
-          Caption = 'Lat   :'
+          Caption = 'Lat'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
         end
         object Label77: TLabel
-          Left = 28
+          Left = 27
           Top = 65
-          Width = 30
+          Width = 27
           Height = 13
-          Caption = 'Long :'
+          Caption = 'Long'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label84: TLabel
+          Left = 56
+          Top = 43
+          Width = 3
+          Height = 13
+          Caption = ':'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label85: TLabel
+          Left = 56
+          Top = 65
+          Width = 3
+          Height = 13
+          Caption = ':'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
         end
         object edtPolyPosLat: TEdit
-          Left = 60
+          Left = 64
           Top = 39
           Width = 91
           Height = 21
@@ -3663,7 +3718,7 @@ object fmOverlayEditor: TfmOverlayEditor
           Text = '00'#176' 00'#39' 00.0" N'
         end
         object edtPolyPosLong: TEdit
-          Left = 60
+          Left = 64
           Top = 61
           Width = 91
           Height = 21
@@ -3813,224 +3868,6 @@ object fmOverlayEditor: TfmOverlayEditor
       TabOrder = 0
       ViewStyle = vsReport
       OnSelectItem = lvTemplatesSelectItem
-    end
-    object pnlCreateNew: TPanel
-      Left = 8
-      Top = 287
-      Width = 282
-      Height = 271
-      BevelOuter = bvNone
-      ParentBackground = False
-      TabOrder = 2
-      Visible = False
-      object Label1: TLabel
-        Left = 20
-        Top = 25
-        Width = 27
-        Height = 13
-        Caption = 'Name'
-      end
-      object Label65: TLabel
-        Left = 61
-        Top = 25
-        Width = 10
-        Height = 13
-        Caption = ' : '
-      end
-      object Label2: TLabel
-        Left = 20
-        Top = 48
-        Width = 30
-        Height = 13
-        Caption = 'Type  '
-      end
-      object Bevel3: TBevel
-        Left = 9
-        Top = 4
-        Width = 259
-        Height = 3
-      end
-      object Label3: TLabel
-        Left = 20
-        Top = 110
-        Width = 35
-        Height = 13
-        Caption = 'Domain'
-      end
-      object Bevel2: TBevel
-        Left = 12
-        Top = 229
-        Width = 259
-        Height = 3
-      end
-      object Label4: TLabel
-        Left = 61
-        Top = 48
-        Width = 10
-        Height = 13
-        Caption = ' : '
-      end
-      object Label5: TLabel
-        Left = 61
-        Top = 110
-        Width = 10
-        Height = 13
-        Caption = ' : '
-      end
-      object edtNameOverlay: TEdit
-        Left = 77
-        Top = 21
-        Width = 141
-        Height = 21
-        MaxLength = 30
-        TabOrder = 0
-        Text = 'New Overlay'
-      end
-      object btnOk: TButton
-        Tag = 4
-        Left = 142
-        Top = 240
-        Width = 59
-        Height = 25
-        Caption = 'Create'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 6
-        OnClick = btnHandleTemplate
-      end
-      object btnCancel: TButton
-        Tag = 5
-        Left = 209
-        Top = 240
-        Width = 59
-        Height = 25
-        Caption = 'Cancel'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 7
-        OnClick = btnHandleTemplate
-      end
-      object rbAir: TRadioButton
-        Left = 30
-        Top = 125
-        Width = 113
-        Height = 17
-        Caption = 'Air'
-        TabOrder = 1
-        OnClick = rbDomainHandle
-      end
-      object rbSurface: TRadioButton
-        Left = 30
-        Top = 144
-        Width = 113
-        Height = 17
-        Caption = 'Surface'
-        TabOrder = 2
-        OnClick = rbDomainHandle
-      end
-      object rbSubsurface: TRadioButton
-        Left = 30
-        Top = 163
-        Width = 113
-        Height = 17
-        Caption = 'Subsurface'
-        TabOrder = 3
-        OnClick = rbDomainHandle
-      end
-      object rbLand: TRadioButton
-        Left = 30
-        Top = 182
-        Width = 113
-        Height = 17
-        Caption = 'Land'
-        TabOrder = 4
-        OnClick = rbDomainHandle
-      end
-      object rbGeneral: TRadioButton
-        Left = 30
-        Top = 201
-        Width = 113
-        Height = 17
-        Caption = 'General'
-        TabOrder = 5
-        OnClick = rbDomainHandle
-      end
-      object Panel1: TPanel
-        Left = 30
-        Top = 67
-        Width = 129
-        Height = 38
-        BevelOuter = bvNone
-        ParentBackground = False
-        TabOrder = 8
-        object Bevel5: TBevel
-          Left = 12
-          Top = 229
-          Width = 259
-          Height = 5
-        end
-        object rbStatic: TRadioButton
-          Tag = 1
-          Left = 0
-          Top = 0
-          Width = 57
-          Height = 17
-          Caption = 'Static'
-          Checked = True
-          TabOrder = 0
-          TabStop = True
-          OnClick = rbTipeHandle
-        end
-        object Button1: TButton
-          Tag = 4
-          Left = 142
-          Top = 240
-          Width = 59
-          Height = 25
-          Caption = 'Create'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 2
-          OnClick = btnHandleTemplate
-        end
-        object Button2: TButton
-          Tag = 5
-          Left = 209
-          Top = 240
-          Width = 59
-          Height = 25
-          Caption = 'Cancel'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
-          ParentFont = False
-          TabOrder = 3
-          OnClick = btnHandleTemplate
-        end
-        object rbDynamic: TRadioButton
-          Left = 0
-          Top = 19
-          Width = 65
-          Height = 17
-          Caption = 'Dynamic'
-          TabOrder = 1
-          OnClick = rbTipeHandle
-        end
-      end
     end
     object pnlTrackSelection: TPanel
       Left = 8
@@ -4310,6 +4147,7 @@ object fmOverlayEditor: TfmOverlayEditor
       Width = 282
       Height = 234
       BevelOuter = bvNone
+      Color = 6111773
       ParentBackground = False
       TabOrder = 1
       Visible = False
@@ -4351,6 +4189,12 @@ object fmOverlayEditor: TfmOverlayEditor
         Width = 259
         Height = 226
         Caption = 'Dynamic '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
         Visible = False
         object btnAttach: TSpeedButton
@@ -4424,6 +4268,292 @@ object fmOverlayEditor: TfmOverlayEditor
           TabOrder = 0
           ViewStyle = vsReport
           OnSelectItem = lvTrackSelectItem
+        end
+      end
+    end
+    object pnlCreateNew: TPanel
+      Left = 16
+      Top = 287
+      Width = 260
+      Height = 271
+      BevelOuter = bvNone
+      Color = 6111773
+      ParentBackground = False
+      TabOrder = 2
+      Visible = False
+      object Label1: TLabel
+        Left = 20
+        Top = 23
+        Width = 32
+        Height = 13
+        Caption = 'Name'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label65: TLabel
+        Left = 61
+        Top = 23
+        Width = 9
+        Height = 13
+        Caption = ' : '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 20
+        Top = 46
+        Width = 34
+        Height = 13
+        Caption = 'Type  '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Bevel3: TBevel
+        Left = 9
+        Top = 4
+        Width = 259
+        Height = 3
+      end
+      object Label3: TLabel
+        Left = 20
+        Top = 111
+        Width = 43
+        Height = 13
+        Caption = 'Domain'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Bevel2: TBevel
+        Left = 12
+        Top = 229
+        Width = 259
+        Height = 3
+      end
+      object Label4: TLabel
+        Left = 61
+        Top = 46
+        Width = 9
+        Height = 13
+        Caption = ' : '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label5: TLabel
+        Left = 61
+        Top = 111
+        Width = 9
+        Height = 13
+        Caption = ' : '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object edtNameOverlay: TEdit
+        Left = 77
+        Top = 19
+        Width = 141
+        Height = 21
+        MaxLength = 30
+        TabOrder = 0
+        Text = 'New Overlay'
+        OnEnter = edtNameOverlayEnter
+      end
+      object btnCreate: TButton
+        Tag = 4
+        Left = 134
+        Top = 240
+        Width = 59
+        Height = 25
+        Caption = 'Create'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 6
+        OnClick = btnHandleTemplate
+      end
+      object btnCancel: TButton
+        Tag = 5
+        Left = 201
+        Top = 240
+        Width = 59
+        Height = 25
+        Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 7
+        OnClick = btnHandleTemplate
+      end
+      object rbAir: TRadioButton
+        Left = 30
+        Top = 128
+        Width = 113
+        Height = 17
+        Caption = 'Air'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        OnClick = rbDomainHandle
+      end
+      object rbSurface: TRadioButton
+        Left = 30
+        Top = 147
+        Width = 113
+        Height = 17
+        Caption = 'Surface'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        OnClick = rbDomainHandle
+      end
+      object rbSubsurface: TRadioButton
+        Left = 30
+        Top = 166
+        Width = 113
+        Height = 17
+        Caption = 'Subsurface'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        OnClick = rbDomainHandle
+      end
+      object rbLand: TRadioButton
+        Left = 30
+        Top = 185
+        Width = 113
+        Height = 17
+        Caption = 'Land'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        OnClick = rbDomainHandle
+      end
+      object rbGeneral: TRadioButton
+        Left = 30
+        Top = 204
+        Width = 113
+        Height = 17
+        Caption = 'General'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        OnClick = rbDomainHandle
+      end
+      object Panel1: TPanel
+        Left = 30
+        Top = 66
+        Width = 129
+        Height = 38
+        BevelOuter = bvNone
+        ParentBackground = False
+        TabOrder = 8
+        object Bevel5: TBevel
+          Left = 12
+          Top = 229
+          Width = 259
+          Height = 5
+        end
+        object rbStatic: TRadioButton
+          Tag = 1
+          Left = 0
+          Top = 0
+          Width = 57
+          Height = 17
+          Caption = 'Static'
+          Checked = True
+          TabOrder = 0
+          TabStop = True
+          OnClick = rbTipeHandle
+        end
+        object Button1: TButton
+          Tag = 4
+          Left = 142
+          Top = 240
+          Width = 59
+          Height = 25
+          Caption = 'Create'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 2
+          OnClick = btnHandleTemplate
+        end
+        object Button2: TButton
+          Tag = 5
+          Left = 209
+          Top = 240
+          Width = 59
+          Height = 25
+          Caption = 'Cancel'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 3
+          OnClick = btnHandleTemplate
+        end
+        object rbDynamic: TRadioButton
+          Left = 0
+          Top = 19
+          Width = 65
+          Height = 17
+          Caption = 'Dynamic'
+          TabOrder = 1
+          OnClick = rbTipeHandle
         end
       end
     end

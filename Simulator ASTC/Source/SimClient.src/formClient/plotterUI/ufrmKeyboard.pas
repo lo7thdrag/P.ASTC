@@ -36,14 +36,19 @@ implementation
 
 procedure TKeyboardPanel.WndProc(var message: TMessage);
 begin
-  if Assigned(frmKeyboard) then
-  begin
-    if frmKeyboard.HandleOfTheTargetForm <> 0 then
-    begin
-      SetForegroundWindow(frmKeyboard.HandleOfTheTargetForm);
-    end;
-  end;
+//    if frmKeyboard.HandleOfTheTargetForm <> 0 then
+//    begin
+//      SetForegroundWindow(frmKeyboard.HandleOfTheTargetForm);
+//    end;
   inherited;
+
+  if (frmKeyboard <> nil) and
+    (frmKeyboard.HandleOfTheTargetForm <> 0) and
+    IsWindow(frmKeyboard.HandleOfTheTargetForm) then
+  begin
+    Windows.SetFocus(frmKeyboard.HandleOfTheTargetForm);
+  end;
+
 end;
 
 { TfrmKeyboard }

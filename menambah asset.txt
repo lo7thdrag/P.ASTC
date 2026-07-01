@@ -11,10 +11,8 @@
 
 //Plotter
 - Fitur Range Rings On Hook belum berfungsi.
-- Fitur Pan masih mengalami error saat diklik.
-- Tombol Start dan End pada form Ruler masih mengalami error.
-- Fitur Browse Map belum dapat berfungsi.
-- Fitur Keyboard belum berfungsi.
+- Tombol Start dan End pada form Ruler masih mengalami error. 
+- btnCreate di form overlay Editor belum bisa.
 
 
 

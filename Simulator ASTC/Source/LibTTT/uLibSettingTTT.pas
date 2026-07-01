@@ -72,6 +72,7 @@ type
     MapDataGeoset: string;
 
     MapENCPath: string;
+    MapGSTGame: string;
 
     OverlayPath : string;
     PatternPath : string;

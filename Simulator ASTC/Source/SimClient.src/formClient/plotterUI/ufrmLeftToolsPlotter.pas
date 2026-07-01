@@ -48,7 +48,7 @@ var
 implementation
 
 uses ufTacticalDisplay, uSimMgr_Client,
-  uMapXHandler, MapXLib_TLB, Math, tttData, uRuler{uBrowseMap};
+  uMapXHandler, MapXLib_TLB, Math, tttData, uRuler, uBrowseMap;
 
 const
   CMin_Z = 0;
@@ -100,7 +100,7 @@ end;
 
 procedure TfrmLeftToolsPlotter.btnBrowseMapClick(Sender: TObject);
 begin
-//  frmBrowseMap.Show;
+  frmBrowseMap.Show;
 end;
 
 procedure TfrmLeftToolsPlotter.btnCenterGameClick(Sender: TObject);

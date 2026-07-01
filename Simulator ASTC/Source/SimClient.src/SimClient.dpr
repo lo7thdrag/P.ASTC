@@ -207,7 +207,8 @@ uses
   ufrmHelp in 'formClient\NavigasiUI\ufrmHelp.pas' {frmHelp},
   ufrmTopNav in 'formClient\NavigasiUI\ufrmTopNav.pas' {frmTopNav},
   ufrmLeftNav in 'formClient\NavigasiUI\ufrmLeftNav.pas' {frmLeft},
-  ufrmRightNav in 'formClient\NavigasiUI\ufrmRightNav.pas' {frmRight};
+  ufrmRightNav in 'formClient\NavigasiUI\ufrmRightNav.pas' {frmRight},
+  uBrowseMap in '..\LibTTT\forms\uBrowseMap.pas' {frmBrowseMap};
 
 {$R *.res}
 
@@ -248,6 +249,7 @@ begin
   Application.CreateForm(TfrmTopNav, frmTopNav);
   Application.CreateForm(TfrmLeft, frmLeft);
   Application.CreateForm(TfrmRight, frmRight);
+  Application.CreateForm(TfrmBrowseMap, frmBrowseMap);
   frmLog.LogFile.FileName := ChangeFileExt(Application.ExeName, '.log');
   frmLog.LogFile.Init;
 

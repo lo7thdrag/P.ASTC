@@ -30,7 +30,7 @@ type
     Label3: TLabel;
     Bevel2: TBevel;
     edtNameOverlay: TEdit;
-    btnOk: TButton;
+    btnCreate: TButton;
     btnCancel: TButton;
     btnAttach: TSpeedButton;
     btnDetach: TSpeedButton;
@@ -385,6 +385,8 @@ type
     Label81: TLabel;
     Label82: TLabel;
     Label83: TLabel;
+    Label84: TLabel;
+    Label85: TLabel;
 
     procedure FormShow(Sender: TObject);
 
@@ -412,6 +414,7 @@ type
     procedure OnKeyPress(Sender: TObject; var Key: Char);
     procedure FormActivate(Sender: TObject);
     procedure FormDeactivate(Sender: TObject);
+    procedure edtNameOverlayEnter(Sender: TObject);
   private
     FTagTombolPosition : Integer;
     FTrackPlatform: TSimObject;
@@ -485,7 +488,7 @@ implementation
 
 {$R *.dfm}
 uses uSimMgr_Client, uDataModuleTTT, uDBScenario, uLibSettingTTT, tttData,
-  ufTacticalDisplay, uMapXHandler, uT3Unit, uFormUtil, uBaseCoordSystem;
+  ufTacticalDisplay, uMapXHandler, uT3Unit, uFormUtil, uBaseCoordSystem, ufrmKeyboard;
 
 procedure TfmOverlayEditor.lvTemplatesSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 var
@@ -1599,6 +1602,9 @@ procedure TfmOverlayEditor.FormCreate(Sender: TObject);
 begin
   Temporary := TList.Create;
   TemporaryD := TList.Create;
+  grpDynamic.ParentFont := False;
+  grpDynamic.Font.Color := $005D421D;
+  grpDynamic.Font.Style := [fsBold];
 end;
 
 procedure TfmOverlayEditor.FormDeactivate(Sender: TObject);
@@ -2084,6 +2090,11 @@ begin
   ObjectFlagPoint.Post.X := mx;
   ObjectFlagPoint.Post.Y := my;
   simMgrClient.DrawFlagPoint.FList.Add(ObjectFlagPoint);
+end;
+
+procedure TfmOverlayEditor.edtNameOverlayEnter(Sender: TObject);
+begin
+   frmKeyboard.HandleOfTheTargetForm := edtNameOverlay.Handle;
 end;
 
 end.
