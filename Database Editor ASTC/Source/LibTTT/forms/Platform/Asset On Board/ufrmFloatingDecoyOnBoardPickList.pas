@@ -190,8 +190,10 @@ end;
 
 procedure TfrmFloatingDecoyOnBoardPickList.UpdateFloatingDecoyList;
 var
-  i : Integer;
-  floatingdecoy : TFloating_Decoy_On_Board;
+  i, j : Integer;
+  floatingdecoy, floatingdecoyonboard : TFloating_Decoy_On_Board;
+  found : Boolean;
+
 begin
   lbAllFloatingDecoyDef.Items.Clear;
   lbAllFloatingDecoyOnBoard.Items.Clear;
@@ -202,14 +204,25 @@ begin
   for i := 0 to FAllFloatingDecoyDefList.Count - 1 do
   begin
     floatingdecoy := FAllFloatingDecoyDefList.Items[i];
-    lbAllFloatingDecoyDef.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
+
+    found := False;
+    for j := 0 to FAllFloatingDecoyOnBoardList.Count - 1 do
+    begin
+      floatingdecoyonboard := FAllFloatingDecoyOnBoardList.Items[j];
+
+      if floatingdecoyonboard.FFloatingDecoy_Def.Floating_Decoy_Index = floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if found then
+      lbAllFloatingDecoyOnBoard.Items.AddObject(floatingdecoyonboard.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoyonboard)
+    else
+      lbAllFloatingDecoyDef.Items.AddObject(floatingdecoy.FFloatingDecoy_Def.Floating_Decoy_Identifier, floatingdecoy);
   end;
 
-  for i := 0 to FAllFloatingDecoyOnBoardList.Count - 1 do
-  begin
-    floatingdecoy := FAllFloatingDecoyOnBoardList.Items[i];
-    lbAllFloatingDecoyOnBoard.Items.AddObject(floatingdecoy.FData.Instance_Identifier, floatingdecoy);
-  end;
 end;
 
 {$ENDREGION}

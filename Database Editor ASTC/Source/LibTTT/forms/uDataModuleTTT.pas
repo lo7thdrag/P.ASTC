@@ -19309,8 +19309,7 @@ begin
 
         with rec.FData do
         begin
-          Acoustic_Instance_Index := FieldByName('Acoustic_Instance_Index')
-            .AsInteger;
+          Acoustic_Instance_Index := FieldByName('Acoustic_Instance_Index').AsInteger;
           Instance_Identifier := FieldByName('Instance_Identifier').AsString;
           Quantity := FieldByName('Quantity').AsInteger;
           Vehicle_Index := FieldByName('Vehicle_Index').AsInteger;

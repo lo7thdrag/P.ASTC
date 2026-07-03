@@ -223,9 +223,9 @@ begin
     end;
 
     if found then
-      lbAllAcousticDecoyOnBoard.Items.AddObject(acousticdecoyonboard.FData.Instance_Identifier, acousticdecoyonboard)
+      lbAllAcousticDecoyOnBoard.Items.AddObject(acousticdecoyonboard.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoyonboard)
     else
-      lbAllAcousticDecoyDef.Items.AddObject(acousticdecoyonboard.FData.Instance_Identifier, acousticdecoyonboard);
+      lbAllAcousticDecoyDef.Items.AddObject(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoy);
   end;
 end;
 
