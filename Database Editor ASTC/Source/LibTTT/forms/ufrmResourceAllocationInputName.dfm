@@ -44850,8 +44850,6 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
-    ExplicitWidth = 330
-    ExplicitHeight = 157
     object pnl3Button: TPanel
       Left = 1
       Top = 114
@@ -44861,8 +44859,6 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
       BevelOuter = bvNone
       Color = clBtnShadow
       TabOrder = 0
-      ExplicitTop = 113
-      ExplicitWidth = 328
       object btnCancel: TButton
         Left = 228
         Top = 4
@@ -44904,8 +44900,6 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
       BorderWidth = 10
       Color = clBtnShadow
       TabOrder = 1
-      ExplicitWidth = 328
-      ExplicitHeight = 112
       object pnlPlatformInstance: TPanel
         Left = 10
         Top = 10
@@ -44914,8 +44908,6 @@ object frmResourceAllocationInputName: TfrmResourceAllocationInputName
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitWidth = 308
-        ExplicitHeight = 92
         object lblName: TLabel
           Left = 3
           Top = 18

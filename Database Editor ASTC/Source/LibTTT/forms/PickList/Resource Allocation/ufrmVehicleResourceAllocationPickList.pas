@@ -50,10 +50,11 @@ type
     FResourceAllocation : TResource_Allocation;
     FAssetDeployment : TAsset_Deployment;
 
-    procedure UpdateVehicleList;
-
   public
     isNoCancel : Boolean;
+
+    procedure UpdateVehicleList;
+
     property ResourceAllocation : TResource_Allocation read FResourceAllocation write FResourceAllocation;
     property AssetDeployment : TAsset_Deployment read FAssetDeployment write FAssetDeployment;
     property SelectedForce : Integer read FSelectedForce write FSelectedForce;
@@ -124,15 +125,15 @@ begin
 
       PlatformInstance := TPlatform_Instance.Create;
       try
-      ShowModal;
+        ShowModal;
 
-      if isUpdate then
-        UpdateVehicleList;
+        if isUpdate then
+          UpdateVehicleList;
 
-      isNoCancel := True;
+        isNoCancel := True;
 
       finally
-      PlatformInstance.Free;
+        PlatformInstance.Free;
       end;
     end;
   finally
@@ -189,34 +190,10 @@ begin
 end;
 
 procedure TfrmVehicleResourceAllocationPickList.edtSearchKeyPress(Sender: TObject; var Key: Char);
-//var
-//  i, j : Integer;
-//  Vehicle : TVehicle_Definition;
-//  platInst : TPlatform_Instance;
-//  found : Boolean;
 begin
   if Key = #13 then
   begin
-//    UpdateVehicleList
-//    lbAllVehicleDef.Items.Clear;
-//    lbAllVehicleOnRA.Items.Clear;
-//
-//    dmTTT.GetFilterVehicleDef(FAllVehicleDefList, edtSearch.Text);
-//    dmTTT.GetPlatformInstance(FResourceAllocation.FData.Resource_Alloc_Index, 1, FSelectedForce, FAllVehicleOnRAList);
-//
-//    for i := 0 to FAllVehicleDefList.Count - 1 do
-//    begin
-//      Vehicle := FAllVehicleDefList.Items[i];
-//
-//      lbAllVehicleDef.Items.AddObject(Vehicle.FData.Vehicle_Identifier, Vehicle);
-//    end;
-//
-//    for j := 0 to FAllVehicleOnRAList.Count - 1 do
-//    begin
-//      platInst := FAllVehicleOnRAList.Items[j];
-//
-//      lbAllVEhicleOnRA.Items.AddObject(platInst.FData.Instance_Name, platInst)
-//    end;
+    UpdateVehicleList
   end;
 end;
 

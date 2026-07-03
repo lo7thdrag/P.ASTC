@@ -357,26 +357,6 @@ begin
   begin
     vehicle := FVehicleList.Items[i];
     frmProgress.increase(vehicle.FData.Vehicle_Identifier);
-//    if chkDomain.Checked and
-//      (cbbFilterDomain.ItemIndex <> vehicle.FData.Platform_Domain) then
-//      Continue;
-//
-//    if chkType.Checked and
-//      (GetPlatformType(cbbFilterType.Text) <> vehicle.FData.Platform_Type) then
-//      Continue;
-//
-//    if chkSensor.Checked then
-//    begin
-//    end;
-//
-//    if chkWeapon.Checked then
-//    begin
-//    end;
-//
-//    if chkEmbarked.Checked then
-//    begin
-//    end;
-
     lstVehicle.Items.AddObject(vehicle.FData.Vehicle_Identifier, vehicle);
   end;
   frmProgress.Free;

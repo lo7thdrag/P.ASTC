@@ -24,7 +24,6 @@ type
     pnl5: TPanel;
     imgBackground: TImage;
     pnlMainBackground: TPanel;
-    edt1: TEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

@@ -59,7 +59,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmResorceAllocationPickList;
+  uDataModuleTTT, ufrmResorceAllocationPickList, ufrmVehicleResourceAllocationPickList;
 
 {$R *.dfm}
 procedure EnableComposited(WinControl:TWinControl);
@@ -118,7 +118,9 @@ begin
   end;
 
   isUpdate := True;
-  Close;
+
+  frmVehicleResourceAllocationPickList.UpdateVehicleList;
+//  Close;
 end;
 
 procedure TfrmResourceAllocationInputName.btnCancelClick(Sender: TObject);
@@ -190,13 +192,13 @@ begin
 
   if cbbName.ItemIndex = -1 then
   begin
-    ShowMessage('Please select platform');
+    ShowMessage('Anda belum memilih platform');
     Exit;
   end;
 
   if edtTrackId.Text = '' then
   begin
-    ShowMessage('Please input Track ID');
+    ShowMessage('Silahkan masukkan Track ID');
     Exit;
   end;
 
@@ -214,7 +216,7 @@ begin
 
     if chkSpace = numSpace then
     begin
-      ShowMessage('Please input Track ID');
+      ShowMessage('Silahkan masukkan Track ID');
       Exit;
     end;
   end;
@@ -225,12 +227,12 @@ begin
     {Jika inputan baru}
     if FPlatformInstance.FData.Vehicle_Index = 0  then
     begin
-      ShowMessage('Name already use, try another name');
+      ShowMessage('Platform sudah digunakan');
       Exit;
     end
     else if LastName <> cbbName.Text then
     begin
-      ShowMessage('Name already use, try another name');
+      ShowMessage('Platform sudah digunakan');
       Exit;
     end;
   end;
@@ -241,12 +243,12 @@ begin
     {Jika inputan baru}
     if FPlatformInstance.FData.Vehicle_Index = 0  then
     begin
-      ShowMessage('Track Id already use, try another Track Id');
+      ShowMessage('Track Id sudah digunakan, silahkan gunakan Track ID lain');
       Exit;
     end
     else if LastTrackID <> edtTrackId.Text then
     begin
-      ShowMessage('Track Id already use, try another Track Id');
+      ShowMessage('Track Id sudah digunakan, silahkan gunakan Track ID lain');
       Exit;
     end;
   end;
