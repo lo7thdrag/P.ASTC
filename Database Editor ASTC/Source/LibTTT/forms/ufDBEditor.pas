@@ -308,7 +308,7 @@ uses
   ufrmAvailableInfraredDecoy, ufrmAvailableFloatingDecoy, ufrmAvailableSelfDefensiveJammer,
   ufrmAvailableTowedJammerDecoy, ufrmAvailableRadarNoiseJammer,
 
-  ufrmAvailableRuntimePlatformLibrary, ufrmAvailablePredifinedPattern,
+  ufrmAvailableRPL, ufrmAvailablePredifinedPattern,
   ufrmAvailableRadarActivationIntervals,  ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles,
   ufrmAvailableGameDefaults, ufrmAvailableSNRvsPODCurve;
 
@@ -712,10 +712,10 @@ begin
     {$REGION ' Other Sub Menu '}
     ftfrmAvailableRuntimePlatformLibrary :
     begin
-      if not Assigned(frmAvailableRuntimePlatformLibrary) then
-          frmAvailableRuntimePlatformLibrary := TfrmAvailableRuntimePlatformLibrary.Create(self);
+      if not Assigned(frmAvailableRPL) then
+          frmAvailableRPL := TfrmAvailableRPL.Create(self);
 
-      aForm := frmAvailableRuntimePlatformLibrary;
+      aForm := frmAvailableRPL;
     end;
     ftfrmAvailableGrapicalOverlay :
     begin

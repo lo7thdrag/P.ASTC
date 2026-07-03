@@ -1,4 +1,4 @@
-unit ufrmAvailableRuntimePlatformLibrary;
+unit ufrmAvailableRPL;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Vcl.ExtCtrls, uDBAsset_Runtime_Platform_Library;
 
 type
-  TfrmAvailableRuntimePlatformLibrary = class(TForm)
+  TfrmAvailableRPL = class(TForm)
     pnlMainTable: TPanel;
     pnlTableHeader: TPanel;
     Label2: TLabel;
@@ -45,7 +45,7 @@ type
   end;
 
 var
-  frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary;
+  frmAvailableRPL: TfrmAvailableRPL;
 
 implementation
 
@@ -69,19 +69,19 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmAvailableRuntimePlatformLibrary.FormCreate(Sender: TObject);
+procedure TfrmAvailableRPL.FormCreate(Sender: TObject);
 begin
   FRuntimePlatformLibraryList := TList.Create;
 
   EnableComposited(pnlMainTable);
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.FormDestroy(Sender: TObject);
+procedure TfrmAvailableRPL.FormDestroy(Sender: TObject);
 begin
   FreeItemsAndFreeList(FRuntimePlatformLibraryList);
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.FormShow(Sender: TObject);
+procedure TfrmAvailableRPL.FormShow(Sender: TObject);
 begin
   UpdateRPLList;
 end;
@@ -90,7 +90,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmAvailableRuntimePlatformLibrary.btnNewClick(Sender: TObject);
+procedure TfrmAvailableRPL.btnNewClick(Sender: TObject);
 begin
     frmSummaryRPL := TfrmSummaryRPL.Create(Self);
   try
@@ -111,7 +111,7 @@ begin
     UpdateRPLList;
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.btnCopyClick(Sender: TObject);
+procedure TfrmAvailableRPL.btnCopyClick(Sender: TObject);
 var
   newClassName : string;
   count, parentIndex : Integer;
@@ -135,7 +135,7 @@ begin
   UpdateRPLList;
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.btnEditClick(Sender: TObject);
+procedure TfrmAvailableRPL.btnEditClick(Sender: TObject);
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
@@ -159,7 +159,7 @@ begin
     UpdateRPLList;
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.btnDeleteClick(Sender: TObject);
+procedure TfrmAvailableRPL.btnDeleteClick(Sender: TObject);
 var
   warning : Integer;
   tempList: TList;
@@ -196,7 +196,7 @@ begin
   end;
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.btnUsageClick(Sender: TObject);
+procedure TfrmAvailableRPL.btnUsageClick(Sender: TObject);
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
   begin
@@ -214,7 +214,7 @@ begin
   end;
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.lbSingleClick(Sender: TObject);
+procedure TfrmAvailableRPL.lbSingleClick(Sender: TObject);
 begin
   if lstRuntimePlatformLibrary.ItemIndex = -1 then
     Exit;
@@ -222,7 +222,7 @@ begin
   FSelectedRuntimePlatformLibrary := TRuntime_Platform_Library(lstRuntimePlatformLibrary.Items.Objects[lstRuntimePlatformLibrary.ItemIndex]);
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.UpdateRPLList;
+procedure TfrmAvailableRPL.UpdateRPLList;
 var
   i : Integer;
   runtimeplatformlibrary : TRuntime_Platform_Library;
@@ -245,7 +245,7 @@ begin
   frmProgress.Free;
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.CopyPlatfromLibraryEntry(const aLibraryIndex, aNewLibraryIndex: Integer);
+procedure TfrmAvailableRPL.CopyPlatfromLibraryEntry(const aLibraryIndex, aNewLibraryIndex: Integer);
 var
   libraryPlatformList : TList;
   i, j : Integer;
@@ -287,7 +287,7 @@ begin
   libraryPlatformList.Free;
 end;
 
-procedure TfrmAvailableRuntimePlatformLibrary.edtSearchKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmAvailableRPL.edtSearchKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
   begin

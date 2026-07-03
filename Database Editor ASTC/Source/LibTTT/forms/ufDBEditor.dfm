@@ -145431,8 +145431,8 @@ object fDBEditor: TfDBEditor
           6C574B87D36F1B7D75FF0082A8635D2A94EAB4E0FA6F6BDA7FB66923F47D9FAA
           3F647A7C23D3F547A7EB8F4F87E8FFD9}
         Stretch = True
-        ExplicitLeft = -1
-        ExplicitTop = 1
+        ExplicitWidth = 3840
+        ExplicitHeight = 2160
       end
     end
     object pnlLeft: TPanel

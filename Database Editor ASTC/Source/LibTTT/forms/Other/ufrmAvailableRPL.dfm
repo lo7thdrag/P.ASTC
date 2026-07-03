@@ -1,9 +1,9 @@
-object frmAvailableRuntimePlatformLibrary: TfrmAvailableRuntimePlatformLibrary
+object frmAvailableRPL: TfrmAvailableRPL
   Left = 0
   Top = 0
   BorderIcons = []
   BorderStyle = bsNone
-  Caption = 'frmAvailableRuntimePlatformLibrary'
+  Caption = 'frmAvailableRPL'
   ClientHeight = 461
   ClientWidth = 884
   Color = clBtnFace

@@ -44859,6 +44859,9 @@ object frmVehicleRuntimePlatformLibraryPickList: TfrmVehicleRuntimePlatformLibra
       BorderWidth = 10
       Color = 2499101
       TabOrder = 0
+      DesignSize = (
+        752
+        637)
       object lbl1: TLabel
         Left = 12
         Top = 544
@@ -45029,6 +45032,22 @@ object frmVehicleRuntimePlatformLibraryPickList: TfrmVehicleRuntimePlatformLibra
         Color = clTeal
         ParentBackground = False
         TabOrder = 8
+      end
+      object edt1: TEdit
+        Left = 354
+        Top = 542
+        Width = 247
+        Height = 25
+        Anchors = [akTop, akRight]
+        AutoSize = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
+        OnKeyPress = edtSearchKeyPress
       end
     end
   end

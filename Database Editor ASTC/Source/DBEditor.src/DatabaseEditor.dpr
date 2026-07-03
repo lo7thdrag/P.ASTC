@@ -225,7 +225,7 @@ uses
   ufrmAvailableGameDefaults in '..\LibTTT\forms\Other\ufrmAvailableGameDefaults.pas' {frmAvailableGameDefaults},
   ufrmAvailableGrapicalOverlay in '..\LibTTT\forms\Other\ufrmAvailableGrapicalOverlay.pas' {frmAvailableGrapicalOverlay},
   ufrmAvailablePredifinedPattern in '..\LibTTT\forms\Other\ufrmAvailablePredifinedPattern.pas' {frmAvailablePredifinedPattern},
-  ufrmAvailableRuntimePlatformLibrary in '..\LibTTT\forms\Other\ufrmAvailableRuntimePlatformLibrary.pas' {frmAvailableRuntimePlatformLibrary},
+  ufrmAvailableRPL in '..\LibTTT\forms\Other\ufrmAvailableRPL.pas' {frmAvailableRPL},
   ufrmAvailableSNRvsPODCurve in '..\LibTTT\forms\Other\ufrmAvailableSNRvsPODCurve.pas' {frmAvailableSNRvsPODCurve},
   ufrmAvailableStudentRoles in '..\LibTTT\forms\Other\ufrmAvailableStudentRoles.pas' {frmAvailableStudentRoles},
   ufrmSummaryGameDefault in '..\LibTTT\forms\Other\ufrmSummaryGameDefault.pas' {frmSummaryGameDefault},

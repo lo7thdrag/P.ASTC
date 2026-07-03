@@ -647,8 +647,8 @@
             <Form>frmAvailablePredifinedPattern</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmAvailableRuntimePlatformLibrary.pas">
-            <Form>frmAvailableRuntimePlatformLibrary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmAvailableRPL.pas">
+            <Form>frmAvailableRPL</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Other\ufrmAvailableSNRvsPODCurve.pas">

@@ -47,7 +47,7 @@ var
 implementation
 
 uses
-  ufDBEditor, ufrmAvailableRuntimePlatformLibrary, ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles, ufrmAvailableGameDefaults,
+  ufDBEditor, ufrmAvailableRPL, ufrmAvailableGrapicalOverlay, ufrmAvailableStudentRoles, ufrmAvailableGameDefaults,
   ufrmAvailableSNRvsPODCurve, ufrmAvailableRadarActivationIntervals, uDataModuleTTT, tttData;
 
 {$R *.dfm}
