@@ -59,9 +59,9 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRuntimePlatformLibrarySummary, ufrmPredefinedPatternSummary,
-  ufrmRadarIntervalSummary,
-  ufrmOverlaySummary, ufrmStudentRoleSummary, ufrmGameDefaultSummary, ufrmSnrVsPodSummary, ufrmUsage,
+  uDataModuleTTT, ufrmSummaryRPL, ufrmSummaryPredefinedPattern,
+  ufrmSummaryRadarInterval,
+  ufrmSummaryOverlay, ufrmSummaryStudentRole, ufrmSummaryGameDefault, ufrmSummarySnrVsPod, ufrmUsage,
   uDBAsset_Runtime_Platform_Library, uDBPattern, newClassASTT,
   uDBAsset_GameEnvironment, uDBAssetObject, uDBGame_Defaults, uDBEditSetting,ufDBEditor;
 
@@ -142,7 +142,7 @@ begin
     end;
     ofsGraphicalOverlays:
     begin
-      with frmOverlaySummary do
+      with frmSummaryOverlay do
       begin
 //        OverlayDef := TOverlay_Definition(FSelectedObject);
 //        IdAction := 4;
@@ -219,7 +219,7 @@ begin
   case FOtherFormShow of
     ofsRuntimePlatformLibrary:
     begin
-      with frmRuntimePlatformLibrarySummary do
+      with frmSummaryRPL do
       begin
 //        IdAction := 2;
         SelectedRPL := TRuntime_Platform_Library(FSelectedObject);
@@ -228,7 +228,7 @@ begin
     end;
     ofsPredefinedPattern:
     begin
-      with frmPredefinedPatternSummary do
+      with frmSummaryPredefinedPattern do
       begin
 //        IdAction := 2;
         SelectedPredefinedPattern := TPredefined_Pattern(FSelectedObject);
@@ -237,7 +237,7 @@ begin
     end;
     ofsRadarActivationInterval:
     begin
-      with frmRadarIntervalSummary do
+      with frmSummaryRadarInterval do
       begin
 //        IdAction := 2;
         SelectedRadarInterval := TRadar_Interval_List(FSelectedObject);
@@ -246,7 +246,7 @@ begin
     end;
     ofsGraphicalOverlays:
     begin
-      with frmOverlaySummary do
+      with frmSummaryOverlay do
       begin
 //        OverlayDef := TOverlay_Definition(FSelectedObject);
 //        IdAction := 2;
@@ -255,7 +255,7 @@ begin
     end;
     ofsStudentRoles:
     begin
-      with frmStudentRoleSummary do
+      with frmSummaryStudentRole do
       begin
         IdAction := 2;
         SelectedStudentRoleList := TStudent_Role_List(FSelectedObject);
@@ -264,7 +264,7 @@ begin
     end;
     ofsGameDefaults:
     begin
-      with frmGameDefaultSummary do
+      with frmSummaryGameDefault do
       begin
         IdAction := 2;
         SelectedGameDefault := TGame_Defaults(FSelectedObject);
@@ -273,7 +273,7 @@ begin
     end;
     ofsSNRvsPODCurve:
     begin
-      with frmSnrVsPodSummary do
+      with frmSummarySnrVsPod do
       begin
         IdAction := 2;
         SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition(FSelectedObject);
@@ -292,7 +292,7 @@ begin
   case FOtherFormShow of
     ofsRuntimePlatformLibrary:
     begin
-      with frmRuntimePlatformLibrarySummary do
+      with frmSummaryRPL do
       begin
 //        IdAction := 1;
         SelectedRPL := TRuntime_Platform_Library.Create;
@@ -303,7 +303,7 @@ begin
     end;
     ofsPredefinedPattern:
     begin
-      with frmPredefinedPatternSummary do
+      with frmSummaryPredefinedPattern do
       begin
         IdAction := 1;
         SelectedPredefinedPattern := TPredefined_Pattern.Create;
@@ -314,7 +314,7 @@ begin
     end;
     ofsRadarActivationInterval:
     begin
-      with frmRadarIntervalSummary do
+      with frmSummaryRadarInterval do
       begin
 //        IdAction := 1;
         SelectedRadarInterval := TRadar_Interval_List.Create;
@@ -325,7 +325,7 @@ begin
     end;
     ofsGraphicalOverlays:
     begin
-      with frmOverlaySummary do
+      with frmSummaryOverlay do
       begin
 //        OverlayDef := TOverlay_Definition.Create;
 //        IdAction := 1;
@@ -334,7 +334,7 @@ begin
     end;
     ofsStudentRoles:
     begin
-      with frmStudentRoleSummary do
+      with frmSummaryStudentRole do
       begin
         IdAction := 1;
         SelectedStudentRoleList := TStudent_Role_List.Create;
@@ -345,7 +345,7 @@ begin
     end;
     ofsGameDefaults:
     begin
-      with frmGameDefaultSummary do
+      with frmSummaryGameDefault do
       begin
         IdAction := 1;
         SelectedGameDefault := TGame_Defaults.Create;
@@ -356,7 +356,7 @@ begin
     end;
     ofsSNRvsPODCurve:
     begin
-      with frmSnrVsPodSummary do
+      with frmSummarySnrVsPod do
       begin
         IdAction := 1;
         SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition.Create;

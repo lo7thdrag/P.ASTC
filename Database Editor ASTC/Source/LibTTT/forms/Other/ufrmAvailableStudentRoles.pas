@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmStudentRoleSummary, ufrmUsage, ufProgress, uSimContainers;
+  uDataModuleTTT, ufrmSummaryStudentRole, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -92,9 +92,9 @@ end;
 
 procedure TfrmAvailableStudentRoles.btnNewClick(Sender: TObject);
 begin
- frmStudentRoleSummary := TfrmStudentRoleSummary.Create(Self);
+ frmSummaryStudentRole := TfrmSummaryStudentRole.Create(Self);
   try
-    with frmStudentRoleSummary do
+    with frmSummaryStudentRole do
     begin
       SelectedStudentRoleList := TStudent_Role_List.Create;
       ShowModal;
@@ -102,7 +102,7 @@ begin
       SelectedStudentRoleList.Free;
     end;
   finally
-    frmStudentRoleSummary.Free;
+    frmSummaryStudentRole.Free;
   end;
 
   UpdateStudentRolesList;
@@ -146,16 +146,16 @@ begin
     Exit;
   end;
 
-  frmStudentRoleSummary := TfrmStudentRoleSummary.Create(Self);
+  frmSummaryStudentRole := TfrmSummaryStudentRole.Create(Self);
   try
-    with frmStudentRoleSummary do
+    with frmSummaryStudentRole do
     begin
       SelectedStudentRoleList := TStudent_Role_List(FSelectedStudentRoles);
       ShowModal;
     end;
 
   finally
-    frmStudentRoleSummary.Free;
+    frmSummaryStudentRole.Free;
   end;
 
   UpdateStudentRolesList;

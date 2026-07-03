@@ -1,12 +1,12 @@
-object frmOverlaySummary: TfrmOverlaySummary
+object frmSummaryRadarInterval: TfrmSummaryRadarInterval
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsToolWindow
-  Caption = '   Overlay'
-  ClientHeight = 355
-  ClientWidth = 343
-  Color = clBtnShadow
+  BorderStyle = bsSingle
+  Caption = 'Radar Interval List'
+  ClientHeight = 249
+  ClientWidth = 422
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -21,8 +21,8 @@ object frmOverlaySummary: TfrmOverlaySummary
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 343
-    Height = 355
+    Width = 422
+    Height = 249
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44838,181 +44838,102 @@ object frmOverlaySummary: TfrmOverlaySummary
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitLeft = -543
-    ExplicitTop = -180
+    ExplicitLeft = -394
+    ExplicitTop = -238
     ExplicitWidth = 816
     ExplicitHeight = 487
   end
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 343
-    Height = 355
+    Width = 422
+    Height = 249
     Align = alClient
     Caption = 'pnlMainBackground'
     TabOrder = 0
     object pnl1Title: TPanel
       Left = 1
       Top = 1
-      Width = 341
-      Height = 56
+      Width = 420
+      Height = 65
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      object lbl1: TLabel
-        Left = 11
-        Top = 11
-        Width = 43
-        Height = 14
-        Caption = 'Name  :'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -12
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-      end
       object edtName: TEdit
-        Left = 11
-        Top = 30
-        Width = 316
+        Left = 10
+        Top = 31
+        Width = 400
         Height = 22
         TabOrder = 0
-        OnChange = edtNameChange
+        OnKeyPress = edtNameKeyPress
+      end
+      object lblName: TStaticText
+        Left = 10
+        Top = 8
+        Width = 46
+        Height = 20
+        Caption = 'Name :'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
       end
     end
     object pnl2ControlPage: TPanel
       Left = 1
-      Top = 57
-      Width = 341
-      Height = 254
+      Top = 66
+      Width = 420
+      Height = 139
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
       Color = 2499101
       TabOrder = 1
-      object PageControl1: TPageControl
+      object pcScenarioTabs: TPageControl
         Left = 10
         Top = 10
-        Width = 321
-        Height = 234
+        Width = 400
+        Height = 119
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
         TabOrder = 0
-        TabWidth = 75
+        TabWidth = 100
         object tsGeneral: TTabSheet
           Caption = 'General'
-          object lbl2: TLabel
-            Left = 11
-            Top = 21
-            Width = 40
-            Height = 14
-            Caption = 'Type  :'
-          end
-          object lbl3: TLabel
-            Left = 14
-            Top = 48
-            Width = 52
-            Height = 14
-            Caption = 'Domain  :'
-            Visible = False
-          end
-          object btnEditOverlay: TButton
-            Left = 47
-            Top = 91
-            Width = 219
+          object btnEditList: TButton
+            Left = 20
+            Top = 30
+            Width = 353
             Height = 25
-            Caption = 'Edit Overlay Shape...'
-            Enabled = False
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
+            Caption = 'Edit List...'
             TabOrder = 0
-            OnClick = btnEditOverlayClick
-          end
-          object cbbDomain: TComboBox
-            Left = 72
-            Top = 44
-            Width = 89
-            Height = 22
-            Style = csDropDownList
-            TabOrder = 1
-            Visible = False
-            OnChange = cbbDomainChange
-            Items.Strings = (
-              'Air'
-              'Surface'
-              'Sub Surface'
-              'Land')
-          end
-          object cbbType: TComboBox
-            Left = 72
-            Top = 17
-            Width = 89
-            Height = 22
-            Style = csDropDownList
-            TabOrder = 2
-            OnChange = cbbTypeChange
-            Items.Strings = (
-              'Dynamic'
-              'Static')
+            OnClick = btnEditListClick
           end
         end
       end
     end
     object pnl3Button: TPanel
       Left = 1
-      Top = 311
-      Width = 341
+      Top = 205
+      Width = 420
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
-      object btnApply: TButton
-        Left = 166
-        Top = 0
-        Width = 80
-        Height = 30
-        Cursor = crHandPoint
-        Caption = 'Apply'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 0
-        OnClick = btnApplyClick
-      end
-      object btnCancel: TButton
-        Left = 251
-        Top = 0
-        Width = 80
-        Height = 30
-        Cursor = crHandPoint
-        Caption = 'Cancel'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 1
-        OnClick = btnCancelClick
-      end
       object btnOK: TButton
-        Left = 81
+        Left = 160
         Top = 0
         Width = 80
         Height = 30
-        Cursor = crHandPoint
         Caption = 'OK'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -45020,8 +44941,38 @@ object frmOverlaySummary: TfrmOverlaySummary
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
+        TabOrder = 0
+        OnClick = btnOKClick
+      end
+      object btnApply: TButton
+        Left = 245
+        Top = 0
+        Width = 80
+        Height = 30
+        Caption = 'Apply'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = btnApplyClick
+      end
+      object btnCancel: TButton
+        Left = 330
+        Top = 0
+        Width = 80
+        Height = 30
+        Caption = 'Cancel'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 2
-        OnClick = btnOkClick
+        OnClick = btnCancelClick
       end
     end
   end

@@ -1,4 +1,4 @@
-unit ufrmPredefinedPatternSummary;
+unit ufrmSummaryPredefinedPattern;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, ExtCtrls, uDBPattern, Vcl.ComCtrls, Vcl.Imaging.pngimage;
 
 type
-  TfrmPredefinedPatternSummary = class(TForm)
+  TfrmSummaryPredefinedPattern = class(TForm)
     lblName: TLabel;
     edtName: TEdit;
     btnEditPattern: TButton;
@@ -64,7 +64,7 @@ type
   end;
 
 var
-  frmPredefinedPatternSummary: TfrmPredefinedPatternSummary;
+  frmSummaryPredefinedPattern: TfrmSummaryPredefinedPattern;
 
 implementation
 
@@ -86,7 +86,7 @@ begin
       EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
 
-procedure TfrmPredefinedPatternSummary.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.btnApplyClick(Sender: TObject);
 begin
   if not CekInput then
     Exit;
@@ -114,13 +114,13 @@ begin
   IdAction := 0;
 end;
 
-procedure TfrmPredefinedPatternSummary.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.btnCancelClick(Sender: TObject);
 begin
   IdAction := 0;
   Close;
 end;
 
-procedure TfrmPredefinedPatternSummary.btnEditPatternClick(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.btnEditPatternClick(Sender: TObject);
 begin
   with fTrainingPattern do
   begin
@@ -129,7 +129,7 @@ begin
   end;
 end;
 
-procedure TfrmPredefinedPatternSummary.btnOkClick(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.btnOkClick(Sender: TObject);
 begin
   if IdAction <> 0 then
   begin
@@ -142,7 +142,7 @@ begin
   Close;
 end;
 
-procedure TfrmPredefinedPatternSummary.btnVehicleClick(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.btnVehicleClick(Sender: TObject);
 begin
   with fVehicleSelect do
   begin
@@ -156,13 +156,13 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmPredefinedPatternSummary.cbbTypeChange(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.cbbTypeChange(Sender: TObject);
 begin
   edtHeading.Enabled := TComboBox(Sender).ItemIndex = 1;
   btnApply.Enabled := True;
 end;
 
-function TfrmPredefinedPatternSummary.CekInput: Boolean;
+function TfrmSummaryPredefinedPattern.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
 begin
@@ -208,12 +208,12 @@ begin
   Result := True;
 end;
 
-procedure TfrmPredefinedPatternSummary.chkEventPatternClick(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.chkEventPatternClick(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmPredefinedPatternSummary.edtHeadingKeyPress(Sender: TObject;
+procedure TfrmSummaryPredefinedPattern.edtHeadingKeyPress(Sender: TObject;
   var Key: Char);
 var
   value : Double;
@@ -234,17 +234,17 @@ begin
   end;
 end;
 
-procedure TfrmPredefinedPatternSummary.edtNameKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryPredefinedPattern.edtNameKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmPredefinedPatternSummary.FormCreate(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmPredefinedPatternSummary.FormShow(Sender: TObject);
+procedure TfrmSummaryPredefinedPattern.FormShow(Sender: TObject);
 begin
   UpdatePredefinedPatternData;
 
@@ -252,7 +252,7 @@ begin
     btnApply.Enabled := Pattern_Index = 0;
 end;
 
-procedure TfrmPredefinedPatternSummary.UpdatePatternVehicle;
+procedure TfrmSummaryPredefinedPattern.UpdatePatternVehicle;
 var
   vehicle : TVehicle_Definition;
 begin
@@ -267,7 +267,7 @@ begin
   end;
 end;
 
-procedure TfrmPredefinedPatternSummary.UpdatePredefinedPatternData;
+procedure TfrmSummaryPredefinedPattern.UpdatePredefinedPatternData;
 begin
   with FSelectedPredefinedPattern.FData do
   begin

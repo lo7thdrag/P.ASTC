@@ -1,12 +1,12 @@
-object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
+object frmSummaryOverlay: TfrmSummaryOverlay
   Left = 0
   Top = 0
   BorderIcons = []
-  BorderStyle = bsSingle
-  Caption = '   Runtime Platform Library'
+  BorderStyle = bsToolWindow
+  Caption = '   Overlay'
   ClientHeight = 355
-  ClientWidth = 329
-  Color = clBtnFace
+  ClientWidth = 343
+  Color = clBtnShadow
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -14,13 +14,14 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 329
+    Width = 343
     Height = 355
     Align = alClient
     Picture.Data = {
@@ -44837,65 +44838,56 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitLeft = -433
-    ExplicitTop = -90
-    ExplicitWidth = 762
-    ExplicitHeight = 445
+    ExplicitLeft = -543
+    ExplicitTop = -180
+    ExplicitWidth = 816
+    ExplicitHeight = 487
   end
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 329
+    Width = 343
     Height = 355
     Align = alClient
-    BevelOuter = bvNone
-    DoubleBuffered = False
-    ParentDoubleBuffered = False
+    Caption = 'pnlMainBackground'
     TabOrder = 0
     object pnl1Title: TPanel
-      Left = 0
-      Top = 0
-      Width = 329
-      Height = 65
+      Left = 1
+      Top = 1
+      Width = 341
+      Height = 56
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      object Label1: TLabel
-        Left = 10
-        Top = 10
-        Width = 42
-        Height = 16
-        Caption = 'Name :'
+      object lbl1: TLabel
+        Left = 11
+        Top = 11
+        Width = 43
+        Height = 14
+        Caption = 'Name  :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
-        Font.Height = -13
+        Font.Height = -12
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
       end
       object edtName: TEdit
-        Left = 10
-        Top = 32
-        Width = 309
-        Height = 24
-        AutoSize = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
+        Left = 11
+        Top = 30
+        Width = 316
+        Height = 22
         TabOrder = 0
         OnChange = edtNameChange
       end
     end
     object pnl2ControlPage: TPanel
-      Left = 0
-      Top = 65
-      Width = 329
-      Height = 247
+      Left = 1
+      Top = 57
+      Width = 341
+      Height = 254
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
@@ -44904,8 +44896,8 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 309
-        Height = 227
+        Width = 321
+        Height = 234
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
@@ -44913,80 +44905,82 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
         TabWidth = 75
         object tsGeneral: TTabSheet
           Caption = 'General'
-          object grbPlatforms: TGroupBox
-            Left = 12
-            Top = 6
-            Width = 266
-            Height = 149
-            Caption = ' Platforms   '
+          object lbl2: TLabel
+            Left = 11
+            Top = 21
+            Width = 40
+            Height = 14
+            Caption = 'Type  :'
+          end
+          object lbl3: TLabel
+            Left = 14
+            Top = 48
+            Width = 52
+            Height = 14
+            Caption = 'Domain  :'
+            Visible = False
+          end
+          object btnEditOverlay: TButton
+            Left = 47
+            Top = 91
+            Width = 219
+            Height = 25
+            Caption = 'Edit Overlay Shape...'
+            Enabled = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
             TabOrder = 0
-            object btnVehicle: TButton
-              Left = 75
-              Top = 51
-              Width = 116
-              Height = 47
-              Caption = 'Vehicle ..'
-              TabOrder = 0
-              OnClick = btnVehicleClick
-            end
-            object btnTorpedo: TButton
-              Left = 14
-              Top = 121
-              Width = 116
-              Height = 25
-              Caption = 'Torpedo ..'
-              TabOrder = 1
-              Visible = False
-              OnClick = btnTorpedoClick
-            end
-            object btnMine: TButton
-              Left = 14
-              Top = 121
-              Width = 116
-              Height = 25
-              Caption = 'Mine ..'
-              TabOrder = 2
-              Visible = False
-              OnClick = btnMineClick
-            end
-            object btnMissile: TButton
-              Left = 14
-              Top = 121
-              Width = 116
-              Height = 25
-              Caption = 'Missile ..'
-              TabOrder = 3
-              Visible = False
-              OnClick = btnMissileClick
-            end
-            object btnSonobuoy: TButton
-              Left = 136
-              Top = 121
-              Width = 116
-              Height = 25
-              Caption = 'Sonobuoy ..'
-              TabOrder = 4
-              Visible = False
-              OnClick = btnSonobuoyClick
-            end
+            OnClick = btnEditOverlayClick
+          end
+          object cbbDomain: TComboBox
+            Left = 72
+            Top = 44
+            Width = 89
+            Height = 22
+            Style = csDropDownList
+            TabOrder = 1
+            Visible = False
+            OnChange = cbbDomainChange
+            Items.Strings = (
+              'Air'
+              'Surface'
+              'Sub Surface'
+              'Land')
+          end
+          object cbbType: TComboBox
+            Left = 72
+            Top = 17
+            Width = 89
+            Height = 22
+            Style = csDropDownList
+            TabOrder = 2
+            OnChange = cbbTypeChange
+            Items.Strings = (
+              'Dynamic'
+              'Static')
           end
         end
       end
     end
     object pnl3Button: TPanel
-      Left = 0
-      Top = 312
-      Width = 329
+      Left = 1
+      Top = 311
+      Width = 341
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
       object btnApply: TButton
-        Left = 154
-        Top = 1
+        Left = 166
+        Top = 0
         Width = 80
         Height = 30
+        Cursor = crHandPoint
         Caption = 'Apply'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -44998,10 +44992,11 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 239
-        Top = 1
+        Left = 251
+        Top = 0
         Width = 80
         Height = 30
+        Cursor = crHandPoint
         Caption = 'Cancel'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -45013,10 +45008,11 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 69
-        Top = 1
+        Left = 81
+        Top = 0
         Width = 80
         Height = 30
+        Cursor = crHandPoint
         Caption = 'OK'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -45025,7 +45021,7 @@ object frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 2
-        OnClick = btnOKClick
+        OnClick = btnOkClick
       end
     end
   end

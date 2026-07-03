@@ -1,4 +1,4 @@
-unit ufrmRuntimePlatformLibrarySummary;
+unit ufrmSummaryRPL;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Vcl.Imaging.pngimage, Vcl.ComCtrls;
 
 type
-  TfrmRuntimePlatformLibrarySummary = class(TForm)
+  TfrmSummaryRPL = class(TForm)
     pnl1Title: TPanel;
     Label1: TLabel;
     edtName: TEdit;
@@ -55,7 +55,7 @@ type
   end;
 
 var
-  frmRuntimePlatformLibrarySummary: TfrmRuntimePlatformLibrarySummary;
+  frmSummaryRPL: TfrmSummaryRPL;
 
 implementation
 
@@ -80,12 +80,12 @@ begin
 end;
 {$REGION ' Form Handle '}
 
-procedure TfrmRuntimePlatformLibrarySummary.FormCreate(Sender: TObject);
+procedure TfrmSummaryRPL.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.FormShow(Sender: TObject);
+procedure TfrmSummaryRPL.FormShow(Sender: TObject);
 begin
   tsGeneral.Show;
   UpdateButtonState;
@@ -102,7 +102,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmRuntimePlatformLibrarySummary.btnOkClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnOkClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -111,7 +111,7 @@ begin
     Close;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnApplyClick(Sender: TObject);
 begin
 
   with FSelectedRPL do
@@ -150,13 +150,13 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.btnVehicleClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnVehicleClick(Sender: TObject);
 begin
   frmVehicleRuntimePlatformLibraryPickList := TfrmVehicleRuntimePlatformLibraryPickList.Create(Self);
   try
@@ -174,7 +174,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.btnMissileClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnMissileClick(Sender: TObject);
 begin
   frmMissileRuntimePlatformLibraryPickList := TfrmMissileRuntimePlatformLibraryPickList.Create(Self);
   try
@@ -192,7 +192,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.btnTorpedoClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnTorpedoClick(Sender: TObject);
 begin
   frmTorpedoRuntimePlatformLibraryPickList := TfrmTorpedoRuntimePlatformLibraryPickList.Create(Self);
   try
@@ -210,7 +210,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.btnMineClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnMineClick(Sender: TObject);
 begin
   frmMineRuntimePlatformLibraryPickList := TfrmMineRuntimePlatformLibraryPickList.Create(Self);
   try
@@ -228,7 +228,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.btnSonobuoyClick(Sender: TObject);
+procedure TfrmSummaryRPL.btnSonobuoyClick(Sender: TObject);
 begin
   frmSonobuoyRuntimePlatformLibraryPickList := TfrmSonobuoyRuntimePlatformLibraryPickList.Create(Self);
   try
@@ -246,7 +246,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-function TfrmRuntimePlatformLibrarySummary.CekInput: Boolean;
+function TfrmSummaryRPL.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
 begin
@@ -297,12 +297,12 @@ begin
   Result := True;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.edtNameChange(Sender: TObject);
+procedure TfrmSummaryRPL.edtNameChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmRuntimePlatformLibrarySummary.UpdateButtonState;
+procedure TfrmSummaryRPL.UpdateButtonState;
 begin
   with FSelectedRPL.FData do
   begin

@@ -1,4 +1,4 @@
-object frmPredefinedPatternSummary: TfrmPredefinedPatternSummary
+object frmSummaryPredefinedPattern: TfrmSummaryPredefinedPattern
   Left = 0
   Top = 0
   BorderIcons = []

@@ -572,7 +572,7 @@ var
 implementation
 
 uses
-  uBaseCoordSystem, math, ufrmOverlaySummary, ComObj, uScrCapture, ufCaptureRes,
+  uBaseCoordSystem, math, ufrmSummaryOverlay, ComObj, uScrCapture, ufCaptureRes,
   uDBEditSetting, uDataModuleTTT, uRecord, ufrmGameAreaPickList;
 
 {$R *.dfm}
@@ -1054,17 +1054,17 @@ begin
 //  dist := 1 / 60;       //1 satuan long/lat sebanding dgn 60 nm
 
    //0
-  point1.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong;
-  point1.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt + dist;
+  point1.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong;
+  point1.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt + dist;
   // 90
-  point2.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong + dist ;
-  point2.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt;
+  point2.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong + dist ;
+  point2.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt;
   // 180
-  point3.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong;
-  point3.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt - dist;
+  point3.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong;
+  point3.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt - dist;
   // 270
-  point4.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong - dist;
-  point4.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt;
+  point4.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong - dist;
+  point4.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt;
 
   Map1.ConvertCoord(p1.X, p1.Y, point1.Longitude, point1.Latitude, miMapToScreen);
   Map1.ConvertCoord(p2.X, p2.Y, point2.Longitude, point2.Latitude, miMapToScreen);
@@ -1089,17 +1089,17 @@ begin
   for I := 0 to limit do
   begin
     // kiri
-    point1.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong - (distGrid * limit);
-    point1.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt - (distGrid * I);
+    point1.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong - (distGrid * limit);
+    point1.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt - (distGrid * I);
     // kanan
-    point2.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong + (distGrid * limit);
-    point2.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt - (distGrid * I);
+    point2.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong + (distGrid * limit);
+    point2.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt - (distGrid * I);
     // atas
-    point3.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong - (distGrid * I);
-    point3.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt - (distGrid * limit);
+    point3.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong - (distGrid * I);
+    point3.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt - (distGrid * limit);
     // bawah
-    point4.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong - (distGrid * I);
-    point4.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt + (distGrid * limit);
+    point4.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong - (distGrid * I);
+    point4.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt + (distGrid * limit);
 
     Map1.ConvertCoord(p1.X, p1.Y, point1.Longitude, point1.Latitude, miMapToScreen);
     Map1.ConvertCoord(p2.X, p2.Y, point2.Longitude, point2.Latitude, miMapToScreen);
@@ -1114,17 +1114,17 @@ begin
     if I <> 0 then
     begin
       // kiri
-      point1.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong - (distGrid * limit);
-      point1.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt + (distGrid * I);
+      point1.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong - (distGrid * limit);
+      point1.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt + (distGrid * I);
       // kanan
-      point2.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong + (distGrid * limit);
-      point2.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt + (distGrid * I);
+      point2.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong + (distGrid * limit);
+      point2.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt + (distGrid * I);
       // atas
-      point3.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong + (distGrid * I);
-      point3.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt - (distGrid * limit);
+      point3.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong + (distGrid * I);
+      point3.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt - (distGrid * limit);
       // bawah
-      point4.Longitude := ufrmOverlaySummary.frmOverlaySummary.centLong + (distGrid * I);
-      point4.Latitude  := ufrmOverlaySummary.frmOverlaySummary.centLatt + (distGrid * limit);
+      point4.Longitude := ufrmSummaryOverlay.frmSummaryOverlay.centLong + (distGrid * I);
+      point4.Latitude  := ufrmSummaryOverlay.frmSummaryOverlay.centLatt + (distGrid * limit);
 
       Map1.ConvertCoord(p1.X, p1.Y, point1.Longitude, point1.Latitude, miMapToScreen);
       Map1.ConvertCoord(p2.X, p2.Y, point2.Longitude, point2.Latitude, miMapToScreen);
@@ -1205,7 +1205,7 @@ var
   xCenter, diffX, diffXnm : double;
   gridLong, addStringX    : string;
 begin
-  xCenter := ufrmOverlaySummary.frmOverlaySummary.GameArea.FGameArea.Game_Centre_Long;
+  xCenter := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Long;
   diffX   := abs(xCursorPoint - xCenter);
   diffXnm := diffX * 60;
   if xCursorPoint < xCenter then
@@ -1370,7 +1370,7 @@ var
   yCenter, diffY, diffYnm : double;
   gridLatt, addStringY    : string;
 begin
-  yCenter  := ufrmOverlaySummary.frmOverlaySummary.GameArea.FGameArea.Game_Centre_Lat;
+  yCenter  := ufrmSummaryOverlay.frmSummaryOverlay.GameArea.FGameArea.Game_Centre_Lat;
   diffY    := abs(yCursorPoint - yCenter);
   diffYnm  := diffY * 60;
   if yCursorPoint < yCenter then

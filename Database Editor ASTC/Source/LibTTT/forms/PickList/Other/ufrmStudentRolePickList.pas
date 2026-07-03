@@ -47,7 +47,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmStudentRoleSummary, ufrmSummaryResourceAllocation, ufrmAvailableResourceAllocation,
+  uDataModuleTTT, ufrmSummaryStudentRole, ufrmSummaryResourceAllocation, ufrmAvailableResourceAllocation,
   ufrmUsage, uSimContainers;
 
 {$R *.dfm}

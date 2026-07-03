@@ -52,7 +52,7 @@ implementation
 
 uses
   uSimDBEditor,ufrmSummaryResourceAllocation, uDataModuleTTT,
-  ufrmEnvironmentCharacteristic, ufrmGameDefaultSummary, ufDBEditor, uSimContainers{,
+  ufrmEnvironmentCharacteristic, ufrmSummaryGameDefault, ufDBEditor, uSimContainers{,
   {uOtherSingleList};
 
 {$R *.dfm}

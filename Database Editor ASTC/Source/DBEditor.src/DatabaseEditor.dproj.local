@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2026-07-03 09:39:23.547,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryOverlay.pas=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmOverlaySummary.pas</Transaction>
+    <Transaction>2026-07-03 09:39:23.548,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryOverlay.dfm=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmOverlaySummary.dfm</Transaction>
+    <Transaction>2026-07-03 09:43:53.527,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummarySnrVsPod.dfm=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSnrVsPodSummary.dfm</Transaction>
+    <Transaction>2026-07-03 09:43:53.527,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummarySnrVsPod.pas=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSnrVsPodSummary.pas</Transaction>
+    <Transaction>2026-07-03 09:46:36.434,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryStudentRole.dfm=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmStudentRoleSummary.dfm</Transaction>
+    <Transaction>2026-07-03 09:46:36.434,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryStudentRole.pas=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmStudentRoleSummary.pas</Transaction>
+    <Transaction>2026-07-03 09:49:02.692,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryGameDefault.dfm=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmGameDefaultSummary.dfm</Transaction>
+    <Transaction>2026-07-03 09:49:02.692,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryGameDefault.pas=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmGameDefaultSummary.pas</Transaction>
+    <Transaction>2026-07-03 09:51:58.753,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryRPL.pas=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmRuntimePlatformLibrarySummary.pas</Transaction>
+    <Transaction>2026-07-03 09:51:58.753,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryRPL.dfm=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmRuntimePlatformLibrarySummary.dfm</Transaction>
+    <Transaction>2026-07-03 09:54:41.137,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryPredefinedPattern.pas=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmPredefinedPatternSummary.pas</Transaction>
+    <Transaction>2026-07-03 09:54:41.137,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryPredefinedPattern.dfm=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmPredefinedPatternSummary.dfm</Transaction>
+    <Transaction>2026-07-03 09:57:13.809,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryRadarInterval.pas=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmRadarIntervalSummary.pas</Transaction>
+    <Transaction>2026-07-03 09:57:13.809,D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmSummaryRadarInterval.dfm=D:\Trash\Recycle\P.ASTC\Database Editor ASTC\Source\LibTTT\forms\Other\ufrmRadarIntervalSummary.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

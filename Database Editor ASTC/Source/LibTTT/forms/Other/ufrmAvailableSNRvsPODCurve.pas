@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSnrVsPodSummary, ufrmUsage, ufProgress, uSimContainers;
+  uDataModuleTTT, ufrmSummarySnrVsPod, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -92,9 +92,9 @@ end;
 
 procedure TfrmAvailableSNRvsPODCurve.btnNewClick(Sender: TObject);
 begin
- frmSnrVsPodSummary := TfrmSnrVsPodSummary.Create(Self);
+ frmSummarySnrVsPod := TfrmSummarySnrVsPod.Create(Self);
   try
-    with frmSnrVsPodSummary do
+    with frmSummarySnrVsPod do
     begin
       SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition.Create;
       ShowModal;
@@ -102,7 +102,7 @@ begin
       SelectedPODvsSNR.Free;
     end;
   finally
-    frmSnrVsPodSummary.Free;
+    frmSummarySnrVsPod.Free;
   end;
 
   UpdateSNRvsPODCurveList;
@@ -146,16 +146,16 @@ begin
     Exit;
   end;
 
-  frmSnrVsPodSummary := TfrmSnrVsPodSummary.Create(Self);
+  frmSummarySnrVsPod := TfrmSummarySnrVsPod.Create(Self);
   try
-    with frmSnrVsPodSummary do
+    with frmSummarySnrVsPod do
     begin
       SelectedPODvsSNR := TPOD_vs_SNR_Curve_Definition(FSelectedSNRvsPODCurve);
       ShowModal;
     end;
 
   finally
-    frmSnrVsPodSummary.Free;
+    frmSummarySnrVsPod.Free;
   end;
 
   UpdateSNRvsPODCurveList;

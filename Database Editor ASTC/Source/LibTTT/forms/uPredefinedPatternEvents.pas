@@ -106,7 +106,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmPredefinedPatternSummary, uSimContainers;
+  uDataModuleTTT, ufrmSummaryPredefinedPattern, uSimContainers;
 
 {$R *.dfm}
 procedure EnableComposited(WinControl:TWinControl);

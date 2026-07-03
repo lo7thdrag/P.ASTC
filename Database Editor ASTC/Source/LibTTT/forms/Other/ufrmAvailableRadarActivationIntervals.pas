@@ -51,7 +51,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRadarIntervalSummary, ufrmUsage, ufProgress, uSimContainers;
+  uDataModuleTTT, ufrmSummaryRadarInterval, ufrmUsage, ufProgress, uSimContainers;
 {$R *.dfm}
 
 procedure EnableComposited(WinControl:TWinControl);
@@ -96,9 +96,9 @@ end;
 
 procedure TfrmAvailableRadarActivationIntervals.btnNewClick(Sender: TObject);
 begin
-  frmRadarIntervalSummary := TfrmRadarIntervalSummary.Create(Self);
+  frmSummaryRadarInterval := TfrmSummaryRadarInterval.Create(Self);
   try
-    with frmRadarIntervalSummary do
+    with frmSummaryRadarInterval do
     begin
       SelectedRadarInterval := TRadar_Interval_List.Create;
       ShowModal;
@@ -106,7 +106,7 @@ begin
       SelectedRadarInterval.Free;
     end;
   finally
-    frmRadarIntervalSummary.Free;
+    frmSummaryRadarInterval.Free;
   end;
 
   UpdateRadarActivationIntervalsList;
@@ -190,16 +190,16 @@ begin
     Exit;
   end;
 
-  frmRadarIntervalSummary := TfrmRadarIntervalSummary.Create(Self);
+  frmSummaryRadarInterval := TfrmSummaryRadarInterval.Create(Self);
   try
-    with frmRadarIntervalSummary do
+    with frmSummaryRadarInterval do
     begin
       SelectedRadarInterval := TRadar_Interval_List(FSelectedRadarActivationIntervals);
       ShowModal;
     end;
 
   finally
-    frmRadarIntervalSummary.Free;
+    frmSummaryRadarInterval.Free;
   end;
 
   UpdateRadarActivationIntervalsList;

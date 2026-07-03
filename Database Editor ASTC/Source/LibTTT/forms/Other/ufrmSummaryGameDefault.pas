@@ -1,4 +1,4 @@
-unit ufrmGameDefaultSummary;
+unit ufrmSummaryGameDefault;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Vcl.Imaging.pngimage;
 
 type
-  TfrmGameDefaultSummary = class(TForm)
+  TfrmSummaryGameDefault = class(TForm)
     pnl1Title: TPanel;
     Label1: TLabel;
     edtName: TEdit;
@@ -389,7 +389,7 @@ type
   end;
 
 var
-  frmGameDefaultSummary: TfrmGameDefaultSummary;
+  frmSummaryGameDefault: TfrmSummaryGameDefault;
 
 implementation
 
@@ -412,7 +412,7 @@ begin
       EnableComposited(TWinControl(WinControl.Controls[i]));
 end;
 
-procedure TfrmGameDefaultSummary.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryGameDefault.btnApplyClick(Sender: TObject);
 const
   C_RadarFreq : array [0..9] of Double = (0.0, 1.0, 2.0, 5.0, 10.0, 15.0, 20.0,
     30.0, 40.0, 100.0);
@@ -709,24 +709,24 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmGameDefaultSummary.trckbrDetectionChange(Sender: TObject);
+procedure TfrmSummaryGameDefault.trckbrDetectionChange(Sender: TObject);
 begin
   edtDetection.Text := IntToStr(TTrackBar(Sender).Position);
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.trckbrIdentificationChange(Sender: TObject);
+procedure TfrmSummaryGameDefault.trckbrIdentificationChange(Sender: TObject);
 begin
   edtIdentification.Text := IntToStr(TTrackBar(Sender).Position);
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.trckbrSonarTMAMaxSpeedErrorChange(Sender: TObject);
+procedure TfrmSummaryGameDefault.trckbrSonarTMAMaxSpeedErrorChange(Sender: TObject);
 begin
   edtSonarTMAMaxSpeedError.Text := IntToStr(TTrackBar(Sender).Position);
 end;
 
-procedure TfrmGameDefaultSummary.UpdateGameDefaultData;
+procedure TfrmSummaryGameDefault.UpdateGameDefaultData;
 var
   timeStr : string;
 begin
@@ -886,13 +886,13 @@ begin
   FLastName := edtName.Text;
 end;
 
-procedure TfrmGameDefaultSummary.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryGameDefault.btnCancelClick(Sender: TObject);
 begin
   IdAction := 0;
   Close;
 end;
 
-procedure TfrmGameDefaultSummary.btnEditIFFModesOrCodesClick(Sender: TObject);
+procedure TfrmSummaryGameDefault.btnEditIFFModesOrCodesClick(Sender: TObject);
 begin
   fIFFMode := TfrmIFFMode.Create(Self);
   try
@@ -907,7 +907,7 @@ begin
 
 end;
 
-procedure TfrmGameDefaultSummary.DisplayEffectTable(Sender: TObject);
+procedure TfrmSummaryGameDefault.DisplayEffectTable(Sender: TObject);
 begin
   frmEffectsTable := TfrmEffectsTable.Create(Self);
   try
@@ -923,7 +923,7 @@ begin
 
 end;
 
-procedure TfrmGameDefaultSummary.btnOkClick(Sender: TObject);
+procedure TfrmSummaryGameDefault.btnOkClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -931,12 +931,12 @@ begin
   Close;
 end;
 
-procedure TfrmGameDefaultSummary.btnSaveAsTrainerClick(Sender: TObject);
+procedure TfrmSummaryGameDefault.btnSaveAsTrainerClick(Sender: TObject);
 begin
   SaveFF_dBaseSetting(vSettingFile, vDBSetting);
 end;
 
-function TfrmGameDefaultSummary.CekInput: Boolean;
+function TfrmSummaryGameDefault.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
   second : Integer;
@@ -1127,12 +1127,12 @@ begin
   Result := True;
 end;
 
-procedure TfrmGameDefaultSummary.FormCreate(Sender: TObject);
+procedure TfrmSummaryGameDefault.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmGameDefaultSummary.FormShow(Sender: TObject);
+procedure TfrmSummaryGameDefault.FormShow(Sender: TObject);
 begin
   tsAboveWater.Show;
   UpdateGameDefaultData;
@@ -1141,117 +1141,117 @@ begin
     btnApply.Enabled := Defaults_Index = 0;
 end;
 
-procedure TfrmGameDefaultSummary.medtBreakLockIntervalTimeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtBreakLockIntervalTimeKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtMHSDelayTimeFlashKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtMHSDelayTimeFlashKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtMHSDelayTimeImmediateKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtMHSDelayTimeImmediateKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtMHSDelayTimePriorityKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtMHSDelayTimePriorityKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtMHSDelayTimeRoutineKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtMHSDelayTimeRoutineKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtMineTimeIntervalPODChecksKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtMineTimeIntervalPODChecksKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtMissileReacquisitionKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtMissileReacquisitionKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtMissileSeaStatePeriodCheckKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtMissileSeaStatePeriodCheckKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtReversionTimeEngagementKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtReversionTimeEngagementKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtReversionTimeOutrunKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtReversionTimeOutrunKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtReversionTimeShadowKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtReversionTimeShadowKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtSonobuoyInitialRadiusDelayKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtSonobuoyInitialRadiusDelayKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeRemoveStaleTrackAirKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeRemoveStaleTrackAirKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeRemoveStaleTrackESMKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeRemoveStaleTrackESMKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeRemoveStaleTrackSonarKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeRemoveStaleTrackSonarKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeRemoveStaleTrackSubsurfaceKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeRemoveStaleTrackSubsurfaceKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeRemoveStaleTrackSurfaceKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeRemoveStaleTrackSurfaceKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeStaleTrackLostContactAirKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeStaleTrackLostContactAirKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeStaleTrackLostContactESMKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeStaleTrackLostContactESMKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeStaleTrackLostContactSonarKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeStaleTrackLostContactSonarKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeStaleTrackLostContactSubsurfaceKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeStaleTrackLostContactSubsurfaceKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.medtTimeStaleTrackLostContactSurfaceKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.medtTimeStaleTrackLostContactSurfaceKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.edtAutoGunInterceptRangeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtAutoGunInterceptRangeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1266,7 +1266,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtAutoGunThresholdSpeedKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtAutoGunThresholdSpeedKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1281,7 +1281,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtChaffAltitudeThresholdKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtChaffAltitudeThresholdKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1296,7 +1296,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSeductionBloomAltitudeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSeductionBloomAltitudeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1311,7 +1311,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSeductionBloomRangeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSeductionBloomRangeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1326,7 +1326,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtClutterReductionKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtClutterReductionKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1341,7 +1341,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtDetectionHFKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtDetectionHFKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -1356,7 +1356,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtDetectionUHFKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtDetectionUHFKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -1371,7 +1371,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxEOClassKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxEOClassKeyPress(Sender: TObject;var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1397,7 +1397,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxESMClassKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxESMClassKeyPress(Sender: TObject;var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1423,7 +1423,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtESMBearingErrorRateKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtESMBearingErrorRateKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -1438,7 +1438,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxIFFRangeKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxIFFRangeKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -1453,7 +1453,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxFittedWeaponClassKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxFittedWeaponClassKeyPress(Sender: TObject; var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1479,7 +1479,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSinuationAmplitudeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSinuationAmplitudeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1494,7 +1494,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSinuationPeriodKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSinuationPeriodKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1509,7 +1509,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxMADClassKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxMADClassKeyPress(Sender: TObject;var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1535,7 +1535,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxNumAirKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxNumAirKeyPress(Sender: TObject; var Key: Char);
 begin
   if not (Key in [#48 .. #57, #8, #13]) then
   begin
@@ -1546,7 +1546,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxNumSurfaceKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxNumSurfaceKeyPress(Sender: TObject;var Key: Char);
 begin
   if not (Key in [#48 .. #57, #8, #13]) then
   begin
@@ -1557,7 +1557,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxRangeHFKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxRangeHFKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -1572,7 +1572,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxRangeUHFKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxRangeUHFKeyPress(Sender: TObject; var Key: Char);
 var
   value : Double;
 begin
@@ -1587,7 +1587,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxRangeUnderwaterTelephoneKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxRangeUnderwaterTelephoneKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1602,7 +1602,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMissileHAFOMaxRangeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMissileHAFOMaxRangeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1617,7 +1617,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMissileHAFOMinRangeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMissileHAFOMinRangeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1632,7 +1632,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxPointEffectWeaponClassKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxPointEffectWeaponClassKeyPress(Sender: TObject;var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1658,7 +1658,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtProbabilityDecreaseRateKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtProbabilityDecreaseRateKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1673,7 +1673,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtProbabilityModifierKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtProbabilityModifierKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1688,7 +1688,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxRadarClassKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxRadarClassKeyPress(Sender: TObject; var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1714,7 +1714,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSampleRateAirKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSampleRateAirKeyPress(Sender: TObject;var Key: Char);
 begin
   if not (Key in [#48 .. #57, #8, #13]) then
   begin
@@ -1725,7 +1725,7 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.edtSampleRateSurfaceKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSampleRateSurfaceKeyPress(Sender: TObject;var Key: Char);
 begin
   if not (Key in [#48 .. #57, #8, #13]) then
   begin
@@ -1736,12 +1736,12 @@ begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.edtNameKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtNameKeyPress(Sender: TObject; var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxSonarClassKeyPress(Sender: TObject; var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxSonarClassKeyPress(Sender: TObject; var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1767,7 +1767,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSonarTMABearingKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSonarTMABearingKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1782,7 +1782,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSonarTMAMaxCourseErrorKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSonarTMAMaxCourseErrorKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1797,7 +1797,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSonarTMAMaxSpeedErrorKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSonarTMAMaxSpeedErrorKeyPress(Sender: TObject;var Key: Char);
 var
   value : Integer;
 begin
@@ -1812,7 +1812,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtSonarTMASeductionKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtSonarTMASeductionKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1827,7 +1827,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtMaxSonobuoyClassKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtMaxSonobuoyClassKeyPress(Sender: TObject;var Key: Char);
 var
   maxRadar, maxSonar, maxSonobuoy, maxEO, maxESM, maxMAD, maxFittedWeapon,
   maxPointEffect : Integer;
@@ -1853,7 +1853,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtVisualCrossSectionKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtVisualCrossSectionKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1868,7 +1868,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtVisualDetectRangeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtVisualDetectRangeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1883,7 +1883,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtDetectionKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtDetectionKeyPress(Sender: TObject;var Key: Char);
 var
   value : Integer;
 begin
@@ -1902,7 +1902,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtIdentificationKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtIdentificationKeyPress(Sender: TObject;var Key: Char);
 var
   value : Integer;
 begin
@@ -1921,7 +1921,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtVisualMaxRangeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtVisualMaxRangeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1936,7 +1936,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtZigZagLongAmplitudeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtZigZagLongAmplitudeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1951,7 +1951,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtZigZagLongPeriodKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtZigZagLongPeriodKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1966,7 +1966,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtZigZagShortAmplitudeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtZigZagShortAmplitudeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1981,7 +1981,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtZigZagShortPeriodKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtZigZagShortPeriodKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -1996,7 +1996,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtZigZagVeryLongAmplitudeKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtZigZagVeryLongAmplitudeKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin
@@ -2011,7 +2011,7 @@ begin
   end;
 end;
 
-procedure TfrmGameDefaultSummary.edtZigZagVeryLongPeriodKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryGameDefault.edtZigZagVeryLongPeriodKeyPress(Sender: TObject;var Key: Char);
 var
   value : Double;
 begin

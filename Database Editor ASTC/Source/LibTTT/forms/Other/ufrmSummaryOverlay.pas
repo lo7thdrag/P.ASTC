@@ -1,4 +1,4 @@
-unit ufrmOverlaySummary;
+unit ufrmSummaryOverlay;
 
 interface
 
@@ -9,7 +9,7 @@ uses
   Vcl.ComCtrls;
 
 type
-  TfrmOverlaySummary = class(TForm)
+  TfrmSummaryOverlay = class(TForm)
     pnl2ControlPage: TPanel;
     pnl1Title: TPanel;
     pnl3Button: TPanel;
@@ -69,7 +69,7 @@ type
   end;
 
 var
-  frmOverlaySummary : TfrmOverlaySummary;
+  frmSummaryOverlay : TfrmSummaryOverlay;
 
 implementation
 
@@ -94,12 +94,12 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmOverlaySummary.FormCreate(Sender: TObject);
+procedure TfrmSummaryOverlay.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmOverlaySummary.FormShow(Sender: TObject);
+procedure TfrmSummaryOverlay.FormShow(Sender: TObject);
 begin
   tsGeneral.Show;
   UpdateOverlayData;
@@ -187,7 +187,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmOverlaySummary.btnOkClick(Sender: TObject);
+procedure TfrmSummaryOverlay.btnOkClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -198,7 +198,7 @@ begin
   OverlayEditorForm.IsReEdit := False;
 end;
 
-procedure TfrmOverlaySummary.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryOverlay.btnApplyClick(Sender: TObject);
 var
   OverlayDirOld, OverlayDirNew : string;
 begin
@@ -247,13 +247,13 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmOverlaySummary.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryOverlay.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-procedure TfrmOverlaySummary.btnEditOverlayClick(Sender: TObject);
+procedure TfrmSummaryOverlay.btnEditOverlayClick(Sender: TObject);
 begin
   OverlayEditorForm := TOverlayEditorForm.Create(Self);
   try
@@ -296,14 +296,14 @@ end;
 //  Fs.Free;  // << this actually writes the data to disk
 //end;
 
-procedure TfrmOverlaySummary.cbbDomainChange(Sender: TObject);
+procedure TfrmSummaryOverlay.cbbDomainChange(Sender: TObject);
 begin
   FSelectedOverlay.FData.Domain := cbbDomain.ItemIndex;
 
   btnApply.Enabled := True;
 end;
 
-procedure TfrmOverlaySummary.cbbTypeChange(Sender: TObject);
+procedure TfrmSummaryOverlay.cbbTypeChange(Sender: TObject);
 begin
 //  lbl3.Visible := cbbType.ItemIndex = 1;
 //  cbbDomain.Visible := cbbType.ItemIndex = 1;
@@ -314,7 +314,7 @@ begin
 
 end;
 
-procedure TfrmOverlaySummary.UpdateOverlayData;
+procedure TfrmSummaryOverlay.UpdateOverlayData;
 begin
   with FSelectedOverlay.FData do
   begin
@@ -336,7 +336,7 @@ begin
   end;
 end;
 
-function TfrmOverlaySummary.CekInput: Boolean;
+function TfrmSummaryOverlay.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
 begin
@@ -385,7 +385,7 @@ begin
   Result := True;
 end;
 
-procedure TfrmOverlaySummary.edtNameChange(Sender: TObject);
+procedure TfrmSummaryOverlay.edtNameChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 //  btnEditOverlay.Enabled := False;

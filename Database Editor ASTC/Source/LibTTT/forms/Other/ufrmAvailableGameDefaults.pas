@@ -51,7 +51,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmGameDefaultSummary, ufrmUsage, newClassASTT, ufProgress, uSimContainers;
+  uDataModuleTTT, ufrmSummaryGameDefault, ufrmUsage, newClassASTT, ufProgress, uSimContainers;
 
 {$R *.dfm}
 procedure EnableComposited(WinControl:TWinControl);
@@ -92,9 +92,9 @@ end;
 
 procedure TfrmAvailableGameDefaults.btnNewClick(Sender: TObject);
 begin
-  frmGameDefaultSummary := TfrmGameDefaultSummary.Create(Self);
+  frmSummaryGameDefault := TfrmSummaryGameDefault.Create(Self);
   try
-    with frmGameDefaultSummary do
+    with frmSummaryGameDefault do
     begin
       SelectedGameDefault := TGame_Defaults.Create;
       ShowModal;
@@ -102,7 +102,7 @@ begin
       SelectedGameDefault.Free;
     end;
   finally
-    frmGameDefaultSummary.Free;
+    frmSummaryGameDefault.Free;
   end;
 
   UpdateGameDefaultsList;
@@ -141,16 +141,16 @@ begin
     Exit;
   end;
 
-  frmGameDefaultSummary := TfrmGameDefaultSummary.Create(Self);
+  frmSummaryGameDefault := TfrmSummaryGameDefault.Create(Self);
   try
-    with frmGameDefaultSummary do
+    with frmSummaryGameDefault do
     begin
     SelectedGameDefault := FSelectedGameDefaults;
     ShowModal;
     end;
 
   finally
-    frmGameDefaultSummary.Free;
+    frmSummaryGameDefault.Free;
   end;
 
   UpdateGameDefaultsList;

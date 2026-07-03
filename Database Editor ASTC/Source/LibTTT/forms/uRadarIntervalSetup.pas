@@ -63,7 +63,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRadarIntervalSummary, uSimContainers;
+  uDataModuleTTT, ufrmSummaryRadarInterval, uSimContainers;
 
 {$R *.dfm}
 

@@ -58,7 +58,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmGameDefaultSummary;
+  uDataModuleTTT, ufrmSummaryGameDefault;
 
 {$R *.dfm}
 

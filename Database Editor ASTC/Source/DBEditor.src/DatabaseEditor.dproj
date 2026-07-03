@@ -659,28 +659,28 @@
             <Form>frmAvailableStudentRoles</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmGameDefaultSummary.pas">
-            <Form>frmGameDefaultSummary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmSummaryGameDefault.pas">
+            <Form>frmSummaryGameDefault</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmOverlaySummary.pas">
-            <Form>frmOverlaySummary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmSummaryOverlay.pas">
+            <Form>frmSummaryOverlay</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmPredefinedPatternSummary.pas">
-            <Form>frmPredefinedPatternSummary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmSummaryPredefinedPattern.pas">
+            <Form>frmSummaryPredefinedPattern</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmRadarIntervalSummary.pas">
-            <Form>frmRadarIntervalSummary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmSummaryRadarInterval.pas">
+            <Form>frmSummaryRadarInterval</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmSnrVsPodSummary.pas">
-            <Form>frmSnrVsPodSummary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmSummarySnrVsPod.pas">
+            <Form>frmSummarySnrVsPod</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmStudentRoleSummary.pas">
-            <Form>frmStudentRoleSummary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmSummaryStudentRole.pas">
+            <Form>frmSummaryStudentRole</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\Platform\ufrmAvailableMotion.pas">
@@ -963,8 +963,8 @@
             <Form>frmTorpedoPickList</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\LibTTT\forms\Other\ufrmRuntimePlatformLibrarySummary.pas">
-            <Form>frmRuntimePlatformLibrarySummary</Form>
+        <DCCReference Include="..\LibTTT\forms\Other\ufrmSummaryRPL.pas">
+            <Form>frmSummaryRPL</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\LibTTT\forms\PickList\Other\ufrmGroupMemberPickList.pas">

@@ -1,4 +1,4 @@
-unit ufrmStudentRoleSummary;
+unit ufrmSummaryStudentRole;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Vcl.ComCtrls;
 
 type
-  TfrmStudentRoleSummary = class(TForm)
+  TfrmSummaryStudentRole = class(TForm)
     pnl1Title: TPanel;
     Label1: TLabel;
     edtName: TEdit;
@@ -47,7 +47,7 @@ type
   end;
 
 var
-  frmStudentRoleSummary: TfrmStudentRoleSummary;
+  frmSummaryStudentRole: TfrmSummaryStudentRole;
 
 implementation
 
@@ -72,12 +72,12 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmStudentRoleSummary.FormCreate(Sender: TObject);
+procedure TfrmSummaryStudentRole.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmStudentRoleSummary.FormShow(Sender: TObject);
+procedure TfrmSummaryStudentRole.FormShow(Sender: TObject);
 begin
   with FSelectedStudentRoleList.FData do
   begin
@@ -98,7 +98,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmStudentRoleSummary.btnEditListClick(Sender: TObject);
+procedure TfrmSummaryStudentRole.btnEditListClick(Sender: TObject);
 begin
   frmEditStudentRoleList := TfrmEditStudentRoleList.Create(Self);
   try
@@ -112,7 +112,7 @@ begin
   end;
 end;
 
-procedure TfrmStudentRoleSummary.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryStudentRole.btnApplyClick(Sender: TObject);
 begin
   if not CekInput then
     Exit;
@@ -132,7 +132,7 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmStudentRoleSummary.btnOkClick(Sender: TObject);
+procedure TfrmSummaryStudentRole.btnOkClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -140,13 +140,13 @@ begin
   Close;
 end;
 
-procedure TfrmStudentRoleSummary.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryStudentRole.btnCancelClick(Sender: TObject);
 begin
   IdAction := 0;
   Close;
 end;
 
-function TfrmStudentRoleSummary.CekInput: Boolean;
+function TfrmSummaryStudentRole.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
 begin
@@ -197,12 +197,12 @@ begin
   Result := True;
 end;
 
-procedure TfrmStudentRoleSummary.edtNameChange(Sender: TObject);
+procedure TfrmSummaryStudentRole.edtNameChange(Sender: TObject);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmStudentRoleSummary.edtNameKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryStudentRole.edtNameKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;

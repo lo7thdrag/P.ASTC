@@ -59,7 +59,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmSummaryResourceAllocation, uSimContainers, ufrmRuntimePlatformLibrarySummary, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryResourceAllocation, uSimContainers, ufrmSummaryRPL, ufrmUsage;
 
 {$R *.dfm}
 

@@ -60,7 +60,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmOverlaySummary, uSimContainers;
+  uDataModuleTTT, ufrmSummaryOverlay, uSimContainers;
 
 {$R *.dfm}
 

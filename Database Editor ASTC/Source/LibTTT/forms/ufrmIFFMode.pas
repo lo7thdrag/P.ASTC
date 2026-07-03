@@ -298,7 +298,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmGameDefaultSummary, uSimContainers;
+  uDataModuleTTT, ufrmSummaryGameDefault, uSimContainers;
 
 {$R *.dfm}
 

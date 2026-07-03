@@ -1,4 +1,4 @@
-unit ufrmRadarIntervalSummary;
+unit ufrmSummaryRadarInterval;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, ExtCtrls, newClassASTT, Vcl.Imaging.pngimage, Vcl.ComCtrls;
 
 type
-  TfrmRadarIntervalSummary = class(TForm)
+  TfrmSummaryRadarInterval = class(TForm)
     pnl1Title: TPanel;
     pnl2ControlPage: TPanel;
     pcScenarioTabs: TPageControl;
@@ -46,7 +46,7 @@ type
   end;
 
 var
-  frmRadarIntervalSummary: TfrmRadarIntervalSummary;
+  frmSummaryRadarInterval: TfrmSummaryRadarInterval;
 
 implementation
 
@@ -70,12 +70,12 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmRadarIntervalSummary.FormCreate(Sender: TObject);
+procedure TfrmSummaryRadarInterval.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmRadarIntervalSummary.FormShow(Sender: TObject);
+procedure TfrmSummaryRadarInterval.FormShow(Sender: TObject);
 begin
   UpdateRadarActivationIntervalData;
 
@@ -87,7 +87,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmRadarIntervalSummary.btnApplyClick(Sender: TObject);
+procedure TfrmSummaryRadarInterval.btnApplyClick(Sender: TObject);
 begin
   if not CekInput then
     Exit;
@@ -107,13 +107,13 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmRadarIntervalSummary.btnCancelClick(Sender: TObject);
+procedure TfrmSummaryRadarInterval.btnCancelClick(Sender: TObject);
 begin
   AfterClose := False;
   Close;
 end;
 
-procedure TfrmRadarIntervalSummary.btnEditListClick(Sender: TObject);
+procedure TfrmSummaryRadarInterval.btnEditListClick(Sender: TObject);
 begin
   fRadarIntervalSetup := TfRadarIntervalSetup.Create(Self);
   try
@@ -127,7 +127,7 @@ begin
   end;
 end;
 
-procedure TfrmRadarIntervalSummary.btnOKClick(Sender: TObject);
+procedure TfrmSummaryRadarInterval.btnOKClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -135,7 +135,7 @@ begin
   Close;
 end;
 
-function TfrmRadarIntervalSummary.CekInput: Boolean;
+function TfrmSummaryRadarInterval.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
 begin
@@ -184,12 +184,12 @@ begin
   Result := True;
 end;
 
-procedure TfrmRadarIntervalSummary.edtNameKeyPress(Sender: TObject;var Key: Char);
+procedure TfrmSummaryRadarInterval.edtNameKeyPress(Sender: TObject;var Key: Char);
 begin
   btnApply.Enabled := True;
 end;
 
-procedure TfrmRadarIntervalSummary.UpdateRadarActivationIntervalData;
+procedure TfrmSummaryRadarInterval.UpdateRadarActivationIntervalData;
 begin
   with FSelectedRadarInterval.FData do
   begin

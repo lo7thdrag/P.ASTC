@@ -49,7 +49,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmOverlaySummary, ufrmUsage, uDBEditSetting, ufProgress;
+  uDataModuleTTT, ufrmSummaryOverlay, ufrmUsage, uDBEditSetting, ufProgress;
 
 {$R *.dfm}
 
@@ -87,9 +87,9 @@ end;
 procedure TfrmAvailableGrapicalOverlay.btnNewClick(Sender: TObject);
 begin
 
- frmOverlaySummary := TfrmOverlaySummary.Create(Self);
+ frmSummaryOverlay := TfrmSummaryOverlay.Create(Self);
   try
-    with frmOverlaySummary do
+    with frmSummaryOverlay do
     begin
       SelectedOverlay := TOverlay_Definition.Create;
       ShowModal;
@@ -97,7 +97,7 @@ begin
       SelectedOverlay.Free;
     end;
   finally
-    frmOverlaySummary.Free;
+    frmSummaryOverlay.Free;
   end;
 
   if FUpdateList then
@@ -152,16 +152,16 @@ begin
     Exit;
   end;
 
-  frmOverlaySummary := TfrmOverlaySummary.Create(Self);
+  frmSummaryOverlay := TfrmSummaryOverlay.Create(Self);
   try
-    with frmOverlaySummary do
+    with frmSummaryOverlay do
     begin
       SelectedOverlay := FSelectedOverlay;
       ShowModal;
       FUpdateList := AfterClose;
     end;
   finally
-    frmOverlaySummary.Free;
+    frmSummaryOverlay.Free;
   end;
 
   if FUpdateList then

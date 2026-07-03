@@ -1,31 +1,27 @@
-object frmSnrVsPodSummary: TfrmSnrVsPodSummary
+object frmSummaryRPL: TfrmSummaryRPL
   Left = 0
   Top = 0
-  ParentCustomHint = False
-  BiDiMode = bdLeftToRight
   BorderIcons = []
-  BorderStyle = bsToolWindow
-  Caption = '   Signal to Noise Ratio vs Probability of Detection Curve'
-  ClientHeight = 260
-  ClientWidth = 328
+  BorderStyle = bsSingle
+  Caption = '   Runtime Platform Library'
+  ClientHeight = 355
+  ClientWidth = 329
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -12
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  ParentBiDiMode = False
-  Position = poMainFormCenter
-  OnCreate = FormCreate
+  Position = poScreenCenter
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 14
   object imgBackground: TImage
     Left = 0
     Top = 0
-    Width = 328
-    Height = 260
+    Width = 329
+    Height = 355
     Align = alClient
     Picture.Data = {
       0954506E67496D61676589504E470D0A1A0A0000000D49484452000007800000
@@ -44841,35 +44837,37 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
       638A52EECF558B599F22458A142952A448F113E2FF018F0E1FFAC27F4F700000
       000049454E44AE426082}
     Stretch = True
-    ExplicitLeft = -514
-    ExplicitTop = -251
-    ExplicitWidth = 816
-    ExplicitHeight = 487
+    ExplicitLeft = -433
+    ExplicitTop = -90
+    ExplicitWidth = 762
+    ExplicitHeight = 445
   end
   object pnlMainBackground: TPanel
     Left = 0
     Top = 0
-    Width = 328
-    Height = 260
+    Width = 329
+    Height = 355
     Align = alClient
-    Caption = 'pnlMainBackground'
+    BevelOuter = bvNone
+    DoubleBuffered = False
+    ParentDoubleBuffered = False
     TabOrder = 0
     object pnl1Title: TPanel
-      Left = 1
-      Top = 1
-      Width = 326
-      Height = 56
+      Left = 0
+      Top = 0
+      Width = 329
+      Height = 65
       Align = alTop
       BevelOuter = bvNone
       BorderWidth = 4
       Color = 2499101
       TabOrder = 0
-      object lbl1: TLabel
-        Left = 11
+      object Label1: TLabel
+        Left = 10
         Top = 10
-        Width = 46
+        Width = 42
         Height = 16
-        Caption = 'Name  :'
+        Caption = 'Name :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
         Font.Height = -13
@@ -44878,19 +44876,26 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
         ParentFont = False
       end
       object edtName: TEdit
-        Left = 11
-        Top = 31
-        Width = 301
-        Height = 21
+        Left = 10
+        Top = 32
+        Width = 309
+        Height = 24
+        AutoSize = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         OnChange = edtNameChange
       end
     end
     object pnl2ControlPage: TPanel
-      Left = 1
-      Top = 57
-      Width = 326
-      Height = 159
+      Left = 0
+      Top = 65
+      Width = 329
+      Height = 247
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 10
@@ -44899,8 +44904,8 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
       object PageControl1: TPageControl
         Left = 10
         Top = 10
-        Width = 306
-        Height = 139
+        Width = 309
+        Height = 227
         ActivePage = tsGeneral
         Align = alClient
         TabHeight = 30
@@ -44908,33 +44913,80 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
         TabWidth = 75
         object tsGeneral: TTabSheet
           Caption = 'General'
-          object btnEditList: TButton
-            Left = 32
-            Top = 37
-            Width = 234
-            Height = 25
-            Caption = 'Edit Curve..'
+          object grbPlatforms: TGroupBox
+            Left = 12
+            Top = 6
+            Width = 266
+            Height = 149
+            Caption = ' Platforms   '
             TabOrder = 0
-            OnClick = btnEditListClick
+            object btnVehicle: TButton
+              Left = 75
+              Top = 51
+              Width = 116
+              Height = 47
+              Caption = 'Vehicle ..'
+              TabOrder = 0
+              OnClick = btnVehicleClick
+            end
+            object btnTorpedo: TButton
+              Left = 14
+              Top = 121
+              Width = 116
+              Height = 25
+              Caption = 'Torpedo ..'
+              TabOrder = 1
+              Visible = False
+              OnClick = btnTorpedoClick
+            end
+            object btnMine: TButton
+              Left = 14
+              Top = 121
+              Width = 116
+              Height = 25
+              Caption = 'Mine ..'
+              TabOrder = 2
+              Visible = False
+              OnClick = btnMineClick
+            end
+            object btnMissile: TButton
+              Left = 14
+              Top = 121
+              Width = 116
+              Height = 25
+              Caption = 'Missile ..'
+              TabOrder = 3
+              Visible = False
+              OnClick = btnMissileClick
+            end
+            object btnSonobuoy: TButton
+              Left = 136
+              Top = 121
+              Width = 116
+              Height = 25
+              Caption = 'Sonobuoy ..'
+              TabOrder = 4
+              Visible = False
+              OnClick = btnSonobuoyClick
+            end
           end
         end
       end
     end
     object pnl3Button: TPanel
-      Left = 1
-      Top = 216
-      Width = 326
+      Left = 0
+      Top = 312
+      Width = 329
       Height = 43
       Align = alBottom
       BevelOuter = bvNone
       Color = 2499101
       TabOrder = 2
       object btnApply: TButton
-        Left = 151
-        Top = 2
+        Left = 154
+        Top = 1
         Width = 80
         Height = 30
-        Cursor = crHandPoint
         Caption = 'Apply'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -44946,11 +44998,10 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
         OnClick = btnApplyClick
       end
       object btnCancel: TButton
-        Left = 236
-        Top = 2
+        Left = 239
+        Top = 1
         Width = 80
         Height = 30
-        Cursor = crHandPoint
         Caption = 'Cancel'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -44962,11 +45013,10 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
         OnClick = btnCancelClick
       end
       object btnOK: TButton
-        Left = 66
-        Top = 2
+        Left = 69
+        Top = 1
         Width = 80
         Height = 30
-        Cursor = crHandPoint
         Caption = 'OK'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -44975,7 +45025,7 @@ object frmSnrVsPodSummary: TfrmSnrVsPodSummary
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 2
-        OnClick = btnOkClick
+        OnClick = btnOKClick
       end
     end
   end

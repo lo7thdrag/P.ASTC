@@ -47,7 +47,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmPredefinedPatternSummary, ufrmUsage;
+  uDataModuleTTT, ufrmSummaryPredefinedPattern, ufrmUsage;
 
 {$R *.dfm}
 
@@ -74,7 +74,7 @@ end;
 
 procedure TfrmAvailablePredifinedPattern.btnNewClick(Sender: TObject);
 begin
-  with frmPredefinedPatternSummary do
+  with frmSummaryPredefinedPattern do
   begin
     IdAction := 1;
     SelectedPredefinedPattern := TPredefined_Pattern.Create;
@@ -121,7 +121,7 @@ begin
     Exit;
   end;
 
-  with frmPredefinedPatternSummary do
+  with frmSummaryPredefinedPattern do
   begin
     IdAction := 2;
 //    SelectedPredefinedPattern := TPredefined_Pattern;

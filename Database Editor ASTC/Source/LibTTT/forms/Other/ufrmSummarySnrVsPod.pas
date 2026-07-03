@@ -1,4 +1,4 @@
-unit ufrmSnrVsPodSummary;
+unit ufrmSummarySnrVsPod;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, ExtCtrls, newClassASTT, Vcl.Imaging.pngimage, Vcl.ComCtrls;
 
 type
-  TfrmSnrVsPodSummary = class(TForm)
+  TfrmSummarySnrVsPod = class(TForm)
     pnl1Title: TPanel;
     lbl1: TLabel;
     edtName: TEdit;
@@ -45,7 +45,7 @@ type
   end;
 
 var
-  frmSnrVsPodSummary: TfrmSnrVsPodSummary;
+  frmSummarySnrVsPod: TfrmSummarySnrVsPod;
 
 implementation
 
@@ -69,12 +69,12 @@ end;
 
 {$REGION ' Form Handle '}
 
-procedure TfrmSnrVsPodSummary.FormCreate(Sender: TObject);
+procedure TfrmSummarySnrVsPod.FormCreate(Sender: TObject);
 begin
   EnableComposited(pnlMainBackground);
 end;
 
-procedure TfrmSnrVsPodSummary.FormShow(Sender: TObject);
+procedure TfrmSummarySnrVsPod.FormShow(Sender: TObject);
 begin
   UpdatePODvsSNRCurveDefData;
 
@@ -86,7 +86,7 @@ end;
 
 {$REGION ' Button Handle '}
 
-procedure TfrmSnrVsPodSummary.btnApplyClick(Sender: TObject);
+procedure TfrmSummarySnrVsPod.btnApplyClick(Sender: TObject);
 begin
   if not CekInput then
     Exit;
@@ -116,7 +116,7 @@ begin
   btnCancel.Enabled := False;
 end;
 
-procedure TfrmSnrVsPodSummary.btnEditListClick(Sender: TObject);
+procedure TfrmSummarySnrVsPod.btnEditListClick(Sender: TObject);
 begin
   fProbabilityGraph := TProbabilityGraph.Create(Self);
   try
@@ -132,7 +132,7 @@ begin
 
 end;
 
-procedure TfrmSnrVsPodSummary.btnOkClick(Sender: TObject);
+procedure TfrmSummarySnrVsPod.btnOkClick(Sender: TObject);
 begin
   if btnApply.Enabled then
     btnApply.Click;
@@ -140,13 +140,13 @@ begin
   Close;
 end;
 
-procedure TfrmSnrVsPodSummary.btnCancelClick(Sender: TObject);
+procedure TfrmSummarySnrVsPod.btnCancelClick(Sender: TObject);
 begin
   IdAction := 0;
   Close;
 end;
 
-function TfrmSnrVsPodSummary.CekInput: Boolean;
+function TfrmSummarySnrVsPod.CekInput: Boolean;
 var
   i, chkSpace, numSpace: Integer;
 begin
@@ -196,12 +196,12 @@ begin
   Result := True;
 end;
 
-procedure TfrmSnrVsPodSummary.edtNameChange(Sender: TObject);
+procedure TfrmSummarySnrVsPod.edtNameChange(Sender: TObject);
 begin
  btnApply.Enabled := True;
 end;
 
-procedure TfrmSnrVsPodSummary.UpdatePODvsSNRCurveDefData;
+procedure TfrmSummarySnrVsPod.UpdatePODvsSNRCurveDefData;
 begin
   with FSelectedPODvsSNR.FData do
   begin

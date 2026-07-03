@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-  uDataModuleTTT, ufrmRuntimePlatformLibrarySummary, ufrmUsage, ufProgress, uSimContainers;
+  uDataModuleTTT, ufrmSummaryRPL, ufrmUsage, ufProgress, uSimContainers;
 
 {$R *.dfm}
 
@@ -92,9 +92,9 @@ end;
 
 procedure TfrmAvailableRuntimePlatformLibrary.btnNewClick(Sender: TObject);
 begin
-    frmRuntimePlatformLibrarySummary := TfrmRuntimePlatformLibrarySummary.Create(Self);
+    frmSummaryRPL := TfrmSummaryRPL.Create(Self);
   try
-    with frmRuntimePlatformLibrarySummary do
+    with frmSummaryRPL do
     begin
       SelectedRPL := TRuntime_Platform_Library.Create;
       ShowModal;
@@ -104,7 +104,7 @@ begin
     end;
 
   finally
-    frmRuntimePlatformLibrarySummary.Free;
+    frmSummaryRPL.Free;
   end;
 
   if FUpdateList then
@@ -143,16 +143,16 @@ begin
     Exit;
   end;
 
-  frmRuntimePlatformLibrarySummary := TfrmRuntimePlatformLibrarySummary.Create(Self);
+  frmSummaryRPL := TfrmSummaryRPL.Create(Self);
   try
-    with frmRuntimePlatformLibrarySummary do
+    with frmSummaryRPL do
     begin
       SelectedRPL := FSelectedRuntimePlatformLibrary;
       ShowModal;
       FUpdateList := AfterClose;
     end;
   finally
-    frmRuntimePlatformLibrarySummary.Free;
+    frmSummaryRPL.Free;
   end;
 
   if FUpdateList then
