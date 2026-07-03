@@ -1207,8 +1207,10 @@ end;
 
 procedure TfrmAvailableVehicle.lbAllVehicleClick(Sender: TObject);
 begin
-  FSelectedVehicle := TVehicle_Definition(
-    lstVehicle.Items.Objects[lstVehicle.ItemIndex]);
+  if lstVehicle.ItemIndex = -1 then
+    Exit;
+
+  FSelectedVehicle := TVehicle_Definition(lstVehicle.Items.Objects[lstVehicle.ItemIndex]);
 end;
 
 procedure TfrmAvailableVehicle.UpdateFilterTypeItems;

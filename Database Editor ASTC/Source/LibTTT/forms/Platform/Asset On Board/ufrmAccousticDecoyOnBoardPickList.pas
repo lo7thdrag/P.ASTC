@@ -114,7 +114,7 @@ begin
   if lbAllAcousticDecoyDef.ItemIndex = -1 then
     Exit;
 
-  frmAccousticDecoyMount := frmAccousticDecoyMount.Create(Self);
+  frmAccousticDecoyMount := TfrmAccousticDecoyMount.Create(Self);
   try
     with frmAccousticDecoyMount do
     begin
@@ -195,8 +195,10 @@ end;
 
 procedure TfrmAccousticDecoyOnBoardPickList.UpdateAcousticDecoyList;
 var
-  i : Integer;
-  acousticdecoy : TAcoustic_Decoy_On_Board;
+  i, j : Integer;
+  acousticdecoy, acousticdecoyonboard : TAcoustic_Decoy_On_Board;
+  found : Boolean;
+
 begin
   lbAllAcousticDecoyDef.Items.Clear;
   lbAllAcousticDecoyOnBoard.Items.Clear;
@@ -207,13 +209,23 @@ begin
   for i := 0 to FAllAcousticDecoyDefList.Count - 1 do
   begin
     acousticdecoy := FAllAcousticDecoyDefList.Items[i];
-    lbAllAcousticDecoyDef.Items.AddObject(acousticdecoy.FAccousticDecoy_Def.Decoy_Identifier, acousticdecoy);
-  end;
 
-  for i := 0 to FAllAcousticDecoyOnBoardList.Count - 1 do
-  begin
-    acousticdecoy := FAllAcousticDecoyOnBoardList.Items[i];
-    lbAllAcousticDecoyOnBoard.Items.AddObject(acousticdecoy.FData.Instance_Identifier, acousticdecoy);
+    found := False;
+    for j := 0 to FAllAcousticDecoyOnBoardList.Count - 1 do
+    begin
+      acousticdecoyonboard := FAllAcousticDecoyOnBoardList.Items[j];
+
+      if acousticdecoyonboard.FAccousticDecoy_Def.Decoy_Index = acousticdecoy.FAccousticDecoy_Def.Decoy_Index then
+      begin
+        found := True;
+        Break;
+      end;
+    end;
+
+    if found then
+      lbAllAcousticDecoyOnBoard.Items.AddObject(acousticdecoyonboard.FData.Instance_Identifier, acousticdecoyonboard)
+    else
+      lbAllAcousticDecoyDef.Items.AddObject(acousticdecoyonboard.FData.Instance_Identifier, acousticdecoyonboard);
   end;
 end;
 
